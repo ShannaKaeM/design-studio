@@ -466,5 +466,77 @@
             "contentSize": "1024px",
             "wideSize": "1280px"
         }
+    },
+    "styles": {
+        "elements": {
+            "button": {
+                "border": {
+                    "radius": "var(--wp--custom--borders--radii--md)"
+                },
+                "color": {
+                    "background": "var(--wp--preset--color--primary)",
+                    "text": "var(--wp--preset--color--extreme-light)"
+                },
+                "spacing": {
+                    "padding": {
+                        "top": "var(--wp--custom--spacing--padding--md)",
+                        "right": "var(--wp--custom--spacing--padding--lg)",
+                        "bottom": "var(--wp--custom--spacing--padding--md)",
+                        "left": "var(--wp--custom--spacing--padding--lg)"
+                    }
+                },
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--montserrat)",
+                    "fontSize": "var(--wp--preset--font-size--medium)",
+                    "fontWeight": "500"
+                }
+            },
+            "link": {
+                "color": {
+                    "text": "var(--wp--preset--color--primary)"
+                },
+                ":hover": {
+                    "color": {
+                        "text": "var(--wp--preset--color--primary-dark)"
+                    }
+                }
+            },
+            "h1": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--montserrat)",
+                    "fontSize": "var(--wp--preset--font-size--huge)",
+                    "fontWeight": "700",
+                    "lineHeight": "1.1"
+                }
+            },
+            "h2": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--montserrat)",
+                    "fontSize": "var(--wp--preset--font-size--xx-large)",
+                    "fontWeight": "600",
+                    "lineHeight": "1.2"
+                }
+            },
+            "h3": {
+                "typography": {
+                    "fontFamily": "var(--wp--preset--font-family--montserrat)",
+                    "fontSize": "var(--wp--preset--font-size--x-large)",
+                    "fontWeight": "600",
+                    "lineHeight": "1.2"
+                }
+            }
+        },
+        "blocks": {
+            "core/group": {
+                "spacing": {
+                    "padding": "var(--wp--custom--spacing--padding--lg)"
+                }
+            },
+            "core/columns": {
+                "spacing": {
+                    "blockGap": "var(--wp--custom--spacing--gap--lg)"
+                }
+            }
+        }
     }
 }

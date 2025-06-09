@@ -1,0 +1,206 @@
+/**
+ * Design Tokens CSS Custom Properties
+ * Auto-synced with theme.json for consistent styling across components
+ * 
+ * These variables are available throughout the theme and can be used
+ * in custom blocks, AI-generated components, and theme customizations.
+ */
+
+:root {
+  /* === COLORS === */
+  /* Primary Colors */
+  --token-color-primary-light: #d6dcd6;
+  --token-color-primary: #5a7b7c;
+  --token-color-primary-dark: #3a5a59;
+  
+  /* Secondary Colors */
+  --token-color-secondary-light: #c38484;
+  --token-color-secondary: #975d55;
+  --token-color-secondary-dark: #853d2d;
+  
+  /* Neutral Colors */
+  --token-color-neutral-light: #d1cfc2;
+  --token-color-neutral: #b5b09f;
+  --token-color-neutral-dark: #8f8c7f;
+  
+  /* Base Colors */
+  --token-color-base-lightest: #f7f6f3;
+  --token-color-base-light: #e9e7e0;
+  --token-color-base: #d9d6cc;
+  --token-color-base-dark: #b5b09f;
+  --token-color-base-darkest: #8f8c7f;
+  
+  /* Extreme Colors */
+  --token-color-extreme-light: #ffffff;
+  --token-color-extreme-dark: #000000;
+
+  /* === TYPOGRAPHY === */
+  /* Font Families */
+  --token-font-family-primary: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  
+  /* Font Sizes */
+  --token-font-size-small: 0.8125rem;    /* 13px */
+  --token-font-size-medium: 1rem;        /* 16px */
+  --token-font-size-large: 1.25rem;      /* 20px */
+  --token-font-size-x-large: 1.5rem;     /* 24px */
+  --token-font-size-xx-large: 2rem;      /* 32px */
+  --token-font-size-huge: 3rem;          /* 48px */
+  
+  /* Font Weights */
+  --token-font-weight-regular: 400;
+  --token-font-weight-medium: 500;
+  --token-font-weight-semibold: 600;
+  --token-font-weight-bold: 700;
+  --token-font-weight-extrabold: 800;
+  
+  /* Line Heights */
+  --token-line-height-tight: 1.1;
+  --token-line-height-normal: 1.2;
+  --token-line-height-relaxed: 1.4;
+  --token-line-height-loose: 1.6;
+  
+  /* Letter Spacing */
+  --token-letter-spacing-tight: -0.025em;
+  --token-letter-spacing-normal: 0;
+  --token-letter-spacing-wide: 0.025em;
+  --token-letter-spacing-wider: 0.05em;
+  --token-letter-spacing-widest: 0.1em;
+
+  /* === SPACING === */
+  /* Base Spacing Scale */
+  --token-space-xs: 0.25rem;    /* 4px */
+  --token-space-sm: 0.5rem;     /* 8px */
+  --token-space-md: 0.75rem;    /* 12px */
+  --token-space-lg: 1rem;       /* 16px */
+  --token-space-xl: 1.25rem;    /* 20px */
+  --token-space-2xl: 1.5rem;    /* 24px */
+  --token-space-3xl: 2rem;      /* 32px */
+  --token-space-4xl: 2.5rem;    /* 40px */
+  --token-space-5xl: 3rem;      /* 48px */
+  --token-space-6xl: 3.5rem;    /* 56px */
+  --token-space-7xl: 4rem;      /* 64px */
+  --token-space-8xl: 5rem;      /* 80px */
+  --token-space-9xl: 6rem;      /* 96px */
+  --token-space-10xl: 8rem;     /* 128px */
+  
+  /* Section Spacing */
+  --token-space-section-sm: 2rem;   /* 32px */
+  --token-space-section-md: 4rem;   /* 64px */
+  --token-space-section-lg: 6rem;   /* 96px */
+
+  /* === BORDERS === */
+  /* Border Widths */
+  --token-border-width-none: 0;
+  --token-border-width-thin: 1px;
+  --token-border-width-medium: 2px;
+  --token-border-width-thick: 3px;
+  --token-border-width-heavy: 5px;
+  
+  /* Border Radius */
+  --token-border-radius-none: 0;
+  --token-border-radius-xs: 0.125rem;   /* 2px */
+  --token-border-radius-sm: 0.25rem;    /* 4px */
+  --token-border-radius-md: 0.5rem;     /* 8px */
+  --token-border-radius-lg: 0.75rem;    /* 12px */
+  --token-border-radius-xl: 1rem;       /* 16px */
+  --token-border-radius-2xl: 1.5rem;    /* 24px */
+  --token-border-radius-full: 9999px;
+
+  /* === LAYOUT === */
+  /* Container Sizes */
+  --token-container-xs: 480px;
+  --token-container-sm: 640px;
+  --token-container-md: 768px;
+  --token-container-lg: 1024px;
+  --token-container-xl: 1280px;
+  --token-container-2xl: 1536px;
+  --token-container-content: 1024px;
+  --token-container-wide: 1280px;
+  
+  /* Grid Templates */
+  --token-grid-2: repeat(2, minmax(0, 1fr));
+  --token-grid-3: repeat(3, minmax(0, 1fr));
+  --token-grid-4: repeat(4, minmax(0, 1fr));
+  --token-grid-6: repeat(6, minmax(0, 1fr));
+  --token-grid-12: repeat(12, minmax(0, 1fr));
+  --token-grid-auto-fit: repeat(auto-fit, minmax(250px, 1fr));
+  --token-grid-auto-fill: repeat(auto-fill, minmax(200px, 1fr));
+
+  /* === SHADOWS === */
+  /* Shadow Scale */
+  --token-shadow-xs: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --token-shadow-sm: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1);
+  --token-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --token-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --token-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --token-shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Colored Shadows */
+  --token-shadow-primary: 0 4px 14px 0 rgba(90, 123, 124, 0.35);
+  --token-shadow-primary-lg: 0 10px 25px -3px rgba(90, 123, 124, 0.35);
+  --token-shadow-secondary: 0 4px 14px 0 rgba(151, 93, 85, 0.35);
+  --token-shadow-secondary-lg: 0 10px 25px -3px rgba(151, 93, 85, 0.35);
+  
+  /* Special Shadows */
+  --token-shadow-focus: 0 0 0 3px rgba(90, 123, 124, 0.5);
+  --token-shadow-card: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --token-shadow-card-hover: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+  /* === ANIMATIONS === */
+  /* Durations */
+  --token-duration-instant: 0ms;
+  --token-duration-fast: 150ms;
+  --token-duration-normal: 300ms;
+  --token-duration-slow: 500ms;
+  --token-duration-slower: 700ms;
+  --token-duration-slowest: 1000ms;
+  
+  /* Easings */
+  --token-easing-linear: linear;
+  --token-easing-ease: ease;
+  --token-easing-ease-in: ease-in;
+  --token-easing-ease-out: ease-out;
+  --token-easing-ease-in-out: ease-in-out;
+  --token-easing-bounce: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --token-easing-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* === Z-INDEX === */
+  --token-z-behind: -1;
+  --token-z-default: 0;
+  --token-z-dropdown: 10;
+  --token-z-sticky: 20;
+  --token-z-fixed: 30;
+  --token-z-modal: 40;
+  --token-z-popover: 50;
+  --token-z-tooltip: 60;
+  --token-z-toast: 70;
+}
+
+/* === COMPONENT-SPECIFIC TOKENS === */
+/* Browse Rooms Component */
+:root {
+  --browse-rooms-bg: var(--token-color-base-lightest);
+  --browse-rooms-card-bg: var(--token-color-extreme-light);
+  --browse-rooms-card-shadow: var(--token-shadow-card);
+  --browse-rooms-card-shadow-hover: var(--token-shadow-card-hover);
+  --browse-rooms-card-radius: var(--token-border-radius-lg);
+  --browse-rooms-gap: var(--token-space-lg);
+  --browse-rooms-padding: var(--token-space-2xl);
+  --browse-rooms-title-color: var(--token-color-primary-dark);
+  --browse-rooms-text-color: var(--token-color-neutral-dark);
+}
+
+/* Button Tokens */
+:root {
+  --button-primary-bg: var(--token-color-primary);
+  --button-primary-bg-hover: var(--token-color-primary-dark);
+  --button-primary-text: var(--token-color-extreme-light);
+  --button-secondary-bg: var(--token-color-secondary);
+  --button-secondary-bg-hover: var(--token-color-secondary-dark);
+  --button-secondary-text: var(--token-color-extreme-light);
+  --button-padding-y: var(--token-space-md);
+  --button-padding-x: var(--token-space-lg);
+  --button-radius: var(--token-border-radius-md);
+  --button-shadow: var(--token-shadow-sm);
+  --button-shadow-hover: var(--token-shadow-md);
+}

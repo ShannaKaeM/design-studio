@@ -1,0 +1,231 @@
+{
+  "meta": {
+    "name": "Blocksy Child Theme Design Tokens",
+    "version": "1.0.0",
+    "description": "Centralized design tokens for AI component generators and theme consistency",
+    "lastUpdated": "2025-06-08"
+  },
+  "colors": {
+    "primary": {
+      "light": "#d6dcd6",
+      "base": "#5a7b7c",
+      "dark": "#3a5a59"
+    },
+    "secondary": {
+      "light": "#c38484",
+      "base": "#975d55",
+      "dark": "#853d2d"
+    },
+    "neutral": {
+      "light": "#d1cfc2",
+      "base": "#b5b09f",
+      "dark": "#8f8c7f"
+    },
+    "base": {
+      "lightest": "#f7f6f3",
+      "light": "#e9e7e0",
+      "base": "#d9d6cc",
+      "dark": "#b5b09f",
+      "darkest": "#8f8c7f"
+    },
+    "extreme": {
+      "light": "#ffffff",
+      "dark": "#000000"
+    }
+  },
+  "typography": {
+    "fontFamilies": {
+      "primary": "\"Montserrat\", -apple-system, BlinkMacSystemFont, \"Segoe UI\", Roboto, sans-serif"
+    },
+    "fontSizes": {
+      "small": "0.8125rem",
+      "medium": "1rem",
+      "large": "1.25rem",
+      "xLarge": "1.5rem",
+      "xxLarge": "2rem",
+      "huge": "3rem"
+    },
+    "fontWeights": {
+      "regular": 400,
+      "medium": 500,
+      "semibold": 600,
+      "bold": 700,
+      "extrabold": 800
+    },
+    "lineHeights": {
+      "tight": 1.1,
+      "normal": 1.2,
+      "relaxed": 1.4,
+      "loose": 1.6
+    },
+    "letterSpacing": {
+      "tight": "-0.025em",
+      "normal": "0",
+      "wide": "0.025em",
+      "wider": "0.05em",
+      "widest": "0.1em"
+    }
+  },
+  "spacing": {
+    "scale": {
+      "xs": "0.25rem",
+      "sm": "0.5rem",
+      "md": "0.75rem",
+      "lg": "1rem",
+      "xl": "1.25rem",
+      "2xl": "1.5rem",
+      "3xl": "2rem",
+      "4xl": "2.5rem",
+      "5xl": "3rem",
+      "6xl": "3.5rem",
+      "7xl": "4rem",
+      "8xl": "5rem",
+      "9xl": "6rem",
+      "10xl": "8rem"
+    },
+    "sections": {
+      "sm": "2rem",
+      "md": "4rem",
+      "lg": "6rem"
+    }
+  },
+  "borders": {
+    "widths": {
+      "none": "0",
+      "thin": "1px",
+      "medium": "2px",
+      "thick": "3px",
+      "heavy": "5px"
+    },
+    "radius": {
+      "none": "0",
+      "xs": "0.125rem",
+      "sm": "0.25rem",
+      "md": "0.5rem",
+      "lg": "0.75rem",
+      "xl": "1rem",
+      "2xl": "1.5rem",
+      "full": "9999px"
+    }
+  },
+  "shadows": {
+    "scale": {
+      "xs": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+      "sm": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
+      "md": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
+      "lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
+      "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
+      "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+    },
+    "colored": {
+      "primary": "0 4px 14px 0 rgba(90, 123, 124, 0.35)",
+      "primaryLg": "0 10px 25px -3px rgba(90, 123, 124, 0.35)",
+      "secondary": "0 4px 14px 0 rgba(151, 93, 85, 0.35)",
+      "secondaryLg": "0 10px 25px -3px rgba(151, 93, 85, 0.35)"
+    },
+    "special": {
+      "focus": "0 0 0 3px rgba(90, 123, 124, 0.5)",
+      "card": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
+      "cardHover": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)"
+    }
+  },
+  "layout": {
+    "containers": {
+      "xs": "480px",
+      "sm": "640px",
+      "md": "768px",
+      "lg": "1024px",
+      "xl": "1280px",
+      "2xl": "1536px",
+      "content": "1024px",
+      "wide": "1280px"
+    },
+    "breakpoints": {
+      "mobile": "480px",
+      "tablet": "768px",
+      "desktop": "1024px",
+      "wide": "1280px",
+      "ultrawide": "1536px"
+    },
+    "grid": {
+      "columns2": "repeat(2, minmax(0, 1fr))",
+      "columns3": "repeat(3, minmax(0, 1fr))",
+      "columns4": "repeat(4, minmax(0, 1fr))",
+      "columns6": "repeat(6, minmax(0, 1fr))",
+      "columns12": "repeat(12, minmax(0, 1fr))",
+      "autoFit": "repeat(auto-fit, minmax(250px, 1fr))",
+      "autoFill": "repeat(auto-fill, minmax(200px, 1fr))"
+    }
+  },
+  "animations": {
+    "durations": {
+      "instant": "0ms",
+      "fast": "150ms",
+      "normal": "300ms",
+      "slow": "500ms",
+      "slower": "700ms",
+      "slowest": "1000ms"
+    },
+    "easings": {
+      "linear": "linear",
+      "ease": "ease",
+      "easeIn": "ease-in",
+      "easeOut": "ease-out",
+      "easeInOut": "ease-in-out",
+      "bounce": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
+      "smooth": "cubic-bezier(0.4, 0, 0.2, 1)"
+    }
+  },
+  "components": {
+    "browseRooms": {
+      "background": "#f7f6f3",
+      "cardBackground": "#ffffff",
+      "cardShadow": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
+      "cardShadowHover": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
+      "cardRadius": "0.75rem",
+      "gap": "1rem",
+      "padding": "1.5rem",
+      "titleColor": "#3a5a59",
+      "textColor": "#8f8c7f"
+    },
+    "button": {
+      "primary": {
+        "background": "#5a7b7c",
+        "backgroundHover": "#3a5a59",
+        "text": "#ffffff"
+      },
+      "secondary": {
+        "background": "#975d55",
+        "backgroundHover": "#853d2d",
+        "text": "#ffffff"
+      },
+      "padding": {
+        "y": "0.75rem",
+        "x": "1rem"
+      },
+      "radius": "0.5rem",
+      "shadow": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
+      "shadowHover": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)"
+    }
+  },
+  "cssVariables": {
+    "note": "These map to CSS custom properties in design-tokens.css",
+    "colors": {
+      "primary": "var(--token-color-primary)",
+      "primaryLight": "var(--token-color-primary-light)",
+      "primaryDark": "var(--token-color-primary-dark)",
+      "secondary": "var(--token-color-secondary)",
+      "secondaryLight": "var(--token-color-secondary-light)",
+      "secondaryDark": "var(--token-color-secondary-dark)"
+    },
+    "spacing": {
+      "xs": "var(--token-space-xs)",
+      "sm": "var(--token-space-sm)",
+      "md": "var(--token-space-md)",
+      "lg": "var(--token-space-lg)",
+      "xl": "var(--token-space-xl)",
+      "2xl": "var(--token-space-2xl)",
+      "3xl": "var(--token-space-3xl)"
+    }
+  }
+}
