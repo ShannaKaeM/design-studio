@@ -1,506 +1,373 @@
 /*
 Theme Name: Blocksy Child
-Theme URI: https://creativethemes.com/blocksy/
-Template: blocksy
-Author: Creative Themes
-Author URI: https://creativethemes.com
-Description: Blocksy Child Theme
+Description: Child theme for Blocksy with MI Design System
 Version: 1.0.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Text Domain: blocksy-child
 */
 
-/* Add your custom styles below this line */
+/* ================================================================
+   MI DESIGN SYSTEM - SEMANTIC ELEMENTS
+   ================================================================ 
+   
+   All design tokens are defined in theme.json and automatically 
+   converted to CSS variables with --wp-- prefix by WordPress.
+   
+   Examples:
+   - Colors: var(--wp--preset--color--primary)
+   - Fonts: var(--wp--preset--font-size--large) 
+   - Spacing: var(--wp--preset--spacing--lg)
+   - Custom: var(--wp--custom--spacing--padding--lg)
+   ================================================================ */
 
-/* GenerateBlocks Base Fixes */
-.gb-container {
+/* Section Components */
+.mi-section {
+  width: 100%;
   position: relative;
 }
 
-/* Force display if containers collapsed */
-.gb-inside-container {
-  width: 100%;
+.mi-section--primary {
+  background-color: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--white);
 }
 
-/* =================================================================
-   Furniture Showcase Component - Scoped Styles
-   ================================================================= */
-
-/* CSS Variables - Scoped to Furniture Showcase Component */
-.furniture-showcase {
-  /* Colors */
-  --color-primary: #2c5a3f;
-  --color-primary-hover: #234730;
-  --color-white: #ffffff;
-  --color-black: #1a1a1a;
-  --color-gray-100: #f8f9fa;
-  --color-gray-200: #e9ecef;
-  --color-gray-300: #dee2e6;
-  --color-gray-400: #ced4da;
-  --color-gray-500: #adb5bd;
-  --color-gray-600: #6c757d;
-  --color-gray-700: #495057;
-  --color-gray-800: #343a40;
-  --color-text-primary: #1a1a1a;
-  --color-text-secondary: #666666;
-  
-  /* Spacing */
-  --space-xs: 8px;
-  --space-sm: 12px;
-  --space-md: 16px;
-  --space-lg: 24px;
-  --space-xl: 32px;
-  --space-2xl: 40px;
-  --space-3xl: 48px;
-  --space-4xl: 64px;
-  --space-5xl: 80px;
-  
-  /* Border radius */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
-  --radius-xl: 16px;
-  
-  /* Font sizes */
-  --font-xs: 0.75rem;
-  --font-sm: 0.875rem;
-  --font-base: 1rem;
-  --font-lg: 1.125rem;
-  --font-xl: 1.25rem;
-  --font-2xl: 1.5rem;
-  --font-3xl: 1.875rem;
-  --font-4xl: 2.25rem;
-  
-  /* Font weights */
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
-  --font-bold: 700;
-  
-  /* Line heights */
-  --line-height-tight: 1.25;
-  --line-height-normal: 1.5;
-  --line-height-relaxed: 1.625;
-  
-  /* Container */
-  --container-max-width: 1200px;
-  --container-padding: 24px;
+.mi-section--secondary {
+  background-color: var(--wp--preset--color--secondary);
+  color: var(--wp--preset--color--white);
 }
 
-/* Main Component */
-.furniture-showcase {
-  padding: var(--space-5xl) 0;
-  background-color: var(--color-white);
+.mi-section--light {
+  background-color: var(--wp--preset--color--base-lightest);
 }
 
-.furniture-showcase .furniture-showcase__container {
-  max-width: var(--container-max-width);
+.mi-section--dark {
+  background-color: var(--wp--preset--color--primary-dark);
+  color: var(--wp--preset--color--white);
+}
+
+/* Content Containers */
+.mi-content-container {
+  max-width: var(--wp--style--global--content-size);
   margin: 0 auto;
-  padding: 0 var(--container-padding);
+  padding: 0 var(--wp--preset--spacing--lg);
+}
+
+.mi-content-container--wide {
+  max-width: var(--wp--style--global--wide-size);
+}
+
+.mi-content-container--narrow {
+  max-width: 768px;
+}
+
+/* Section Headers */
+.mi-section-header {
+  text-align: center;
+  margin-bottom: var(--wp--preset--spacing--6xl);
+}
+
+.mi-section-header--left {
+  text-align: left;
+}
+
+.mi-section-header--right {
+  text-align: right;
+}
+
+/* Typography Elements */
+.mi-pretitle {
+  font-size: var(--wp--preset--font-size--small);
+  font-weight: var(--wp--custom--typography--base-styles--font-weights--semi-bold);
+  text-transform: var(--wp--custom--typography--base-styles--text-transforms--uppercase);
+  letter-spacing: var(--wp--custom--typography--base-styles--letter-spacing--wide);
+  color: var(--wp--preset--color--primary);
+  margin-bottom: var(--wp--preset--spacing--sm);
+}
+
+.mi-title {
+  font-size: var(--wp--preset--font-size--xx-large);
+  font-weight: var(--wp--custom--typography--base-styles--font-weights--bold);
+  line-height: var(--wp--custom--typography--base-styles--line-heights--tight);
+  color: var(--wp--preset--color--base-darkest);
+  margin-bottom: var(--wp--preset--spacing--lg);
+}
+
+.mi-subtitle {
+  font-size: var(--wp--preset--font-size--large);
+  line-height: var(--wp--custom--typography--base-styles--line-heights--relaxed);
+  color: var(--wp--preset--color--base-dark);
+  margin-bottom: var(--wp--preset--spacing--xl);
+}
+
+.mi-description {
+  font-size: var(--wp--preset--font-size--medium);
+  line-height: var(--wp--custom--typography--base-styles--line-heights--relaxed);
+  color: var(--wp--preset--color--base-dark);
+}
+
+/* Button Components */
+.mi-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--wp--custom--spacing--padding--md) var(--wp--custom--spacing--padding--xl);
+  font-size: var(--wp--preset--font-size--medium);
+  font-weight: var(--wp--custom--typography--base-styles--font-weights--semi-bold);
+  text-decoration: none;
+  border: none;
+  border-radius: var(--wp--custom--borders--radii--md);
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: var(--wp--custom--shadows--sm);
+}
+
+.mi-button:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--wp--custom--shadows--md);
+}
+
+.mi-button--primary {
+  background-color: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--white);
+}
+
+.mi-button--primary:hover {
+  background-color: var(--wp--preset--color--primary-dark);
+}
+
+.mi-button--secondary {
+  background-color: var(--wp--preset--color--secondary);
+  color: var(--wp--preset--color--white);
+}
+
+.mi-button--secondary:hover {
+  background-color: var(--wp--preset--color--secondary-dark);
+}
+
+.mi-button--outline {
+  background-color: transparent;
+  color: var(--wp--preset--color--primary);
+  border: 2px solid var(--wp--preset--color--primary);
+}
+
+.mi-button--outline:hover {
+  background-color: var(--wp--preset--color--primary);
+  color: var(--wp--preset--color--white);
+}
+
+/* Card Components */
+.mi-card {
+  background-color: var(--wp--preset--color--white);
+  border-radius: var(--wp--custom--borders--radii--lg);
+  box-shadow: var(--wp--custom--shadows--md);
+  overflow: hidden;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--wp--custom--shadows--lg);
+}
+
+.mi-card__image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  background-size: cover;
+  background-position: center;
+}
+
+.mi-card__content {
+  padding: var(--wp--custom--spacing--padding--xl);
+}
+
+.mi-card__title {
+  font-size: var(--wp--preset--font-size--large);
+  font-weight: var(--wp--custom--typography--base-styles--font-weights--bold);
+  color: var(--wp--preset--color--primary-dark);
+  margin-bottom: var(--wp--preset--spacing--sm);
+}
+
+.mi-card__description {
+  font-size: var(--wp--preset--font-size--medium);
+  color: var(--wp--preset--color--neutral-dark);
+  line-height: var(--wp--custom--typography--base-styles--line-heights--relaxed);
+  margin-bottom: var(--wp--preset--spacing--lg);
+}
+
+/* Grid Components */
+.mi-bento-grid {
+  display: grid;
+  gap: var(--wp--preset--spacing--lg);
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.mi-bento-grid--2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.mi-bento-grid--3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.mi-bento-grid--4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* Responsive Grid */
+@media (max-width: 768px) {
+  .mi-bento-grid--2,
+  .mi-bento-grid--3,
+  .mi-bento-grid--4 {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 1024px) {
+  .mi-bento-grid--3,
+  .mi-bento-grid--4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* ================================================================
+   SPLIT HERO COMPONENT
+   ================================================================ */
+
+.split-hero {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--space-5xl);
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.split-hero__content {
+  background-color: #3a5a59;
+  color: #ffffff;
+  padding: 5rem 3.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  position: relative;
+}
+
+.split-hero__image {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+
+.split-hero__title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 1.25rem;
+  color: #ffffff;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.split-hero__description {
+  font-size: 1rem;
+  line-height: 1.4;
+  color: #e9e7e0;
+  margin-bottom: 2.5rem;
+  max-width: 400px;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.split-hero__search-form {
+  width: 100%;
+  max-width: 450px;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 0.5rem;
   align-items: center;
 }
 
-/* Content Section */
-.furniture-showcase .furniture-showcase__content {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-  max-width: 480px;
+.split-hero__search-input {
+  border: none;
+  outline: none;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  color: #8f8c7f;
+  background-color: transparent;
+  flex: 1;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.furniture-showcase .furniture-showcase__title {
-  font-size: var(--font-4xl);
-  font-weight: var(--font-bold);
-  line-height: var(--line-height-tight);
-  color: var(--color-text-primary);
-  margin: 0;
+.split-hero__search-input::placeholder {
+  color: #8f8c7f;
 }
 
-.furniture-showcase .furniture-showcase__description {
-  font-size: var(--font-base);
-  line-height: var(--line-height-relaxed);
-  color: var(--color-text-secondary);
-  margin: 0;
-}
-
-.furniture-showcase .furniture-showcase__cta {
-  display: inline-block;
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  padding: var(--space-md) var(--space-xl);
-  border-radius: var(--radius-lg);
-  text-decoration: none;
-  font-weight: var(--font-semibold);
-  font-size: var(--font-base);
-  transition: background-color 0.2s ease;
-  align-self: flex-start;
-}
-
-.furniture-showcase .furniture-showcase__cta:hover {
-  background-color: var(--color-primary-hover);
-}
-
-/* Gallery Section - Updated to 2x2 Grid */
-.furniture-showcase .furniture-showcase__gallery {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--space-lg);
-  height: auto; /* Changed from fixed height */
-}
-
-/* Remove old wrapper styles */
-.furniture-showcase .furniture-gallery__main,
-.furniture-showcase .furniture-gallery__side {
-  display: contents; /* Removes wrapper but keeps children */
-}
-
-.furniture-showcase .furniture-gallery__image {
-  background-color: var(--color-gray-200);
-  border-radius: var(--radius-xl);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  width: 100%;
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 1 / 1; /* Make images square */
-  min-height: 280px; /* Minimum height for squares */
-}
-
-/* All images now same size - no specific heights needed */
-.furniture-showcase .furniture-gallery__image--main,
-.furniture-showcase .furniture-gallery__image--side-1,
-.furniture-showcase .furniture-gallery__image--side-2,
-.furniture-showcase .furniture-gallery__image--1,
-.furniture-showcase .furniture-gallery__image--2,
-.furniture-showcase .furniture-gallery__image--3,
-.furniture-showcase .furniture-gallery__image--4 {
-  height: auto; /* Let aspect-ratio handle it */
-}
-
-/* Product Labels */
-.furniture-showcase .furniture-gallery__label {
-  position: absolute;
-  top: var(--space-md);
-  right: var(--space-md);
-  background-color: var(--color-white);
-  padding: var(--space-xs) var(--space-md);
-  border-radius: var(--radius-md);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.furniture-showcase .furniture-gallery__label-title {
-  font-size: var(--font-sm);
-  font-weight: var(--font-medium);
-  color: var(--color-text-primary);
-  margin: 0;
-  line-height: 1.2;
-}
-
-.furniture-showcase .furniture-gallery__label-price {
-  font-size: var(--font-base);
-  font-weight: var(--font-semibold);
-  color: var(--color-primary);
-  margin: 0;
-  line-height: 1.2;
-}
-
-/* Discount Badge */
-.furniture-showcase .furniture-gallery__badge {
-  position: absolute;
-  bottom: var(--space-md);
-  right: var(--space-md);
-  background-color: var(--color-primary);
-  color: var(--color-white);
-  padding: var(--space-sm) var(--space-md);
-  border-radius: var(--radius-md);
-  font-size: var(--font-sm);
-  font-weight: var(--font-semibold);
-}
-
-.furniture-showcase .furniture-gallery__badge-title {
-  display: block;
-  font-size: var(--font-lg);
-  margin-bottom: 2px;
-}
-
-.furniture-showcase .furniture-gallery__badge-subtitle {
-  display: block;
-  font-size: var(--font-xs);
-  opacity: 0.9;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .furniture-showcase .furniture-showcase__container {
-    grid-template-columns: 1fr;
-    gap: var(--space-4xl);
-  }
-  
-  .furniture-showcase .furniture-showcase__content {
-    max-width: none;
-    text-align: left;
-  }
-  
-  .furniture-showcase .furniture-showcase__title {
-    font-size: var(--font-3xl);
-  }
-  
-  .furniture-showcase .furniture-showcase__gallery {
-    grid-template-columns: 1fr 1fr; /* Keep 2x2 grid on tablet */
-    gap: var(--space-md);
-  }
-  
-  .furniture-showcase .furniture-gallery__image {
-    min-height: 200px;
-  }
-}
-
-@media (max-width: 480px) {
-  .furniture-showcase {
-    padding: var(--space-4xl) 0;
-  }
-  
-  .furniture-showcase .furniture-showcase__container {
-    padding: 0 var(--space-lg);
-    gap: var(--space-3xl);
-  }
-  
-  .furniture-showcase .furniture-showcase__title {
-    font-size: var(--font-2xl);
-  }
-  
-  .furniture-showcase .furniture-showcase__gallery {
-    grid-template-columns: 1fr; /* Single column on mobile */
-    gap: var(--space-md);
-  }
-  
-  .furniture-showcase .furniture-gallery__image {
-    min-height: 250px;
-  }
-}
-
-/* =================================================================
-   Browse Rooms Component - Scoped Styles
-   ================================================================= */
-
-/* CSS Variables - Scoped to Browse Rooms Component */
-.browse-rooms {
-  /* Colors */
-  --br-color-bg: #1a2e1a; /* Dark green background */
-  --br-color-white: #ffffff;
-  --br-color-text-light: #e8e8e8;
-  --br-color-text-muted: #b8c5b8;
-  --br-color-overlay: rgba(0, 0, 0, 0.3);
-  
-  /* Spacing */
-  --br-space-xs: 8px;
-  --br-space-sm: 12px;
-  --br-space-md: 16px;
-  --br-space-lg: 24px;
-  --br-space-xl: 32px;
-  --br-space-2xl: 48px;
-  --br-space-3xl: 64px;
-  --br-space-4xl: 80px;
-  
-  /* Typography */
-  --br-font-sm: 0.875rem;
-  --br-font-base: 1rem;
-  --br-font-lg: 1.125rem;
-  --br-font-xl: 1.25rem;
-  --br-font-2xl: 1.5rem;
-  --br-font-3xl: 2.5rem;
-  
-  /* Border radius */
-  --br-radius-md: 12px;
-  --br-radius-lg: 16px;
-  --br-radius-xl: 20px;
-}
-
-/* Main Component */
-.browse-rooms {
-  background-color: var(--br-color-bg);
-  padding: var(--br-space-4xl) 0;
-  color: var(--br-color-white);
-}
-
-.browse-rooms__container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 var(--br-space-lg);
-}
-
-/* Header Section */
-.browse-rooms__header {
-  margin-bottom: var(--br-space-3xl);
-}
-
-.browse-rooms__title {
-  font-size: var(--br-font-3xl);
-  font-weight: 600;
-  margin: 0 0 var(--br-space-md) 0;
-  color: var(--br-color-white);
-}
-
-.browse-rooms__description {
-  font-size: var(--br-font-lg);
-  color: var(--br-color-text-muted);
-  max-width: 600px;
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* Grid Layout */
-.browse-rooms__grid {
-  display: grid;
-  grid-template-columns: 1.2fr 1fr 1fr;
-  grid-template-rows: 1fr 1fr;
-  gap: var(--br-space-lg);
-  height: 600px;
-}
-
-/* Room Cards */
-.room-card {
-  position: relative;
-  border-radius: var(--br-radius-xl);
-  overflow: hidden;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: flex-end;
-  padding: var(--br-space-xl);
-  transition: transform 0.3s ease;
+.split-hero__search-select {
+  border: none;
+  outline: none;
+  padding: 0.5rem 0.75rem;
+  font-size: 1rem;
+  color: #8f8c7f;
+  background-color: transparent;
   cursor: pointer;
+  border-left: 1px solid #e9e7e0;
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.room-card:hover {
-  transform: translateY(-4px);
-}
-
-/* Overlay gradient */
-.room-card::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to bottom, transparent 40%, var(--br-color-overlay) 100%);
-  z-index: 1;
-}
-
-/* Living Room - Large card */
-.room-card--living {
-  grid-row: 1 / 3;
-  grid-column: 1;
-}
-
-/* Bedroom - Top right */
-.room-card--bedroom {
-  grid-row: 1;
-  grid-column: 2;
-}
-
-/* Walk-in Closet - Bottom middle */
-.room-card--closet {
-  grid-row: 2;
-  grid-column: 2;
-}
-
-/* Kitchen - Right side */
-.room-card--kitchen {
-  grid-row: 1 / 3;
-  grid-column: 3;
-}
-
-/* Card Content */
-.room-card__content {
-  position: relative;
-  z-index: 2;
-  background: var(--br-color-white);
-  padding: var(--br-space-md) var(--br-space-lg);
-  border-radius: var(--br-radius-md);
-  display: inline-block;
-}
-
-.room-card__title {
-  font-size: var(--br-font-lg);
+.split-hero__search-button {
+  background-color: #5a7b7c;
+  color: #ffffff;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  font-size: 1rem;
   font-weight: 600;
-  color: #1a1a1a;
-  margin: 0 0 4px 0;
+  cursor: pointer;
+  transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.room-card__count {
-  font-size: var(--br-font-sm);
-  color: #666;
-  margin: 0;
+.split-hero__search-button:hover {
+  background-color: #3a5a59;
+  transform: translateY(-1px);
 }
 
 /* Responsive Design */
-@media (max-width: 968px) {
-  .browse-rooms__grid {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: repeat(3, 280px);
-    height: auto;
+@media (max-width: 1024px) {
+  .split-hero {
+    grid-template-columns: 1fr;
+    min-height: auto;
   }
   
-  .room-card--living {
-    grid-row: 1;
-    grid-column: 1 / 3;
+  .split-hero__content {
+    padding: 3.5rem 1.25rem;
+    order: 2;
   }
   
-  .room-card--bedroom {
-    grid-row: 2;
-    grid-column: 1;
-  }
-  
-  .room-card--closet {
-    grid-row: 2;
-    grid-column: 2;
-  }
-  
-  .room-card--kitchen {
-    grid-row: 3;
-    grid-column: 1 / 3;
+  .split-hero__image {
+    min-height: 50vh;
+    order: 1;
   }
 }
 
-@media (max-width: 640px) {
-  .browse-rooms {
-    padding: var(--br-space-3xl) 0;
+@media (max-width: 768px) {
+  .split-hero__content {
+    padding: 2.5rem 1rem;
   }
   
-  .browse-rooms__title {
-    font-size: var(--br-font-2xl);
-  }
-  
-  .browse-rooms__description {
-    font-size: var(--br-font-base);
-  }
-  
-  .browse-rooms__grid {
+  .split-hero__search-form {
     grid-template-columns: 1fr;
-    grid-template-rows: repeat(4, 250px);
-    gap: var(--br-space-md);
+    gap: 0.75rem;
   }
   
-  .room-card--living,
-  .room-card--bedroom,
-  .room-card--closet,
-  .room-card--kitchen {
-    grid-row: auto;
-    grid-column: 1;
+  .split-hero__search-select {
+    border-left: none;
+    border-top: 1px solid #e9e7e0;
+    padding-top: 0.75rem;
   }
   
-  .room-card {
-    padding: var(--br-space-lg);
+  .split-hero__title {
+    font-size: clamp(2rem, 8vw, 3rem);
   }
 }

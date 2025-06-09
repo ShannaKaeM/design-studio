@@ -8,76 +8,70 @@ function blocksy_child_enqueue_styles() {
     // Enqueue parent theme styles
     wp_enqueue_style('blocksy-parent-style', get_template_directory_uri() . '/style.css');
     
-    // Enqueue child theme styles
-    wp_enqueue_style('blocksy-child-style', get_stylesheet_directory_uri() . '/style.css', array('blocksy-parent-style'));
-    
-    // Enqueue design tokens CSS for consistent styling across components
+    // Enqueue child theme styles with all MI design system
     wp_enqueue_style(
-        'blocksy-child-design-tokens',
-        get_stylesheet_directory_uri() . '/assets/css/design-tokens.css',
+        'blocksy-child-style', 
+        get_stylesheet_directory_uri() . '/style.css', 
         array('blocksy-parent-style'),
         wp_get_theme()->get('Version')
     );
 }
 add_action('wp_enqueue_scripts', 'blocksy_child_enqueue_styles');
 
-// Enqueue design tokens in editor as well
-function blocksy_child_enqueue_editor_styles() {
-    wp_enqueue_style(
-        'blocksy-child-editor-design-tokens',
-        get_stylesheet_directory_uri() . '/assets/css/design-tokens.css',
-        array(),
-        wp_get_theme()->get('Version')
-    );
+/**
+ * Ensure child theme.json takes absolute priority over parent theme
+ * Uses WordPress theme.json API to properly override Blocksy settings
+ */
+function blocksy_child_enforce_theme_json_priority() {
+    // Only apply if theme has theme.json
+    if (!wp_theme_has_theme_json()) {
+        return;
+    }
+    
+    // Hook into theme layer to ensure our settings take priority
+    add_filter('wp_theme_json_data_theme', function($theme_json) {
+        $new_data = $theme_json->get_data();
+        
+        // Force our child theme settings to override parent
+        // This ensures container widths, typography, colors from our theme.json are authoritative
+        $new_data['settings']['useRootPaddingAwareAlignments'] = true;
+        $new_data['settings']['appearanceTools'] = true;
+        
+        // Ensure layout settings take priority
+        if (isset($new_data['settings']['layout'])) {
+            $new_data['settings']['layout']['contentSize'] = 'var(--wp--custom--layout--content-size)';
+            $new_data['settings']['layout']['wideSize'] = 'var(--wp--custom--layout--wide-size)';
+        }
+        
+        return new WP_Theme_JSON_Data($new_data, 'theme');
+    }, 20); // Higher priority to run after parent theme
 }
-add_action('enqueue_block_editor_assets', 'blocksy_child_enqueue_editor_styles');
+add_action('after_setup_theme', 'blocksy_child_enforce_theme_json_priority');
 
-// Ensure theme.json settings are properly loaded and override parent theme
-function blocksy_child_theme_json_settings() {
-    return array(
-        'version' => 3,
-        'settings' => array(
-            'useRootPaddingAwareAlignments' => true,
-            'appearanceTools' => true,
-        )
-    );
+/**
+ * Optional: Force user customizations to respect our design system
+ * Uncomment if you want to prevent users from overriding your design tokens
+ */
+/*
+function blocksy_child_lock_design_system() {
+    add_filter('wp_theme_json_data_user', function($theme_json) {
+        $data = $theme_json->get_data();
+        
+        // Prevent user from changing core design tokens
+        // Remove or modify this based on your needs
+        unset($data['settings']['color']['palette']);
+        unset($data['settings']['typography']['fontFamilies']);
+        
+        return new WP_Theme_JSON_Data($data, 'custom');
+    });
 }
-add_filter('wp_theme_json_data_theme', function($theme_json) {
-    $new_data = $theme_json->get_data();
-    
-    // Ensure our child theme settings take priority
-    $new_data['settings']['useRootPaddingAwareAlignments'] = true;
-    
-    return new WP_Theme_JSON_Data($new_data, 'theme');
-});
+add_action('after_setup_theme', 'blocksy_child_lock_design_system');
+*/
 
 // Register custom blocks
 function blocksy_child_register_blocks() {
-    // Register Browse Rooms Block
-    register_block_type(get_stylesheet_directory() . '/blocks/browse-rooms');
+    // Future block registrations can go here
 }
 add_action('init', 'blocksy_child_register_blocks');
-
-// Enqueue block editor assets
-function blocksy_child_enqueue_block_editor_assets() {
-    wp_enqueue_script(
-        'blocksy-child-blocks',
-        get_stylesheet_directory_uri() . '/blocks/browse-rooms/index.js',
-        array('wp-blocks', 'wp-i18n', 'wp-element', 'wp-block-editor', 'wp-components'),
-        wp_get_theme()->get('Version'),
-        true
-    );
-}
-add_action('enqueue_block_editor_assets', 'blocksy_child_enqueue_block_editor_assets');
-
-// Register block patterns
-function blocksy_child_register_patterns() {
-    // Register pattern category
-    register_block_pattern_category(
-        'blocksy-child',
-        array('label' => __('Blocksy Child Patterns', 'blocksy-child'))
-    );
-}
-add_action('init', 'blocksy_child_register_patterns');
 
 // Add your custom functions below this line

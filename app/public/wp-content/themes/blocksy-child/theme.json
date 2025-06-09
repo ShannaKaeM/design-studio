@@ -529,7 +529,12 @@
         "blocks": {
             "core/group": {
                 "spacing": {
-                    "padding": "var(--wp--custom--spacing--padding--lg)"
+                    "padding": {
+                        "top": "var(--wp--custom--spacing--padding--lg)",
+                        "bottom": "var(--wp--custom--spacing--padding--lg)",
+                        "left": "var(--wp--custom--spacing--padding--lg)",
+                        "right": "var(--wp--custom--spacing--padding--lg)"
+                    }
                 }
             },
             "core/columns": {
