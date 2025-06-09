@@ -1,0 +1,35 @@
+<!-- wp:generateblocks/element {"uniqueId":"8b2c829e","tagName":"div","className":"furniture-showcase"} -->
+<div class="furniture-showcase"><!-- wp:generateblocks/element {"uniqueId":"285a6c3f","tagName":"div","className":"furniture-showcase__container"} -->
+<div class="furniture-showcase__container"><!-- wp:generateblocks/element {"uniqueId":"9cd1f95e","tagName":"div","className":"furniture-showcase__content"} -->
+<div class="furniture-showcase__content"><!-- wp:generateblocks/text {"uniqueId":"dab2e246","tagName":"h2","className":"furniture-showcase__title"} -->
+<h2 class="gb-text furniture-showcase__title">Welcome to Middleton Getaways</h2>
+<!-- /wp:generateblocks/text -->
+
+<!-- wp:paragraph {"className":"furniture-showcase__description"} -->
+<p class="furniture-showcase__description">Getaway from the Day to Day!</p>
+<!-- /wp:paragraph -->
+
+<!-- wp:generateblocks/text {"uniqueId":"76c4c43c","tagName":"a","styles":{"display":"inline-flex","alignItems":"center","backgroundColor":"#215bc2","color":"#ffffff","paddingTop":"1rem","paddingRight":"2rem","paddingBottom":"1rem","paddingLeft":"2rem","textDecoration":"none","\u0026:is(:hover, :focus)":{"backgroundColor":"#1a4a9b","color":"#ffffff"}},"css":".gb-text-76c4c43c{align-items:center;background-color:#215bc2;color:#ffffff;display:inline-flex;text-decoration:none;padding:1rem 2rem}.gb-text-76c4c43c:is(:hover,:focus){background-color:#1a4a9b;color:#ffffff}","className":"furniture-showcase__cta"} -->
+<a class="gb-text gb-text-76c4c43c furniture-showcase__cta">Learn More</a>
+<!-- /wp:generateblocks/text --></div>
+<!-- /wp:generateblocks/element -->
+
+<!-- wp:generateblocks/element {"uniqueId":"67befa04","tagName":"div","className":"furniture-showcase__gallery"} -->
+<div class="furniture-showcase__gallery"><!-- wp:generateblocks/element {"uniqueId":"17f0c255","tagName":"div","styles":{"backgroundImage":"var(\u002d\u002dinline-bg-image)","backgroundSize":"cover","backgroundRepeat":"no-repeat","backgroundPosition":"center","backgroundBlendMode":"normal"},"css":".gb-element-17f0c255{background-blend-mode:normal;background-image:var(\u002d\u002dinline-bg-image);background-position:center;background-repeat:no-repeat;background-size:cover}","htmlAttributes":{"style":"\u002d\u002dinline-bg-image: url(http://localhost:10048/wp-content/uploads/2025/06/E2BEFD1A-4545-40C7-AB09-77CE13DF62C4.png)"},"className":"furniture-gallery__image furniture-gallery__image\u002d\u002d1"} -->
+<div class="gb-element-17f0c255 furniture-gallery__image furniture-gallery__image--1" style="--inline-bg-image: url(http://localhost:10048/wp-content/uploads/2025/06/E2BEFD1A-4545-40C7-AB09-77CE13DF62C4.png)"></div>
+<!-- /wp:generateblocks/element -->
+
+<!-- wp:generateblocks/element {"uniqueId":"c82b145b","tagName":"div","styles":{"backgroundImage":"var(\u002d\u002dinline-bg-image)","backgroundSize":"cover","backgroundRepeat":"no-repeat","backgroundPosition":"center","backgroundBlendMode":"normal"},"css":".gb-element-c82b145b{background-blend-mode:normal;background-image:var(\u002d\u002dinline-bg-image);background-position:center;background-repeat:no-repeat;background-size:cover}","htmlAttributes":{"style":"\u002d\u002dinline-bg-image: url(http://localhost:10048/wp-content/uploads/2025/06/D0004A67-0679-4576-BB6F-75B32C03F29A.png)"},"className":"furniture-gallery__image furniture-gallery__image\u002d\u002d2"} -->
+<div class="gb-element-c82b145b furniture-gallery__image furniture-gallery__image--2" style="--inline-bg-image: url(http://localhost:10048/wp-content/uploads/2025/06/D0004A67-0679-4576-BB6F-75B32C03F29A.png)"></div>
+<!-- /wp:generateblocks/element -->
+
+<!-- wp:generateblocks/element {"uniqueId":"12dac055","tagName":"div","styles":{"backgroundImage":"var(\u002d\u002dinline-bg-image)","backgroundSize":"cover","backgroundRepeat":"no-repeat","backgroundPosition":"center","backgroundBlendMode":"normal"},"css":".gb-element-12dac055{background-blend-mode:normal;background-image:var(\u002d\u002dinline-bg-image);background-position:center;background-repeat:no-repeat;background-size:cover}","htmlAttributes":{"style":"\u002d\u002dinline-bg-image: url(http://localhost:10048/wp-content/uploads/2025/06/550C5D29-170F-43AB-B361-8CA6AF4FE7D4.png)"},"className":"furniture-gallery__image furniture-gallery__image\u002d\u002d3"} -->
+<div class="gb-element-12dac055 furniture-gallery__image furniture-gallery__image--3" style="--inline-bg-image: url(http://localhost:10048/wp-content/uploads/2025/06/550C5D29-170F-43AB-B361-8CA6AF4FE7D4.png)"></div>
+<!-- /wp:generateblocks/element -->
+
+<!-- wp:generateblocks/element {"uniqueId":"9bc188c1","tagName":"div","styles":{"backgroundImage":"var(\u002d\u002dinline-bg-image)","backgroundSize":"cover","backgroundRepeat":"no-repeat","backgroundPosition":"center","backgroundBlendMode":"normal"},"css":".gb-element-9bc188c1{background-blend-mode:normal;background-image:var(\u002d\u002dinline-bg-image);background-position:center;background-repeat:no-repeat;background-size:cover}","htmlAttributes":{"style":"\u002d\u002dinline-bg-image: url(http://localhost:10048/wp-content/uploads/2025/06/B0A8CF7D-292F-445D-B889-146706672A82.png)"},"className":"furniture-gallery__image furniture-gallery__image\u002d\u002d4"} -->
+<div class="gb-element-9bc188c1 furniture-gallery__image furniture-gallery__image--4" style="--inline-bg-image: url(http://localhost:10048/wp-content/uploads/2025/06/B0A8CF7D-292F-445D-B889-146706672A82.png)"></div>
+<!-- /wp:generateblocks/element --></div>
+<!-- /wp:generateblocks/element --></div>
+<!-- /wp:generateblocks/element --></div>
+<!-- /wp:generateblocks/element -->

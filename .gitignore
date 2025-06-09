@@ -1,0 +1,31 @@
+# WordPress core files
+wp-admin/
+wp-includes/
+
+# Ignore WordPress core files but keep wp-content
+/app/public/*
+!/app/public/wp-content/
+
+# Keep only themes directory in wp-content
+/app/public/wp-content/*
+!/app/public/wp-content/themes/
+
+# Keep only blocksy-child theme
+/app/public/wp-content/themes/*
+!/app/public/wp-content/themes/blocksy-child/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+
+# Ignore node modules and logs
+node_modules/
+npm-debug.log
+yarn-error.log
+
+# Ignore local development files
+*.log
+.env
+.env.*

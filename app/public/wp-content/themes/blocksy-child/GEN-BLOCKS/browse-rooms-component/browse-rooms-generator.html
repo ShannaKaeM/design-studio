@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Browse Rooms Component Generator</title>
+    <style>
+        body {
+            font-family: -apple-system, system-ui, sans-serif;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #1a2e1a;
+            margin-bottom: 30px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+        input[type="text"], input[type="url"], input[type="number"], textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        textarea {
+            min-height: 400px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        button {
+            background: #1a2e1a;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+            margin-right: 10px;
+        }
+        button:hover {
+            background: #234730;
+        }
+        .room-inputs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .room-group {
+            background: white;
+            padding: 15px;
+            border-radius: 4px;
+            border: 1px solid #e0e0e0;
+        }
+        .room-group h3 {
+            margin: 0 0 15px 0;
+            color: #1a2e1a;
+            font-size: 18px;
+        }
+        .preview {
+            background: #1a2e1a;
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+        .preview h2 {
+            color: white;
+            margin: 0 0 10px 0;
+        }
+        .preview p {
+            color: #b8c5b8;
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Browse Rooms Component Generator</h1>
+        
+        <div class="preview">
+            <h2 id="previewTitle">Browse by rooms</h2>
+            <p id="previewDesc">Sit massa etiam urna id. Non pulvinar aenean ultrices lectus vitae imperdiet vulputate a eu.</p>
+        </div>
+
+        <div class="form-group">
+            <label for="title">Section Title:</label>
+            <input type="text" id="title" value="Browse by rooms" oninput="updatePreview()">
+        </div>
+
+        <div class="form-group">
+            <label for="description">Section Description:</label>
+            <input type="text" id="description" value="Sit massa etiam urna id. Non pulvinar aenean ultrices lectus vitae imperdiet vulputate a eu. Aliquet ullamcorper leo mi vel sit pretium euismod eget." oninput="updatePreview()">
+        </div>
+
+        <h2>Room Categories</h2>
+        <div class="room-inputs">
+            <div class="room-group">
+                <h3>Room 1 (Large - Left)</h3>
+                <div class="form-group">
+                    <label>Room Name:</label>
+                    <input type="text" id="room1Name" value="Living Room">
+                </div>
+                <div class="form-group">
+                    <label>Product Count:</label>
+                    <input type="number" id="room1Count" value="15">
+                </div>
+                <div class="form-group">
+                    <label>Image URL:</label>
+                    <input type="url" id="room1Image" placeholder="https://...">
+                </div>
+            </div>
+
+            <div class="room-group">
+                <h3>Room 2 (Top Right)</h3>
+                <div class="form-group">
+                    <label>Room Name:</label>
+                    <input type="text" id="room2Name" value="Bedroom">
+                </div>
+                <div class="form-group">
+                    <label>Product Count:</label>
+                    <input type="number" id="room2Count" value="24">
+                </div>
+                <div class="form-group">
+                    <label>Image URL:</label>
+                    <input type="url" id="room2Image" placeholder="https://...">
+                </div>
+            </div>
+
+            <div class="room-group">
+                <h3>Room 3 (Bottom Middle)</h3>
+                <div class="form-group">
+                    <label>Room Name:</label>
+                    <input type="text" id="room3Name" value="Walk-in Closet">
+                </div>
+                <div class="form-group">
+                    <label>Product Count:</label>
+                    <input type="number" id="room3Count" value="30">
+                </div>
+                <div class="form-group">
+                    <label>Image URL:</label>
+                    <input type="url" id="room3Image" placeholder="https://...">
+                </div>
+            </div>
+
+            <div class="room-group">
+                <h3>Room 4 (Right Side)</h3>
+                <div class="form-group">
+                    <label>Room Name:</label>
+                    <input type="text" id="room4Name" value="Kitchen">
+                </div>
+                <div class="form-group">
+                    <label>Product Count:</label>
+                    <input type="number" id="room4Count" value="24">
+                </div>
+                <div class="form-group">
+                    <label>Image URL:</label>
+                    <input type="url" id="room4Image" placeholder="https://...">
+                </div>
+            </div>
+        </div>
+
+        <button onclick="generateCode()">Generate Code</button>
+        <button onclick="copyCode()">Copy Code</button>
+
+        <div class="form-group">
+            <label for="output">Generated Code:</label>
+            <textarea id="output" readonly></textarea>
+        </div>
+    </div>
+
+    <script>
+        function generateUniqueId() {
+            return Math.random().toString(36).substr(2, 8);
+        }
+
+        function updatePreview() {
+            document.getElementById('previewTitle').textContent = document.getElementById('title').value;
+            document.getElementById('previewDesc').textContent = document.getElementById('description').value.substring(0, 100) + '...';
+        }
+
+        function generateCode() {
+            const title = document.getElementById('title').value;
+            const description = document.getElementById('description').value;
+            
+            // Room data
+            const rooms = [
+                {
+                    name: document.getElementById('room1Name').value,
+                    count: document.getElementById('room1Count').value,
+                    image: document.getElementById('room1Image').value || 'https://via.placeholder.com/600x800/7BA098/FFFFFF?text=Living+Room',
+                    class: 'living'
+                },
+                {
+                    name: document.getElementById('room2Name').value,
+                    count: document.getElementById('room2Count').value,
+                    image: document.getElementById('room2Image').value || 'https://via.placeholder.com/400x300/8B9DC3/FFFFFF?text=Bedroom',
+                    class: 'bedroom'
+                },
+                {
+                    name: document.getElementById('room3Name').value,
+                    count: document.getElementById('room3Count').value,
+                    image: document.getElementById('room3Image').value || 'https://via.placeholder.com/400x300/DEB887/FFFFFF?text=Walk-in+Closet',
+                    class: 'closet'
+                },
+                {
+                    name: document.getElementById('room4Name').value,
+                    count: document.getElementById('room4Count').value,
+                    image: document.getElementById('room4Image').value || 'https://via.placeholder.com/400x600/8FBC8F/FFFFFF?text=Kitchen',
+                    class: 'kitchen'
+                }
+            ];
+
+            // Generate unique IDs
+            const mainId = generateUniqueId();
+            const containerId = generateUniqueId();
+            const headerId = generateUniqueId();
+            const titleId = generateUniqueId();
+            const gridId = generateUniqueId();
+
+            let template = `<!-- wp:generateblocks/element {"uniqueId":"${mainId}","tagName":"div","className":"browse-rooms"} -->
+<div class="browse-rooms"><!-- wp:generateblocks/element {"uniqueId":"${containerId}","tagName":"div","className":"browse-rooms__container"} -->
+<div class="browse-rooms__container"><!-- wp:generateblocks/element {"uniqueId":"${headerId}","tagName":"div","className":"browse-rooms__header"} -->
+<div class="browse-rooms__header"><!-- wp:generateblocks/text {"uniqueId":"${titleId}","tagName":"h2","className":"browse-rooms__title"} -->
+<h2 class="gb-text browse-rooms__title">${title}</h2>
+<!-- /wp:generateblocks/text -->
+
+<!-- wp:paragraph {"className":"browse-rooms__description"} -->
+<p class="browse-rooms__description">${description}</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:generateblocks/element -->
+
+<!-- wp:generateblocks/element {"uniqueId":"${gridId}","tagName":"div","className":"browse-rooms__grid"} -->
+<div class="browse-rooms__grid">`;
+
+            // Generate room cards
+            rooms.forEach((room, index) => {
+                const cardId = generateUniqueId();
+                const contentId = generateUniqueId();
+                const roomTitleId = generateUniqueId();
+                
+                template += `<!-- wp:generateblocks/element {"uniqueId":"${cardId}","tagName":"div","styles":{"backgroundImage":"var(\\u002d\\u002dinline-bg-image)","backgroundSize":"cover","backgroundRepeat":"no-repeat","backgroundPosition":"center"},"css":".gb-element-${cardId}{background-image:var(\\u002d\\u002dinline-bg-image);background-position:center;background-repeat:no-repeat;background-size:cover}","htmlAttributes":{"style":"\\u002d\\u002dinline-bg-image: url(${room.image})"},"className":"room-card room-card\\u002d\\u002d${room.class}"} -->
+<div class="gb-element-${cardId} room-card room-card--${room.class}" style="--inline-bg-image: url(${room.image})"><!-- wp:generateblocks/element {"uniqueId":"${contentId}","tagName":"div","className":"room-card__content"} -->
+<div class="room-card__content"><!-- wp:generateblocks/text {"uniqueId":"${roomTitleId}","tagName":"h3","className":"room-card__title"} -->
+<h3 class="gb-text room-card__title">${room.name}</h3>
+<!-- /wp:generateblocks/text -->
+
+<!-- wp:paragraph {"className":"room-card__count"} -->
+<p class="room-card__count">${room.count} products</p>
+<!-- /wp:paragraph --></div>
+<!-- /wp:generateblocks/element --></div>
+<!-- /wp:generateblocks/element -->
+
+`;
+            });
+
+            template += `</div>
+<!-- /wp:generateblocks/element --></div>
+<!-- /wp:generateblocks/element --></div>
+<!-- /wp:generateblocks/element -->`;
+
+            document.getElementById('output').value = template;
+        }
+
+        function copyCode() {
+            const output = document.getElementById('output');
+            output.select();
+            document.execCommand('copy');
+            alert('Code copied to clipboard!');
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,89 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "blocksy-child/browse-rooms",
+  "version": "1.0.0",
+  "title": "Browse Rooms (GenerateBlocks)",
+  "category": "design",
+  "icon": "grid-view",
+  "description": "A responsive grid component for browsing different room categories using GenerateBlocks.",
+  "keywords": ["rooms", "grid", "gallery", "generateblocks"],
+  "textdomain": "blocksy-child",
+  "editorScript": "file:./index.js",
+  "editorStyle": "file:./editor.css",
+  "style": "file:./style.css",
+  "attributes": {
+    "title": {
+      "type": "string",
+      "default": "Browse by rooms"
+    },
+    "description": {
+      "type": "string",
+      "default": "Discover our curated collection of furniture organized by room type. Each category features handpicked pieces designed to transform your space."
+    },
+    "rooms": {
+      "type": "array",
+      "default": [
+        {
+          "name": "Living Room",
+          "count": "15",
+          "image": "https://via.placeholder.com/600x800/8FBC8F/FFFFFF?text=Living+Room",
+          "class": "living"
+        },
+        {
+          "name": "Bedroom",
+          "count": "12",
+          "image": "https://via.placeholder.com/400x300/DEB887/FFFFFF?text=Bedroom",
+          "class": "bedroom"
+        },
+        {
+          "name": "Walk-in Closet",
+          "count": "8",
+          "image": "https://via.placeholder.com/400x300/DEB887/FFFFFF?text=Walk-in+Closet",
+          "class": "closet"
+        },
+        {
+          "name": "Kitchen",
+          "count": "20",
+          "image": "https://via.placeholder.com/400x600/8FBC8F/FFFFFF?text=Kitchen",
+          "class": "kitchen"
+        }
+      ],
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "count": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string",
+            "format": "uri"
+          },
+          "class": {
+            "type": "string"
+          }
+        },
+        "required": ["name", "count", "image", "class"]
+      }
+    },
+    "backgroundColor": {
+      "type": "string",
+      "default": "#1a2e1a"
+    }
+  },
+  "supports": {
+    "html": false,
+    "align": ["wide", "full"],
+    "spacing": {
+      "margin": true,
+      "padding": true
+    },
+    "color": {
+      "background": true,
+      "text": true
+    }
+  }
+}
