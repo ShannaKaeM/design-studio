@@ -1,0 +1,284 @@
+/**
+ * Design System Studio - Editor Styles
+ */
+
+/* Main Panel Styles */
+.ds-design-system-panel {
+    padding: 16px;
+    background: #fff;
+    border-radius: 4px;
+}
+
+.ds-panel-header h3 {
+    margin: 0 0 8px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.ds-panel-header p {
+    margin: 0 0 16px 0;
+    font-size: 13px;
+    color: #757575;
+}
+
+/* Panel Navigation */
+.ds-panel-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    margin-bottom: 16px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.ds-panel-nav .components-button {
+    font-size: 12px;
+    padding: 4px 8px;
+    height: auto;
+}
+
+/* Panel Content */
+.ds-panel-content {
+    margin-bottom: 16px;
+}
+
+/* Color Manager Styles */
+.ds-color-manager h4,
+.ds-spacing-manager h4,
+.ds-typography-manager h4 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.ds-add-color,
+.ds-add-spacing {
+    padding: 16px;
+    background: #f7f7f7;
+    border-radius: 4px;
+    margin-bottom: 16px;
+}
+
+.ds-color-picker-wrapper {
+    margin: 12px 0;
+}
+
+.ds-color-picker-wrapper label {
+    display: block;
+    margin-bottom: 8px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* Color Items */
+.ds-color-item,
+.ds-spacing-item {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background: #fafafa;
+}
+
+.ds-color-swatch {
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    flex-shrink: 0;
+}
+
+.ds-color-slug,
+.ds-spacing-slug {
+    font-size: 12px;
+    color: #757575;
+    margin-top: 4px;
+}
+
+.ds-css-variable {
+    font-size: 11px;
+    background: #f0f0f0;
+    padding: 2px 4px;
+    border-radius: 2px;
+    margin-top: 4px;
+    font-family: monospace;
+}
+
+/* Spacing Visual */
+.ds-spacing-visual {
+    border-radius: 2px;
+    margin-bottom: 8px;
+}
+
+/* CSS Preview */
+.ds-css-preview {
+    margin-top: 16px;
+    padding: 12px;
+    background: #f7f7f7;
+    border-radius: 4px;
+}
+
+.ds-css-preview h4,
+.ds-css-preview h5 {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.ds-css-code {
+    background: #2c3e50;
+    color: #ecf0f1;
+    padding: 12px;
+    border-radius: 4px;
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 11px;
+    line-height: 1.4;
+    overflow-x: auto;
+    white-space: pre;
+    margin: 0;
+}
+
+/* Global Actions */
+.ds-global-actions {
+    padding-top: 16px;
+    border-top: 1px solid #e0e0e0;
+    margin-bottom: 16px;
+}
+
+.ds-preview-status {
+    font-size: 12px;
+}
+
+/* Layout Manager */
+.ds-layout-preview {
+    margin-top: 16px;
+}
+
+.ds-layout-preview h5 {
+    margin: 0 0 12px 0;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* Export/Import */
+.ds-export-section,
+.ds-import-section,
+.ds-save-section {
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.ds-export-section:last-child,
+.ds-import-section:last-child,
+.ds-save-section:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+/* Typography Manager */
+.ds-font-size-item {
+    padding: 12px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background: #fafafa;
+}
+
+.ds-font-size-presets {
+    margin-bottom: 16px;
+}
+
+/* Spacing Presets */
+.ds-spacing-presets {
+    margin-bottom: 16px;
+}
+
+/* Simple Color Manager (Fallback) */
+.ds-color-manager-simple {
+    padding: 16px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 16px 0;
+}
+
+.ds-color-manager-simple h4 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.ds-add-color-simple {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+}
+
+.ds-add-color-simple input {
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 3px;
+    font-size: 13px;
+}
+
+.ds-add-color-simple input[type="text"] {
+    flex: 1;
+    min-width: 120px;
+}
+
+.ds-add-color-simple input[type="color"] {
+    width: 40px;
+    height: 32px;
+    padding: 2px;
+    cursor: pointer;
+}
+
+.ds-add-color-simple button,
+.ds-color-manager-simple > button {
+    padding: 6px 12px;
+    background: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.ds-add-color-simple button:hover,
+.ds-color-manager-simple > button:hover {
+    background: #005a87;
+}
+
+.ds-color-item-simple button {
+    padding: 2px 6px;
+    background: #dc3232;
+    color: white;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 11px;
+}
+
+.ds-color-item-simple button:hover {
+    background: #a00;
+}
+
+/* Responsive */
+@media (max-width: 782px) {
+    .ds-panel-nav {
+        flex-direction: column;
+    }
+    
+    .ds-add-color-simple {
+        flex-direction: column;
+    }
+    
+    .ds-add-color-simple input[type="text"] {
+        min-width: auto;
+    }
+}

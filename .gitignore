@@ -6,13 +6,18 @@ wp-includes/
 /app/public/*
 !/app/public/wp-content/
 
-# Keep only themes directory in wp-content
+# Keep themes and plugins directories in wp-content
 /app/public/wp-content/*
 !/app/public/wp-content/themes/
+!/app/public/wp-content/plugins/
 
 # Keep only blocksy-child theme
 /app/public/wp-content/themes/*
 !/app/public/wp-content/themes/blocksy-child/
+
+# Keep only DS-STUDIO plugin
+/app/public/wp-content/plugins/*
+!/app/public/wp-content/plugins/DS-STUDIO/
 
 # Ignore system files
 .DS_Store

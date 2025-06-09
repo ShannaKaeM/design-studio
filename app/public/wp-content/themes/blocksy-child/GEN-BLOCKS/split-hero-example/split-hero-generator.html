@@ -259,9 +259,24 @@
     
     <div class="output">
         <h2>Generated Code</h2>
-        <button class="btn" onclick="generateHTML()">📋 Copy HTML Code</button>
-        <button class="btn btn-secondary" onclick="generateCSS()">🎨 Copy CSS Code</button>
-        <div class="code-output" id="codeOutput">Click a button above to generate code...</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem;">
+            <button class="btn" onclick="copyHTML()">📋 Copy HTML Code</button>
+            <button class="btn btn-secondary" onclick="copyCSS()">🎨 Copy CSS Code</button>
+        </div>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+            <div>
+                <h3>HTML (Plain HTML)</h3>
+                <div class="code-output" id="generatedHTML">Click generate to see HTML...</div>
+                <p><small>💡 <strong>Usage:</strong> Copy this HTML into a WordPress HTML block</small></p>
+            </div>
+            <div>
+                <h3>CSS (Component Styles)</h3>
+                <div class="code-output" id="generatedCSS">Click generate to see CSS...</div>
+                <p><small>💡 <strong>Usage:</strong> This CSS is also saved in <code>split-hero-component.css</code></small></p>
+                <p><small>📁 <strong>Daniel's Approach:</strong> Each component has its own CSS file for modularity</small></p>
+            </div>
+        </div>
     </div>
 
     <script>
@@ -301,66 +316,66 @@
             const selectId = generateUniqueId();
             const buttonId = generateUniqueId();
 
-            const template = `<div class="split-hero"><!-- wp:generateblocks/element {"uniqueId":"${mainId}","tagName":"div","className":"split-hero__content"} -->
-<div class="split-hero__content"><!-- wp:generateblocks/text {"uniqueId":"${titleId}","tagName":"h1","className":"split-hero__title"} -->
-<h1 class="gb-text split-hero__title">${title}</h1>
-<!-- /wp:generateblocks/text -->
+            // CSS Only
+            const css = `/* CSS Variables - Scoped to Split Hero Component */
+.split-hero-component {
+  /* Colors */
+  --color-primary: #3a5a59;
+  --color-primary-hover: #2d4746;
+  --color-secondary: #5a7b7c;
+  --color-white: #ffffff;
+  --color-light: #e9e7e0;
+  --color-text: #8f8c7f;
+  
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 0.75rem;
+  --space-md: 1rem;
+  --space-lg: 1.25rem;
+  --space-xl: 2.5rem;
+  --space-2xl: 3.5rem;
+  --space-3xl: 5rem;
+  
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  
+  /* Font sizes */
+  --font-base: 1rem;
+  --font-lg: clamp(2rem, 8vw, 3rem);
+  --font-xl: clamp(2.5rem, 5vw, 4rem);
+  
+  /* Font weights */
+  --font-normal: 400;
+  --font-semibold: 600;
+  --font-bold: 700;
+  
+  /* Line heights */
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.4;
+  
+  /* Layout */
+  --grid-gap: var(--space-xs);
+  --content-padding: var(--space-3xl) var(--space-2xl);
+  --form-padding: var(--space-sm);
+}
 
-<!-- wp:paragraph {"className":"split-hero__description"} -->
-<p class="split-hero__description">${description}</p>
-<!-- /wp:paragraph -->
-
-<!-- wp:generateblocks/element {"uniqueId":"${formId}","tagName":"div","className":"split-hero__search-form"} -->
-<div class="split-hero__search-form"><!-- wp:generateblocks/element {"uniqueId":"${inputId}","tagName":"input","htmlAttributes":{"type":"text","placeholder":"${searchPlaceholder}"},"className":"split-hero__search-input"} -->
-<input class="gb-element-${inputId} split-hero__search-input" type="text" placeholder="${searchPlaceholder}" />
-<!-- /wp:generateblocks/element -->
-
-<!-- wp:generateblocks/element {"uniqueId":"${selectId}","tagName":"select","className":"split-hero__search-select"} -->
-<select class="gb-element-${selectId} split-hero__search-select">
-<option value="">Select Category</option>
-<option value="houses">Houses</option>
-<option value="apartments">Apartments</option>
-<option value="condos">Condos</option>
-<option value="townhouses">Townhouses</option>
-</select>
-<!-- /wp:generateblocks/element -->
-
-<!-- wp:generateblocks/text {"uniqueId":"${buttonId}","tagName":"button","className":"split-hero__search-button"} -->
-<button class="gb-text split-hero__search-button">${buttonText}</button>
-<!-- /wp:generateblocks/text --></div>
-<!-- /wp:generateblocks/element --></div>
-<!-- /wp:generateblocks/element -->
-
-<!-- wp:generateblocks/element {"uniqueId":"${imageId}","tagName":"div","styles":{"backgroundImage":"var(\\u002d\\u002dinline-bg-image)","backgroundSize":"cover","backgroundRepeat":"no-repeat","backgroundPosition":"center","backgroundBlendMode":"normal"},"css":".gb-element-${imageId}{background-blend-mode:normal;background-image:var(\\u002d\\u002dinline-bg-image);background-position:center;background-repeat:no-repeat;background-size:cover}","htmlAttributes":{"style":"\\u002d\\u002dinline-bg-image: url(${backgroundImage})"},"className":"split-hero__image"} -->
-<div class="gb-element-${imageId} split-hero__image" style="--inline-bg-image: url(${backgroundImage})"></div>
-<!-- /wp:generateblocks/element --></div>`;
-
-            // Copy to clipboard
-            navigator.clipboard.writeText(template).then(() => {
-                document.getElementById('codeOutput').textContent = template;
-                alert('✅ HTML code copied to clipboard!');
-            }).catch(err => {
-                document.getElementById('codeOutput').textContent = template;
-                alert('Code generated! Copy from the text area below.');
-            });
-        }
-
-        function generateCSS() {
-            const css = `/* ================================================================
-   SPLIT HERO COMPONENT - GENERATED CSS
-   ================================================================ */
-
-.split-hero {
+/* Main Component */
+.split-hero-component {
   display: grid;
   grid-template-columns: 1fr 1fr;
   min-height: 100vh;
+  width: 100vw;
+  max-width: none;
+  margin: 0;
+  padding: 0;
   overflow: hidden;
 }
 
-.split-hero__content {
-  background-color: #3a5a59;
-  color: #ffffff;
-  padding: 5rem 3.5rem;
+.split-hero-component .split-hero__content {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  padding: var(--content-padding);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -368,140 +383,210 @@
   position: relative;
 }
 
-.split-hero__image {
+.split-hero-component .split-hero__image {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
 }
 
-.split-hero__title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 700;
-  line-height: 1.1;
-  margin-bottom: 1.25rem;
-  color: #ffffff;
+.split-hero-component .split-hero__title {
+  font-size: var(--font-xl);
+  font-weight: var(--font-bold);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-lg);
+  color: var(--color-white);
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.split-hero__description {
-  font-size: 1rem;
-  line-height: 1.4;
-  color: #e9e7e0;
-  margin-bottom: 2.5rem;
+.split-hero-component .split-hero__description {
+  font-size: var(--font-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-light);
+  margin-bottom: var(--space-xl);
   max-width: 400px;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.split-hero__search-form {
+.split-hero-component .split-hero__search-form {
   width: 100%;
   max-width: 450px;
-  background-color: #ffffff;
-  border-radius: 0.5rem;
-  padding: 0.75rem;
+  background-color: var(--color-white);
+  border-radius: var(--radius-md);
+  padding: var(--form-padding);
   box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
   display: grid;
   grid-template-columns: 1fr auto auto;
-  gap: 0.5rem;
+  gap: var(--grid-gap);
   align-items: center;
 }
 
-.split-hero__search-input {
+.split-hero-component .split-hero__search-input {
   border: none;
   outline: none;
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem;
-  color: #8f8c7f;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-base);
+  color: var(--color-text);
   background-color: transparent;
   flex: 1;
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.split-hero__search-input::placeholder {
-  color: #8f8c7f;
+.split-hero-component .split-hero__search-input::placeholder {
+  color: var(--color-text);
 }
 
-.split-hero__search-select {
+.split-hero-component .split-hero__search-select {
   border: none;
   outline: none;
-  padding: 0.5rem 0.75rem;
-  font-size: 1rem;
-  color: #8f8c7f;
+  padding: var(--space-xs) var(--space-sm);
+  font-size: var(--font-base);
+  color: var(--color-text);
   background-color: transparent;
   cursor: pointer;
-  border-left: 1px solid #e9e7e0;
+  border-left: 1px solid var(--color-light);
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.split-hero__search-button {
-  background-color: #5a7b7c;
-  color: #ffffff;
+.split-hero-component .split-hero__search-button {
+  background-color: var(--color-secondary);
+  color: var(--color-white);
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  font-size: 1rem;
-  font-weight: 600;
+  padding: var(--space-xs) var(--space-md);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-base);
+  font-weight: var(--font-semibold);
   cursor: pointer;
   transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
-.split-hero__search-button:hover {
-  background-color: #3a5a59;
+.split-hero-component .split-hero__search-button:hover {
+  background-color: var(--color-primary);
   transform: translateY(-1px);
 }
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .split-hero {
+  .split-hero-component {
     grid-template-columns: 1fr;
     min-height: auto;
   }
   
-  .split-hero__content {
-    padding: 3.5rem 1.25rem;
+  .split-hero-component .split-hero__content {
+    padding: var(--space-2xl) var(--space-lg);
     order: 2;
   }
   
-  .split-hero__image {
+  .split-hero-component .split-hero__image {
     min-height: 50vh;
     order: 1;
   }
 }
 
 @media (max-width: 768px) {
-  .split-hero__content {
-    padding: 2.5rem 1rem;
+  .split-hero-component .split-hero__content {
+    padding: var(--space-xl) var(--space-md);
   }
   
-  .split-hero__search-form {
+  .split-hero-component .split-hero__search-form {
     grid-template-columns: 1fr;
-    gap: 0.75rem;
+    gap: var(--space-sm);
   }
   
-  .split-hero__search-select {
+  .split-hero-component .split-hero__search-select {
     border-left: none;
-    border-top: 1px solid #e9e7e0;
-    padding-top: 0.75rem;
+    border-top: 1px solid var(--color-light);
+    padding-top: var(--space-sm);
   }
   
-  .split-hero__title {
-    font-size: clamp(2rem, 8vw, 3rem);
+  .split-hero-component .split-hero__title {
+    font-size: var(--font-lg);
   }
 }`;
 
-            // Copy to clipboard
+            // HTML Only - Clean GenerateBlocks markup (Daniel's approach)
+            const html = `<!-- wp:generateblocks/container {"uniqueId":"${mainId}","className":"split-hero-component"} -->
+<div class="gb-container split-hero-component">
+    <!-- wp:generateblocks/container {"uniqueId":"${contentId}","className":"split-hero__content"} -->
+    <div class="gb-container split-hero__content">
+        <!-- wp:generateblocks/text {"uniqueId":"${titleId}","tagName":"h1","className":"split-hero__title"} -->
+        <h1 class="gb-text split-hero__title">${title}</h1>
+        <!-- /wp:generateblocks/text -->
+
+        <!-- wp:generateblocks/text {"uniqueId":"${descriptionId}","tagName":"p","className":"split-hero__description"} -->
+        <p class="gb-text split-hero__description">${description}</p>
+        <!-- /wp:generateblocks/text -->
+
+        <!-- wp:generateblocks/container {"uniqueId":"${formId}","className":"split-hero__search-form"} -->
+        <div class="gb-container split-hero__search-form">
+            <!-- wp:generateblocks/element {"uniqueId":"${inputId}","tagName":"input","htmlAttributes":{"type":"text","placeholder":"${searchPlaceholder}"},"className":"split-hero__search-input"} -->
+            <input class="gb-element-${inputId} split-hero__search-input" type="text" placeholder="${searchPlaceholder}" />
+            <!-- /wp:generateblocks/element -->
+
+            <!-- wp:generateblocks/element {"uniqueId":"${selectId}","tagName":"select","className":"split-hero__search-select"} -->
+            <select class="gb-element-${selectId} split-hero__search-select">
+                <option value="">Select Category</option>
+                <option value="houses">Houses</option>
+                <option value="apartments">Apartments</option>
+                <option value="condos">Condos</option>
+                <option value="townhouses">Townhouses</option>
+            </select>
+            <!-- /wp:generateblocks/element -->
+
+            <!-- wp:generateblocks/text {"uniqueId":"${buttonId}","tagName":"button","className":"split-hero__search-button"} -->
+            <button class="gb-text split-hero__search-button">${buttonText}</button>
+            <!-- /wp:generateblocks/text -->
+        </div>
+        <!-- /wp:generateblocks/container -->
+    </div>
+    <!-- /wp:generateblocks/container -->
+
+    <!-- wp:generateblocks/container {"uniqueId":"${imageId}","className":"split-hero__image","htmlAttributes":{"style":"background-image: url(${backgroundImage})"}} -->
+    <div class="gb-container split-hero__image" style="background-image: url(${backgroundImage})"></div>
+    <!-- /wp:generateblocks/container -->
+</div>
+<!-- /wp:generateblocks/container -->`;
+
+            // Update the output areas
+            document.getElementById('generatedHTML').textContent = html;
+            document.getElementById('generatedCSS').textContent = css;
+            
+            // Update preview
+            updatePreview();
+        }
+
+        function copyCSS() {
+            const css = document.getElementById('generatedCSS').textContent;
             navigator.clipboard.writeText(css).then(() => {
-                document.getElementById('codeOutput').textContent = css;
-                alert('✅ CSS code copied to clipboard!');
-            }).catch(err => {
-                document.getElementById('codeOutput').textContent = css;
-                alert('CSS generated! Copy from the text area below.');
+                const button = document.querySelector('button[onclick="copyCSS()"]');
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.backgroundColor = '#28a745';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '#007bff';
+                }, 2000);
             });
         }
 
+        function copyHTML() {
+            const html = document.getElementById('generatedHTML').textContent;
+            navigator.clipboard.writeText(html).then(() => {
+                const button = document.querySelector('button[onclick="copyHTML()"]');
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.style.backgroundColor = '#28a745';
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.style.backgroundColor = '#007bff';
+                }, 2000);
+            });
+        }
+        
         // Initialize preview
         updatePreview();
+        generateHTML(); // Generate initial code
     </script>
 </body>
 </html>

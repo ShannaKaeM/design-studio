@@ -152,9 +152,9 @@
                     "color": "#3a5a59"
                 },
                 {
+                    "name": "secondary-light",
                     "slug": "secondary-light",
-                    "name": "Secondary Light",
-                    "color": "#c38484"
+                    "color": "#2f86bc"
                 },
                 {
                     "slug": "secondary",
@@ -419,14 +419,14 @@
                     "xl": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
                     "2xl": "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
                 },
-                "elevation": {
-                    "0": "none",
-                    "1": "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
-                    "2": "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
-                    "3": "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
-                    "4": "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
-                    "5": "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
-                },
+                "elevation": [
+                    "none",
+                    "0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px -1px rgba(0, 0, 0, 0.1)",
+                    "0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1)",
+                    "0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1)",
+                    "0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
+                    "0 25px 50px -12px rgba(0, 0, 0, 0.25)"
+                ],
                 "inset": {
                     "none": "none",
                     "xs": "inset 0 1px 2px 0 rgba(0, 0, 0, 0.05)",
@@ -463,8 +463,8 @@
             "width": true
         },
         "layout": {
-            "contentSize": "1024px",
-            "wideSize": "1280px"
+            "contentSize": "1200px",
+            "wideSize": "1400px"
         }
     },
     "styles": {

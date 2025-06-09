@@ -1,0 +1,33 @@
+{
+  "name": "design-system-studio",
+  "version": "1.0.0",
+  "description": "Modern UI replacement for WordPress Customizer - Visual theme.json management with live preview",
+  "main": "ds-studio.php",
+  "scripts": {
+    "build": "wp-scripts build src/index.js --output-path=assets/js",
+    "start": "wp-scripts start src/index.js --output-path=assets/js",
+    "dev": "wp-scripts start",
+    "lint:js": "wp-scripts lint-js",
+    "format": "wp-scripts format"
+  },
+  "keywords": [
+    "wordpress",
+    "theme-json",
+    "design-system",
+    "block-editor",
+    "customizer"
+  ],
+  "author": "Shanna & Daniel",
+  "license": "GPL-2.0-or-later",
+  "devDependencies": {
+    "@wordpress/scripts": "^26.0.0"
+  },
+  "dependencies": {
+    "@wordpress/components": "^25.0.0",
+    "@wordpress/data": "^9.0.0",
+    "@wordpress/edit-post": "^7.0.0",
+    "@wordpress/element": "^5.0.0",
+    "@wordpress/i18n": "^4.0.0",
+    "@wordpress/plugins": "^6.0.0"
+  }
+}
