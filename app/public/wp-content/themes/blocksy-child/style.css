@@ -195,5 +195,5 @@ Version: 1.0.0
   font-size: var(--wp--preset--font-size--medium);
   color: var(--wp--preset--color--neutral-dark);
   line-height: var(--wp--custom--typography--base-styles--line-heights--relaxed);
-  margin-bottom: var(--wp--preset--spacing--lg);
+  margin-bottom: var(--wp--preset--spacing--lg); 
 }
