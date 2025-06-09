@@ -1,36 +1,40 @@
-# WordPress core files
-wp-admin/
-wp-includes/
+# WordPress Core Files (exclude but keep wp-content)
+/app/public/wp-admin/
+/app/public/wp-includes/
+/app/public/wp-*.php
+/app/public/index.php
+/app/public/xmlrpc.php
+/app/public/license.txt
+/app/public/readme.html
 
-# Ignore WordPress core files but keep wp-content
-/app/public/*
-!/app/public/wp-content/
+# WordPress Config (keep for development)
+# /app/public/wp-config.php
 
-# Keep themes and plugins directories in wp-content
-/app/public/wp-content/*
-!/app/public/wp-content/themes/
-!/app/public/wp-content/plugins/
+# Uploads and Cache
+/app/public/wp-content/uploads/
+/app/public/wp-content/cache/
+/app/public/wp-content/upgrade/
 
-# Keep only blocksy-child theme
-/app/public/wp-content/themes/*
+# Keep our custom development files
 !/app/public/wp-content/themes/blocksy-child/
-
-# Keep only DS-STUDIO plugin
-/app/public/wp-content/plugins/*
 !/app/public/wp-content/plugins/DS-STUDIO/
 
-# Ignore system files
+# System Files
 .DS_Store
 Thumbs.db
 .idea/
 .vscode/
 
-# Ignore node modules and logs
+# Node modules and logs
 node_modules/
 npm-debug.log
 yarn-error.log
-
-# Ignore local development files
 *.log
+
+# Environment files
 .env
 .env.*
+
+# Temporary files
+*.tmp
+*.temp
