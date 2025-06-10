@@ -40,6 +40,9 @@ require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-block-patterns.php';
 // Include GenerateBlocks integration
 require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-generateblocks-integration.php';
 
+// Include debug API script
+require_once DS_STUDIO_PLUGIN_PATH . 'debug-wp-api.php';
+
 // Initialize GenerateBlocks integration after all plugins are loaded
 add_action('plugins_loaded', function() {
     if (class_exists('GenerateBlocks')) {
