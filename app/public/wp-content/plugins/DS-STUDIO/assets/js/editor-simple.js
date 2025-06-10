@@ -71,12 +71,34 @@
         const [editingSpacing, setEditingSpacing] = useState(null);
         const [editSpacingValue, setEditSpacingValue] = useState('');
 
+        // Layout state
+        const [layout, setLayout] = useState({
+            containers: [],
+            aspectRatios: [],
+            zIndex: [],
+            breakpoints: [],
+            grid: []
+        });
+        
+        // Individual new item states for layout
+        const [newContainer, setNewContainer] = useState({ name: '', value: '' });
+        const [newAspectRatio, setNewAspectRatio] = useState({ name: '', value: '' });
+        const [newZIndex, setNewZIndex] = useState({ name: '', value: '' });
+        const [newBreakpoint, setNewBreakpoint] = useState({ name: '', value: '' });
+        const [newGrid, setNewGrid] = useState({ name: '', value: '' });
+
+        // Layout editing state
+        const [editingLayout, setEditingLayout] = useState(null);
+        const [editLayoutValue, setEditLayoutValue] = useState('');
+        const [editLayoutType, setEditLayoutType] = useState('');
+
         // Load existing colors and typography from theme.json on component mount
         useEffect(() => {
             loadExistingColors();
             loadExistingTypography();
             loadExistingBorders();
             loadExistingSpacing();
+            loadExistingLayout();
         }, []);
 
         const loadExistingColors = () => {
@@ -227,6 +249,103 @@
                 
                 setSpacing(spacingData);
                 console.log('Spacing data loaded:', spacingData);
+            }
+        };
+
+        const loadExistingLayout = () => {
+            if (window.dsStudio && window.dsStudio.currentThemeJson) {
+                const themeJson = window.dsStudio.currentThemeJson;
+                
+                // Convert custom layout objects to array format
+                const convertToArray = (obj, type) => {
+                    if (!obj || typeof obj !== 'object') return [];
+                    return Object.entries(obj).map(([key, value]) => ({
+                        name: key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1'),
+                        slug: key,
+                        value: value
+                    }));
+                };
+                
+                // Initialize arrays
+                let containers = [];
+                let aspectRatios = [];
+                let zIndex = [];
+                let breakpoints = [];
+                let grid = [];
+                
+                // Load containers from custom.layout.containers and add WordPress standard layout
+                if (themeJson.custom?.layout?.containers) {
+                    containers = convertToArray(themeJson.custom.layout.containers);
+                }
+                
+                // Add WordPress standard layout values if they exist
+                if (themeJson.settings?.layout?.contentSize) {
+                    const contentExists = containers.find(c => c.slug === 'content');
+                    if (!contentExists) {
+                        containers.unshift({
+                            name: 'Content Size',
+                            slug: 'content',
+                            value: themeJson.settings.layout.contentSize
+                        });
+                    }
+                }
+                
+                if (themeJson.settings?.layout?.wideSize) {
+                    const wideExists = containers.find(c => c.slug === 'wide');
+                    if (!wideExists) {
+                        containers.push({
+                            name: 'Wide Size',
+                            slug: 'wide',
+                            value: themeJson.settings.layout.wideSize
+                        });
+                    }
+                }
+                
+                // Load aspect ratios
+                if (themeJson.custom?.layout?.aspectRatios) {
+                    aspectRatios = convertToArray(themeJson.custom.layout.aspectRatios).map(item => ({
+                        ...item,
+                        name: `${item.name} Aspect`,
+                        type: 'aspectRatio'
+                    }));
+                }
+                
+                // Load z-index
+                if (themeJson.custom?.layout?.zIndex) {
+                    zIndex = convertToArray(themeJson.custom.layout.zIndex).map(item => ({
+                        ...item,
+                        name: `${item.name} Z-Index`,
+                        type: 'zIndex'
+                    }));
+                }
+                
+                // Load breakpoints
+                if (themeJson.custom?.layout?.breakpoints) {
+                    breakpoints = convertToArray(themeJson.custom.layout.breakpoints).map(item => ({
+                        ...item,
+                        name: `${item.name} Breakpoint`,
+                        type: 'breakpoint'
+                    }));
+                }
+                
+                // Load grid templates
+                if (themeJson.custom?.layout?.grid) {
+                    grid = convertToArray(themeJson.custom.layout.grid).map(item => ({
+                        ...item,
+                        name: `${item.name} Grid`
+                    }));
+                }
+                
+                const layoutData = {
+                    containers: containers,
+                    aspectRatios: aspectRatios,
+                    zIndex: zIndex,
+                    breakpoints: breakpoints,
+                    grid: grid
+                };
+                
+                setLayout(layoutData);
+                console.log('Layout data loaded:', layoutData);
             }
         };
 
@@ -699,6 +818,239 @@
             window.dsStudio.currentThemeJson.settings.spacing = {
                 ...window.dsStudio.currentThemeJson.settings.spacing,
                 spacingSizes: updatedSpacing.spacingSizes
+            };
+        };
+
+        // Layout save functions
+        const saveContainer = async () => {
+            if (!newContainer.name.trim() || !newContainer.value.trim()) {
+                setMessage('Please enter both container name and value');
+                return;
+            }
+            
+            setIsLoading(true);
+            try {
+                const updatedLayout = {
+                    ...layout,
+                    containers: [...layout.containers, {
+                        name: newContainer.name,
+                        slug: newContainer.name.toLowerCase().replace(/\s+/g, '-'),
+                        value: newContainer.value
+                    }]
+                };
+                
+                await saveLayoutToThemeJson(updatedLayout);
+                setLayout(updatedLayout);
+                setNewContainer({ name: '', value: '' });
+                setMessage('Container added successfully!');
+            } catch (error) {
+                setMessage('Error adding container: ' + error.message);
+            }
+            setIsLoading(false);
+        };
+
+        const saveAspectRatio = async () => {
+            if (!newAspectRatio.name.trim() || !newAspectRatio.value.trim()) {
+                setMessage('Please enter both aspect ratio name and value');
+                return;
+            }
+            
+            setIsLoading(true);
+            try {
+                const updatedLayout = {
+                    ...layout,
+                    aspectRatios: [...layout.aspectRatios, {
+                        name: newAspectRatio.name,
+                        slug: newAspectRatio.name.toLowerCase().replace(/\s+/g, '-'),
+                        value: newAspectRatio.value
+                    }]
+                };
+                
+                await saveLayoutToThemeJson(updatedLayout);
+                setLayout(updatedLayout);
+                setNewAspectRatio({ name: '', value: '' });
+                setMessage('Aspect ratio added successfully!');
+            } catch (error) {
+                setMessage('Error adding aspect ratio: ' + error.message);
+            }
+            setIsLoading(false);
+        };
+
+        const saveZIndex = async () => {
+            if (!newZIndex.name.trim() || !newZIndex.value.trim()) {
+                setMessage('Please enter both z-index name and value');
+                return;
+            }
+            
+            setIsLoading(true);
+            try {
+                const updatedLayout = {
+                    ...layout,
+                    zIndex: [...layout.zIndex, {
+                        name: newZIndex.name,
+                        slug: newZIndex.name.toLowerCase().replace(/\s+/g, '-'),
+                        value: newZIndex.value
+                    }]
+                };
+                
+                await saveLayoutToThemeJson(updatedLayout);
+                setLayout(updatedLayout);
+                setNewZIndex({ name: '', value: '' });
+                setMessage('Z-index added successfully!');
+            } catch (error) {
+                setMessage('Error adding z-index: ' + error.message);
+            }
+            setIsLoading(false);
+        };
+
+        const saveBreakpoint = async () => {
+            if (!newBreakpoint.name.trim() || !newBreakpoint.value.trim()) {
+                setMessage('Please enter both breakpoint name and value');
+                return;
+            }
+            
+            setIsLoading(true);
+            try {
+                const updatedLayout = {
+                    ...layout,
+                    breakpoints: [...layout.breakpoints, {
+                        name: newBreakpoint.name,
+                        slug: newBreakpoint.name.toLowerCase().replace(/\s+/g, '-'),
+                        value: newBreakpoint.value
+                    }]
+                };
+                
+                await saveLayoutToThemeJson(updatedLayout);
+                setLayout(updatedLayout);
+                setNewBreakpoint({ name: '', value: '' });
+                setMessage('Breakpoint added successfully!');
+            } catch (error) {
+                setMessage('Error adding breakpoint: ' + error.message);
+            }
+            setIsLoading(false);
+        };
+
+        const saveGrid = async () => {
+            if (!newGrid.name.trim() || !newGrid.value.trim()) {
+                setMessage('Please enter both grid name and value');
+                return;
+            }
+            
+            setIsLoading(true);
+            try {
+                const updatedLayout = {
+                    ...layout,
+                    grid: [...layout.grid, {
+                        name: newGrid.name,
+                        slug: newGrid.name.toLowerCase().replace(/\s+/g, '-'),
+                        value: newGrid.value
+                    }]
+                };
+                
+                await saveLayoutToThemeJson(updatedLayout);
+                setLayout(updatedLayout);
+                setNewGrid({ name: '', value: '' });
+                setMessage('Grid template added successfully!');
+            } catch (error) {
+                setMessage('Error adding grid template: ' + error.message);
+            }
+            setIsLoading(false);
+        };
+
+        // Helper function to save layout to theme.json
+        const saveLayoutToThemeJson = async (updatedLayout) => {
+            // Convert arrays back to object format for theme.json
+            const containersObj = {};
+            const aspectRatiosObj = {};
+            const zIndexObj = {};
+            const breakpointsObj = {};
+            const gridObj = {};
+            
+            // Separate WordPress standard layout from custom containers
+            let contentSize = null;
+            let wideSize = null;
+            
+            updatedLayout.containers.forEach(container => {
+                if (container.slug === 'content') {
+                    contentSize = container.value;
+                } else if (container.slug === 'wide') {
+                    wideSize = container.value;
+                } else {
+                    containersObj[container.slug] = container.value;
+                }
+            });
+            
+            updatedLayout.aspectRatios.forEach(aspectRatio => {
+                aspectRatiosObj[aspectRatio.slug] = aspectRatio.value;
+            });
+            
+            updatedLayout.zIndex.forEach(zIndex => {
+                zIndexObj[zIndex.slug] = zIndex.value;
+            });
+            
+            updatedLayout.breakpoints.forEach(breakpoint => {
+                breakpointsObj[breakpoint.slug] = breakpoint.value;
+            });
+            
+            updatedLayout.grid.forEach(grid => {
+                gridObj[grid.slug] = grid.value;
+            });
+
+            const response = await fetch(window.dsStudio.ajaxUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({
+                    action: 'ds_studio_save_theme_json',
+                    nonce: window.dsStudio.nonce,
+                    theme_json: JSON.stringify({
+                        ...window.dsStudio.currentThemeJson,
+                        settings: {
+                            ...window.dsStudio.currentThemeJson.settings,
+                            layout: {
+                                ...window.dsStudio.currentThemeJson.settings.layout,
+                                ...(contentSize && { contentSize }),
+                                ...(wideSize && { wideSize })
+                            }
+                        },
+                        custom: {
+                            ...window.dsStudio.currentThemeJson.custom,
+                            layout: {
+                                ...window.dsStudio.currentThemeJson.custom.layout,
+                                ...(Object.keys(containersObj).length > 0 && { containers: containersObj }),
+                                ...(Object.keys(aspectRatiosObj).length > 0 && { aspectRatios: aspectRatiosObj }),
+                                ...(Object.keys(zIndexObj).length > 0 && { zIndex: zIndexObj }),
+                                ...(Object.keys(breakpointsObj).length > 0 && { breakpoints: breakpointsObj }),
+                                ...(Object.keys(gridObj).length > 0 && { grid: gridObj })
+                            }
+                        }
+                    })
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to save layout');
+            }
+            
+            // Update the global theme.json data
+            if (contentSize) {
+                window.dsStudio.currentThemeJson.settings.layout = {
+                    ...window.dsStudio.currentThemeJson.settings.layout,
+                    contentSize
+                };
+            }
+            if (wideSize) {
+                window.dsStudio.currentThemeJson.settings.layout = {
+                    ...window.dsStudio.currentThemeJson.settings.layout,
+                    wideSize
+                };
+            }
+            window.dsStudio.currentThemeJson.custom.layout = {
+                ...window.dsStudio.currentThemeJson.custom.layout,
+                ...(Object.keys(containersObj).length > 0 && { containers: containersObj }),
+                ...(Object.keys(aspectRatiosObj).length > 0 && { aspectRatios: aspectRatiosObj }),
+                ...(Object.keys(zIndexObj).length > 0 && { zIndex: zIndexObj }),
+                ...(Object.keys(breakpointsObj).length > 0 && { breakpoints: breakpointsObj }),
+                ...(Object.keys(gridObj).length > 0 && { grid: gridObj })
             };
         };
 
@@ -1207,6 +1559,136 @@
             }
         };
 
+        // Layout editing functions
+        const startEditingLayout = (item, type) => {
+            setEditingLayout(item);
+            setEditLayoutValue(item.value);
+            setEditLayoutType(type);
+        };
+
+        const saveLayoutEdit = async () => {
+            if (!editLayoutValue.trim()) {
+                setMessage('Please enter a value');
+                return;
+            }
+
+            setIsLoading(true);
+            try {
+                const updatedLayout = { ...layout };
+                const categoryKey = editLayoutType;
+                
+                updatedLayout[categoryKey] = updatedLayout[categoryKey].map(item =>
+                    item.slug === editingLayout.slug
+                        ? { ...item, value: editLayoutValue }
+                        : item
+                );
+
+                await saveLayoutToThemeJson(updatedLayout);
+                setLayout(updatedLayout);
+                setEditingLayout(null);
+                setEditLayoutValue('');
+                setEditLayoutType('');
+                setMessage('Layout item updated successfully!');
+            } catch (error) {
+                setMessage('Error updating layout item: ' + error.message);
+            }
+            setIsLoading(false);
+        };
+
+        const moveLayoutItem = async (type, index, direction) => {
+            const items = [...layout[type]];
+            const newIndex = direction === 'up' ? index - 1 : index + 1;
+            
+            if (newIndex < 0 || newIndex >= items.length) return;
+            
+            [items[index], items[newIndex]] = [items[newIndex], items[index]];
+            
+            const updatedLayout = {
+                ...layout,
+                [type]: items
+            };
+            
+            try {
+                await saveLayoutToThemeJson(updatedLayout);
+                setLayout(updatedLayout);
+                setMessage('Layout items reordered successfully!');
+            } catch (error) {
+                setMessage('Error reordering layout items: ' + error.message);
+            }
+        };
+
+        // Layout UI components
+        const renderEditableLayoutSection = (title, items, type) => {
+            return el('div', { style: { marginBottom: '15px' } },
+                el('h5', { style: { margin: '0 0 15px 0', fontSize: '14px', fontWeight: 'bold' } }, title),
+                items.length > 0 ? 
+                    items.map((item, index) => 
+                        el('div', { 
+                            key: index,
+                            style: { 
+                                display: 'flex', 
+                                alignItems: 'center', 
+                                justifyContent: 'space-between',
+                                padding: '8px 12px',
+                                marginBottom: '6px',
+                                backgroundColor: 'white',
+                                border: '1px solid #e0e0e0',
+                                borderRadius: '4px',
+                                cursor: 'pointer',
+                                transition: 'all 0.2s ease'
+                            },
+                            onClick: () => startEditingLayout(item, type),
+                            onMouseEnter: (e) => {
+                                e.target.style.backgroundColor = '#f0f0f0';
+                                e.target.style.borderColor = '#007cba';
+                            },
+                            onMouseLeave: (e) => {
+                                e.target.style.backgroundColor = 'white';
+                                e.target.style.borderColor = '#e0e0e0';
+                            }
+                        },
+                            el('div', { style: { flex: 1 } },
+                                el('div', { style: { fontWeight: '500', fontSize: '13px', marginBottom: '2px' } }, item.name),
+                                el('div', { style: { fontSize: '11px', color: '#666', fontFamily: 'monospace' } }, item.value)
+                            ),
+                            el('div', { style: { display: 'flex', alignItems: 'center', gap: '4px' } },
+                                el('button', {
+                                    onClick: (e) => {
+                                        e.stopPropagation();
+                                        moveLayoutItem(type, index, 'up');
+                                    },
+                                    disabled: index === 0,
+                                    style: {
+                                        background: 'none', 
+                                        border: 'none', 
+                                        cursor: index === 0 ? 'not-allowed' : 'pointer',
+                                        fontSize: '10px',
+                                        padding: '1px 4px',
+                                        opacity: index === 0 ? 0.3 : 1
+                                    }
+                                }, '▲'),
+                                el('button', {
+                                    onClick: (e) => {
+                                        e.stopPropagation();
+                                        moveLayoutItem(type, index, 'down');
+                                    },
+                                    disabled: index === items.length - 1,
+                                    style: {
+                                        background: 'none', 
+                                        border: 'none', 
+                                        cursor: index === items.length - 1 ? 'not-allowed' : 'pointer',
+                                        fontSize: '10px',
+                                        padding: '1px 4px',
+                                        opacity: index === items.length - 1 ? 0.3 : 1
+                                    }
+                                }, '▼')
+                            )
+                        )
+                    ) :
+                    el('p', { style: { color: '#666', fontStyle: 'italic', fontSize: '12px', margin: '0' } }, 'None found')
+            );
+        };
+
         return el('div', { style: { padding: '16px' } },
             el('h3', { style: { marginTop: '0' } }, 'Design System Studio'),
             
@@ -1287,7 +1769,8 @@
                     }
                 },
                     el('div', { style: { marginBottom: '12px', display: 'flex', justifyContent: 'space-between', alignItems: 'center' } },
-                        el('h4', { style: { margin: '0', fontSize: '14px', fontWeight: '600' } }, `Edit ${colors[editingColor]?.name}`),
+                        el('h4', { style: { margin: '0', fontSize: '14px', fontWeight: '600' } }, 
+                            `Edit ${colors[editingColor]?.name}`),
                         el('button', {
                             onClick: cancelEditingColor,
                             style: {
@@ -1696,6 +2179,248 @@
             ) // Added closing parenthesis here
             ,
 
+            // Layout Modules - Separate Accordion Panels
+            
+            // Containers Module
+            el(PanelBody, { 
+                title: 'Containers', 
+                initialOpen: false,
+                style: { 
+                    position: 'sticky', 
+                    top: '0', 
+                    zIndex: 100,
+                    backgroundColor: 'white',
+                    borderBottom: '1px solid #ddd'
+                }
+            },
+                el('div', { style: { marginBottom: '20px' } },
+                    el('h4', { style: { margin: '0 0 15px 0' } }, 'Container Sizes'),
+                    el('p', { style: { fontSize: '12px', color: '#666', margin: '0 0 15px 0' } }, 
+                        'Manage content width containers. Click any item to edit, or use arrow buttons to reorder.'
+                    )
+                ),
+
+                renderEditableLayoutSection('Current Containers', layout.containers, 'containers'),
+                
+                // Add new container form
+                el('div', { style: { marginTop: '15px', padding: '12px', border: '1px solid #ddd', borderRadius: '4px', backgroundColor: '#f9f9f9' } },
+                    el('h6', { style: { margin: '0 0 10px 0', fontSize: '12px', fontWeight: 'bold' } }, 'Add New Container'),
+                    el(TextControl, {
+                        label: 'Name',
+                        value: newContainer.name,
+                        onChange: (value) => setNewContainer({...newContainer, name: value}),
+                        placeholder: 'e.g., Header, Footer',
+                        style: { marginBottom: '8px' }
+                    }),
+                    el(TextControl, {
+                        label: 'Value',
+                        value: newContainer.value,
+                        onChange: (value) => setNewContainer({...newContainer, value: value}),
+                        placeholder: 'e.g., 1200px, 90vw',
+                        style: { marginBottom: '8px' }
+                    }),
+                    el(Button, {
+                        isPrimary: true,
+                        isSmall: true,
+                        isBusy: isLoading,
+                        disabled: isLoading || !newContainer.name || !newContainer.value,
+                        onClick: saveContainer
+                    }, isLoading ? 'Adding...' : 'Add Container')
+                )
+            ),
+
+            // Aspect Ratios Module
+            el(PanelBody, { 
+                title: 'Aspect Ratios', 
+                initialOpen: false,
+                style: { 
+                    position: 'sticky', 
+                    top: '0', 
+                    zIndex: 100,
+                    backgroundColor: 'white',
+                    borderBottom: '1px solid #ddd'
+                }
+            },
+                el('div', { style: { marginBottom: '20px' } },
+                    el('h4', { style: { margin: '0 0 15px 0' } }, 'Aspect Ratios'),
+                    el('p', { style: { fontSize: '12px', color: '#666', margin: '0 0 15px 0' } }, 
+                        'Manage aspect ratio values for responsive design. Click any item to edit, or use arrow buttons to reorder.'
+                    )
+                ),
+
+                renderEditableLayoutSection('Current Aspect Ratios', layout.aspectRatios, 'aspectRatios'),
+                
+                // Add new aspect ratio form
+                el('div', { style: { marginTop: '15px', padding: '12px', border: '1px solid #ddd', borderRadius: '4px', backgroundColor: '#f9f9f9' } },
+                    el('h6', { style: { margin: '0 0 10px 0', fontSize: '12px', fontWeight: 'bold' } }, 'Add New Aspect Ratio'),
+                    el(TextControl, {
+                        label: 'Name',
+                        value: newAspectRatio.name,
+                        onChange: (value) => setNewAspectRatio({...newAspectRatio, name: value}),
+                        placeholder: 'e.g., 16/9, 4/3',
+                        style: { marginBottom: '8px' }
+                    }),
+                    el(TextControl, {
+                        label: 'Value',
+                        value: newAspectRatio.value,
+                        onChange: (value) => setNewAspectRatio({...newAspectRatio, value: value}),
+                        placeholder: 'e.g., 16/9, 4/3',
+                        style: { marginBottom: '8px' }
+                    }),
+                    el(Button, {
+                        isPrimary: true,
+                        isSmall: true,
+                        isBusy: isLoading,
+                        disabled: isLoading || !newAspectRatio.name || !newAspectRatio.value,
+                        onClick: saveAspectRatio
+                    }, isLoading ? 'Adding...' : 'Add Aspect Ratio')
+                )
+            ),
+
+            // Z-Index Module
+            el(PanelBody, { 
+                title: 'Z-Index', 
+                initialOpen: false,
+                style: { 
+                    position: 'sticky', 
+                    top: '0', 
+                    zIndex: 100,
+                    backgroundColor: 'white',
+                    borderBottom: '1px solid #ddd'
+                }
+            },
+                el('div', { style: { marginBottom: '20px' } },
+                    el('h4', { style: { margin: '0 0 15px 0' } }, 'Z-Index Layers'),
+                    el('p', { style: { fontSize: '12px', color: '#666', margin: '0 0 15px 0' } }, 
+                        'Manage z-index stacking layers. Click any item to edit, or use arrow buttons to reorder.'
+                    )
+                ),
+
+                renderEditableLayoutSection('Current Z-Index', layout.zIndex, 'zIndex'),
+                
+                // Add new z-index form
+                el('div', { style: { marginTop: '15px', padding: '12px', border: '1px solid #ddd', borderRadius: '4px', backgroundColor: '#f9f9f9' } },
+                    el('h6', { style: { margin: '0 0 10px 0', fontSize: '12px', fontWeight: 'bold' } }, 'Add New Z-Index'),
+                    el(TextControl, {
+                        label: 'Name',
+                        value: newZIndex.name,
+                        onChange: (value) => setNewZIndex({...newZIndex, name: value}),
+                        placeholder: 'e.g., Overlay, Dropdown',
+                        style: { marginBottom: '8px' }
+                    }),
+                    el(TextControl, {
+                        label: 'Value',
+                        value: newZIndex.value,
+                        onChange: (value) => setNewZIndex({...newZIndex, value: value}),
+                        placeholder: 'e.g., 100, 200',
+                        style: { marginBottom: '8px' }
+                    }),
+                    el(Button, {
+                        isPrimary: true,
+                        isSmall: true,
+                        isBusy: isLoading,
+                        disabled: isLoading || !newZIndex.name || !newZIndex.value,
+                        onClick: saveZIndex
+                    }, isLoading ? 'Adding...' : 'Add Z-Index')
+                )
+            ),
+
+            // Breakpoints Module
+            el(PanelBody, { 
+                title: 'Breakpoints', 
+                initialOpen: false,
+                style: { 
+                    position: 'sticky', 
+                    top: '0', 
+                    zIndex: 100,
+                    backgroundColor: 'white',
+                    borderBottom: '1px solid #ddd'
+                }
+            },
+                el('div', { style: { marginBottom: '20px' } },
+                    el('h4', { style: { margin: '0 0 15px 0' } }, 'Responsive Breakpoints'),
+                    el('p', { style: { fontSize: '12px', color: '#666', margin: '0 0 15px 0' } }, 
+                        'Manage responsive breakpoint values. Click any item to edit, or use arrow buttons to reorder.'
+                    )
+                ),
+
+                renderEditableLayoutSection('Current Breakpoints', layout.breakpoints, 'breakpoints'),
+                
+                // Add new breakpoint form
+                el('div', { style: { marginTop: '15px', padding: '12px', border: '1px solid #ddd', borderRadius: '4px', backgroundColor: '#f9f9f9' } },
+                    el('h6', { style: { margin: '0 0 10px 0', fontSize: '12px', fontWeight: 'bold' } }, 'Add New Breakpoint'),
+                    el(TextControl, {
+                        label: 'Name',
+                        value: newBreakpoint.name,
+                        onChange: (value) => setNewBreakpoint({...newBreakpoint, name: value}),
+                        placeholder: 'e.g., Small, Medium',
+                        style: { marginBottom: '8px' }
+                    }),
+                    el(TextControl, {
+                        label: 'Value',
+                        value: newBreakpoint.value,
+                        onChange: (value) => setNewBreakpoint({...newBreakpoint, value: value}),
+                        placeholder: 'e.g., 768px, 1024px',
+                        style: { marginBottom: '8px' }
+                    }),
+                    el(Button, {
+                        isPrimary: true,
+                        isSmall: true,
+                        isBusy: isLoading,
+                        disabled: isLoading || !newBreakpoint.name || !newBreakpoint.value,
+                        onClick: saveBreakpoint
+                    }, isLoading ? 'Adding...' : 'Add Breakpoint')
+                )
+            ),
+
+            // Grid Templates Module
+            el(PanelBody, { 
+                title: 'Grid Templates', 
+                initialOpen: false,
+                style: { 
+                    position: 'sticky', 
+                    top: '0', 
+                    zIndex: 100,
+                    backgroundColor: 'white',
+                    borderBottom: '1px solid #ddd'
+                }
+            },
+                el('div', { style: { marginBottom: '20px' } },
+                    el('h4', { style: { margin: '0 0 15px 0' } }, 'CSS Grid Templates'),
+                    el('p', { style: { fontSize: '12px', color: '#666', margin: '0 0 15px 0' } }, 
+                        'Manage CSS grid template definitions. Click any item to edit, or use arrow buttons to reorder.'
+                    )
+                ),
+
+                renderEditableLayoutSection('Current Grid Templates', layout.grid, 'grid'),
+                
+                // Add new grid template form
+                el('div', { style: { marginTop: '15px', padding: '12px', border: '1px solid #ddd', borderRadius: '4px', backgroundColor: '#f9f9f9' } },
+                    el('h6', { style: { margin: '0 0 10px 0', fontSize: '12px', fontWeight: 'bold' } }, 'Add New Grid Template'),
+                    el(TextControl, {
+                        label: 'Name',
+                        value: newGrid.name,
+                        onChange: (value) => setNewGrid({...newGrid, name: value}),
+                        placeholder: 'e.g., 3-Column, Auto-Fit',
+                        style: { marginBottom: '8px' }
+                    }),
+                    el(TextControl, {
+                        label: 'Value',
+                        value: newGrid.value,
+                        onChange: (value) => setNewGrid({...newGrid, value: value}),
+                        placeholder: 'e.g., repeat(3, 1fr)',
+                        style: { marginBottom: '8px' }
+                    }),
+                    el(Button, {
+                        isPrimary: true,
+                        isSmall: true,
+                        isBusy: isLoading,
+                        disabled: isLoading || !newGrid.name || !newGrid.value,
+                        onClick: saveGrid
+                    }, isLoading ? 'Adding...' : 'Add Grid Template')
+                )
+            ),
+
             // Spacing Module
             el(PanelBody, { 
                 title: 'Spacing', 
@@ -1901,6 +2626,55 @@
                         isBusy: isLoading,
                         disabled: isLoading || !editSpacingValue,
                         onClick: saveSpacingEdit
+                    }, isLoading ? 'Saving...' : 'Save')
+                )
+            ),
+
+            // Layout editing popup - Fixed position
+            editingLayout !== null && el('div', {
+                style: {
+                    position: 'fixed',
+                    top: '60px',
+                    right: '20px',
+                    zIndex: 999999,
+                    backgroundColor: 'white',
+                    border: '1px solid #ccc',
+                    borderRadius: '8px',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                    padding: '16px',
+                    minWidth: '280px',
+                    maxWidth: '320px'
+                }
+            },
+                el('h4', { style: { margin: '0 0 12px 0', fontSize: '14px' } }, `Edit ${editingLayout.type.charAt(0).toUpperCase() + editingLayout.type.slice(1)}`),
+                
+                el(TextControl, {
+                    label: 'Value',
+                    value: editLayoutValue,
+                    onChange: setEditLayoutValue,
+                    placeholder: editLayoutType === 'containers' ? 'e.g., 1200px, 90vw' :
+                                editLayoutType === 'aspectRatios' ? 'e.g., 16/9, 4/3' :
+                                editLayoutType === 'zIndex' ? 'e.g., 100, 200' :
+                                editLayoutType === 'breakpoints' ? 'e.g., 768px, 1024px' :
+                                'e.g., repeat(12, 1fr)',
+                    style: { marginBottom: '12px' }
+                }),
+                
+                el('div', { style: { display: 'flex', gap: '8px', justifyContent: 'flex-end' } },
+                    el(Button, {
+                        variant: 'secondary',
+                        onClick: () => {
+                            setEditingLayout(null);
+                            setEditLayoutValue('');
+                            setEditLayoutType('');
+                        }
+                    }, 'Cancel'),
+                    
+                    el(Button, {
+                        isPrimary: true,
+                        isBusy: isLoading,
+                        disabled: isLoading || !editLayoutValue,
+                        onClick: saveLayoutEdit
                     }, isLoading ? 'Saving...' : 'Save')
                 )
             )
