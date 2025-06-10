@@ -59,11 +59,24 @@
         const [editingBorder, setEditingBorder] = useState(null);
         const [editBorderValue, setEditBorderValue] = useState('');
 
+        // Spacing state
+        const [spacing, setSpacing] = useState({
+            spacingSizes: []
+        });
+        
+        // Individual new item states for spacing
+        const [newSpacingSize, setNewSpacingSize] = useState({ name: '', value: '' });
+
+        // Spacing editing state
+        const [editingSpacing, setEditingSpacing] = useState(null);
+        const [editSpacingValue, setEditSpacingValue] = useState('');
+
         // Load existing colors and typography from theme.json on component mount
         useEffect(() => {
             loadExistingColors();
             loadExistingTypography();
             loadExistingBorders();
+            loadExistingSpacing();
         }, []);
 
         const loadExistingColors = () => {
@@ -172,6 +185,48 @@
                 
                 setBorders(bordersData);
                 console.log('Borders data loaded:', bordersData);
+            }
+        };
+
+        const loadExistingSpacing = () => {
+            if (window.dsStudio && window.dsStudio.currentThemeJson) {
+                const themeJson = window.dsStudio.currentThemeJson;
+                
+                // Convert custom spacing objects to array format
+                const convertSpacingSizes = (spacingSizesObj) => {
+                    if (!spacingSizesObj || typeof spacingSizesObj !== 'object') return [];
+                    return Object.entries(spacingSizesObj).map(([key, value]) => ({
+                        name: key.charAt(0).toUpperCase() + key.slice(1),
+                        slug: key,
+                        value: value
+                    }));
+                };
+                
+                // Try to load from standard WordPress spacing arrays first, then fallback to custom
+                let spacingSizes = [];
+                
+                // Load from settings.spacing arrays (standard WordPress format)
+                if (themeJson.settings?.spacing?.spacingSizes && Array.isArray(themeJson.settings.spacing.spacingSizes)) {
+                    spacingSizes = themeJson.settings.spacing.spacingSizes.map(item => ({
+                        name: item.name,
+                        slug: item.slug,
+                        value: item.size
+                    }));
+                } else if (themeJson.custom?.spacing?.sizes) {
+                    // Fallback to custom format
+                    spacingSizes = convertSpacingSizes(themeJson.custom.spacing.sizes);
+                } else if (themeJson.custom?.spacing?.scale) {
+                    spacingSizes = convertSpacingSizes(themeJson.custom.spacing.scale);
+                } else if (themeJson.custom?.spacing?.padding) {
+                    spacingSizes = convertSpacingSizes(themeJson.custom.spacing.padding);
+                }
+                
+                const spacingData = {
+                    spacingSizes: spacingSizes
+                };
+                
+                setSpacing(spacingData);
+                console.log('Spacing data loaded:', spacingData);
             }
         };
 
@@ -590,6 +645,63 @@
             };
         };
 
+        // Spacing save functions
+        const saveSpacingSize = async () => {
+            if (!newSpacingSize.name || !newSpacingSize.value) return;
+            
+            setIsLoading(true);
+            try {
+                const updatedSpacing = { ...spacing };
+                const newItem = {
+                    name: newSpacingSize.name,
+                    slug: newSpacingSize.name.toLowerCase().replace(/\s+/g, '-'),
+                    value: newSpacingSize.value
+                };
+                
+                updatedSpacing.spacingSizes = [...(updatedSpacing.spacingSizes || []), newItem];
+                await saveSpacingToThemeJson(updatedSpacing);
+                
+                setSpacing(updatedSpacing);
+                setNewSpacingSize({ name: '', value: '' });
+                setMessage('Spacing size added successfully!');
+            } catch (error) {
+                setMessage('Error: ' + error.message);
+            }
+            setIsLoading(false);
+        };
+
+        // Helper function to save spacing to theme.json
+        const saveSpacingToThemeJson = async (updatedSpacing) => {
+            const response = await fetch(window.dsStudio.ajaxUrl, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({
+                    action: 'ds_studio_save_theme_json',
+                    nonce: window.dsStudio.nonce,
+                    theme_json: JSON.stringify({
+                        ...window.dsStudio.currentThemeJson,
+                        settings: {
+                            ...window.dsStudio.currentThemeJson.settings,
+                            spacing: {
+                                ...window.dsStudio.currentThemeJson.settings.spacing,
+                                spacingSizes: updatedSpacing.spacingSizes
+                            }
+                        }
+                    })
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error('Failed to save spacing');
+            }
+            
+            // Update the global theme.json data
+            window.dsStudio.currentThemeJson.settings.spacing = {
+                ...window.dsStudio.currentThemeJson.settings.spacing,
+                spacingSizes: updatedSpacing.spacingSizes
+            };
+        };
+
         // Color editing functions
         const startEditingColor = (color, index) => {
             setEditingColor(index);
@@ -922,6 +1034,82 @@
             );
         };
 
+        const renderEditableSpacingSection = (title, items, type) => {
+            return el('div', { style: { marginBottom: '15px' } },
+                el('h5', { style: { margin: '0 0 8px 0', fontSize: '13px', fontWeight: 'bold' } }, title),
+                items.length > 0 ? 
+                    items.map((item, index) => 
+                        el('div', { 
+                            key: index,
+                            style: { 
+                                display: 'flex', 
+                                alignItems: 'center', 
+                                marginBottom: '6px',
+                                padding: '8px',
+                                border: '1px solid #ddd',
+                                borderRadius: '4px',
+                                fontSize: '12px',
+                                backgroundColor: '#fafafa'
+                            } 
+                        },
+                            // Visual preview for spacing
+                            el('div', { 
+                                style: { 
+                                    width: '20px',
+                                    height: '20px',
+                                    marginRight: '8px',
+                                    border: '1px solid #ddd',
+                                    borderRadius: '2px',
+                                    backgroundColor: '#f0f0f0'
+                                } 
+                            }),
+                            
+                            // Content
+                            el('div', { 
+                                style: { flex: 1, cursor: 'pointer' },
+                                onClick: () => startEditingSpacing(item, index, type)
+                            },
+                                el('div', { style: { fontWeight: 'bold' } }, item.name),
+                                el('div', { style: { color: '#666' } }, item.value)
+                            ),
+                            
+                            // Edit button
+                            el(Button, {
+                                isSmall: true,
+                                variant: 'secondary',
+                                onClick: () => startEditingSpacing(item, index, type),
+                                style: { marginLeft: '8px' }
+                            }, 'Edit'),
+                            
+                            // Move buttons
+                            el('div', { style: { marginLeft: '8px', display: 'flex', flexDirection: 'column' } },
+                                index > 0 && el('button', {
+                                    onClick: () => moveSpacingItem(type, index, index - 1),
+                                    style: { 
+                                        background: 'none', 
+                                        border: 'none', 
+                                        cursor: 'pointer',
+                                        fontSize: '10px',
+                                        padding: '1px 4px'
+                                    }
+                                }, '▲'),
+                                index < items.length - 1 && el('button', {
+                                    onClick: () => moveSpacingItem(type, index, index + 1),
+                                    style: { 
+                                        background: 'none', 
+                                        border: 'none', 
+                                        cursor: 'pointer',
+                                        fontSize: '10px',
+                                        padding: '1px 4px'
+                                    }
+                                }, '▼')
+                            )
+                        )
+                    ) :
+                    el('p', { style: { color: '#666', fontStyle: 'italic', fontSize: '12px', margin: '0' } }, 'None found')
+            );
+        };
+
         // Helper functions for border editing and moving
         const startEditingBorder = (item, index, type) => {
             setEditingBorder({ item, index, type });
@@ -965,6 +1153,54 @@
             try {
                 await saveBordersToThemeJson(updatedBorders);
                 setBorders(updatedBorders);
+                setMessage(`${type} reordered successfully!`);
+            } catch (error) {
+                setMessage('Error: ' + error.message);
+            }
+        };
+
+        const startEditingSpacing = (item, index, type) => {
+            setEditingSpacing({ item, index, type });
+            setEditSpacingValue(item.value);
+        };
+
+        const saveSpacingEdit = async () => {
+            if (!editingSpacing || !editSpacingValue) return;
+            
+            setIsLoading(true);
+            try {
+                const updatedSpacing = { ...spacing };
+                const { index, type } = editingSpacing;
+                
+                // Update the specific item
+                const items = [...updatedSpacing[type]];
+                items[index] = {
+                    ...items[index],
+                    value: editSpacingValue
+                };
+                updatedSpacing[type] = items;
+                
+                await saveSpacingToThemeJson(updatedSpacing);
+                setSpacing(updatedSpacing);
+                setEditingSpacing(null);
+                setEditSpacingValue('');
+                setMessage(`${type.replace('spacing', '').replace(/([A-Z])/g, ' $1').trim()} updated successfully!`);
+            } catch (error) {
+                setMessage('Error: ' + error.message);
+            }
+            setIsLoading(false);
+        };
+
+        const moveSpacingItem = async (type, fromIndex, toIndex) => {
+            const updatedSpacing = { ...spacing };
+            const items = [...updatedSpacing[type]];
+            const [movedItem] = items.splice(fromIndex, 1);
+            items.splice(toIndex, 0, movedItem);
+            updatedSpacing[type] = items;
+            
+            try {
+                await saveSpacingToThemeJson(updatedSpacing);
+                setSpacing(updatedSpacing);
                 setMessage(`${type} reordered successfully!`);
             } catch (error) {
                 setMessage('Error: ' + error.message);
@@ -1460,6 +1696,58 @@
             ) // Added closing parenthesis here
             ,
 
+            // Spacing Module
+            el(PanelBody, { 
+                title: 'Spacing', 
+                initialOpen: false,
+                style: { 
+                    position: 'sticky', 
+                    top: '0', 
+                    zIndex: 100,
+                    backgroundColor: 'white',
+                    borderBottom: '1px solid #ddd'
+                }
+            },
+                el('div', { style: { marginBottom: '20px' } },
+                    el('h4', { style: { margin: '0 0 15px 0' } }, 'Spacing System'),
+                    el('p', { style: { fontSize: '12px', color: '#666', margin: '0 0 15px 0' } }, 
+                        'Click any item to edit, or use arrow buttons to reorder.'
+                    )
+                ),
+
+                // Spacing Sizes Sub-category
+                el('div', { style: { marginBottom: '20px', padding: '15px', border: '1px solid #e0e0e0', borderRadius: '4px', backgroundColor: '#fafafa' } },
+                    el('h5', { style: { margin: '0 0 15px 0', fontSize: '14px', fontWeight: 'bold' } }, 'Spacing Sizes'),
+                    renderEditableSpacingSection('Current Spacing Sizes', spacing.spacingSizes || [], 'spacingSizes'),
+                    
+                    // Add new spacing size form
+                    el('div', { style: { marginTop: '15px', padding: '12px', border: '1px solid #ddd', borderRadius: '4px', backgroundColor: '#f9f9f9' } },
+                        el('h6', { style: { margin: '0 0 10px 0', fontSize: '12px', fontWeight: 'bold' } }, 'Add New Spacing Size'),
+                        el(TextControl, {
+                            label: 'Name',
+                            value: newSpacingSize.name,
+                            onChange: (value) => setNewSpacingSize({...newSpacingSize, name: value}),
+                            placeholder: 'e.g., Small, Medium, Large',
+                            style: { marginBottom: '8px' }
+                        }),
+                        el(TextControl, {
+                            label: 'Size',
+                            value: newSpacingSize.value,
+                            onChange: (value) => setNewSpacingSize({...newSpacingSize, value: value}),
+                            placeholder: 'e.g., 4px, 0.5rem, 1em',
+                            style: { marginBottom: '8px' }
+                        }),
+                        el(Button, {
+                            isPrimary: true,
+                            isSmall: true,
+                            isBusy: isLoading,
+                            disabled: isLoading || !newSpacingSize.name || !newSpacingSize.value,
+                            onClick: saveSpacingSize
+                        }, isLoading ? 'Adding...' : 'Add Spacing Size')
+                    )
+                )
+            ),
+
             // Border editing popup - Fixed position
             editingBorder !== null && el('div', {
                 style: {
@@ -1569,6 +1857,50 @@
                         isPrimary: true,
                         onClick: saveEditedTypography,
                         disabled: isLoading
+                    }, isLoading ? 'Saving...' : 'Save')
+                )
+            ),
+
+            // Spacing editing popup - Fixed position
+            editingSpacing !== null && el('div', {
+                style: {
+                    position: 'fixed',
+                    top: '60px',
+                    right: '20px',
+                    zIndex: 999999,
+                    backgroundColor: 'white',
+                    border: '1px solid #ccc',
+                    borderRadius: '8px',
+                    boxShadow: '0 4px 12px rgba(0,0,0,0.15)',
+                    padding: '16px',
+                    minWidth: '280px',
+                    maxWidth: '320px'
+                }
+            },
+                el('h4', { style: { margin: '0 0 12px 0', fontSize: '14px' } }, `Edit ${editingSpacing.type.replace('spacing', '').replace(/([A-Z])/g, ' $1').trim()}`),
+                
+                el(TextControl, {
+                    label: 'Value',
+                    value: editSpacingValue,
+                    onChange: setEditSpacingValue,
+                    placeholder: 'e.g., 4px, 0.5rem, 1em',
+                    style: { marginBottom: '12px' }
+                }),
+                
+                el('div', { style: { display: 'flex', gap: '8px', justifyContent: 'flex-end' } },
+                    el(Button, {
+                        variant: 'secondary',
+                        onClick: () => {
+                            setEditingSpacing(null);
+                            setEditSpacingValue('');
+                        }
+                    }, 'Cancel'),
+                    
+                    el(Button, {
+                        isPrimary: true,
+                        isBusy: isLoading,
+                        disabled: isLoading || !editSpacingValue,
+                        onClick: saveSpacingEdit
                     }, isLoading ? 'Saving...' : 'Save')
                 )
             )
