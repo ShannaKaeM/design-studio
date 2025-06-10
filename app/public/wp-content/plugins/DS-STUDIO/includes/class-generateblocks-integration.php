@@ -3,6 +3,7 @@
  * GenerateBlocks Integration
  * 
  * Injects DS-Studio design tokens into GenerateBlocks styling controls
+ * Replaces GB's empty defaults with comprehensive theme.json design system
  *
  * @package DS_Studio
  */
@@ -15,128 +16,248 @@ class DS_Studio_GenerateBlocks_Integration {
     
     public function __construct() {
         add_action('init', array($this, 'init'));
-        // Debug: Log that class is being instantiated
-        error_log('DS_Studio_GenerateBlocks_Integration: Class instantiated');
     }
     
     public function init() {
-        // Debug: Log init
-        error_log('DS_Studio_GenerateBlocks_Integration: Init called');
-        
         // Only run if GenerateBlocks is active
         if (!class_exists('GenerateBlocks')) {
-            error_log('DS_Studio_GenerateBlocks_Integration: GenerateBlocks not found');
             return;
         }
         
-        error_log('DS_Studio_GenerateBlocks_Integration: GenerateBlocks found, adding hooks');
-        
-        // Hook into GB's font family filter
+        // Hook into GenerateBlocks filters
         add_filter('generateblocks_typography_font_family_list', array($this, 'inject_theme_font_families'));
+        add_filter('generateblocks_defaults', array($this, 'inject_theme_defaults'));
+        add_filter('generateblocks_editor_data', array($this, 'inject_editor_data'));
         
-        // Enqueue our custom script for font size presets
-        add_action('admin_enqueue_scripts', array($this, 'enqueue_font_size_presets_script'));
+        // Hook into WordPress editor settings
+        add_filter('block_editor_settings_all', array($this, 'inject_editor_settings'));
         
-        // Hook into WordPress font sizes for UnitControl
-        add_filter('block_editor_settings_all', array($this, 'inject_editor_font_sizes'));
+        // Enqueue our enhanced integration script
+        add_action('admin_enqueue_scripts', array($this, 'enqueue_integration_script'));
     }
     
     /**
-     * Enqueue script to add font size presets to GB interface
+     * Inject theme.json defaults into GenerateBlocks block defaults
      */
-    public function enqueue_font_size_presets_script() {
-        // Debug: Check if we're in the right context
-        error_log('DS_Studio_GenerateBlocks_Integration: enqueue_font_size_presets_script called');
+    public function inject_theme_defaults($defaults) {
+        $theme_json = $this->get_theme_json_data();
         
-        // For now, let's enqueue on all admin pages to test
-        if (is_admin()) {
-            error_log('DS_Studio_GenerateBlocks_Integration: Enqueueing script on admin page');
-            
-            wp_enqueue_script(
-                'ds-studio-gb-font-presets',
-                DS_STUDIO_PLUGIN_URL . 'assets/js/gb-font-presets.js',
-                array('wp-element', 'wp-components', 'wp-hooks'),
-                time(), // Use timestamp for cache busting during development
-                true
-            );
-            
-            // Pass font sizes to JavaScript
-            $font_sizes = $this->get_theme_json_font_sizes();
-            error_log('DS_Studio_GenerateBlocks_Integration: Font sizes for JS: ' . print_r($font_sizes, true));
-            
-            wp_localize_script(
-                'ds-studio-gb-font-presets',
-                'dsStudioFontSizes',
-                array(
-                    'fontSizes' => $font_sizes,
-                    'debug' => 'Script loaded successfully!'
-                )
-            );
-            
-            // Add admin notice for debugging
-            add_action('admin_notices', function() use ($font_sizes) {
-                if (current_user_can('manage_options')) {
-                    echo '<div class="notice notice-success"><p><strong>DS Studio:</strong> Script enqueued! Font sizes: ' . count($font_sizes) . '</p></div>';
-                }
-            });
-        } else {
-            error_log('DS_Studio_GenerateBlocks_Integration: Not on admin page');
-        }
-    }
-    
-    /**
-     * Inject theme.json font families into GenerateBlocks
-     */
-    public function inject_theme_font_families($font_families) {
-        error_log('DS_Studio_GenerateBlocks_Integration: inject_theme_font_families called');
-        
-        $theme_json_fonts = $this->get_theme_json_font_families();
-        
-        error_log('DS_Studio_GenerateBlocks_Integration: Theme fonts found: ' . print_r($theme_json_fonts, true));
-        
-        if (!empty($theme_json_fonts)) {
-            // Add our theme fonts as a new group
-            $font_families[] = array(
-                'label' => __('Theme Fonts', 'ds-studio'),
-                'options' => $theme_json_fonts
-            );
+        if (empty($theme_json)) {
+            return $defaults;
         }
         
-        error_log('DS_Studio_GenerateBlocks_Integration: Final font families: ' . print_r($font_families, true));
+        // Get design tokens
+        $colors = $this->get_theme_colors();
+        $font_sizes = $this->get_theme_font_sizes();
+        $spacing = $this->get_theme_spacing();
+        $typography = $this->get_theme_typography();
         
-        return $font_families;
+        // Inject defaults into Container block
+        if (isset($defaults['container'])) {
+            $defaults['container'] = array_merge($defaults['container'], array(
+                'backgroundColor' => $colors['primary'] ?? '',
+                'textColor' => $colors['base'] ?? '',
+                'fontSize' => $font_sizes[2]['size'] ?? '', // Medium size
+                'fontFamily' => $typography['fontFamily'] ?? '',
+                'fontWeight' => $typography['fontWeight'] ?? '',
+            ));
+        }
+        
+        // Inject defaults into Button block
+        if (isset($defaults['button'])) {
+            $defaults['button'] = array_merge($defaults['button'], array(
+                'backgroundColor' => $colors['primary'] ?? '',
+                'textColor' => $colors['white'] ?? '',
+                'fontSize' => $font_sizes[2]['size'] ?? '', // Medium size
+                'fontFamily' => $typography['fontFamily'] ?? '',
+                'fontWeight' => '600', // Semi-bold for buttons
+            ));
+        }
+        
+        // Inject defaults into Headline block
+        if (isset($defaults['headline'])) {
+            $defaults['headline'] = array_merge($defaults['headline'], array(
+                'textColor' => $colors['base'] ?? '',
+                'fontSize' => $font_sizes[4]['size'] ?? '', // Large size
+                'fontFamily' => $typography['fontFamily'] ?? '',
+                'fontWeight' => '700', // Bold for headlines
+            ));
+        }
+        
+        return $defaults;
     }
     
     /**
-     * Inject font sizes into block editor settings for UnitControl
+     * Inject comprehensive design tokens into GenerateBlocks editor data
      */
-    public function inject_editor_font_sizes($settings) {
-        error_log('DS_Studio_GenerateBlocks_Integration: inject_editor_font_sizes called');
+    public function inject_editor_data($data) {
+        $theme_json = $this->get_theme_json_data();
         
-        $theme_json_font_sizes = $this->get_theme_json_font_sizes();
+        if (empty($theme_json)) {
+            return $data;
+        }
         
-        if (!empty($theme_json_font_sizes)) {
-            // Format for WordPress editor
-            $formatted_sizes = array();
-            foreach ($theme_json_font_sizes as $size) {
-                $formatted_sizes[] = array(
-                    'name' => $size['name'],
-                    'slug' => $size['slug'],
-                    'size' => $size['size']
-                );
-            }
-            
-            $settings['fontSizes'] = $formatted_sizes;
-            error_log('DS_Studio_GenerateBlocks_Integration: Added font sizes to editor settings: ' . print_r($formatted_sizes, true));
+        // Add all design tokens to editor data
+        $data['dsStudioTokens'] = array(
+            'colors' => $this->get_theme_colors(),
+            'fontSizes' => $this->get_theme_font_sizes(),
+            'spacing' => $this->get_theme_spacing(),
+            'typography' => $this->get_theme_typography(),
+            'borderRadius' => $this->get_border_radius_tokens(),
+            'shadows' => $this->get_shadow_tokens(),
+        );
+        
+        return $data;
+    }
+    
+    /**
+     * Inject design tokens into WordPress block editor settings
+     */
+    public function inject_editor_settings($settings) {
+        $theme_json = $this->get_theme_json_data();
+        
+        if (empty($theme_json)) {
+            return $settings;
+        }
+        
+        // Add font size presets for UnitControl
+        $font_sizes = $this->get_theme_font_sizes();
+        if (!empty($font_sizes)) {
+            $settings['fontSizes'] = $font_sizes;
+        }
+        
+        // Add spacing presets for UnitControl
+        $spacing = $this->get_theme_spacing();
+        if (!empty($spacing)) {
+            $settings['spacingSizes'] = $spacing;
         }
         
         return $settings;
     }
     
     /**
+     * Enqueue comprehensive integration script
+     */
+    public function enqueue_integration_script() {
+        if (!is_admin()) {
+            return;
+        }
+        
+        wp_enqueue_script(
+            'ds-studio-gb-integration',
+            DS_STUDIO_PLUGIN_URL . 'assets/js/gb-integration.js',
+            array('wp-element', 'wp-components', 'wp-hooks', 'wp-data'),
+            DS_STUDIO_VERSION,
+            true
+        );
+        
+        // Pass all design tokens to JavaScript
+        wp_localize_script(
+            'ds-studio-gb-integration',
+            'dsStudioTokens',
+            array(
+                'colors' => $this->get_theme_colors(),
+                'fontSizes' => $this->get_theme_font_sizes(),
+                'spacing' => $this->get_theme_spacing(),
+                'typography' => $this->get_theme_typography(),
+                'borderRadius' => $this->get_border_radius_tokens(),
+                'shadows' => $this->get_shadow_tokens(),
+                'debug' => true
+            )
+        );
+    }
+    
+    /**
+     * Inject theme.json font families into GenerateBlocks
+     */
+    public function inject_theme_font_families($font_families) {
+        $theme_json_fonts = $this->get_theme_font_families();
+        
+        if (!empty($theme_json_fonts)) {
+            $font_families[] = array(
+                'label' => __('Theme Fonts', 'ds-studio'),
+                'options' => $theme_json_fonts
+            );
+        }
+        
+        return $font_families;
+    }
+    
+    /**
+     * Get colors from theme.json
+     */
+    private function get_theme_colors() {
+        $theme_json = $this->get_theme_json_data();
+        $colors = array();
+        
+        if (isset($theme_json['settings']['color']['palette'])) {
+            foreach ($theme_json['settings']['color']['palette'] as $color) {
+                $colors[$color['slug']] = $color['color'];
+            }
+        }
+        
+        return $colors;
+    }
+    
+    /**
+     * Get font sizes from theme.json
+     */
+    private function get_theme_font_sizes() {
+        $theme_json = $this->get_theme_json_data();
+        
+        if (isset($theme_json['settings']['typography']['fontSizes'])) {
+            return $theme_json['settings']['typography']['fontSizes'];
+        }
+        
+        return array();
+    }
+    
+    /**
+     * Get spacing presets from theme.json
+     */
+    private function get_theme_spacing() {
+        $theme_json = $this->get_theme_json_data();
+        
+        if (isset($theme_json['settings']['spacing']['spacingSizes'])) {
+            return $theme_json['settings']['spacing']['spacingSizes'];
+        }
+        
+        return array();
+    }
+    
+    /**
+     * Get typography settings from theme.json
+     */
+    private function get_theme_typography() {
+        $theme_json = $this->get_theme_json_data();
+        $typography = array();
+        
+        if (isset($theme_json['settings']['typography'])) {
+            $typo = $theme_json['settings']['typography'];
+            
+            // Get default font family
+            if (isset($typo['fontFamilies'][0])) {
+                $typography['fontFamily'] = $typo['fontFamilies'][0]['fontFamily'];
+            }
+            
+            // Get font weights
+            if (isset($typo['fontWeight'])) {
+                $typography['fontWeight'] = $typo['fontWeight'];
+            }
+            
+            // Get line height
+            if (isset($typo['lineHeight'])) {
+                $typography['lineHeight'] = $typo['lineHeight'];
+            }
+        }
+        
+        return $typography;
+    }
+    
+    /**
      * Get font families from theme.json
      */
-    private function get_theme_json_font_families() {
+    private function get_theme_font_families() {
         $theme_json = $this->get_theme_json_data();
         
         if (isset($theme_json['settings']['typography']['fontFamilies'])) {
@@ -154,13 +275,26 @@ class DS_Studio_GenerateBlocks_Integration {
     }
     
     /**
-     * Get font sizes from theme.json
+     * Get border radius tokens from theme.json custom section
      */
-    private function get_theme_json_font_sizes() {
+    private function get_border_radius_tokens() {
         $theme_json = $this->get_theme_json_data();
         
-        if (isset($theme_json['settings']['typography']['fontSizes'])) {
-            return $theme_json['settings']['typography']['fontSizes'];
+        if (isset($theme_json['settings']['custom']['borderRadius'])) {
+            return $theme_json['settings']['custom']['borderRadius'];
+        }
+        
+        return array();
+    }
+    
+    /**
+     * Get shadow tokens from theme.json custom section
+     */
+    private function get_shadow_tokens() {
+        $theme_json = $this->get_theme_json_data();
+        
+        if (isset($theme_json['settings']['custom']['shadows'])) {
+            return $theme_json['settings']['custom']['shadows'];
         }
         
         return array();
@@ -175,15 +309,11 @@ class DS_Studio_GenerateBlocks_Integration {
         if ($theme_json_data === null) {
             $theme_json_file = get_stylesheet_directory() . '/theme.json';
             
-            error_log('DS_Studio_GenerateBlocks_Integration: Looking for theme.json at: ' . $theme_json_file);
-            
             if (file_exists($theme_json_file)) {
                 $theme_json_content = file_get_contents($theme_json_file);
                 $theme_json_data = json_decode($theme_json_content, true);
-                error_log('DS_Studio_GenerateBlocks_Integration: Theme.json loaded successfully');
             } else {
                 $theme_json_data = array();
-                error_log('DS_Studio_GenerateBlocks_Integration: Theme.json file not found');
             }
         }
         

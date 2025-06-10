@@ -19,8 +19,10 @@ define('DS_STUDIO_VERSION', '1.0.0');
 define('DS_STUDIO_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('DS_STUDIO_PLUGIN_PATH', plugin_dir_path(__FILE__));
 
-// Include utility generator
+// Include core classes
 require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-generator.php';
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-generateblocks-integration.php';
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-class-injector.php';
 
 // Include admin page
 require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-admin-page.php';
@@ -37,11 +39,11 @@ require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-purger.php';
 // Include block patterns
 require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-block-patterns.php';
 
-// Include GenerateBlocks integration
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-generateblocks-integration.php';
-
 // Include debug API script
 require_once DS_STUDIO_PLUGIN_PATH . 'debug-wp-api.php';
+
+// Include integration test page
+require_once DS_STUDIO_PLUGIN_PATH . 'test-integration.php';
 
 // Initialize GenerateBlocks integration after all plugins are loaded
 add_action('plugins_loaded', function() {
@@ -110,6 +112,12 @@ class DS_Studio {
         
         // Initialize utility generator
         $this->utility_generator = new DS_Studio_Utility_Generator();
+        
+        // Initialize admin page
+        new DS_Studio_Admin_Page();
+        
+        // Initialize utility class injector
+        new DS_Studio_Utility_Class_Injector();
     }
     
     /**

@@ -180,9 +180,11 @@ class DS_Studio_Utility_Generator {
      * Generate border utility classes
      */
     private function generate_border_utilities() {
-        // Border widths
-        $border_widths = $this->theme_json_data['custom']['borders']['widths'] ?? [];
-        foreach ($border_widths as $slug => $value) {
+        // Border widths from settings.custom.border.widths
+        $border_widths = $this->theme_json_data['settings']['custom']['border']['widths'] ?? [];
+        foreach ($border_widths as $width) {
+            $slug = $width['slug'];
+            $value = $width['size'];
             $this->utility_classes[] = ".border-{$slug} { border-width: {$value} !important; }";
             $this->utility_classes[] = ".border-t-{$slug} { border-top-width: {$value} !important; }";
             $this->utility_classes[] = ".border-r-{$slug} { border-right-width: {$value} !important; }";
@@ -190,20 +192,26 @@ class DS_Studio_Utility_Generator {
             $this->utility_classes[] = ".border-l-{$slug} { border-left-width: {$value} !important; }";
         }
         
-        // Border styles
-        $border_styles = $this->theme_json_data['custom']['borders']['styles'] ?? [];
-        foreach ($border_styles as $slug => $value) {
-            $this->utility_classes[] = ".border-{$slug} { border-style: {$value} !important; }";
-        }
-        
-        // Border radius
-        $border_radii = $this->theme_json_data['custom']['borders']['radii'] ?? [];
-        foreach ($border_radii as $slug => $value) {
+        // Border radius from settings.custom.border.radius
+        $border_radii = $this->theme_json_data['settings']['custom']['border']['radius'] ?? [];
+        foreach ($border_radii as $radius) {
+            $slug = $radius['slug'];
+            $value = $radius['size'];
             $this->utility_classes[] = ".rounded-{$slug} { border-radius: {$value} !important; }";
             $this->utility_classes[] = ".rounded-t-{$slug} { border-top-left-radius: {$value} !important; border-top-right-radius: {$value} !important; }";
             $this->utility_classes[] = ".rounded-r-{$slug} { border-top-right-radius: {$value} !important; border-bottom-right-radius: {$value} !important; }";
             $this->utility_classes[] = ".rounded-b-{$slug} { border-bottom-left-radius: {$value} !important; border-bottom-right-radius: {$value} !important; }";
             $this->utility_classes[] = ".rounded-l-{$slug} { border-top-left-radius: {$value} !important; border-bottom-left-radius: {$value} !important; }";
+        }
+        
+        // Border styles from settings.custom.border.styles
+        $border_styles = $this->theme_json_data['settings']['custom']['border']['styles'] ?? [];
+        foreach ($border_styles as $style) {
+            $slug = $style['slug'];
+            $name = $style['name'];
+            if ($slug !== 'none') {
+                $this->utility_classes[] = ".border-{$slug} { border-style: {$slug} !important; }";
+            }
         }
     }
     
@@ -211,38 +219,56 @@ class DS_Studio_Utility_Generator {
      * Generate layout utility classes
      */
     private function generate_layout_utilities() {
-        // Container sizes
-        $containers = $this->theme_json_data['custom']['layout']['containers'] ?? [];
+        // Container sizes from settings.custom.layout.containers
+        $containers = $this->theme_json_data['settings']['custom']['layout']['containers'] ?? [];
         foreach ($containers as $slug => $value) {
             $this->utility_classes[] = ".container-{$slug} { max-width: {$value} !important; margin-left: auto !important; margin-right: auto !important; }";
             $this->utility_classes[] = ".w-{$slug} { width: {$value} !important; }";
             $this->utility_classes[] = ".max-w-{$slug} { max-width: {$value} !important; }";
         }
         
-        // Aspect ratios
-        $aspect_ratios = $this->theme_json_data['custom']['layout']['aspectRatios'] ?? [];
+        // Aspect ratios from settings.custom.layout.aspectRatios
+        $aspect_ratios = $this->theme_json_data['settings']['custom']['layout']['aspectRatios'] ?? [];
         foreach ($aspect_ratios as $slug => $value) {
             $this->utility_classes[] = ".aspect-{$slug} { aspect-ratio: {$value} !important; }";
         }
         
-        // Z-index
-        $z_indexes = $this->theme_json_data['custom']['layout']['zIndex'] ?? [];
+        // Z-index from settings.custom.layout.zIndex
+        $z_indexes = $this->theme_json_data['settings']['custom']['layout']['zIndex'] ?? [];
         foreach ($z_indexes as $slug => $value) {
             $this->utility_classes[] = ".z-{$slug} { z-index: {$value} !important; }";
         }
         
-        // Grid templates
-        $grid_templates = $this->theme_json_data['custom']['layout']['grid'] ?? [];
+        // Grid templates from settings.custom.layout.grid
+        $grid_templates = $this->theme_json_data['settings']['custom']['layout']['grid'] ?? [];
         foreach ($grid_templates as $slug => $value) {
             $this->utility_classes[] = ".grid-{$slug} { grid-template-columns: {$value} !important; }";
         }
+        
+        // Common layout utilities
+        $this->utility_classes[] = ".flex { display: flex !important; }";
+        $this->utility_classes[] = ".grid { display: grid !important; }";
+        $this->utility_classes[] = ".block { display: block !important; }";
+        $this->utility_classes[] = ".inline-block { display: inline-block !important; }";
+        $this->utility_classes[] = ".hidden { display: none !important; }";
+        $this->utility_classes[] = ".justify-center { justify-content: center !important; }";
+        $this->utility_classes[] = ".justify-between { justify-content: space-between !important; }";
+        $this->utility_classes[] = ".justify-around { justify-content: space-around !important; }";
+        $this->utility_classes[] = ".items-center { align-items: center !important; }";
+        $this->utility_classes[] = ".items-start { align-items: flex-start !important; }";
+        $this->utility_classes[] = ".items-end { align-items: flex-end !important; }";
+        $this->utility_classes[] = ".text-center { text-align: center !important; }";
+        $this->utility_classes[] = ".text-left { text-align: left !important; }";
+        $this->utility_classes[] = ".text-right { text-align: right !important; }";
+        $this->utility_classes[] = ".w-full { width: 100% !important; }";
+        $this->utility_classes[] = ".h-full { height: 100% !important; }";
     }
     
     /**
      * Generate shadow utility classes
      */
     private function generate_shadow_utilities() {
-        $shadows = $this->theme_json_data['custom']['shadows'] ?? [];
+        $shadows = $this->theme_json_data['settings']['custom']['shadows'] ?? [];
         foreach ($shadows as $slug => $value) {
             $this->utility_classes[] = ".shadow-{$slug} { box-shadow: {$value} !important; }";
         }
@@ -307,7 +333,7 @@ class DS_Studio_Utility_Generator {
         }
         
         // Responsive layout utilities
-        $containers = $this->theme_json_data['custom']['layout']['containers'] ?? [];
+        $containers = $this->theme_json_data['settings']['custom']['layout']['containers'] ?? [];
         foreach ($containers as $slug => $value) {
             $this->utility_classes[] = ".md:container-{$slug} { max-width: {$value} !important; margin-left: auto !important; margin-right: auto !important; }";
             $this->utility_classes[] = ".md:w-{$slug} { width: {$value} !important; }";
@@ -315,7 +341,7 @@ class DS_Studio_Utility_Generator {
         }
         
         // Responsive shadow utilities
-        $shadows = $this->theme_json_data['custom']['shadows'] ?? [];
+        $shadows = $this->theme_json_data['settings']['custom']['shadows'] ?? [];
         foreach ($shadows as $slug => $value) {
             $this->utility_classes[] = ".md:shadow-{$slug} { box-shadow: {$value} !important; }";
         }

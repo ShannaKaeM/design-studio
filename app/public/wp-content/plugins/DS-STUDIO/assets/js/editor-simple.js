@@ -174,9 +174,9 @@
                         slug: item.slug,
                         value: item.size
                     }));
-                } else if (themeJson.custom?.borders?.widths) {
+                } else if (themeJson.settings?.custom?.borders?.widths) {
                     // Fallback to custom format
-                    borderWidths = convertBorderWidths(themeJson.custom.borders.widths);
+                    borderWidths = convertBorderWidths(themeJson.settings.custom.borders.widths);
                 }
                 
                 if (themeJson.settings?.border?.styles && Array.isArray(themeJson.settings.border.styles)) {
@@ -185,8 +185,8 @@
                         slug: item.slug,
                         value: item.slug // For styles, the value is the same as slug
                     }));
-                } else if (themeJson.custom?.borders?.styles) {
-                    borderStyles = convertBorderStyles(themeJson.custom.borders.styles);
+                } else if (themeJson.settings?.custom?.borders?.styles) {
+                    borderStyles = convertBorderStyles(themeJson.settings.custom.borders.styles);
                 }
                 
                 if (themeJson.settings?.border?.radii && Array.isArray(themeJson.settings.border.radii)) {
@@ -195,8 +195,8 @@
                         slug: item.slug,
                         value: item.size
                     }));
-                } else if (themeJson.custom?.borders?.radii) {
-                    borderRadii = convertBorderRadii(themeJson.custom.borders.radii);
+                } else if (themeJson.settings?.custom?.borders?.radii) {
+                    borderRadii = convertBorderRadii(themeJson.settings.custom.borders.radii);
                 }
                 
                 const bordersData = {
@@ -234,13 +234,13 @@
                         slug: item.slug,
                         value: item.size
                     }));
-                } else if (themeJson.custom?.spacing?.sizes) {
+                } else if (themeJson.settings?.custom?.spacing?.sizes) {
                     // Fallback to custom format
-                    spacingSizes = convertSpacingSizes(themeJson.custom.spacing.sizes);
-                } else if (themeJson.custom?.spacing?.scale) {
-                    spacingSizes = convertSpacingSizes(themeJson.custom.spacing.scale);
-                } else if (themeJson.custom?.spacing?.padding) {
-                    spacingSizes = convertSpacingSizes(themeJson.custom.spacing.padding);
+                    spacingSizes = convertSpacingSizes(themeJson.settings.custom.spacing.sizes);
+                } else if (themeJson.settings?.custom?.spacing?.scale) {
+                    spacingSizes = convertSpacingSizes(themeJson.settings.custom.spacing.scale);
+                } else if (themeJson.settings?.custom?.spacing?.padding) {
+                    spacingSizes = convertSpacingSizes(themeJson.settings.custom.spacing.padding);
                 }
                 
                 const spacingData = {
@@ -273,9 +273,9 @@
                 let breakpoints = [];
                 let grid = [];
                 
-                // Load containers from custom.layout.containers and add WordPress standard layout
-                if (themeJson.custom?.layout?.containers) {
-                    containers = convertToArray(themeJson.custom.layout.containers);
+                // Load containers from settings.custom.layout.containers and add WordPress standard layout
+                if (themeJson.settings?.custom?.layout?.containers) {
+                    containers = convertToArray(themeJson.settings.custom.layout.containers);
                 }
                 
                 // Add WordPress standard layout values if they exist
@@ -302,8 +302,8 @@
                 }
                 
                 // Load aspect ratios
-                if (themeJson.custom?.layout?.aspectRatios) {
-                    aspectRatios = convertToArray(themeJson.custom.layout.aspectRatios).map(item => ({
+                if (themeJson.settings?.custom?.layout?.aspectRatios) {
+                    aspectRatios = convertToArray(themeJson.settings.custom.layout.aspectRatios).map(item => ({
                         ...item,
                         name: `${item.name} Aspect`,
                         type: 'aspectRatio'
@@ -311,8 +311,8 @@
                 }
                 
                 // Load z-index
-                if (themeJson.custom?.layout?.zIndex) {
-                    zIndex = convertToArray(themeJson.custom.layout.zIndex).map(item => ({
+                if (themeJson.settings?.custom?.layout?.zIndex) {
+                    zIndex = convertToArray(themeJson.settings.custom.layout.zIndex).map(item => ({
                         ...item,
                         name: `${item.name} Z-Index`,
                         type: 'zIndex'
@@ -320,8 +320,8 @@
                 }
                 
                 // Load breakpoints
-                if (themeJson.custom?.layout?.breakpoints) {
-                    breakpoints = convertToArray(themeJson.custom.layout.breakpoints).map(item => ({
+                if (themeJson.settings?.custom?.layout?.breakpoints) {
+                    breakpoints = convertToArray(themeJson.settings.custom.layout.breakpoints).map(item => ({
                         ...item,
                         name: `${item.name} Breakpoint`,
                         type: 'breakpoint'
@@ -329,8 +329,8 @@
                 }
                 
                 // Load grid templates
-                if (themeJson.custom?.layout?.grid) {
-                    grid = convertToArray(themeJson.custom.layout.grid).map(item => ({
+                if (themeJson.settings?.custom?.layout?.grid) {
+                    grid = convertToArray(themeJson.settings.custom.layout.grid).map(item => ({
                         ...item,
                         name: `${item.name} Grid`
                     }));
@@ -1010,17 +1010,17 @@
                                 ...window.dsStudio.currentThemeJson.settings.layout,
                                 ...(contentSize && { contentSize }),
                                 ...(wideSize && { wideSize })
-                            }
-                        },
-                        custom: {
-                            ...window.dsStudio.currentThemeJson.custom,
-                            layout: {
-                                ...window.dsStudio.currentThemeJson.custom.layout,
-                                ...(Object.keys(containersObj).length > 0 && { containers: containersObj }),
-                                ...(Object.keys(aspectRatiosObj).length > 0 && { aspectRatios: aspectRatiosObj }),
-                                ...(Object.keys(zIndexObj).length > 0 && { zIndex: zIndexObj }),
-                                ...(Object.keys(breakpointsObj).length > 0 && { breakpoints: breakpointsObj }),
-                                ...(Object.keys(gridObj).length > 0 && { grid: gridObj })
+                            },
+                            custom: {
+                                ...window.dsStudio.currentThemeJson.settings.custom,
+                                layout: {
+                                    ...window.dsStudio.currentThemeJson.settings.custom.layout,
+                                    ...(Object.keys(containersObj).length > 0 && { containers: containersObj }),
+                                    ...(Object.keys(aspectRatiosObj).length > 0 && { aspectRatios: aspectRatiosObj }),
+                                    ...(Object.keys(zIndexObj).length > 0 && { zIndex: zIndexObj }),
+                                    ...(Object.keys(breakpointsObj).length > 0 && { breakpoints: breakpointsObj }),
+                                    ...(Object.keys(gridObj).length > 0 && { grid: gridObj })
+                                }
                             }
                         }
                     })
@@ -1044,8 +1044,8 @@
                     wideSize
                 };
             }
-            window.dsStudio.currentThemeJson.custom.layout = {
-                ...window.dsStudio.currentThemeJson.custom.layout,
+            window.dsStudio.currentThemeJson.settings.custom.layout = {
+                ...window.dsStudio.currentThemeJson.settings.custom.layout,
                 ...(Object.keys(containersObj).length > 0 && { containers: containersObj }),
                 ...(Object.keys(aspectRatiosObj).length > 0 && { aspectRatios: aspectRatiosObj }),
                 ...(Object.keys(zIndexObj).length > 0 && { zIndex: zIndexObj }),
@@ -2646,7 +2646,7 @@
                     maxWidth: '320px'
                 }
             },
-                el('h4', { style: { margin: '0 0 12px 0', fontSize: '14px' } }, `Edit ${editingLayout.type.charAt(0).toUpperCase() + editingLayout.type.slice(1)}`),
+                el('h4', { style: { margin: '0 0 12px 0', fontSize: '14px' } }, `Edit ${editingLayout?.type ? editingLayout.type.charAt(0).toUpperCase() + editingLayout.type.slice(1) : 'Item'}`),
                 
                 el(TextControl, {
                     label: 'Value',
