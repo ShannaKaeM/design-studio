@@ -37,6 +37,41 @@ require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-purger.php';
 // Include block patterns
 require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-block-patterns.php';
 
+// Include GenerateBlocks integration
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-generateblocks-integration.php';
+
+// Initialize GenerateBlocks integration after all plugins are loaded
+add_action('plugins_loaded', function() {
+    if (class_exists('GenerateBlocks')) {
+        new DS_Studio_GenerateBlocks_Integration();
+        
+        // Update admin notice
+        add_action('admin_notices', function() {
+            if (current_user_can('manage_options')) {
+                echo '<div class="notice notice-success"><p><strong>DS Studio:</strong> GenerateBlocks integration loaded successfully!</p></div>';
+            }
+        });
+    } else {
+        add_action('admin_notices', function() {
+            if (current_user_can('manage_options')) {
+                echo '<div class="notice notice-error"><p><strong>DS Studio:</strong> GenerateBlocks not found. Please activate GenerateBlocks plugin.</p></div>';
+            }
+        });
+    }
+});
+
+// Test admin notice to verify plugin is loading
+add_action('admin_notices', function() {
+    if (current_user_can('manage_options')) {
+        echo '<div class="notice notice-warning"><p><strong>DS Studio:</strong> Plugin loaded! GenerateBlocks: ' . (class_exists('GenerateBlocks') ? 'Active' : 'Not found') . '</p></div>';
+    }
+});
+
+// Include debug file for testing
+if (defined('WP_DEBUG') && WP_DEBUG) {
+    require_once DS_STUDIO_PLUGIN_PATH . 'debug-integration.php';
+}
+
 /**
  * Main DS Studio Class
  */
