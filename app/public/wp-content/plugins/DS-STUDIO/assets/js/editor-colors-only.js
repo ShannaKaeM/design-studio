@@ -355,44 +355,15 @@
 
     // Main DS-Studio Panel Component
     const DSStudioPanel = () => {
-        // Get initial colors from pre-loaded theme.json data
-        const getInitialColors = () => {
-            if (window.dsStudio && window.dsStudio.currentThemeJson && 
-                window.dsStudio.currentThemeJson.settings && 
-                window.dsStudio.currentThemeJson.settings.color && 
-                window.dsStudio.currentThemeJson.settings.color.palette) {
-                return window.dsStudio.currentThemeJson.settings.color.palette;
-            }
-            return [];
-        };
-
-        const initialColors = getInitialColors();
-        const [colors, setColors] = useState(initialColors);
+        const [colors, setColors] = useState([]);
         const [newColorName, setNewColorName] = useState('');
         const [newColorValue, setNewColorValue] = useState('#3a5a59');
         const [isLoading, setIsLoading] = useState(false);
         const [message, setMessage] = useState('');
 
-        // Typography state
-        const [fontFamilies, setFontFamilies] = useState([]);
-        const [fontSizes, setFontSizes] = useState([]);
-        const [newFontFamily, setNewFontFamily] = useState({ name: '', fontFamily: '' });
-        const [newFontSize, setNewFontSize] = useState({ name: '', size: '' });
-        const [typographyLoading, setTypographyLoading] = useState(false);
-        const [typographyMessage, setTypographyMessage] = useState('');
-
         // Load existing colors from theme.json on component mount
         useEffect(() => {
-            // If we already have colors from the pre-loaded data, show success message
-            if (initialColors.length > 0) {
-                setMessage(`Loaded ${initialColors.length} colors from theme.json`);
-                setTimeout(() => setMessage(''), 3000);
-            } else {
-                // Fallback to AJAX if no pre-loaded data
-                loadExistingColors();
-            }
-            // Also load typography
-            loadExistingTypography();
+            loadExistingColors();
         }, []);
 
         const loadExistingColors = () => {
@@ -427,63 +398,6 @@
                 setIsLoading(false);
                 setMessage('Error: ' + error.message);
                 setTimeout(() => setMessage(''), 3000);
-            });
-        };
-
-        const loadExistingTypography = () => {
-            // First try to load from pre-loaded theme.json data
-            if (window.dsStudio && window.dsStudio.currentThemeJson && 
-                window.dsStudio.currentThemeJson.settings && 
-                window.dsStudio.currentThemeJson.settings.typography) {
-                
-                const typography = window.dsStudio.currentThemeJson.settings.typography;
-                
-                // Load font families
-                const families = typography.fontFamilies || [];
-                setFontFamilies(families);
-                
-                // Load font sizes  
-                const sizes = typography.fontSizes || [];
-                setFontSizes(sizes);
-                
-                setTypographyMessage(`Loaded ${families.length} font families and ${sizes.length} font sizes from theme.json`);
-                setTimeout(() => setTypographyMessage(''), 3000);
-                return;
-            }
-
-            // Fallback to AJAX if no pre-loaded data
-            setTypographyLoading(true);
-            setTypographyMessage('');
-
-            const formData = new FormData();
-            formData.append('action', 'ds_studio_get_typography');
-            formData.append('nonce', window.dsStudio.nonce);
-
-            fetch(window.dsStudio.ajaxUrl, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(result => {
-                setTypographyLoading(false);
-                if (result.success && result.data) {
-                    const typographyData = JSON.parse(result.data);
-                    if (typographyData.fontFamilies) {
-                        setFontFamilies(typographyData.fontFamilies);
-                    }
-                    if (typographyData.fontSizes) {
-                        setFontSizes(typographyData.fontSizes);
-                    }
-                    setTypographyMessage('Typography loaded successfully!');
-                } else {
-                    setTypographyMessage('Error loading typography: ' + (result.data || 'Unknown error'));
-                }
-                setTimeout(() => setTypographyMessage(''), 3000);
-            })
-            .catch(error => {
-                setTypographyLoading(false);
-                setTypographyMessage('Error: ' + error.message);
-                setTimeout(() => setTypographyMessage(''), 3000);
             });
         };
 
@@ -573,87 +487,6 @@
             styleElement.textContent = `:root { ${cssVariables} }`;
         };
 
-        const addFontFamily = () => {
-            if (newFontFamily.name.trim() && newFontFamily.fontFamily.trim()) {
-                const slug = newFontFamily.name.toLowerCase().replace(/[^a-z0-9]/g, '-');
-                const updatedFamilies = [...fontFamilies, {
-                    name: newFontFamily.name,
-                    slug: slug,
-                    fontFamily: newFontFamily.fontFamily
-                }];
-                saveTypographyToThemeJson(updatedFamilies, fontSizes);
-                setNewFontFamily({ name: '', fontFamily: '' });
-            }
-        };
-
-        const addFontSize = () => {
-            if (newFontSize.name.trim() && newFontSize.size.trim()) {
-                const slug = newFontSize.name.toLowerCase().replace(/[^a-z0-9]/g, '-');
-                const updatedSizes = [...fontSizes, {
-                    name: newFontSize.name,
-                    slug: slug,
-                    size: newFontSize.size
-                }];
-                saveTypographyToThemeJson(fontFamilies, updatedSizes);
-                setNewFontSize({ name: '', size: '' });
-            }
-        };
-
-        const saveTypographyToThemeJson = (familiesToSave, sizesToSave) => {
-            setTypographyLoading(true);
-            setTypographyMessage('');
-
-            const formData = new FormData();
-            formData.append('action', 'ds_studio_save_typography');
-            formData.append('nonce', window.dsStudio.nonce);
-            formData.append('fontFamilies', JSON.stringify(familiesToSave));
-            formData.append('fontSizes', JSON.stringify(sizesToSave));
-
-            fetch(window.dsStudio.ajaxUrl, {
-                method: 'POST',
-                body: formData
-            })
-            .then(response => response.json())
-            .then(result => {
-                setTypographyLoading(false);
-                if (result.success) {
-                    setFontFamilies(familiesToSave);
-                    setFontSizes(sizesToSave);
-                    setTypographyMessage('Typography saved to theme.json successfully!');
-                    
-                    // Apply live preview
-                    applyTypographyLivePreview(familiesToSave, sizesToSave);
-                } else {
-                    setTypographyMessage('Error saving: ' + (result.data || 'Unknown error'));
-                }
-                setTimeout(() => setTypographyMessage(''), 3000);
-            })
-            .catch(error => {
-                setTypographyLoading(false);
-                setTypographyMessage('Error: ' + error.message);
-                setTimeout(() => setTypographyMessage(''), 3000);
-            });
-        };
-
-        const applyTypographyLivePreview = (familiesToPreview, sizesToPreview) => {
-            let styleElement = document.getElementById('ds-studio-typography-preview');
-            if (!styleElement) {
-                styleElement = document.createElement('style');
-                styleElement.id = 'ds-studio-typography-preview';
-                document.head.appendChild(styleElement);
-            }
-
-            const fontFamilyVariables = familiesToPreview.map(family => 
-                `--wp--preset--font-family--${family.slug}: ${family.fontFamily};`
-            ).join('\n');
-
-            const fontSizeVariables = sizesToPreview.map(size => 
-                `--wp--preset--font-size--${size.slug}: ${size.size};`
-            ).join('\n');
-
-            styleElement.textContent = `:root { ${fontFamilyVariables}\n${fontSizeVariables} }`;
-        };
-
         return el('div', { className: 'ds-studio-panel' },
             el('h3', {}, 'Design System Studio'),
             el('p', {}, 'Manage your theme.json colors'),
@@ -722,118 +555,6 @@
                                 onEdit: editColor,
                                 onDelete: deleteColor
                             })
-                        )
-                )
-            ),
-
-            // Typography Module
-            el(PanelBody, { title: 'Typography', initialOpen: false },
-                // Show typography message if any
-                typographyMessage && el(Notice, {
-                    status: typographyMessage.includes('Error') ? 'error' : 'success',
-                    isDismissible: false
-                }, typographyMessage),
-                
-                // Typography control buttons
-                el('div', { style: { marginBottom: '15px' } },
-                    el(Button, {
-                        variant: 'secondary',
-                        onClick: loadExistingTypography,
-                        disabled: typographyLoading
-                    }, 'Reload Typography from theme.json')
-                ),
-                
-                // Add Font Family Section
-                el('div', { style: { marginBottom: '20px', padding: '15px', border: '1px solid #ddd', borderRadius: '4px' } },
-                    el('h4', { style: { margin: '0 0 10px 0' } }, 'Add Font Family'),
-                    el(TextControl, {
-                        label: 'Font Name',
-                        value: newFontFamily.name,
-                        onChange: (value) => setNewFontFamily({ ...newFontFamily, name: value }),
-                        placeholder: 'e.g., Heading Font'
-                    }),
-                    el(TextControl, {
-                        label: 'Font Family CSS',
-                        value: newFontFamily.fontFamily,
-                        onChange: (value) => setNewFontFamily({ ...newFontFamily, fontFamily: value }),
-                        placeholder: 'e.g., "Inter", sans-serif'
-                    }),
-                    el(Button, {
-                        variant: 'primary',
-                        onClick: addFontFamily,
-                        disabled: !newFontFamily.name.trim() || !newFontFamily.fontFamily.trim() || typographyLoading
-                    }, typographyLoading ? 'Saving...' : 'Add Font Family')
-                ),
-                
-                // Add Font Size Section
-                el('div', { style: { marginBottom: '20px', padding: '15px', border: '1px solid #ddd', borderRadius: '4px' } },
-                    el('h4', { style: { margin: '0 0 10px 0' } }, 'Add Font Size'),
-                    el(TextControl, {
-                        label: 'Size Name',
-                        value: newFontSize.name,
-                        onChange: (value) => setNewFontSize({ ...newFontSize, name: value }),
-                        placeholder: 'e.g., Heading Large'
-                    }),
-                    el(TextControl, {
-                        label: 'Size Value',
-                        value: newFontSize.size,
-                        onChange: (value) => setNewFontSize({ ...newFontSize, size: value }),
-                        placeholder: 'e.g., 2rem or clamp(1.5rem, 4vw, 2.5rem)'
-                    }),
-                    el(Button, {
-                        variant: 'primary',
-                        onClick: addFontSize,
-                        disabled: !newFontSize.name.trim() || !newFontSize.size.trim() || typographyLoading
-                    }, typographyLoading ? 'Saving...' : 'Add Font Size')
-                ),
-                
-                // Current Font Families
-                el('div', { style: { marginBottom: '20px' } },
-                    el('h4', {}, `Current Font Families (${fontFamilies.length})`),
-                    fontFamilies.length === 0 
-                        ? el('p', { style: { fontStyle: 'italic', color: '#666' } }, 'No font families found.')
-                        : fontFamilies.map((family, index) => 
-                            el('div', { 
-                                key: family.slug,
-                                style: { 
-                                    padding: '10px', 
-                                    border: '1px solid #ddd', 
-                                    borderRadius: '4px',
-                                    marginBottom: '8px',
-                                    fontFamily: family.fontFamily
-                                }
-                            },
-                                el('strong', {}, family.name),
-                                el('br'),
-                                el('code', { style: { fontSize: '12px', color: '#666' } }, family.fontFamily)
-                            )
-                        )
-                ),
-                
-                // Current Font Sizes
-                el('div', {},
-                    el('h4', {}, `Current Font Sizes (${fontSizes.length})`),
-                    fontSizes.length === 0 
-                        ? el('p', { style: { fontStyle: 'italic', color: '#666' } }, 'No font sizes found.')
-                        : fontSizes.map((size, index) => 
-                            el('div', { 
-                                key: size.slug,
-                                style: { 
-                                    padding: '10px', 
-                                    border: '1px solid #ddd', 
-                                    borderRadius: '4px',
-                                    marginBottom: '8px'
-                                }
-                            },
-                                el('strong', {}, size.name),
-                                el('br'),
-                                el('span', { 
-                                    style: { 
-                                        fontSize: size.size.includes('rem') || size.size.includes('em') ? size.size : '16px',
-                                        color: '#666' 
-                                    } 
-                                }, `Sample text (${size.size})`)
-                            )
                         )
                 )
             )

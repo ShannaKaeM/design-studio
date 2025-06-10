@@ -49,8 +49,8 @@ class DS_Studio {
         // Enqueue the main JavaScript file
         wp_enqueue_script(
             'ds-studio-editor',
-            DS_STUDIO_PLUGIN_URL . 'assets/js/editor.js',
-            array('wp-plugins', 'wp-edit-post', 'wp-element', 'wp-components', 'wp-data'),
+            DS_STUDIO_PLUGIN_URL . 'assets/js/editor-simple.js',
+            array('wp-plugins', 'wp-editor', 'wp-element', 'wp-components', 'wp-data'),
             DS_STUDIO_VERSION,
             true
         );
@@ -129,10 +129,166 @@ class DS_Studio {
             wp_die('Insufficient permissions');
         }
         
-        $theme_json_data = json_decode(stripslashes($_POST['themeJson']), true);
+        // Get current theme.json
+        $theme_json_data = $this->get_current_theme_json();
         
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            wp_send_json_error('Invalid JSON data');
+        // Handle color saving
+        if (isset($_POST['color_name']) && isset($_POST['color_value'])) {
+            $color_name = sanitize_text_field($_POST['color_name']);
+            $color_value = sanitize_text_field($_POST['color_value']);
+            $color_slug = sanitize_title($color_name);
+            
+            // Initialize color palette if it doesn't exist
+            if (!isset($theme_json_data['settings']['color']['palette'])) {
+                $theme_json_data['settings']['color']['palette'] = array();
+            }
+            
+            // Check if color already exists and update it, or add new one
+            $color_exists = false;
+            foreach ($theme_json_data['settings']['color']['palette'] as &$color) {
+                if ($color['slug'] === $color_slug) {
+                    $color['color'] = $color_value;
+                    $color['name'] = $color_name;
+                    $color_exists = true;
+                    break;
+                }
+            }
+            
+            if (!$color_exists) {
+                $theme_json_data['settings']['color']['palette'][] = array(
+                    'slug' => $color_slug,
+                    'color' => $color_value,
+                    'name' => $color_name
+                );
+            }
+        }
+        
+        // Handle typography saving
+        if (isset($_POST['typography_type']) && isset($_POST['typography_name']) && isset($_POST['typography_value'])) {
+            $typography_type = sanitize_text_field($_POST['typography_type']);
+            $typography_name = sanitize_text_field($_POST['typography_name']);
+            $typography_value = sanitize_text_field($_POST['typography_value']);
+            $typography_slug = sanitize_title($typography_name);
+            
+            // Handle different typography types
+            switch ($typography_type) {
+                case 'fontSizes':
+                    if (!isset($theme_json_data['settings']['typography']['fontSizes'])) {
+                        $theme_json_data['settings']['typography']['fontSizes'] = array();
+                    }
+                    
+                    // Check if font size already exists
+                    $exists = false;
+                    foreach ($theme_json_data['settings']['typography']['fontSizes'] as &$item) {
+                        if ($item['slug'] === $typography_slug) {
+                            $item['size'] = $typography_value;
+                            $item['name'] = $typography_name;
+                            $exists = true;
+                            break;
+                        }
+                    }
+                    
+                    if (!$exists) {
+                        $theme_json_data['settings']['typography']['fontSizes'][] = array(
+                            'slug' => $typography_slug,
+                            'size' => $typography_value,
+                            'name' => $typography_name
+                        );
+                    }
+                    break;
+                    
+                case 'fontFamilies':
+                    if (!isset($theme_json_data['settings']['typography']['fontFamilies'])) {
+                        $theme_json_data['settings']['typography']['fontFamilies'] = array();
+                    }
+                    
+                    // Check if font family already exists
+                    $exists = false;
+                    foreach ($theme_json_data['settings']['typography']['fontFamilies'] as &$item) {
+                        if ($item['slug'] === $typography_slug) {
+                            $item['fontFamily'] = $typography_value;
+                            $item['name'] = $typography_name;
+                            $exists = true;
+                            break;
+                        }
+                    }
+                    
+                    if (!$exists) {
+                        $theme_json_data['settings']['typography']['fontFamilies'][] = array(
+                            'slug' => $typography_slug,
+                            'fontFamily' => $typography_value,
+                            'name' => $typography_name
+                        );
+                    }
+                    break;
+                    
+                case 'fontWeights':
+                case 'lineHeights':
+                case 'letterSpacing':
+                case 'textTransforms':
+                    // These go in custom settings
+                    $custom_key = str_replace('s', '', $typography_type); // Remove trailing 's'
+                    if (!isset($theme_json_data['settings']['custom']['typography'][$custom_key])) {
+                        $theme_json_data['settings']['custom']['typography'][$custom_key] = array();
+                    }
+                    
+                    // Check if item already exists
+                    $exists = false;
+                    foreach ($theme_json_data['settings']['custom']['typography'][$custom_key] as &$item) {
+                        if ($item['slug'] === $typography_slug) {
+                            $item['value'] = $typography_value;
+                            $item['name'] = $typography_name;
+                            $exists = true;
+                            break;
+                        }
+                    }
+                    
+                    if (!$exists) {
+                        $theme_json_data['settings']['custom']['typography'][$custom_key][] = array(
+                            'slug' => $typography_slug,
+                            'value' => $typography_value,
+                            'name' => $typography_name
+                        );
+                    }
+                    break;
+            }
+        }
+        
+        // Handle borders saving
+        if (isset($_POST['borders'])) {
+            $borders_data = json_decode(stripslashes($_POST['borders']), true);
+            
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                wp_send_json_error('Invalid borders JSON data');
+            }
+            
+            // Ensure custom.borders structure exists
+            if (!isset($theme_json_data['custom'])) {
+                $theme_json_data['custom'] = array();
+            }
+            if (!isset($theme_json_data['custom']['borders'])) {
+                $theme_json_data['custom']['borders'] = array();
+            }
+            
+            // Update borders data
+            if (isset($borders_data['widths'])) {
+                $theme_json_data['custom']['borders']['widths'] = $borders_data['widths'];
+            }
+            if (isset($borders_data['styles'])) {
+                $theme_json_data['custom']['borders']['styles'] = $borders_data['styles'];
+            }
+            if (isset($borders_data['radii'])) {
+                $theme_json_data['custom']['borders']['radii'] = $borders_data['radii'];
+            }
+        }
+        
+        // Handle full theme.json data (legacy support)
+        if (isset($_POST['themeJson'])) {
+            $theme_json_data = json_decode(stripslashes($_POST['themeJson']), true);
+            
+            if (json_last_error() !== JSON_ERROR_NONE) {
+                wp_send_json_error('Invalid JSON data');
+            }
         }
         
         $theme_json_path = get_stylesheet_directory() . '/theme.json';
