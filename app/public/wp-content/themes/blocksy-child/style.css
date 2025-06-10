@@ -1,25 +1,22 @@
 /*
 Theme Name: Blocksy Child
-Description: Child theme for Blocksy with DS-Studio Plugin Integration
+Description: Child theme for Blocksy with custom theme.json design system
+Template: blocksy
 Version: 1.0.0
 */
 
 /* ================================================================
-   DS-STUDIO INTEGRATION
+   CHILD THEME STYLES
    ================================================================ 
    
-   This child theme works with the DS-Studio WordPress plugin
-   for real-time theme.json design token management.
+   This child theme uses theme.json for design tokens which are
+   automatically converted to CSS variables by WordPress:
    
-   All design tokens are defined in theme.json and automatically 
-   converted to CSS variables with --wp-- prefix by WordPress.
+   Colors: var(--wp--preset--color--primary)
+   Font Sizes: var(--wp--preset--font-size--large)
+   Spacing: var(--wp--preset--spacing--medium)
    
-   Color Examples:
-   - var(--wp--preset--color--primary)
-   - var(--wp--preset--color--secondary)
-   - var(--wp--preset--color--base-lightest)
-   
-   The DS-Studio plugin allows live editing of these tokens
-   directly from the WordPress block editor sidebar.
+   Add your custom CSS below this comment.
    ================================================================ */
 
+/* Custom styles go here */
