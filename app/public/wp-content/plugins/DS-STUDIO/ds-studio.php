@@ -19,10 +19,32 @@ define('DS_STUDIO_VERSION', '1.0.0');
 define('DS_STUDIO_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('DS_STUDIO_PLUGIN_PATH', plugin_dir_path(__FILE__));
 
+// Include utility generator
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-generator.php';
+
+// Include admin page
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-admin-page.php';
+
+// Include component library
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-component-library.php';
+
+// Include template functions
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/template-functions.php';
+
+// Include utility purger
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-purger.php';
+
 /**
  * Main DS Studio Class
  */
 class DS_Studio {
+    
+    /**
+     * Utility generator instance
+     *
+     * @var DS_Studio_Utility_Generator
+     */
+    public $utility_generator;
     
     /**
      * Initialize the plugin
@@ -32,6 +54,13 @@ class DS_Studio {
         add_action('enqueue_block_editor_assets', array($this, 'enqueue_block_editor_assets'));
         add_action('wp_ajax_ds_studio_save_theme_json', array($this, 'save_theme_json'));
         add_action('wp_ajax_ds_studio_get_theme_json', array($this, 'get_theme_json'));
+        add_action('wp_ajax_ds_studio_regenerate_utilities', array($this, 'regenerate_utilities_ajax'));
+        
+        // Add purger AJAX handlers
+        add_action('wp_ajax_ds_studio_use_full_css', array($this, 'use_full_css_ajax'));
+        
+        // Initialize utility generator
+        $this->utility_generator = new DS_Studio_Utility_Generator();
     }
     
     /**
@@ -295,6 +324,8 @@ class DS_Studio {
         $json_string = json_encode($theme_json_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
         
         if (file_put_contents($theme_json_path, $json_string)) {
+            // Regenerate utility classes after successful save
+            $this->utility_generator->regenerate_utilities();
             wp_send_json_success('Theme.json saved successfully');
         } else {
             wp_send_json_error('Failed to save theme.json');
@@ -311,6 +342,42 @@ class DS_Studio {
         }
         
         wp_send_json_success($this->get_current_theme_json());
+    }
+    
+    /**
+     * AJAX handler to regenerate utilities
+     */
+    public function regenerate_utilities_ajax() {
+        // Verify nonce
+        if (!wp_verify_nonce($_POST['nonce'], 'ds_studio_utilities_nonce')) {
+            wp_die('Security check failed');
+        }
+        
+        // Check user permissions
+        if (!current_user_can('edit_theme_options')) {
+            wp_die('Insufficient permissions');
+        }
+        
+        $this->utility_generator->regenerate_utilities();
+        wp_send_json_success('Utilities regenerated successfully');
+    }
+    
+    /**
+     * AJAX handler to use full CSS
+     */
+    public function use_full_css_ajax() {
+        // Verify nonce
+        if (!wp_verify_nonce($_POST['nonce'], 'ds_studio_nonce')) {
+            wp_die('Security check failed');
+        }
+        
+        // Check user permissions
+        if (!current_user_can('edit_theme_options')) {
+            wp_die('Insufficient permissions');
+        }
+        
+        // TO DO: Implement logic to use full CSS
+        wp_send_json_success('Full CSS used successfully');
     }
 }
 
