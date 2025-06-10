@@ -459,120 +459,6 @@
             ]
         },
         "custom": {
-            "spacing": {
-                "scale": {
-                    "0": "0",
-                    "px": "1px",
-                    "0.5": "0.125rem",
-                    "1": "0.25rem",
-                    "1.5": "0.375rem",
-                    "2": "0.5rem",
-                    "2.5": "0.625rem",
-                    "3": "0.75rem",
-                    "3.5": "0.875rem",
-                    "4": "1rem",
-                    "5": "1.25rem",
-                    "6": "1.5rem",
-                    "8": "2rem",
-                    "10": "2.5rem",
-                    "12": "3rem",
-                    "16": "4rem",
-                    "20": "5rem",
-                    "24": "6rem",
-                    "32": "8rem",
-                    "40": "10rem",
-                    "48": "12rem",
-                    "56": "14rem",
-                    "64": "16rem",
-                    "80": "20rem",
-                    "96": "24rem"
-                },
-                "padding": {
-                    "none": "0",
-                    "xs": "0.25rem",
-                    "sm": "0.5rem",
-                    "base": "0.75rem",
-                    "md": "1rem",
-                    "lg": "1.25rem",
-                    "xl": "1.5rem",
-                    "2xl": "2rem",
-                    "3xl": "2.5rem",
-                    "4xl": "3rem",
-                    "5xl": "4rem",
-                    "section-sm": "3rem",
-                    "section-md": "6rem",
-                    "section-lg": "9rem"
-                },
-                "margin": {
-                    "none": "0",
-                    "xs": "0.25rem",
-                    "sm": "0.5rem",
-                    "base": "0.75rem",
-                    "md": "1rem",
-                    "lg": "1.25rem",
-                    "xl": "1.5rem",
-                    "2xl": "2rem",
-                    "3xl": "2.5rem",
-                    "4xl": "3rem",
-                    "5xl": "4rem",
-                    "section": "3rem",
-                    "auto": "auto"
-                },
-                "gap": {
-                    "none": "0",
-                    "xs": "0.25rem",
-                    "sm": "0.5rem",
-                    "base": "0.75rem",
-                    "md": "1rem",
-                    "lg": "1.25rem",
-                    "xl": "1.5rem",
-                    "2xl": "2rem",
-                    "3xl": "2.5rem",
-                    "4xl": "3rem"
-                },
-                "layout": {
-                    "container-padding": "1rem",
-                    "container-padding-lg": "2rem",
-                    "content-width": "65ch",
-                    "wide-width": "1200px",
-                    "sidebar-width": "300px",
-                    "gutter": "1.5rem",
-                    "header-height": "4rem"
-                }
-            },
-            "borders": {
-                "widths": {
-                    "none": "0",
-                    "hairline": "0.5px",
-                    "thin": "1px",
-                    "base": "2px",
-                    "thick": "3px",
-                    "heavy": "4px",
-                    "ultra": "8px"
-                },
-                "styles": {
-                    "none": "none",
-                    "solid": "solid",
-                    "dashed": "dashed",
-                    "dotted": "dotted",
-                    "double": "double",
-                    "groove": "groove",
-                    "ridge": "ridge"
-                },
-                "radii": {
-                    "none": "0",
-                    "xs": "0.125rem",
-                    "sm": "0.25rem",
-                    "base": "0.375rem",
-                    "md": "0.5rem",
-                    "lg": "0.75rem",
-                    "xl": "1rem",
-                    "2xl": "1.5rem",
-                    "3xl": "2rem",
-                    "pill": "9999px",
-                    "full": "50%"
-                }
-            },
             "layout": {
                 "containers": {
                     "xs": "320px",
@@ -765,36 +651,67 @@
         }
     },
     "custom": {
-        "borders": {
-            "widths": {
-                "none": "0",
-                "hairline": "0.50px",
-                "thin": "1px",
-                "base": "2px",
-                "thick": "3px",
-                "heavy": "4px",
-                "ultra": "8px"
+        "layout": {
+            "containers": {
+                "xs": "320px",
+                "sm": "640px",
+                "md": "768px",
+                "lg": "1024px",
+                "xl": "1280px",
+                "2xl": "1536px",
+                "3xl": "1920px",
+                "full": "100%",
+                "prose": "65ch",
+                "narrow": "600px",
+                "wide": "1400px"
             },
-            "styles": {
-                "none": "none",
-                "solid": "solid",
-                "dashed": "dashed",
-                "dotted": "dotted",
-                "double": "double",
-                "groove": "groove",
-                "ridge": "ridge"
+            "breakpoints": {
+                "xs": "320px",
+                "sm": "640px",
+                "md": "768px",
+                "lg": "1024px",
+                "xl": "1280px",
+                "2xl": "1536px",
+                "3xl": "1920px"
             },
-            "radii": {
-                "none": "0",
-                "xs": "0.125rem",
-                "sm": "0.25rem",
-                "base": "0.375rem",
-                "md": "0.5rem",
-                "lg": "0.75rem",
-                "xl": "1rem",
-                "2xl": "1.5rem",
-                "pill": "9999px",
-                "full": "50%"
+            "grid": {
+                "columns-1": "repeat(1, minmax(0, 1fr))",
+                "columns-2": "repeat(2, minmax(0, 1fr))",
+                "columns-3": "repeat(3, minmax(0, 1fr))",
+                "columns-4": "repeat(4, minmax(0, 1fr))",
+                "columns-5": "repeat(5, minmax(0, 1fr))",
+                "columns-6": "repeat(6, minmax(0, 1fr))",
+                "columns-8": "repeat(8, minmax(0, 1fr))",
+                "columns-12": "repeat(12, minmax(0, 1fr))",
+                "auto-fit-sm": "repeat(auto-fit, minmax(200px, 1fr))",
+                "auto-fit-md": "repeat(auto-fit, minmax(250px, 1fr))",
+                "auto-fit-lg": "repeat(auto-fit, minmax(300px, 1fr))",
+                "auto-fill-sm": "repeat(auto-fill, minmax(150px, 1fr))",
+                "auto-fill-md": "repeat(auto-fill, minmax(200px, 1fr))",
+                "auto-fill-lg": "repeat(auto-fill, minmax(250px, 1fr))"
+            },
+            "aspectRatios": {
+                "square": "1 / 1",
+                "video": "16 / 9",
+                "golden": "1.618 / 1",
+                "photo": "4 / 3",
+                "portrait": "3 / 4",
+                "wide": "21 / 9",
+                "ultra-wide": "32 / 9",
+                "cinema": "2.39 / 1"
+            },
+            "zIndex": {
+                "behind": "-1",
+                "default": "0",
+                "dropdown": "10",
+                "sticky": "20",
+                "fixed": "30",
+                "modal": "40",
+                "popover": "50",
+                "tooltip": "60",
+                "toast": "70",
+                "overlay": "80",
+                "max": "9999"
             }
         }
     }
