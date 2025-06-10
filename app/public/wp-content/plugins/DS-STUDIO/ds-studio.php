@@ -34,6 +34,15 @@ require_once DS_STUDIO_PLUGIN_PATH . 'includes/template-functions.php';
 // Include utility purger
 require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-purger.php';
 
+// Include block patterns
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-block-patterns.php';
+
+// Include block styles
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-block-styles.php';
+
+// Include Style Builder
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-style-builder.php';
+
 /**
  * Main DS Studio Class
  */
@@ -52,6 +61,10 @@ class DS_Studio {
     public function __construct() {
         add_action('init', array($this, 'init'));
         add_action('enqueue_block_editor_assets', array($this, 'enqueue_block_editor_assets'));
+        
+        // Debug: Add admin notice to verify plugin is loading
+        add_action('admin_notices', array($this, 'debug_admin_notice'));
+        
         add_action('wp_ajax_ds_studio_save_theme_json', array($this, 'save_theme_json'));
         add_action('wp_ajax_ds_studio_get_theme_json', array($this, 'get_theme_json'));
         add_action('wp_ajax_ds_studio_regenerate_utilities', array($this, 'regenerate_utilities_ajax'));
@@ -59,8 +72,15 @@ class DS_Studio {
         // Add purger AJAX handlers
         add_action('wp_ajax_ds_studio_use_full_css', array($this, 'use_full_css_ajax'));
         
+        // Add component management AJAX handlers
+        add_action('wp_ajax_ds_studio_save_component', array($this, 'save_component_ajax'));
+        add_action('wp_ajax_ds_studio_delete_component', array($this, 'delete_component_ajax'));
+        
         // Initialize utility generator
         $this->utility_generator = new DS_Studio_Utility_Generator();
+        
+        // Initialize Style Builder
+        new DS_Studio_Style_Builder();
     }
     
     /**
@@ -72,10 +92,17 @@ class DS_Studio {
     }
     
     /**
+     * Debug admin notice to verify plugin is loading
+     */
+    public function debug_admin_notice() {
+        echo '<div class="notice notice-info"><p>DS-Studio Plugin is ACTIVE and LOADING</p></div>';
+    }
+    
+    /**
      * Enqueue block editor assets
      */
     public function enqueue_block_editor_assets() {
-        // Enqueue the main JavaScript file
+        // Enqueue the main JavaScript file (DS-Studio sidebar for theme.json editing)
         wp_enqueue_script(
             'ds-studio-editor',
             DS_STUDIO_PLUGIN_URL . 'assets/js/editor-simple.js',
@@ -378,6 +405,42 @@ class DS_Studio {
         
         // TO DO: Implement logic to use full CSS
         wp_send_json_success('Full CSS used successfully');
+    }
+    
+    /**
+     * AJAX handler to save component
+     */
+    public function save_component_ajax() {
+        // Verify nonce
+        if (!wp_verify_nonce($_POST['nonce'], 'ds_studio_nonce')) {
+            wp_die('Security check failed');
+        }
+        
+        // Check user permissions
+        if (!current_user_can('edit_theme_options')) {
+            wp_die('Insufficient permissions');
+        }
+        
+        // TO DO: Implement logic to save component
+        wp_send_json_success('Component saved successfully');
+    }
+    
+    /**
+     * AJAX handler to delete component
+     */
+    public function delete_component_ajax() {
+        // Verify nonce
+        if (!wp_verify_nonce($_POST['nonce'], 'ds_studio_nonce')) {
+            wp_die('Security check failed');
+        }
+        
+        // Check user permissions
+        if (!current_user_can('edit_theme_options')) {
+            wp_die('Insufficient permissions');
+        }
+        
+        // TO DO: Implement logic to delete component
+        wp_send_json_success('Component deleted successfully');
     }
 }
 

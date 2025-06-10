@@ -62,6 +62,9 @@ class DS_Studio_Utility_Generator {
         
         // Generate shadow utilities
         $this->generate_shadow_utilities();
+        
+        // Generate responsive utilities
+        $this->generate_responsive_utilities();
     }
     
     /**
@@ -246,50 +249,215 @@ class DS_Studio_Utility_Generator {
     }
     
     /**
+     * Generate responsive utility classes
+     */
+    private function generate_responsive_utilities() {
+        // Responsive spacing utilities
+        $spacing = $this->theme_json_data['settings']['spacing']['spacingSizes'] ?? [];
+        foreach ($spacing as $size) {
+            $slug = $size['slug'];
+            $value = $size['size'];
+            
+            // Margin utilities
+            $this->utility_classes[] = ".md:m-{$slug} { margin: {$value} !important; }";
+            $this->utility_classes[] = ".md:mt-{$slug} { margin-top: {$value} !important; }";
+            $this->utility_classes[] = ".md:mr-{$slug} { margin-right: {$value} !important; }";
+            $this->utility_classes[] = ".md:mb-{$slug} { margin-bottom: {$value} !important; }";
+            $this->utility_classes[] = ".md:ml-{$slug} { margin-left: {$value} !important; }";
+            $this->utility_classes[] = ".md:mx-{$slug} { margin-left: {$value} !important; margin-right: {$value} !important; }";
+            $this->utility_classes[] = ".md:my-{$slug} { margin-top: {$value} !important; margin-bottom: {$value} !important; }";
+            
+            // Padding utilities
+            $this->utility_classes[] = ".md:p-{$slug} { padding: {$value} !important; }";
+            $this->utility_classes[] = ".md:pt-{$slug} { padding-top: {$value} !important; }";
+            $this->utility_classes[] = ".md:pr-{$slug} { padding-right: {$value} !important; }";
+            $this->utility_classes[] = ".md:pb-{$slug} { padding-bottom: {$value} !important; }";
+            $this->utility_classes[] = ".md:pl-{$slug} { padding-left: {$value} !important; }";
+            $this->utility_classes[] = ".md:px-{$slug} { padding-left: {$value} !important; padding-right: {$value} !important; }";
+            $this->utility_classes[] = ".md:py-{$slug} { padding-top: {$value} !important; padding-bottom: {$value} !important; }";
+            
+            // Gap utilities
+            $this->utility_classes[] = ".md:gap-{$slug} { gap: {$value} !important; }";
+            $this->utility_classes[] = ".md:gap-x-{$slug} { column-gap: {$value} !important; }";
+            $this->utility_classes[] = ".md:gap-y-{$slug} { row-gap: {$value} !important; }";
+        }
+        
+        // Responsive color utilities
+        $colors = $this->theme_json_data['settings']['color']['palette'] ?? [];
+        foreach ($colors as $color) {
+            $slug = $color['slug'];
+            $value = $color['color'];
+            
+            // Text color utilities
+            $this->utility_classes[] = ".md:text-{$slug} { color: {$value} !important; }";
+            
+            // Background color utilities
+            $this->utility_classes[] = ".md:bg-{$slug} { background-color: {$value} !important; }";
+            
+            // Border color utilities
+            $this->utility_classes[] = ".md:border-{$slug} { border-color: {$value} !important; }";
+        }
+        
+        // Responsive typography utilities
+        $font_sizes = $this->theme_json_data['settings']['typography']['fontSizes'] ?? [];
+        foreach ($font_sizes as $size) {
+            $slug = $size['slug'];
+            $value = $size['size'];
+            $this->utility_classes[] = ".md:text-{$slug} { font-size: {$value} !important; }";
+        }
+        
+        // Responsive layout utilities
+        $containers = $this->theme_json_data['custom']['layout']['containers'] ?? [];
+        foreach ($containers as $slug => $value) {
+            $this->utility_classes[] = ".md:container-{$slug} { max-width: {$value} !important; margin-left: auto !important; margin-right: auto !important; }";
+            $this->utility_classes[] = ".md:w-{$slug} { width: {$value} !important; }";
+            $this->utility_classes[] = ".md:max-w-{$slug} { max-width: {$value} !important; }";
+        }
+        
+        // Responsive shadow utilities
+        $shadows = $this->theme_json_data['custom']['shadows'] ?? [];
+        foreach ($shadows as $slug => $value) {
+            $this->utility_classes[] = ".md:shadow-{$slug} { box-shadow: {$value} !important; }";
+        }
+    }
+    
+    /**
      * Write utility CSS to file
      */
     private function write_utility_css() {
-        if (empty($this->utility_classes)) return;
-        
-        $css_content = "/* DS-Studio Auto-Generated Utility Classes */\n";
-        $css_content .= "/* Generated from theme.json design tokens */\n\n";
-        
-        // Add utility classes
-        $css_content .= implode("\n", $this->utility_classes);
-        
-        // Add common utility classes
-        $css_content .= "\n\n/* Common Utilities */\n";
-        $css_content .= ".flex { display: flex !important; }\n";
-        $css_content .= ".grid { display: grid !important; }\n";
-        $css_content .= ".block { display: block !important; }\n";
-        $css_content .= ".inline { display: inline !important; }\n";
-        $css_content .= ".inline-block { display: inline-block !important; }\n";
-        $css_content .= ".hidden { display: none !important; }\n";
-        $css_content .= ".relative { position: relative !important; }\n";
-        $css_content .= ".absolute { position: absolute !important; }\n";
-        $css_content .= ".fixed { position: fixed !important; }\n";
-        $css_content .= ".sticky { position: sticky !important; }\n";
-        $css_content .= ".text-left { text-align: left !important; }\n";
-        $css_content .= ".text-center { text-align: center !important; }\n";
-        $css_content .= ".text-right { text-align: right !important; }\n";
-        $css_content .= ".justify-start { justify-content: flex-start !important; }\n";
-        $css_content .= ".justify-center { justify-content: center !important; }\n";
-        $css_content .= ".justify-end { justify-content: flex-end !important; }\n";
-        $css_content .= ".justify-between { justify-content: space-between !important; }\n";
-        $css_content .= ".items-start { align-items: flex-start !important; }\n";
-        $css_content .= ".items-center { align-items: center !important; }\n";
-        $css_content .= ".items-end { align-items: flex-end !important; }\n";
-        $css_content .= ".w-full { width: 100% !important; }\n";
-        $css_content .= ".h-full { height: 100% !important; }\n";
-        
-        // Write to file
         $upload_dir = wp_upload_dir();
-        $css_file_path = $upload_dir['basedir'] . '/ds-studio-utilities.css';
+        $css_dir = $upload_dir['basedir'] . '/ds-studio/';
         
-        file_put_contents($css_file_path, $css_content);
+        if (!file_exists($css_dir)) {
+            wp_mkdir_p($css_dir);
+        }
         
-        // Store the file URL for enqueueing
-        update_option('ds_studio_utilities_css_url', $upload_dir['baseurl'] . '/ds-studio-utilities.css');
+        $css_file = $css_dir . 'utilities.css';
+        
+        // Separate responsive and non-responsive utilities
+        $base_utilities = [];
+        $responsive_utilities = [];
+        
+        foreach ($this->utility_classes as $utility) {
+            if (strpos($utility, '.md:') !== false) {
+                $responsive_utilities[] = $utility;
+            } else {
+                $base_utilities[] = $utility;
+            }
+        }
+        
+        // Build CSS content
+        $css_content = "/* DS-Studio Utility Classes - Generated from theme.json */\n";
+        $css_content .= "/* Generated on: " . date('Y-m-d H:i:s') . " */\n\n";
+        
+        // Add base utilities
+        $css_content .= "/* Base Utilities */\n";
+        $css_content .= implode("\n", $base_utilities) . "\n\n";
+        
+        // Add responsive utilities wrapped in media queries
+        if (!empty($responsive_utilities)) {
+            $css_content .= "/* Responsive Utilities - Medium screens and up (768px) */\n";
+            $css_content .= "@media (min-width: 768px) {\n";
+            
+            foreach ($responsive_utilities as $utility) {
+                // Remove the md: prefix for the media query version
+                $clean_utility = str_replace('.md:', '.', $utility);
+                $css_content .= "    " . $clean_utility . "\n";
+            }
+            
+            $css_content .= "}\n\n";
+        }
+        
+        // Add clamp utilities for fluid responsive design
+        $css_content .= $this->generate_clamp_utilities();
+        
+        file_put_contents($css_file, $css_content);
+        
+        // Update the CSS file URL
+        $this->css_file_url = $upload_dir['baseurl'] . '/ds-studio/utilities.css';
+    }
+    
+    /**
+     * Generate clamp utilities for fluid responsive design
+     */
+    private function generate_clamp_utilities() {
+        $clamp_css = "/* Fluid Responsive Utilities using clamp() */\n";
+        
+        // Get spacing sizes for clamp calculations
+        $spacing = $this->theme_json_data['settings']['spacing']['spacingSizes'] ?? [];
+        $font_sizes = $this->theme_json_data['settings']['typography']['fontSizes'] ?? [];
+        
+        // Generate fluid spacing utilities
+        foreach ($spacing as $index => $size) {
+            $slug = $size['slug'];
+            $value = $size['size'];
+            
+            // Convert rem/px values to numbers for clamp calculation
+            $base_value = $this->extract_numeric_value($value);
+            if ($base_value === null) continue;
+            
+            $min_value = $base_value * 0.75; // 75% for mobile
+            $max_value = $base_value * 1.25; // 125% for desktop
+            $preferred = $base_value; // Base value as preferred
+            
+            $unit = $this->extract_unit($value);
+            $clamp_value = "clamp({$min_value}{$unit}, {$preferred}{$unit}, {$max_value}{$unit})";
+            
+            // Fluid margin utilities
+            $clamp_css .= ".fluid-m-{$slug} { margin: {$clamp_value} !important; }\n";
+            $clamp_css .= ".fluid-mt-{$slug} { margin-top: {$clamp_value} !important; }\n";
+            $clamp_css .= ".fluid-mb-{$slug} { margin-bottom: {$clamp_value} !important; }\n";
+            $clamp_css .= ".fluid-my-{$slug} { margin-top: {$clamp_value} !important; margin-bottom: {$clamp_value} !important; }\n";
+            
+            // Fluid padding utilities
+            $clamp_css .= ".fluid-p-{$slug} { padding: {$clamp_value} !important; }\n";
+            $clamp_css .= ".fluid-pt-{$slug} { padding-top: {$clamp_value} !important; }\n";
+            $clamp_css .= ".fluid-pb-{$slug} { padding-bottom: {$clamp_value} !important; }\n";
+            $clamp_css .= ".fluid-py-{$slug} { padding-top: {$clamp_value} !important; padding-bottom: {$clamp_value} !important; }\n";
+            
+            // Fluid gap utilities
+            $clamp_css .= ".fluid-gap-{$slug} { gap: {$clamp_value} !important; }\n";
+        }
+        
+        // Generate fluid typography utilities
+        foreach ($font_sizes as $size) {
+            $slug = $size['slug'];
+            $value = $size['size'];
+            
+            $base_value = $this->extract_numeric_value($value);
+            if ($base_value === null) continue;
+            
+            $min_value = $base_value * 0.8; // 80% for mobile
+            $max_value = $base_value * 1.2; // 120% for desktop
+            $preferred = $base_value;
+            
+            $unit = $this->extract_unit($value);
+            $clamp_value = "clamp({$min_value}{$unit}, {$preferred}{$unit}, {$max_value}{$unit})";
+            
+            $clamp_css .= ".fluid-text-{$slug} { font-size: {$clamp_value} !important; }\n";
+        }
+        
+        return $clamp_css . "\n";
+    }
+    
+    /**
+     * Extract numeric value from CSS size string
+     */
+    private function extract_numeric_value($value) {
+        if (preg_match('/^([0-9.]+)/', $value, $matches)) {
+            return floatval($matches[1]);
+        }
+        return null;
+    }
+    
+    /**
+     * Extract unit from CSS size string
+     */
+    private function extract_unit($value) {
+        if (preg_match('/([a-z%]+)$/', $value, $matches)) {
+            return $matches[1];
+        }
+        return 'rem'; // Default fallback
     }
     
     /**
@@ -481,6 +649,66 @@ class DS_Studio_Utility_Generator {
         $this->load_theme_json();
         $this->generate_utility_classes();
         $this->write_utility_css();
+    }
+    
+    /**
+     * Get all available utility class names (for component builder)
+     */
+    public function get_available_utilities() {
+        if (empty($this->utility_classes)) {
+            $this->load_theme_json();
+            $this->generate_utility_classes();
+        }
+        
+        $utilities = array();
+        foreach ($this->utility_classes as $css_rule) {
+            // Extract class name from CSS rule (e.g., ".m-xs { ... }" -> "m-xs")
+            if (preg_match('/^\.([a-zA-Z0-9\-_]+)\s*\{/', $css_rule, $matches)) {
+                $utilities[] = $matches[1];
+            }
+        }
+        
+        return array_unique($utilities);
+    }
+    
+    /**
+     * Get utilities organized by category
+     */
+    public function get_utilities_by_category() {
+        $all_utilities = $this->get_available_utilities();
+        $categorized = array(
+            'spacing' => array(),
+            'colors' => array(),
+            'typography' => array(),
+            'layout' => array(),
+            'borders' => array(),
+            'effects' => array(),
+            'responsive' => array(),
+            'fluid' => array()
+        );
+        
+        foreach ($all_utilities as $utility) {
+            // Categorize utilities based on their prefix
+            if (preg_match('/^(fluid-)/', $utility)) {
+                $categorized['fluid'][] = $utility;
+            } elseif (preg_match('/^(md:)/', $utility)) {
+                $categorized['responsive'][] = $utility;
+            } elseif (preg_match('/^(m|p|gap)-/', $utility)) {
+                $categorized['spacing'][] = $utility;
+            } elseif (preg_match('/^(bg|text|border)-/', $utility)) {
+                $categorized['colors'][] = $utility;
+            } elseif (preg_match('/^(text|font|leading|tracking)-/', $utility)) {
+                $categorized['typography'][] = $utility;
+            } elseif (preg_match('/^(flex|grid|block|inline|absolute|relative|fixed|sticky)-/', $utility)) {
+                $categorized['layout'][] = $utility;
+            } elseif (preg_match('/^(border|rounded)-/', $utility)) {
+                $categorized['borders'][] = $utility;
+            } elseif (preg_match('/^(shadow|opacity)-/', $utility)) {
+                $categorized['effects'][] = $utility;
+            }
+        }
+        
+        return $categorized;
     }
 }
 

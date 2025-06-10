@@ -34,6 +34,13 @@ class DS_Studio_Component_Library {
     }
     
     /**
+     * Get all components
+     */
+    public function get_components() {
+        return $this->components;
+    }
+    
+    /**
      * Get default component patterns
      */
     private function get_default_components() {

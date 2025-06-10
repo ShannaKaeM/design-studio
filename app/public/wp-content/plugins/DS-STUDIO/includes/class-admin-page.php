@@ -66,46 +66,183 @@ class DS_Studio_Admin_Page {
                         
                         <h3>Available Utility Categories</h3>
                         <div class="ds-studio-utility-categories">
+                            <?php
+                            $utility_generator = new DS_Studio_Utility_Generator();
+                            $utilities_by_category = $utility_generator->get_utilities_by_category();
+                            ?>
+                            
                             <div class="utility-category">
-                                <h4>🎨 Colors</h4>
-                                <p>Text, background, and border color utilities</p>
-                                <code>.text-primary, .bg-secondary, .border-accent</code>
+                                <h5>🎨 Colors</h5>
+                                <div class="utility-group">
+                                    <h6>Background Colors</h6>
+                                    <?php
+                                    // Get background color utilities
+                                    $bg_utilities = array_filter($utilities_by_category['colors'], function($utility) {
+                                        return strpos($utility, 'bg-') === 0;
+                                    });
+                                    foreach ($bg_utilities as $utility): ?>
+                                        <label class="utility-option">
+                                            <input type="checkbox" name="utilities[]" value="<?php echo esc_attr($utility); ?>">
+                                            <span class="utility-name"><?php echo esc_html($utility); ?></span>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
+                                
+                                <div class="utility-group">
+                                    <h6>Text Colors</h6>
+                                    <?php
+                                    // Get text color utilities
+                                    $text_utilities = array_filter($utilities_by_category['colors'], function($utility) {
+                                        return strpos($utility, 'text-') === 0 && strpos($utility, 'text-xs') !== 0 && strpos($utility, 'text-sm') !== 0 && strpos($utility, 'text-lg') !== 0;
+                                    });
+                                    foreach ($text_utilities as $utility): ?>
+                                        <label class="utility-option">
+                                            <input type="checkbox" name="utilities[]" value="<?php echo esc_attr($utility); ?>">
+                                            <span class="utility-name"><?php echo esc_html($utility); ?></span>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                             
                             <div class="utility-category">
-                                <h4>📏 Spacing</h4>
-                                <p>Margin, padding, and gap utilities</p>
-                                <code>.m-lg, .p-sm, .gap-md, .mx-auto</code>
+                                <h5>📏 Spacing</h5>
+                                <div class="utility-group">
+                                    <h6>Padding</h6>
+                                    <?php
+                                    // Get padding utilities
+                                    $padding_utilities = array_filter($utilities_by_category['spacing'], function($utility) {
+                                        return strpos($utility, 'p-') === 0 || strpos($utility, 'px-') === 0 || strpos($utility, 'py-') === 0 || strpos($utility, 'pt-') === 0 || strpos($utility, 'pr-') === 0 || strpos($utility, 'pb-') === 0 || strpos($utility, 'pl-') === 0;
+                                    });
+                                    foreach (array_slice($padding_utilities, 0, 10) as $utility): ?>
+                                        <label class="utility-option">
+                                            <input type="checkbox" name="utilities[]" value="<?php echo esc_attr($utility); ?>">
+                                            <span class="utility-name"><?php echo esc_html($utility); ?></span>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
+                                
+                                <div class="utility-group">
+                                    <h6>Margin</h6>
+                                    <?php
+                                    // Get margin utilities
+                                    $margin_utilities = array_filter($utilities_by_category['spacing'], function($utility) {
+                                        return strpos($utility, 'm-') === 0 || strpos($utility, 'mx-') === 0 || strpos($utility, 'my-') === 0 || strpos($utility, 'mt-') === 0 || strpos($utility, 'mr-') === 0 || strpos($utility, 'mb-') === 0 || strpos($utility, 'ml-') === 0;
+                                    });
+                                    foreach (array_slice($margin_utilities, 0, 10) as $utility): ?>
+                                        <label class="utility-option">
+                                            <input type="checkbox" name="utilities[]" value="<?php echo esc_attr($utility); ?>">
+                                            <span class="utility-name"><?php echo esc_html($utility); ?></span>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                             
                             <div class="utility-category">
-                                <h4>✍️ Typography</h4>
-                                <p>Font size, family, weight, and spacing utilities</p>
-                                <code>.text-xl, .font-heading, .font-bold, .leading-relaxed</code>
+                                <h5>📝 Typography</h5>
+                                <div class="utility-group">
+                                    <h6>Font Sizes</h6>
+                                    <?php
+                                    // Get font size utilities
+                                    $font_size_utilities = array_filter($utilities_by_category['typography'], function($utility) {
+                                        return strpos($utility, 'text-') === 0 && (strpos($utility, 'text-xs') === 0 || strpos($utility, 'text-sm') === 0 || strpos($utility, 'text-lg') === 0 || strpos($utility, 'text-xl') === 0 || strpos($utility, 'text-2xl') === 0);
+                                    });
+                                    foreach ($font_size_utilities as $utility): ?>
+                                        <label class="utility-option">
+                                            <input type="checkbox" name="utilities[]" value="<?php echo esc_attr($utility); ?>">
+                                            <span class="utility-name"><?php echo esc_html($utility); ?></span>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
+                                
+                                <div class="utility-group">
+                                    <h6>Font Weights</h6>
+                                    <?php
+                                    // Get font weight utilities
+                                    $font_weight_utilities = array_filter($utilities_by_category['typography'], function($utility) {
+                                        return strpos($utility, 'font-') === 0;
+                                    });
+                                    foreach ($font_weight_utilities as $utility): ?>
+                                        <label class="utility-option">
+                                            <input type="checkbox" name="utilities[]" value="<?php echo esc_attr($utility); ?>">
+                                            <span class="utility-name"><?php echo esc_html($utility); ?></span>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                             
                             <div class="utility-category">
-                                <h4>🔲 Borders</h4>
-                                <p>Border width, style, and radius utilities</p>
-                                <code>.border-thin, .border-solid, .rounded-lg</code>
+                                <h5>🏗️ Layout</h5>
+                                <div class="utility-group">
+                                    <h6>Display & Flexbox</h6>
+                                    <?php
+                                    // Get layout utilities
+                                    foreach (array_slice($utilities_by_category['layout'], 0, 15) as $utility): ?>
+                                        <label class="utility-option">
+                                            <input type="checkbox" name="utilities[]" value="<?php echo esc_attr($utility); ?>">
+                                            <span class="utility-name"><?php echo esc_html($utility); ?></span>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                             
                             <div class="utility-category">
-                                <h4>📐 Layout</h4>
-                                <p>Container, aspect ratio, z-index, and grid utilities</p>
-                                <code>.container-prose, .aspect-16-9, .z-modal, .grid-3-col</code>
+                                <h5>🔲 Borders</h5>
+                                <div class="utility-group">
+                                    <h6>Border Radius & Styles</h6>
+                                    <?php
+                                    // Get border utilities
+                                    foreach (array_slice($utilities_by_category['borders'], 0, 15) as $utility): ?>
+                                        <label class="utility-option">
+                                            <input type="checkbox" name="utilities[]" value="<?php echo esc_attr($utility); ?>">
+                                            <span class="utility-name"><?php echo esc_html($utility); ?></span>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                             
                             <div class="utility-category">
-                                <h4>🌟 Shadows</h4>
-                                <p>Box shadow utilities</p>
-                                <code>.shadow-sm, .shadow-lg, .shadow-glow</code>
+                                <h5>✨ Effects</h5>
+                                <div class="utility-group">
+                                    <h6>Shadows & Opacity</h6>
+                                    <?php
+                                    // Get effects utilities
+                                    foreach (array_slice($utilities_by_category['effects'], 0, 10) as $utility): ?>
+                                        <label class="utility-option">
+                                            <input type="checkbox" name="utilities[]" value="<?php echo esc_attr($utility); ?>">
+                                            <span class="utility-name"><?php echo esc_html($utility); ?></span>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                             
                             <div class="utility-category">
-                                <h4>🔧 Common</h4>
-                                <p>Display, position, and flexbox utilities</p>
-                                <code>.flex, .grid, .relative, .text-center, .justify-between</code>
+                                <h5>📱 Responsive</h5>
+                                <div class="utility-group">
+                                    <h6>Medium+ Breakpoints (768px+)</h6>
+                                    <?php
+                                    // Get responsive utilities
+                                    foreach (array_slice($utilities_by_category['responsive'], 0, 15) as $utility): ?>
+                                        <label class="utility-option">
+                                            <input type="checkbox" name="utilities[]" value="<?php echo esc_attr($utility); ?>">
+                                            <span class="utility-name"><?php echo esc_html($utility); ?></span>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
+                            </div>
+                            
+                            <div class="utility-category">
+                                <h5>🌊 Fluid</h5>
+                                <div class="utility-group">
+                                    <h6>Clamp-based Responsive</h6>
+                                    <?php
+                                    // Get fluid utilities
+                                    foreach (array_slice($utilities_by_category['fluid'], 0, 15) as $utility): ?>
+                                        <label class="utility-option">
+                                            <input type="checkbox" name="utilities[]" value="<?php echo esc_attr($utility); ?>">
+                                            <span class="utility-name"><?php echo esc_html($utility); ?></span>
+                                        </label>
+                                    <?php endforeach; ?>
+                                </div>
                             </div>
                         </div>
                         
@@ -244,6 +381,160 @@ class DS_Studio_Admin_Page {
                                 
                                 <div class="notice notice-info inline">
                                     <p><strong>Recommendation:</strong> Use full CSS during development, then purge for production to get the best performance.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Component Builder Section -->
+                <div class="postbox">
+                    <h2 class="hndle"><span>🎨 Component Builder</span></h2>
+                    <div class="inside">
+                        <p>Create reusable component patterns by combining utility classes into named components.</p>
+                        
+                        <div class="component-builder">
+                            <!-- Component Creation Form -->
+                            <div class="component-form-section">
+                                <h3>Create New Component</h3>
+                                
+                                <div class="component-form">
+                                    <div class="form-row">
+                                        <label for="component-name">Component Name:</label>
+                                        <input type="text" id="component-name" placeholder="e.g., my-custom-button" />
+                                        <small>Use lowercase with hyphens (slug format)</small>
+                                    </div>
+                                    
+                                    <div class="form-row">
+                                        <label for="component-description">Description:</label>
+                                        <input type="text" id="component-description" placeholder="Brief description of this component" />
+                                    </div>
+                                    
+                                    <div class="utility-selector">
+                                        <h4>Select Utility Classes:</h4>
+                                        <div class="utility-categories">
+                                            <?php
+                                            $utility_generator = new DS_Studio_Utility_Generator();
+                                            $utilities_by_category = $utility_generator->get_utilities_by_category();
+                                            
+                                            foreach ($utilities_by_category as $category => $utilities): ?>
+                                                <div class="utility-category">
+                                                    <h5><?php echo $category; ?></h5>
+                                                    <?php foreach ($utilities as $utility): ?>
+                                                        <label class="utility-option">
+                                                            <input type="checkbox" value="<?php echo esc_attr($utility); ?>" />
+                                                            <span class="utility-label"><?php echo esc_html($utility); ?></span>
+                                                        </label>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            <?php endforeach; ?>
+                                            
+                                            <div class="utility-category">
+                                                <h5>📱 Responsive</h5>
+                                                <div class="utility-group">
+                                                    <h6>Medium+ Breakpoints (768px+)</h6>
+                                                    <?php
+                                                    // Get responsive utilities
+                                                    foreach (array_slice($utilities_by_category['responsive'], 0, 15) as $utility): ?>
+                                                        <label class="utility-option">
+                                                            <input type="checkbox" value="<?php echo esc_attr($utility); ?>" />
+                                                            <span class="utility-label"><?php echo esc_html($utility); ?></span>
+                                                        </label>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="utility-category">
+                                                <h5>🌊 Fluid</h5>
+                                                <div class="utility-group">
+                                                    <h6>Clamp-based Responsive</h6>
+                                                    <?php
+                                                    // Get fluid utilities
+                                                    foreach (array_slice($utilities_by_category['fluid'], 0, 15) as $utility): ?>
+                                                        <label class="utility-option">
+                                                            <input type="checkbox" value="<?php echo esc_attr($utility); ?>" />
+                                                            <span class="utility-label"><?php echo esc_html($utility); ?></span>
+                                                        </label>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="component-preview">
+                                        <h4>Live Preview:</h4>
+                                        <div class="preview-container">
+                                            <div id="component-preview-element" class="preview-element">
+                                                Component Preview
+                                            </div>
+                                            <div class="preview-code">
+                                                <strong>Classes:</strong> <span id="preview-classes">No classes selected</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="form-actions">
+                                        <button type="button" class="button button-primary" onclick="saveComponent()">
+                                            <span class="dashicons dashicons-saved"></span> Save Component
+                                        </button>
+                                        <button type="button" class="button button-secondary" onclick="clearComponentForm()">
+                                            <span class="dashicons dashicons-dismiss"></span> Clear
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <!-- Existing Components Management -->
+                            <div class="existing-components-section">
+                                <h3>Manage Existing Components</h3>
+                                
+                                <div class="components-list">
+                                    <?php
+                                    $component_library = new DS_Studio_Component_Library();
+                                    $component_library->init(); // Initialize and load components
+                                    $components = $component_library->get_components();
+                                    
+                                    if (empty($components)): ?>
+                                        <p class="no-components">No custom components created yet. Create your first component above!</p>
+                                    <?php else: ?>
+                                        <div class="components-grid">
+                                            <?php foreach ($components as $slug => $component): ?>
+                                                <div class="component-card" data-slug="<?php echo esc_attr($slug); ?>">
+                                                    <div class="component-header">
+                                                        <h4><?php echo esc_html($component['name'] ?? $slug); ?></h4>
+                                                        <div class="component-actions">
+                                                            <button type="button" class="button-link" onclick="editComponent('<?php echo esc_attr($slug); ?>')">
+                                                                <span class="dashicons dashicons-edit"></span>
+                                                            </button>
+                                                            <button type="button" class="button-link delete" onclick="deleteComponent('<?php echo esc_attr($slug); ?>')">
+                                                                <span class="dashicons dashicons-trash"></span>
+                                                            </button>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <?php if (!empty($component['description'])): ?>
+                                                        <p class="component-description"><?php echo esc_html($component['description']); ?></p>
+                                                    <?php endif; ?>
+                                                    
+                                                    <div class="component-classes">
+                                                        <strong>Classes:</strong>
+                                                        <code><?php echo esc_html($component['classes']); ?></code>
+                                                    </div>
+                                                    
+                                                    <div class="component-usage">
+                                                        <strong>Usage:</strong>
+                                                        <code>&lt;div class="<?php echo esc_attr($slug); ?>"&gt;...&lt;/div&gt;</code>
+                                                    </div>
+                                                    
+                                                    <div class="component-preview-mini">
+                                                        <div class="<?php echo esc_attr($component['classes']); ?>" style="padding: 8px; margin: 4px 0; min-height: 20px; background: #f9f9f9; border: 1px dashed #ccc;">
+                                                            Preview
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            <?php endforeach; ?>
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             </div>
                         </div>
@@ -514,34 +805,67 @@ class DS_Studio_Admin_Page {
         .ds-studio-utility-categories {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 15px;
+            gap: 20px;
             margin: 20px 0;
         }
         
         .utility-category {
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 4px;
-            border-left: 4px solid #007cba;
+            background: #f9f9f9;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 20px;
         }
         
-        .utility-category h4 {
+        .utility-category h5 {
+            margin: 0 0 15px 0;
+            color: #333;
+            font-size: 16px;
+            font-weight: 600;
+        }
+        
+        .utility-group {
+            margin-bottom: 15px;
+        }
+        
+        .utility-group h6 {
             margin: 0 0 8px 0;
-            color: #1d2327;
+            color: #666;
+            font-size: 13px;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
         }
         
-        .utility-category p {
-            margin: 0 0 8px 0;
-            color: #646970;
-            font-size: 14px;
-        }
-        
-        .utility-category code {
+        .utility-option {
+            display: inline-block;
+            margin: 2px 4px 2px 0;
             background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
             padding: 4px 8px;
-            border-radius: 3px;
             font-size: 12px;
-            color: #d63384;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        
+        .utility-option:hover {
+            background: #f0f0f1;
+            border-color: #0073aa;
+        }
+        
+        .utility-option input[type="checkbox"] {
+            margin-right: 6px;
+            transform: scale(0.9);
+        }
+        
+        .utility-option input[type="checkbox"]:checked + .utility-name {
+            color: #0073aa;
+            font-weight: 500;
+        }
+        
+        .utility-name {
+            font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+            font-size: 11px;
         }
         
         .ds-studio-actions {
@@ -581,6 +905,402 @@ class DS_Studio_Admin_Page {
             to { transform: rotate(360deg); }
         }
         </style>
+        
+        <style>
+        .component-builder {
+            max-width: 100%;
+        }
+        
+        .component-form-section {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border: 1px solid #e1e5e9;
+        }
+        
+        .component-form .form-row {
+            margin-bottom: 20px;
+        }
+        
+        .component-form label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+            color: #333;
+        }
+        
+        .component-form input[type="text"] {
+            width: 100%;
+            max-width: 400px;
+            padding: 8px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .component-form small {
+            display: block;
+            margin-top: 4px;
+            color: #666;
+            font-size: 12px;
+        }
+        
+        .utility-selector {
+            margin: 25px 0;
+        }
+        
+        .utility-categories {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 15px;
+        }
+        
+        .utility-category {
+            background: white;
+            border: 1px solid #e1e5e9;
+            border-radius: 6px;
+            padding: 15px;
+        }
+        
+        .utility-category h5 {
+            margin: 0 0 15px 0;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #007cba;
+            color: #007cba;
+            font-size: 14px;
+            font-weight: 600;
+        }
+        
+        .utility-subcategory {
+            margin-bottom: 15px;
+        }
+        
+        .utility-subcategory h6 {
+            margin: 0 0 8px 0;
+            font-size: 12px;
+            color: #666;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+        
+        .utility-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+            gap: 6px;
+        }
+        
+        .utility-option {
+            display: flex;
+            align-items: center;
+            padding: 4px 8px;
+            border: 1px solid #e1e5e9;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            background: #fafafa;
+        }
+        
+        .utility-option:hover {
+            background: #f0f0f0;
+            border-color: #0073aa;
+        }
+        
+        .utility-option input[type="checkbox"] {
+            margin: 0 6px 0 0;
+        }
+        
+        .utility-option.selected {
+            background: #e1f5fe;
+            border-color: #0073aa;
+            color: #0073aa;
+        }
+        
+        .utility-label {
+            font-size: 11px;
+            font-family: monospace;
+        }
+        
+        .component-preview {
+            margin: 25px 0;
+            padding: 20px;
+            background: white;
+            border: 1px solid #e1e5e9;
+            border-radius: 6px;
+        }
+        
+        .preview-container {
+            margin-top: 10px;
+        }
+        
+        .preview-element {
+            padding: 15px;
+            margin: 10px 0;
+            background: #f9f9f9;
+            border: 2px dashed #ccc;
+            border-radius: 4px;
+            min-height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .preview-code {
+            margin-top: 10px;
+            padding: 10px;
+            background: #f5f5f5;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 12px;
+        }
+        
+        .form-actions {
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 1px solid #e1e5e9;
+        }
+        
+        .form-actions .button {
+            margin-right: 10px;
+        }
+        
+        .existing-components-section h3 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .components-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
+        }
+        
+        .component-card {
+            background: white;
+            border: 1px solid #e1e5e9;
+            border-radius: 8px;
+            padding: 20px;
+            transition: box-shadow 0.2s ease;
+        }
+        
+        .component-card:hover {
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .component-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        
+        .component-header h4 {
+            margin: 0;
+            color: #333;
+        }
+        
+        .component-actions {
+            display: flex;
+            gap: 5px;
+        }
+        
+        .component-actions .button-link {
+            padding: 4px;
+            border: none;
+            background: none;
+            cursor: pointer;
+            border-radius: 3px;
+            transition: background 0.2s ease;
+        }
+        
+        .component-actions .button-link:hover {
+            background: #f0f0f0;
+        }
+        
+        .component-actions .button-link.delete:hover {
+            background: #ffebee;
+            color: #d32f2f;
+        }
+        
+        .component-description {
+            margin: 8px 0;
+            color: #666;
+            font-style: italic;
+        }
+        
+        .component-classes,
+        .component-usage {
+            margin: 8px 0;
+            font-size: 12px;
+        }
+        
+        .component-classes code,
+        .component-usage code {
+            background: #f5f5f5;
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-size: 11px;
+        }
+        
+        .component-preview-mini {
+            margin-top: 10px;
+        }
+        
+        .no-components {
+            text-align: center;
+            color: #666;
+            font-style: italic;
+            padding: 40px 20px;
+        }
+        </style>
+        
+        <script>
+        // Component Builder JavaScript
+        let selectedUtilities = [];
+        
+        // Initialize component builder
+        document.addEventListener('DOMContentLoaded', function() {
+            initializeUtilitySelector();
+        });
+        
+        function initializeUtilitySelector() {
+            const checkboxes = document.querySelectorAll('.utility-option input[type="checkbox"]');
+            
+            checkboxes.forEach(checkbox => {
+                checkbox.addEventListener('change', function() {
+                    const label = this.closest('.utility-option');
+                    
+                    if (this.checked) {
+                        label.classList.add('selected');
+                        selectedUtilities.push(this.value);
+                    } else {
+                        label.classList.remove('selected');
+                        selectedUtilities = selectedUtilities.filter(u => u !== this.value);
+                    }
+                    
+                    updatePreview();
+                });
+            });
+        }
+        
+        function updatePreview() {
+            const previewElement = document.getElementById('component-preview-element');
+            const previewClasses = document.getElementById('preview-classes');
+            
+            // Update classes
+            previewElement.className = 'preview-element ' + selectedUtilities.join(' ');
+            
+            // Update classes display
+            if (selectedUtilities.length > 0) {
+                previewClasses.textContent = selectedUtilities.join(' ');
+            } else {
+                previewClasses.textContent = 'No classes selected';
+            }
+        }
+        
+        function saveComponent() {
+            const name = document.getElementById('component-name').value.trim();
+            const description = document.getElementById('component-description').value.trim();
+            
+            if (!name) {
+                alert('Please enter a component name');
+                return;
+            }
+            
+            if (selectedUtilities.length === 0) {
+                alert('Please select at least one utility class');
+                return;
+            }
+            
+            const componentData = {
+                name: name,
+                description: description,
+                classes: selectedUtilities.join(' ')
+            };
+            
+            fetch(ajaxurl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    action: 'ds_studio_save_component',
+                    nonce: '<?php echo wp_create_nonce('ds_studio_utilities_nonce'); ?>',
+                    component_slug: name,
+                    component_data: JSON.stringify(componentData)
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Component saved successfully!');
+                    location.reload();
+                } else {
+                    alert('Error: ' + data.data);
+                }
+            })
+            .catch(error => {
+                alert('Error: ' + error);
+            });
+        }
+        
+        function clearComponentForm() {
+            document.getElementById('component-name').value = '';
+            document.getElementById('component-description').value = '';
+            
+            // Uncheck all utilities
+            const checkboxes = document.querySelectorAll('.utility-option input[type="checkbox"]');
+            checkboxes.forEach(checkbox => {
+                checkbox.checked = false;
+                checkbox.closest('.utility-option').classList.remove('selected');
+            });
+            
+            selectedUtilities = [];
+            updatePreview();
+        }
+        
+        function editComponent(slug) {
+            // TO DO: Implement component editing
+            alert('Edit component: ' + slug + ' (Coming soon!)');
+        }
+        
+        function deleteComponent(slug) {
+            if (!confirm('Are you sure you want to delete this component?')) {
+                return;
+            }
+            
+            fetch(ajaxurl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    action: 'ds_studio_delete_component',
+                    nonce: '<?php echo wp_create_nonce('ds_studio_utilities_nonce'); ?>',
+                    component_slug: slug
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    location.reload();
+                } else {
+                    alert('Error: ' + data.data);
+                }
+            })
+            .catch(error => {
+                alert('Error: ' + error);
+            });
+        }
+        </script>
+        
+        <style>
+
+        </style>
+        
         <?php
     }
     

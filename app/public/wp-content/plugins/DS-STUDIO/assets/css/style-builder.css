@@ -1,0 +1,213 @@
+/**
+ * DS-Studio Style Builder CSS
+ */
+
+.ds-studio-style-builder-modal {
+    max-width: 600px;
+}
+
+.ds-studio-style-builder-modal .components-modal__content {
+    padding: 0;
+}
+
+.ds-studio-style-builder-modal .components-modal__header {
+    background: #f0f0f0;
+    border-bottom: 1px solid #ddd;
+    padding: 16px 24px;
+}
+
+.ds-studio-style-builder-modal .components-modal__header h1 {
+    font-size: 18px;
+    font-weight: 600;
+    margin: 0;
+}
+
+.ds-studio-style-builder-modal .components-base-control {
+    margin-bottom: 16px;
+}
+
+.ds-studio-style-builder-modal .components-base-control__label {
+    font-weight: 600;
+    margin-bottom: 4px;
+}
+
+.ds-studio-style-builder-modal .components-base-control__help {
+    font-size: 12px;
+    color: #757575;
+    margin-top: 4px;
+}
+
+/* Style Builder Panel */
+.components-panel__body .ds-studio-style-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.components-panel__body .ds-studio-style-item:last-child {
+    border-bottom: none;
+}
+
+.components-panel__body .ds-studio-style-item span {
+    font-weight: 500;
+}
+
+.components-panel__body .ds-studio-style-item .components-button {
+    margin-left: 8px;
+}
+
+/* Current settings preview */
+.ds-studio-settings-preview {
+    background: #f8f9fa;
+    border: 1px solid #e1e4e8;
+    border-radius: 6px;
+    padding: 12px;
+    margin: 16px 0;
+    font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, monospace;
+}
+
+.ds-studio-settings-preview strong {
+    display: block;
+    margin-bottom: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: #24292e;
+}
+
+.ds-studio-settings-preview pre {
+    background: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    font-size: 11px;
+    line-height: 1.4;
+    color: #586069;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+/* Modal actions */
+.ds-studio-modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    padding: 16px 24px;
+    border-top: 1px solid #ddd;
+    background: #f8f9fa;
+}
+
+/* Notice styling in modal */
+.ds-studio-style-builder-modal .components-notice {
+    margin: 0 24px 16px 24px;
+}
+
+/* Loading state */
+.ds-studio-saving .components-spinner {
+    margin-right: 8px;
+}
+
+/* Style builder button in inspector */
+.components-panel__body .ds-studio-save-style-button {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 8px;
+}
+
+.components-panel__body .ds-studio-save-style-button .dashicon {
+    margin-right: 8px;
+}
+
+/* Custom styles list */
+.ds-studio-custom-styles-list {
+    border-top: 1px solid #f0f0f0;
+    padding-top: 12px;
+    margin-top: 12px;
+}
+
+.ds-studio-custom-styles-list h4 {
+    margin: 0 0 8px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.ds-studio-custom-style-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 1px solid #f5f5f5;
+}
+
+.ds-studio-custom-style-item:last-child {
+    border-bottom: none;
+}
+
+.ds-studio-custom-style-item .style-name {
+    font-size: 13px;
+    color: #1e1e1e;
+}
+
+.ds-studio-custom-style-item .components-button {
+    font-size: 11px;
+    height: 24px;
+    min-width: 60px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 782px) {
+    .ds-studio-style-builder-modal {
+        max-width: 90vw;
+        margin: 20px;
+    }
+    
+    .ds-studio-modal-actions {
+        flex-direction: column;
+    }
+    
+    .ds-studio-modal-actions .components-button {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+/* Block editor specific styles */
+.block-editor-block-inspector .ds-studio-style-builder {
+    border-top: 1px solid #e0e0e0;
+    margin-top: 16px;
+    padding-top: 16px;
+}
+
+.block-editor-block-inspector .ds-studio-style-builder h3 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.block-editor-block-inspector .ds-studio-style-builder p {
+    margin: 0 0 12px 0;
+    font-size: 12px;
+    color: #757575;
+    line-height: 1.4;
+}
+
+/* Success/Error states */
+.ds-studio-style-builder .components-notice.is-success {
+    border-left-color: #00a32a;
+}
+
+.ds-studio-style-builder .components-notice.is-error {
+    border-left-color: #d63638;
+}
+
+/* Animation for saving state */
+@keyframes ds-studio-saving {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.ds-studio-saving {
+    animation: ds-studio-saving 1s ease-in-out infinite;
+}
