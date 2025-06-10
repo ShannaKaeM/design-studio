@@ -37,12 +37,6 @@ require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-purger.php';
 // Include block patterns
 require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-block-patterns.php';
 
-// Include block styles
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-block-styles.php';
-
-// Include Style Builder
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-style-builder.php';
-
 /**
  * Main DS Studio Class
  */
@@ -78,9 +72,6 @@ class DS_Studio {
         
         // Initialize utility generator
         $this->utility_generator = new DS_Studio_Utility_Generator();
-        
-        // Initialize Style Builder
-        new DS_Studio_Style_Builder();
     }
     
     /**
