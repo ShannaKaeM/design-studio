@@ -5,7 +5,7 @@
  * Description: GenerateBlocks Pro adds more great features to GenerateBlocks without sacrificing usability or performance.
  * Author: Tom Usborne
  * Author URI: https://generatepress.com
- * Version: 2.2.0-beta.1
+ * Version: 2.2.0-beta.2
  * Requires at least: 6.5
  * Requires PHP: 7.4
  * License: GPL2+
@@ -19,7 +19,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'GENERATEBLOCKS_PRO_VERSION', '2.2.0-beta.1' );
+define( 'GENERATEBLOCKS_PRO_VERSION', '2.2.0-beta.2' );
 define( 'GENERATEBLOCKS_PRO_DIR', plugin_dir_path( __FILE__ ) );
 define( 'GENERATEBLOCKS_PRO_DIR_URL', plugin_dir_url( __FILE__ ) );
 

@@ -50,16 +50,33 @@ class DS_Studio_Block_Style_Generator {
         
         $style_name = sanitize_text_field($_POST['style_name']);
         $utility_classes = sanitize_text_field($_POST['utility_classes']);
+        $custom_css = wp_kses_post($_POST['custom_css']); // Allow CSS in custom_css field
         $description = sanitize_text_field($_POST['description']);
+        $style_type = sanitize_text_field($_POST['style_type']) ?: 'utility'; // 'utility', 'css', or 'combined'
         
-        if (empty($style_name) || empty($utility_classes)) {
-            wp_send_json_error(__('Style name and utility classes are required', 'ds-studio'));
+        if (empty($style_name)) {
+            wp_send_json_error(__('Style name is required', 'ds-studio'));
+        }
+        
+        // Validate based on style type
+        if ($style_type === 'utility' && empty($utility_classes)) {
+            wp_send_json_error(__('Utility classes are required for utility-based styles', 'ds-studio'));
+        }
+        
+        if ($style_type === 'css' && empty($custom_css)) {
+            wp_send_json_error(__('Custom CSS is required for CSS-based styles', 'ds-studio'));
+        }
+        
+        if ($style_type === 'combined' && empty($utility_classes) && empty($custom_css)) {
+            wp_send_json_error(__('Either utility classes or custom CSS is required', 'ds-studio'));
         }
         
         $styles = $this->get_saved_styles();
         $styles[$style_name] = [
             'classes' => $utility_classes,
+            'customCSS' => $custom_css,
             'description' => $description,
+            'type' => $style_type,
             'created' => current_time('mysql')
         ];
         
@@ -138,17 +155,21 @@ class DS_Studio_Block_Style_Generator {
         
         $style_name = sanitize_text_field($_POST['style_name']);
         $utility_classes = sanitize_text_field($_POST['utility_classes']);
+        $custom_css = wp_kses_post($_POST['custom_css']);
         $description = sanitize_text_field($_POST['description']);
+        $style_type = sanitize_text_field($_POST['style_type']) ?: 'utility';
         
-        if (empty($style_name) || empty($utility_classes)) {
-            wp_send_json_error(__('Style name and utility classes are required', 'ds-studio'));
+        if (empty($style_name)) {
+            wp_send_json_error(__('Style name is required', 'ds-studio'));
         }
         
         $styles = $this->get_saved_styles();
         if (isset($styles[$style_name])) {
             $styles[$style_name] = [
                 'classes' => $utility_classes,
+                'customCSS' => $custom_css,
                 'description' => $description,
+                'type' => $style_type,
                 'created' => $styles[$style_name]['created']
             ];
             
@@ -238,6 +259,13 @@ class DS_Studio_Block_Style_Generator {
                 // For now, let's just add a comment and rely on the utility classes being applied directly
                 // The real solution is to make sure when someone uses class="card", it also gets the utility classes
                 
+                $css .= "}\n\n";
+            }
+            
+            // Add custom CSS if available
+            if (isset($style_data['customCSS']) && !empty($style_data['customCSS'])) {
+                $css .= ".{$style_name} {\n";
+                $css .= $style_data['customCSS'];
                 $css .= "}\n\n";
             }
         }

@@ -19,24 +19,18 @@ define('DS_STUDIO_VERSION', '1.0.0');
 define('DS_STUDIO_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('DS_STUDIO_PLUGIN_PATH', plugin_dir_path(__FILE__));
 
-// Include core classes
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-generator.php';
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-admin-page.php';
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-generateblocks-integration.php';
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-class-injector.php';
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-block-style-generator.php';
-
-// Include component library
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-component-library.php';
-
-// Include template functions
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/template-functions.php';
-
-// Include utility purger
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-purger.php';
-
-// Include block patterns
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-block-patterns.php';
+// Include required files
+require_once plugin_dir_path(__FILE__) . 'includes/class-utility-generator.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-block-style-generator.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-admin-page.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-html-to-blocks-converter.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-component-template-system.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-generateblocks-integration.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-utility-class-injector.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-component-library.php';
+require_once plugin_dir_path(__FILE__) . 'includes/template-functions.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-utility-purger.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-block-patterns.php';
 
 /**
  * Main DS Studio Class

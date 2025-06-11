@@ -126,25 +126,18 @@
                 },
                 {
                     "slug": "x-large",
-                    "size": "1.5rem",
-                    "name": "X Large"
+                    "size": "1.25rem",
+                    "name": "XL"
                 },
                 {
                     "slug": "xx-large",
-                    "size": "2rem",
+                    "size": "4rem",
                     "name": "XX Large"
-                },
-                {
-                    "slug": "xxxl",
-                    "size": "3rem",
-                    "name": "XXXL"
-                },
-                {
-                    "slug": "huge",
-                    "size": "6rem",
-                    "name": "Huge"
                 }
-            ]
+            ],
+            "fontWeight": true,
+            "lineHeight": true,
+            "letterSpacing": true
         },
         "color": {
             "palette": [
@@ -467,35 +460,110 @@
                 ]
             },
             "blockStyles": {
+                "section-outer": {
+                    "classes": "w-full",
+                    "customCSS": "",
+                    "description": "1. Section Outer - Full-width container for background colors/images",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
+                },
+                "section": {
+                    "classes": "max-w-3xl mx-auto p-2xl",
+                    "customCSS": "",
+                    "description": "1.1 Section - Content container with max-width constraint",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
+                },
+                "section-header": {
+                    "classes": "text-center mb-2xl",
+                    "customCSS": "",
+                    "description": "1.1.1 Section Header - Header content wrapper",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
+                },
+                "section-title": {
+                    "classes": "text-xx-large text-base font-bold leading-tight m-0",
+                    "customCSS": "",
+                    "description": "1.1.1.1 Section Title - Main section heading",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
+                },
+                "section-subtitle": {
+                    "classes": "text-small text-secondary font-semibold uppercase tracking-wide mb-sm",
+                    "customCSS": "",
+                    "description": "1.1.1.2 Section Subtitle - Section eyebrow text",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
+                },
+                "section-body": {
+                    "classes": "grid grid-auto-fit-lg gap-lg",
+                    "customCSS": "",
+                    "description": "1.1.2 Section Body - Main content area with grid layout",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
+                },
                 "card": {
-                    "classes": "bg-neutral max-w-sm rounded-2xl shadow-md",
-                    "description": "",
-                    "created": "2025-06-11 01:40:47"
+                    "classes": "rounded-lg overflow-hidden bg-white shadow-md hover:shadow-lg transition-normal cursor-pointer",
+                    "customCSS": "",
+                    "description": "1.1.2.1 Card - Individual card component",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
                 },
-                "card__image": {
-                    "classes": "w-full h-sm overflow-hidden",
-                    "description": "",
-                    "created": "2025-06-11 01:42:14"
+                "card-header": {
+                    "classes": "relative aspect-video overflow-hidden",
+                    "customCSS": "",
+                    "description": "1.1.2.1.1 Card Header - Card image/media area",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
                 },
-                "card__content": {
-                    "classes": "p-lg",
-                    "description": "",
-                    "created": "2025-06-11 01:42:53"
+                "card-body": {
+                    "classes": "absolute bottom-0 left-0 right-0 p-xl text-white z-dropdown",
+                    "customCSS": "",
+                    "description": "1.1.2.1.2 Card Body - Card content area",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
                 },
-                "card__pretitle": {
-                    "classes": "text-xxl text-secondary font-medium mb-xs lowercase",
-                    "description": "",
-                    "created": "2025-06-11 01:43:48"
+                "card-title": {
+                    "classes": "text-large font-bold text-white mb-xs leading-tight",
+                    "customCSS": "",
+                    "description": "1.1.2.1.2.1 Card Title - Card heading",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
                 },
-                "card__title": {
-                    "classes": "text-lg font-bold text-primary mb-sm",
-                    "description": "",
-                    "created": "2025-06-11 01:44:15"
+                "card-footer": {
+                    "classes": "flex items-center justify-between",
+                    "customCSS": "",
+                    "description": "1.1.2.1.3 Card Footer - Card action area",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
                 },
-                "card__description": {
-                    "classes": "text-xxl text-secondary leading-relaxed",
-                    "description": "",
-                    "created": "2025-06-11 01:45:19"
+                "button": {
+                    "classes": "text-small text-white opacity-90 flex items-center gap-xs m-0 hover:opacity-100 transition-fast",
+                    "customCSS": "",
+                    "description": "1.1.2.1.3.1 Button - Action button",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
+                },
+                "section-footer": {
+                    "classes": "text-center mt-2xl",
+                    "customCSS": "",
+                    "description": "1.1.3 Section Footer - Optional section footer",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
+                },
+                "none": {
+                    "classes": "hidden",
+                    "customCSS": "",
+                    "description": "Hide unused elements while maintaining structure",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
+                },
+                "ignore": {
+                    "classes": "sr-only",
+                    "customCSS": "",
+                    "description": "Screen reader only - maintains accessibility while hiding visually",
+                    "type": "utility",
+                    "created": "2025-06-11 08:41:00"
                 }
             }
         },

@@ -20,3 +20,20 @@ Version: 1.0.0
    ================================================================ */
 
 /* Custom styles go here */
+
+/* Force sections and groups to full width */
+.wp-block-group.alignfull,
+.wp-block-cover.alignfull,
+.entry-content > .wp-block-group,
+.entry-content > .wp-block-cover {
+    width: 100vw !important;
+    max-width: 100vw !important;
+    margin-left: calc(50% - 50vw) !important;
+    margin-right: calc(50% - 50vw) !important;
+}
+
+/* Remove any container constraints */
+.wp-block-group,
+.wp-block-cover {
+    max-width: none !important;
+}

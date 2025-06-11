@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const { __ } = wp.i18n;
     const { registerPlugin } = wp.plugins;
     const { PluginSidebar, PluginSidebarMoreMenuItem } = wp.editPost;
-    const { PanelBody, TextControl, TextareaControl, Button, Notice } = wp.components;
+    const { PanelBody, TextControl, TextareaControl, Button, Notice, SelectControl } = wp.components;
     const { useState, useEffect } = wp.element;
     const { useSelect, useDispatch } = wp.data;
 
@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', function() {
     function BlockStylesManager() {
         const [styleName, setStyleName] = useState('');
         const [utilityClasses, setUtilityClasses] = useState('');
+        const [customCSS, setCustomCSS] = useState('');
+        const [styleType, setStyleType] = useState('utility'); // 'utility', 'css', 'combined'
         const [description, setDescription] = useState('');
         const [savedStyles, setSavedStyles] = useState({});
         const [isLoading, setIsLoading] = useState(false);
@@ -30,6 +32,11 @@ document.addEventListener('DOMContentLoaded', function() {
         const [showSuggestions, setShowSuggestions] = useState(false);
         const [cursorPosition, setCursorPosition] = useState(0);
         const [editingStyle, setEditingStyle] = useState(null);
+        
+        // HTML to Blocks converter state
+        const [htmlInput, setHtmlInput] = useState('');
+        const [convertedBlocks, setConvertedBlocks] = useState('');
+        const [isConverting, setIsConverting] = useState(false);
         
         // Get selected block data
         const { getSelectedBlock } = useSelect('core/block-editor');
@@ -127,7 +134,7 @@ document.addEventListener('DOMContentLoaded', function() {
         };
         
         // Handle utility classes input change with autocomplete
-        const handleUtilityClassesChange = (value) => {
+        const handleUtilityInput = (value) => {
             setUtilityClasses(value);
             
             // Get current word being typed
@@ -167,8 +174,24 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Save new block style
         const saveBlockStyle = async () => {
-            if (!styleName.trim() || !utilityClasses.trim()) {
-                showNotice(__('Style name and utility classes are required', 'ds-studio'), 'error');
+            // Validation based on style type
+            if (!styleName.trim()) {
+                showNotice(__('Style name is required', 'ds-studio'), 'error');
+                return;
+            }
+            
+            if (styleType === 'utility' && !utilityClasses.trim()) {
+                showNotice(__('Utility classes are required for utility-based styles', 'ds-studio'), 'error');
+                return;
+            }
+            
+            if (styleType === 'css' && !customCSS.trim()) {
+                showNotice(__('Custom CSS is required for CSS-based styles', 'ds-studio'), 'error');
+                return;
+            }
+            
+            if (styleType === 'combined' && !utilityClasses.trim() && !customCSS.trim()) {
+                showNotice(__('Either utility classes or custom CSS is required', 'ds-studio'), 'error');
                 return;
             }
             
@@ -185,6 +208,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         nonce: window.dsBlockStyles.nonce,
                         style_name: styleName,
                         utility_classes: utilityClasses,
+                        custom_css: customCSS,
+                        style_type: styleType,
                         description: description
                     })
                 });
@@ -200,7 +225,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Clear form
                     setStyleName('');
                     setUtilityClasses('');
+                    setCustomCSS('');
                     setDescription('');
+                    setStyleType('utility');
                     
                     showNotice(__('Block style saved successfully!', 'ds-studio'));
                 } else {
@@ -334,6 +361,57 @@ document.addEventListener('DOMContentLoaded', function() {
             setIsLoading(false);
         };
         
+        // HTML to Blocks converter function
+        const convertHtmlToBlocks = async () => {
+            if (!htmlInput.trim()) return;
+            
+            setIsConverting(true);
+            setNotice(null);
+            
+            try {
+                console.log('Converting HTML:', htmlInput);
+                
+                const response = await fetch(window.dsBlockStyles.ajaxUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({
+                        action: 'ds_studio_convert_html_to_blocks',
+                        nonce: window.dsBlockStyles.nonce,
+                        html: htmlInput
+                    })
+                });
+                
+                console.log('Response status:', response.status);
+                
+                const result = await response.json();
+                console.log('Response result:', result);
+                
+                if (result.success) {
+                    setConvertedBlocks(result.data.block_json);
+                    showNotice(__('HTML converted to blocks successfully! Generated ' + result.data.count + ' blocks.', 'ds-studio'), 'success');
+                } else {
+                    showNotice(__('Error converting HTML: ', 'ds-studio') + (result.data || 'Unknown error'), 'error');
+                    console.error('Conversion error:', result.data);
+                }
+            } catch (error) {
+                console.error('Error converting HTML:', error);
+                showNotice(__('Error converting HTML: ', 'ds-studio') + error.message, 'error');
+            } finally {
+                setIsConverting(false);
+            }
+        };
+
+        // Copy to clipboard function
+        const copyToClipboard = async (text) => {
+            try {
+                await navigator.clipboard.writeText(text);
+                showNotice(__('Copied to clipboard!', 'ds-studio'), 'success');
+            } catch (error) {
+                console.error('Failed to copy:', error);
+                showNotice(__('Failed to copy to clipboard', 'ds-studio'), 'error');
+            }
+        };
+        
         return wp.element.createElement('div', { style: { padding: '16px' } },
             notice && wp.element.createElement(Notice, {
                 status: notice.type,
@@ -354,19 +432,35 @@ document.addEventListener('DOMContentLoaded', function() {
                     help: __('This will be the CSS class name (use lowercase and hyphens)', 'ds-studio')
                 }),
                 
-                wp.element.createElement('div', {
+                wp.element.createElement(SelectControl, {
+                    label: __('Style Type', 'ds-studio'),
+                    value: styleType,
+                    options: [
+                        { label: __('Utility Classes', 'ds-studio'), value: 'utility' },
+                        { label: __('Custom CSS', 'ds-studio'), value: 'css' },
+                        { label: __('Combined', 'ds-studio'), value: 'combined' }
+                    ],
+                    onChange: setStyleType
+                }),
+                
+                (styleType === 'utility' || styleType === 'combined') && wp.element.createElement('div', {
                     style: { 
                         position: 'relative',
-                        marginBottom: '12px'
+                        marginBottom: '16px'
                     }
                 },
                     wp.element.createElement(TextareaControl, {
                         label: __('Utility Classes', 'ds-studio'),
                         value: utilityClasses,
-                        onChange: handleUtilityClassesChange,
-                        placeholder: __('e.g., text-large font-bold text-primary p-lg', 'ds-studio'),
+                        onChange: (value) => {
+                            setUtilityClasses(value);
+                            handleUtilityInput(value);
+                        },
+                        onFocus: () => setShowSuggestions(true),
+                        onBlur: () => setTimeout(() => setShowSuggestions(false), 200),
+                        placeholder: __('e.g., bg-primary text-white p-lg rounded-lg shadow-md', 'ds-studio'),
                         rows: 3,
-                        style: { fontFamily: 'monospace', fontSize: '13px' }
+                        help: __('Space-separated utility class names', 'ds-studio')
                     }),
                     
                     // Autocomplete suggestions dropdown
@@ -412,6 +506,16 @@ document.addEventListener('DOMContentLoaded', function() {
                         }
                     }, `Available: text-small/medium/large/x-large, font-bold/medium, uppercase/lowercase, text-primary/secondary, bg-primary, p-xs/sm/md/lg, m-xs/sm/md/lg`)
                 ),
+                
+                (styleType === 'css' || styleType === 'combined') && wp.element.createElement(TextareaControl, {
+                    label: __('Custom CSS', 'ds-studio'),
+                    value: customCSS,
+                    onChange: setCustomCSS,
+                    placeholder: __('e.g., .card-title { font-size: 24px; color: #333; }', 'ds-studio'),
+                    rows: 6,
+                    style: { fontFamily: 'monospace', fontSize: '13px' },
+                    help: __('Write CSS rules that will be applied to this style class', 'ds-studio')
+                }),
                 
                 wp.element.createElement(TextControl, {
                     label: __('Description (Optional)', 'ds-studio'),
@@ -520,6 +624,71 @@ document.addEventListener('DOMContentLoaded', function() {
                             )
                         )
                     )
+            ),
+            
+            // HTML to Blocks Converter
+            wp.element.createElement(PanelBody, {
+                title: __('HTML to Blocks Converter', 'ds-studio'),
+                initialOpen: false
+            },
+                wp.element.createElement('p', { 
+                    style: { margin: '0 0 16px 0', color: '#666', fontSize: '13px' } 
+                }, __('Paste HTML with component classes and convert to WordPress blocks with CSS styles', 'ds-studio')),
+                
+                wp.element.createElement(TextareaControl, {
+                    label: __('HTML Code', 'ds-studio'),
+                    value: htmlInput,
+                    onChange: setHtmlInput,
+                    placeholder: __('Paste your HTML here...', 'ds-studio'),
+                    rows: 8,
+                    style: { fontFamily: 'monospace', fontSize: '13px' }
+                }),
+                
+                wp.element.createElement(Button, {
+                    isPrimary: true,
+                    isBusy: isConverting,
+                    disabled: isConverting || !htmlInput.trim(),
+                    onClick: convertHtmlToBlocks,
+                    style: { marginBottom: '16px' }
+                }, isConverting ? __('Converting...', 'ds-studio') : __('Convert to Blocks', 'ds-studio')),
+                
+                convertedBlocks && wp.element.createElement('div', { style: { marginTop: '16px' } },
+                    wp.element.createElement('label', { 
+                        style: { 
+                            display: 'block', 
+                            marginBottom: '8px', 
+                            fontWeight: '600',
+                            fontSize: '13px'
+                        } 
+                    }, __('Generated Blocks JSON:', 'ds-studio')),
+                    wp.element.createElement('textarea', {
+                        value: convertedBlocks,
+                        readOnly: true,
+                        rows: 12,
+                        style: { 
+                            width: '100%', 
+                            fontFamily: 'monospace', 
+                            fontSize: '12px',
+                            background: '#f8f9fa',
+                            border: '1px solid #ddd',
+                            borderRadius: '4px',
+                            padding: '8px',
+                            marginBottom: '8px'
+                        }
+                    }),
+                    wp.element.createElement(Button, {
+                        isSecondary: true,
+                        onClick: () => copyToClipboard(convertedBlocks),
+                        style: { marginRight: '8px' }
+                    }, __('Copy to Clipboard', 'ds-studio')),
+                    wp.element.createElement('p', { 
+                        style: { 
+                            fontSize: '12px', 
+                            color: '#666', 
+                            margin: '8px 0 0 0' 
+                        } 
+                    }, __('Copy this JSON and paste it into the WordPress block editor, then convert to blocks.', 'ds-studio'))
+                )
             ),
             
             // Refresh Button

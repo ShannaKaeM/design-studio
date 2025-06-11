@@ -13,6 +13,7 @@
         const [newColorValue, setNewColorValue] = useState('#3a5a59');
         const [isLoading, setIsLoading] = useState(false);
         const [message, setMessage] = useState('');
+        const [activeTab, setActiveTab] = useState('tokens');
 
         // Color editing state
         const [editingColor, setEditingColor] = useState(null);
@@ -23,8 +24,8 @@
         const [typography, setTypography] = useState({
             fontFamilies: [],
             fontSizes: [],
-            fontWeights: [],
-            lineHeights: [],
+            fontWeight: [],
+            lineHeight: [],
             letterSpacing: [],
             textTransforms: []
         });
@@ -92,6 +93,11 @@
         const [editLayoutValue, setEditLayoutValue] = useState('');
         const [editLayoutType, setEditLayoutType] = useState('');
 
+        // HTML to Blocks converter state
+        const [htmlInput, setHtmlInput] = useState('');
+        const [convertedBlocks, setConvertedBlocks] = useState('');
+        const [isConverting, setIsConverting] = useState(false);
+
         // Load existing colors and typography from theme.json on component mount
         useEffect(() => {
             loadExistingColors();
@@ -114,17 +120,73 @@
             if (window.dsStudio && window.dsStudio.currentThemeJson) {
                 const themeJson = window.dsStudio.currentThemeJson;
                 
+                // Handle font weights - if boolean true, create default array
+                let fontWeights = [];
+                if (themeJson.settings?.typography?.fontWeight) {
+                    if (Array.isArray(themeJson.settings.typography.fontWeight)) {
+                        fontWeights = themeJson.settings.typography.fontWeight;
+                    } else if (themeJson.settings.typography.fontWeight === true) {
+                        // Create default font weight options when boolean true
+                        fontWeights = [
+                            { slug: 'light', name: 'Light', value: '300' },
+                            { slug: 'normal', name: 'Normal', value: '400' },
+                            { slug: 'medium', name: 'Medium', value: '500' },
+                            { slug: 'semibold', name: 'Semi Bold', value: '600' },
+                            { slug: 'bold', name: 'Bold', value: '700' },
+                            { slug: 'extrabold', name: 'Extra Bold', value: '800' },
+                            { slug: 'black', name: 'Black', value: '900' }
+                        ];
+                    }
+                }
+                
+                // Handle line heights - if boolean true, create default array  
+                let lineHeights = [];
+                if (themeJson.settings?.typography?.lineHeight) {
+                    if (Array.isArray(themeJson.settings.typography.lineHeight)) {
+                        lineHeights = themeJson.settings.typography.lineHeight;
+                    } else if (themeJson.settings.typography.lineHeight === true) {
+                        // Create default line height options when boolean true
+                        lineHeights = [
+                            { slug: 'tight', name: 'Tight', value: '1.2' },
+                            { slug: 'normal', name: 'Normal', value: '1.5' },
+                            { slug: 'relaxed', name: 'Relaxed', value: '1.6' },
+                            { slug: 'loose', name: 'Loose', value: '2' }
+                        ];
+                    }
+                }
+                
+                // Handle letter spacing - if boolean true, create default array  
+                let letterSpacing = [];
+                if (themeJson.settings?.typography?.letterSpacing) {
+                    if (Array.isArray(themeJson.settings.typography.letterSpacing)) {
+                        letterSpacing = themeJson.settings.typography.letterSpacing;
+                    } else if (themeJson.settings.typography.letterSpacing === true) {
+                        // Create default letter spacing options when boolean true
+                        letterSpacing = [
+                            { slug: 'tighter', name: 'Tighter', value: '-0.05em' },
+                            { slug: 'tight', name: 'Tight', value: '-0.025em' },
+                            { slug: 'normal', name: 'Normal', value: '0em' },
+                            { slug: 'wide', name: 'Wide', value: '0.025em' },
+                            { slug: 'wider', name: 'Wider', value: '0.05em' },
+                            { slug: 'widest', name: 'Widest', value: '0.1em' }
+                        ];
+                    }
+                }
+                
                 const typographyData = {
                     fontFamilies: themeJson.settings?.typography?.fontFamilies || [],
                     fontSizes: themeJson.settings?.typography?.fontSizes || [],
-                    fontWeights: themeJson.settings?.typography?.fontWeights || [],
-                    lineHeights: themeJson.settings?.typography?.lineHeights || [],
-                    letterSpacing: themeJson.settings?.typography?.letterSpacings || [],
+                    fontWeight: fontWeights,
+                    lineHeight: lineHeights,
+                    letterSpacing: letterSpacing,
                     textTransforms: themeJson.settings?.typography?.textTransforms || []
                 };
                 
                 setTypography(typographyData);
                 console.log('Typography data loaded:', typographyData);
+                console.log('Font weights:', fontWeights);
+                console.log('Line heights:', lineHeights);
+                console.log('Letter spacing:', letterSpacing);
             }
         };
 
@@ -174,6 +236,12 @@
                         slug: item.slug,
                         value: item.size
                     }));
+                } else if (themeJson.settings?.custom?.border?.widths && Array.isArray(themeJson.settings.custom.border.widths)) {
+                    borderWidths = themeJson.settings.custom.border.widths.map(item => ({
+                        name: item.name,
+                        slug: item.slug,
+                        value: item.size
+                    }));
                 } else if (themeJson.settings?.custom?.borders?.widths) {
                     // Fallback to custom format
                     borderWidths = convertBorderWidths(themeJson.settings.custom.borders.widths);
@@ -185,16 +253,30 @@
                         slug: item.slug,
                         value: item.slug // For styles, the value is the same as slug
                     }));
+                } else if (themeJson.settings?.custom?.border?.styles && Array.isArray(themeJson.settings.custom.border.styles)) {
+                    borderStyles = themeJson.settings.custom.border.styles.map(item => ({
+                        name: item.name,
+                        slug: item.slug,
+                        value: item.slug
+                    }));
                 } else if (themeJson.settings?.custom?.borders?.styles) {
                     borderStyles = convertBorderStyles(themeJson.settings.custom.borders.styles);
                 }
                 
-                if (themeJson.settings?.border?.radii && Array.isArray(themeJson.settings.border.radii)) {
-                    borderRadii = themeJson.settings.border.radii.map(item => ({
+                if (themeJson.settings?.border?.radius && Array.isArray(themeJson.settings.border.radius)) {
+                    borderRadii = themeJson.settings.border.radius.map(item => ({
                         name: item.name,
                         slug: item.slug,
                         value: item.size
                     }));
+                } else if (themeJson.settings?.custom?.border?.radius && Array.isArray(themeJson.settings.custom.border.radius)) {
+                    borderRadii = themeJson.settings.custom.border.radius.map(item => ({
+                        name: item.name,
+                        slug: item.slug,
+                        value: item.size
+                    }));
+                } else if (themeJson.settings?.custom?.borders?.radius) {
+                    borderRadii = convertBorderRadii(themeJson.settings.custom.borders.radius);
                 } else if (themeJson.settings?.custom?.borders?.radii) {
                     borderRadii = convertBorderRadii(themeJson.settings.custom.borders.radii);
                 }
@@ -510,7 +592,7 @@
                     value: newFontWeight.value
                 };
                 
-                updatedTypography.fontWeights = [...(updatedTypography.fontWeights || []), newItem];
+                updatedTypography.fontWeight = [...(updatedTypography.fontWeight || []), newItem];
                 await saveTypographyToThemeJson(updatedTypography);
                 
                 setTypography(updatedTypography);
@@ -534,7 +616,7 @@
                     value: newLineHeight.value
                 };
                 
-                updatedTypography.lineHeights = [...(updatedTypography.lineHeights || []), newItem];
+                updatedTypography.lineHeight = [...(updatedTypography.lineHeight || []), newItem];
                 await saveTypographyToThemeJson(updatedTypography);
                 
                 setTypography(updatedTypography);
@@ -730,7 +812,7 @@
                 body: new URLSearchParams({
                     action: 'ds_studio_save_theme_json',
                     nonce: window.dsStudio.nonce,
-                    theme_json: JSON.stringify({
+                    themeJson: JSON.stringify({
                         ...window.dsStudio.currentThemeJson,
                         settings: {
                             ...window.dsStudio.currentThemeJson.settings,
@@ -738,8 +820,8 @@
                                 ...window.dsStudio.currentThemeJson.settings.typography,
                                 fontFamilies: updatedTypography.fontFamilies,
                                 fontSizes: updatedTypography.fontSizes,
-                                fontWeights: updatedTypography.fontWeights,
-                                lineHeights: updatedTypography.lineHeights,
+                                fontWeight: updatedTypography.fontWeight,
+                                lineHeight: updatedTypography.lineHeight,
                                 letterSpacing: updatedTypography.letterSpacing,
                                 textTransforms: updatedTypography.textTransforms
                             }
@@ -757,8 +839,8 @@
                 ...window.dsStudio.currentThemeJson.settings.typography,
                 fontFamilies: updatedTypography.fontFamilies,
                 fontSizes: updatedTypography.fontSizes,
-                fontWeights: updatedTypography.fontWeights,
-                lineHeights: updatedTypography.lineHeights,
+                fontWeight: updatedTypography.fontWeight,
+                lineHeight: updatedTypography.lineHeight,
                 letterSpacing: updatedTypography.letterSpacing,
                 textTransforms: updatedTypography.textTransforms
             };
@@ -797,7 +879,7 @@
                 body: new URLSearchParams({
                     action: 'ds_studio_save_theme_json',
                     nonce: window.dsStudio.nonce,
-                    theme_json: JSON.stringify({
+                    themeJson: JSON.stringify({
                         ...window.dsStudio.currentThemeJson,
                         settings: {
                             ...window.dsStudio.currentThemeJson.settings,
@@ -1002,7 +1084,7 @@
                 body: new URLSearchParams({
                     action: 'ds_studio_save_theme_json',
                     nonce: window.dsStudio.nonce,
-                    theme_json: JSON.stringify({
+                    themeJson: JSON.stringify({
                         ...window.dsStudio.currentThemeJson,
                         settings: {
                             ...window.dsStudio.currentThemeJson.settings,
@@ -1116,8 +1198,8 @@
             setEditingTypography({ index, type });
             setEditTypographyName(item.name || item.slug);
             setEditTypographyValue(
-                type === 'fontFamilies' ? item.fontFamily :
                 type === 'fontSizes' ? item.size :
+                type === 'fontFamilies' ? item.fontFamily :
                 item.value || item.slug
             );
             setShowTypographyPicker(true);
@@ -1135,10 +1217,10 @@
                 const updatedItem = { ...updatedTypography[type][index] };
                 updatedItem.name = editTypographyName;
                 
-                if (type === 'fontFamilies') {
-                    updatedItem.fontFamily = editTypographyValue;
-                } else if (type === 'fontSizes') {
+                if (type === 'fontSizes') {
                     updatedItem.size = editTypographyValue;
+                } else if (type === 'fontFamilies') {
+                    updatedItem.fontFamily = editTypographyValue;
                 } else {
                     updatedItem.value = editTypographyValue;
                 }
@@ -1152,7 +1234,7 @@
                     body: new URLSearchParams({
                         action: 'ds_studio_save_theme_json',
                         nonce: window.dsStudio.nonce,
-                        theme_json: JSON.stringify({
+                        themeJson: JSON.stringify({
                             ...window.dsStudio.currentThemeJson,
                             settings: {
                                 ...window.dsStudio.currentThemeJson.settings,
@@ -1218,8 +1300,8 @@
                             el('div', { style: { flex: 1 } },
                                 el('div', { style: { fontWeight: 'bold' } }, item.name || item.slug),
                                 el('div', { style: { color: '#666' } }, 
-                                    type === 'fontFamilies' ? item.fontFamily :
                                     type === 'fontSizes' ? item.size :
+                                    type === 'fontFamilies' ? item.fontFamily :
                                     item.value || item.slug
                                 )
                             )
@@ -1617,6 +1699,58 @@
             }
         };
 
+        // HTML to Blocks converter function
+        const convertHtmlToBlocks = async () => {
+            if (!htmlInput.trim()) return;
+            
+            setIsConverting(true);
+            setMessage('');
+            
+            try {
+                console.log('Converting HTML:', htmlInput);
+                
+                const response = await fetch(window.dsStudio.ajaxUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                    body: new URLSearchParams({
+                        action: 'ds_studio_convert_html_to_blocks',
+                        nonce: window.dsStudio.nonce,
+                        html: htmlInput
+                    })
+                });
+                
+                console.log('Response status:', response.status);
+                
+                const result = await response.json();
+                console.log('Response result:', result);
+                
+                if (result.success) {
+                    setConvertedBlocks(result.data.block_json);
+                    setMessage('HTML converted to blocks successfully! Generated ' + result.data.count + ' blocks.');
+                } else {
+                    setMessage('Error converting HTML: ' + (result.data || 'Unknown error'));
+                    console.error('Conversion error:', result.data);
+                }
+            } catch (error) {
+                console.error('Error converting HTML:', error);
+                setMessage('Error converting HTML: ' + error.message);
+            } finally {
+                setIsConverting(false);
+            }
+        };
+
+        // Copy to clipboard function
+        const copyToClipboard = async (text) => {
+            try {
+                await navigator.clipboard.writeText(text);
+                setMessage('Copied to clipboard!');
+                setTimeout(() => setMessage(''), 3000);
+            } catch (error) {
+                console.error('Failed to copy:', error);
+                setMessage('Failed to copy to clipboard');
+            }
+        };
+
         // Layout UI components
         const renderEditableLayoutSection = (title, items, type) => {
             return el('div', { style: { marginBottom: '15px' } },
@@ -1692,6 +1826,56 @@
         return el('div', { style: { padding: '16px' } },
             el('h3', { style: { marginTop: '0' } }, 'Design System Studio'),
             
+            // Tab Navigation
+            el('div', { 
+                style: { 
+                    display: 'flex', 
+                    borderBottom: '1px solid #ddd', 
+                    marginBottom: '16px',
+                    gap: '8px'
+                } 
+            },
+                el('button', {
+                    onClick: () => setActiveTab('tokens'),
+                    style: {
+                        padding: '8px 16px',
+                        border: 'none',
+                        background: activeTab === 'tokens' ? '#0073aa' : 'transparent',
+                        color: activeTab === 'tokens' ? 'white' : '#0073aa',
+                        cursor: 'pointer',
+                        borderRadius: '4px 4px 0 0',
+                        fontSize: '13px',
+                        fontWeight: '500'
+                    }
+                }, 'Design Tokens'),
+                el('button', {
+                    onClick: () => setActiveTab('converter'),
+                    style: {
+                        padding: '8px 16px',
+                        border: 'none',
+                        background: activeTab === 'converter' ? '#0073aa' : 'transparent',
+                        color: activeTab === 'converter' ? 'white' : '#0073aa',
+                        cursor: 'pointer',
+                        borderRadius: '4px 4px 0 0',
+                        fontSize: '13px',
+                        fontWeight: '500'
+                    }
+                }, 'HTML to Blocks'),
+                el('button', {
+                    onClick: () => setActiveTab('templates'),
+                    style: {
+                        padding: '8px 16px',
+                        border: 'none',
+                        background: activeTab === 'templates' ? '#0073aa' : 'transparent',
+                        color: activeTab === 'templates' ? 'white' : '#0073aa',
+                        cursor: 'pointer',
+                        borderRadius: '4px 4px 0 0',
+                        fontSize: '13px',
+                        fontWeight: '500'
+                    }
+                }, 'Component Templates')
+            ),
+            
             // Show message if any
             message && el(Notice, {
                 status: message.includes('Error') ? 'error' : 'success',
@@ -1699,7 +1883,7 @@
             }, message),
             
             // Colors Module
-            el(PanelBody, { 
+            activeTab === 'tokens' && el(PanelBody, { 
                 title: 'Colors', 
                 initialOpen: false,
                 style: { 
@@ -1834,7 +2018,7 @@
             ),
 
             // Typography Module - Enhanced with sub-categories
-            el(PanelBody, { 
+            activeTab === 'tokens' && el(PanelBody, { 
                 title: 'Typography', 
                 initialOpen: false,
                 style: { 
@@ -1919,7 +2103,7 @@
                 // Font Weights Sub-category
                 el('div', { style: { marginBottom: '20px', padding: '15px', border: '1px solid #e0e0e0', borderRadius: '4px', backgroundColor: '#fafafa' } },
                     el('h5', { style: { margin: '0 0 15px 0', fontSize: '14px', fontWeight: 'bold' } }, 'Font Weights'),
-                    renderEditableTypographySection('Current Font Weights', typography.fontWeights || [], 'fontWeights'),
+                    renderEditableTypographySection('Current Font Weights', typography.fontWeight || [], 'fontWeight'),
                     
                     // Add new font weight form
                     el('div', { style: { marginTop: '15px', padding: '12px', border: '1px solid #ddd', borderRadius: '4px', backgroundColor: '#f9f9f9' } },
@@ -1951,7 +2135,7 @@
                 // Line Heights Sub-category
                 el('div', { style: { marginBottom: '20px', padding: '15px', border: '1px solid #e0e0e0', borderRadius: '4px', backgroundColor: '#fafafa' } },
                     el('h5', { style: { margin: '0 0 15px 0', fontSize: '14px', fontWeight: 'bold' } }, 'Line Heights'),
-                    renderEditableTypographySection('Current Line Heights', typography.lineHeights || [], 'lineHeights'),
+                    renderEditableTypographySection('Current Line Heights', typography.lineHeight || [], 'lineHeight'),
                     
                     // Add new line height form
                     el('div', { style: { marginTop: '15px', padding: '12px', border: '1px solid #ddd', borderRadius: '4px', backgroundColor: '#f9f9f9' } },
@@ -2053,7 +2237,7 @@
             ),
 
             // Borders Module - Enhanced with sub-categories
-            el(PanelBody, { 
+            activeTab === 'tokens' && el(PanelBody, { 
                 title: 'Borders', 
                 initialOpen: false,
                 style: { 
@@ -2176,13 +2360,126 @@
                         }, isLoading ? 'Adding...' : 'Add Border Radius')
                     )
                 )
-            ) // Added closing parenthesis here
-            ,
+            ),
+
+            // HTML to Blocks Converter Tab
+            activeTab === 'converter' && el('div', { style: { padding: '16px 0' } },
+                el('h4', { style: { margin: '0 0 16px 0', fontSize: '16px', fontWeight: '600' } }, 
+                    'HTML to Blocks Converter'),
+                
+                el('p', { style: { margin: '0 0 16px 0', color: '#666', fontSize: '14px' } }, 
+                    'Paste HTML with component classes and convert to WordPress blocks. Uses CSS styles for immediate testing.'),
+                
+                // HTML Input
+                el('div', { style: { marginBottom: '16px' } },
+                    el('label', { 
+                        style: { 
+                            display: 'block', 
+                            marginBottom: '8px', 
+                            fontWeight: '600',
+                            fontSize: '13px'
+                        } 
+                    }, 'HTML Code'),
+                    el('textarea', {
+                        value: htmlInput,
+                        onChange: (e) => setHtmlInput(e.target.value),
+                        placeholder: 'Paste your HTML here...\n\nExample:\n<section class="section-outer">\n  <h2 class="section-title">My Title</h2>\n  <p class="section-subtitle">My Subtitle</p>\n</section>',
+                        rows: 12,
+                        style: { 
+                            width: '100%', 
+                            fontFamily: 'Monaco, Consolas, monospace', 
+                            fontSize: '13px',
+                            border: '1px solid #ddd',
+                            borderRadius: '4px',
+                            padding: '12px',
+                            resize: 'vertical',
+                            lineHeight: '1.4'
+                        }
+                    })
+                ),
+                
+                // Convert Button
+                el(Button, {
+                    isPrimary: true,
+                    isBusy: isConverting,
+                    disabled: isConverting || !htmlInput.trim(),
+                    onClick: convertHtmlToBlocks,
+                    style: { marginBottom: '16px' }
+                }, isConverting ? 'Converting...' : 'Convert to Blocks'),
+                
+                // Generated Blocks Output
+                convertedBlocks && el('div', { style: { marginTop: '16px' } },
+                    el('label', { 
+                        style: { 
+                            display: 'block', 
+                            marginBottom: '8px', 
+                            fontWeight: '600',
+                            fontSize: '13px'
+                        } 
+                    }, 'Generated Blocks JSON:'),
+                    el('textarea', {
+                        value: convertedBlocks,
+                        readOnly: true,
+                        rows: 15,
+                        style: { 
+                            width: '100%', 
+                            fontFamily: 'Monaco, Consolas, monospace', 
+                            fontSize: '12px',
+                            background: '#f8f9fa',
+                            border: '1px solid #ddd',
+                            borderRadius: '4px',
+                            padding: '12px',
+                            marginBottom: '12px',
+                            lineHeight: '1.4'
+                        }
+                    }),
+                    el('div', { style: { display: 'flex', gap: '8px', alignItems: 'center' } },
+                        el(Button, {
+                            isPrimary: true,
+                            onClick: () => copyToClipboard(convertedBlocks),
+                        }, 'Copy to Clipboard'),
+                        el('span', { 
+                            style: { 
+                                fontSize: '12px', 
+                                color: '#666'
+                            } 
+                        }, 'Copy this JSON and paste into the WordPress block editor')
+                    )
+                )
+            ),
+
+            // Component Templates Tab
+            activeTab === 'templates' && el('div', { style: { padding: '16px 0' } },
+                el('h4', { style: { margin: '0 0 16px 0', fontSize: '16px', fontWeight: '600' } }, 
+                    'Component Templates'),
+                
+                el('p', { style: { margin: '0 0 16px 0', color: '#666', fontSize: '14px' } }, 
+                    'Create and manage reusable component templates for your WordPress site.'),
+                
+                // Template List
+                el('div', { style: { marginBottom: '16px' } },
+                    el('h5', { style: { margin: '0 0 8px 0', fontSize: '14px', fontWeight: 'bold' } }, 'Current Templates'),
+                    el('ul', { style: { listStyle: 'none', padding: '0', margin: '0' } },
+                        // Template items
+                        el('li', { style: { padding: '8px', border: '1px solid #ddd', borderRadius: '4px', marginBottom: '8px' } },
+                            el('h6', { style: { margin: '0 0 4px 0', fontSize: '13px', fontWeight: 'bold' } }, 'Template Name'),
+                            el('p', { style: { margin: '0', fontSize: '12px', color: '#666' } }, 'Template description')
+                        )
+                    )
+                ),
+                
+                // Add New Template Button
+                el(Button, {
+                    isPrimary: true,
+                    onClick: () => console.log('Add new template clicked'),
+                    style: { marginBottom: '16px' }
+                }, 'Add New Template')
+            ),
 
             // Layout Modules - Separate Accordion Panels
             
             // Containers Module
-            el(PanelBody, { 
+            activeTab === 'tokens' && el(PanelBody, { 
                 title: 'Containers', 
                 initialOpen: false,
                 style: { 
@@ -2230,7 +2527,7 @@
             ),
 
             // Aspect Ratios Module
-            el(PanelBody, { 
+            activeTab === 'tokens' && el(PanelBody, { 
                 title: 'Aspect Ratios', 
                 initialOpen: false,
                 style: { 
@@ -2278,7 +2575,7 @@
             ),
 
             // Z-Index Module
-            el(PanelBody, { 
+            activeTab === 'tokens' && el(PanelBody, { 
                 title: 'Z-Index', 
                 initialOpen: false,
                 style: { 
@@ -2326,7 +2623,7 @@
             ),
 
             // Breakpoints Module
-            el(PanelBody, { 
+            activeTab === 'tokens' && el(PanelBody, { 
                 title: 'Breakpoints', 
                 initialOpen: false,
                 style: { 
@@ -2374,7 +2671,7 @@
             ),
 
             // Grid Templates Module
-            el(PanelBody, { 
+            activeTab === 'tokens' && el(PanelBody, { 
                 title: 'Grid Templates', 
                 initialOpen: false,
                 style: { 
@@ -2422,7 +2719,7 @@
             ),
 
             // Spacing Module
-            el(PanelBody, { 
+            activeTab === 'tokens' && el(PanelBody, { 
                 title: 'Spacing', 
                 initialOpen: false,
                 style: { 
@@ -2567,8 +2864,8 @@
                     onChange: setEditTypographyValue,
                     placeholder: editingTypography.type === 'fontSizes' ? 'e.g., 2rem, 24px' :
                                editingTypography.type === 'fontFamilies' ? 'e.g., "Inter", sans-serif' :
-                               editingTypography.type === 'fontWeights' ? 'e.g., 400, 600, bold' :
-                               editingTypography.type === 'lineHeights' ? 'e.g., 1.5, 1.2' :
+                               editingTypography.type === 'fontWeight' ? 'e.g., 400, 600, bold' :
+                               editingTypography.type === 'lineHeight' ? 'e.g., 1.5, 1.2' :
                                editingTypography.type === 'letterSpacing' ? 'e.g., 0.05em, 1px' :
                                'e.g., uppercase, lowercase, capitalize'
                 }),
@@ -2698,5 +2995,4 @@
             ];
         }
     });
-
 })();
