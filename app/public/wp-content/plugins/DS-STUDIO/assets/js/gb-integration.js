@@ -26,9 +26,51 @@
         initSpacingIntegration();
         initTypographyIntegration();
         initBorderRadiusIntegration();
+        initUtilityClassIntegration();
+        
+        // Hook into GenerateBlocks block registration
+        wp.hooks.addFilter(
+            'blocks.registerBlockType',
+            'ds-studio/enhance-generateblocks',
+            enhanceGenerateBlocksControls
+        );
         
         console.log('✅ DS-Studio GB Integration: Complete!');
     });
+    
+    /**
+     * Enhance GenerateBlocks controls with utility class options
+     */
+    function enhanceGenerateBlocksControls(settings, name) {
+        // Only enhance GenerateBlocks blocks
+        if (!name.startsWith('generateblocks/')) {
+            return settings;
+        }
+        
+        console.log('🔧 Enhancing GenerateBlocks block:', name);
+        
+        // Store original edit function
+        const originalEdit = settings.edit;
+        
+        // Enhance the edit function
+        settings.edit = function(props) {
+            // Get the original edit component
+            const OriginalEdit = originalEdit(props);
+            
+            // Add our utility class controls
+            return wp.element.createElement(
+                wp.element.Fragment,
+                null,
+                OriginalEdit,
+                wp.element.createElement(UtilityClassControls, { 
+                    blockProps: props,
+                    blockName: name 
+                })
+            );
+        };
+        
+        return settings;
+    }
     
     /**
      * Enhance color controls with theme.json color palette
@@ -200,42 +242,275 @@
      * Add utility class suggestions to GenerateBlocks class editor
      */
     function initUtilityClassIntegration() {
-        console.log('🛠️ Initializing utility class integration...');
+        console.log('🔧 Initializing utility class integration...');
         
-        // Hook into GenerateBlocks additional CSS classes field
+        // Hook into GenerateBlocks class field
         wp.hooks.addFilter(
-            'generateblocks.editor.additionalClasses',
-            'ds-studio/utility-class-suggestions',
+            'generateblocks.editor.classField',
+            'ds-studio/utility-class-editor',
             function(classField, props) {
                 if (classField && classField.props) {
-                    // Add autocomplete suggestions for utility classes
-                    classField.props.suggestions = [
-                        // Color utilities
-                        'text-primary', 'text-secondary', 'text-neutral-700',
-                        'bg-primary', 'bg-secondary', 'bg-neutral-50',
-                        
-                        // Spacing utilities
-                        'p-xs', 'p-sm', 'p-md', 'p-lg', 'p-xl',
-                        'm-xs', 'm-sm', 'm-md', 'm-lg', 'm-xl',
-                        
-                        // Typography utilities
-                        'text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl',
-                        'font-light', 'font-normal', 'font-medium', 'font-semibold', 'font-bold',
-                        
-                        // Border radius utilities
-                        'rounded-xs', 'rounded-sm', 'rounded-base', 'rounded-lg', 'rounded-xl',
-                        
-                        // Layout utilities
-                        'flex', 'grid', 'block', 'inline-block', 'hidden',
-                        'justify-center', 'items-center', 'text-center'
-                    ];
+                    // Add utility class picker button
+                    const originalOnChange = classField.props.onChange;
                     
-                    // Add helper text
-                    classField.props.help = 'Use DS-Studio utility classes for consistent styling. Type to see suggestions.';
+                    // Enhance the class field with utility picker
+                    classField.props.help = 'Click "Add Utilities" button to browse DS-Studio utility classes, or type manually.';
+                    
+                    // Add utility picker functionality
+                    classField.props.onFocus = function() {
+                        // Show utility class picker when field is focused
+                        showUtilityClassPicker(classField.props.value || '', function(selectedUtilities) {
+                            if (originalOnChange) {
+                                originalOnChange(selectedUtilities);
+                            }
+                        });
+                    };
                 }
                 return classField;
             }
         );
+    }
+    
+    /**
+     * Show utility class picker modal
+     */
+    function showUtilityClassPicker(currentClasses, onApply) {
+        // Remove existing picker if any
+        const existingPicker = document.getElementById('ds-studio-utility-picker');
+        if (existingPicker) {
+            existingPicker.remove();
+        }
+        
+        // Create utility picker modal
+        const picker = document.createElement('div');
+        picker.id = 'ds-studio-utility-picker';
+        picker.style.cssText = `
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0,0,0,0.5);
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        `;
+        
+        // Get utilities from PHP via AJAX
+        fetch(dsStudioTokens.ajaxUrl, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({
+                action: 'ds_studio_get_utilities_by_category',
+                nonce: dsStudioTokens.nonce || ''
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                renderUtilityPicker(picker, data.data, currentClasses, onApply);
+            } else {
+                console.error('Failed to load utilities:', data);
+            }
+        })
+        .catch(error => {
+            console.error('Error loading utilities:', error);
+        });
+        
+        document.body.appendChild(picker);
+    }
+    
+    /**
+     * Render the utility picker interface
+     */
+    function renderUtilityPicker(picker, utilitiesByCategory, currentClasses, onApply) {
+        const currentClassArray = currentClasses.split(' ').filter(c => c.trim());
+        let selectedUtilities = [...currentClassArray];
+        
+        picker.innerHTML = `
+            <div style="
+                background: white;
+                border-radius: 8px;
+                width: 90%;
+                max-width: 800px;
+                max-height: 80vh;
+                overflow: hidden;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+                font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            ">
+                <div style="
+                    padding: 20px;
+                    border-bottom: 1px solid #eee;
+                    background: #f9f9f9;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                ">
+                    <h3 style="margin: 0; color: #333;">🎨 DS-Studio Utility Classes</h3>
+                    <button id="ds-close-picker" style="
+                        background: none;
+                        border: none;
+                        font-size: 20px;
+                        cursor: pointer;
+                        color: #666;
+                    ">×</button>
+                </div>
+                
+                <div style="
+                    padding: 20px;
+                    max-height: 60vh;
+                    overflow-y: auto;
+                ">
+                    <div id="utility-categories" style="
+                        display: grid;
+                        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                        gap: 20px;
+                    "></div>
+                </div>
+                
+                <div style="
+                    padding: 20px;
+                    border-top: 1px solid #eee;
+                    background: #f9f9f9;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                ">
+                    <div style="flex: 1;">
+                        <strong>Selected:</strong>
+                        <div id="selected-utilities" style="
+                            margin-top: 8px;
+                            padding: 8px;
+                            background: white;
+                            border: 1px solid #ddd;
+                            border-radius: 4px;
+                            min-height: 20px;
+                            font-family: monospace;
+                            font-size: 12px;
+                        ">${selectedUtilities.join(' ')}</div>
+                    </div>
+                    <div style="margin-left: 20px;">
+                        <button id="ds-clear-utilities" style="
+                            padding: 8px 16px;
+                            margin-right: 10px;
+                            background: #f0f0f0;
+                            border: 1px solid #ccc;
+                            border-radius: 4px;
+                            cursor: pointer;
+                        ">Clear All</button>
+                        <button id="ds-apply-utilities" style="
+                            padding: 8px 16px;
+                            background: #0073aa;
+                            color: white;
+                            border: none;
+                            border-radius: 4px;
+                            cursor: pointer;
+                        ">Apply Classes</button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        // Render utility categories
+        const categoriesContainer = picker.querySelector('#utility-categories');
+        Object.entries(utilitiesByCategory).forEach(([category, utilities]) => {
+            if (utilities.length === 0) return;
+            
+            const categoryDiv = document.createElement('div');
+            categoryDiv.innerHTML = `
+                <h4 style="
+                    margin: 0 0 10px 0;
+                    color: #333;
+                    font-size: 14px;
+                    text-transform: capitalize;
+                    border-bottom: 2px solid #0073aa;
+                    padding-bottom: 5px;
+                ">${getCategoryIcon(category)} ${category}</h4>
+                <div class="utility-grid" style="
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 4px;
+                    max-height: 200px;
+                    overflow-y: auto;
+                ">
+                    ${utilities.map(utility => `
+                        <label style="
+                            display: flex;
+                            align-items: center;
+                            padding: 4px 8px;
+                            border: 1px solid #e1e5e9;
+                            border-radius: 4px;
+                            cursor: pointer;
+                            font-size: 11px;
+                            font-family: monospace;
+                            background: ${selectedUtilities.includes(utility) ? '#e1f5fe' : '#fafafa'};
+                            transition: all 0.2s ease;
+                        " onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='${selectedUtilities.includes(utility) ? '#e1f5fe' : '#fafafa'}'">
+                            <input type="checkbox" 
+                                   value="${utility}" 
+                                   ${selectedUtilities.includes(utility) ? 'checked' : ''}
+                                   style="margin-right: 6px;"
+                                   onchange="toggleUtility('${utility}')">
+                            <span>${utility}</span>
+                        </label>
+                    `).join('')}
+                </div>
+            `;
+            categoriesContainer.appendChild(categoryDiv);
+        });
+        
+        // Add event handlers
+        picker.querySelector('#ds-close-picker').onclick = () => picker.remove();
+        picker.querySelector('#ds-clear-utilities').onclick = () => {
+            selectedUtilities = [];
+            updateSelectedDisplay();
+            updateCheckboxes();
+        };
+        picker.querySelector('#ds-apply-utilities').onclick = () => {
+            onApply(selectedUtilities.join(' '));
+            picker.remove();
+        };
+        
+        // Global functions for utility management
+        window.toggleUtility = function(utility) {
+            if (selectedUtilities.includes(utility)) {
+                selectedUtilities = selectedUtilities.filter(u => u !== utility);
+            } else {
+                selectedUtilities.push(utility);
+            }
+            updateSelectedDisplay();
+        };
+        
+        function updateSelectedDisplay() {
+            const display = picker.querySelector('#selected-utilities');
+            display.textContent = selectedUtilities.join(' ');
+        }
+        
+        function updateCheckboxes() {
+            picker.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
+                checkbox.checked = selectedUtilities.includes(checkbox.value);
+                const label = checkbox.closest('label');
+                label.style.background = checkbox.checked ? '#e1f5fe' : '#fafafa';
+            });
+        }
+    }
+    
+    /**
+     * Get category icon
+     */
+    function getCategoryIcon(category) {
+        const icons = {
+            spacing: '📏',
+            colors: '🎨',
+            typography: '📝',
+            layout: '📐',
+            borders: '🔲',
+            effects: '✨',
+            responsive: '📱',
+            fluid: '🌊'
+        };
+        return icons[category] || '🔧';
     }
     
     /**
@@ -309,4 +584,261 @@
         }
     });
     
+    /**
+     * Utility Class Controls Component
+     */
+    function UtilityClassControls({ blockProps, blockName }) {
+        const { attributes, setAttributes } = blockProps;
+        const { className = '' } = attributes;
+        
+        // Get current utility classes
+        const currentUtilities = className.split(' ').filter(cls => 
+            cls.startsWith('text-') || 
+            cls.startsWith('font-') || 
+            cls.startsWith('p-') || 
+            cls.startsWith('m-') ||
+            cls.startsWith('bg-') ||
+            cls.startsWith('border-') ||
+            cls.startsWith('rounded-')
+        );
+        
+        return wp.element.createElement(
+            wp.blockEditor.InspectorControls,
+            null,
+            wp.element.createElement(
+                wp.components.PanelBody,
+                {
+                    title: '🎨 DS-Studio Utilities',
+                    initialOpen: false
+                },
+                // Typography utilities for text blocks
+                (blockName === 'generateblocks/headline' || blockName === 'generateblocks/button') && 
+                wp.element.createElement(TypographyUtilities, { 
+                    currentUtilities, 
+                    onChange: updateUtilities 
+                }),
+                
+                // Spacing utilities for all blocks
+                wp.element.createElement(SpacingUtilities, { 
+                    currentUtilities, 
+                    onChange: updateUtilities 
+                }),
+                
+                // Color utilities for all blocks
+                wp.element.createElement(ColorUtilities, { 
+                    currentUtilities, 
+                    onChange: updateUtilities 
+                }),
+                
+                // Border utilities for containers
+                (blockName === 'generateblocks/container' || blockName === 'generateblocks/button') &&
+                wp.element.createElement(BorderUtilities, { 
+                    currentUtilities, 
+                    onChange: updateUtilities 
+                })
+            )
+        );
+        
+        function updateUtilities(newUtilities) {
+            // Remove existing utility classes and add new ones
+            const nonUtilityClasses = className.split(' ').filter(cls => 
+                !cls.startsWith('text-') && 
+                !cls.startsWith('font-') && 
+                !cls.startsWith('p-') && 
+                !cls.startsWith('m-') &&
+                !cls.startsWith('bg-') &&
+                !cls.startsWith('border-') &&
+                !cls.startsWith('rounded-')
+            );
+            
+            const updatedClassName = [...nonUtilityClasses, ...newUtilities]
+                .filter(cls => cls.trim())
+                .join(' ');
+                
+            setAttributes({ className: updatedClassName });
+        }
+    }
+    
+    /**
+     * Typography Utilities Component
+     */
+    function TypographyUtilities({ currentUtilities, onChange }) {
+        const fontSizes = ['text-xs', 'text-sm', 'text-base', 'text-lg', 'text-xl', 'text-2xl'];
+        const fontWeights = ['font-light', 'font-normal', 'font-medium', 'font-semibold', 'font-bold'];
+        
+        return wp.element.createElement(
+            wp.element.Fragment,
+            null,
+            wp.element.createElement(
+                'h4',
+                { style: { margin: '16px 0 8px 0', fontSize: '13px', fontWeight: '600' } },
+                '📝 Typography'
+            ),
+            wp.element.createElement(
+                wp.components.SelectControl,
+                {
+                    label: 'Font Size',
+                    value: currentUtilities.find(cls => cls.startsWith('text-')) || '',
+                    options: [
+                        { label: 'Default', value: '' },
+                        ...fontSizes.map(size => ({ 
+                            label: size.replace('text-', '').toUpperCase(), 
+                            value: size 
+                        }))
+                    ],
+                    onChange: (value) => {
+                        const newUtilities = currentUtilities.filter(cls => !cls.startsWith('text-'));
+                        if (value) newUtilities.push(value);
+                        onChange(newUtilities);
+                    }
+                }
+            ),
+            wp.element.createElement(
+                wp.components.SelectControl,
+                {
+                    label: 'Font Weight',
+                    value: currentUtilities.find(cls => cls.startsWith('font-')) || '',
+                    options: [
+                        { label: 'Default', value: '' },
+                        ...fontWeights.map(weight => ({ 
+                            label: weight.replace('font-', '').charAt(0).toUpperCase() + weight.replace('font-', '').slice(1), 
+                            value: weight 
+                        }))
+                    ],
+                    onChange: (value) => {
+                        const newUtilities = currentUtilities.filter(cls => !cls.startsWith('font-'));
+                        if (value) newUtilities.push(value);
+                        onChange(newUtilities);
+                    }
+                }
+            )
+        );
+    }
+    
+    /**
+     * Spacing Utilities Component
+     */
+    function SpacingUtilities({ currentUtilities, onChange }) {
+        const spacingSizes = ['xs', 'sm', 'md', 'lg', 'xl'];
+        
+        return wp.element.createElement(
+            wp.element.Fragment,
+            null,
+            wp.element.createElement(
+                'h4',
+                { style: { margin: '16px 0 8px 0', fontSize: '13px', fontWeight: '600' } },
+                '📏 Spacing'
+            ),
+            wp.element.createElement(
+                wp.components.SelectControl,
+                {
+                    label: 'Padding',
+                    value: currentUtilities.find(cls => cls.startsWith('p-')) || '',
+                    options: [
+                        { label: 'Default', value: '' },
+                        ...spacingSizes.map(size => ({ 
+                            label: size.toUpperCase(), 
+                            value: `p-${size}` 
+                        }))
+                    ],
+                    onChange: (value) => {
+                        const newUtilities = currentUtilities.filter(cls => !cls.startsWith('p-'));
+                        if (value) newUtilities.push(value);
+                        onChange(newUtilities);
+                    }
+                }
+            ),
+            wp.element.createElement(
+                wp.components.SelectControl,
+                {
+                    label: 'Margin',
+                    value: currentUtilities.find(cls => cls.startsWith('m-')) || '',
+                    options: [
+                        { label: 'Default', value: '' },
+                        ...spacingSizes.map(size => ({ 
+                            label: size.toUpperCase(), 
+                            value: `m-${size}` 
+                        }))
+                    ],
+                    onChange: (value) => {
+                        const newUtilities = currentUtilities.filter(cls => !cls.startsWith('m-'));
+                        if (value) newUtilities.push(value);
+                        onChange(newUtilities);
+                    }
+                }
+            )
+        );
+    }
+    
+    /**
+     * Color Utilities Component
+     */
+    function ColorUtilities({ currentUtilities, onChange }) {
+        const colors = Object.keys(dsStudioTokens.colors || {});
+        
+        return wp.element.createElement(
+            wp.element.Fragment,
+            null,
+            wp.element.createElement(
+                'h4',
+                { style: { margin: '16px 0 8px 0', fontSize: '13px', fontWeight: '600' } },
+                '🎨 Colors'
+            ),
+            wp.element.createElement(
+                wp.components.SelectControl,
+                {
+                    label: 'Background Color',
+                    value: currentUtilities.find(cls => cls.startsWith('bg-')) || '',
+                    options: [
+                        { label: 'Default', value: '' },
+                        ...colors.map(color => ({ 
+                            label: color.charAt(0).toUpperCase() + color.slice(1), 
+                            value: `bg-${color}` 
+                        }))
+                    ],
+                    onChange: (value) => {
+                        const newUtilities = currentUtilities.filter(cls => !cls.startsWith('bg-'));
+                        if (value) newUtilities.push(value);
+                        onChange(newUtilities);
+                    }
+                }
+            )
+        );
+    }
+    
+    /**
+     * Border Utilities Component
+     */
+    function BorderUtilities({ currentUtilities, onChange }) {
+        const borderSizes = ['xs', 'sm', 'md', 'lg', 'xl'];
+        
+        return wp.element.createElement(
+            wp.element.Fragment,
+            null,
+            wp.element.createElement(
+                'h4',
+                { style: { margin: '16px 0 8px 0', fontSize: '13px', fontWeight: '600' } },
+                '🔲 Borders'
+            ),
+            wp.element.createElement(
+                wp.components.SelectControl,
+                {
+                    label: 'Border Radius',
+                    value: currentUtilities.find(cls => cls.startsWith('rounded-')) || '',
+                    options: [
+                        { label: 'Default', value: '' },
+                        ...borderSizes.map(size => ({ 
+                            label: size.toUpperCase(), 
+                            value: `rounded-${size}` 
+                        }))
+                    ],
+                    onChange: (value) => {
+                        const newUtilities = currentUtilities.filter(cls => !cls.startsWith('rounded-'));
+                        if (value) newUtilities.push(value);
+                        onChange(newUtilities);
+                    }
+                }
+            )
+        );
+    }
 })();

@@ -166,17 +166,17 @@
                 {
                     "name": "secondary-light",
                     "slug": "secondary-light",
-                    "color": "#2c2c2c"
+                    "color": "#dcdfe5"
                 },
                 {
                     "slug": "secondary",
                     "name": "Secondary",
-                    "color": "#975d55"
+                    "color": "#7c8698"
                 },
                 {
                     "slug": "secondary-dark",
                     "name": "Secondary Dark",
-                    "color": "#853d2d"
+                    "color": "#4d5668"
                 },
                 {
                     "slug": "neutral-light",
@@ -468,14 +468,14 @@
             }
         },
         "layout": {
-            "contentSize": "1200px",
-            "wideSize": "1400px"
+            "contentSize": "100%",
+            "wideSize": "100%"
         }
     },
     "styles": {
         "color": {
             "text": "var(--wp--preset--color--neutral)",
-            "background": "var(--wp--preset--color--neutral-light)"
+            "background": "var(--wp--preset--color--extreme-light)"
         },
         "typography": {
             "fontFamily": "var(--wp--preset--font-family--system)",

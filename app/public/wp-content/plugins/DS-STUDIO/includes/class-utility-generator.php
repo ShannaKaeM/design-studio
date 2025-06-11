@@ -14,10 +14,11 @@ class DS_Studio_Utility_Generator {
     
     private $theme_json_data;
     private $utility_classes = [];
+    private $css_file_url;
     
     public function __construct() {
         add_action('init', array($this, 'init'));
-        add_action('wp_enqueue_scripts', array($this, 'enqueue_utility_styles'));
+        add_action('wp_enqueue_scripts', array($this, 'enqueue_utilities_css'));
         add_action('enqueue_block_editor_assets', array($this, 'enqueue_utility_styles'));
     }
     
@@ -225,6 +226,19 @@ class DS_Studio_Utility_Generator {
             $this->utility_classes[] = ".container-{$slug} { max-width: {$value} !important; margin-left: auto !important; margin-right: auto !important; }";
             $this->utility_classes[] = ".w-{$slug} { width: {$value} !important; }";
             $this->utility_classes[] = ".max-w-{$slug} { max-width: {$value} !important; }";
+            $this->utility_classes[] = ".h-{$slug} { height: {$value} !important; }";
+            $this->utility_classes[] = ".max-h-{$slug} { max-height: {$value} !important; }";
+            $this->utility_classes[] = ".min-h-{$slug} { min-height: {$value} !important; }";
+        }
+        
+        // Height utilities from spacing sizes
+        $spacing = $this->theme_json_data['settings']['spacing']['spacingSizes'] ?? [];
+        foreach ($spacing as $size) {
+            $slug = $size['slug'];
+            $value = $size['size'];
+            $this->utility_classes[] = ".h-{$slug} { height: {$value} !important; }";
+            $this->utility_classes[] = ".max-h-{$slug} { max-height: {$value} !important; }";
+            $this->utility_classes[] = ".min-h-{$slug} { min-height: {$value} !important; }";
         }
         
         // Aspect ratios from settings.custom.layout.aspectRatios
@@ -338,6 +352,9 @@ class DS_Studio_Utility_Generator {
             $this->utility_classes[] = ".md:container-{$slug} { max-width: {$value} !important; margin-left: auto !important; margin-right: auto !important; }";
             $this->utility_classes[] = ".md:w-{$slug} { width: {$value} !important; }";
             $this->utility_classes[] = ".md:max-w-{$slug} { max-width: {$value} !important; }";
+            $this->utility_classes[] = ".md:h-{$slug} { height: {$value} !important; }";
+            $this->utility_classes[] = ".md:max-h-{$slug} { max-height: {$value} !important; }";
+            $this->utility_classes[] = ".md:min-h-{$slug} { min-height: {$value} !important; }";
         }
         
         // Responsive shadow utilities
@@ -386,9 +403,8 @@ class DS_Studio_Utility_Generator {
             $css_content .= "@media (min-width: 768px) {\n";
             
             foreach ($responsive_utilities as $utility) {
-                // Remove the md: prefix for the media query version
-                $clean_utility = str_replace('.md:', '.', $utility);
-                $css_content .= "    " . $clean_utility . "\n";
+                // Keep the md: prefix but format it properly for media queries
+                $css_content .= "    " . $utility . "\n";
             }
             
             $css_content .= "}\n\n";
@@ -487,26 +503,36 @@ class DS_Studio_Utility_Generator {
     }
     
     /**
-     * Enqueue utility styles
+     * Enqueue styles and scripts for the block editor
      */
     public function enqueue_utility_styles() {
-        // Check if we should use purged CSS
-        $use_purged = get_option('ds_studio_use_purged_css', false);
+        $upload_dir = wp_upload_dir();
+        $css_file_path = $upload_dir['basedir'] . '/ds-studio/utilities.css';
+        $css_file_url = $upload_dir['baseurl'] . '/ds-studio/utilities.css';
         
-        if ($use_purged) {
-            $css_url = get_option('ds_studio_purged_css_url');
-        } else {
-            $css_url = get_option('ds_studio_utilities_css_url');
-        }
-        
-        if ($css_url) {
+        // Only enqueue if the CSS file exists
+        if (file_exists($css_file_path)) {
             wp_enqueue_style(
-                'ds-studio-utilities',
-                $css_url,
+                'ds-studio-utilities-editor',
+                $css_file_url,
                 array(),
-                filemtime(str_replace(wp_upload_dir()['baseurl'], wp_upload_dir()['basedir'], $css_url))
+                filemtime($css_file_path)
             );
         }
+    }
+    
+    /**
+     * Enqueue frontend utilities CSS
+     */
+    public function enqueue_utilities_css() {
+        $upload_dir = wp_upload_dir();
+        $css_file_url = $upload_dir['baseurl'] . '/ds-studio/utilities.css';
+        wp_enqueue_style(
+            'ds-studio-utilities-frontend',
+            $css_file_url,
+            array(),
+            filemtime($upload_dir['basedir'] . '/ds-studio/utilities.css')
+        );
     }
     
     /**
@@ -671,10 +697,27 @@ class DS_Studio_Utility_Generator {
      * Regenerate utilities (called when theme.json is updated)
      */
     public function regenerate_utilities() {
-        $this->utility_classes = [];
-        $this->load_theme_json();
-        $this->generate_utility_classes();
-        $this->write_utility_css();
+        try {
+            $this->utility_classes = [];
+            $this->load_theme_json();
+            $this->generate_utility_classes();
+            $this->write_utility_css();
+            return true;
+        } catch (Exception $e) {
+            error_log('DS-Studio: Failed to regenerate utilities - ' . $e->getMessage());
+            return false;
+        }
+    }
+    
+    /**
+     * Get the CSS file URL
+     */
+    public function get_css_file_url() {
+        if (empty($this->css_file_url)) {
+            $upload_dir = wp_upload_dir();
+            $this->css_file_url = $upload_dir['baseurl'] . '/ds-studio/utilities.css';
+        }
+        return $this->css_file_url;
     }
     
     /**
@@ -735,6 +778,68 @@ class DS_Studio_Utility_Generator {
         }
         
         return $categorized;
+    }
+    
+    /**
+     * Get utility classes organized for JavaScript
+     */
+    private function get_utility_classes_for_js() {
+        $this->load_theme_json();
+        
+        $organized_classes = [
+            'width' => [],
+            'height' => [],
+            'spacing' => [],
+            'colors' => [],
+            'typography' => [],
+            'layout' => [],
+            'alignment' => []
+        ];
+        
+        // Container sizes
+        $containers = $this->theme_json_data['settings']['custom']['layout']['containers'] ?? [];
+        foreach ($containers as $slug => $value) {
+            $organized_classes['width'][] = [
+                'label' => ucfirst($slug) . " ({$value})",
+                'value' => "container-{$slug}"
+            ];
+        }
+        
+        // Spacing sizes
+        $spacing = $this->theme_json_data['settings']['spacing']['spacingSizes'] ?? [];
+        foreach ($spacing as $size) {
+            $slug = $size['slug'];
+            $value = $size['size'];
+            $organized_classes['spacing'][] = [
+                'label' => ucfirst($slug) . " ({$value})",
+                'value' => $slug
+            ];
+        }
+        
+        // Colors
+        $colors = $this->theme_json_data['settings']['color']['palette'] ?? [];
+        foreach ($colors as $color) {
+            $slug = $color['slug'];
+            $name = $color['name'];
+            $organized_classes['colors'][] = [
+                'label' => $name,
+                'value' => $slug
+            ];
+        }
+        
+        // Font sizes
+        $font_sizes = $this->theme_json_data['settings']['typography']['fontSizes'] ?? [];
+        foreach ($font_sizes as $size) {
+            $slug = $size['slug'];
+            $name = $size['name'];
+            $value = $size['size'];
+            $organized_classes['typography'][] = [
+                'label' => "{$name} ({$value})",
+                'value' => $slug
+            ];
+        }
+        
+        return $organized_classes;
     }
 }
 

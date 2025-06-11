@@ -34,6 +34,9 @@ class DS_Studio_GenerateBlocks_Integration {
         
         // Enqueue our enhanced integration script
         add_action('admin_enqueue_scripts', array($this, 'enqueue_integration_script'));
+        
+        // Add AJAX handler for utility class picker
+        add_action('wp_ajax_ds_studio_get_utilities_by_category', array($this, 'ajax_get_utilities_by_category'));
     }
     
     /**
@@ -162,6 +165,8 @@ class DS_Studio_GenerateBlocks_Integration {
                 'typography' => $this->get_theme_typography(),
                 'borderRadius' => $this->get_border_radius_tokens(),
                 'shadows' => $this->get_shadow_tokens(),
+                'nonce' => wp_create_nonce('ds_studio_utilities_nonce'),
+                'ajaxUrl' => admin_url('admin-ajax.php'),
                 'debug' => true
             )
         );
@@ -318,6 +323,33 @@ class DS_Studio_GenerateBlocks_Integration {
         }
         
         return $theme_json_data;
+    }
+    
+    /**
+     * AJAX handler for utility class picker
+     */
+    public function ajax_get_utilities_by_category() {
+        // Check nonce for security
+        if (!wp_verify_nonce($_POST['nonce'] ?? '', 'ds_studio_utilities_nonce')) {
+            wp_die('Security check failed');
+        }
+        
+        // Check user capabilities
+        if (!current_user_can('edit_theme_options')) {
+            wp_die('Insufficient permissions');
+        }
+        
+        // Get utility generator instance
+        if (!class_exists('DS_Studio_Utility_Generator')) {
+            wp_send_json_error('Utility generator not available');
+            return;
+        }
+        
+        $utility_generator = new DS_Studio_Utility_Generator();
+        $utilities_by_category = $utility_generator->get_utilities_by_category();
+        
+        // Send utilities data as JSON
+        wp_send_json_success($utilities_by_category);
     }
 }
 

@@ -21,8 +21,6 @@ define('DS_STUDIO_PLUGIN_PATH', plugin_dir_path(__FILE__));
 
 // Include core classes
 require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-generator.php';
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-generateblocks-integration.php';
-require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-class-injector.php';
 
 // Include admin page
 require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-admin-page.php';
@@ -38,44 +36,6 @@ require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-purger.php';
 
 // Include block patterns
 require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-block-patterns.php';
-
-// Include debug API script
-require_once DS_STUDIO_PLUGIN_PATH . 'debug-wp-api.php';
-
-// Include integration test page
-require_once DS_STUDIO_PLUGIN_PATH . 'test-integration.php';
-
-// Initialize GenerateBlocks integration after all plugins are loaded
-add_action('plugins_loaded', function() {
-    if (class_exists('GenerateBlocks')) {
-        new DS_Studio_GenerateBlocks_Integration();
-        
-        // Update admin notice
-        add_action('admin_notices', function() {
-            if (current_user_can('manage_options')) {
-                echo '<div class="notice notice-success"><p><strong>DS Studio:</strong> GenerateBlocks integration loaded successfully!</p></div>';
-            }
-        });
-    } else {
-        add_action('admin_notices', function() {
-            if (current_user_can('manage_options')) {
-                echo '<div class="notice notice-error"><p><strong>DS Studio:</strong> GenerateBlocks not found. Please activate GenerateBlocks plugin.</p></div>';
-            }
-        });
-    }
-});
-
-// Test admin notice to verify plugin is loading
-add_action('admin_notices', function() {
-    if (current_user_can('manage_options')) {
-        echo '<div class="notice notice-warning"><p><strong>DS Studio:</strong> Plugin loaded! GenerateBlocks: ' . (class_exists('GenerateBlocks') ? 'Active' : 'Not found') . '</p></div>';
-    }
-});
-
-// Include debug file for testing
-if (defined('WP_DEBUG') && WP_DEBUG) {
-    require_once DS_STUDIO_PLUGIN_PATH . 'debug-integration.php';
-}
 
 /**
  * Main DS Studio Class
@@ -96,12 +56,8 @@ class DS_Studio {
         add_action('init', array($this, 'init'));
         add_action('enqueue_block_editor_assets', array($this, 'enqueue_block_editor_assets'));
         
-        // Debug: Add admin notice to verify plugin is loading
-        add_action('admin_notices', array($this, 'debug_admin_notice'));
-        
         add_action('wp_ajax_ds_studio_save_theme_json', array($this, 'save_theme_json'));
         add_action('wp_ajax_ds_studio_get_theme_json', array($this, 'get_theme_json'));
-        add_action('wp_ajax_ds_studio_regenerate_utilities', array($this, 'regenerate_utilities_ajax'));
         
         // Add purger AJAX handlers
         add_action('wp_ajax_ds_studio_use_full_css', array($this, 'use_full_css_ajax'));
@@ -112,12 +68,6 @@ class DS_Studio {
         
         // Initialize utility generator
         $this->utility_generator = new DS_Studio_Utility_Generator();
-        
-        // Initialize admin page
-        new DS_Studio_Admin_Page();
-        
-        // Initialize utility class injector
-        new DS_Studio_Utility_Class_Injector();
     }
     
     /**
@@ -126,13 +76,6 @@ class DS_Studio {
     public function init() {
         // Load text domain for translations
         load_plugin_textdomain('ds-studio', false, dirname(plugin_basename(__FILE__)) . '/languages');
-    }
-    
-    /**
-     * Debug admin notice to verify plugin is loading
-     */
-    public function debug_admin_notice() {
-        echo '<div class="notice notice-info"><p>DS-Studio Plugin is ACTIVE and LOADING</p></div>';
     }
     
     /**
@@ -406,24 +349,6 @@ class DS_Studio {
         }
         
         wp_send_json_success($this->get_current_theme_json());
-    }
-    
-    /**
-     * AJAX handler to regenerate utilities
-     */
-    public function regenerate_utilities_ajax() {
-        // Verify nonce
-        if (!wp_verify_nonce($_POST['nonce'], 'ds_studio_utilities_nonce')) {
-            wp_die('Security check failed');
-        }
-        
-        // Check user permissions
-        if (!current_user_can('edit_theme_options')) {
-            wp_die('Insufficient permissions');
-        }
-        
-        $this->utility_generator->regenerate_utilities();
-        wp_send_json_success('Utilities regenerated successfully');
     }
     
     /**
