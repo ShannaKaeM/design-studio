@@ -76,30 +76,30 @@ class DS_Studio_Utility_Generator {
         
         foreach ($spacing as $size) {
             $slug = $size['slug'];
-            $value = $size['size'];
+            $css_var = "var(--wp--preset--spacing--{$slug})";
             
             // Margin utilities
-            $this->utility_classes[] = ".m-{$slug} { margin: {$value} !important; }";
-            $this->utility_classes[] = ".mt-{$slug} { margin-top: {$value} !important; }";
-            $this->utility_classes[] = ".mr-{$slug} { margin-right: {$value} !important; }";
-            $this->utility_classes[] = ".mb-{$slug} { margin-bottom: {$value} !important; }";
-            $this->utility_classes[] = ".ml-{$slug} { margin-left: {$value} !important; }";
-            $this->utility_classes[] = ".mx-{$slug} { margin-left: {$value} !important; margin-right: {$value} !important; }";
-            $this->utility_classes[] = ".my-{$slug} { margin-top: {$value} !important; margin-bottom: {$value} !important; }";
+            $this->utility_classes[] = ".m-{$slug} { margin: {$css_var} !important; }";
+            $this->utility_classes[] = ".mt-{$slug} { margin-top: {$css_var} !important; }";
+            $this->utility_classes[] = ".mr-{$slug} { margin-right: {$css_var} !important; }";
+            $this->utility_classes[] = ".mb-{$slug} { margin-bottom: {$css_var} !important; }";
+            $this->utility_classes[] = ".ml-{$slug} { margin-left: {$css_var} !important; }";
+            $this->utility_classes[] = ".mx-{$slug} { margin-left: {$css_var} !important; margin-right: {$css_var} !important; }";
+            $this->utility_classes[] = ".my-{$slug} { margin-top: {$css_var} !important; margin-bottom: {$css_var} !important; }";
             
             // Padding utilities
-            $this->utility_classes[] = ".p-{$slug} { padding: {$value} !important; }";
-            $this->utility_classes[] = ".pt-{$slug} { padding-top: {$value} !important; }";
-            $this->utility_classes[] = ".pr-{$slug} { padding-right: {$value} !important; }";
-            $this->utility_classes[] = ".pb-{$slug} { padding-bottom: {$value} !important; }";
-            $this->utility_classes[] = ".pl-{$slug} { padding-left: {$value} !important; }";
-            $this->utility_classes[] = ".px-{$slug} { padding-left: {$value} !important; padding-right: {$value} !important; }";
-            $this->utility_classes[] = ".py-{$slug} { padding-top: {$value} !important; padding-bottom: {$value} !important; }";
+            $this->utility_classes[] = ".p-{$slug} { padding: {$css_var} !important; }";
+            $this->utility_classes[] = ".pt-{$slug} { padding-top: {$css_var} !important; }";
+            $this->utility_classes[] = ".pr-{$slug} { padding-right: {$css_var} !important; }";
+            $this->utility_classes[] = ".pb-{$slug} { padding-bottom: {$css_var} !important; }";
+            $this->utility_classes[] = ".pl-{$slug} { padding-left: {$css_var} !important; }";
+            $this->utility_classes[] = ".px-{$slug} { padding-left: {$css_var} !important; padding-right: {$css_var} !important; }";
+            $this->utility_classes[] = ".py-{$slug} { padding-top: {$css_var} !important; padding-bottom: {$css_var} !important; }";
             
             // Gap utilities
-            $this->utility_classes[] = ".gap-{$slug} { gap: {$value} !important; }";
-            $this->utility_classes[] = ".gap-x-{$slug} { column-gap: {$value} !important; }";
-            $this->utility_classes[] = ".gap-y-{$slug} { row-gap: {$value} !important; }";
+            $this->utility_classes[] = ".gap-{$slug} { gap: {$css_var} !important; }";
+            $this->utility_classes[] = ".gap-x-{$slug} { column-gap: {$css_var} !important; }";
+            $this->utility_classes[] = ".gap-y-{$slug} { row-gap: {$css_var} !important; }";
         }
     }
     
@@ -111,16 +111,16 @@ class DS_Studio_Utility_Generator {
         
         foreach ($colors as $color) {
             $slug = $color['slug'];
-            $value = $color['color'];
+            $css_var = "var(--wp--preset--color--{$slug})";
             
             // Text color utilities
-            $this->utility_classes[] = ".text-{$slug} { color: {$value} !important; }";
+            $this->utility_classes[] = ".text-{$slug} { color: {$css_var} !important; }";
             
             // Background color utilities
-            $this->utility_classes[] = ".bg-{$slug} { background-color: {$value} !important; }";
+            $this->utility_classes[] = ".bg-{$slug} { background-color: {$css_var} !important; }";
             
             // Border color utilities
-            $this->utility_classes[] = ".border-{$slug} { border-color: {$value} !important; }";
+            $this->utility_classes[] = ".border-{$slug} { border-color: {$css_var} !important; }";
         }
     }
     
@@ -132,43 +132,47 @@ class DS_Studio_Utility_Generator {
         $font_sizes = $this->theme_json_data['settings']['typography']['fontSizes'] ?? [];
         foreach ($font_sizes as $size) {
             $slug = $size['slug'];
-            $value = $size['size'];
-            $this->utility_classes[] = ".text-{$slug} { font-size: {$value} !important; }";
+            $css_var = "var(--wp--preset--font-size--{$slug})";
+            $this->utility_classes[] = ".text-{$slug} { font-size: {$css_var} !important; }";
         }
         
         // Font families
         $font_families = $this->theme_json_data['settings']['typography']['fontFamilies'] ?? [];
         foreach ($font_families as $family) {
             $slug = $family['slug'];
-            $value = $family['fontFamily'];
-            $this->utility_classes[] = ".font-{$slug} { font-family: {$value} !important; }";
+            $css_var = "var(--wp--preset--font-family--{$slug})";
+            $this->utility_classes[] = ".font-{$slug} { font-family: {$css_var} !important; }";
         }
         
         // Font weights
-        $font_weights = $this->theme_json_data['custom']['typography']['fontWeights'] ?? [];
-        foreach ($font_weights as $weight) {
-            $slug = $weight['slug'];
-            $value = $weight['fontWeight'];
+        $font_weights = ['light' => '300', 'normal' => '400', 'medium' => '500', 'semibold' => '600', 'bold' => '700', 'extrabold' => '800'];
+        foreach ($font_weights as $slug => $value) {
             $this->utility_classes[] = ".font-{$slug} { font-weight: {$value} !important; }";
         }
         
         // Line heights
-        $line_heights = $this->theme_json_data['custom']['typography']['lineHeights'] ?? [];
+        $line_heights = $this->theme_json_data['settings']['typography']['lineHeights'] ?? [];
         foreach ($line_heights as $height) {
             $slug = $height['slug'];
-            $value = $height['lineHeight'];
-            $this->utility_classes[] = ".leading-{$slug} { line-height: {$value} !important; }";
+            $css_var = "var(--wp--preset--line-height--{$slug})";
+            $this->utility_classes[] = ".leading-{$slug} { line-height: {$css_var} !important; }";
         }
         
         // Letter spacing
-        $letter_spacings = $this->theme_json_data['custom']['typography']['letterSpacings'] ?? [];
+        $letter_spacings = $this->theme_json_data['settings']['typography']['letterSpacings'] ?? [];
         foreach ($letter_spacings as $spacing) {
             $slug = $spacing['slug'];
-            $value = $spacing['letterSpacing'];
-            $this->utility_classes[] = ".tracking-{$slug} { letter-spacing: {$value} !important; }";
+            $css_var = "var(--wp--preset--letter-spacing--{$slug})";
+            $this->utility_classes[] = ".tracking-{$slug} { letter-spacing: {$css_var} !important; }";
         }
         
-        // Text transforms
+        // Text transforms - Add common ones
+        $this->utility_classes[] = ".uppercase { text-transform: uppercase !important; }";
+        $this->utility_classes[] = ".lowercase { text-transform: lowercase !important; }";
+        $this->utility_classes[] = ".capitalize { text-transform: capitalize !important; }";
+        $this->utility_classes[] = ".normal-case { text-transform: none !important; }";
+        
+        // Text transforms from theme.json
         $text_transforms = $this->theme_json_data['custom']['typography']['textTransforms'] ?? [];
         foreach ($text_transforms as $transform) {
             $slug = $transform['slug'];
@@ -185,24 +189,24 @@ class DS_Studio_Utility_Generator {
         $border_widths = $this->theme_json_data['settings']['custom']['border']['widths'] ?? [];
         foreach ($border_widths as $width) {
             $slug = $width['slug'];
-            $value = $width['size'];
-            $this->utility_classes[] = ".border-{$slug} { border-width: {$value} !important; }";
-            $this->utility_classes[] = ".border-t-{$slug} { border-top-width: {$value} !important; }";
-            $this->utility_classes[] = ".border-r-{$slug} { border-right-width: {$value} !important; }";
-            $this->utility_classes[] = ".border-b-{$slug} { border-bottom-width: {$value} !important; }";
-            $this->utility_classes[] = ".border-l-{$slug} { border-left-width: {$value} !important; }";
+            $css_var = "var(--wp--preset--border-width--{$slug})";
+            $this->utility_classes[] = ".border-{$slug} { border-width: {$css_var} !important; }";
+            $this->utility_classes[] = ".border-t-{$slug} { border-top-width: {$css_var} !important; }";
+            $this->utility_classes[] = ".border-r-{$slug} { border-right-width: {$css_var} !important; }";
+            $this->utility_classes[] = ".border-b-{$slug} { border-bottom-width: {$css_var} !important; }";
+            $this->utility_classes[] = ".border-l-{$slug} { border-left-width: {$css_var} !important; }";
         }
         
         // Border radius from settings.custom.border.radius
         $border_radii = $this->theme_json_data['settings']['custom']['border']['radius'] ?? [];
         foreach ($border_radii as $radius) {
             $slug = $radius['slug'];
-            $value = $radius['size'];
-            $this->utility_classes[] = ".rounded-{$slug} { border-radius: {$value} !important; }";
-            $this->utility_classes[] = ".rounded-t-{$slug} { border-top-left-radius: {$value} !important; border-top-right-radius: {$value} !important; }";
-            $this->utility_classes[] = ".rounded-r-{$slug} { border-top-right-radius: {$value} !important; border-bottom-right-radius: {$value} !important; }";
-            $this->utility_classes[] = ".rounded-b-{$slug} { border-bottom-left-radius: {$value} !important; border-bottom-right-radius: {$value} !important; }";
-            $this->utility_classes[] = ".rounded-l-{$slug} { border-top-left-radius: {$value} !important; border-bottom-left-radius: {$value} !important; }";
+            $css_var = "var(--wp--preset--border-radius--{$slug})";
+            $this->utility_classes[] = ".rounded-{$slug} { border-radius: {$css_var} !important; }";
+            $this->utility_classes[] = ".rounded-t-{$slug} { border-top-left-radius: {$css_var} !important; border-top-right-radius: {$css_var} !important; }";
+            $this->utility_classes[] = ".rounded-r-{$slug} { border-top-right-radius: {$css_var} !important; border-bottom-right-radius: {$css_var} !important; }";
+            $this->utility_classes[] = ".rounded-b-{$slug} { border-bottom-left-radius: {$css_var} !important; border-bottom-right-radius: {$css_var} !important; }";
+            $this->utility_classes[] = ".rounded-l-{$slug} { border-top-left-radius: {$css_var} !important; border-bottom-left-radius: {$css_var} !important; }";
         }
         
         // Border styles from settings.custom.border.styles
@@ -226,19 +230,17 @@ class DS_Studio_Utility_Generator {
             $this->utility_classes[] = ".container-{$slug} { max-width: {$value} !important; margin-left: auto !important; margin-right: auto !important; }";
             $this->utility_classes[] = ".w-{$slug} { width: {$value} !important; }";
             $this->utility_classes[] = ".max-w-{$slug} { max-width: {$value} !important; }";
-            $this->utility_classes[] = ".h-{$slug} { height: {$value} !important; }";
-            $this->utility_classes[] = ".max-h-{$slug} { max-height: {$value} !important; }";
-            $this->utility_classes[] = ".min-h-{$slug} { min-height: {$value} !important; }";
+            // Remove height utilities from containers to avoid duplicates
         }
         
-        // Height utilities from spacing sizes
+        // Height utilities from spacing sizes only
         $spacing = $this->theme_json_data['settings']['spacing']['spacingSizes'] ?? [];
         foreach ($spacing as $size) {
             $slug = $size['slug'];
-            $value = $size['size'];
-            $this->utility_classes[] = ".h-{$slug} { height: {$value} !important; }";
-            $this->utility_classes[] = ".max-h-{$slug} { max-height: {$value} !important; }";
-            $this->utility_classes[] = ".min-h-{$slug} { min-height: {$value} !important; }";
+            $css_var = "var(--wp--preset--spacing--{$slug})";
+            $this->utility_classes[] = ".h-{$slug} { height: {$css_var} !important; }";
+            $this->utility_classes[] = ".max-h-{$slug} { max-height: {$css_var} !important; }";
+            $this->utility_classes[] = ".min-h-{$slug} { min-height: {$css_var} !important; }";
         }
         
         // Aspect ratios from settings.custom.layout.aspectRatios
@@ -296,54 +298,54 @@ class DS_Studio_Utility_Generator {
         $spacing = $this->theme_json_data['settings']['spacing']['spacingSizes'] ?? [];
         foreach ($spacing as $size) {
             $slug = $size['slug'];
-            $value = $size['size'];
+            $css_var = "var(--wp--preset--spacing--{$slug})";
             
             // Margin utilities
-            $this->utility_classes[] = ".md:m-{$slug} { margin: {$value} !important; }";
-            $this->utility_classes[] = ".md:mt-{$slug} { margin-top: {$value} !important; }";
-            $this->utility_classes[] = ".md:mr-{$slug} { margin-right: {$value} !important; }";
-            $this->utility_classes[] = ".md:mb-{$slug} { margin-bottom: {$value} !important; }";
-            $this->utility_classes[] = ".md:ml-{$slug} { margin-left: {$value} !important; }";
-            $this->utility_classes[] = ".md:mx-{$slug} { margin-left: {$value} !important; margin-right: {$value} !important; }";
-            $this->utility_classes[] = ".md:my-{$slug} { margin-top: {$value} !important; margin-bottom: {$value} !important; }";
+            $this->utility_classes[] = ".md:m-{$slug} { margin: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:mt-{$slug} { margin-top: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:mr-{$slug} { margin-right: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:mb-{$slug} { margin-bottom: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:ml-{$slug} { margin-left: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:mx-{$slug} { margin-left: {$css_var} !important; margin-right: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:my-{$slug} { margin-top: {$css_var} !important; margin-bottom: {$css_var} !important; }";
             
             // Padding utilities
-            $this->utility_classes[] = ".md:p-{$slug} { padding: {$value} !important; }";
-            $this->utility_classes[] = ".md:pt-{$slug} { padding-top: {$value} !important; }";
-            $this->utility_classes[] = ".md:pr-{$slug} { padding-right: {$value} !important; }";
-            $this->utility_classes[] = ".md:pb-{$slug} { padding-bottom: {$value} !important; }";
-            $this->utility_classes[] = ".md:pl-{$slug} { padding-left: {$value} !important; }";
-            $this->utility_classes[] = ".md:px-{$slug} { padding-left: {$value} !important; padding-right: {$value} !important; }";
-            $this->utility_classes[] = ".md:py-{$slug} { padding-top: {$value} !important; padding-bottom: {$value} !important; }";
+            $this->utility_classes[] = ".md:p-{$slug} { padding: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:pt-{$slug} { padding-top: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:pr-{$slug} { padding-right: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:pb-{$slug} { padding-bottom: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:pl-{$slug} { padding-left: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:px-{$slug} { padding-left: {$css_var} !important; padding-right: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:py-{$slug} { padding-top: {$css_var} !important; padding-bottom: {$css_var} !important; }";
             
             // Gap utilities
-            $this->utility_classes[] = ".md:gap-{$slug} { gap: {$value} !important; }";
-            $this->utility_classes[] = ".md:gap-x-{$slug} { column-gap: {$value} !important; }";
-            $this->utility_classes[] = ".md:gap-y-{$slug} { row-gap: {$value} !important; }";
+            $this->utility_classes[] = ".md:gap-{$slug} { gap: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:gap-x-{$slug} { column-gap: {$css_var} !important; }";
+            $this->utility_classes[] = ".md:gap-y-{$slug} { row-gap: {$css_var} !important; }";
         }
         
         // Responsive color utilities
         $colors = $this->theme_json_data['settings']['color']['palette'] ?? [];
         foreach ($colors as $color) {
             $slug = $color['slug'];
-            $value = $color['color'];
+            $css_var = "var(--wp--preset--color--{$slug})";
             
             // Text color utilities
-            $this->utility_classes[] = ".md:text-{$slug} { color: {$value} !important; }";
+            $this->utility_classes[] = ".md:text-{$slug} { color: {$css_var} !important; }";
             
             // Background color utilities
-            $this->utility_classes[] = ".md:bg-{$slug} { background-color: {$value} !important; }";
+            $this->utility_classes[] = ".md:bg-{$slug} { background-color: {$css_var} !important; }";
             
             // Border color utilities
-            $this->utility_classes[] = ".md:border-{$slug} { border-color: {$value} !important; }";
+            $this->utility_classes[] = ".md:border-{$slug} { border-color: {$css_var} !important; }";
         }
         
         // Responsive typography utilities
         $font_sizes = $this->theme_json_data['settings']['typography']['fontSizes'] ?? [];
         foreach ($font_sizes as $size) {
             $slug = $size['slug'];
-            $value = $size['size'];
-            $this->utility_classes[] = ".md:text-{$slug} { font-size: {$value} !important; }";
+            $css_var = "var(--wp--preset--font-size--{$slug})";
+            $this->utility_classes[] = ".md:text-{$slug} { font-size: {$css_var} !important; }";
         }
         
         // Responsive layout utilities
@@ -432,17 +434,17 @@ class DS_Studio_Utility_Generator {
         // Generate fluid spacing utilities
         foreach ($spacing as $index => $size) {
             $slug = $size['slug'];
-            $value = $size['size'];
+            $css_var = "var(--wp--preset--spacing--{$slug})";
             
             // Convert rem/px values to numbers for clamp calculation
-            $base_value = $this->extract_numeric_value($value);
+            $base_value = $this->extract_numeric_value($size['size']);
             if ($base_value === null) continue;
             
             $min_value = $base_value * 0.75; // 75% for mobile
             $max_value = $base_value * 1.25; // 125% for desktop
             $preferred = $base_value; // Base value as preferred
             
-            $unit = $this->extract_unit($value);
+            $unit = $this->extract_unit($size['size']);
             $clamp_value = "clamp({$min_value}{$unit}, {$preferred}{$unit}, {$max_value}{$unit})";
             
             // Fluid margin utilities
@@ -464,16 +466,16 @@ class DS_Studio_Utility_Generator {
         // Generate fluid typography utilities
         foreach ($font_sizes as $size) {
             $slug = $size['slug'];
-            $value = $size['size'];
+            $css_var = "var(--wp--preset--font-size--{$slug})";
             
-            $base_value = $this->extract_numeric_value($value);
+            $base_value = $this->extract_numeric_value($size['size']);
             if ($base_value === null) continue;
             
             $min_value = $base_value * 0.8; // 80% for mobile
             $max_value = $base_value * 1.2; // 120% for desktop
             $preferred = $base_value;
             
-            $unit = $this->extract_unit($value);
+            $unit = $this->extract_unit($size['size']);
             $clamp_value = "clamp({$min_value}{$unit}, {$preferred}{$unit}, {$max_value}{$unit})";
             
             $clamp_css .= ".fluid-text-{$slug} { font-size: {$clamp_value} !important; }\n";

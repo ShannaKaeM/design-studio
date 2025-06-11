@@ -21,9 +21,10 @@ define('DS_STUDIO_PLUGIN_PATH', plugin_dir_path(__FILE__));
 
 // Include core classes
 require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-generator.php';
-
-// Include admin page
 require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-admin-page.php';
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-generateblocks-integration.php';
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-utility-class-injector.php';
+require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-block-style-generator.php';
 
 // Include component library
 require_once DS_STUDIO_PLUGIN_PATH . 'includes/class-component-library.php';

@@ -465,6 +465,38 @@
                         "name": "Full"
                     }
                 ]
+            },
+            "blockStyles": {
+                "card": {
+                    "classes": "bg-neutral max-w-sm rounded-2xl shadow-md",
+                    "description": "",
+                    "created": "2025-06-11 01:40:47"
+                },
+                "card__image": {
+                    "classes": "w-full h-sm overflow-hidden",
+                    "description": "",
+                    "created": "2025-06-11 01:42:14"
+                },
+                "card__content": {
+                    "classes": "p-lg",
+                    "description": "",
+                    "created": "2025-06-11 01:42:53"
+                },
+                "card__pretitle": {
+                    "classes": "text-xxl text-secondary font-medium mb-xs lowercase",
+                    "description": "",
+                    "created": "2025-06-11 01:43:48"
+                },
+                "card__title": {
+                    "classes": "text-lg font-bold text-primary mb-sm",
+                    "description": "",
+                    "created": "2025-06-11 01:44:15"
+                },
+                "card__description": {
+                    "classes": "text-xxl text-secondary leading-relaxed",
+                    "description": "",
+                    "created": "2025-06-11 01:45:19"
+                }
             }
         },
         "layout": {
