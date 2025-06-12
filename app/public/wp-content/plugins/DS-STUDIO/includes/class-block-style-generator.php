@@ -20,22 +20,15 @@ class DS_Studio_Block_Style_Generator {
     }
     
     /**
-     * Enqueue block editor assets
+     * Enqueue block editor assets - DISABLED (integrated into unified editor)
+     * 
+     * This method is disabled because all block style functionality has been
+     * integrated into the unified Design Studio editor (unified-editor.js).
+     * The class is kept for its AJAX handlers and backend functionality.
      */
     public function enqueue_block_editor_assets() {
-        wp_enqueue_script(
-            'ds-studio-block-styles',
-            plugin_dir_url(dirname(__FILE__)) . 'assets/js/block-styles-editor.js',
-            ['wp-plugins', 'wp-edit-post', 'wp-components', 'wp-data', 'wp-element', 'wp-i18n'],
-            '1.0.0',
-            true
-        );
-        
-        wp_localize_script('ds-studio-block-styles', 'dsBlockStyles', [
-            'nonce' => wp_create_nonce('ds_block_styles_nonce'),
-            'ajaxUrl' => admin_url('admin-ajax.php'),
-            'savedStyles' => $this->get_saved_styles()
-        ]);
+        // This functionality is now handled by unified-editor.js
+        return;
     }
     
     /**

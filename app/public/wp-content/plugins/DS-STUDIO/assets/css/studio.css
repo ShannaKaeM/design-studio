@@ -1,0 +1,302 @@
+/**
+ * The Studio - Clean Design System Management Interface
+ * Purpose-built styles for a professional, unified design tool
+ */
+
+/* Studio Container */
+.studio-container {
+    padding: 0;
+    margin: 0;
+}
+
+/* Studio Navigation */
+.studio-navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border: 1px solid #e1e5e9;
+    border-radius: 8px;
+    gap: 8px;
+}
+
+.studio-nav-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.2s ease;
+    position: relative;
+}
+
+.studio-nav-item:hover {
+    background: #ffffff;
+    border-color: #d1d5db;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.studio-nav-item.active {
+    background: #2563eb;
+    border-color: #2563eb;
+    color: white;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.studio-nav-item.active:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
+}
+
+/* Tooltips for navigation */
+.studio-nav-item::before {
+    content: attr(title);
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #1f2937;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 6px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 1000;
+    pointer-events: none;
+    max-width: 200px;
+    text-align: center;
+    line-height: 1.3;
+}
+
+.studio-nav-item::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 6px solid #1f2937;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.2s ease;
+    z-index: 1000;
+    pointer-events: none;
+}
+
+.studio-nav-item:hover::before,
+.studio-nav-item:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Studio Panels */
+.studio-panel {
+    margin-top: 0;
+}
+
+.studio-panel .components-panel__body {
+    border: 1px solid #e1e5e9;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.studio-panel .components-panel__body-title {
+    background: #f8f9fa;
+    border-bottom: 1px solid #e1e5e9;
+    padding: 12px 16px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.studio-panel .components-panel__body-content {
+    padding: 16px;
+}
+
+/* Design Tokens Panel */
+.studio-tokens-panel .studio-color-group {
+    margin-bottom: 20px;
+}
+
+.studio-tokens-panel .studio-color-name {
+    margin: 0 0 8px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #374151;
+    text-transform: capitalize;
+}
+
+.studio-tokens-panel .studio-color-swatches {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.studio-tokens-panel .studio-color-swatch {
+    width: 32px;
+    height: 32px;
+    border-radius: 6px;
+    border: 2px solid #ffffff;
+    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease;
+}
+
+.studio-tokens-panel .studio-color-swatch:hover {
+    transform: scale(1.1);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Block Styles Panel */
+.studio-styles-panel .components-text-control__input,
+.studio-styles-panel .components-textarea-control__input {
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+
+.studio-styles-panel .components-text-control__input:focus,
+.studio-styles-panel .components-textarea-control__input:focus {
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+/* Patterns Panel */
+.studio-patterns-panel .studio-coming-soon {
+    text-align: center;
+    padding: 40px 20px;
+    color: #6b7280;
+}
+
+.studio-patterns-panel .studio-icon {
+    font-size: 48px;
+    margin-bottom: 16px;
+}
+
+.studio-patterns-panel .studio-coming-soon h3 {
+    margin: 0 0 8px 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #374151;
+}
+
+.studio-patterns-panel .studio-coming-soon p {
+    margin: 0;
+    font-size: 14px;
+}
+
+/* Converter Panel */
+.studio-converter-panel .studio-conversion-result {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e1e5e9;
+}
+
+.studio-converter-panel .studio-result-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 13px;
+    color: #374151;
+}
+
+.studio-converter-panel .studio-result-textarea {
+    width: 100%;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 12px;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+    font-size: 12px;
+    line-height: 1.5;
+    background: #f8f9fa;
+    resize: vertical;
+    margin-bottom: 12px;
+}
+
+/* Buttons */
+.studio-save-button,
+.studio-panel .components-button.is-primary {
+    background: #2563eb;
+    border-color: #2563eb;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.studio-save-button:hover,
+.studio-panel .components-button.is-primary:hover {
+    background: #1d4ed8;
+    border-color: #1d4ed8;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.3);
+}
+
+.studio-panel .components-button.is-secondary {
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.studio-panel .components-button.is-secondary:hover {
+    border-color: #9ca3af;
+    transform: translateY(-1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Placeholders */
+.studio-placeholder {
+    color: #6b7280;
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+    margin: 0;
+}
+
+/* Responsive adjustments */
+@media (max-width: 782px) {
+    .studio-navigation {
+        padding: 8px 12px;
+        gap: 4px;
+    }
+    
+    .studio-nav-item {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+    
+    .studio-panel .components-panel__body-content {
+        padding: 12px;
+    }
+}
+
+/* Clean focus states */
+.studio-container *:focus {
+    outline: 2px solid #2563eb;
+    outline-offset: 2px;
+}
+
+/* Smooth transitions throughout */
+.studio-container * {
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
