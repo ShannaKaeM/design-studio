@@ -67,9 +67,9 @@
             ],
             "palette": [
                 {
-                    "name": "Blocksy Primary",
-                    "slug": "blocksy-primary",
-                    "color": "#5f944c"
+                    "name": "Primary",
+                    "slug": "primary",
+                    "color": "#5a7f80"
                 },
                 {
                     "name": "Blocksy Secondary",

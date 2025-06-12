@@ -15,7 +15,7 @@
     const { __ } = wp.i18n;
     const { registerPlugin } = wp.plugins;
     const { PluginSidebar, PluginSidebarMoreMenuItem } = wp.editPost;
-    const { PanelBody, Button, TextControl, TextareaControl, Notice, ColorPicker } = wp.components;
+    const { PanelBody, TextControl, TextareaControl, Notice, ColorPicker } = wp.components;
     const { useState, useEffect, createElement: el } = wp.element;
 
     /**
@@ -82,26 +82,44 @@
             }
         };
 
-        const saveTokens = async (updatedTokens) => {
-            try {
-                const response = await fetch(window.dsStudio?.ajaxUrl || '/wp-admin/admin-ajax.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                    body: new URLSearchParams({
-                        action: 'ds_save_design_tokens',
-                        nonce: window.dsStudio?.nonce || '',
-                        tokens: JSON.stringify(updatedTokens)
-                    })
-                });
-                
-                const data = await response.json();
+        const saveTokens = (tokens) => {
+            fetch(window.dsStudio?.ajaxUrl || '/wp-admin/admin-ajax.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({
+                    action: 'ds_save_design_tokens',
+                    nonce: window.dsStudio?.nonce || '',
+                    tokens: JSON.stringify(tokens)
+                })
+            }).then(response => response.json())
+            .then(data => {
                 if (data.success) {
-                    setTokens(updatedTokens);
-                    console.log('Tokens saved and synced successfully');
+                    setTokens(tokens);
+                    console.log('Tokens saved successfully');
+                } else {
+                    console.error('Failed to save tokens:', data.data);
                 }
-            } catch (error) {
-                console.error('Error saving tokens:', error);
-            }
+            });
+        };
+
+        const syncToThemeJson = () => {
+            fetch(window.dsStudio?.ajaxUrl || '/wp-admin/admin-ajax.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams({
+                    action: 'ds_manual_sync_to_theme_json',
+                    nonce: window.dsStudio?.nonce
+                })
+            }).then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    alert('Successfully synced to theme.json!');
+                    console.log('Synced to theme.json successfully');
+                } else {
+                    alert('Failed to sync to theme.json: ' + data.data);
+                    console.error('Failed to sync to theme.json:', data.data);
+                }
+            });
         };
 
         const updateColor = (colorSlug, newColorValue, newName, newSlug) => {
@@ -301,7 +319,11 @@
                         el('button', {
                             className: 'studio-add-color-bottom',
                             onClick: () => setShowAddNew('blocksy')
-                        }, '+ Add Theme Color')
+                        }, '+ Add Theme Color'),
+                        el('button', {
+                            className: 'studio-sync-button',
+                            onClick: syncToThemeJson
+                        }, 'Save to theme.json')
                     )
                 ),
 
@@ -380,7 +402,11 @@
                         el('button', {
                             className: 'studio-add-color-bottom',
                             onClick: () => setShowAddNew('semantic')
-                        }, '+ Add Semantic Color')
+                        }, '+ Add Semantic Color'),
+                        el('button', {
+                            className: 'studio-sync-button',
+                            onClick: syncToThemeJson
+                        }, 'Save to theme.json')
                     )
                 ),
 
@@ -496,9 +522,8 @@
                     onChange: setDescription,
                     placeholder: 'Brief description of this style'
                 }),
-                el(Button, {
-                    isPrimary: true,
-                    isBusy: isLoading,
+                el('button', {
+                    className: 'studio-create-button',
                     onClick: createStyle,
                     disabled: !styleName.trim()
                 }, isLoading ? 'Creating...' : 'Create Block Style')
@@ -569,9 +594,8 @@
                     rows: 8,
                     help: 'Enter HTML that you want to convert to WordPress blocks'
                 }),
-                el(Button, {
-                    isPrimary: true,
-                    isBusy: isConverting,
+                el('button', {
+                    className: 'studio-convert-button',
                     onClick: convertHtml,
                     disabled: !htmlInput.trim()
                 }, isConverting ? 'Converting...' : 'Convert to Blocks'),
@@ -583,8 +607,8 @@
                         rows: 12,
                         className: 'studio-result-textarea'
                     }),
-                    el(Button, {
-                        isSecondary: true,
+                    el('button', {
+                        className: 'studio-copy-button',
                         onClick: () => navigator.clipboard?.writeText(convertedBlocks)
                     }, 'Copy to Clipboard')
                 )

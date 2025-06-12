@@ -18,25 +18,29 @@ class DS_Studio_Design_Token_Manager {
         // Add AJAX handlers
         add_action('wp_ajax_ds_get_design_tokens', array($this, 'get_design_tokens_ajax'));
         add_action('wp_ajax_ds_save_design_tokens', array($this, 'save_design_tokens_ajax'));
-        add_action('wp_ajax_ds_sync_to_theme_json', array($this, 'sync_to_theme_json_ajax'));
+        add_action('wp_ajax_ds_manual_sync_to_theme_json', array($this, 'manual_sync_to_theme_json_ajax'));
         add_action('wp_ajax_ds_clear_studio_cache', array($this, 'clear_studio_cache_ajax'));
     }
     
     /**
-     * Load design tokens from Studio database (WordPress options)
-     * Studio is the single source of truth
+     * Load design tokens from Studio JSON file
+     * Studio JSON file is the single source of truth
      */
     public function load_tokens() {
-        // Load from Studio's own database (WordPress options)
-        $studio_tokens = get_option('ds_studio_tokens', null);
+        $json_file_path = plugin_dir_path(dirname(__FILE__)) . 'studio.json';
         
-        if ($studio_tokens) {
-            $this->tokens_data = $studio_tokens;
-            return $studio_tokens;
+        if (file_exists($json_file_path)) {
+            $json_content = file_get_contents($json_file_path);
+            $studio_tokens = json_decode($json_content, true);
+            
+            if ($studio_tokens) {
+                $this->tokens_data = $studio_tokens;
+                return $studio_tokens;
+            }
         }
         
-        // If no Studio tokens exist, do initial hydration from theme.json (one-time only)
-        return $this->initial_hydration_from_theme_json();
+        // If no Studio JSON file exists, create a minimal one
+        return $this->create_minimal_studio_file();
     }
     
     /**
@@ -123,83 +127,48 @@ class DS_Studio_Design_Token_Manager {
             }
         }
 
-        // Save to Studio database and auto-sync
+        // Save to Studio database
         $this->save_tokens($tokens);
         
         return $tokens;
     }
     
     /**
-     * Save design tokens to Studio database and auto-sync everywhere
-     * Studio is the single source of truth
+     * Save design tokens to Studio JSON file (NO AUTO-SYNC)
      */
     public function save_tokens($tokens) {
-        // Save to Studio's database (WordPress options)
-        update_option('ds_studio_tokens', $tokens);
-        $this->tokens_data = $tokens;
+        $json_file_path = plugin_dir_path(dirname(__FILE__)) . 'studio.json';
         
-        // Auto-sync to theme.json (one-way only)
-        $this->auto_sync_to_theme_json($tokens);
+        // Update timestamp
+        $tokens['lastUpdated'] = current_time('Y-m-d H:i:s');
         
-        // Removed Blocksy customizer sync - Studio is the only source now
+        // Save to JSON file ONLY - no auto-sync
+        $json_content = json_encode($tokens, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        $result = file_put_contents($json_file_path, $json_content);
         
-        return true;
+        if ($result !== false) {
+            $this->tokens_data = $tokens;
+            return true;
+        }
+        
+        return false;
     }
     
     /**
-     * Automatically sync Studio tokens to theme.json (one-way)
+     * Create minimal studio.json file if it doesn't exist
      */
-    private function auto_sync_to_theme_json($tokens) {
-        $theme_json_path = get_stylesheet_directory() . '/theme.json';
+    private function create_minimal_studio_file() {
+        $minimal_tokens = array(
+            'version' => '1.0.0',
+            'lastUpdated' => current_time('Y-m-d H:i:s'),
+            'colors' => array(
+                'theme' => array(),
+                'semantic' => array()
+            )
+        );
         
-        // Load existing theme.json structure
-        $theme_json_data = array();
-        if (file_exists($theme_json_path)) {
-            $existing_theme_json = json_decode(file_get_contents($theme_json_path), true);
-            if ($existing_theme_json && is_array($existing_theme_json)) {
-                $theme_json_data = $existing_theme_json;
-            }
-        }
-        
-        // Ensure basic structure exists
-        if (!isset($theme_json_data['settings'])) {
-            $theme_json_data['settings'] = array();
-        }
-        if (!isset($theme_json_data['settings']['color'])) {
-            $theme_json_data['settings']['color'] = array();
-        }
-        
-        // Force override the palette with Studio colors (no merging)
-        $theme_json_data['settings']['color']['palette'] = $this->build_theme_json_palette($tokens);
-        
-        // Ensure we disable defaults to make our colors the only ones
-        $theme_json_data['settings']['color']['defaultPalette'] = false;
-        $theme_json_data['settings']['color']['defaultGradients'] = false;
-        $theme_json_data['settings']['color']['defaultDuotone'] = false;
-        
-        $json_content = json_encode($theme_json_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
-        file_put_contents($theme_json_path, $json_content);
-        
-        error_log('DS Studio: Synced ' . count($this->build_theme_json_palette($tokens)) . ' colors to theme.json');
-    }
-    
-    /**
-     * Build theme.json color palette from Studio tokens
-     */
-    private function build_theme_json_palette($tokens) {
-        $palette = array();
-        
-        if (isset($tokens['colors']) && is_array($tokens['colors'])) {
-            foreach ($tokens['colors'] as $color) {
-                $palette[] = array(
-                    'name' => $color['name'],
-                    'slug' => $color['slug'],
-                    'color' => $color['value']
-                );
-            }
-        }
-        
-        return $palette;
+        $this->save_tokens($minimal_tokens);
+        return $minimal_tokens;
     }
     
     /**
@@ -311,6 +280,24 @@ class DS_Studio_Design_Token_Manager {
     }
     
     /**
+     * Manual sync to theme.json
+     */
+    public function manual_sync_to_theme_json() {
+        $theme_json_path = get_stylesheet_directory() . '/theme.json';
+        $theme_json = $this->convert_to_theme_json();
+        
+        // Save to theme.json
+        $json_content = json_encode($theme_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        $result = file_put_contents($theme_json_path, $json_content);
+        
+        if ($result !== false) {
+            return true;
+        }
+        
+        return false;
+    }
+    
+    /**
      * AJAX handler to get design tokens
      */
     public function get_design_tokens_ajax() {
@@ -343,16 +330,16 @@ class DS_Studio_Design_Token_Manager {
         }
         
         if ($this->save_tokens($tokens_data)) {
-            wp_send_json_success('Design tokens saved and synced successfully');
+            wp_send_json_success('Design tokens saved successfully');
         } else {
             wp_send_json_error('Failed to save design tokens');
         }
     }
     
     /**
-     * AJAX handler to sync tokens to theme.json
+     * AJAX handler to manual sync to theme.json
      */
-    public function sync_to_theme_json_ajax() {
+    public function manual_sync_to_theme_json_ajax() {
         // Verify nonce
         if (!wp_verify_nonce($_POST['nonce'] ?? '', 'ds_studio_nonce')) {
             wp_send_json_error('Security check failed');
@@ -363,10 +350,10 @@ class DS_Studio_Design_Token_Manager {
             wp_send_json_error('Insufficient permissions');
         }
         
-        if ($this->auto_sync_to_theme_json($this->get_tokens())) {
-            wp_send_json_success('Design tokens synced to theme.json successfully');
+        if ($this->manual_sync_to_theme_json()) {
+            wp_send_json_success('Manual sync to theme.json successful');
         } else {
-            wp_send_json_error('Failed to sync to theme.json');
+            wp_send_json_error('Failed to manual sync to theme.json');
         }
     }
     
@@ -383,7 +370,10 @@ class DS_Studio_Design_Token_Manager {
         }
         
         // Clear Studio's database
-        delete_option('ds_studio_tokens');
+        $json_file_path = plugin_dir_path(dirname(__FILE__)) . 'studio.json';
+        if (file_exists($json_file_path)) {
+            unlink($json_file_path);
+        }
         $this->tokens_data = null;
         
         wp_send_json_success('Studio cache cleared successfully');
