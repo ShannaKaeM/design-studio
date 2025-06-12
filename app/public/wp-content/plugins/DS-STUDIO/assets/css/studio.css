@@ -163,6 +163,112 @@
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
+/* Typography Section */
+.studio-typography-section {
+    padding: 0;
+}
+
+.studio-subsection-title {
+    margin: 0 0 12px 0;
+    font-size: 13px;
+    font-weight: 600;
+    color: #374151;
+    border-bottom: 1px solid #e5e7eb;
+    padding-bottom: 4px;
+}
+
+.studio-font-families,
+.studio-font-sizes {
+    margin-bottom: 20px;
+}
+
+.studio-font-family,
+.studio-font-size {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 12px;
+    margin-bottom: 4px;
+    background: #f8f9fa;
+    border-radius: 4px;
+    border: 1px solid #e5e7eb;
+}
+
+.studio-font-name,
+.studio-size-name {
+    font-size: 12px;
+    font-weight: 500;
+    color: #6b7280;
+    text-transform: capitalize;
+    min-width: 60px;
+}
+
+.studio-font-preview,
+.studio-size-preview {
+    font-size: 12px;
+    color: #374151;
+    text-align: right;
+    flex: 1;
+    margin-left: 12px;
+}
+
+.studio-font-preview {
+    font-weight: 400;
+}
+
+.studio-size-preview {
+    font-weight: 500;
+}
+
+/* Spacing Section */
+.studio-spacing-section {
+    padding: 0;
+}
+
+.studio-spacing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.studio-spacing-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 12px 8px;
+    background: #f8f9fa;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+    text-align: center;
+}
+
+.studio-spacing-name {
+    font-size: 11px;
+    font-weight: 600;
+    color: #6b7280;
+    margin-bottom: 6px;
+    font-family: ui-monospace, monospace;
+}
+
+.studio-spacing-visual {
+    margin: 4px 0;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+}
+
+.studio-spacing-item:hover .studio-spacing-visual {
+    background-color: #2563eb !important;
+    transform: scaleY(1.2);
+}
+
+.studio-spacing-value {
+    font-size: 10px;
+    color: #9ca3af;
+    margin-top: 4px;
+    font-family: ui-monospace, monospace;
+}
+
 /* Block Styles Panel */
 .studio-styles-panel .components-text-control__input,
 .studio-styles-panel .components-textarea-control__input {
@@ -299,4 +405,365 @@
 /* Smooth transitions throughout */
 .studio-container * {
     transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Loading state */
+.studio-loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+    color: #6b7280;
+    font-style: italic;
+}
+
+/* Accordion-style sections for organizing color tokens */
+.studio-accordion {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.studio-accordion-section {
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.studio-accordion-header {
+    width: 100%;
+    padding: 16px 20px;
+    background: #f9fafb;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 16px;
+    color: #374151;
+    transition: all 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.studio-accordion-header:hover {
+    background: #f3f4f6;
+    color: #1f2937;
+}
+
+.studio-accordion-header.active {
+    background: #3b82f6;
+    color: #ffffff;
+}
+
+.studio-accordion-header::after {
+    content: '▶';
+    transition: transform 0.2s ease;
+    font-size: 12px;
+}
+
+.studio-accordion-header.active::after {
+    transform: rotate(90deg);
+}
+
+.studio-accordion-content {
+    padding: 20px;
+    border-top: 1px solid #e5e7eb;
+    background: #ffffff;
+    animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        max-height: 0;
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+    to {
+        opacity: 1;
+        max-height: 1000px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+}
+
+/* Clickable color display wrapper */
+.studio-color-display {
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.studio-color-display:hover {
+    background: #f3f4f6;
+    transform: scale(1.02);
+}
+
+.studio-color-display:hover .studio-color-swatch {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.2), inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Clickable color swatches */
+.studio-color-group {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    padding: 12px;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+.studio-color-group:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.15);
+    transform: translateY(-2px);
+}
+
+.studio-color-swatch {
+    width: 100%;
+    height: 50px;
+    border-radius: 6px;
+    margin-bottom: 8px;
+    border: 2px solid #e5e7eb;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.studio-color-swatch:hover {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1), inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.studio-color-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.studio-color-name {
+    font-weight: 600;
+    color: #1f2937;
+    font-size: 13px;
+}
+
+.studio-color-value {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 11px;
+    color: #6b7280;
+    background: #f3f4f6;
+    padding: 2px 6px;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
+
+/* Add color button at bottom of sections */
+.studio-add-color-bottom {
+    width: 100%;
+    padding: 12px;
+    margin-top: 16px;
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-size: 14px;
+}
+
+.studio-add-color-bottom:hover {
+    background: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+/* Colors grid - more compact for accordion */
+.studio-colors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+/* Edit form styling */
+.studio-color-edit {
+    background: #f8f9fa;
+    border: 1px solid #e1e5e9;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px 0;
+}
+
+.studio-color-edit input[type="text"],
+.studio-color-edit input[type="color"] {
+    width: 100%;
+    padding: 8px 12px;
+    margin: 4px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.studio-color-edit input[type="color"] {
+    height: 40px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.studio-edit-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.studio-save-btn {
+    background: #0073aa;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.studio-save-btn:hover {
+    background: #005a87;
+}
+
+.studio-cancel-btn {
+    background: #f1f1f1;
+    color: #555;
+    border: 1px solid #ccd0d4;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.studio-cancel-btn:hover {
+    background: #e8e8e8;
+}
+
+.studio-delete-btn {
+    background: #d63638;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    margin-left: auto;
+}
+
+.studio-delete-btn:hover {
+    background: #b32d2e;
+}
+
+/* Color editing form */
+.studio-color-edit {
+    background: #f8f9fa;
+    border: 1px solid #e1e5e9;
+    border-radius: 8px;
+    padding: 16px;
+    margin: 8px 0;
+}
+
+.studio-color-edit input[type="text"],
+.studio-color-edit input[type="color"] {
+    width: 100%;
+    padding: 8px 12px;
+    margin: 4px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.studio-color-edit input[type="color"] {
+    height: 40px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.studio-edit-buttons {
+    display: flex;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.studio-save-btn {
+    background: #0073aa;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.studio-save-btn:hover {
+    background: #005a87;
+}
+
+.studio-cancel-btn {
+    background: #f1f1f1;
+    color: #555;
+    border: 1px solid #ccd0d4;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+}
+
+.studio-cancel-btn:hover {
+    background: #e8e8e8;
+}
+
+.studio-delete-btn {
+    background: #d63638;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    margin-left: auto;
+}
+
+.studio-delete-btn:hover {
+    background: #b32d2e;
+}
+
+/* Remove old tab styles */
+.studio-tabs,
+.studio-tab,
+.studio-tab-content {
+    display: none;
+}
+
+/* Responsive design for accordion */
+@media (max-width: 768px) {
+    .studio-colors-grid {
+        grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+        gap: 8px;
+    }
+    
+    .studio-accordion-content {
+        padding: 12px;
+    }
+    
+    .studio-accordion-header {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
 }

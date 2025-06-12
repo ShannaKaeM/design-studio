@@ -12,18 +12,12 @@
             "defaultPalette": false,
             "duotone": [
                 {
-                    "colors": [
-                        "#000000",
-                        "#ffffff"
-                    ],
+                    "colors": ["#000000", "#ffffff"],
                     "slug": "foreground-and-background",
                     "name": "Foreground and background"
                 },
                 {
-                    "colors": [
-                        "#000000",
-                        "#abb8c3"
-                    ],
+                    "colors": ["#000000", "#abb8c3"],
                     "slug": "foreground-and-secondary",
                     "name": "Foreground and secondary"
                 }
@@ -67,34 +61,84 @@
             ],
             "palette": [
                 {
-                    "name": "Blocksy Primary",
+                    "slug": "black",
+                    "color": "#000000",
+                    "name": "Black"
+                },
+                {
+                    "slug": "cyan-bluish-gray",
+                    "color": "#abb8c3",
+                    "name": "Cyan bluish gray"
+                },
+                {
+                    "slug": "white",
+                    "color": "#ffffff",
+                    "name": "White"
+                },
+                {
+                    "slug": "pale-pink",
+                    "color": "#f78da7",
+                    "name": "Pale pink"
+                },
+                {
+                    "slug": "vivid-red",
+                    "color": "#cf2e2e",
+                    "name": "Vivid red"
+                },
+                {
+                    "slug": "luminous-vivid-orange",
+                    "color": "#ff6900",
+                    "name": "Luminous vivid orange"
+                },
+                {
+                    "slug": "luminous-vivid-amber",
+                    "color": "#fcb900",
+                    "name": "Luminous vivid amber"
+                },
+                {
+                    "slug": "light-green-cyan",
+                    "color": "#7bdcb5",
+                    "name": "Light green cyan"
+                },
+                {
+                    "slug": "vivid-green-cyan",
+                    "color": "#00d084",
+                    "name": "Vivid green cyan"
+                },
+                {
+                    "slug": "pale-cyan-blue",
+                    "color": "#8ed1fc",
+                    "name": "Pale cyan blue"
+                },
+                {
+                    "slug": "vivid-cyan-blue",
+                    "color": "#0693e3",
+                    "name": "Vivid cyan blue"
+                },
+                {
+                    "slug": "vivid-purple",
+                    "color": "#9b51e0",
+                    "name": "Vivid purple"
+                },
+                {
                     "slug": "blocksy-primary",
-                    "color": "#5f944c"
+                    "color": "#2872fa",
+                    "name": "Blocksy Primary"
                 },
                 {
-                    "name": "Blocksy Secondary",
                     "slug": "blocksy-secondary",
-                    "color": "#4b8daa"
+                    "color": "#1559ed",
+                    "name": "Blocksy Secondary"
                 },
                 {
-                    "name": "Blocksy Accent",
                     "slug": "blocksy-accent",
-                    "color": "#3A4F66"
+                    "color": "#3A4F66",
+                    "name": "Blocksy Accent"
                 },
                 {
-                    "name": "Blocksy Dark",
                     "slug": "blocksy-dark",
-                    "color": "#192a3d"
-                },
-                {
-                    "name": "Blocksy Light",
-                    "slug": "blocksy-light",
-                    "color": "#dedede"
-                },
-                {
-                    "name": "Primary Content",
-                    "slug": "blocksy-primary-content",
-                    "color": "#ffffff"
+                    "color": "#192a3d",
+                    "name": "Blocksy Dark"
                 }
             ]
         },
@@ -360,14 +404,14 @@
         "elements": {
             "link": {
                 "color": {
-                    "text": "var(--wp--preset--color--color1)"
+                    "text": "var(--wp--preset--color--blocksy-primary)"
                 },
                 "typography": {
                     "textDecoration": "none"
                 },
                 ":hover": {
                     "color": {
-                        "text": "var(--wp--preset--color--color2)"
+                        "text": "var(--wp--preset--color--blocksy-secondary)"
                     },
                     "typography": {
                         "textDecoration": "underline"
@@ -375,7 +419,7 @@
                 },
                 ":focus": {
                     "color": {
-                        "text": "var(--wp--preset--color--color2)"
+                        "text": "var(--wp--preset--color--blocksy-secondary)"
                     },
                     "typography": {
                         "textDecoration": "underline dashed"
@@ -429,7 +473,7 @@
                     "radius": "4px"
                 },
                 "color": {
-                    "background": "var(--wp--preset--color--color1)",
+                    "background": "var(--wp--preset--color--blocksy-primary)",
                     "text": "var(--wp--preset--color--white)"
                 },
                 "spacing": {
@@ -446,7 +490,7 @@
                 },
                 ":hover": {
                     "color": {
-                        "background": "var(--wp--preset--color--color2)"
+                        "background": "var(--wp--preset--color--blocksy-secondary)"
                     }
                 }
             }
@@ -548,7 +592,7 @@
             },
             "core/quote": {
                 "border": {
-                    "color": "var(--wp--preset--color--color1)",
+                    "color": "var(--wp--preset--color--blocksy-primary)",
                     "style": "solid",
                     "width": "0 0 0 4px"
                 },
