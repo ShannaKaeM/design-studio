@@ -1,32 +1,138 @@
 {
-  "version": "1.0.0",
-  "lastUpdated": "2025-06-12",
-  "colors": {
-    "theme": {
-      "primary-light": "#d6dcd6",
-      "primary": "#5a7b7c", 
-      "primary-dark": "#3a5a59",
-      "secondary-light": "#2c2c2c",
-      "secondary": "#975d55",
-      "secondary-dark": "#853d2d",
-      "neutral-light": "#d8d6cf",
-      "neutral": "#b3b09f",
-      "neutral-dark": "#8e897b"
+    "version": "2.0.0",
+    "lastUpdated": "2025-06-13 00:24:06",
+    "categories": {
+        "theme": {
+            "name": "Theme Colors",
+            "icon": "",
+            "order": 1
+        },
+        "notifications": {
+            "name": "Notification Colors",
+            "icon": "\ud83c\udfa8",
+            "order": 3
+        }
     },
-    "base": {
-      "base-lightest": "#f0f0f0",
-      "base-light": "#cacaca", 
-      "base": "#777777",
-      "base-dark": "#606060",
-      "base-darkest": "#323232"
-    },
-    "semantic": {
-      "extreme-light": "#ffffff",
-      "extreme-dark": "#000000",
-      "success": "#10b981",
-      "warning": "#f59e0b", 
-      "error": "#ef4444",
-      "info": "#3b82f6"
+    "colors": {
+        "primary-light": {
+            "value": "#d6dcd6",
+            "name": "Primary Light",
+            "category": "theme",
+            "order": 1
+        },
+        "primary": {
+            "value": "#5a7b7c",
+            "name": "Primary",
+            "category": "theme",
+            "order": 2
+        },
+        "primary-dark": {
+            "value": "#3a5a59",
+            "name": "Primary Dark",
+            "category": "theme",
+            "order": 3
+        },
+        "secondary-light": {
+            "value": "#2c2c2c",
+            "name": "Secondary Light",
+            "category": "theme",
+            "order": 4
+        },
+        "secondary": {
+            "value": "#975d55",
+            "name": "Secondary",
+            "category": "theme",
+            "order": 5
+        },
+        "secondary-dark": {
+            "value": "#853d2d",
+            "name": "Secondary Dark",
+            "category": "theme",
+            "order": 6
+        },
+        "neutral-light": {
+            "value": "#d8d6cf",
+            "name": "Neutral Light",
+            "category": "theme",
+            "order": 7
+        },
+        "neutral": {
+            "value": "#b3b09f",
+            "name": "Neutral",
+            "category": "theme",
+            "order": 8
+        },
+        "neutral-dark": {
+            "value": "#8e897b",
+            "name": "Neutral Dark",
+            "category": "theme",
+            "order": 9
+        },
+        "base-lightest": {
+            "value": "#ffffff",
+            "name": "Base Lightest",
+            "category": "theme",
+            "order": 10
+        },
+        "base-lighter": {
+            "value": "#f0f0f0",
+            "name": "Base Lighter",
+            "category": "theme",
+            "order": 11
+        },
+        "base-light": {
+            "value": "#cacaca",
+            "name": "Base Light",
+            "category": "theme",
+            "order": 12
+        },
+        "base": {
+            "value": "#777777",
+            "name": "Base",
+            "category": "theme",
+            "order": 13
+        },
+        "base-dark": {
+            "value": "#606060",
+            "name": "Base Dark",
+            "category": "theme",
+            "order": 14
+        },
+        "base-darker": {
+            "value": "#404040",
+            "name": "Base Darker",
+            "category": "theme",
+            "order": 15
+        },
+        "base-darkest": {
+            "value": "#000000",
+            "name": "Base Darkest",
+            "category": "theme",
+            "order": 16
+        },
+        "success": {
+            "value": "#10b981",
+            "name": "Success",
+            "category": "notifications",
+            "order": 1
+        },
+        "warning": {
+            "value": "#f59e0b",
+            "name": "Warning",
+            "category": "notifications",
+            "order": 2
+        },
+        "error": {
+            "value": "#ef4444",
+            "name": "Error",
+            "category": "notifications",
+            "order": 3
+        },
+        "info": {
+            "value": "#3b82f6",
+            "name": "Info",
+            "category": "notifications",
+            "order": 4
+        }
     }
-  }
 }

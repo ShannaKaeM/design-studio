@@ -20,6 +20,8 @@ class DS_Studio_Design_Token_Manager {
         add_action('wp_ajax_ds_save_design_tokens', array($this, 'save_design_tokens_ajax'));
         add_action('wp_ajax_ds_manual_sync_to_theme_json', array($this, 'manual_sync_to_theme_json_ajax'));
         add_action('wp_ajax_ds_clear_studio_cache', array($this, 'clear_studio_cache_ajax'));
+        add_action('wp_ajax_ds_save_category', array($this, 'save_category_ajax'));
+        add_action('wp_ajax_ds_delete_category', array($this, 'delete_category_ajax'));
     }
     
     /**
@@ -52,14 +54,14 @@ class DS_Studio_Design_Token_Manager {
         
         if (!file_exists($theme_json_path)) {
             $this->tokens_data = $this->get_default_tokens();
-            $this->save_tokens($this->tokens_data);
+            $this->save_tokens();
             return $this->tokens_data;
         }
         
         $theme_json = json_decode(file_get_contents($theme_json_path), true);
         if (!$theme_json) {
             $this->tokens_data = $this->get_default_tokens();
-            $this->save_tokens($this->tokens_data);
+            $this->save_tokens();
             return $this->tokens_data;
         }
         
@@ -136,18 +138,17 @@ class DS_Studio_Design_Token_Manager {
     /**
      * Save design tokens to Studio JSON file (NO AUTO-SYNC)
      */
-    public function save_tokens($tokens) {
+    public function save_tokens() {
         $json_file_path = plugin_dir_path(dirname(__FILE__)) . 'studio.json';
         
         // Update timestamp
-        $tokens['lastUpdated'] = current_time('Y-m-d H:i:s');
+        $this->tokens_data['lastUpdated'] = current_time('Y-m-d H:i:s');
         
         // Save to JSON file ONLY - no auto-sync
-        $json_content = json_encode($tokens, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        $json_content = json_encode($this->tokens_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
         $result = file_put_contents($json_file_path, $json_content);
         
         if ($result !== false) {
-            $this->tokens_data = $tokens;
             return true;
         }
         
@@ -167,7 +168,7 @@ class DS_Studio_Design_Token_Manager {
             )
         );
         
-        $this->save_tokens($minimal_tokens);
+        $this->save_tokens();
         return $minimal_tokens;
     }
     
@@ -233,9 +234,38 @@ class DS_Studio_Design_Token_Manager {
             )
         );
         
-        // Convert colors from tokens
+        // Convert colors from tokens (new metadata structure)
         if (isset(($tokens ?: $this->tokens_data)['colors'])) {
-            foreach (($tokens ?: $this->tokens_data)['colors'] as $color) {
+            $colors = ($tokens ?: $this->tokens_data)['colors'];
+            
+            // Sort colors by category and order for better organization
+            $sorted_colors = [];
+            foreach ($colors as $slug => $color) {
+                $category = $color['category'] ?? 'theme';
+                $order = $color['order'] ?? 999;
+                $sorted_colors[] = [
+                    'slug' => $slug,
+                    'name' => $color['name'] ?? ucfirst(str_replace('-', ' ', $slug)),
+                    'value' => $color['value'] ?? '#000000',
+                    'category' => $category,
+                    'order' => $order
+                ];
+            }
+            
+            // Sort by category priority, then by order within category
+            $category_priority = ['theme' => 1, 'brand' => 2, 'semantic' => 3, 'neutral' => 4, 'custom' => 5];
+            usort($sorted_colors, function($a, $b) use ($category_priority) {
+                $a_priority = $category_priority[$a['category']] ?? 999;
+                $b_priority = $category_priority[$b['category']] ?? 999;
+                
+                if ($a_priority === $b_priority) {
+                    return $a['order'] - $b['order'];
+                }
+                return $a_priority - $b_priority;
+            });
+            
+            // Add to theme.json palette
+            foreach ($sorted_colors as $color) {
                 $theme_json['settings']['color']['palette'][] = array(
                     'name' => $color['name'],
                     'slug' => $color['slug'],
@@ -283,18 +313,218 @@ class DS_Studio_Design_Token_Manager {
      * Manual sync to theme.json
      */
     public function manual_sync_to_theme_json() {
+        // Simple test - write to a test file first
+        $test_file = get_stylesheet_directory() . '/ds-studio-test.txt';
+        file_put_contents($test_file, 'DS Studio sync was called at ' . date('Y-m-d H:i:s') . "\n", FILE_APPEND);
+        
         $theme_json_path = get_stylesheet_directory() . '/theme.json';
-        $theme_json = $this->convert_to_theme_json();
+        
+        // Debug: Log the tokens data
+        error_log('DS Studio: Starting manual sync to theme.json');
+        error_log('DS Studio: Tokens data: ' . print_r($this->tokens_data, true));
+        error_log('DS Studio: Theme JSON path: ' . $theme_json_path);
+        
+        // Load existing theme.json
+        $existing_theme_json = [];
+        if (file_exists($theme_json_path)) {
+            $existing_content = file_get_contents($theme_json_path);
+            $existing_theme_json = json_decode($existing_content, true) ?: [];
+            error_log('DS Studio: Loaded existing theme.json with ' . count($existing_theme_json) . ' top-level keys');
+        } else {
+            error_log('DS Studio: theme.json file does not exist at path: ' . $theme_json_path);
+        }
+        
+        // Get our color tokens
+        $our_colors = [];
+        if (isset($this->tokens_data['colors'])) {
+            $colors = $this->tokens_data['colors'];
+            error_log('DS Studio: Found ' . count($colors) . ' colors in tokens');
+            
+            // Sort colors by category and order for better organization
+            $sorted_colors = [];
+            foreach ($colors as $slug => $color) {
+                $category = $color['category'] ?? 'theme';
+                $order = $color['order'] ?? 999;
+                $sorted_colors[] = [
+                    'slug' => $slug,
+                    'name' => $color['name'] ?? ucfirst(str_replace('-', ' ', $slug)),
+                    'value' => $color['value'] ?? '#000000',
+                    'category' => $category,
+                    'order' => $order
+                ];
+            }
+            
+            // Sort by category priority, then by order within category
+            $category_priority = ['theme' => 1, 'brand' => 2, 'semantic' => 3, 'neutral' => 4, 'custom' => 5];
+            usort($sorted_colors, function($a, $b) use ($category_priority) {
+                $a_priority = $category_priority[$a['category']] ?? 999;
+                $b_priority = $category_priority[$b['category']] ?? 999;
+                
+                if ($a_priority === $b_priority) {
+                    return $a['order'] - $b['order'];
+                }
+                return $a_priority - $b_priority;
+            });
+            
+            // Convert to theme.json format
+            foreach ($sorted_colors as $color) {
+                $our_colors[] = [
+                    'name' => $color['name'],
+                    'slug' => $color['slug'],
+                    'color' => $color['value']
+                ];
+            }
+            
+            error_log('DS Studio: Converted ' . count($our_colors) . ' colors for theme.json');
+        } else {
+            error_log('DS Studio: No colors found in tokens data');
+        }
+        
+        // Write our colors to test file
+        file_put_contents($test_file, 'Found ' . count($our_colors) . ' colors to sync' . "\n", FILE_APPEND);
+        
+        // Merge with existing theme.json
+        if (!isset($existing_theme_json['settings'])) {
+            $existing_theme_json['settings'] = [];
+        }
+        if (!isset($existing_theme_json['settings']['color'])) {
+            $existing_theme_json['settings']['color'] = [];
+        }
+        
+        // Update the color palette and settings
+        if (!isset($existing_theme_json['settings']['color'])) {
+            $existing_theme_json['settings']['color'] = [];
+        }
+        
+        // Essential color settings to make custom palette work
+        $existing_theme_json['settings']['color'] = array_merge(
+            $existing_theme_json['settings']['color'],
+            [
+                'custom' => true,
+                'customDuotone' => true,
+                'customGradient' => true,
+                'defaultDuotone' => false,
+                'defaultGradients' => false,
+                'defaultPalette' => false,
+                'palette' => $our_colors
+            ]
+        );
+        
+        // Add custom design tokens for reference
+        if (!isset($existing_theme_json['settings']['custom'])) {
+            $existing_theme_json['settings']['custom'] = [];
+        }
+        $existing_theme_json['settings']['custom']['designTokens'] = $this->tokens_data;
         
         // Save to theme.json
-        $json_content = json_encode($theme_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        $json_content = json_encode($existing_theme_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
         $result = file_put_contents($theme_json_path, $json_content);
+        
+        error_log('DS Studio: File write result: ' . ($result !== false ? 'SUCCESS (' . $result . ' bytes)' : 'FAILED'));
+        file_put_contents($test_file, 'File write result: ' . ($result !== false ? 'SUCCESS' : 'FAILED') . "\n", FILE_APPEND);
         
         if ($result !== false) {
             return true;
         }
         
         return false;
+    }
+    
+    /**
+     * Automatic sync to theme.json whenever Studio tokens are saved
+     */
+    private function auto_sync_to_theme_json() {
+        $theme_json_path = get_stylesheet_directory() . '/theme.json';
+        
+        // Load existing theme.json
+        $existing_theme_json = [];
+        if (file_exists($theme_json_path)) {
+            $existing_content = file_get_contents($theme_json_path);
+            $existing_theme_json = json_decode($existing_content, true) ?: [];
+        } else {
+            $existing_theme_json = array(
+                'version' => 2,
+                'settings' => array(
+                    'color' => array(
+                        'palette' => array()
+                    ),
+                    'typography' => array(
+                        'fontFamilies' => array(),
+                        'fontSizes' => array()
+                    ),
+                    'spacing' => array(
+                        'spacingScale' => array()
+                    ),
+                    'custom' => array(
+                        'designTokens' => $this->tokens_data
+                    )
+                )
+            );
+        }
+        
+        // Get our color tokens
+        $our_colors = [];
+        if (isset($this->tokens_data['colors'])) {
+            $colors = $this->tokens_data['colors'];
+            
+            // Sort colors by category and order for better organization
+            $sorted_colors = [];
+            foreach ($colors as $slug => $color) {
+                $category = $color['category'] ?? 'theme';
+                $order = $color['order'] ?? 999;
+                $sorted_colors[] = [
+                    'slug' => $slug,
+                    'name' => $color['name'] ?? ucfirst(str_replace('-', ' ', $slug)),
+                    'value' => $color['value'] ?? '#000000',
+                    'category' => $category,
+                    'order' => $order
+                ];
+            }
+            
+            // Sort by category priority, then by order within category
+            $category_priority = ['theme' => 1, 'brand' => 2, 'semantic' => 3, 'neutral' => 4, 'custom' => 5];
+            usort($sorted_colors, function($a, $b) use ($category_priority) {
+                $a_priority = $category_priority[$a['category']] ?? 999;
+                $b_priority = $category_priority[$b['category']] ?? 999;
+                
+                if ($a_priority === $b_priority) {
+                    return $a['order'] - $b['order'];
+                }
+                return $a_priority - $b_priority;
+            });
+            
+            // Convert to theme.json format
+            foreach ($sorted_colors as $color) {
+                $our_colors[] = [
+                    'name' => $color['name'],
+                    'slug' => $color['slug'],
+                    'color' => $color['value']
+                ];
+            }
+        }
+        
+        // Update the color palette and settings
+        if (!isset($existing_theme_json['settings']['color'])) {
+            $existing_theme_json['settings']['color'] = [];
+        }
+        
+        // Essential color settings to make custom palette work
+        $existing_theme_json['settings']['color'] = array_merge(
+            $existing_theme_json['settings']['color'],
+            [
+                'custom' => true,
+                'customDuotone' => true,
+                'customGradient' => true,
+                'defaultDuotone' => false,
+                'defaultGradients' => false,
+                'defaultPalette' => false,
+                'palette' => $our_colors
+            ]
+        );
+        
+        // Save to theme.json
+        $json_content = json_encode($existing_theme_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        file_put_contents($theme_json_path, $json_content);
     }
     
     /**
@@ -313,26 +543,28 @@ class DS_Studio_Design_Token_Manager {
      * AJAX handler to save design tokens
      */
     public function save_design_tokens_ajax() {
-        // Verify nonce
         if (!wp_verify_nonce($_POST['nonce'] ?? '', 'ds_studio_nonce')) {
             wp_send_json_error('Security check failed');
         }
-        
-        // Check user permissions
+
         if (!current_user_can('edit_theme_options')) {
-            wp_send_json_error('Insufficient permissions');
+            wp_send_json_error('Permission denied');
         }
-        
+
         $tokens_data = json_decode(stripslashes($_POST['tokens'] ?? ''), true);
-        
-        if (json_last_error() !== JSON_ERROR_NONE) {
-            wp_send_json_error('Invalid JSON data');
+        if (!$tokens_data) {
+            wp_send_json_error('Invalid tokens data');
         }
+
+        $this->tokens_data = $tokens_data;
+        $result = $this->save_tokens();
         
-        if ($this->save_tokens($tokens_data)) {
-            wp_send_json_success('Design tokens saved successfully');
+        if ($result) {
+            // Automatically sync to theme.json after saving Studio tokens
+            $this->auto_sync_to_theme_json();
+            wp_send_json_success('Tokens saved and synced to theme.json');
         } else {
-            wp_send_json_error('Failed to save design tokens');
+            wp_send_json_error('Failed to save tokens');
         }
     }
     
@@ -377,6 +609,54 @@ class DS_Studio_Design_Token_Manager {
         $this->tokens_data = null;
         
         wp_send_json_success('Studio cache cleared successfully');
+    }
+    
+    /**
+     * AJAX handler to save custom category
+     */
+    public function save_category_ajax() {
+        // Verify nonce
+        if (!wp_verify_nonce($_POST['nonce'] ?? '', 'ds_studio_nonce')) {
+            wp_send_json_error('Security check failed');
+        }
+        
+        // Check user permissions
+        if (!current_user_can('edit_theme_options')) {
+            wp_send_json_error('Insufficient permissions');
+        }
+        
+        $category_data = json_decode(stripslashes($_POST['category'] ?? ''), true);
+        
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            wp_send_json_error('Invalid JSON data');
+        }
+        
+        // Save category data
+        // TO DO: implement saving category data
+        
+        wp_send_json_success('Category saved successfully');
+    }
+    
+    /**
+     * AJAX handler to delete custom category
+     */
+    public function delete_category_ajax() {
+        // Verify nonce
+        if (!wp_verify_nonce($_POST['nonce'] ?? '', 'ds_studio_nonce')) {
+            wp_send_json_error('Security check failed');
+        }
+        
+        // Check user permissions
+        if (!current_user_can('edit_theme_options')) {
+            wp_send_json_error('Insufficient permissions');
+        }
+        
+        $category_id = $_POST['category_id'] ?? '';
+        
+        // Delete category data
+        // TO DO: implement deleting category data
+        
+        wp_send_json_success('Category deleted successfully');
     }
 }
 

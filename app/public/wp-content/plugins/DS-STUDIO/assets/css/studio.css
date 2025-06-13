@@ -585,6 +585,138 @@
     text-transform: uppercase;
 }
 
+/* Single column layout for colors */
+.studio-colors-grid {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    width: 100% !important;
+}
+
+/* Color item styling for single column */
+.studio-color-item {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    padding: 8px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 4px !important;
+    background: #fff !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+}
+
+.studio-color-item:hover {
+    border-color: #007cba !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+/* Color swatch in single column */
+.studio-color-swatch {
+    width: 32px !important;
+    height: 32px !important;
+    border-radius: 4px !important;
+    border: 1px solid #ddd !important;
+    margin-right: 12px !important;
+    flex-shrink: 0 !important;
+}
+
+/* Color info in single column */
+.studio-color-info {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 2px !important;
+}
+
+.studio-color-name {
+    font-weight: 500 !important;
+    font-size: 14px !important;
+    color: #1e1e1e !important;
+}
+
+.studio-color-value {
+    font-size: 12px !important;
+    color: #757575 !important;
+    font-family: monospace !important;
+}
+
+/* Category selector dropdown */
+.studio-category-selector {
+    margin-left: 8px !important;
+    padding: 4px 8px !important;
+    border: 1px solid #ddd !important;
+    border-radius: 3px !important;
+    background: #fff !important;
+    font-size: 11px !important;
+    color: #555 !important;
+    cursor: pointer !important;
+    min-width: 80px !important;
+    flex-shrink: 0 !important;
+}
+
+.studio-category-selector:hover {
+    border-color: #007cba !important;
+}
+
+.studio-category-selector:focus {
+    outline: none !important;
+    border-color: #007cba !important;
+    box-shadow: 0 0 0 1px #007cba !important;
+}
+
+/* Add category form styling */
+.studio-add-category-form {
+    margin-top: 20px;
+    padding: 16px;
+    border-top: 1px solid #ddd;
+}
+
+.studio-add-category-btn {
+    width: 100%;
+    padding: 12px;
+    background: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.studio-add-category-btn:hover {
+    background: #005a87;
+}
+
+.studio-add-category-inputs {
+    margin-top: 12px;
+    padding: 16px;
+    background: #f8f9fa;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+}
+
+.studio-add-category-inputs .components-text-control__input {
+    margin-bottom: 8px;
+}
+
+.studio-add-category-submit {
+    width: 100%;
+    padding: 10px;
+    background: #10b981;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+.studio-add-category-submit:hover {
+    background: #059669;
+}
+
 /* Add color button at bottom of sections */
 .studio-add-color-bottom {
     width: 100%;
@@ -605,14 +737,6 @@
     background: #059669;
     transform: translateY(-1px);
     box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
-}
-
-/* Colors grid - more compact for accordion */
-.studio-colors-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-    gap: 12px;
-    margin-bottom: 16px;
 }
 
 /* Edit form styling */
@@ -691,80 +815,11 @@
     background: #b32d2e;
 }
 
-/* Color editing form */
-.studio-color-edit {
-    background: #f8f9fa;
-    border: 1px solid #e1e5e9;
-    border-radius: 8px;
+/* Studio-specific wider styling */
+.studio-design-tokens {
     padding: 16px;
-    margin: 8px 0;
-}
-
-.studio-color-edit input[type="text"],
-.studio-color-edit input[type="color"] {
     width: 100%;
-    padding: 8px 12px;
-    margin: 4px 0;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 14px;
-}
-
-.studio-color-edit input[type="color"] {
-    height: 40px;
-    padding: 4px;
-    cursor: pointer;
-}
-
-.studio-edit-buttons {
-    display: flex;
-    gap: 8px;
-    margin-top: 12px;
-}
-
-.studio-save-btn {
-    background: #0073aa;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 500;
-}
-
-.studio-save-btn:hover {
-    background: #005a87;
-}
-
-.studio-cancel-btn {
-    background: #f1f1f1;
-    color: #555;
-    border: 1px solid #ccd0d4;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 13px;
-}
-
-.studio-cancel-btn:hover {
-    background: #e8e8e8;
-}
-
-.studio-delete-btn {
-    background: #d63638;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 13px;
-    font-weight: 500;
-    margin-left: auto;
-}
-
-.studio-delete-btn:hover {
-    background: #b32d2e;
+    min-width: 400px;
 }
 
 /* Remove old tab styles */
@@ -789,4 +844,205 @@
         padding: 12px 16px;
         font-size: 14px;
     }
+}
+
+/* Make the entire WordPress block editor sidebar wider */
+.interface-interface-skeleton__sidebar,
+.edit-post-sidebar,
+.interface-complementary-area {
+    width: 450px !important;
+    min-width: 450px !important;
+    flex: 0 0 450px !important;
+}
+
+/* Adjust the main content area to accommodate wider sidebar */
+.interface-interface-skeleton__content {
+    margin-right: 450px !important;
+}
+
+/* Make sure the editor content adjusts properly */
+.block-editor-block-list__layout {
+    margin-right: 0 !important;
+}
+
+/* Studio-specific wider styling */
+.studio-sidebar-container {
+    width: 100% !important;
+    min-width: 400px !important;
+}
+
+.studio-design-tokens {
+    padding: 16px;
+    width: 100%;
+}
+
+.studio-color-display {
+    min-width: 360px;
+    width: 100%;
+}
+
+/* Force wider accordion sections */
+.studio-accordion-section {
+    width: 100% !important;
+    min-width: 380px !important;
+}
+
+/* Category management styling */
+.studio-category-management {
+    margin-top: 20px;
+    padding: 16px;
+    border-top: 1px solid #ddd;
+    background: #f9f9f9;
+    border-radius: 6px;
+}
+
+.studio-category-management h3 {
+    margin: 0 0 12px 0;
+    font-size: 14px;
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.studio-category-management ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.studio-category-management li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 12px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 6px;
+}
+
+.studio-edit-category-btn,
+.studio-delete-category-btn {
+    padding: 4px 8px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 11px;
+    margin-left: 6px;
+}
+
+.studio-edit-category-btn {
+    background: #0073aa;
+    color: white;
+}
+
+.studio-edit-category-btn:hover {
+    background: #005a87;
+}
+
+.studio-delete-category-btn {
+    background: #d63638;
+    color: white;
+}
+
+.studio-delete-category-btn:hover {
+    background: #b32d2e;
+}
+
+.studio-edit-category-form {
+    margin-top: 12px;
+    padding: 16px;
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.studio-cancel-edit-category-btn {
+    width: 100%;
+    padding: 8px;
+    background: #f1f1f1;
+    color: #555;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 13px;
+    margin-top: 12px;
+}
+
+.studio-cancel-edit-category-btn:hover {
+    background: #e8e8e8;
+}
+
+/* Add color button styling */
+.studio-accordion-controls {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.studio-add-color-btn {
+    padding: 4px 8px;
+    background: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 11px;
+    font-weight: 500;
+}
+
+.studio-add-color-btn:hover {
+    background: #005a87;
+}
+
+.studio-accordion-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 12px 16px;
+    background: #f1f1f1;
+    border: 1px solid #ccd0d4;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.studio-accordion-header:hover {
+    background: #e8e8e8;
+}
+
+.studio-accordion-title {
+    font-weight: 600;
+    color: #1e1e1e;
+}
+
+.studio-accordion-arrow {
+    color: #666;
+    font-size: 12px;
+}
+
+/* Add color form styling */
+.studio-add-color-form {
+    margin-top: 20px;
+    padding: 16px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+}
+
+.studio-add-color-submit {
+    width: 100%;
+    padding: 10px;
+    background: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    margin-top: 12px;
+}
+
+.studio-add-color-submit:hover {
+    background: #005a87;
 }

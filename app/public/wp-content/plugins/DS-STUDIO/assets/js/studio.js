@@ -50,10 +50,14 @@
     function DesignTokensPanel() {
         const [tokens, setTokens] = useState(null);
         const [loading, setLoading] = useState(true);
-        const [openSections, setOpenSections] = useState({ blocksy: true, semantic: false });
+        const [openSections, setOpenSections] = useState({ theme: true, semantic: false });
         const [editingColor, setEditingColor] = useState(null);
         const [showAddNew, setShowAddNew] = useState(false);
+        const [addingToCategory, setAddingToCategory] = useState(null);
         const [newColor, setNewColor] = useState({ name: '', slug: '', color: '#000000' });
+        const [showAddCategory, setShowAddCategory] = useState(false);
+        const [newCategory, setNewCategory] = useState({ key: '', name: '', icon: '🎨' });
+        const [editingCategory, setEditingCategory] = useState(null);
 
         useEffect(() => {
             loadTokens();
@@ -102,26 +106,6 @@
             });
         };
 
-        const syncToThemeJson = () => {
-            fetch(window.dsStudio?.ajaxUrl || '/wp-admin/admin-ajax.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams({
-                    action: 'ds_manual_sync_to_theme_json',
-                    nonce: window.dsStudio?.nonce
-                })
-            }).then(response => response.json())
-            .then(data => {
-                if (data.success) {
-                    alert('Successfully synced to theme.json!');
-                    console.log('Synced to theme.json successfully');
-                } else {
-                    alert('Failed to sync to theme.json: ' + data.data);
-                    console.error('Failed to sync to theme.json:', data.data);
-                }
-            });
-        };
-
         const updateColor = (colorSlug, newColorValue, newName, newSlug) => {
             if (!tokens || !tokens.colors) return;
             
@@ -140,6 +124,21 @@
             setEditingColor(null);
         };
 
+        const updateColorCategory = (colorSlug, newCategory) => {
+            if (!tokens || !tokens.colors) return;
+            
+            const updatedTokens = { ...tokens };
+            
+            // Update the category for the specific color
+            if (updatedTokens.colors[colorSlug]) {
+                updatedTokens.colors[colorSlug] = {
+                    ...updatedTokens.colors[colorSlug],
+                    category: newCategory
+                };
+                saveTokens(updatedTokens);
+            }
+        };
+
         const deleteColor = (colorSlug) => {
             if (!tokens || !tokens.colors) return;
             
@@ -150,309 +149,394 @@
             setEditingColor(null);
         };
 
-        const addNewColor = (category) => {
-            if (!tokens) return;
+        const addNewColor = () => {
+            if (!tokens || !addingToCategory) return;
             
             const updatedTokens = { ...tokens };
-            if (!updatedTokens.colors) updatedTokens.colors = [];
+            if (!updatedTokens.colors) updatedTokens.colors = {};
             
-            const categoryPrefix = category === 'blocksy' ? 'blocksy-' : 'wp-';
-            const finalSlug = newColor.slug.startsWith(categoryPrefix) ? newColor.slug : categoryPrefix + newColor.slug;
+            // Generate a unique slug
+            let baseSlug = newColor.slug || newColor.name.toLowerCase().replace(/\s+/g, '-');
+            let finalSlug = baseSlug;
+            let counter = 1;
             
-            updatedTokens.colors.push({
+            // Ensure slug is unique
+            while (updatedTokens.colors[finalSlug]) {
+                finalSlug = `${baseSlug}-${counter}`;
+                counter++;
+            }
+            
+            // Get the next order number for this category
+            const colorsInCategory = Object.values(updatedTokens.colors).filter(c => c.category === addingToCategory);
+            const nextOrder = colorsInCategory.length > 0 ? Math.max(...colorsInCategory.map(c => c.order || 0)) + 1 : 1;
+            
+            updatedTokens.colors[finalSlug] = {
                 name: newColor.name,
-                slug: finalSlug,
                 value: newColor.color,
-                category: category
-            });
+                category: addingToCategory,
+                order: nextOrder
+            };
             
             saveTokens(updatedTokens);
             setNewColor({ name: '', slug: '', color: '#000000' });
             setShowAddNew(false);
+            setAddingToCategory(null);
         };
 
         const getColorsByCategory = (category) => {
             if (!tokens || !tokens.colors) return [];
             
-            // Create a map to track unique colors by slug to prevent duplicates
-            const uniqueColors = new Map();
+            // Convert metadata structure to array format
+            const allColors = [];
             
-            // Process all colors and deduplicate by slug
-            tokens.colors.forEach(color => {
-                if (!uniqueColors.has(color.slug)) {
-                    uniqueColors.set(color.slug, color);
+            // Process each color with metadata structure
+            Object.keys(tokens.colors).forEach(slug => {
+                const colorData = tokens.colors[slug];
+                
+                // Handle both old and new formats for backward compatibility
+                if (typeof colorData === 'string') {
+                    // Old format: direct hex value
+                    allColors.push({
+                        slug: slug,
+                        name: slug.split('-').map(word => 
+                            word.charAt(0).toUpperCase() + word.slice(1)
+                        ).join(' '),
+                        color: colorData,
+                        category: 'theme', // default category
+                        order: 999
+                    });
+                } else if (colorData && typeof colorData === 'object') {
+                    // New metadata format
+                    allColors.push({
+                        slug: slug,
+                        name: colorData.name || slug.split('-').map(word => 
+                            word.charAt(0).toUpperCase() + word.slice(1)
+                        ).join(' '),
+                        color: colorData.value || colorData.color,
+                        category: colorData.category || 'theme',
+                        order: colorData.order || 999
+                    });
                 }
             });
             
-            const allUniqueColors = Array.from(uniqueColors.values());
+            // Filter by requested category and sort by order
+            const filteredColors = allColors.filter(color => {
+                if (category === 'blocksy') {
+                    // Map 'blocksy' to 'theme' for backward compatibility
+                    return color.category === 'theme';
+                }
+                return color.category === category;
+            });
             
-            if (category === 'blocksy') {
-                // Blocksy colors: anything with blocksy- prefix or blocksy in name
-                // Also include custom Blocksy customizer colors
-                return allUniqueColors.filter(color => {
-                    const slug = color.slug.toLowerCase();
-                    const name = color.name.toLowerCase();
-                    
-                    return slug.startsWith('blocksy-') || 
-                           name.includes('blocksy') ||
-                           slug.includes('blocksy') ||
-                           // Include common Blocksy theme color names
-                           ['primary', 'secondary', 'accent'].includes(slug) ||
-                           // Include colors that are likely from Blocksy customizer
-                           (color.source && color.source === 'blocksy-customizer');
-                });
-            } else if (category === 'semantic') {
-                // Semantic colors: standard WP colors but exclude Blocksy ones
-                return allUniqueColors.filter(color => {
-                    const slug = color.slug.toLowerCase();
-                    const name = color.name.toLowerCase();
-                    
-                    // Exclude Blocksy colors
-                    if (slug.startsWith('blocksy-') || 
-                        name.includes('blocksy') || 
-                        slug.includes('blocksy') ||
-                        (color.source && color.source === 'blocksy-customizer')) {
-                        return false;
+            // Sort by order, then by name
+            return filteredColors.sort((a, b) => {
+                if (a.order !== b.order) {
+                    return a.order - b.order;
+                }
+                return a.name.localeCompare(b.name);
+            });
+        };
+
+        const getAvailableCategories = () => {
+            if (!tokens) return [];
+            
+            // Use categories from studio.json if available
+            if (tokens.categories) {
+                return Object.keys(tokens.categories)
+                    .map(key => ({
+                        key: key,
+                        name: tokens.categories[key].name || `${key.charAt(0).toUpperCase() + key.slice(1)} Colors`,
+                        icon: tokens.categories[key].icon || '🎨',
+                        order: tokens.categories[key].order || 999
+                    }))
+                    .sort((a, b) => a.order - b.order);
+            }
+            
+            // Fallback: get categories from colors (old method)
+            if (!tokens.colors) return [];
+            
+            const categories = new Set();
+            Object.values(tokens.colors).forEach(color => {
+                if (color.category) {
+                    categories.add(color.category);
+                }
+            });
+            
+            // Define category order and display names
+            const categoryConfig = {
+                'theme': { name: 'Theme Colors', icon: '🎨', order: 1 },
+                'brand': { name: 'Brand Colors', icon: '🏷️', order: 2 },
+                'semantic': { name: 'Semantic Colors', icon: '⚡', order: 3 },
+                'neutral': { name: 'Neutral Colors', icon: '⚪', order: 4 },
+                'custom': { name: 'Custom Colors', icon: '✨', order: 5 }
+            };
+            
+            return Array.from(categories)
+                .map(cat => ({
+                    key: cat,
+                    name: categoryConfig[cat]?.name || `${cat.charAt(0).toUpperCase() + cat.slice(1)} Colors`,
+                    icon: categoryConfig[cat]?.icon || '🎨',
+                    order: categoryConfig[cat]?.order || 999
+                }))
+                .sort((a, b) => a.order - b.order);
+        };
+
+        const saveCategory = async (category) => {
+            if (!tokens) return;
+            
+            const updatedTokens = { ...tokens };
+            
+            // Ensure categories section exists
+            if (!updatedTokens.categories) {
+                updatedTokens.categories = {};
+            }
+            
+            // Add/update the category
+            updatedTokens.categories[category.key] = {
+                name: category.name,
+                icon: category.icon,
+                order: category.order || Object.keys(updatedTokens.categories).length + 1
+            };
+            
+            // Save the updated tokens
+            saveTokens(updatedTokens);
+            
+            // Reset form
+            setNewCategory({ key: '', name: '', icon: '🎨' });
+            setShowAddCategory(false);
+        };
+
+        const deleteCategory = async (categoryKey) => {
+            if (!tokens || !tokens.categories) return;
+            
+            const updatedTokens = { ...tokens };
+            
+            // Remove the category
+            delete updatedTokens.categories[categoryKey];
+            
+            // Move any colors in this category to 'theme' as default
+            if (updatedTokens.colors) {
+                Object.keys(updatedTokens.colors).forEach(colorKey => {
+                    if (updatedTokens.colors[colorKey].category === categoryKey) {
+                        updatedTokens.colors[colorKey].category = 'theme';
                     }
-                    
-                    // Include standard WordPress colors
-                    const wpCoreColors = [
-                        'black', 'white', 'cyan-bluish-gray', 'warm-gray', 'very-light-gray',
-                        'very-dark-gray', 'vivid-red', 'luminous-vivid-orange', 'luminous-vivid-amber',
-                        'light-green-cyan', 'vivid-green-cyan', 'pale-cyan-blue', 'vivid-cyan-blue',
-                        'vivid-purple', 'base', 'contrast', 'primary', 'secondary', 'tertiary'
-                    ];
-                    
-                    return wpCoreColors.includes(slug) || 
-                           name.includes('wp') ||
-                           name.includes('wordpress') ||
-                           // Include if it doesn't match Blocksy pattern and looks like WP core
-                           (!slug.includes('blocksy') && !name.includes('blocksy'));
                 });
             }
             
-            return [];
+            // Save the updated tokens
+            saveTokens(updatedTokens);
+        };
+
+        const updateCategory = (categoryKey, field, value) => {
+            if (!tokens || !tokens.categories) return;
+            
+            const updatedTokens = { ...tokens };
+            
+            if (field === 'key' && value !== categoryKey) {
+                // Changing the key - need to rename the category
+                const categoryData = updatedTokens.categories[categoryKey];
+                delete updatedTokens.categories[categoryKey];
+                updatedTokens.categories[value] = categoryData;
+                
+                // Update any colors using this category
+                if (updatedTokens.colors) {
+                    Object.keys(updatedTokens.colors).forEach(colorKey => {
+                        if (updatedTokens.colors[colorKey].category === categoryKey) {
+                            updatedTokens.colors[colorKey].category = value;
+                        }
+                    });
+                }
+                
+                setEditingCategory(value); // Update editing state to new key
+            } else {
+                // Just updating name or icon
+                updatedTokens.categories[categoryKey][field] = value;
+            }
+            
+            saveTokens(updatedTokens);
         };
 
         if (loading) {
             return el('div', { className: 'studio-loading' }, 'Loading design tokens...');
         }
 
-        const blocksyColors = getColorsByCategory('blocksy');
-        const semanticColors = getColorsByCategory('semantic');
+        const availableCategories = getAvailableCategories();
 
         return el('div', { className: 'studio-design-tokens' },
-            // Accordion Sections
+            // Accordion Sections - Dynamic based on available categories
             el('div', { className: 'studio-accordion' },
-                // Theme Colors Section
-                el('div', { className: 'studio-accordion-section' },
-                    el('button', {
-                        className: `studio-accordion-header ${openSections.blocksy ? 'active' : ''}`,
-                        onClick: () => setOpenSections({ ...openSections, blocksy: !openSections.blocksy })
-                    }, `Theme Colors (${blocksyColors.length})`),
-                    openSections.blocksy && el('div', { className: 'studio-accordion-content' },
-                        el('div', { className: 'studio-colors-grid' },
-                            blocksyColors.map(color => 
-                                el('div', { 
-                                    key: color.slug, 
-                                    className: 'studio-color-group' 
-                                },
-                                    editingColor === color.slug ? 
-                                        el('div', { className: 'studio-color-edit' },
-                                            el('input', {
-                                                type: 'text',
-                                                defaultValue: color.name,
-                                                id: `edit-name-${color.slug}`,
-                                                placeholder: 'Color name'
-                                            }),
-                                            el('input', {
-                                                type: 'text',
-                                                defaultValue: color.slug,
-                                                id: `edit-slug-${color.slug}`,
-                                                placeholder: 'color-slug'
-                                            }),
-                                            el('input', {
-                                                type: 'color',
-                                                defaultValue: color.value,
-                                                id: `edit-color-${color.slug}`
-                                            }),
-                                            el('div', { className: 'studio-edit-buttons' },
-                                                el('button', {
-                                                    className: 'studio-save-btn',
-                                                    onClick: () => {
-                                                        const newName = document.getElementById(`edit-name-${color.slug}`).value;
-                                                        const newSlug = document.getElementById(`edit-slug-${color.slug}`).value;
-                                                        const newColor = document.getElementById(`edit-color-${color.slug}`).value;
-                                                        updateColor(color.slug, newColor, newName, newSlug);
-                                                    }
-                                                }, 'Save'),
-                                                el('button', {
-                                                    className: 'studio-cancel-btn',
-                                                    onClick: () => setEditingColor(null)
-                                                }, 'Cancel'),
-                                                el('button', {
-                                                    className: 'studio-delete-btn',
-                                                    onClick: () => {
-                                                        if (confirm(`Delete "${color.name}"? This cannot be undone.`)) {
-                                                            deleteColor(color.slug);
-                                                        }
-                                                    }
-                                                }, 'Delete')
-                                            )
-                                        ) :
-                                        el('div', { 
-                                            className: 'studio-color-display',
-                                            onClick: () => setEditingColor(color.slug)
-                                        },
-                                            el('div', { 
-                                                className: 'studio-color-swatch',
-                                                style: { backgroundColor: color.value }
-                                            }),
-                                            el('div', { className: 'studio-color-info' },
-                                                el('div', { className: 'studio-color-name' }, color.name),
-                                                el('div', { className: 'studio-color-value' }, color.value)
-                                            )
-                                        )
+                availableCategories.map(category => {
+                    const categoryColors = getColorsByCategory(category.key);
+                    const isOpen = openSections[category.key];
+                    
+                    return el('div', { className: 'studio-accordion-section', key: category.key },
+                        el('div', { className: 'studio-accordion-header', onClick: () => setOpenSections(prev => ({
+                            ...prev,
+                            [category.key]: !prev[category.key]
+                        })) },
+                            el('span', { className: 'studio-accordion-title' }, 
+                                `${category.icon} ${category.name} (${categoryColors.length})`
+                            ),
+                            el('div', { className: 'studio-accordion-controls' },
+                                el('button', {
+                                    className: 'studio-add-color-btn',
+                                    onClick: () => {
+                                        setAddingToCategory(category.key);
+                                        setShowAddNew(true);
+                                    },
+                                    title: 'Add Color to this category'
+                                }, '+ Add Color'),
+                                el('span', { className: 'studio-accordion-arrow' }, 
+                                    openSections[category.key] ? '▼' : '▶'
                                 )
                             )
                         ),
-                        el('button', {
-                            className: 'studio-add-color-bottom',
-                            onClick: () => setShowAddNew('blocksy')
-                        }, '+ Add Theme Color'),
-                        el('button', {
-                            className: 'studio-sync-button',
-                            onClick: syncToThemeJson
-                        }, 'Save to theme.json')
-                    )
-                ),
-
-                // Semantic Colors Section
-                el('div', { className: 'studio-accordion-section' },
-                    el('button', {
-                        className: `studio-accordion-header ${openSections.semantic ? 'active' : ''}`,
-                        onClick: () => setOpenSections({ ...openSections, semantic: !openSections.semantic })
-                    }, `Semantic Colors (${semanticColors.length})`),
-                    openSections.semantic && el('div', { className: 'studio-accordion-content' },
-                        el('div', { className: 'studio-colors-grid' },
-                            semanticColors.map(color => 
-                                el('div', { 
-                                    key: color.slug, 
-                                    className: 'studio-color-group' 
-                                },
-                                    editingColor === color.slug ? 
-                                        el('div', { className: 'studio-color-edit' },
-                                            el('input', {
-                                                type: 'text',
-                                                defaultValue: color.name,
-                                                id: `edit-name-${color.slug}`,
-                                                placeholder: 'Color name'
-                                            }),
-                                            el('input', {
-                                                type: 'text',
-                                                defaultValue: color.slug,
-                                                id: `edit-slug-${color.slug}`,
-                                                placeholder: 'color-slug'
-                                            }),
-                                            el('input', {
-                                                type: 'color',
-                                                defaultValue: color.value,
-                                                id: `edit-color-${color.slug}`
-                                            }),
-                                            el('div', { className: 'studio-edit-buttons' },
-                                                el('button', {
-                                                    className: 'studio-save-btn',
-                                                    onClick: () => {
-                                                        const newName = document.getElementById(`edit-name-${color.slug}`).value;
-                                                        const newSlug = document.getElementById(`edit-slug-${color.slug}`).value;
-                                                        const newColor = document.getElementById(`edit-color-${color.slug}`).value;
-                                                        updateColor(color.slug, newColor, newName, newSlug);
-                                                    }
-                                                }, 'Save'),
-                                                el('button', {
-                                                    className: 'studio-cancel-btn',
-                                                    onClick: () => setEditingColor(null)
-                                                }, 'Cancel'),
-                                                el('button', {
-                                                    className: 'studio-delete-btn',
-                                                    onClick: () => {
-                                                        if (confirm(`Delete "${color.name}"? This cannot be undone.`)) {
-                                                            deleteColor(color.slug);
-                                                        }
-                                                    }
-                                                }, 'Delete')
-                                            )
-                                        ) :
+                        
+                        isOpen && el('div', { className: 'studio-accordion-content' },
+                            el('div', { className: 'studio-colors-grid' },
+                                categoryColors.map(color => 
+                                    el('div', { 
+                                        className: 'studio-color-item',
+                                        key: color.slug,
+                                        onClick: () => setEditingColor(editingColor === color.slug ? null : color.slug)
+                                    },
                                         el('div', { 
-                                            className: 'studio-color-display',
-                                            onClick: () => setEditingColor(color.slug)
+                                            className: 'studio-color-swatch',
+                                            style: { backgroundColor: color.color }
+                                        }),
+                                        el('div', { className: 'studio-color-info' },
+                                            el('div', { className: 'studio-color-name' }, color.name),
+                                            el('div', { className: 'studio-color-value' }, color.color)
+                                        ),
+                                        el('select', {
+                                            className: 'studio-category-selector',
+                                            value: color.category || 'theme',
+                                            onClick: (e) => e.stopPropagation(),
+                                            onChange: (e) => {
+                                                const newCategory = e.target.value;
+                                                updateColorCategory(color.slug, newCategory);
+                                            }
                                         },
-                                            el('div', { 
-                                                className: 'studio-color-swatch',
-                                                style: { backgroundColor: color.value }
-                                            }),
-                                            el('div', { className: 'studio-color-info' },
-                                                el('div', { className: 'studio-color-name' }, color.name),
-                                                el('div', { className: 'studio-color-value' }, color.value)
+                                            // Dynamically generate options from available categories
+                                            availableCategories.map(cat => 
+                                                el('option', { 
+                                                    key: cat.key, 
+                                                    value: cat.key 
+                                                }, cat.name)
                                             )
                                         )
+                                    )
                                 )
                             )
-                        ),
-                        el('button', {
-                            className: 'studio-add-color-bottom',
-                            onClick: () => setShowAddNew('semantic')
-                        }, '+ Add Semantic Color'),
-                        el('button', {
-                            className: 'studio-sync-button',
-                            onClick: syncToThemeJson
-                        }, 'Save to theme.json')
-                    )
-                ),
-
-                // Add New Color Modal
-                showAddNew && el('div', { className: 'studio-modal-overlay' },
-                    el('div', { className: 'studio-modal' },
-                        el('h3', null, `Add New ${showAddNew === 'blocksy' ? 'Theme' : 'Semantic'} Color`),
-                        el('div', { className: 'studio-form-group' },
-                            el('label', null, 'Color Name:'),
-                            el('input', {
-                                type: 'text',
-                                value: newColor.name,
-                                onChange: (e) => setNewColor({ ...newColor, name: e.target.value }),
-                                placeholder: 'e.g., Primary Blue'
-                            })
-                        ),
-                        el('div', { className: 'studio-form-group' },
-                            el('label', null, 'Slug:'),
-                            el('input', {
-                                type: 'text',
-                                value: newColor.slug,
-                                onChange: (e) => setNewColor({ ...newColor, slug: e.target.value }),
-                                placeholder: 'e.g., primary-blue'
-                            })
-                        ),
-                        el('div', { className: 'studio-form-group' },
-                            el('label', null, 'Color:'),
-                            el('input', {
-                                type: 'color',
-                                value: newColor.color,
-                                onChange: (e) => setNewColor({ ...newColor, color: e.target.value })
-                            })
-                        ),
-                        el('div', { className: 'studio-modal-actions' },
-                            el('button', {
-                                onClick: () => addNewColor(showAddNew),
-                                disabled: !newColor.name || !newColor.slug
-                            }, 'Add Color'),
-                            el('button', {
-                                onClick: () => {
-                                    setShowAddNew(false);
-                                    setNewColor({ name: '', slug: '', color: '#000000' });
-                                }
-                            }, 'Cancel')
                         )
+                    );
+                }),
+                
+                // Add new category form
+                el('div', { className: 'studio-add-category-form' },
+                    el('button', {
+                        className: 'studio-add-category-btn',
+                        onClick: () => setShowAddCategory(true)
+                    }, 'Add New Category'),
+                    
+                    showAddCategory && el('div', { className: 'studio-add-category-inputs' },
+                        el(TextControl, {
+                            label: 'Category Key',
+                            value: newCategory.key,
+                            onChange: (value) => setNewCategory(prev => ({ ...prev, key: value })),
+                            placeholder: 'e.g., custom-category'
+                        }),
+                        el(TextControl, {
+                            label: 'Category Name',
+                            value: newCategory.name,
+                            onChange: (value) => setNewCategory(prev => ({ ...prev, name: value })),
+                            placeholder: 'e.g., Custom Category'
+                        }),
+                        el(TextControl, {
+                            label: 'Category Icon',
+                            value: newCategory.icon,
+                            onChange: (value) => setNewCategory(prev => ({ ...prev, icon: value })),
+                            placeholder: 'e.g., 🎨'
+                        }),
+                        el('button', {
+                            className: 'studio-add-category-submit',
+                            onClick: () => {
+                                saveCategory(newCategory);
+                                setShowAddCategory(false);
+                            }
+                        }, 'Add Category')
                     )
+                ),
+                
+                // Category management
+                el('div', { className: 'studio-category-management' },
+                    el('h3', null, 'Category Management'),
+                    el('ul', null,
+                        availableCategories.map(category => 
+                            el('li', { key: category.key },
+                                el('span', null, category.name),
+                                el('button', {
+                                    className: 'studio-edit-category-btn',
+                                    onClick: () => setEditingCategory(category.key)
+                                }, 'Edit'),
+                                el('button', {
+                                    className: 'studio-delete-category-btn',
+                                    onClick: () => deleteCategory(category.key)
+                                }, 'Delete')
+                            )
+                        )
+                    ),
+                    
+                    editingCategory && el('div', { className: 'studio-edit-category-form' },
+                        el(TextControl, {
+                            label: 'Category Key',
+                            value: availableCategories.find(cat => cat.key === editingCategory).key,
+                            onChange: (value) => updateCategory(editingCategory, 'key', value),
+                            placeholder: 'e.g., custom-category'
+                        }),
+                        el(TextControl, {
+                            label: 'Category Name',
+                            value: availableCategories.find(cat => cat.key === editingCategory).name,
+                            onChange: (value) => updateCategory(editingCategory, 'name', value),
+                            placeholder: 'e.g., Custom Category'
+                        }),
+                        el(TextControl, {
+                            label: 'Category Icon',
+                            value: availableCategories.find(cat => cat.key === editingCategory).icon,
+                            onChange: (value) => updateCategory(editingCategory, 'icon', value),
+                            placeholder: 'e.g., 🎨'
+                        }),
+                        el('button', {
+                            className: 'studio-cancel-edit-category-btn',
+                            onClick: () => setEditingCategory(null)
+                        }, 'Cancel')
+                    )
+                ),
+                
+                // Add new color form
+                showAddNew && el('div', { className: 'studio-add-color-form' },
+                    el(TextControl, {
+                        label: 'Color Name',
+                        value: newColor.name,
+                        onChange: (value) => setNewColor(prev => ({ ...prev, name: value })),
+                        placeholder: 'e.g., Primary Color'
+                    }),
+                    el(TextControl, {
+                        label: 'Color Slug',
+                        value: newColor.slug,
+                        onChange: (value) => setNewColor(prev => ({ ...prev, slug: value })),
+                        placeholder: 'e.g., primary-color'
+                    }),
+                    el(ColorPicker, {
+                        label: 'Color Value',
+                        value: newColor.color,
+                        onChange: (value) => setNewColor(prev => ({ ...prev, color: value })),
+                        placeholder: 'e.g., #000000'
+                    }),
+                    el('button', {
+                        className: 'studio-add-color-submit',
+                        onClick: addNewColor
+                    }, 'Add Color')
                 )
             )
         );

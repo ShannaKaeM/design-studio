@@ -44,6 +44,12 @@ class DS_Studio {
         add_action('wp_ajax_ds_studio_save_theme_json', array($this, 'save_theme_json'));
         add_action('wp_ajax_ds_studio_get_theme_json', array($this, 'get_theme_json'));
         
+        // Add manual sync handler
+        add_action('wp_ajax_ds_manual_sync_to_theme_json', array($this, 'manual_sync_to_theme_json_ajax'));
+        
+        // Add import from theme.json handler
+        add_action('wp_ajax_ds_import_from_theme_json', array($this, 'import_from_theme_json_ajax'));
+        
         // Add component management AJAX handlers
         add_action('wp_ajax_ds_studio_save_component', array($this, 'save_component_ajax'));
         add_action('wp_ajax_ds_studio_delete_component', array($this, 'delete_component_ajax'));
@@ -369,7 +375,206 @@ class DS_Studio {
         // TO DO: Implement logic to delete component
         wp_send_json_success('Component deleted successfully');
     }
+    
+    /**
+     * Manual sync to theme.json AJAX handler
+     */
+    public function manual_sync_to_theme_json_ajax() {
+        // Add error logging
+        error_log('DS Studio: Manual sync started');
+        
+        // Verify nonce
+        if (!wp_verify_nonce($_POST['nonce'] ?? '', 'ds_studio_nonce')) {
+            error_log('DS Studio: Nonce verification failed');
+            wp_send_json_error('Security check failed');
+        }
+        
+        // Check user permissions
+        if (!current_user_can('edit_theme_options')) {
+            error_log('DS Studio: Permission check failed');
+            wp_send_json_error('Insufficient permissions');
+        }
+        
+        // Load Studio tokens
+        $studio_json_path = plugin_dir_path(__FILE__) . 'studio.json';
+        error_log('DS Studio: Looking for studio.json at: ' . $studio_json_path);
+        
+        if (!file_exists($studio_json_path)) {
+            error_log('DS Studio: studio.json not found');
+            wp_send_json_error('Studio.json file not found');
+        }
+        
+        $studio_content = file_get_contents($studio_json_path);
+        $studio_data = json_decode($studio_content, true);
+        
+        if (!$studio_data || !isset($studio_data['colors'])) {
+            error_log('DS Studio: No colors found in studio.json');
+            wp_send_json_error('No colors found in studio.json');
+        }
+        
+        error_log('DS Studio: Found ' . count($studio_data['colors']) . ' colors');
+        
+        // Load existing theme.json
+        $theme_json_path = get_stylesheet_directory() . '/theme.json';
+        error_log('DS Studio: Theme.json path: ' . $theme_json_path);
+        
+        $existing_theme_json = [];
+        
+        if (file_exists($theme_json_path)) {
+            $existing_content = file_get_contents($theme_json_path);
+            $existing_theme_json = json_decode($existing_content, true) ?: [];
+            error_log('DS Studio: Loaded existing theme.json');
+        }
+        
+        // Convert Studio colors to theme.json format
+        $our_colors = [];
+        $colors = $studio_data['colors'];
+        
+        // Sort colors by category and order
+        $sorted_colors = [];
+        foreach ($colors as $slug => $color) {
+            $category = $color['category'] ?? 'theme';
+            $order = $color['order'] ?? 999;
+            $sorted_colors[] = [
+                'slug' => $slug,
+                'name' => $color['name'] ?? ucfirst(str_replace('-', ' ', $slug)),
+                'value' => $color['value'] ?? '#000000',
+                'category' => $category,
+                'order' => $order
+            ];
+        }
+        
+        // Sort by category priority, then by order within category
+        $category_priority = ['theme' => 1, 'brand' => 2, 'semantic' => 3, 'neutral' => 4, 'custom' => 5];
+        usort($sorted_colors, function($a, $b) use ($category_priority) {
+            $a_priority = $category_priority[$a['category']] ?? 999;
+            $b_priority = $category_priority[$b['category']] ?? 999;
+            
+            if ($a_priority === $b_priority) {
+                return $a['order'] - $b['order'];
+            }
+            return $a_priority - $b_priority;
+        });
+        
+        // Convert to theme.json format
+        foreach ($sorted_colors as $color) {
+            $our_colors[] = [
+                'name' => $color['name'],
+                'slug' => $color['slug'],
+                'color' => $color['value']
+            ];
+        }
+        
+        error_log('DS Studio: Converted ' . count($our_colors) . ' colors for sync');
+        
+        // Create minimal theme.json structure
+        $new_theme_json = [
+            'version' => 2,
+            'settings' => [
+                'color' => [
+                    'palette' => $our_colors
+                ],
+                'custom' => [
+                    'designTokens' => $studio_data
+                ]
+            ]
+        ];
+        
+        // Save to theme.json
+        $json_content = json_encode($new_theme_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        $result = file_put_contents($theme_json_path, $json_content);
+        
+        error_log('DS Studio: File write result: ' . ($result !== false ? 'SUCCESS' : 'FAILED'));
+        
+        if ($result !== false) {
+            wp_send_json_success('Manual sync to theme.json completed successfully! Synced ' . count($our_colors) . ' colors.');
+        } else {
+            wp_send_json_error('Failed to write theme.json file');
+        }
+    }
+    
+    /**
+     * Import from theme.json AJAX handler
+     */
+    public function import_from_theme_json_ajax() {
+        // Add error logging
+        error_log('DS Studio: Import from theme.json started');
+        
+        // Verify nonce
+        if (!wp_verify_nonce($_POST['nonce'] ?? '', 'ds_studio_nonce')) {
+            error_log('DS Studio: Nonce verification failed');
+            wp_send_json_error('Security check failed');
+        }
+        
+        // Check user permissions
+        if (!current_user_can('edit_theme_options')) {
+            error_log('DS Studio: Permission check failed');
+            wp_send_json_error('Insufficient permissions');
+        }
+        
+        // Load existing theme.json
+        $theme_json_path = get_stylesheet_directory() . '/theme.json';
+        error_log('DS Studio: Theme.json path: ' . $theme_json_path);
+        
+        if (!file_exists($theme_json_path)) {
+            error_log('DS Studio: theme.json not found');
+            wp_send_json_error('Theme.json file not found');
+        }
+        
+        $theme_content = file_get_contents($theme_json_path);
+        $theme_data = json_decode($theme_content, true);
+        
+        if (!$theme_data || !isset($theme_data['settings']['color']['palette'])) {
+            error_log('DS Studio: No colors found in theme.json');
+            wp_send_json_error('No colors found in theme.json');
+        }
+        
+        error_log('DS Studio: Found ' . count($theme_data['settings']['color']['palette']) . ' colors');
+        
+        // Load Studio tokens
+        $studio_json_path = plugin_dir_path(__FILE__) . 'studio.json';
+        error_log('DS Studio: Looking for studio.json at: ' . $studio_json_path);
+        
+        $studio_data = [];
+        
+        if (file_exists($studio_json_path)) {
+            $studio_content = file_get_contents($studio_json_path);
+            $studio_data = json_decode($studio_content, true) ?: [];
+            error_log('DS Studio: Loaded existing studio.json');
+        }
+        
+        // Convert theme.json colors to Studio format
+        $our_colors = [];
+        $colors = $theme_data['settings']['color']['palette'];
+        
+        foreach ($colors as $color) {
+            $our_colors[$color['slug']] = [
+                'name' => $color['name'],
+                'value' => $color['color']
+            ];
+        }
+        
+        error_log('DS Studio: Converted ' . count($our_colors) . ' colors for import');
+        
+        // Update Studio data
+        $studio_data['colors'] = $our_colors;
+        
+        // Save to studio.json
+        $json_content = json_encode($studio_data, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
+        $result = file_put_contents($studio_json_path, $json_content);
+        
+        error_log('DS Studio: File write result: ' . ($result !== false ? 'SUCCESS' : 'FAILED'));
+        
+        if ($result !== false) {
+            wp_send_json_success('Import from theme.json completed successfully! Imported ' . count($our_colors) . ' colors.');
+        } else {
+            wp_send_json_error('Failed to write studio.json file');
+        }
+    }
 }
 
 // Initialize the plugin
 new DS_Studio();
+
+// Initialize the Design Token Manager
+// new DS_Studio_Design_Token_Manager();
