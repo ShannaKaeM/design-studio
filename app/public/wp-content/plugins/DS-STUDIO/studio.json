@@ -1,6 +1,6 @@
 {
     "version": "2.0.0",
-    "lastUpdated": "2025-06-13 00:24:06",
+    "lastUpdated": "2025-06-13 03:30:16",
     "categories": {
         "theme": {
             "name": "Theme Colors",
@@ -9,8 +9,28 @@
         },
         "notifications": {
             "name": "Notification Colors",
-            "icon": "\ud83c\udfa8",
+            "icon": "\ud83d\udd14",
+            "order": 2
+        },
+        "gradients": {
+            "name": "Gradients",
+            "icon": "\ud83c\udf08",
             "order": 3
+        },
+        "layout": {
+            "name": "Layout",
+            "icon": "\ud83c\udf10",
+            "order": 4
+        },
+        "spacing": {
+            "name": "Spacing",
+            "icon": "\ud83d\udc8f",
+            "order": 5
+        },
+        "typography": {
+            "name": "Typography",
+            "icon": "\ud83d\udcdd",
+            "order": 6
         }
     },
     "colors": {
@@ -133,6 +153,102 @@
             "name": "Info",
             "category": "notifications",
             "order": 4
+        }
+    },
+    "gradients": {
+        "primary": {
+            "value": "linear-gradient(90deg, #d6dcd6 0%, #3a5a59 100%)",
+            "name": "Primary Gradient",
+            "category": "gradients",
+            "order": 1
+        },
+        "secondary": {
+            "value": "linear-gradient(90deg, #2c2c2c 0%, #853d2d 100%)",
+            "name": "Secondary Gradient",
+            "category": "gradients",
+            "order": 2
+        },
+        "neutral": {
+            "value": "linear-gradient(90deg, #d8d6cf 0%, #8e897b 100%)",
+            "name": "Neutral Gradient",
+            "category": "gradients",
+            "order": 3
+        },
+        "base": {
+            "value": "linear-gradient(90deg, #ffffff 0%, #000000 100%)",
+            "name": "Base Gradient",
+            "category": "gradients",
+            "order": 4
+        }
+    },
+    "layout": {
+        "contentWidth": "1200px",
+        "wideWidth": "1400px",
+        "fullWidth": "100vw",
+        "useRootPaddingAwareAlignments": false,
+        "appearanceTools": true,
+        "blockGap": true,
+        "margin": true,
+        "padding": true,
+        "rootPadding": {
+            "top": "0px",
+            "right": "0px",
+            "bottom": "0px",
+            "left": "0px"
+        }
+    },
+    "spacing": {
+        "xxs": "2px",
+        "xs": "4px",
+        "sm": "8px",
+        "md": "16px",
+        "lg": "24px",
+        "xl": "32px",
+        "xxl": "40px",
+        "xxxl": "48px"
+    },
+    "typography": {
+        "fontFamilies": {
+            "primary": {
+                "name": "Montserrat",
+                "value": "Montserrat, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                "category": "primary"
+            },
+            "secondary": {
+                "name": "Inter",
+                "value": "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                "category": "secondary"
+            },
+            "mono": {
+                "name": "JetBrains Mono",
+                "value": "'JetBrains Mono', 'Monaco', 'Menlo', 'Ubuntu Mono', monospace",
+                "category": "monospace"
+            }
+        },
+        "fontSizes": {
+            "xs": "14px",
+            "sm": "16px",
+            "md": "1px8",
+            "lg": "20px",
+            "xl": "24px",
+            "xxl": "30px",
+            "xxxl": "48px"
+        },
+        "lineHeights": {
+            "xs": "16px",
+            "sm": "20px",
+            "md": "24px",
+            "lg": "28px",
+            "xl": "32px",
+            "xxl": "36px",
+            "xxxl": "40px"
+        },
+        "fontWeights": {
+            "600": "Semibold",
+            "light": 300,
+            "regular": 400,
+            "medium": 500,
+            "bold": 700
         }
     }
 }

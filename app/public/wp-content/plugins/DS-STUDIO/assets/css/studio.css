@@ -220,6 +220,90 @@
     font-weight: 500;
 }
 
+/* Typography Settings */
+.studio-typography-settings {
+    padding: 16px;
+}
+
+.studio-typography-section {
+    margin-bottom: 24px;
+}
+
+.studio-typography-section:last-child {
+    margin-bottom: 0;
+}
+
+.studio-typography-section-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1d2327;
+    margin: 0 0 12px 0;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.studio-typography-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 12px;
+}
+
+.studio-typography-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 12px;
+    background: #f8f9fa;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.studio-typography-item:hover {
+    background: #f1f3f4;
+    border-color: #d0d7de;
+    transform: translateY(-1px);
+}
+
+.studio-typography-name {
+    font-weight: 500;
+    color: #1d2327;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.studio-typography-value {
+    font-family: inherit;
+    color: #0073aa;
+    background: #ffffff;
+    padding: 8px 12px;
+    border-radius: 4px;
+    border: 1px solid #0073aa;
+    font-weight: 500;
+    min-width: 60px;
+    word-break: break-word;
+}
+
+/* Special styling for font family display */
+.studio-typography-section:first-child .studio-typography-item {
+    grid-column: 1 / -1;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+}
+
+.studio-typography-section:first-child .studio-typography-name {
+    margin-bottom: 0;
+}
+
+.studio-typography-section:first-child .studio-typography-value {
+    max-width: 300px;
+    text-align: right;
+}
+
 /* Spacing Section */
 .studio-spacing-section {
     padding: 0;
@@ -238,8 +322,9 @@
     align-items: center;
     padding: 12px 8px;
     background: #f8f9fa;
-    border-radius: 6px;
     border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    transition: all 0.2s ease;
     text-align: center;
 }
 
@@ -267,6 +352,186 @@
     color: #9ca3af;
     margin-top: 4px;
     font-family: ui-monospace, monospace;
+}
+
+/* Block Styles Panel */
+.studio-block-styles-panel {
+    padding: 0;
+}
+
+.studio-panel-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.studio-panel-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.studio-add-style-btn {
+    background: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 8px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.studio-add-style-btn:hover {
+    background: #005a87;
+}
+
+/* Add Style Form */
+.studio-add-style-form {
+    padding: 20px;
+    background: #ffffff;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.studio-form-row {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.studio-form-field {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.studio-form-field label {
+    font-size: 13px;
+    font-weight: 500;
+    color: #1d2327;
+}
+
+.studio-form-field input,
+.studio-form-field select,
+.studio-form-field textarea {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+.studio-form-field input:focus,
+.studio-form-field select:focus,
+.studio-form-field textarea:focus {
+    outline: none;
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+}
+
+.studio-form-field textarea {
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 13px;
+    resize: vertical;
+}
+
+.studio-add-style-submit {
+    background: #00a32a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.studio-add-style-submit:hover {
+    background: #008a20;
+}
+
+/* Block Styles List */
+.studio-block-styles-list {
+    padding: 20px;
+}
+
+.studio-empty-state {
+    text-align: center;
+    padding: 40px 20px;
+    color: #646970;
+}
+
+.studio-empty-state p:first-child {
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.studio-block-style-item {
+    background: #ffffff;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    overflow: hidden;
+}
+
+.studio-style-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.studio-style-info h4 {
+    margin: 0 0 4px 0;
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d2327;
+}
+
+.studio-style-meta {
+    font-size: 12px;
+    color: #646970;
+    font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.studio-delete-style-btn {
+    background: #dc3232;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.studio-delete-style-btn:hover {
+    background: #a00;
+}
+
+.studio-style-css {
+    padding: 16px;
+    background: #f8f9fa;
+}
+
+.studio-style-css pre {
+    margin: 0;
+    font-family: 'Monaco', 'Menlo', monospace;
+    font-size: 12px;
+    color: #1d2327;
+    white-space: pre-wrap;
+    word-wrap: break-word;
 }
 
 /* Block Styles Panel */
@@ -389,6 +654,39 @@
 
 .studio-sync-button:active {
     background: #0a4b78;
+}
+
+/* Sync All Button */
+.ds-sync-all-button {
+    margin-bottom: 20px !important;
+    padding: 10px 20px !important;
+    background-color: #0073aa !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 4px !important;
+    cursor: pointer !important;
+    font-size: 14px !important;
+    font-weight: 500 !important;
+    transition: all 0.2s ease !important;
+    width: 100% !important;
+}
+
+.ds-sync-all-button:hover:not(:disabled) {
+    background-color: #005a87 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1) !important;
+}
+
+.ds-sync-all-button:disabled {
+    background-color: #ccc !important;
+    cursor: not-allowed !important;
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+.ds-sync-all-button:active:not(:disabled) {
+    transform: translateY(0) !important;
+    background-color: #004a73 !important;
 }
 
 /* Placeholders */
@@ -1045,4 +1343,568 @@
 
 .studio-add-color-submit:hover {
     background: #005a87;
+}
+
+/* Gradient Items */
+.studio-gradient-item {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    background: #fff;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.studio-gradient-item:hover {
+    border-color: #0073aa;
+    box-shadow: 0 2px 4px rgba(0,115,170,0.1);
+}
+
+.studio-gradient-swatch {
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    margin-right: 12px;
+    border: 1px solid #ddd;
+    flex-shrink: 0;
+}
+
+.studio-gradient-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.studio-gradient-name {
+    font-weight: 500;
+    margin-bottom: 2px;
+    color: #1e1e1e;
+}
+
+.studio-gradient-value {
+    font-size: 11px;
+    color: #666;
+    font-family: monospace;
+    word-break: break-all;
+}
+
+/* Layout Settings */
+.studio-layout-settings-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px;
+}
+
+.studio-layout-setting-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+}
+
+.studio-layout-setting-item:hover {
+    background: #f1f3f4;
+    border-color: #d0d7de;
+}
+
+.studio-layout-setting-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 100%;
+}
+
+.studio-layout-setting-name {
+    font-weight: 500;
+    color: #1d2327;
+    font-size: 14px;
+    text-transform: capitalize;
+}
+
+.studio-layout-setting-value {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 12px;
+    color: #646970;
+    background: #ffffff;
+    padding: 4px 8px;
+    border-radius: 3px;
+    border: 1px solid #ddd;
+    display: inline-block;
+    max-width: fit-content;
+}
+
+/* Spacing Settings */
+.studio-spacing-settings-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+    padding: 16px;
+}
+
+.studio-spacing-setting-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 12px;
+    background: #f8f9fa;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    text-align: center;
+}
+
+.studio-spacing-setting-item:hover {
+    background: #f1f3f4;
+    border-color: #d0d7de;
+    transform: translateY(-1px);
+}
+
+.studio-spacing-setting-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    width: 100%;
+    align-items: center;
+}
+
+.studio-spacing-setting-name {
+    font-weight: 600;
+    color: #1d2327;
+    font-size: 13px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.studio-spacing-setting-value {
+    font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+    font-size: 12px;
+    color: #0073aa;
+    background: #ffffff;
+    padding: 6px 10px;
+    border-radius: 4px;
+    border: 1px solid #0073aa;
+    font-weight: 500;
+    min-width: 50px;
+}
+
+/* Color Sub-Categories */
+.studio-colors-with-subcategories {
+    padding: 0;
+}
+
+.studio-color-subcategory {
+    margin-bottom: 24px;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.studio-color-subcategory:last-child {
+    margin-bottom: 0;
+}
+
+.studio-color-subcategory-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1d2327;
+    margin: 0;
+    padding: 12px 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.studio-color-subcategory .studio-colors-grid {
+    padding: 16px;
+    background: #ffffff;
+}
+
+/* Top-level accordion adjustments */
+.studio-accordion-item {
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    margin-bottom: 12px;
+    overflow: hidden;
+}
+
+.studio-accordion-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: #f8f9fa;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.studio-accordion-header:hover {
+    background: #f1f3f4;
+}
+
+.studio-accordion-header.open {
+    background: #e8f4fd;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.studio-accordion-icon {
+    font-size: 18px;
+    margin-right: 12px;
+}
+
+.studio-accordion-title {
+    font-weight: 600;
+    color: #1d2327;
+    flex: 1;
+}
+
+.studio-accordion-arrow {
+    font-size: 12px;
+    color: #646970;
+    transition: transform 0.2s ease;
+}
+
+.studio-accordion-content {
+    padding: 0;
+    background: #ffffff;
+}
+
+/* Layout Settings Editing */
+.studio-layout-setting-item {
+    background: #ffffff;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    padding: 16px;
+    margin-bottom: 12px;
+}
+
+.studio-layout-setting-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.studio-layout-setting-name {
+    font-weight: 600;
+    color: #1d2327;
+    font-size: 14px;
+}
+
+.studio-layout-setting-input,
+.studio-layout-setting-select {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.2s ease;
+}
+
+.studio-layout-setting-input:focus,
+.studio-layout-setting-select:focus {
+    outline: none;
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+}
+
+/* Root Padding Section */
+.studio-layout-padding-section {
+    grid-column: 1 / -1;
+    background: #f8f9fa;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    padding: 16px;
+    margin-top: 12px;
+}
+
+.studio-layout-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d2327;
+    margin: 0 0 16px 0;
+}
+
+.studio-layout-padding-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+}
+
+.studio-layout-padding-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.studio-layout-padding-label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #646970;
+    text-transform: uppercase;
+}
+
+.studio-layout-padding-input {
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.studio-layout-padding-input:focus {
+    outline: none;
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+}
+
+/* Spacing Settings Editing */
+.studio-spacing-settings-container {
+    padding: 16px;
+}
+
+.studio-spacing-scale-section {
+    background: #ffffff;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    padding: 16px;
+}
+
+.studio-spacing-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d2327;
+    margin: 0 0 16px 0;
+}
+
+.studio-spacing-scale-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+}
+
+.studio-spacing-scale-item {
+    background: #f8f9fa;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    padding: 12px;
+}
+
+.studio-spacing-scale-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.studio-spacing-scale-name {
+    font-weight: 600;
+    color: #1d2327;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.studio-spacing-scale-input {
+    width: 100%;
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+    font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.studio-spacing-scale-input:focus {
+    outline: none;
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+}
+
+.studio-spacing-scale-preview {
+    border-radius: 2px;
+    transition: width 0.2s ease;
+}
+
+/* Typography Settings Editing */
+.studio-typography-settings-container {
+    padding: 16px;
+}
+
+.studio-typography-section {
+    background: #ffffff;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    margin-bottom: 24px;
+    overflow: hidden;
+}
+
+.studio-typography-section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.studio-typography-section-title {
+    font-size: 16px;
+    font-weight: 600;
+    color: #1d2327;
+    margin: 0;
+}
+
+.studio-add-typography-btn {
+    background: #0073aa;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 12px;
+    font-size: 12px;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.studio-add-typography-btn:hover {
+    background: #005a87;
+}
+
+/* Add Typography Form */
+.studio-add-typography-form {
+    padding: 16px;
+    background: #f8f9fa;
+    border-bottom: 1px solid #e1e5e9;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.studio-add-typography-form input {
+    flex: 1;
+    min-width: 150px;
+    padding: 6px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+.studio-add-typography-form input:focus {
+    outline: none;
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+}
+
+.studio-add-typography-submit {
+    background: #00a32a;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 16px;
+    font-size: 13px;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.studio-add-typography-submit:hover {
+    background: #008a20;
+}
+
+/* Typography Items Grid */
+.studio-typography-items-grid {
+    padding: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 16px;
+}
+
+.studio-typography-item {
+    background: #f8f9fa;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.studio-typography-item-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #ffffff;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.studio-typography-item-key {
+    font-weight: 600;
+    color: #1d2327;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+.studio-delete-typography-btn {
+    background: #dc3232;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 14px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s ease;
+}
+
+.studio-delete-typography-btn:hover {
+    background: #a00;
+}
+
+/* Typography Item Fields */
+.studio-typography-item-fields {
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.studio-typography-item-fields label {
+    font-size: 12px;
+    font-weight: 500;
+    color: #646970;
+    margin-bottom: 4px;
+}
+
+.studio-typography-item-fields input {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    font-family: 'Monaco', 'Menlo', monospace;
+}
+
+.studio-typography-item-fields input:focus {
+    outline: none;
+    border-color: #0073aa;
+    box-shadow: 0 0 0 1px #0073aa;
+}
+
+/* Typography Preview */
+.studio-typography-preview {
+    background: #ffffff;
+    border: 1px solid #e1e5e9;
+    border-radius: 4px;
+    padding: 12px;
+    font-size: 14px;
+    color: #1d2327;
+    white-space: pre-line;
+    margin-top: 8px;
+}
+
+.studio-typography-preview:empty::before {
+    content: 'Preview will appear here';
+    color: #646970;
+    font-style: italic;
 }

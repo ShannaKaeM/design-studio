@@ -306,6 +306,14 @@ class DS_Studio_Design_Token_Manager {
             }
         }
         
+        // Convert layout
+        if (isset(($tokens ?: $this->tokens_data)['layout'])) {
+            $theme_json['settings']['layout'] = array(
+                'contentSize' => ($tokens ?: $this->tokens_data)['layout']['contentSize'] ?? '1200px',
+                'wideSize' => ($tokens ?: $this->tokens_data)['layout']['wideSize'] ?? '1600px'
+            );
+        }
+        
         return $theme_json;
     }
     
@@ -336,9 +344,13 @@ class DS_Studio_Design_Token_Manager {
         
         // Get our color tokens
         $our_colors = [];
+        $our_gradients = [];
+        $our_layout = [];
+        $our_spacing = [];
+        $our_typography = [];
+        
         if (isset($this->tokens_data['colors'])) {
             $colors = $this->tokens_data['colors'];
-            error_log('DS Studio: Found ' . count($colors) . ' colors in tokens');
             
             // Sort colors by category and order for better organization
             $sorted_colors = [];
@@ -374,14 +386,93 @@ class DS_Studio_Design_Token_Manager {
                     'color' => $color['value']
                 ];
             }
-            
-            error_log('DS Studio: Converted ' . count($our_colors) . ' colors for theme.json');
-        } else {
-            error_log('DS Studio: No colors found in tokens data');
         }
         
-        // Write our colors to test file
-        file_put_contents($test_file, 'Found ' . count($our_colors) . ' colors to sync' . "\n", FILE_APPEND);
+        // Get our gradient tokens
+        if (isset($this->tokens_data['gradients'])) {
+            $gradients = $this->tokens_data['gradients'];
+            
+            // Sort gradients by order
+            $sorted_gradients = [];
+            foreach ($gradients as $slug => $gradient) {
+                $order = $gradient['order'] ?? 999;
+                $sorted_gradients[] = [
+                    'slug' => $slug,
+                    'name' => $gradient['name'] ?? ucfirst(str_replace('-', ' ', $slug)),
+                    'value' => $gradient['value'] ?? 'linear-gradient(90deg, #000000 0%, #ffffff 100%)',
+                    'order' => $order
+                ];
+            }
+            
+            // Sort by order
+            usort($sorted_gradients, function($a, $b) {
+                return $a['order'] - $b['order'];
+            });
+            
+            // Convert to theme.json format
+            foreach ($sorted_gradients as $gradient) {
+                $our_gradients[] = [
+                    'name' => $gradient['name'],
+                    'slug' => $gradient['slug'],
+                    'gradient' => $gradient['value']
+                ];
+            }
+        }
+        
+        // Get our layout tokens
+        if (isset($this->tokens_data['layout'])) {
+            $our_layout = $this->tokens_data['layout'];
+        }
+        
+        // Get our spacing tokens
+        if (isset($this->tokens_data['spacing'])) {
+            $spacing = $this->tokens_data['spacing'];
+            
+            // Convert spacing to WordPress spacingSizes format
+            $spacing_sizes = [];
+            $order = 10;
+            foreach ($spacing as $slug => $size) {
+                $spacing_sizes[] = [
+                    'size' => $size,
+                    'slug' => $slug,
+                    'name' => ucfirst($slug)
+                ];
+                $order += 10;
+            }
+            $our_spacing = $spacing_sizes;
+        }
+        
+        // Get our typography tokens
+        if (isset($this->tokens_data['typography'])) {
+            $typography = $this->tokens_data['typography'];
+            
+            // Convert typography to WordPress format
+            $typography_settings = [];
+            if (isset($typography['fontFamilies'])) {
+                foreach ($typography['fontFamilies'] as $family_name => $family_value) {
+                    $typography_settings[] = [
+                        'name' => ucfirst($family_name),
+                        'slug' => $family_name,
+                        'fontFamily' => $family_value
+                    ];
+                }
+            }
+            
+            if (isset($typography['fontSizes'])) {
+                foreach ($typography['fontSizes'] as $size_name => $size_value) {
+                    $typography_settings[] = [
+                        'name' => ucfirst($size_name),
+                        'slug' => $size_name,
+                        'size' => $size_value
+                    ];
+                }
+            }
+            
+            $our_typography = $typography_settings;
+        }
+        
+        // Write our tokens to test file
+        file_put_contents($test_file, 'Found ' . count($our_colors) . ' colors, ' . count($our_gradients) . ' gradients, layout settings, ' . count($our_spacing) . ' spacing sizes, and ' . count($our_typography) . ' typography settings to sync' . "\n", FILE_APPEND);
         
         // Merge with existing theme.json
         if (!isset($existing_theme_json['settings'])) {
@@ -410,11 +501,147 @@ class DS_Studio_Design_Token_Manager {
             ]
         );
         
+        // Add gradients
+        if (!isset($existing_theme_json['settings']['color']['gradients'])) {
+            $existing_theme_json['settings']['color']['gradients'] = [];
+        }
+        $existing_theme_json['settings']['color']['gradients'] = $our_gradients;
+        
+        // Add layout settings
+        if (!isset($existing_theme_json['settings']['layout'])) {
+            $existing_theme_json['settings']['layout'] = [];
+        }
+        $existing_theme_json['settings']['layout'] = array_merge($existing_theme_json['settings']['layout'], $our_layout);
+        
+        // Add top-level settings from layout tokens
+        if (isset($our_layout['useRootPaddingAwareAlignments'])) {
+            $existing_theme_json['settings']['useRootPaddingAwareAlignments'] = $our_layout['useRootPaddingAwareAlignments'];
+        }
+        if (isset($our_layout['appearanceTools'])) {
+            $existing_theme_json['settings']['appearanceTools'] = $our_layout['appearanceTools'];
+        }
+        
+        // Add spacing controls from layout tokens
+        if (!isset($existing_theme_json['settings']['spacing'])) {
+            $existing_theme_json['settings']['spacing'] = [];
+        }
+        if (isset($our_layout['blockGap'])) {
+            $existing_theme_json['settings']['spacing']['blockGap'] = $our_layout['blockGap'];
+        }
+        if (isset($our_layout['margin'])) {
+            $existing_theme_json['settings']['spacing']['margin'] = $our_layout['margin'];
+        }
+        if (isset($our_layout['padding'])) {
+            $existing_theme_json['settings']['spacing']['padding'] = $our_layout['padding'];
+        }
+        
+        // Add root padding styles
+        if (isset($our_layout['rootPadding'])) {
+            if (!isset($existing_theme_json['styles'])) {
+                $existing_theme_json['styles'] = [];
+            }
+            if (!isset($existing_theme_json['styles']['spacing'])) {
+                $existing_theme_json['styles']['spacing'] = [];
+            }
+            $existing_theme_json['styles']['spacing']['padding'] = $our_layout['rootPadding'];
+        }
+        
+        // Add spacing settings
+        if (!isset($existing_theme_json['settings']['spacing'])) {
+            $existing_theme_json['settings']['spacing'] = [];
+        }
+        $existing_theme_json['settings']['spacing']['spacingScale'] = $our_spacing;
+        
+        // Add typography settings
+        if (!isset($existing_theme_json['settings']['typography'])) {
+            $existing_theme_json['settings']['typography'] = [];
+        }
+        $existing_theme_json['settings']['typography']['fontFamilies'] = array_filter($our_typography, function($item) {
+            return isset($item['fontFamily']);
+        });
+        $existing_theme_json['settings']['typography']['fontSizes'] = array_filter($our_typography, function($item) {
+            return isset($item['size']);
+        });
+        
         // Add custom design tokens for reference
         if (!isset($existing_theme_json['settings']['custom'])) {
             $existing_theme_json['settings']['custom'] = [];
         }
         $existing_theme_json['settings']['custom']['designTokens'] = $this->tokens_data;
+        
+        // Add aggressive block-specific overrides for GenerateBlocks and WP Core
+        if (!isset($existing_theme_json['styles'])) {
+            $existing_theme_json['styles'] = [];
+        }
+        if (!isset($existing_theme_json['styles']['blocks'])) {
+            $existing_theme_json['styles']['blocks'] = [];
+        }
+        
+        // Force Studio colors on key blocks
+        $studio_overrides = [
+            // WordPress Core Blocks
+            'core/group' => [
+                'color' => [
+                    'background' => 'transparent',
+                    'text' => 'inherit'
+                ],
+                'spacing' => [
+                    'padding' => '0px'
+                ]
+            ],
+            'core/columns' => [
+                'spacing' => [
+                    'blockGap' => 'var(--wp--preset--spacing--md, 16px)'
+                ]
+            ],
+            'core/navigation' => [
+                'color' => [
+                    'text' => 'var(--wp--preset--color--primary, #5a7b7c)'
+                ]
+            ],
+            'core/site-title' => [
+                'color' => [
+                    'text' => 'var(--wp--preset--color--primary, #5a7b7c)'
+                ]
+            ],
+            'core/site-tagline' => [
+                'color' => [
+                    'text' => 'var(--wp--preset--color--neutral, #b3b09f)'
+                ]
+            ],
+            // GenerateBlocks overrides
+            'generateblocks/container' => [
+                'color' => [
+                    'background' => 'transparent',
+                    'text' => 'inherit'
+                ],
+                'spacing' => [
+                    'padding' => '0px',
+                    'margin' => '0px'
+                ]
+            ],
+            'generateblocks/grid' => [
+                'spacing' => [
+                    'blockGap' => 'var(--wp--preset--spacing--md, 16px)'
+                ]
+            ],
+            'generateblocks/button' => [
+                'color' => [
+                    'background' => 'var(--wp--preset--color--primary, #5a7b7c)',
+                    'text' => 'var(--wp--preset--color--base-light, #ffffff)'
+                ]
+            ],
+            'generateblocks/headline' => [
+                'color' => [
+                    'text' => 'var(--wp--preset--color--primary, #5a7b7c)'
+                ]
+            ]
+        ];
+        
+        $existing_theme_json['styles']['blocks'] = array_merge(
+            $existing_theme_json['styles']['blocks'] ?? [],
+            $studio_overrides
+        );
         
         // Save to theme.json
         $json_content = json_encode($existing_theme_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
@@ -464,6 +691,11 @@ class DS_Studio_Design_Token_Manager {
         
         // Get our color tokens
         $our_colors = [];
+        $our_gradients = [];
+        $our_layout = [];
+        $our_spacing = [];
+        $our_typography = [];
+        
         if (isset($this->tokens_data['colors'])) {
             $colors = $this->tokens_data['colors'];
             
@@ -503,6 +735,89 @@ class DS_Studio_Design_Token_Manager {
             }
         }
         
+        // Get our gradient tokens
+        if (isset($this->tokens_data['gradients'])) {
+            $gradients = $this->tokens_data['gradients'];
+            
+            // Sort gradients by order
+            $sorted_gradients = [];
+            foreach ($gradients as $slug => $gradient) {
+                $order = $gradient['order'] ?? 999;
+                $sorted_gradients[] = [
+                    'slug' => $slug,
+                    'name' => $gradient['name'] ?? ucfirst(str_replace('-', ' ', $slug)),
+                    'value' => $gradient['value'] ?? 'linear-gradient(90deg, #000000 0%, #ffffff 100%)',
+                    'order' => $order
+                ];
+            }
+            
+            // Sort by order
+            usort($sorted_gradients, function($a, $b) {
+                return $a['order'] - $b['order'];
+            });
+            
+            // Convert to theme.json format
+            foreach ($sorted_gradients as $gradient) {
+                $our_gradients[] = [
+                    'name' => $gradient['name'],
+                    'slug' => $gradient['slug'],
+                    'gradient' => $gradient['value']
+                ];
+            }
+        }
+        
+        // Get our layout tokens
+        if (isset($this->tokens_data['layout'])) {
+            $our_layout = $this->tokens_data['layout'];
+        }
+        
+        // Get our spacing tokens
+        if (isset($this->tokens_data['spacing'])) {
+            $spacing = $this->tokens_data['spacing'];
+            
+            // Convert spacing to WordPress spacingSizes format
+            $spacing_sizes = [];
+            $order = 10;
+            foreach ($spacing as $slug => $size) {
+                $spacing_sizes[] = [
+                    'size' => $size,
+                    'slug' => $slug,
+                    'name' => ucfirst($slug)
+                ];
+                $order += 10;
+            }
+            $our_spacing = $spacing_sizes;
+        }
+        
+        // Get our typography tokens
+        if (isset($this->tokens_data['typography'])) {
+            $typography = $this->tokens_data['typography'];
+            
+            // Convert typography to WordPress format
+            $typography_settings = [];
+            if (isset($typography['fontFamilies'])) {
+                foreach ($typography['fontFamilies'] as $family_name => $family_value) {
+                    $typography_settings[] = [
+                        'name' => ucfirst($family_name),
+                        'slug' => $family_name,
+                        'fontFamily' => $family_value
+                    ];
+                }
+            }
+            
+            if (isset($typography['fontSizes'])) {
+                foreach ($typography['fontSizes'] as $size_name => $size_value) {
+                    $typography_settings[] = [
+                        'name' => ucfirst($size_name),
+                        'slug' => $size_name,
+                        'size' => $size_value
+                    ];
+                }
+            }
+            
+            $our_typography = $typography_settings;
+        }
+        
         // Update the color palette and settings
         if (!isset($existing_theme_json['settings']['color'])) {
             $existing_theme_json['settings']['color'] = [];
@@ -520,6 +835,148 @@ class DS_Studio_Design_Token_Manager {
                 'defaultPalette' => false,
                 'palette' => $our_colors
             ]
+        );
+        
+        // Add gradients
+        if (!isset($existing_theme_json['settings']['color']['gradients'])) {
+            $existing_theme_json['settings']['color']['gradients'] = [];
+        }
+        $existing_theme_json['settings']['color']['gradients'] = $our_gradients;
+        
+        // Add layout settings
+        if (!isset($existing_theme_json['settings']['layout'])) {
+            $existing_theme_json['settings']['layout'] = [];
+        }
+        $existing_theme_json['settings']['layout'] = array_merge($existing_theme_json['settings']['layout'], $our_layout);
+        
+        // Add top-level settings from layout tokens
+        if (isset($our_layout['useRootPaddingAwareAlignments'])) {
+            $existing_theme_json['settings']['useRootPaddingAwareAlignments'] = $our_layout['useRootPaddingAwareAlignments'];
+        }
+        if (isset($our_layout['appearanceTools'])) {
+            $existing_theme_json['settings']['appearanceTools'] = $our_layout['appearanceTools'];
+        }
+        
+        // Add spacing controls from layout tokens
+        if (!isset($existing_theme_json['settings']['spacing'])) {
+            $existing_theme_json['settings']['spacing'] = [];
+        }
+        if (isset($our_layout['blockGap'])) {
+            $existing_theme_json['settings']['spacing']['blockGap'] = $our_layout['blockGap'];
+        }
+        if (isset($our_layout['margin'])) {
+            $existing_theme_json['settings']['spacing']['margin'] = $our_layout['margin'];
+        }
+        if (isset($our_layout['padding'])) {
+            $existing_theme_json['settings']['spacing']['padding'] = $our_layout['padding'];
+        }
+        
+        // Add root padding styles
+        if (isset($our_layout['rootPadding'])) {
+            if (!isset($existing_theme_json['styles'])) {
+                $existing_theme_json['styles'] = [];
+            }
+            if (!isset($existing_theme_json['styles']['spacing'])) {
+                $existing_theme_json['styles']['spacing'] = [];
+            }
+            $existing_theme_json['styles']['spacing']['padding'] = $our_layout['rootPadding'];
+        }
+        
+        // Add spacing settings
+        if (!isset($existing_theme_json['settings']['spacing'])) {
+            $existing_theme_json['settings']['spacing'] = [];
+        }
+        $existing_theme_json['settings']['spacing']['spacingScale'] = $our_spacing;
+        
+        // Add typography settings
+        if (!isset($existing_theme_json['settings']['typography'])) {
+            $existing_theme_json['settings']['typography'] = [];
+        }
+        $existing_theme_json['settings']['typography']['fontFamilies'] = array_filter($our_typography, function($item) {
+            return isset($item['fontFamily']);
+        });
+        $existing_theme_json['settings']['typography']['fontSizes'] = array_filter($our_typography, function($item) {
+            return isset($item['size']);
+        });
+        
+        // Add custom design tokens for reference
+        if (!isset($existing_theme_json['settings']['custom'])) {
+            $existing_theme_json['settings']['custom'] = [];
+        }
+        $existing_theme_json['settings']['custom']['designTokens'] = $this->tokens_data;
+        
+        // Add aggressive block-specific overrides for GenerateBlocks and WP Core
+        if (!isset($existing_theme_json['styles'])) {
+            $existing_theme_json['styles'] = [];
+        }
+        if (!isset($existing_theme_json['styles']['blocks'])) {
+            $existing_theme_json['styles']['blocks'] = [];
+        }
+        
+        // Force Studio colors on key blocks
+        $studio_overrides = [
+            // WordPress Core Blocks
+            'core/group' => [
+                'color' => [
+                    'background' => 'transparent',
+                    'text' => 'inherit'
+                ],
+                'spacing' => [
+                    'padding' => '0px'
+                ]
+            ],
+            'core/columns' => [
+                'spacing' => [
+                    'blockGap' => 'var(--wp--preset--spacing--md, 16px)'
+                ]
+            ],
+            'core/navigation' => [
+                'color' => [
+                    'text' => 'var(--wp--preset--color--primary, #5a7b7c)'
+                ]
+            ],
+            'core/site-title' => [
+                'color' => [
+                    'text' => 'var(--wp--preset--color--primary, #5a7b7c)'
+                ]
+            ],
+            'core/site-tagline' => [
+                'color' => [
+                    'text' => 'var(--wp--preset--color--neutral, #b3b09f)'
+                ]
+            ],
+            // GenerateBlocks overrides
+            'generateblocks/container' => [
+                'color' => [
+                    'background' => 'transparent',
+                    'text' => 'inherit'
+                ],
+                'spacing' => [
+                    'padding' => '0px',
+                    'margin' => '0px'
+                ]
+            ],
+            'generateblocks/grid' => [
+                'spacing' => [
+                    'blockGap' => 'var(--wp--preset--spacing--md, 16px)'
+                ]
+            ],
+            'generateblocks/button' => [
+                'color' => [
+                    'background' => 'var(--wp--preset--color--primary, #5a7b7c)',
+                    'text' => 'var(--wp--preset--color--base-light, #ffffff)'
+                ]
+            ],
+            'generateblocks/headline' => [
+                'color' => [
+                    'text' => 'var(--wp--preset--color--primary, #5a7b7c)'
+                ]
+            ]
+        ];
+        
+        $existing_theme_json['styles']['blocks'] = array_merge(
+            $existing_theme_json['styles']['blocks'] ?? [],
+            $studio_overrides
         );
         
         // Save to theme.json
