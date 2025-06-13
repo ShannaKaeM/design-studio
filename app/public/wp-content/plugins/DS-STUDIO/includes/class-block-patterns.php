@@ -91,14 +91,16 @@ class DS_Studio_Block_Patterns {
     private function get_color_slug($preference = 'primary') {
         $colors = $this->get_token_value('settings.color.palette', array());
         
-        foreach ($colors as $color) {
-            if ($color['slug'] === $preference) {
-                return $color['slug'];
+        if (is_array($colors)) {
+            foreach ($colors as $color) {
+                if (is_array($color) && isset($color['slug']) && $color['slug'] === $preference) {
+                    return $color['slug'];
+                }
             }
         }
         
         // Return first available color if preference not found
-        return !empty($colors) ? $colors[0]['slug'] : 'primary';
+        return (!empty($colors) && is_array($colors) && isset($colors[0]['slug'])) ? $colors[0]['slug'] : 'primary';
     }
     
     /**
@@ -107,13 +109,15 @@ class DS_Studio_Block_Patterns {
     private function get_spacing_slug($size = 'md') {
         $spacing = $this->get_token_value('settings.spacing.spacingSizes', array());
         
-        foreach ($spacing as $space) {
-            if ($space['slug'] === $size) {
-                return $space['slug'];
+        if (is_array($spacing)) {
+            foreach ($spacing as $space) {
+                if (is_array($space) && isset($space['slug']) && $space['slug'] === $size) {
+                    return $space['slug'];
+                }
             }
         }
         
-        return !empty($spacing) ? $spacing[0]['slug'] : 'md';
+        return (!empty($spacing) && is_array($spacing) && isset($spacing[0]['slug'])) ? $spacing[0]['slug'] : 'md';
     }
     
     /**
@@ -122,13 +126,15 @@ class DS_Studio_Block_Patterns {
     private function get_font_size_slug($size = 'lg') {
         $fonts = $this->get_token_value('settings.typography.fontSizes', array());
         
-        foreach ($fonts as $font) {
-            if ($font['slug'] === $size) {
-                return $font['slug'];
+        if (is_array($fonts)) {
+            foreach ($fonts as $font) {
+                if (is_array($font) && isset($font['slug']) && $font['slug'] === $size) {
+                    return $font['slug'];
+                }
             }
         }
         
-        return !empty($fonts) ? $fonts[0]['slug'] : 'lg';
+        return (!empty($fonts) && is_array($fonts) && isset($fonts[0]['slug'])) ? $fonts[0]['slug'] : 'lg';
     }
     
     /**

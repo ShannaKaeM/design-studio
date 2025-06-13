@@ -1,0 +1,54 @@
+/**
+ * Studio Blocks - Frontend Styles
+ * 
+ * Global styles for all Studio blocks
+ */
+
+/* Import individual block styles */
+@import url('../blocks/studio-container/style.css');
+
+/* Global Studio block utilities */
+.studio-block {
+    box-sizing: border-box;
+}
+
+/* Studio responsive utilities */
+@media (max-width: 768px) {
+    .studio-mobile-stack .studio-container--flex-row {
+        flex-direction: column;
+    }
+    
+    .studio-mobile-stack .studio-container--grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Studio accessibility utilities */
+.studio-block:focus-visible {
+    outline: 2px solid var(--wp--preset--color--primary, #007cba);
+    outline-offset: 2px;
+}
+
+/* Studio animation utilities */
+.studio-block {
+    transition: all 0.2s ease;
+}
+
+/* Ensure proper spacing between Studio blocks */
+.studio-block + .studio-block {
+    margin-top: var(--wp--preset--spacing--md, 1rem);
+}
+
+/* WordPress alignment support for all Studio blocks */
+.studio-block.alignwide {
+    max-width: var(--wp--style--global--wide-size, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.studio-block.alignfull {
+    max-width: none;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}

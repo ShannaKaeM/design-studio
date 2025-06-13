@@ -276,12 +276,22 @@ class DS_Studio_Design_Token_Manager {
         
         // Convert typography
         if (isset(($tokens ?: $this->tokens_data)['typography']['fontFamilies'])) {
-            foreach (($tokens ?: $this->tokens_data)['typography']['fontFamilies'] as $family_name => $family_value) {
-                $theme_json['settings']['typography']['fontFamilies'][] = array(
-                    'name' => ucfirst($family_name),
-                    'slug' => $family_name,
-                    'fontFamily' => $family_value
-                );
+            foreach (($tokens ?: $this->tokens_data)['typography']['fontFamilies'] as $family_slug => $family_data) {
+                // Handle both old string format and new object format
+                if (is_array($family_data)) {
+                    $theme_json['settings']['typography']['fontFamilies'][] = array(
+                        'name' => $family_data['name'] ?? ucfirst($family_slug),
+                        'slug' => $family_slug,
+                        'fontFamily' => $family_data['value'] ?? $family_data
+                    );
+                } else {
+                    // Fallback for old string format
+                    $theme_json['settings']['typography']['fontFamilies'][] = array(
+                        'name' => ucfirst($family_slug),
+                        'slug' => $family_slug,
+                        'fontFamily' => $family_data
+                    );
+                }
             }
         }
         
@@ -296,13 +306,21 @@ class DS_Studio_Design_Token_Manager {
         }
         
         // Convert spacing
-        if (isset(($tokens ?: $this->tokens_data)['spacing']['scale'])) {
-            foreach (($tokens ?: $this->tokens_data)['spacing']['scale'] as $spacing_name => $spacing_value) {
-                $theme_json['settings']['spacing']['spacingScale'][] = array(
-                    'name' => ucfirst($spacing_name),
-                    'slug' => $spacing_name,
-                    'size' => $spacing_value
-                );
+        if (isset(($tokens ?: $this->tokens_data)['spacing'])) {
+            $spacing_data = ($tokens ?: $this->tokens_data)['spacing'];
+            
+            // Handle both direct spacing values and nested scale structure
+            $spacing_values = isset($spacing_data['scale']) ? $spacing_data['scale'] : $spacing_data;
+            
+            foreach ($spacing_values as $spacing_name => $spacing_value) {
+                // Skip non-spacing values like category metadata
+                if (is_string($spacing_value) || is_numeric($spacing_value)) {
+                    $theme_json['settings']['spacing']['spacingScale'][] = array(
+                        'name' => ucfirst($spacing_name),
+                        'slug' => $spacing_name,
+                        'size' => $spacing_value
+                    );
+                }
             }
         }
         
@@ -449,12 +467,22 @@ class DS_Studio_Design_Token_Manager {
             // Convert typography to WordPress format
             $typography_settings = [];
             if (isset($typography['fontFamilies'])) {
-                foreach ($typography['fontFamilies'] as $family_name => $family_value) {
-                    $typography_settings[] = [
-                        'name' => ucfirst($family_name),
-                        'slug' => $family_name,
-                        'fontFamily' => $family_value
-                    ];
+                foreach ($typography['fontFamilies'] as $family_slug => $family_data) {
+                    // Handle both old string format and new object format
+                    if (is_array($family_data)) {
+                        $typography_settings[] = [
+                            'name' => $family_data['name'] ?? ucfirst($family_slug),
+                            'slug' => $family_slug,
+                            'fontFamily' => $family_data['value'] ?? $family_data
+                        ];
+                    } else {
+                        // Fallback for old string format
+                        $typography_settings[] = [
+                            'name' => ucfirst($family_slug),
+                            'slug' => $family_slug,
+                            'fontFamily' => $family_data
+                        ];
+                    }
                 }
             }
             
@@ -796,12 +824,22 @@ class DS_Studio_Design_Token_Manager {
             // Convert typography to WordPress format
             $typography_settings = [];
             if (isset($typography['fontFamilies'])) {
-                foreach ($typography['fontFamilies'] as $family_name => $family_value) {
-                    $typography_settings[] = [
-                        'name' => ucfirst($family_name),
-                        'slug' => $family_name,
-                        'fontFamily' => $family_value
-                    ];
+                foreach ($typography['fontFamilies'] as $family_slug => $family_data) {
+                    // Handle both old string format and new object format
+                    if (is_array($family_data)) {
+                        $typography_settings[] = [
+                            'name' => $family_data['name'] ?? ucfirst($family_slug),
+                            'slug' => $family_slug,
+                            'fontFamily' => $family_data['value'] ?? $family_data
+                        ];
+                    } else {
+                        // Fallback for old string format
+                        $typography_settings[] = [
+                            'name' => ucfirst($family_slug),
+                            'slug' => $family_slug,
+                            'fontFamily' => $family_data
+                        ];
+                    }
                 }
             }
             

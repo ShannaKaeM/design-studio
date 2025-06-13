@@ -18,6 +18,7 @@ if (!defined('ABSPATH')) {
 define('DS_STUDIO_VERSION', '1.0.0');
 define('DS_STUDIO_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('DS_STUDIO_PLUGIN_PATH', plugin_dir_path(__FILE__));
+define('DS_STUDIO_PLUGIN_DIR', plugin_dir_path(__FILE__));
 
 // Include required files
 require_once plugin_dir_path(__FILE__) . 'includes/class-design-token-manager.php';
@@ -28,6 +29,7 @@ require_once plugin_dir_path(__FILE__) . 'includes/class-generateblocks-integrat
 require_once plugin_dir_path(__FILE__) . 'includes/class-component-library.php';
 require_once plugin_dir_path(__FILE__) . 'includes/template-functions.php';
 require_once plugin_dir_path(__FILE__) . 'includes/class-block-patterns.php';
+require_once plugin_dir_path(__FILE__) . 'includes/class-studio-blocks.php';
 
 /**
  * Main DS Studio Class

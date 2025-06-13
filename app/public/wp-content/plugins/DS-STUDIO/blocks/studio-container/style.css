@@ -1,0 +1,128 @@
+/**
+ * Studio Container Block - Frontend Styles
+ */
+
+.studio-container {
+    /* Base container styles */
+    position: relative;
+    box-sizing: border-box;
+    
+    /* Apply Studio CSS variables */
+    background-color: var(--studio-bg-color, transparent);
+    background-image: var(--studio-bg-gradient, none);
+    
+    padding-top: var(--studio-padding-top, 0);
+    padding-right: var(--studio-padding-right, 0);
+    padding-bottom: var(--studio-padding-bottom, 0);
+    padding-left: var(--studio-padding-left, 0);
+    
+    margin-top: var(--studio-margin-top, 0);
+    margin-bottom: var(--studio-margin-bottom, 0);
+    
+    border-radius: var(--studio-border-radius, 0);
+    min-height: var(--studio-min-height, auto);
+}
+
+/* Display variants */
+.studio-container--block {
+    display: block;
+}
+
+.studio-container--flex {
+    display: flex;
+    gap: var(--studio-gap, 0);
+}
+
+.studio-container--grid {
+    display: grid;
+    gap: var(--studio-gap, 0);
+    grid-template-columns: var(--studio-grid-columns, 1fr);
+    grid-template-rows: var(--studio-grid-rows, auto);
+}
+
+/* Flex direction variants */
+.studio-container--flex-row {
+    flex-direction: row;
+}
+
+.studio-container--flex-column {
+    flex-direction: column;
+}
+
+/* Justify content variants */
+.studio-container--justify-flex-start {
+    justify-content: flex-start;
+}
+
+.studio-container--justify-center {
+    justify-content: center;
+}
+
+.studio-container--justify-flex-end {
+    justify-content: flex-end;
+}
+
+.studio-container--justify-space-between {
+    justify-content: space-between;
+}
+
+.studio-container--justify-space-around {
+    justify-content: space-around;
+}
+
+.studio-container--justify-space-evenly {
+    justify-content: space-evenly;
+}
+
+/* Align items variants */
+.studio-container--align-stretch {
+    align-items: stretch;
+}
+
+.studio-container--align-flex-start {
+    align-items: flex-start;
+}
+
+.studio-container--align-center {
+    align-items: center;
+}
+
+.studio-container--align-flex-end {
+    align-items: flex-end;
+}
+
+/* Responsive behavior */
+@media (max-width: 768px) {
+    .studio-container--flex-row {
+        flex-direction: column;
+    }
+    
+    .studio-container--grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* WordPress alignment support */
+.studio-container.alignwide {
+    max-width: var(--wp--style--global--wide-size, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.studio-container.alignfull {
+    max-width: none;
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-right: calc(50% - 50vw);
+}
+
+/* Ensure inner blocks inherit properly */
+.studio-container > .wp-block {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.studio-container--flex > .wp-block,
+.studio-container--grid > .wp-block {
+    flex-shrink: 0;
+}
