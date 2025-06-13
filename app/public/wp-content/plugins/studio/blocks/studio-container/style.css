@@ -1,0 +1,50 @@
+/**
+ * Studio Container Block - Frontend Styles
+ * Phase 2A: Minimal CSS since styles are now generated at build-time
+ */
+
+.studio-container {
+    /* Base container styles only - all Studio styling is now inline */
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Ensure proper block display */
+.studio-container[data-display="block"] {
+    display: block;
+}
+
+.studio-container[data-display="flex"] {
+    display: flex;
+}
+
+.studio-container[data-display="grid"] {
+    display: grid;
+}
+
+.studio-container[data-display="inline-block"] {
+    display: inline-block;
+}
+
+/* Editor-specific styles for better UX */
+.wp-block-studio-container {
+    /* Minimum height for empty containers in editor */
+    min-height: 50px;
+}
+
+.wp-block-studio-container:empty::before {
+    content: "Studio Container";
+    display: block;
+    padding: 20px;
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    border: 2px dashed #ddd;
+    border-radius: 4px;
+    background: #f9f9f9;
+}
+
+/* Responsive behavior - removed flex-direction override to allow inline styles to work */
+@media (max-width: 768px) {
+    /* Responsive styles can be added here if needed, but not overriding inline styles */
+}

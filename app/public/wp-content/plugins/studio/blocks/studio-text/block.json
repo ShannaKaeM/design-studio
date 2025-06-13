@@ -1,0 +1,76 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "studio/text",
+    "version": "1.0.0",
+    "title": "Studio Text",
+    "category": "studio-blocks",
+    "icon": "editor-textcolor",
+    "description": "Advanced text block with Studio design tokens and WordPress controls.",
+    "keywords": ["text", "typography", "studio", "design tokens"],
+    "textdomain": "studio",
+    "supports": {
+        "html": false,
+        "color": {
+            "background": true,
+            "text": true,
+            "gradients": true,
+            "link": true
+        },
+        "typography": {
+            "fontSize": true,
+            "fontStyle": true,
+            "fontWeight": true,
+            "letterSpacing": true,
+            "lineHeight": true,
+            "textDecoration": true,
+            "textTransform": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "content": {
+            "type": "string",
+            "source": "html",
+            "selector": "h1,h2,h3,h4,h5,h6,p,span,div,small",
+            "default": ""
+        },
+        "typographyPreset": {
+            "type": "string",
+            "default": "body-text"
+        },
+        "textColor": {
+            "type": "string"
+        },
+        "backgroundColor": {
+            "type": "string"
+        },
+        "fontSize": {
+            "type": "string"
+        },
+        "style": {
+            "type": "object",
+            "default": {
+                "spacing": {
+                    "margin": {},
+                    "padding": {}
+                }
+            }
+        },
+        "customFontSize": {
+            "type": "number"
+        },
+        "customLineHeight": {
+            "type": "number"
+        }
+    },
+    "example": {
+        "attributes": {
+            "content": "This is Studio Text with typography presets and design token integration.",
+            "typographyPreset": "hero-title"
+        }
+    }
+}

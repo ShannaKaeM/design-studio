@@ -1,0 +1,55 @@
+/**
+ * Studio Text Block - Frontend Styles
+ * Phase 2A: Minimal CSS since styles are now generated at build-time
+ */
+
+.studio-text-block {
+    /* Base text block styles only - all Studio styling is now inline */
+    position: relative;
+    box-sizing: border-box;
+}
+
+.studio-text-content {
+    /* Ensure proper text rendering */
+    margin: 0;
+    padding: 0;
+}
+
+/* Ensure semantic tags display properly */
+.studio-text-content h1,
+.studio-text-content h2,
+.studio-text-content h3,
+.studio-text-content h4,
+.studio-text-content h5,
+.studio-text-content h6 {
+    margin: 0;
+    padding: 0;
+}
+
+.studio-text-content p {
+    margin: 0;
+    padding: 0;
+}
+
+.studio-text-content small {
+    display: inline;
+}
+
+.studio-text-content span {
+    display: inline;
+}
+
+.studio-text-content div {
+    display: block;
+}
+
+/* Responsive typography scaling */
+@media (max-width: 768px) {
+    .studio-text-block[data-preset*="hero"] .studio-text-content {
+        font-size: 0.8em; /* Scale down hero text on mobile */
+    }
+    
+    .studio-text-block[data-preset*="section"] .studio-text-content {
+        font-size: 0.9em; /* Scale down section titles on mobile */
+    }
+}

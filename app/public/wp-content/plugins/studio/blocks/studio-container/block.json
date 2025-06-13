@@ -1,0 +1,59 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 2,
+    "name": "studio/container",
+    "version": "1.0.0",
+    "title": "Studio Container",
+    "category": "studio-blocks",
+    "icon": "layout",
+    "description": "Advanced layout container with WordPress controls powered by Studio tokens.",
+    "keywords": ["container", "layout", "studio", "wrapper"],
+    "textdomain": "studio",
+    "supports": {
+        "html": false,
+        "color": {
+            "background": true,
+            "gradients": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        }
+    },
+    "attributes": {
+        "display": {
+            "type": "string",
+            "default": "flex"
+        },
+        "flexDirection": {
+            "type": "string",
+            "default": "row"
+        },
+        "justifyContent": {
+            "type": "string",
+            "default": "flex-start"
+        },
+        "alignItems": {
+            "type": "string",
+            "default": "stretch"
+        },
+        "gap": {
+            "type": "string",
+            "default": "0px"
+        },
+        "padding": {
+            "type": "string",
+            "default": "0px"
+        },
+        "backgroundColor": {
+            "type": "string"
+        }
+    },
+    "providesContext": {
+        "studio/containerStyles": "attributes"
+    },
+    "usesContext": ["postId", "postType"],
+    "editorScript": "file:./index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css"
+}
