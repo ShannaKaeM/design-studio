@@ -31,8 +31,8 @@ class Studio_Blocks {
         // Register Studio Container block
         register_block_type(STUDIO_PLUGIN_DIR . 'blocks/studio-container/block.json');
         
-        // Register Studio Text block
-        register_block_type(STUDIO_PLUGIN_DIR . 'blocks/studio-text/block.json');
+        // Register Studio Text block - commented out to avoid duplicate with JS registration
+        // register_block_type(STUDIO_PLUGIN_DIR . 'blocks/studio-text/block.json');
         
         // TODO: Add Studio Button block in Phase 2
         // register_block_type(STUDIO_PLUGIN_DIR . 'blocks/studio-button/block.json');
@@ -42,11 +42,20 @@ class Studio_Blocks {
      * Enqueue editor assets
      */
     public function enqueue_editor_assets() {
+        // Studio Controls (must load first)
+        wp_enqueue_script(
+            'studio-controls',
+            STUDIO_PLUGIN_URL . 'assets/js/studio-controls.js',
+            array('wp-blocks', 'wp-block-editor', 'wp-components', 'wp-i18n', 'wp-element'),
+            STUDIO_VERSION,
+            true
+        );
+
         // Main Studio Blocks script
         wp_enqueue_script(
             'studio-blocks-editor',
             STUDIO_PLUGIN_URL . 'assets/js/studio-blocks.js',
-            array('wp-blocks', 'wp-block-editor', 'wp-components', 'wp-i18n', 'wp-element'),
+            array('wp-blocks', 'wp-block-editor', 'wp-components', 'wp-i18n', 'wp-element', 'studio-controls'),
             STUDIO_VERSION,
             true
         );
@@ -55,7 +64,7 @@ class Studio_Blocks {
         wp_enqueue_script(
             'studio-text-block',
             STUDIO_PLUGIN_URL . 'blocks/studio-text/index.js',
-            array('wp-blocks', 'wp-block-editor', 'wp-components', 'wp-i18n', 'wp-element'),
+            array('wp-blocks', 'wp-block-editor', 'wp-components', 'wp-i18n', 'wp-element', 'studio-controls'),
             STUDIO_VERSION,
             true
         );

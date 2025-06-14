@@ -6,6 +6,7 @@
 
 import { BaseControl, Button, ButtonGroup, SelectControl, TextControl } from '@wordpress/components';
 import { __ } from '@wordpress/i18n';
+import { useState, useEffect } from '@wordpress/element';
 
 /**
  * Studio Color Picker
@@ -299,6 +300,118 @@ export const StudioTypographyPicker = ({ label, value, tokens, onChange }) => {
                         );
                     })}
                 </ButtonGroup>
+            </div>
+        </BaseControl>
+    );
+};
+
+/**
+ * Studio Typography Presets
+ * Shows typography presets from blockStyles and allows applying them
+ */
+export const StudioTypographyPresets = ({ label, value, blockType = 'studio/text', onChange, setAttributes }) => {
+    const [presets, setPresets] = useState([]);
+    const [loading, setLoading] = useState(true);
+    
+    useEffect(() => {
+        loadPresets();
+    }, [blockType]);
+    
+    const loadPresets = async () => {
+        try {
+            setLoading(true);
+            
+            const response = await fetch(studioData.ajaxUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    action: 'studio_get_block_styles',
+                    nonce: studioData.nonce,
+                    block_type: blockType
+                })
+            });
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
+            const data = await response.json();
+            
+            if (data.success && Array.isArray(data.data)) {
+                setPresets(data.data);
+            } else {
+                console.error('Invalid response format:', data);
+                setPresets([]);
+            }
+        } catch (error) {
+            console.error('Failed to load typography presets:', error);
+        } finally {
+            setLoading(false);
+        }
+    };
+    
+    const applyPreset = (preset) => {
+        if (setAttributes) {
+            // Only set the typography preset - user controls tagName separately
+            setAttributes({
+                typographyPreset: preset.classes
+            });
+        } else if (onChange) {
+            // Fallback to onChange for compatibility
+            onChange(preset.classes);
+        }
+    };
+    
+    const removePreset = () => {
+        if (onChange) {
+            onChange('');
+        }
+    };
+    
+    if (loading) {
+        return (
+            <BaseControl label={label} className="studio-typography-presets">
+                <div className="studio-presets-loading">
+                    {__('Loading presets...', 'studio')}
+                </div>
+            </BaseControl>
+        );
+    }
+    
+    return (
+        <BaseControl label={label} className="studio-typography-presets">
+            <div className="studio-presets-grid">
+                {presets.map((preset) => {
+                    const isSelected = value === preset.classes;
+                    
+                    return (
+                        <div key={preset.name} className="studio-preset-item">
+                            <Button
+                                variant={isSelected ? 'primary' : 'secondary'}
+                                onClick={() => applyPreset(preset)}
+                                className="studio-preset-button"
+                            >
+                                {preset.label}
+                            </Button>
+                            {preset.description && (
+                                <div className="studio-preset-description">
+                                    {preset.description}
+                                </div>
+                            )}
+                        </div>
+                    );
+                })}
+                
+                {/* Clear button */}
+                <Button
+                    variant={!value ? 'primary' : 'secondary'}
+                    onClick={removePreset}
+                    className="studio-preset-clear"
+                >
+                    {__('Clear Style', 'studio')}
+                </Button>
             </div>
         </BaseControl>
     );

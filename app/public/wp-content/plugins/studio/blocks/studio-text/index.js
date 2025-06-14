@@ -12,6 +12,9 @@
     const { __ } = wp.i18n;
     const { createElement: el, Fragment, useState, useEffect } = wp.element;
 
+    // Import Studio controls
+    const StudioTypographyPresets = (window.studioControls && window.studioControls.StudioTypographyPresets) || null;
+
     // Get Studio tokens from localized data
     const getStudioTokens = () => {
         return window.studioTokens || {
@@ -21,84 +24,87 @@
         };
     };
 
-    // Enhanced Typography presets with complete definitions
-    const TYPOGRAPHY_PRESETS = {
-        'hero-title': {
-            label: 'Hero Title',
-            tag: 'h1',
-            fontSize: 'xxxl',
-            fontWeight: 'bold',
-            lineHeight: 'tight',
-            description: 'Large, bold headlines for hero sections'
-        },
-        'section-title': {
-            label: 'Section Title',
-            tag: 'h2',
-            fontSize: 'xxl',
-            fontWeight: 'semibold',
-            lineHeight: 'normal',
-            description: 'Section headings and major content divisions'
-        },
-        'card-title': {
-            label: 'Card Title',
-            tag: 'h3',
-            fontSize: 'lg',
-            fontWeight: 'semibold',
-            lineHeight: 'normal',
-            description: 'Card headings and component titles'
-        },
-        'body-text': {
-            label: 'Body Text',
-            tag: 'p',
-            fontSize: 'md',
-            fontWeight: 'regular',
-            lineHeight: 'relaxed',
-            description: 'Standard paragraph text and content'
-        },
-        'caption': {
-            label: 'Caption',
-            tag: 'p',
-            fontSize: 'sm',
-            fontWeight: 'regular',
-            lineHeight: 'normal',
-            description: 'Image captions and supplementary text'
-        },
-        'small-text': {
-            label: 'Small Text',
-            tag: 'small',
-            fontSize: 'xs',
-            fontWeight: 'regular',
-            lineHeight: 'normal',
-            description: 'Fine print and legal text'
+    // Dynamic typography presets loaded from Studio Block Styles
+    let TYPOGRAPHY_PRESETS = {};
+    let PRESET_OPTIONS = [
+        { label: 'Loading presets...', value: '' }
+    ];
+
+    // Load typography presets from Studio Block Styles
+    const loadTypographyPresets = () => {
+        if (!window.studioData) {
+            console.warn('Studio data not available');
+            return;
         }
+
+        fetch(window.studioData.ajaxUrl, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: new URLSearchParams({
+                action: 'studio_get_block_styles',
+                nonce: window.studioData.nonce
+            })
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success && data.data.styles) {
+                // Convert to preset format
+                TYPOGRAPHY_PRESETS = {};
+                PRESET_OPTIONS = [
+                    { label: 'Select a preset...', value: '' }
+                ];
+
+                // Filter typography presets for studio/text block
+                const textPresets = data.data.styles.filter(style => 
+                    style.blockType === 'studio/text'
+                );
+
+                textPresets.forEach(preset => {
+                    if (preset.name && preset.label) {
+                        TYPOGRAPHY_PRESETS[preset.name] = {
+                            label: preset.label,
+                            description: preset.description || `Typography preset: ${preset.label}`,
+                            css: preset.customCSS || preset.css
+                        };
+
+                        PRESET_OPTIONS.push({
+                            label: preset.label,
+                            value: preset.name
+                        });
+                    }
+                });
+
+                console.log('Loaded typography presets:', Object.keys(TYPOGRAPHY_PRESETS));
+            }
+        })
+        .catch(error => {
+            console.error('Error loading typography presets:', error);
+        });
     };
+
+    // Load presets when script loads
+    loadTypographyPresets();
 
     // Build-time CSS generation using WordPress + Studio attributes
     const generateBuildTimeCSS = (attributes) => {
         const studioTokens = getStudioTokens();
         const cssRules = [];
 
-        // Typography preset styles (Studio tokens applied via build-time CSS)
+        // Typography preset styles (from Studio Block Styles)
         if (attributes.typographyPreset && TYPOGRAPHY_PRESETS[attributes.typographyPreset]) {
             const preset = TYPOGRAPHY_PRESETS[attributes.typographyPreset];
-
-            if (preset.fontSize) {
-                const fontSize = studioTokens.typography && studioTokens.typography.fontSizes && studioTokens.typography.fontSizes[preset.fontSize] 
-                    ? (studioTokens.typography.fontSizes[preset.fontSize].value || studioTokens.typography.fontSizes[preset.fontSize])
-                    : preset.fontSize;
-                cssRules.push(`font-size: ${fontSize}`);
-            }
-
-            if (preset.fontWeight) {
-                cssRules.push(`font-weight: ${preset.fontWeight}`);
-            }
-
-            if (preset.lineHeight) {
-                cssRules.push(`line-height: ${preset.lineHeight}`);
-            }
-
-            if (preset.letterSpacing) {
-                cssRules.push(`letter-spacing: ${preset.letterSpacing}`);
+            
+            // Apply the preset's CSS directly
+            if (preset.css) {
+                // Parse CSS rules from preset
+                const cssDeclarations = preset.css.split(';').filter(rule => rule.trim());
+                cssDeclarations.forEach(declaration => {
+                    if (declaration.trim()) {
+                        cssRules.push(declaration.trim());
+                    }
+                });
             }
         }
 
@@ -156,7 +162,8 @@
         const { attributes, setAttributes, isSelected } = props;
         const { 
             content, 
-            typographyPreset = 'body-text',
+            typographyPreset = '',
+            tagName = 'p',
             textColor,
             backgroundColor,
             fontSize,
@@ -164,69 +171,95 @@
             customLineHeight
         } = attributes;
 
-        const studioTokens = getStudioTokens();
-        const buildTimeCSS = generateBuildTimeCSS(attributes);
-        const styles = {};
+        // State for managing preset loading
+        const [presetsLoaded, setPresetsLoaded] = useState(false);
+        const [currentPresetOptions, setCurrentPresetOptions] = useState(PRESET_OPTIONS);
 
-        // Parse CSS string into style object for editor preview
-        buildTimeCSS.split('; ').forEach(rule => {
-            if (rule.trim()) {
-                const [property, value] = rule.split(': ');
-                if (property && value) {
-                    styles[property.trim()] = value.trim();
-                }
-            }
-        });
-
-        return el(Fragment, {},
-            // Inspector Controls
-            el(InspectorControls, {},
-                // Typography Panel
-                el(PanelBody, {
-                    title: __('Typography', 'studio'),
-                    initialOpen: true
-                },
-                    el(SelectControl, {
-                        label: __('Typography Preset', 'studio'),
-                        value: typographyPreset,
-                        options: Object.keys(TYPOGRAPHY_PRESETS).map(key => ({
-                            label: TYPOGRAPHY_PRESETS[key].label,
-                            value: key
-                        })),
-                        onChange: (newPreset) => setAttributes({ typographyPreset: newPreset }),
-                        help: __('Choose the typography preset for this text', 'studio')
+        // Load presets on component mount
+        useEffect(() => {
+            if (!presetsLoaded && window.studioData) {
+                console.log('Loading typography presets...', window.studioData);
+                
+                fetch(window.studioData.ajaxUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/x-www-form-urlencoded',
+                    },
+                    body: new URLSearchParams({
+                        action: 'studio_get_block_styles',
+                        nonce: window.studioData.nonce
                     })
-                )
-            ),
-
-            // Block Content
-            el('div', {
-                className: 'studio-text-block',
-                style: styles,
-                'data-preset': typographyPreset
-            },
-                el(RichText, {
-                    tagName: TYPOGRAPHY_PRESETS[typographyPreset].tag,
-                    className: 'studio-text-content',
-                    placeholder: __('Start writing...', 'studio'),
-                    value: content,
-                    onChange: (newContent) => setAttributes({ content: newContent }),
-                    allowedFormats: ['core/bold', 'core/italic', 'core/link']
                 })
-            )
-        );
-    };
+                .then(response => {
+                    console.log('AJAX Response:', response);
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('AJAX Data:', data);
+                    if (data.success && data.data.styles) {
+                        console.log('All block styles:', data.data.styles);
+                        
+                        // Filter typography presets for studio/text block
+                        const textPresets = data.data.styles.filter(style => 
+                            style.blockType === 'studio/text'
+                        );
+                        
+                        console.log('Filtered text presets:', textPresets);
 
-    // Save component with build-time CSS
-    const StudioTextSave = (props) => {
-        const { attributes } = props;
-        const { content, typographyPreset } = attributes;
+                        // Convert to preset format
+                        TYPOGRAPHY_PRESETS = {};
+                        const newPresetOptions = [
+                            { label: 'Select a preset...', value: '' }
+                        ];
 
-        // Generate build-time CSS for frontend
+                        textPresets.forEach(preset => {
+                            TYPOGRAPHY_PRESETS[preset.name] = {
+                                label: preset.label,
+                                description: preset.description || `Typography preset: ${preset.label}`,
+                                css: preset.customCSS || preset.css
+                            };
+
+                            newPresetOptions.push({
+                                label: preset.label,
+                                value: preset.name
+                            });
+                        });
+
+                        PRESET_OPTIONS = newPresetOptions;
+                        setCurrentPresetOptions(newPresetOptions);
+                        setPresetsLoaded(true);
+
+                        console.log('Final TYPOGRAPHY_PRESETS:', TYPOGRAPHY_PRESETS);
+                        console.log('Final PRESET_OPTIONS:', newPresetOptions);
+                    } else {
+                        console.error('AJAX call failed or no styles returned:', data);
+                        setPresetsLoaded(true);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error loading typography presets:', error);
+                    setPresetsLoaded(true); // Set to true to prevent infinite loading
+                });
+            } else if (!window.studioData) {
+                console.error('studioData not available');
+                setPresetsLoaded(true);
+            }
+        }, [presetsLoaded]);
+
+        const studioTokens = getStudioTokens();
         const buildTimeCSS = generateBuildTimeCSS(attributes);
 
         // Parse CSS string into style object for inline styles
-        const styles = {};
+        const styles = {
+            // Reset default tag styles to prevent conflicts
+            margin: 0,
+            padding: 0,
+            fontSize: 'inherit',
+            fontWeight: 'inherit',
+            lineHeight: 'inherit',
+            color: 'inherit'
+        };
+        
         buildTimeCSS.split('; ').forEach(rule => {
             if (rule.trim()) {
                 const [property, value] = rule.split(': ');
@@ -237,21 +270,148 @@
             }
         });
 
-        return el('div', {
-            className: 'studio-text-block',
-            style: styles,
-            'data-preset': typographyPreset
-        },
-            el(RichText.Content, {
-                tagName: TYPOGRAPHY_PRESETS[typographyPreset].tag,
-                className: 'studio-text-content',
-                value: content
+        return el(Fragment, {},
+            el(InspectorControls, {},
+                el(PanelBody, {
+                    title: __('Typography', 'studio'),
+                    initialOpen: true
+                },
+                    // Typography Presets Component
+                    StudioTypographyPresets && el(StudioTypographyPresets, {
+                        selectedPreset: typographyPreset,
+                        setAttributes: setAttributes,
+                        onChange: (newPreset) => setAttributes({ typographyPreset: newPreset })
+                    }),
+                    
+                    Divider && el(Divider),
+                    
+                    // HTML Tag Selector (for semantic markup)
+                    el(SelectControl, {
+                        label: __('HTML Tag', 'studio'),
+                        value: tagName,
+                        options: [
+                            { label: 'Paragraph (p)', value: 'p' },
+                            { label: 'Heading 1 (h1)', value: 'h1' },
+                            { label: 'Heading 2 (h2)', value: 'h2' },
+                            { label: 'Heading 3 (h3)', value: 'h3' },
+                            { label: 'Heading 4 (h4)', value: 'h4' },
+                            { label: 'Heading 5 (h5)', value: 'h5' },
+                            { label: 'Heading 6 (h6)', value: 'h6' },
+                            { label: 'Span', value: 'span' },
+                            { label: 'Div', value: 'div' },
+                            { label: 'Small', value: 'small' }
+                        ],
+                        onChange: (newTag) => setAttributes({ tagName: newTag }),
+                        help: __('Choose HTML tag for semantic markup (separate from visual styling)', 'studio')
+                    }),
+                    
+                    Divider && el(Divider)
+                    
+                )
+            ),
+            
+            // Apply styles directly to RichText element
+            el(RichText, {
+                tagName: tagName,
+                className: `studio-text-content ${typographyPreset ? `is-style-${typographyPreset}` : ''}`.trim(),
+                placeholder: __('Start writing...', 'studio'),
+                value: content,
+                onChange: (newContent) => setAttributes({ content: newContent }),
+                allowedFormats: ['core/bold', 'core/italic', 'core/link'],
+                style: styles
             })
         );
     };
 
+    // Save component with build-time CSS
+    const StudioTextSave = (props) => {
+        const { attributes } = props;
+        const { content, typographyPreset, tagName } = attributes;
+
+        // Generate build-time CSS for frontend
+        const buildTimeCSS = generateBuildTimeCSS(attributes);
+
+        // Parse CSS string into style object for inline styles
+        const styles = {
+            // Reset default tag styles to prevent conflicts
+            margin: 0,
+            padding: 0,
+            fontSize: 'inherit',
+            fontWeight: 'inherit',
+            lineHeight: 'inherit',
+            color: 'inherit'
+        };
+        
+        buildTimeCSS.split('; ').forEach(rule => {
+            if (rule.trim()) {
+                const [property, value] = rule.split(': ');
+                if (property && value) {
+                    const camelProperty = property.replace(/-([a-z])/g, (g) => g[1].toUpperCase());
+                    styles[camelProperty] = value;
+                }
+            }
+        });
+
+        // Apply styles directly to the content element, not a wrapper
+        return el(RichText.Content, {
+            tagName: tagName,
+            className: `studio-text-content ${typographyPreset ? `is-style-${typographyPreset}` : ''}`.trim(),
+            value: content,
+            style: styles
+        });
+    };
+
     // Register the enhanced block
     registerBlockType('studio/text', {
+        title: __('Studio Text', 'studio'),
+        description: __('Enhanced text block with typography presets', 'studio'),
+        category: 'studio-blocks',
+        icon: 'editor-textcolor',
+        supports: {
+            html: false,
+            className: true,
+            customClassName: true
+        },
+        attributes: {
+            content: {
+                type: 'string',
+                source: 'html',
+                selector: 'h1,h2,h3,h4,h5,h6,p,span,div,small',
+                default: ''
+            },
+            typographyPreset: {
+                type: 'string',
+                default: 'body-text'
+            },
+            tagName: {
+                type: 'string',
+                default: 'p'
+            },
+            textColor: {
+                type: 'string'
+            },
+            backgroundColor: {
+                type: 'string'
+            },
+            fontSize: {
+                type: 'string'
+            },
+            style: {
+                type: 'object',
+                default: {
+                    spacing: {
+                        margin: {},
+                        padding: {}
+                    }
+                }
+            },
+            customFontSize: {
+                type: 'number'
+            },
+            customLineHeight: {
+                type: 'number'
+            }
+        },
         edit: StudioTextEdit,
         save: StudioTextSave
     });

@@ -110,11 +110,37 @@ class Studio_Block_Style_Generator {
     public function get_block_styles() {
         check_ajax_referer('studio_nonce', 'nonce');
         
-        $styles = $this->get_saved_styles();
+        $block_type = sanitize_text_field($_POST['block_type'] ?? '');
+        $all_styles = $this->get_saved_styles();
         
-        wp_send_json_success([
-            'styles' => $styles
-        ]);
+        // Debug: Log what we're getting
+        error_log('Studio Debug - All styles: ' . print_r($all_styles, true));
+        error_log('Studio Debug - Block type requested: ' . $block_type);
+        
+        // If no block type specified, return all styles (for Studio UI)
+        if (empty($block_type)) {
+            // Convert to array format for Studio UI
+            $styles_array = [];
+            foreach ($all_styles as $key => $style) {
+                $style['id'] = $key; // Add the key as ID
+                $styles_array[] = $style;
+            }
+            error_log('Studio Debug - Returning styles array: ' . print_r($styles_array, true));
+            wp_send_json_success($styles_array);
+            return;
+        }
+        
+        // Filter styles by block type (for block inspector)
+        $filtered_styles = [];
+        foreach ($all_styles as $key => $style) {
+            if (isset($style['blockType']) && $style['blockType'] === $block_type) {
+                $style['id'] = $key; // Add the key as ID
+                $filtered_styles[] = $style;
+            }
+        }
+        
+        error_log('Studio Debug - Returning filtered styles: ' . print_r($filtered_styles, true));
+        wp_send_json_success($filtered_styles);
     }
     
     /**
@@ -127,31 +153,35 @@ class Studio_Block_Style_Generator {
             wp_die(__('Insufficient permissions', 'studio'));
         }
         
-        $style_name = sanitize_text_field($_POST['style_name']);
-        $utility_classes = sanitize_text_field($_POST['utility_classes']);
-        $custom_css = wp_kses_post($_POST['custom_css']);
+        $id = sanitize_text_field($_POST['id']);
+        $name = sanitize_text_field($_POST['name']);
+        $label = sanitize_text_field($_POST['label']);
+        $block_type = sanitize_text_field($_POST['blockType']);
+        $css = wp_kses_post($_POST['css']);
         $description = sanitize_text_field($_POST['description']);
-        $style_type = sanitize_text_field($_POST['style_type']) ?: 'utility';
         
-        if (empty($style_name)) {
-            wp_send_json_error(__('Style name is required', 'studio'));
+        if (empty($id) || empty($name) || empty($label)) {
+            wp_send_json_error(__('Required fields are missing', 'studio'));
         }
         
         $styles = $this->get_saved_styles();
-        if (isset($styles[$style_name])) {
-            $styles[$style_name] = [
-                'classes' => $utility_classes,
-                'customCSS' => $custom_css,
+        if (isset($styles[$id])) {
+            $styles[$id] = [
+                'name' => $name,
+                'label' => $label,
+                'blockType' => $block_type,
+                'classes' => "is-style-{$name}",
+                'customCSS' => $css,
                 'description' => $description,
-                'type' => $style_type,
-                'created' => $styles[$style_name]['created']
+                'type' => 'css',
+                'created' => $styles[$id]['created'] ?? date('Y-m-d H:i:s')
             ];
             
             $this->save_styles_to_theme_json($styles);
             
             wp_send_json_success([
                 'message' => __('Block style updated successfully', 'studio'),
-                'style' => $styles[$style_name]
+                'style' => $styles[$id]
             ]);
         } else {
             wp_send_json_error(__('Block style not found', 'studio'));
@@ -226,7 +256,24 @@ class Studio_Block_Style_Generator {
         foreach ($styles as $style_name => $style_data) {
             // Add custom CSS if available
             if (isset($style_data['customCSS']) && !empty($style_data['customCSS'])) {
-                $css .= ".{$style_name} {\n";
+                // Get the block type without namespace for core blocks
+                $block_type = str_replace('/', '-', $style_data['blockType']);
+                $block_type = str_replace('core-', '', $block_type);
+                
+                // For studio blocks, use the full block type
+                if (strpos($style_data['blockType'], 'studio/') === 0) {
+                    $block_type = str_replace('/', '-', $style_data['blockType']);
+                }
+                
+                // Build the proper CSS selector for block styles
+                $selector = ".wp-block-{$block_type}.{$style_data['classes']}";
+                
+                // For Studio Text block, also apply to the content element
+                if ($style_data['blockType'] === 'studio/text') {
+                    $selector .= " .studio-text-content";
+                }
+                
+                $css .= "{$selector} {\n";
                 $css .= $style_data['customCSS'];
                 $css .= "}\n\n";
             }

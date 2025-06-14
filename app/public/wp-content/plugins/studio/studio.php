@@ -87,7 +87,7 @@ class Studio {
         );
         
         // Localize script with AJAX data
-        wp_localize_script('the-studio', 'studio', array(
+        wp_localize_script('the-studio', 'studioData', array(
             'nonce' => wp_create_nonce('studio_nonce'),
             'ajaxUrl' => admin_url('admin-ajax.php'),
             'pluginUrl' => STUDIO_PLUGIN_URL,

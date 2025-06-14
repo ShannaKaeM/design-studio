@@ -69,12 +69,12 @@
         const loadTokens = async () => {
             setLoading(true);
             try {
-                const response = await fetch(window.dsStudio?.ajaxUrl || '/wp-admin/admin-ajax.php', {
+                const response = await fetch(window.studioData?.ajaxUrl || ajaxurl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: new URLSearchParams({
-                        action: 'ds_get_design_tokens',
-                        nonce: window.dsStudio?.nonce
+                        action: 'studio_get_design_tokens',
+                        nonce: window.studioData?.nonce || studioData.nonce
                     })
                 });
                 
@@ -99,12 +99,12 @@
         };
 
         const saveTokens = (tokens) => {
-            fetch(window.dsStudio?.ajaxUrl || '/wp-admin/admin-ajax.php', {
+            fetch(window.studioData?.ajaxUrl || ajaxurl, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                 body: new URLSearchParams({
-                    action: 'ds_save_design_tokens',
-                    nonce: window.dsStudio?.nonce || '',
+                    action: 'studio_save_design_tokens',
+                    nonce: window.studioData?.nonce || studioData.nonce,
                     tokens: JSON.stringify(tokens)
                 })
             }).then(response => response.json())
@@ -1066,6 +1066,67 @@
             css: ''
         });
         const [showAddForm, setShowAddForm] = useState(false);
+        const [editingStyle, setEditingStyle] = useState(null);
+        const [editStyle, setEditStyle] = useState({
+            name: '',
+            label: '',
+            blockType: 'core/paragraph',
+            css: ''
+        });
+
+        // Load existing block styles on mount
+        useEffect(() => {
+            loadBlockStyles();
+        }, []);
+
+        const loadBlockStyles = () => {
+            setLoading(true);
+            
+            console.log('Studio Debug: Loading block styles...');
+            console.log('Studio Debug: ajaxurl =', ajaxurl);
+            console.log('Studio Debug: studioData =', studioData);
+            
+            fetch(ajaxurl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    action: 'studio_get_block_styles',
+                    nonce: studioData.nonce
+                })
+            })
+            .then(response => {
+                console.log('Studio Debug: Response status =', response.status);
+                return response.json();
+            })
+            .then(data => {
+                console.log('Studio Debug: Response data =', data);
+                if (data.success) {
+                    // Convert theme.json block styles to UI format
+                    const styles = data.data.map(style => ({
+                        id: style.id || style.name,
+                        name: style.name,
+                        label: style.label,
+                        blockType: style.blockType,
+                        css: style.customCSS,
+                        classes: style.classes,
+                        description: style.description,
+                        created: style.created
+                    }));
+                    console.log('Studio Debug: Processed styles =', styles);
+                    setBlockStyles(styles);
+                } else {
+                    console.error('Studio Debug: AJAX error =', data);
+                }
+            })
+            .catch(error => {
+                console.error('Studio Debug: Fetch error =', error);
+            })
+            .finally(() => {
+                setLoading(false);
+            });
+        };
 
         // Common WordPress blocks
         const blockTypes = [
@@ -1076,7 +1137,9 @@
             { value: 'core/columns', label: 'Columns' },
             { value: 'core/image', label: 'Image' },
             { value: 'core/cover', label: 'Cover' },
-            { value: 'core/quote', label: 'Quote' }
+            { value: 'core/quote', label: 'Quote' },
+            { value: 'studio/text', label: 'Studio Text' },
+            { value: 'studio/container', label: 'Studio Container' }
         ];
 
         const addBlockStyle = () => {
@@ -1087,7 +1150,7 @@
                 name: newStyle.name,
                 label: newStyle.label,
                 blockType: newStyle.blockType,
-                css: newStyle.css || `/* Custom styles for ${newStyle.label} */\n.wp-block-${newStyle.blockType.replace('core/', '')}.is-style-${newStyle.name} {\n  /* Add your styles here */\n}`
+                css: newStyle.css || `/* Custom styles for ${newStyle.label} */\n.wp-block-${newStyle.blockType.replace('core/', '').replace('studio/', 'studio-')}.is-style-${newStyle.name} {\n  /* Add your styles here */\n}`
             };
             
             setBlockStyles(prev => [...prev, style]);
@@ -1100,6 +1163,120 @@
                 setBlockStyles(prev => prev.filter(style => style.id !== id));
             }
         };
+
+        const addStyleToSelectedBlock = (style) => {
+            const selectedBlockClientId = wp.data.select('core/block-editor').getSelectedBlockClientId();
+            if (!selectedBlockClientId) return;
+            
+            const selectedBlock = wp.data.select('core/block-editor').getBlock(selectedBlockClientId);
+            if (!selectedBlock) return;
+            
+            const updatedBlock = {
+                ...selectedBlock,
+                attributes: {
+                    ...selectedBlock.attributes,
+                    className: (selectedBlock.attributes.className || '').split(' ').concat(`is-style-${style.name}`).join(' ')
+                }
+            };
+            
+            wp.data.dispatch('core/block-editor').updateBlock(updatedBlock.clientId, updatedBlock);
+        };
+
+        const removeStyleFromSelectedBlock = (style) => {
+            const selectedBlockClientId = wp.data.select('core/block-editor').getSelectedBlockClientId();
+            if (!selectedBlockClientId) return;
+            
+            const selectedBlock = wp.data.select('core/block-editor').getBlock(selectedBlockClientId);
+            if (!selectedBlock) return;
+            
+            const updatedBlock = {
+                ...selectedBlock,
+                attributes: {
+                    ...selectedBlock.attributes,
+                    className: (selectedBlock.attributes.className || '').split(' ').filter(c => !c.startsWith(`is-style-${style.name}`)).join(' ')
+                }
+            };
+            
+            wp.data.dispatch('core/block-editor').updateBlock(updatedBlock.clientId, updatedBlock);
+        };
+
+        const editBlockStyle = (style) => {
+            setEditingStyle(style.id);
+            setEditStyle({
+                id: style.id,
+                name: style.name,
+                label: style.label,
+                blockType: style.blockType,
+                css: style.css || '',
+                description: style.description || ''
+            });
+        };
+
+        const updateBlockStyle = () => {
+            if (!editStyle.name || !editStyle.label) {
+                alert('Please fill in all required fields');
+                return;
+            }
+
+            fetch(ajaxurl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: new URLSearchParams({
+                    action: 'studio_update_block_style',
+                    nonce: studioData.nonce,
+                    id: editStyle.id,
+                    name: editStyle.name,
+                    label: editStyle.label,
+                    blockType: editStyle.blockType,
+                    css: editStyle.css,
+                    description: editStyle.description
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    loadBlockStyles();
+                    setEditingStyle(null);
+                    setEditStyle({
+                        name: '',
+                        label: '',
+                        blockType: 'core/paragraph',
+                        css: '',
+                        description: ''
+                    });
+                } else {
+                    alert('Error updating style: ' + (data.data || 'Unknown error'));
+                }
+            })
+            .catch(error => {
+                console.error('Error updating block style:', error);
+                alert('Error updating style');
+            });
+        };
+
+        const cancelEdit = () => {
+            setEditingStyle(null);
+            setEditStyle({
+                name: '',
+                label: '',
+                blockType: 'core/paragraph',
+                css: '',
+                description: ''
+            });
+        };
+
+        if (loading) {
+            return el('div', { className: 'studio-panel studio-block-styles-panel' },
+                el('div', { className: 'studio-panel-header' },
+                    el('h2', {}, 'Block Styles')
+                ),
+                el('div', { className: 'studio-loading' },
+                    el('p', {}, 'Loading block styles...')
+                )
+            );
+        }
 
         return el('div', { className: 'studio-panel studio-block-styles-panel' },
             // Header with Add Button
@@ -1161,6 +1338,60 @@
                 }, 'Add Style')
             ),
 
+            // Edit Form
+            editingStyle && el('div', { className: 'studio-edit-style-form' },
+                el('div', { className: 'studio-form-row' },
+                    el('div', { className: 'studio-form-field' },
+                        el('label', {}, 'Style Name'),
+                        el('input', {
+                            type: 'text',
+                            value: editStyle.name,
+                            onChange: (e) => setEditStyle(prev => ({ ...prev, name: e.target.value })),
+                            placeholder: 'e.g., primary, large, rounded'
+                        })
+                    ),
+                    el('div', { className: 'studio-form-field' },
+                        el('label', {}, 'Display Label'),
+                        el('input', {
+                            type: 'text',
+                            value: editStyle.label,
+                            onChange: (e) => setEditStyle(prev => ({ ...prev, label: e.target.value })),
+                            placeholder: 'e.g., Primary Button, Large Text'
+                        })
+                    )
+                ),
+                el('div', { className: 'studio-form-row' },
+                    el('div', { className: 'studio-form-field' },
+                        el('label', {}, 'Block Type'),
+                        el('select', {
+                            value: editStyle.blockType,
+                            onChange: (e) => setEditStyle(prev => ({ ...prev, blockType: e.target.value }))
+                        },
+                            blockTypes.map(block => 
+                                el('option', { key: block.value, value: block.value }, block.label)
+                            )
+                        )
+                    )
+                ),
+                el('div', { className: 'studio-form-field' },
+                    el('label', {}, 'CSS (Optional)'),
+                    el('textarea', {
+                        value: editStyle.css,
+                        onChange: (e) => setEditStyle(prev => ({ ...prev, css: e.target.value })),
+                        placeholder: 'Custom CSS for this style...',
+                        rows: 6
+                    })
+                ),
+                el('button', {
+                    className: 'studio-edit-style-submit',
+                    onClick: updateBlockStyle
+                }, 'Update Style'),
+                el('button', {
+                    className: 'studio-cancel-edit',
+                    onClick: cancelEdit
+                }, 'Cancel')
+            ),
+
             // Block Styles List
             el('div', { className: 'studio-block-styles-list' },
                 blockStyles.length === 0 ? 
@@ -1174,19 +1405,36 @@
                             key: style.id
                         },
                             el('div', { className: 'studio-style-header' },
-                                el('div', { className: 'studio-style-info' },
-                                    el('h4', {}, style.label),
-                                    el('span', { className: 'studio-style-meta' }, 
-                                        `${blockTypes.find(b => b.value === style.blockType)?.label} • .is-style-${style.name}`
-                                    )
-                                ),
-                                el('button', {
-                                    className: 'studio-delete-style-btn',
-                                    onClick: () => deleteBlockStyle(style.id)
-                                }, '×')
+                                el('h3', {}, style.label),
+                                el('div', { className: 'studio-style-meta' },
+                                    el('span', { className: 'studio-style-block-type' }, style.blockType),
+                                    el('span', { className: 'studio-style-name' }, `.is-style-${style.name}`)
+                                )
                             ),
+                            style.description && el('p', { className: 'studio-style-description' }, style.description),
                             style.css && el('div', { className: 'studio-style-css' },
-                                el('pre', {}, style.css)
+                                el('details', {},
+                                    el('summary', {}, 'View CSS'),
+                                    el('pre', { className: 'studio-css-code' }, style.css)
+                                )
+                            ),
+                            el('div', { className: 'studio-style-actions' },
+                                el('button', {
+                                    className: 'studio-add-to-block',
+                                    onClick: () => addStyleToSelectedBlock(style)
+                                }, '+ Add to Block'),
+                                el('button', {
+                                    className: 'studio-remove-from-block',
+                                    onClick: () => removeStyleFromSelectedBlock(style)
+                                }, '- Remove from Block'),
+                                el('button', {
+                                    className: 'studio-edit-style',
+                                    onClick: () => editBlockStyle(style)
+                                }, 'Edit'),
+                                el('button', {
+                                    className: 'studio-delete-style',
+                                    onClick: () => deleteBlockStyle(style.id)
+                                }, 'Delete')
                             )
                         )
                     )
@@ -1224,12 +1472,12 @@
             
             setIsConverting(true);
             try {
-                const response = await fetch(window.dsStudio?.ajaxUrl || '/wp-admin/admin-ajax.php', {
+                const response = await fetch(window.studioData?.ajaxUrl || ajaxurl, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
                     body: new URLSearchParams({
-                        action: 'ds_studio_convert_html',
-                        nonce: window.dsStudio?.nonce || '',
+                        action: 'studio_convert_html',
+                        nonce: window.studioData?.nonce || studioData.nonce,
                         html: htmlInput
                     })
                 });
