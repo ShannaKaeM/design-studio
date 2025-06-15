@@ -1,0 +1,25 @@
+// This file is used to enable autocomplete and imports intellisense in VSCode.
+// It is not used for compilation.
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "paths": {
+      "@DashboardApp/*": ["dashboard/*"],
+      "@Components/*": ["dashboard/Components/*"],
+      "@Pages/*": ["dashboard/Pages/*"],
+      "@Tabs/*": ["dashboard/Tabs/*"],
+      "@MetaIntegrations/*": ["dashboard/Integrations/*"],
+      "@Zustand/*": ["dashboard/Store/*"],
+      "@Hooks/*": [
+        "dashboard/Hooks/*"
+      ],
+      "@Store/*": ["store/*"],
+      "@Utils/*": ["utils/*"],
+      "@BlockUtils/*": ["editor/utils/*"],
+      "@EditorBlocks/*": ["editor/blocks/*"],
+      "@EditorControls/*": ["editor/controls/*"],
+      "@BlockComponents/*": ["editor/components/*"],
+      "@Attributes/*": ["editor/blocks-attributes/*"]
+    }
+  }
+}

@@ -1,0 +1,3983 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: gpt-po v1.1.1\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-01-28T10:43:12+00:00\n"
+"PO-Revision-Date: 2025-01-28T10:43:12+00:00\n"
+"Language: \n"
+
+#. Plugin Name of the plugin
+#. Author of the plugin
+#: suredash.php
+#: admin/notices.php:53
+msgid "SureDash"
+msgstr "SureDash"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: suredash.php
+msgid "https://suredash.com/"
+msgstr "https://suredash.com/"
+
+#. Description of the plugin
+#: suredash.php
+msgid "If you have users login to your website, you need this plugin to deliver an excellent experience to your users."
+msgstr "Om du har användare som loggar in på din webbplats, behöver du denna plugin för att ge dina användare en utmärkt upplevelse."
+
+#: admin/api.php:119
+msgid "Sorry, you cannot list resources."
+msgstr "Tyvärr, du kan inte lista resurser."
+
+#: admin/editor.php:161
+msgid "Lesson Duration"
+msgstr "Lektionslängd"
+
+#: admin/editor.php:201
+#: core/integrations/topic-categories.php:234
+#: core/integrations/topic-categories.php:263
+#: core/shortcodes/home-content.php:384
+msgid "Cover Image"
+msgstr "Omslagsbild"
+
+#: admin/editor.php:202
+msgid "Media Embeds"
+msgstr "Media inbäddningar"
+
+#: admin/menu.php:179
+#: admin/menu.php:180
+#: core/cpt/content.php:43
+#: inc/utils/labels.php:104
+#: assets/build/portals-app.js:2
+msgid "Content"
+msgstr "Innehåll"
+
+#: admin/menu.php:187
+#: admin/menu.php:188
+#: core/cpt/content.php:79
+#: core/cpt/content.php:81
+#: core/routers/backend.php:670
+msgid "Content Groups"
+msgstr "Innehållsgrupper"
+
+#: admin/menu.php:197
+#: admin/menu.php:198
+#: core/cpt/topic.php:44
+#: assets/build/portals-app.js:2
+msgid "Topic"
+msgstr "Ämne"
+
+#: admin/menu.php:205
+#: admin/menu.php:206
+#: core/cpt/topic.php:80
+#: core/cpt/topic.php:82
+#: core/routers/backend.php:670
+msgid "Topic Forums"
+msgstr "Ämnesforum"
+
+#: admin/menu.php:214
+#: admin/menu.php:215
+#: admin/setup.php:59
+#: assets/build/portals-app.js:2
+msgid "Settings"
+msgstr "Inställningar"
+
+#: admin/menu.php:229
+#: inc/utils/settings.php:219
+#: assets/build/portals-app.js:2
+msgid "Home"
+msgstr "Hem"
+
+#: admin/menu.php:430
+msgid "Administrator"
+msgstr "Administratör"
+
+#: admin/menu.php:447
+#: assets/build/portals-app.js:2
+msgid "Blank"
+msgstr "Tom"
+
+#: admin/menu.php:448
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Link"
+msgstr "Länk"
+
+#: admin/menu.php:449
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Video"
+msgstr "Video"
+
+#: admin/menu.php:450
+#: core/cpt/topic.php:83
+msgid "Topic Forum"
+msgstr "Ämnesforum"
+
+#: admin/menu.php:451
+#: core/cpt/content.php:82
+msgid "Content Group"
+msgstr "Innehållsgrupp"
+
+#: admin/menu.php:452
+msgid "Post / Page / Template"
+msgstr "Inlägg / Sida / Mall"
+
+#: admin/menu.php:560
+msgid "Uncategorized"
+msgstr "Okategoriserad"
+
+#. translators: %s: html tags
+#: admin/notices.php:95
+msgid "The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!"
+msgstr "%1$s %2$s %3$s-pluginet kräver att %1$s %4$s %3$s-pluginet uppdateras till version %5$s eller högre!"
+
+#: admin/setup.php:83
+#: admin/setup.php:93
+msgid "Portal Login"
+msgstr "Portal Inloggning"
+
+#: admin/setup.php:88
+#: admin/setup.php:98
+msgid "Portal Register"
+msgstr "Portalregister"
+
+#: admin/setup.php:129
+msgid "Visit Portal"
+msgstr "Besök portalen"
+
+#: core/ajax/admin.php:58
+msgid "Topic Approved."
+msgstr "Ämne godkänt."
+
+#: core/ajax/admin.php:78
+msgid "Topic Unapproved."
+msgstr "Ämne ej godkänt."
+
+#: core/ajax/backend.php:55
+msgid "Invalid item ID."
+msgstr "Ogiltigt artikel-ID."
+
+#: core/ajax/backend.php:127
+#: core/routers/backend.php:432
+msgid "Invalid group ID."
+msgstr "Ogiltigt grupp-ID."
+
+#: inc/utils/labels.php:171
+msgid "Search User..."
+msgstr "Sök användare..."
+
+#: inc/utils/labels.php:173
+msgid "Add Mention"
+msgstr "Lägg till omnämnande"
+
+#: inc/utils/labels.php:174
+msgid "Insert Emoji"
+msgstr "Infoga emoji"
+
+#: inc/utils/labels.php:177
+msgid "No user found"
+msgstr "Ingen användare hittades"
+
+#: core/blocks/login.php:627
+msgid "Username or Email Address"
+msgstr "Användarnamn eller e-postadress"
+
+#: core/blocks/login.php:628
+#: inc/utils/labels.php:63
+#: assets/build/editor-app.js:2
+msgid "Password"
+msgstr "Lösenord"
+
+#. translators: %s: Attribute User Name Label value or This Field.
+#. translators: %s: Attribute Password Label value or This Field.
+#: core/blocks/login.php:715
+#: core/blocks/login.php:720
+msgid "%s cannot be blank."
+msgstr "%s kan inte vara tom."
+
+#: core/blocks/login.php:716
+#: core/blocks/login.php:721
+msgid "This Field"
+msgstr "Detta fält"
+
+#: core/blocks/login.php:734
+#: core/blocks/register.php:378
+msgid "You have logged in successfully. Redirecting…"
+msgstr "Du har loggat in framgångsrikt. Omdirigerar…"
+
+#. translators: %1$s user name
+#: core/blocks/login.php:838
+#: core/blocks/register.php:425
+msgid "You are logged in as %1$s (%2$sLogout%3$s)"
+msgstr "Du är inloggad som %1$s (%2$sLogga ut%3$s)"
+
+#: core/blocks/login.php:888
+#: assets/build/editor-app.js:2
+msgid "Show Password"
+msgstr "Visa lösenord"
+
+#: core/blocks/register.php:84
+msgid "You have used an invalid email"
+msgstr "Du har använt en ogiltig e-postadress"
+
+#: core/blocks/register.php:88
+msgid "Email is missing or invalid"
+msgstr "E-post saknas eller är ogiltig"
+
+#: core/blocks/register.php:92
+msgid "The provided email is already registered with another account. Please login or reset password or use another email."
+msgstr "Den angivna e-postadressen är redan registrerad med ett annat konto. Vänligen logga in eller återställ lösenordet eller använd en annan e-postadress."
+
+#: core/blocks/register.php:97
+msgid "You have used an invalid username"
+msgstr "Du har använt ett ogiltigt användarnamn"
+
+#: core/blocks/register.php:101
+msgid "Invalid username provided or the username is already registered."
+msgstr "Ogiltigt användarnamn angivet eller användarnamnet är redan registrerat."
+
+#: core/blocks/register.php:106
+msgid "Your password is invalid."
+msgstr "Ditt lösenord är ogiltigt."
+
+#: core/blocks/register.php:110
+msgid "Your passwords do not match."
+msgstr "Dina lösenord matchar inte."
+
+#: core/blocks/register.php:128
+msgid "Please accept the Terms and Conditions, and try again."
+msgstr "Acceptera villkoren och försök igen."
+
+#: core/blocks/register.php:132
+msgid "Something went wrong!"
+msgstr "Något gick fel!"
+
+#: core/blocks/register.php:137
+msgid "Registration completed successfully. Check your inbox for password if you did not provide it while registering."
+msgstr "Registreringen slutfördes framgångsrikt. Kontrollera din inkorg för lösenordet om du inte angav det vid registreringen."
+
+#: core/blocks/register.php:352
+msgid "cannot be blank."
+msgstr "kan inte vara tom."
+
+#: core/blocks/register.php:353
+#: inc/utils/labels.php:65
+#: assets/build/editor-app.js:2
+msgid "First Name"
+msgstr "Förnamn"
+
+#: core/blocks/register.php:354
+#: inc/utils/labels.php:66
+#: assets/build/editor-app.js:2
+msgid "Last Name"
+msgstr "Efternamn"
+
+#: core/blocks/register.php:355
+msgid "This field"
+msgstr "Detta fält"
+
+#: core/blocks/register.php:887
+msgid "You have used an invalid email."
+msgstr "Du har använt en ogiltig e-postadress."
+
+#: core/blocks/register.php:888
+#: assets/build/editor-app.js:2
+msgid "Please enter a valid email address."
+msgstr "Vänligen ange en giltig e-postadress."
+
+#: core/blocks/register.php:889
+#: assets/build/editor-app.js:2
+msgid "Email already in use. Please try to sign in."
+msgstr "E-postadressen används redan. Försök att logga in."
+
+#: core/blocks/register.php:890
+#: assets/build/editor-app.js:2
+msgid "Invalid user name. Please try again."
+msgstr "Ogiltigt användarnamn. Försök igen."
+
+#: core/blocks/register.php:891
+#: assets/build/editor-app.js:2
+msgid "Username is already taken."
+msgstr "Användarnamnet är redan taget."
+
+#: core/blocks/register.php:892
+#: assets/build/editor-app.js:2
+msgid "Password cannot be accepted. Please try something else."
+msgstr "Lösenordet kan inte accepteras. Försök med något annat."
+
+#: core/blocks/register.php:893
+#: inc/utils/labels.php:78
+#: assets/build/editor-app.js:2
+msgid "Passwords do not match."
+msgstr "Lösenorden stämmer inte överens."
+
+#: core/blocks/register.php:894
+#: assets/build/editor-app.js:2
+msgid "Please try again after accepting terms & conditions."
+msgstr "Försök igen efter att ha accepterat villkoren."
+
+#: core/blocks/register.php:895
+#: assets/build/editor-app.js:2
+msgid "Something went wrong! Please try again."
+msgstr "Något gick fel! Försök igen."
+
+#: core/blocks/register.php:896
+#: assets/build/editor-app.js:2
+msgid "Registration successful. Please check your email inbox."
+msgstr "Registreringen lyckades. Vänligen kontrollera din e-postinkorg."
+
+#: core/blocks/social-login.php:86
+msgid "You are already registered. Successfully logged in."
+msgstr "Du är redan registrerad. Inloggning lyckades."
+
+#: core/blocks/social-login.php:91
+msgid "Successfully logged in."
+msgstr "Inloggning lyckades."
+
+#: core/blocks/social-login.php:135
+msgid "successfully logged in"
+msgstr "inloggning lyckades"
+
+#: core/blocks/social-login.php:143
+msgid "You are not registered. please register first then try to login."
+msgstr "Du är inte registrerad. Vänligen registrera dig först och försök sedan logga in."
+
+#: core/blocks/social-login.php:170
+msgid "Something went wrong while creating the new user!"
+msgstr "Något gick fel när den nya användaren skapades!"
+
+#: core/cpt/content.php:42
+msgid "Search Content"
+msgstr "Sök innehåll"
+
+#: core/cpt/content.php:44
+msgid "Edit Content"
+msgstr "Redigera innehåll"
+
+#: core/cpt/content.php:45
+msgid "View Content"
+msgstr "Visa innehåll"
+
+#: core/cpt/content.php:46
+#: core/cpt/content.php:48
+#: core/cpt/portal.php:48
+#: core/cpt/portal.php:50
+#: core/cpt/sub-content.php:45
+#: core/cpt/sub-content.php:47
+#: core/cpt/topic.php:47
+#: core/cpt/topic.php:49
+#: assets/build/portals-app.js:2
+msgid "Add New"
+msgstr "Lägg till ny"
+
+#: core/cpt/content.php:47
+msgid "Update Content"
+msgstr "Uppdatera innehåll"
+
+#: core/cpt/content.php:49
+msgid "New Content Name"
+msgstr "Nytt innehållsnamn"
+
+#: core/cpt/content.php:50
+#: core/cpt/content.php:51
+msgid "No Content found."
+msgstr "Inget innehåll hittades."
+
+#: core/cpt/content.php:84
+msgid "Search category"
+msgstr "Sök kategori"
+
+#: core/cpt/content.php:85
+msgid "All category"
+msgstr "Alla kategorier"
+
+#: core/cpt/content.php:86
+msgid "Parent category"
+msgstr "Föräldrakategori"
+
+#: core/cpt/content.php:87
+msgid "Parent category:"
+msgstr "Föräldrakategori:"
+
+#: core/cpt/content.php:88
+msgid "Edit category"
+msgstr "Redigera kategori"
+
+#: core/cpt/content.php:89
+msgid "Update category"
+msgstr "Uppdatera kategori"
+
+#: core/cpt/content.php:90
+msgid "Add new category"
+msgstr "Lägg till ny kategori"
+
+#: core/cpt/content.php:91
+msgid "New category name"
+msgstr "Nytt kategorinamn"
+
+#: core/cpt/content.php:92
+msgid "No category found"
+msgstr "Ingen kategori hittades"
+
+#: core/cpt/portal.php:44
+msgid "Search Space"
+msgstr "Sökområde"
+
+#: core/cpt/portal.php:45
+msgid "Portal Spaces"
+msgstr "Portalutrymmen"
+
+#: core/cpt/portal.php:46
+#: assets/build/portals-app.js:2
+msgid "Edit Space"
+msgstr "Redigera utrymme"
+
+#: core/cpt/portal.php:47
+#: assets/build/portals-app.js:2
+msgid "View Space"
+msgstr "Visa utrymme"
+
+#: core/cpt/portal.php:49
+msgid "Update Space"
+msgstr "Uppdatera utrymme"
+
+#: core/cpt/portal.php:51
+msgid "New Space Name"
+msgstr "Nytt rymdnamn"
+
+#: core/cpt/portal.php:52
+#: core/cpt/portal.php:53
+msgid "No space found"
+msgstr "Ingen plats hittades"
+
+#: core/cpt/portal.php:81
+#: core/cpt/portal.php:83
+#: core/cpt/portal.php:84
+msgid "Portal Space Group"
+msgstr "Portal Space Group"
+
+#: core/cpt/portal.php:86
+msgid "Search Space Group"
+msgstr "Sök rymdgrupp"
+
+#: core/cpt/portal.php:87
+msgid "All Space Groups"
+msgstr "Alla rymdgrupper"
+
+#: core/cpt/portal.php:88
+msgid "Parent Space Group"
+msgstr "Föräldragrupprum"
+
+#: core/cpt/portal.php:89
+msgid "Parent Space Group:"
+msgstr "Föräldrarymdgrupp:"
+
+#: core/cpt/portal.php:90
+#: assets/build/portals-app.js:2
+msgid "Edit Space Group"
+msgstr "Redigera grupputrymme"
+
+#: core/cpt/portal.php:91
+msgid "Update Space Group"
+msgstr "Uppdatera grupputrymme"
+
+#: core/cpt/portal.php:92
+msgid "Add new Space Group"
+msgstr "Lägg till ny rymdgrupp"
+
+#: core/cpt/portal.php:93
+msgid "New Space Group name"
+msgstr "Nytt namn på rymdgruppen"
+
+#: core/cpt/portal.php:94
+msgid "No Space Group found"
+msgstr "Ingen Space Group hittades"
+
+#: core/cpt/sub-content.php:41
+msgid "Search Sub Content"
+msgstr "Sök underinnehåll"
+
+#: core/cpt/sub-content.php:42
+msgid "Sub Content"
+msgstr "Underinnehåll"
+
+#: core/cpt/sub-content.php:43
+msgid "Edit Sub Content"
+msgstr "Redigera underinnehåll"
+
+#: core/cpt/sub-content.php:44
+msgid "View Sub Content"
+msgstr "Visa underinnehåll"
+
+#: core/cpt/sub-content.php:46
+msgid "Update Sub Content"
+msgstr "Uppdatera underinnehåll"
+
+#: core/cpt/sub-content.php:48
+msgid "New Sub Content Name"
+msgstr "Nytt namn på underinnehåll"
+
+#: core/cpt/sub-content.php:49
+#: core/cpt/sub-content.php:50
+msgid "No Sub Content found."
+msgstr "Inget underinnehåll hittades."
+
+#: core/cpt/sub-content.php:121
+msgid "All Courses"
+msgstr "Alla kurser"
+
+#: core/cpt/topic.php:43
+msgid "Search Topic"
+msgstr "Sökämne"
+
+#: core/cpt/topic.php:45
+msgid "Edit Topic"
+msgstr "Redigera ämne"
+
+#: core/cpt/topic.php:46
+msgid "View Topic"
+msgstr "Visa ämne"
+
+#: core/cpt/topic.php:48
+msgid "Update Topic"
+msgstr "Uppdatera ämne"
+
+#: core/cpt/topic.php:50
+msgid "New Topic Name"
+msgstr "Nytt ämnesnamn"
+
+#: core/cpt/topic.php:51
+#: core/cpt/topic.php:52
+msgid "No Topic found."
+msgstr "Inget ämne hittades."
+
+#: core/cpt/topic.php:85
+msgid "Search forum"
+msgstr "Sök forum"
+
+#: core/cpt/topic.php:86
+msgid "All forum"
+msgstr "Alla forum"
+
+#: core/cpt/topic.php:87
+msgid "Parent forum"
+msgstr "Föräldraforum"
+
+#: core/cpt/topic.php:88
+msgid "Parent forum:"
+msgstr "Föräldraforum:"
+
+#: core/cpt/topic.php:89
+msgid "Edit forum"
+msgstr "Redigera forum"
+
+#: core/cpt/topic.php:90
+msgid "Update forum"
+msgstr "Uppdatera forum"
+
+#: core/cpt/topic.php:91
+msgid "Add new forum"
+msgstr "Lägg till nytt forum"
+
+#: core/cpt/topic.php:92
+msgid "New forum name"
+msgstr "Nytt forumnamn"
+
+#: core/cpt/topic.php:93
+msgid "No forum found"
+msgstr "Inget forum hittades"
+
+#: core/cpt/topic.php:200
+msgid "Approve"
+msgstr "Godkänn"
+
+#: core/cpt/topic.php:212
+msgid "Unapprove"
+msgstr "Avslå"
+
+#: core/cpt/topic.php:285
+#: core/cpt/topic.php:296
+msgid "Invalid topic."
+msgstr "Ogiltigt ämne."
+
+#: core/cpt/topic.php:290
+msgid "You do not have permission to do this."
+msgstr "Du har inte behörighet att göra detta."
+
+#. translators: %1$s: post title, %2$s: message
+#: core/cpt/topic.php:309
+msgid "<strong>%1$s</strong> %2$s"
+msgstr "<strong>%1$s</strong> %2$s"
+
+#: core/integrations/content-categories.php:32
+msgid "ContentCategories Integration"
+msgstr "Integration av innehållskategorier"
+
+#: core/integrations/sure-members.php:28
+msgid "SureMembers Integration"
+msgstr "SureMembers-integration"
+
+#: core/integrations/sure-members.php:80
+msgid "Edit Access Group "
+msgstr "Redigera åtkomstgrupp"
+
+#: core/integrations/topic-categories.php:53
+msgid "TopicCategories Integration"
+msgstr "Integration av ämneskategorier"
+
+#: core/integrations/topic-categories.php:237
+msgid "Cover Embed Media"
+msgstr "Täck inbäddad media"
+
+#: core/integrations/topic-categories.php:238
+msgid "Paste a URL to embed"
+msgstr "Klistra in en URL för att bädda in"
+
+#: core/integrations/topic-categories.php:242
+msgid "Please enter the URL of the media you want to embed. See supported embeds"
+msgstr "Ange URL:en för mediet du vill bädda in. Se stödda inbäddningar"
+
+#: core/integrations/topic-categories.php:244
+msgid "here."
+msgstr "här."
+
+#: core/integrations/topic-categories.php:251
+msgid "Enter a title"
+msgstr "Ange en titel"
+
+#: core/integrations/topic-categories.php:264
+msgid "Cover Media Embed"
+msgstr "Omslagsmedia inbäddning"
+
+#: core/integrations/video.php:32
+msgid "Video Integration"
+msgstr "Videointegration"
+
+#: core/integrations/video.php:79
+msgid "Media"
+msgstr "Media"
+
+#: core/integrations/word-press.php:30
+msgid "WordPress Integration"
+msgstr "WordPress-integration"
+
+#: core/notifier/admin-notifier.php:51
+#: inc/utils/labels.php:136
+#: inc/utils/labels.php:138
+msgid " and "
+msgstr "och"
+
+#: core/notifier/admin-notifier.php:51
+msgid "new users have registered on the "
+msgstr "nya användare har registrerat sig på"
+
+#: core/notifier/admin-notifier.php:58
+msgid "has submitted a topic"
+msgstr "har skickat in ett ämne"
+
+#: core/notifier/admin-notifier.php:180
+msgid " has registered on the "
+msgstr "har registrerat sig på"
+
+#: core/notifier/base.php:183
+msgid " ago"
+msgstr "sedan"
+
+#: core/notifier/common-notifier.php:51
+msgid "new space has been introduced."
+msgstr "nytt utrymme har introducerats."
+
+#: core/notifier/common-notifier.php:406
+msgid "Comment:"
+msgstr "Kommentar:"
+
+#: core/notifier/user-notifier.php:59
+msgid "your topic has been approved."
+msgstr "din ämne har godkänts."
+
+#: core/notifier/user-notifier.php:66
+msgid "has mentioned you in a "
+msgstr "har nämnt dig i en"
+
+#: core/notifier/user-notifier.php:276
+msgid "Topic:"
+msgstr "Ämne:"
+
+#: core/routers/backend.php:51
+msgid "Invalid term ID."
+msgstr "Ogiltigt term-ID."
+
+#: core/routers/backend.php:55
+#: core/routers/backend.php:581
+msgid "Successfully updated."
+msgstr "Uppdaterades framgångsrikt."
+
+#: core/routers/backend.php:320
+#: core/routers/backend.php:361
+#: core/routers/backend.php:604
+#: core/routers/backend.php:629
+#: inc/functions/operations.php:181
+msgid "Invalid post ID."
+msgstr "Ogiltigt inläggs-ID."
+
+#: core/routers/backend.php:334
+#: core/routers/backend.php:375
+#: core/routers/backend.php:438
+msgid "Successfully deleted."
+msgstr "Raderades framgångsrikt."
+
+#: core/routers/backend.php:569
+msgid "Invalid object or term ID."
+msgstr "Ogiltigt objekt eller term-ID."
+
+#: core/routers/backend.php:667
+msgid "No store categories found."
+msgstr "Inga butikskategorier hittades."
+
+#: core/routers/backend.php:716
+msgid "Category Invalid."
+msgstr "Kategori ogiltig."
+
+#: core/routers/backend.php:720
+msgid "Content Group -"
+msgstr "Innehållsgrupp -"
+
+#: core/routers/backend.php:720
+msgid "Topic Forum -"
+msgstr "Ämnesforum -"
+
+#: core/routers/backend.php:789
+msgid "Invalid settings data."
+msgstr "Ogiltiga inställningsdata."
+
+#: core/routers/backend.php:796
+msgid "Settings saved successfully."
+msgstr "Inställningar sparades framgångsrikt."
+
+#: core/routers/misc.php:531
+msgid "Unnamed"
+msgstr "Namnlös"
+
+#: core/routers/social-logins.php:70
+#: core/routers/social-logins.php:284
+msgid "Captcha is not matching, please try again."
+msgstr "Captcha stämmer inte, försök igen."
+
+#: core/routers/social-logins.php:92
+msgid "You have successfully logged in. Redirecting..."
+msgstr "Du har loggat in framgångsrikt. Omdirigerar..."
+
+#: core/routers/social-logins.php:169
+msgid "The username/password field is empty. Please add a valid username/email to reset your password."
+msgstr "Användarnamn/lösenordsfältet är tomt. Vänligen lägg till ett giltigt användarnamn/e-post för att återställa ditt lösenord."
+
+#: core/routers/social-logins.php:183
+msgid "No user found. Please add a registered username/email to reset your password, else create an account."
+msgstr "Ingen användare hittades. Vänligen lägg till ett registrerat användarnamn/e-post för att återställa ditt lösenord, annars skapa ett konto."
+
+#. translators: %s: Password reset.
+#: core/routers/social-logins.php:209
+msgid "[%s] Password Reset"
+msgstr "[%s] Återställning av lösenord"
+
+#: core/routers/social-logins.php:217
+msgid "Please check your email for the password reset link."
+msgstr "Vänligen kontrollera din e-post för länken för att återställa lösenordet."
+
+#: core/routers/social-logins.php:219
+msgid "Email failed to send."
+msgstr "E-postmeddelandet kunde inte skickas."
+
+#: core/routers/social-logins.php:239
+msgid "Sorry, the site admin has disabled new user registration"
+msgstr "Tyvärr har webbplatsadministratören inaktiverat registrering av nya användare"
+
+#: core/routers/social-logins.php:253
+msgid "Not a valid post."
+msgstr "Inte ett giltigt inlägg."
+
+#: core/routers/social-logins.php:294
+msgid "Password may not contain the character \"\\\""
+msgstr "Lösenordet får inte innehålla tecknet \"\\\""
+
+#: core/routers/social-logins.php:299
+#: core/routers/social-logins.php:302
+#: inc/functions/markup.php:73
+msgid "This field is required."
+msgstr "Detta fält är obligatoriskt."
+
+#: core/routers/social-logins.php:387
+msgid "Error in creating user."
+msgstr "Fel vid skapande av användare."
+
+#: core/routers/social-logins.php:531
+msgid "You are not registered. Please register first then try to login."
+msgstr "Du är inte registrerad. Vänligen registrera dig först och försök sedan logga in."
+
+#: core/routers/social-logins.php:551
+#: core/routers/social-logins.php:588
+#: core/routers/social-logins.php:593
+msgid "Invalid credentials."
+msgstr "Ogiltiga referenser."
+
+#: core/routers/social-logins.php:568
+#: core/routers/social-logins.php:574
+msgid "Token verification failed."
+msgstr "Verifiering av token misslyckades."
+
+#: core/routers/social-logins.php:600
+msgid "Login Successful"
+msgstr "Inloggning lyckades"
+
+#: core/routers/social-logins.php:606
+msgid "Registered & Login Successful"
+msgstr "Registrerad & Inloggning lyckades"
+
+#: core/routers/social-logins.php:609
+msgid "Google API Error."
+msgstr "Google API-fel."
+
+#: core/routes.php:65
+msgid "Oops! Something wrong here..."
+msgstr "Hoppsan! Något är fel här..."
+
+#: core/shortcodes/archive-content.php:53
+msgid "No content found."
+msgstr "Inget innehåll hittades."
+
+#: core/shortcodes/notification.php:122
+msgid "Mark All as Read"
+msgstr "Markera alla som lästa"
+
+#: core/blocks/interactivity/build/Title/view.php:57
+#: core/shortcodes/content-header.php:46
+msgid "Guest"
+msgstr "Gäst"
+
+#: core/shortcodes/endpoint-navigation.php:102
+#: core/shortcodes/endpoint-navigation.php:211
+msgid "Invalid endpoint data."
+msgstr "Ogiltiga slutpunktsdata."
+
+#: core/shortcodes/endpoint-navigation.php:144
+msgid "Section"
+msgstr "Avsnitt"
+
+#: core/shortcodes/endpoint-navigation.php:191
+msgid " runtime"
+msgstr "körtid"
+
+#: core/shortcodes/endpoint-navigation.php:202
+msgid "No items found."
+msgstr "Inga objekt hittades."
+
+#: core/shortcodes/home-content.php:309
+#: core/shortcodes/home-content.php:310
+#: core/shortcodes/home-content.php:326
+#: core/shortcodes/home-content.php:332
+#: core/shortcodes/home-content.php:342
+#: core/shortcodes/home-content.php:348
+msgid "Enter"
+msgstr "Ange"
+
+#: core/shortcodes/home-content.php:315
+msgid "User"
+msgstr "Användare"
+
+#: core/assets.php:90
+#: core/shortcodes/home-content.php:376
+msgid "Upload"
+msgstr "Ladda upp"
+
+#: core/shortcodes/navigation.php:178
+msgid "No groups found."
+msgstr "Inga grupper hittades."
+
+#: core/shortcodes/search.php:89
+#: inc/utils/labels.php:90
+msgid "Search must be at least 3 characters."
+msgstr "Sökningen måste vara minst 3 tecken."
+
+#: core/shortcodes/search.php:106
+msgid "Recently viewed"
+msgstr "Nyligen visade"
+
+#: core/shortcodes/search.php:138
+msgid "Quick Links"
+msgstr "Snabblänkar"
+
+#: core/shortcodes/search.php:189
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Search"
+msgstr "Sök"
+
+#: core/shortcodes/user-profile.php:141
+msgid "Guest User"
+msgstr "Gästanvändare"
+
+#. translators: %s is the page title
+#: inc/compatibility/page-builder.php:400
+msgid "Edit %1$s with %2$s"
+msgstr "Redigera %1$s med %2$s"
+
+#: inc/functions/emails.php:56
+msgid "Someone has requested a password reset for the following account:"
+msgstr "Någon har begärt en återställning av lösenordet för följande konto:"
+
+#. translators: %s: Username.
+#: inc/functions/emails.php:62
+msgid "Username:"
+msgstr "Användarnamn:"
+
+#: inc/functions/emails.php:68
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr "Om detta var ett misstag, ignorera bara detta mejl så händer inget."
+
+#: inc/functions/emails.php:70
+msgid "To reset your password, visit the following address:"
+msgstr "För att återställa ditt lösenord, besök följande adress:"
+
+#: inc/functions/emails.php:74
+msgid "Reset Password"
+msgstr "Återställ lösenord"
+
+#: inc/functions/functions.php:482
+msgid "Just now"
+msgstr "Precis nu"
+
+#: inc/functions/functions.php:563
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: inc/functions/functions.php:563
+msgid "(Edit)"
+msgstr "(Redigera)"
+
+#. translators: 1: date, 2: time
+#: inc/functions/functions.php:576
+msgid "%1$s at %2$s"
+msgstr "%1$s kl %2$s"
+
+#: inc/functions/functions.php:616
+msgid "Your comment is awaiting moderation."
+msgstr "Din kommentar väntar på granskning."
+
+#: inc/functions/functions.php:636
+msgid "Reply"
+msgstr "Svara"
+
+#: inc/functions/functions.php:658
+#: inc/utils/helper.php:1440
+#: inc/utils/helper.php:1499
+#: inc/utils/labels.php:53
+msgid "Like"
+msgid_plural "Likes"
+msgstr[0] "Gilla"
+msgstr[1] ""
+
+#: inc/functions/functions.php:1089
+#: inc/functions/functions.php:1093
+msgid "Unknown"
+msgstr "Okänd"
+
+#: inc/functions/markup.php:59
+msgid "Click to upload or drag and drop"
+msgstr "Klicka för att ladda upp eller dra och släpp"
+
+#: inc/functions/markup.php:62
+msgid "Allowed file formats:"
+msgstr "Tillåtna filformat:"
+
+#: inc/utils/helper.php:1443
+#: inc/utils/helper.php:1512
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] "Kommentar"
+msgstr[1] ""
+
+#: inc/utils/labels.php:166
+msgid "What are your thoughts?"
+msgstr "Vad är dina tankar?"
+
+#: inc/functions/operations.php:185
+msgid "Post not found."
+msgstr "Inlägg hittades inte."
+
+#: inc/functions/operations.php:191
+msgid "Failed to update post."
+msgstr "Det gick inte att uppdatera inlägget."
+
+#: inc/functions/operations.php:261
+msgid "Invalid user ID."
+msgstr "Ogiltigt användar-ID."
+
+#: inc/traits/ajax.php:160
+#: inc/traits/rest-errors.php:36
+msgid "Sorry, you are not allowed to do this operation."
+msgstr "Tyvärr, du har inte behörighet att utföra denna operation."
+
+#: inc/traits/ajax.php:161
+#: inc/traits/rest-errors.php:37
+msgid "Nonce validation failed"
+msgstr "Validering av nonce misslyckades"
+
+#: inc/traits/ajax.php:162
+#: inc/traits/rest-errors.php:38
+msgid "Sorry, something went wrong."
+msgstr "Förlåt, något gick fel."
+
+#: inc/traits/ajax.php:163
+#: inc/traits/rest-errors.php:39
+msgid "Oops, the required key is missing."
+msgstr "Hoppsan, den nödvändiga nyckeln saknas."
+
+#: inc/traits/ajax.php:164
+#: inc/traits/rest-errors.php:40
+msgid "The current post's post type is not of this plugin."
+msgstr "Den aktuella postens posttyp tillhör inte detta plugin."
+
+#: inc/traits/ajax.php:165
+#: inc/traits/rest-errors.php:41
+msgid "Data saved successfully."
+msgstr "Data sparades framgångsrikt."
+
+#: inc/traits/post-type.php:139
+#: inc/utils/labels.php:140
+msgid "All"
+msgstr "Alla"
+
+#: inc/utils/helper.php:1448
+msgid "Share Post"
+msgstr "Dela inlägg"
+
+#: inc/utils/helper.php:1463
+msgid "Copied!"
+msgstr "Kopierad!"
+
+#: inc/utils/helper.php:1731
+msgid "This discussion is only available for VIP members."
+msgstr "Denna diskussion är endast tillgänglig för VIP-medlemmar."
+
+#: inc/utils/helper.php:1733
+msgid "Please upgrade to add response."
+msgstr "Vänligen uppgradera för att lägga till svar."
+
+#: inc/utils/helper.php:1734
+msgid "Upgrade Now"
+msgstr "Uppgradera nu"
+
+#: inc/utils/helper.php:1744
+msgid "Please login or register to join the discussion."
+msgstr "Vänligen logga in eller registrera dig för att delta i diskussionen."
+
+#: core/shortcodes/user-profile.php:135
+#: inc/utils/helper.php:1745
+#: assets/build/editor-app.js:2
+msgid "Login"
+msgstr "Logga in"
+
+#: inc/utils/labels.php:43
+msgid "Back to"
+msgstr "Tillbaka till"
+
+#: inc/utils/labels.php:43
+msgid "Portal"
+msgstr "Portal"
+
+#: inc/utils/labels.php:44
+msgid "Back to "
+msgstr "Tillbaka till"
+
+#: inc/utils/labels.php:45
+msgid "Portal Item"
+msgstr "Portalobjekt"
+
+#: inc/utils/labels.php:46
+msgid "Portal Items"
+msgstr "Portalobjekt"
+
+#: inc/utils/labels.php:47
+#: inc/utils/labels.php:48
+msgid "User Profile"
+msgstr "Användarprofil"
+
+#: inc/utils/labels.php:52
+msgid "Posts"
+msgstr "Inlägg"
+
+#: inc/utils/labels.php:54
+msgid "Liked"
+msgstr "Gillade"
+
+#: inc/utils/labels.php:55
+msgid "Likes"
+msgstr "Gillar"
+
+#: inc/utils/labels.php:56
+msgid "Comments"
+msgstr "Kommentarer"
+
+#: inc/utils/labels.php:57
+msgid "No comments yet."
+msgstr "Inga kommentarer än."
+
+#: inc/utils/labels.php:58
+msgid "Commented on"
+msgstr "Kommenterade på"
+
+#: inc/utils/labels.php:59
+msgid "replied"
+msgstr "svarade"
+
+#: inc/utils/labels.php:60
+msgid "replies"
+msgstr "svar"
+
+#: inc/utils/labels.php:62
+msgid "Profile"
+msgstr "Profil"
+
+#: inc/utils/labels.php:64
+msgid "Profile Photo"
+msgstr "Profilbild"
+
+#: inc/utils/labels.php:67
+#: assets/build/editor-app.js:2
+msgid "Username"
+msgstr "Användarnamn"
+
+#: inc/utils/labels.php:68
+#: assets/build/editor-app.js:2
+msgid "Email"
+msgstr "E-post"
+
+#: inc/utils/labels.php:69
+msgid "Phone"
+msgstr "Telefon"
+
+#: inc/utils/labels.php:70
+msgid "Address"
+msgstr "Adress"
+
+#: inc/utils/labels.php:71
+msgid "Display Name"
+msgstr "Visningsnamn"
+
+#: inc/utils/labels.php:72
+msgid "Bio"
+msgstr "Biografi"
+
+#: inc/utils/labels.php:73
+msgid "Description"
+msgstr "Beskrivning"
+
+#: inc/utils/labels.php:74
+#: assets/build/portals-app.js:2
+msgid "Save"
+msgstr "Spara"
+
+#: inc/utils/labels.php:75
+msgid "Current Password"
+msgstr "Nuvarande lösenord"
+
+#: inc/utils/labels.php:76
+msgid "New Password"
+msgstr "Nytt lösenord"
+
+#: inc/utils/labels.php:77
+msgid "Confirm New Password"
+msgstr "Bekräfta nytt lösenord"
+
+#: inc/utils/labels.php:79
+#: inc/utils/labels.php:159
+msgid "Profile updated successfully."
+msgstr "Profilen uppdaterades framgångsrikt."
+
+#: inc/utils/labels.php:82
+msgid "Miscellaneous"
+msgstr "Diverse"
+
+#: inc/utils/labels.php:84
+msgid "Oops, It's Empty in Here!"
+msgstr "Hoppsan, det är tomt här inne!"
+
+#: inc/utils/labels.php:85
+msgid "Seems like you haven't bookmarked anything yet. Start bookmarking and make this space your go-to!"
+msgstr "Det verkar som att du inte har bokmärkt något ännu. Börja bokmärka och gör denna plats till din favorit!"
+
+#: inc/utils/labels.php:86
+msgid "Back to Home"
+msgstr "Tillbaka till Hem"
+
+#: inc/utils/labels.php:88
+msgid "No results found. Try again with different words?"
+msgstr "Inga resultat hittades. Försök igen med andra ord?"
+
+#: inc/utils/labels.php:91
+msgid "Error occurred while fetching data."
+msgstr "Ett fel inträffade vid hämtning av data."
+
+#: inc/utils/labels.php:92
+msgid "Data is insufficient."
+msgstr "Data är otillräcklig."
+
+#: inc/utils/labels.php:94
+msgid "Course Playlist"
+msgstr "Kursspellista"
+
+#: inc/utils/labels.php:95
+msgid "If you want to sell products online, you need a sales funnel. A sales funnel is the easiest way to move a website visitor towards being a paying customer. A sales funnel builds wealth into your business."
+msgstr "Om du vill sälja produkter online behöver du en säljtratt. En säljtratt är det enklaste sättet att leda en webbplatsbesökare mot att bli en betalande kund. En säljtratt bygger rikedom i ditt företag."
+
+#: inc/utils/labels.php:96
+#: assets/build/portals-app.js:2
+msgid "Course"
+msgstr "Kurs"
+
+#: inc/utils/labels.php:97
+msgid "Courses"
+msgstr "Kurser"
+
+#: inc/utils/labels.php:98
+msgid "Lesson"
+msgstr "Lektion"
+
+#: inc/utils/labels.php:99
+msgid "Lessons"
+msgstr "Lektioner"
+
+#: inc/utils/labels.php:103
+#: assets/build/portals-app.js:2
+msgid "Title"
+msgstr "Titel"
+
+#: inc/utils/labels.php:105
+msgid "See More"
+msgstr "Se mer"
+
+#: inc/utils/labels.php:106
+msgid "Submit"
+msgstr "Skicka in"
+
+#: inc/utils/labels.php:107
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Cancel"
+msgstr "Avbryt"
+
+#: inc/utils/labels.php:112
+msgid "Course Progress"
+msgstr "Kursframsteg"
+
+#: inc/utils/labels.php:115
+msgid "Share on Facebook"
+msgstr "Dela på Facebook"
+
+#: inc/utils/labels.php:116
+msgid "Share on Twitter"
+msgstr "Dela på Twitter"
+
+#: inc/utils/labels.php:117
+msgid "Share on LinkedIn"
+msgstr "Dela på LinkedIn"
+
+#: inc/utils/labels.php:118
+msgid "Share on Pinterest"
+msgstr "Dela på Pinterest"
+
+#: inc/utils/labels.php:119
+msgid "Copy to Clipboard"
+msgstr "Kopiera till urklipp"
+
+#: inc/utils/labels.php:121
+msgid "PrestoPlayer Pro is Required!"
+msgstr "PrestoPlayer Pro krävs!"
+
+#: inc/utils/labels.php:122
+msgid "This feature requires PrestoPlayer Pro. Please upgrade to PrestoPlayer Pro to use this feature."
+msgstr "Denna funktion kräver PrestoPlayer Pro. Vänligen uppgradera till PrestoPlayer Pro för att använda denna funktion."
+
+#: inc/utils/labels.php:123
+msgid "Topic submitted successfully and waiting for approval."
+msgstr "Ämnet har skickats in framgångsrikt och väntar på godkännande."
+
+#: inc/utils/labels.php:128
+msgid "The content will be available in"
+msgstr "Innehållet kommer att finnas tillgängligt i"
+
+#: inc/utils/labels.php:130
+msgid "Notifications"
+msgstr "Notiser"
+
+#: inc/utils/labels.php:131
+msgid "No New Notifications"
+msgstr "Inga nya aviseringar"
+
+#: inc/utils/labels.php:132
+msgid "Ta-da! You're up to date."
+msgstr "Ta-da! Du är uppdaterad."
+
+#: inc/utils/labels.php:134
+msgid "has replied to your "
+msgstr "har svarat på din"
+
+#: inc/utils/labels.php:135
+msgid "has commented on your topic "
+msgstr "har kommenterat på ditt ämne"
+
+#: inc/utils/labels.php:136
+msgid " others have commented on your topic "
+msgstr "andra har kommenterat ditt ämne"
+
+#: inc/utils/labels.php:137
+msgid " has liked your "
+msgstr "har gillat din"
+
+#: inc/utils/labels.php:138
+msgid " others have liked your "
+msgstr "andra har gillat din"
+
+#: inc/utils/labels.php:141
+msgid "Unread"
+msgstr "Oläst"
+
+#: inc/utils/labels.php:143
+msgid "Settings Saved Successfully."
+msgstr "Inställningar sparade framgångsrikt."
+
+#: inc/utils/labels.php:144
+msgid "Unable to Save Settings."
+msgstr "Det går inte att spara inställningarna."
+
+#: inc/utils/labels.php:145
+msgid "Something Went Wrong!"
+msgstr "Något gick fel!"
+
+#: inc/utils/labels.php:146
+msgid "Information Updated Successfully."
+msgstr "Informationen har uppdaterats framgångsrikt."
+
+#: inc/utils/labels.php:147
+msgid "Notification Updated Successfully."
+msgstr "Meddelandet har uppdaterats framgångsrikt."
+
+#: inc/utils/labels.php:149
+msgid "Your topic has been submitted successfully."
+msgstr "Ditt ämne har skickats in framgångsrikt."
+
+#: inc/utils/labels.php:150
+msgid "Item bookmarked successfully."
+msgstr "Objektet har bokmärkts framgångsrikt."
+
+#: inc/utils/labels.php:151
+msgid "Item un-bookmarked successfully."
+msgstr "Objektet har avmarkerats framgångsrikt."
+
+#: inc/utils/labels.php:152
+msgid "Comment liked successfully."
+msgstr "Kommentaren gillades framgångsrikt."
+
+#: inc/utils/labels.php:153
+msgid "Comment disliked successfully."
+msgstr "Kommentaren ogillades framgångsrikt."
+
+#: inc/utils/labels.php:157
+msgid "Post liked successfully."
+msgstr "Inlägget gillades framgångsrikt."
+
+#: inc/utils/labels.php:158
+msgid "Post disliked successfully."
+msgstr "Inlägget ogillades framgångsrikt."
+
+#: inc/utils/labels.php:161
+#: inc/utils/settings.php:263
+#: assets/build/portals-app.js:2
+msgid "Restricted Content"
+msgstr "Begränsat innehåll"
+
+#: inc/utils/labels.php:162
+msgid "This content is restricted and can only be accessed by authorized users."
+msgstr "Detta innehåll är begränsat och kan endast nås av auktoriserade användare."
+
+#: inc/utils/post-meta.php:96
+#: assets/build/portals-app.js:2
+msgid "Untitled Section"
+msgstr "Omarkerad sektion"
+
+#: inc/utils/settings.php:223
+msgid "Howdy"
+msgstr "Hej"
+
+#: inc/utils/settings.php:227
+#: assets/build/portals-app.js:2
+msgid "Your Bookmarks"
+msgstr "Dina bokmärken"
+
+#: inc/utils/settings.php:231
+#: assets/build/portals-app.js:2
+msgid "Profile Information"
+msgstr "Profilinformation"
+
+#: inc/utils/settings.php:235
+#: assets/build/portals-app.js:2
+msgid "Pinned Post"
+msgstr "Fäst inlägg"
+
+#: inc/utils/settings.php:239
+msgid "No posts found."
+msgstr "Inga inlägg hittades."
+
+#: inc/utils/settings.php:243
+#: assets/build/portals-app.js:2
+msgid "Back to Course"
+msgstr "Tillbaka till kursen"
+
+#: inc/utils/settings.php:247
+msgid "Complete and Continue"
+msgstr "Slutför och fortsätt"
+
+#: inc/utils/settings.php:251
+msgid "What would you like to share today?"
+msgstr "Vad vill du dela med dig av idag?"
+
+#: inc/utils/settings.php:255
+msgid "Create New Feed"
+msgstr "Skapa ny feed"
+
+#: inc/utils/settings.php:259
+msgid "No topic found, create a new one!"
+msgstr "Inget ämne hittades, skapa ett nytt!"
+
+#: inc/utils/settings.php:267
+msgid "This content is not available with your current membership."
+msgstr "Detta innehåll är inte tillgängligt med ditt nuvarande medlemskap."
+
+#: inc/utils/settings.php:305
+msgid "Subscriber"
+msgstr "Prenumerant"
+
+#: inc/utils/uploader.php:75
+msgid "File does not match"
+msgstr "Filen stämmer inte överens"
+
+#: inc/utils/uploader.php:98
+msgid "File is not uploaded"
+msgstr "Filen är inte uppladdad"
+
+#: loader.php:316
+msgid "Portal Menu"
+msgstr "Portalmeny"
+
+#: templates/parts/footer.php:22
+msgid "Powered by"
+msgstr "Drivs av"
+
+#: templates/quick-view/post.php:60
+msgid "Open in full page"
+msgstr "Öppna i helsida"
+
+#: templates/quick-view/post.php:62
+#: templates/single/post.php:91
+msgid "Bookmark Post"
+msgstr "Bokmärk inlägg"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "General"
+msgstr "Allmän"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Style"
+msgstr "Stil"
+
+#: assets/build/editor-app.js:2
+msgid "Advanced"
+msgstr "Avancerad"
+
+#: assets/build/editor-app.js:2
+msgid "Desktop"
+msgstr "Skrivbord"
+
+#: assets/build/editor-app.js:2
+msgid "Tablet"
+msgstr "Surfplatta"
+
+#: assets/build/editor-app.js:2
+msgid "Mobile"
+msgstr "Mobil"
+
+#: assets/build/editor-app.js:2
+msgid "Device"
+msgstr "Enhet"
+
+#: assets/build/editor-app.js:2
+msgid "Google"
+msgstr "Google"
+
+#: assets/build/editor-app.js:2
+msgid "Facebook"
+msgstr "Facebook"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Reset"
+msgstr "Återställ"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Icon Library"
+msgstr "Ikonbibliotek"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Close"
+msgstr "Stäng"
+
+#: assets/build/editor-app.js:2
+msgid "No Icons Found"
+msgstr "Inga ikoner hittades"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Insert Icon"
+msgstr "Infoga ikon"
+
+#: assets/build/editor-app.js:2
+msgid "Change Icon"
+msgstr "Byt ikon"
+
+#: assets/build/editor-app.js:2
+msgid "Choose Icon"
+msgstr "Välj ikon"
+
+#: assets/build/editor-app.js:2
+msgid "Icon"
+msgstr "Ikon"
+
+#: assets/build/editor-app.js:2
+msgid "Placeholder"
+msgstr "Platshållare"
+
+#: assets/build/editor-app.js:2
+msgid "This is an example error message."
+msgstr "Detta är ett exempel på ett felmeddelande."
+
+#: assets/build/editor-app.js:2
+msgid "Please add a preview image."
+msgstr "Vänligen lägg till en förhandsgranskningsbild."
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Email field."
+msgstr "Detta block hjälper till att lägga till ett e-postfält."
+
+#: assets/build/editor-app.js:2
+msgid "required"
+msgstr "obligatorisk"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Password field."
+msgstr "Detta block hjälper till att lägga till ett lösenordsfält."
+
+#: assets/build/editor-app.js:2
+msgid "Required"
+msgstr "Krävs"
+
+#: assets/build/editor-app.js:2
+msgid "Name"
+msgstr "Namn"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Username field."
+msgstr "Detta block hjälper till att lägga till fältet för användarnamn."
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add First Name field."
+msgstr "Detta block hjälper till att lägga till fältet Förnamn."
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Last Name field."
+msgstr "Detta block hjälper till att lägga till fältet Efternamn."
+
+#: assets/build/editor-app.js:2
+msgid "Re-Enter Password"
+msgstr "Ange lösenordet igen"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Re-Enter Password field."
+msgstr "Detta block hjälper till att lägga till fältet Återinmatning av lösenord."
+
+#: assets/build/editor-app.js:2
+msgid "I Accept the Terms and Conditions."
+msgstr "Jag accepterar villkoren."
+
+#: assets/build/editor-app.js:2
+msgid "Terms and Conditions notice."
+msgstr "Villkor och bestämmelser meddelande."
+
+#: assets/build/editor-app.js:2
+msgid "Terms & Condition"
+msgstr "Villkor"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Terms & Condtions field."
+msgstr "Detta block hjälper till att lägga till fältet för villkor."
+
+#: assets/build/editor-app.js:2
+msgid "Pixel"
+msgstr "Pixel"
+
+#: assets/build/editor-app.js:2
+msgid "Em"
+msgstr "Em"
+
+#: assets/build/editor-app.js:2
+msgid "Select Units"
+msgstr "Välj enheter"
+
+#: assets/build/editor-app.js:2
+msgid "%s units"
+msgstr "%s enheter"
+
+#: assets/build/editor-app.js:2
+msgid "Margin"
+msgstr "Marginal"
+
+#: assets/build/editor-app.js:2
+msgid "Default"
+msgstr "Standard"
+
+#: assets/build/editor-app.js:2
+msgid "Font Size"
+msgstr "Teckenstorlek"
+
+#: assets/build/editor-app.js:2
+msgid "VW"
+msgstr "VW"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Font Family"
+msgstr "Teckensnittsfamilj"
+
+#: assets/build/editor-app.js:2
+msgid "Weight"
+msgstr "Vikt"
+
+#: core/assets.php:82
+#: assets/build/editor-app.js:2
+msgid "Italic"
+msgstr "Kursiv"
+
+#: assets/build/editor-app.js:2
+msgid "Oblique"
+msgstr "Sned"
+
+#: assets/build/editor-app.js:2
+msgid "Line Height"
+msgstr "Radavstånd"
+
+#: assets/build/editor-app.js:2
+msgid "Letter Spacing"
+msgstr "Bokstavsavstånd"
+
+#: assets/build/editor-app.js:2
+msgid "Transform"
+msgstr "Förvandla"
+
+#: assets/build/editor-app.js:2
+msgid "Normal"
+msgstr "Normal"
+
+#: assets/build/editor-app.js:2
+msgid "Capitalize"
+msgstr "Versalisera"
+
+#: assets/build/editor-app.js:2
+msgid "Uppercase"
+msgstr "Versaler"
+
+#: assets/build/editor-app.js:2
+msgid "Lowercase"
+msgstr "gemener"
+
+#: assets/build/editor-app.js:2
+msgid "Decoration"
+msgstr "Dekoration"
+
+#: assets/build/editor-app.js:2
+msgid "None"
+msgstr "Ingen"
+
+#: core/assets.php:83
+#: assets/build/editor-app.js:2
+msgid "Underline"
+msgstr "Understrykning"
+
+#: assets/build/editor-app.js:2
+msgid "Overline"
+msgstr "Överlinje"
+
+#: assets/build/editor-app.js:2
+msgid "Line Through"
+msgstr "Genomstruken"
+
+#: assets/build/editor-app.js:2
+msgid "%"
+msgstr "%"
+
+#: assets/build/editor-app.js:2
+msgid "Top"
+msgstr "Topp"
+
+#: assets/build/editor-app.js:2
+msgid "Right"
+msgstr "Rätt"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom"
+msgstr "Botten"
+
+#: assets/build/editor-app.js:2
+msgid "Left"
+msgstr "Vänster"
+
+#: assets/build/editor-app.js:2
+msgid "Clear"
+msgstr "Klar"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Select Color"
+msgstr "Välj färg"
+
+#: assets/build/editor-app.js:2
+msgid "Width"
+msgstr "Bredd"
+
+#: assets/build/editor-app.js:2
+msgid "Radius"
+msgstr "Radie"
+
+#: assets/build/editor-app.js:2
+msgid "Color"
+msgstr "Färg"
+
+#: assets/build/editor-app.js:2
+msgid "Border"
+msgstr "Gräns"
+
+#: assets/build/editor-app.js:2
+msgid "Hover"
+msgstr "Svänga"
+
+#: assets/build/editor-app.js:2
+msgid "Solid"
+msgstr "Solid"
+
+#: assets/build/editor-app.js:2
+msgid "Dotted"
+msgstr "Prickig"
+
+#: assets/build/editor-app.js:2
+msgid "Dashed"
+msgstr "Streckad"
+
+#: assets/build/editor-app.js:2
+msgid "Double"
+msgstr "Dubbel"
+
+#: assets/build/editor-app.js:2
+msgid "Groove"
+msgstr "Rytm"
+
+#: assets/build/editor-app.js:2
+msgid "Inset"
+msgstr "Infoga"
+
+#: assets/build/editor-app.js:2
+msgid "Outset"
+msgstr "Början"
+
+#: assets/build/editor-app.js:2
+msgid "Ridge"
+msgstr "Ås"
+
+#: assets/build/editor-app.js:2
+msgid "Please add a option props to MultiButtonsControl"
+msgstr "Vänligen lägg till en alternativrekvisita till MultiButtonsControl"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 1"
+msgstr "Förinställning 1"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 2"
+msgstr "Förinställning 2"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 3"
+msgstr "Förinställning 3"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 4"
+msgstr "Förinställning 4"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 5"
+msgstr "Förinställning 5"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 6"
+msgstr "Förinställning 6"
+
+#: assets/build/editor-app.js:2
+msgid "Select Preset"
+msgstr "Välj förinställning"
+
+#: assets/build/editor-app.js:2
+msgid "Basic"
+msgstr "Grundläggande"
+
+#: assets/build/editor-app.js:2
+msgid "Color 1"
+msgstr "Färg 1"
+
+#: assets/build/editor-app.js:2
+msgid "Color 2"
+msgstr "Färg 2"
+
+#: assets/build/editor-app.js:2
+msgid "Type"
+msgstr "Typ"
+
+#: assets/build/editor-app.js:2
+msgid "Linear"
+msgstr "Linjär"
+
+#: assets/build/editor-app.js:2
+msgid "Radial"
+msgstr "Radiell"
+
+#: assets/build/editor-app.js:2
+msgid "Location 1"
+msgstr "Plats 1"
+
+#: assets/build/editor-app.js:2
+msgid "Location 2"
+msgstr "Plats 2"
+
+#: assets/build/editor-app.js:2
+msgid "Angle"
+msgstr "Vinkel"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Confirm"
+msgstr "Bekräfta"
+
+#: assets/build/editor-app.js:2
+msgid "Processing…"
+msgstr "Bearbetar…"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Image"
+msgstr "Bild"
+
+#: assets/build/editor-app.js:2
+msgid "Select Video"
+msgstr "Välj video"
+
+#: assets/build/editor-app.js:2
+msgid "Change Video"
+msgstr "Byt video"
+
+#: assets/build/editor-app.js:2
+msgid "Select Lottie Animation"
+msgstr "Välj Lottie-animation"
+
+#: assets/build/editor-app.js:2
+msgid "Change Lottie Animation"
+msgstr "Ändra Lottie-animation"
+
+#: assets/build/editor-app.js:2
+msgid "Upload SVG"
+msgstr "Ladda upp SVG"
+
+#: assets/build/editor-app.js:2
+msgid "Change SVG"
+msgstr "Ändra SVG"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Select Image"
+msgstr "Välj bild"
+
+#: assets/build/editor-app.js:2
+msgid "Change Image"
+msgstr "Byt bild"
+
+#: assets/build/editor-app.js:2
+msgid "data object is empty"
+msgstr "dataobjektet är tomt"
+
+#: assets/build/editor-app.js:2
+msgid "Upload SVG?"
+msgstr "Ladda upp SVG?"
+
+#: assets/build/editor-app.js:2
+msgid "Upload SVG can be potentially risky. Are you sure?"
+msgstr "Att ladda upp SVG kan potentiellt vara riskabelt. Är du säker?"
+
+#: assets/build/editor-app.js:2
+msgid "Upload Anyway"
+msgstr "Ladda upp ändå"
+
+#: assets/build/editor-app.js:2
+msgid "Position"
+msgstr "Position"
+
+#: assets/build/editor-app.js:2
+msgid "Gradient"
+msgstr "Gradient"
+
+#: assets/build/editor-app.js:2
+msgid "Classic"
+msgstr "Klassisk"
+
+#: assets/build/editor-app.js:2
+msgid "Auto"
+msgstr "Bil"
+
+#: assets/build/editor-app.js:2
+msgid "Cover"
+msgstr "Omslag"
+
+#: assets/build/editor-app.js:2
+msgid "Contain"
+msgstr "Innehålla"
+
+#: assets/build/editor-app.js:2
+msgid "Custom"
+msgstr "Anpassad"
+
+#: assets/build/editor-app.js:2
+msgid "Overlay Opacity"
+msgstr "Överläggsopacitet"
+
+#: assets/build/editor-app.js:2
+msgid "Image Position"
+msgstr "Bildposition"
+
+#: assets/build/editor-app.js:2
+msgid "Top Left"
+msgstr "Övre vänster"
+
+#: assets/build/editor-app.js:2
+msgid "Top Center"
+msgstr "Överst i mitten"
+
+#: assets/build/editor-app.js:2
+msgid "Top Right"
+msgstr "Övre högra"
+
+#: assets/build/editor-app.js:2
+msgid "Center Top"
+msgstr "Övre mitten"
+
+#: assets/build/editor-app.js:2
+msgid "Center Center"
+msgstr "Center Center"
+
+#: assets/build/editor-app.js:2
+msgid "Center Bottom"
+msgstr "Centrum Botten"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom Left"
+msgstr "Nedersta vänstra"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom Center"
+msgstr "Nederkantens mitt"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom Right"
+msgstr "Nederst till höger"
+
+#: assets/build/editor-app.js:2
+msgid "Attachment"
+msgstr "Bifogad fil"
+
+#: assets/build/editor-app.js:2
+msgid "Fixed"
+msgstr "Fast"
+
+#: assets/build/editor-app.js:2
+msgid "Scroll"
+msgstr "Bläddra"
+
+#: assets/build/editor-app.js:2
+msgid "Blend Mode"
+msgstr "Blandningsläge"
+
+#: assets/build/editor-app.js:2
+msgid "Multiply"
+msgstr "Multiplicera"
+
+#: assets/build/editor-app.js:2
+msgid "Screen"
+msgstr "Skärm"
+
+#: assets/build/editor-app.js:2
+msgid "Overlay"
+msgstr "Överlagring"
+
+#: assets/build/editor-app.js:2
+msgid "Darken"
+msgstr "Mörkna"
+
+#: assets/build/editor-app.js:2
+msgid "Lighten"
+msgstr "Lätta"
+
+#: assets/build/editor-app.js:2
+msgid "Color Dodge"
+msgstr "Färg undvik"
+
+#: assets/build/editor-app.js:2
+msgid "Saturation"
+msgstr "Mättnad"
+
+#: assets/build/editor-app.js:2
+msgid "Repeat"
+msgstr "Upprepa"
+
+#: assets/build/editor-app.js:2
+msgid "No Repeat"
+msgstr "Ingen upprepning"
+
+#: assets/build/editor-app.js:2
+msgid "Repeat-x"
+msgstr "Upprepa-x"
+
+#: assets/build/editor-app.js:2
+msgid "Repeat-y"
+msgstr "Upprepa-y"
+
+#: assets/build/editor-app.js:2
+msgid "Size"
+msgstr "Storlek"
+
+#: assets/build/editor-app.js:2
+msgid "PX"
+msgstr "PX"
+
+#: assets/build/editor-app.js:2
+msgid "EM"
+msgstr "EM"
+
+#: assets/build/editor-app.js:2
+msgid "X Position"
+msgstr "X-position"
+
+#: assets/build/editor-app.js:2
+msgid "Y Position"
+msgstr "Y-position"
+
+#: assets/build/editor-app.js:2
+msgid "VH"
+msgstr "VH"
+
+#: assets/build/editor-app.js:2
+msgid "Overlay Type"
+msgstr "Överläggningstyp"
+
+#: assets/build/editor-app.js:2
+msgid "Image Overlay Color"
+msgstr "Bildöverläggningsfärg"
+
+#: assets/build/editor-app.js:2
+msgid "Centralized Position"
+msgstr "Centraliserad position"
+
+#: assets/build/editor-app.js:2
+msgid "Fallback Image"
+msgstr "Reservbild"
+
+#: assets/build/editor-app.js:2
+msgid "This cover image will replace the background video in case that the video could not be loaded."
+msgstr "Denna omslagsbild kommer att ersätta bakgrundsvideon om videon inte kan laddas."
+
+#: assets/build/editor-app.js:2
+msgid "Box Shadow"
+msgstr "Skugga runt låda"
+
+#: assets/build/editor-app.js:2
+msgid "Inset (10px)"
+msgstr "Infoga (10px)"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Search…"
+msgstr "Sök…"
+
+#: assets/build/editor-app.js:2
+msgid "Open in new window"
+msgstr "Öppna i nytt fönster"
+
+#: assets/build/editor-app.js:2
+msgid "Add nofollow"
+msgstr "Lägg till nofollow"
+
+#: assets/build/editor-app.js:2
+msgid "Login Form"
+msgstr "Inloggningsformulär"
+
+#: assets/build/editor-app.js:2
+msgid "Disable Form"
+msgstr "Inaktivera formulär"
+
+#: assets/build/editor-app.js:2
+msgid "Use this if you only want users to log in with social login."
+msgstr "Använd detta om du bara vill att användare ska logga in med social inloggning."
+
+#: assets/build/editor-app.js:2
+msgid "Username Placeholder"
+msgstr "Användarnamn Platshållare"
+
+#: assets/build/editor-app.js:2
+msgid "Enter username placeholder"
+msgstr "Ange användarnamn platsinnehållare"
+
+#: assets/build/editor-app.js:2
+msgid "Password Placeholder"
+msgstr "Lösenordsplatshållare"
+
+#: assets/build/editor-app.js:2
+msgid "Enter password placeholder"
+msgstr "Ange lösenordsplatshållare"
+
+#: assets/build/editor-app.js:2
+msgid "Forgot Password Label"
+msgstr "Glömt lösenord-etikett"
+
+#: assets/build/editor-app.js:2
+msgid "Enter forgot password label"
+msgstr "Ange etiketten för glömt lösenord"
+
+#: assets/build/editor-app.js:2
+msgid "Hide Icon"
+msgstr "Dölj ikon"
+
+#: assets/build/editor-app.js:2
+msgid "Show Register Information"
+msgstr "Visa registerinformation"
+
+#: assets/build/editor-app.js:2
+msgid "Register Link"
+msgstr "Registreringslänk"
+
+#: assets/build/editor-app.js:2
+msgid "Overall Alignment"
+msgstr "Övergripande justering"
+
+#: assets/build/editor-app.js:2
+msgid "Center"
+msgstr "Centrum"
+
+#: assets/build/editor-app.js:2
+msgid "Success/Error Message"
+msgstr "Framgångs-/Felmeddelande"
+
+#: assets/build/editor-app.js:2
+msgid "View Success Message"
+msgstr "Visa framgångsmeddelande"
+
+#: assets/build/editor-app.js:2
+msgid "View Error Message"
+msgstr "Visa felmeddelande"
+
+#: assets/build/editor-app.js:2
+msgid "Redirects"
+msgstr "Omdirigeringar"
+
+#: assets/build/editor-app.js:2
+msgid "Logged in Message"
+msgstr "Inloggad meddelande"
+
+#: assets/build/editor-app.js:2
+msgid "The \"Logged In Message\" will be shown instead of this block on the frontend when the user visiting this page is already Logged In."
+msgstr "Meddelandet \"Inloggad\" kommer att visas istället för detta block på framsidan när användaren som besöker denna sida redan är inloggad."
+
+#: assets/build/editor-app.js:2
+msgid "Redirect After Login"
+msgstr "Omdirigera efter inloggning"
+
+#: assets/build/editor-app.js:2
+msgid "Enter URL"
+msgstr "Ange URL"
+
+#: assets/build/editor-app.js:2
+msgid "Default Redirect URL is homepage"
+msgstr "Standardomdirigerings-URL är hemsidan"
+
+#: assets/build/editor-app.js:2
+msgid "Redirect After Logout"
+msgstr "Omdirigera efter utloggning"
+
+#: assets/build/editor-app.js:2
+msgid "Form Controls"
+msgstr "Formulärkontroller"
+
+#: assets/build/editor-app.js:2
+msgid "Form Width"
+msgstr "Formulärbredd"
+
+#: assets/build/editor-app.js:2
+msgid "em"
+msgstr "em"
+
+#: assets/build/editor-app.js:2
+msgid "Padding"
+msgstr "Utfyllnad"
+
+#: assets/build/editor-app.js:2
+msgid "Row Gap"
+msgstr "Radavstånd"
+
+#: assets/build/editor-app.js:2
+msgid "Background"
+msgstr "Bakgrund"
+
+#: assets/build/editor-app.js:2
+msgid "Field Labels"
+msgstr "Fältetiketter"
+
+#: assets/build/editor-app.js:2
+msgid "Typography"
+msgstr "Typografi"
+
+#: assets/build/editor-app.js:2
+msgid "Text"
+msgstr "Text"
+
+#: assets/build/editor-app.js:2
+msgid "Input Fields"
+msgstr "Inmatningsfält"
+
+#: assets/build/editor-app.js:2
+msgid "Active"
+msgstr "Aktiv"
+
+#: assets/build/editor-app.js:2
+msgid "Input Typography"
+msgstr "Indata typografi"
+
+#: assets/build/editor-app.js:2
+msgid "Input Padding"
+msgstr "Indatamatning"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Size"
+msgstr "Kryssrute Storlek"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Background"
+msgstr "Bakgrund för kryssruta"
+
+#: assets/build/editor-app.js:2
+msgid "Check Color"
+msgstr "Kontrollera färg"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Border Width"
+msgstr "Kryssrutegränsbredd"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Border Radius"
+msgstr "Kryssrute Kantens Radie"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Border Color"
+msgstr "Kryssrute kantfärg"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Checkbox Glow"
+msgstr "Aktivera kryssrute-glöd"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Glow Color"
+msgstr "Färg på kryssrutekant"
+
+#: assets/build/editor-app.js:2
+msgid "Login Button"
+msgstr "Inloggningsknapp"
+
+#: assets/build/editor-app.js:2
+msgid "Button Icon"
+msgstr "Knappikon"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Position"
+msgstr "Ikonposition"
+
+#: assets/build/editor-app.js:2
+msgid "Before Text"
+msgstr "Före text"
+
+#: assets/build/editor-app.js:2
+msgid "After Text"
+msgstr "Efter text"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Spacing"
+msgstr "Ikonavstånd"
+
+#: assets/build/editor-app.js:2
+msgid "Alignment"
+msgstr "Justering"
+
+#: assets/build/editor-app.js:2
+msgid "Full"
+msgstr "Full"
+
+#: assets/build/editor-app.js:2
+msgid "Small"
+msgstr "Liten"
+
+#: assets/build/editor-app.js:2
+msgid "Medium"
+msgstr "Medium"
+
+#: assets/build/editor-app.js:2
+msgid "Large"
+msgstr "Stor"
+
+#: assets/build/editor-app.js:2
+msgid "Extra Large"
+msgstr "Extra stor"
+
+#: assets/build/editor-app.js:2
+msgid "Facebook Button"
+msgstr "Facebook-knapp"
+
+#: assets/build/editor-app.js:2
+msgid "Google Button"
+msgstr "Google-knapp"
+
+#: assets/build/editor-app.js:2
+msgid "Success Border Color"
+msgstr "Färgen på framgångsgränsen"
+
+#: assets/build/editor-app.js:2
+msgid "Success Background"
+msgstr "Framgångsbakgrund"
+
+#: assets/build/editor-app.js:2
+msgid "Success Text"
+msgstr "Framgångstext"
+
+#: assets/build/editor-app.js:2
+msgid "Error Border Color"
+msgstr "Felgränsfärg"
+
+#: assets/build/editor-app.js:2
+msgid "Error Background"
+msgstr "Fellbakgrund"
+
+#: assets/build/editor-app.js:2
+msgid "Error Text"
+msgstr "Feltext"
+
+#: assets/build/editor-app.js:2
+msgid "Horizontal"
+msgstr "Horisontell"
+
+#: assets/build/editor-app.js:2
+msgid "Vertical"
+msgstr "Vertikal"
+
+#: assets/build/editor-app.js:2
+msgid "Blur"
+msgstr "Oskärpa"
+
+#: assets/build/editor-app.js:2
+msgid "Spread"
+msgstr "Sprid"
+
+#: assets/build/editor-app.js:2
+msgid "Social Login"
+msgstr "Social inloggning"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Facebook Login"
+msgstr "Aktivera Facebook-inloggning"
+
+#: assets/build/editor-app.js:2
+msgid "Please configure Facebook App settings from"
+msgstr "Vänligen konfigurera Facebook-appens inställningar från"
+
+#: assets/build/editor-app.js:2
+msgid "here"
+msgstr "här"
+
+#: assets/build/editor-app.js:2
+msgid "Button Size"
+msgstr "Knappstorlek"
+
+#: assets/build/editor-app.js:2
+msgid "Facebook Login Button"
+msgstr "Facebook-inloggningsknapp"
+
+#: assets/build/editor-app.js:2
+msgid "Enter Login Button Text"
+msgstr "Ange text för inloggningsknapp"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Google Login"
+msgstr "Aktivera Google-inloggning"
+
+#: assets/build/editor-app.js:2
+msgid "Please configure Google Client ID from"
+msgstr "Vänligen konfigurera Google-klient-ID från"
+
+#: assets/build/editor-app.js:2
+msgid "Google Login Button"
+msgstr "Google-inloggningsknapp"
+
+#: assets/build/editor-app.js:2
+msgid "Social Position"
+msgstr "Social ställning"
+
+#: assets/build/editor-app.js:2
+msgid "Below Form"
+msgstr "Nedanstående formulär"
+
+#: assets/build/editor-app.js:2
+msgid "Above Form"
+msgstr "Ovanstående formulär"
+
+#: assets/build/editor-app.js:2
+msgid "Social Login Alignment"
+msgstr "Justering av social inloggning"
+
+#: assets/build/editor-app.js:2
+msgid "Social Buttons Layout"
+msgstr "Layout för sociala knappar"
+
+#: assets/build/editor-app.js:2
+msgid "Inline"
+msgstr "Inbyggd"
+
+#: assets/build/editor-app.js:2
+msgid "Stack"
+msgstr "Stack"
+
+#: assets/build/editor-app.js:2
+msgid "Note: Choose Stack Options For all devices."
+msgstr "Obs: Välj stackalternativ för alla enheter."
+
+#: assets/build/editor-app.js:2
+msgid "Reverse Social Buttons"
+msgstr "Omvända sociala knappar"
+
+#: assets/build/editor-app.js:2
+msgid "Gap Between Buttons"
+msgstr "Avstånd mellan knappar"
+
+#: assets/build/editor-app.js:2
+msgid "Google reCAPTCHA"
+msgstr "Google reCAPTCHA"
+
+#: assets/build/editor-app.js:2
+msgid "P.S. Note that If you are using two forms on the same page with the different reCAPTCHA versions (V2 checkbox and V3), it will create conflicts between the versions. Kindly avoid using different versions on same page. "
+msgstr "P.S. Observera att om du använder två formulär på samma sida med olika reCAPTCHA-versioner (V2 kryssruta och V3) kommer det att skapa konflikter mellan versionerna. Undvik vänligen att använda olika versioner på samma sida."
+
+#: assets/build/editor-app.js:2
+msgid "Enable reCAPTCHA"
+msgstr "Aktivera reCAPTCHA"
+
+#: assets/build/editor-app.js:2
+msgid "Please configure the Google reCAPTCHA Site & Secret key from"
+msgstr "Vänligen konfigurera Google reCAPTCHA webbplats- och hemliga nyckel från"
+
+#: assets/build/editor-app.js:2
+msgid "Select Version"
+msgstr "Välj version"
+
+#: assets/build/editor-app.js:2
+msgid "V2"
+msgstr "V2"
+
+#: assets/build/editor-app.js:2
+msgid "V3"
+msgstr "V3"
+
+#: assets/build/editor-app.js:2
+msgid "Input Fields Icon"
+msgstr "Ikon för inmatningsfält"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Size"
+msgstr "Ikonstorlek"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Color"
+msgstr "Ikonfärg"
+
+#: assets/build/editor-app.js:2
+msgid "Border Width"
+msgstr "Kantbredd"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Border Color"
+msgstr "Kantfärg"
+
+#: assets/build/editor-app.js:2
+msgid "Eye Icon"
+msgstr "Ögonikon"
+
+#: assets/build/editor-app.js:2
+msgid "Password Eye Color"
+msgstr "Lösenord Ögonfärg"
+
+#: assets/build/editor-app.js:2
+msgid "Register Information"
+msgstr "Registrera information"
+
+#: assets/build/editor-app.js:2
+msgid "This is an example success message."
+msgstr "Detta är ett exempel på ett lyckat meddelande."
+
+#: assets/build/editor-app.js:2
+msgid "Error"
+msgstr "Fel"
+
+#: assets/build/editor-app.js:2
+msgid ": This is an example error message."
+msgstr ": Detta är ett exempel på ett felmeddelande."
+
+#: assets/build/editor-app.js:2
+msgid "Remember Me"
+msgstr "Kom ihåg mig"
+
+#: assets/build/editor-app.js:2
+msgid "Do not have an account?"
+msgstr "Har du inget konto?"
+
+#: assets/build/editor-app.js:2
+msgid "login"
+msgstr "logga in"
+
+#: assets/build/editor-app.js:2
+msgid "This block lets you add Login functionality."
+msgstr "Det här blocket låter dig lägga till inloggningsfunktionalitet."
+
+#: assets/build/editor-app.js:2
+msgid "admin login"
+msgstr "administratörsinloggning"
+
+#: assets/build/editor-app.js:2
+msgid "portal"
+msgstr "portal"
+
+#: assets/build/editor-app.js:2
+msgid "frontend login"
+msgstr "frontend-inloggning"
+
+#: assets/build/editor-app.js:2
+msgid "user login"
+msgstr "användarinloggning"
+
+#: assets/build/editor-app.js:2
+msgid "custom login"
+msgstr "anpassad inloggning"
+
+#: assets/build/editor-app.js:2
+msgid "Registration Form"
+msgstr "Registreringsformulär"
+
+#: assets/build/editor-app.js:2
+msgid "Hide Label"
+msgstr "Dölj etikett"
+
+#: assets/build/editor-app.js:2
+msgid "Show Login Information"
+msgstr "Visa inloggningsinformation"
+
+#: assets/build/editor-app.js:2
+msgid "Login Link"
+msgstr "Inloggningslänk"
+
+#: assets/build/editor-app.js:2
+msgid "Register Button"
+msgstr "Registrera-knapp"
+
+#: assets/build/editor-app.js:2
+msgid "Social Registration"
+msgstr "Social registrering"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Facebook Registration"
+msgstr "Aktivera Facebook-registrering"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Google Registration"
+msgstr "Aktivera Google-registrering"
+
+#: assets/build/editor-app.js:2
+msgid "Social Registration Alignment"
+msgstr "Social registreringsjustering"
+
+#: assets/build/editor-app.js:2
+msgid "After Registration Actions"
+msgstr "Åtgärder efter registrering"
+
+#: assets/build/editor-app.js:2
+msgid "Redirect"
+msgstr "Omdirigera"
+
+#: assets/build/editor-app.js:2
+msgid "Auto Login"
+msgstr "Automatisk inloggning"
+
+#: assets/build/editor-app.js:2
+msgid "Send Email"
+msgstr "Skicka e-post"
+
+#: assets/build/editor-app.js:2
+msgid "Redirect URL"
+msgstr "Omdirigera URL"
+
+#: assets/build/editor-app.js:2
+msgid "Email Template"
+msgstr "E-postmall"
+
+#: assets/build/editor-app.js:2
+msgid "Customize Email Template"
+msgstr "Anpassa e-postmall"
+
+#: assets/build/editor-app.js:2
+msgid "Subject"
+msgstr "Ämne"
+
+#: assets/build/editor-app.js:2
+msgid "Message"
+msgstr "Meddelande"
+
+#: assets/build/editor-app.js:2
+msgid "HTML Supported"
+msgstr "HTML stöds"
+
+#: assets/build/editor-app.js:2
+msgid "Note:"
+msgstr "Notera:"
+
+#: assets/build/editor-app.js:2
+msgid "If you wish to send System Generated Password in the email content, use shortcode -"
+msgstr "Om du vill skicka systemgenererat lösenord i e-postinnehållet, använd kortkoden -"
+
+#: assets/build/editor-app.js:2
+msgid "Send As"
+msgstr "Skicka som"
+
+#: assets/build/editor-app.js:2
+msgid "HTML"
+msgstr "HTML"
+
+#: assets/build/editor-app.js:2
+msgid "Plain"
+msgstr "Enkel"
+
+#: assets/build/editor-app.js:2
+msgid "Make sure to update your post for changes to take effect."
+msgstr "Se till att uppdatera ditt inlägg för att ändringarna ska träda i kraft."
+
+#: assets/build/editor-app.js:2
+msgid "Return To Post"
+msgstr "Återgå till inlägg"
+
+#: assets/build/editor-app.js:2
+msgid "Validation Messages"
+msgstr "Valideringsmeddelanden"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Email"
+msgstr "Ogiltig e-postadress"
+
+#: assets/build/editor-app.js:2
+msgid "Email is missing"
+msgstr "E-post saknas"
+
+#: assets/build/editor-app.js:2
+msgid "Already Used Email"
+msgstr "Redan använd e-post"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Username"
+msgstr "Ogiltigt användarnamn"
+
+#: assets/build/editor-app.js:2
+msgid "Username already in use"
+msgstr "Användarnamnet är redan upptaget"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Password"
+msgstr "Ogiltigt lösenord"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Password Confirmed"
+msgstr "Ogiltigt lösenord bekräftat"
+
+#: assets/build/editor-app.js:2
+msgid "Terms & Condition Error"
+msgstr "Fel i villkor"
+
+#: assets/build/editor-app.js:2
+msgid "Other Errors"
+msgstr "Andra fel"
+
+#: assets/build/editor-app.js:2
+msgid "Successful Registration"
+msgstr "Lyckad registrering"
+
+#: assets/build/editor-app.js:2
+msgid "View Field Error Message"
+msgstr "Visa fältfelmeddelande"
+
+#: assets/build/editor-app.js:2
+msgid "Enable reCAPTCHA "
+msgstr "Aktivera reCAPTCHA"
+
+#: assets/build/editor-app.js:2
+msgid "Label Bottom Margin"
+msgstr "Etikettens nederkantmarginal"
+
+#: assets/build/editor-app.js:2
+msgid "Login Information"
+msgstr "Inloggningsinformation"
+
+#: assets/build/editor-app.js:2
+msgid "Link Text"
+msgstr "Länktext"
+
+#: assets/build/editor-app.js:2
+msgid "Field Error Text"
+msgstr "Fältfeltext"
+
+#: assets/build/editor-app.js:2
+msgid "This message will appear when everything worked fine."
+msgstr "Detta meddelande kommer att visas när allt fungerade bra."
+
+#: assets/build/editor-app.js:2
+msgid "This message will appear when something wrong is happening."
+msgstr "Detta meddelande visas när något går fel."
+
+#: assets/build/editor-app.js:2
+msgid "To use Registration Form on your site, please enable the"
+msgstr "För att använda registreringsformuläret på din webbplats, aktivera"
+
+#: assets/build/editor-app.js:2
+msgid "Anyone Can Register"
+msgstr "Vem som helst kan registrera sig"
+
+#: assets/build/editor-app.js:2
+msgid "setting from Dashboard -> Settings -> General -> Membership."
+msgstr "inställning från Instrumentpanel -> Inställningar -> Allmänt -> Medlemskap."
+
+#: assets/build/editor-app.js:2
+msgid "Register"
+msgstr "Registrera"
+
+#: assets/build/editor-app.js:2
+msgid "Already have an account?"
+msgstr "Har du redan ett konto?"
+
+#: assets/build/editor-app.js:2
+msgid "This block lets you add Registration functionality."
+msgstr "Detta block låter dig lägga till registreringsfunktionalitet."
+
+#: assets/build/editor-app.js:2
+msgid "register"
+msgstr "registrera"
+
+#: assets/build/editor-app.js:2
+msgid "admin register"
+msgstr "registrera administratör"
+
+#: assets/build/editor-app.js:2
+msgid "frontend register"
+msgstr "frontend registrera"
+
+#: assets/build/editor-app.js:2
+msgid "user register"
+msgstr "användarregistrering"
+
+#: assets/build/editor-app.js:2
+msgid "custom register"
+msgstr "anpassad registrering"
+
+#: assets/build/portals-app.js:2
+msgid "What's New?"
+msgstr "Vad är nytt?"
+
+#: assets/build/portals-app.js:2
+msgid "Dashboard"
+msgstr "Instrumentpanel"
+
+#: assets/build/portals-app.js:2
+msgid "V %s"
+msgstr "V %s"
+
+#: assets/build/portals-app.js:2
+msgid "CORE"
+msgstr "KÄRNA"
+
+#: assets/build/portals-app.js:2
+msgid "Edit"
+msgstr "Redigera"
+
+#: assets/build/portals-app.js:2
+msgid "Popup Title"
+msgstr "Popup-titel"
+
+#: assets/build/portals-app.js:2
+msgid "Set Image"
+msgstr "Ange bild"
+
+#: assets/build/portals-app.js:2
+msgid "Upload Image"
+msgstr "Ladda upp bild"
+
+#: assets/build/portals-app.js:2
+msgid "Course Description"
+msgstr "Kursbeskrivning"
+
+#: assets/build/portals-app.js:2
+msgid "Space Name"
+msgstr "Rumsnamn"
+
+#: assets/build/portals-app.js:2
+msgid "Featured Image"
+msgstr "Utvald bild"
+
+#: assets/build/portals-app.js:2
+msgid "Upload at least 1000x200px image. Recommended size is 1920x384px."
+msgstr "Ladda upp minst en bild på 1000x200px. Rekommenderad storlek är 1920x384px."
+
+#: assets/build/portals-app.js:2
+msgid "Space Status"
+msgstr "Rymdstatus"
+
+#: assets/build/portals-app.js:2
+msgid "Draft"
+msgstr "Utkast"
+
+#: assets/build/portals-app.js:2
+msgid "Publish"
+msgstr "Publicera"
+
+#: assets/build/portals-app.js:2
+msgid "Enable Lesson Comments"
+msgstr "Aktivera lektionskommentarer"
+
+#: assets/build/portals-app.js:2
+msgid "Enable Feed Comments"
+msgstr "Aktivera flödeskommentarer"
+
+#: assets/build/portals-app.js:2
+msgid "Enable Comments"
+msgstr "Aktivera kommentarer"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow viewers to comment on this course lessons."
+msgstr "Om du aktiverar detta kommer tittarna att kunna kommentera kurslektionerna."
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow viewers to comment on individual feeds."
+msgstr "Om du aktiverar detta kommer tittarna att kunna kommentera enskilda flöden."
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow viewers to comment on this space."
+msgstr "Om du aktiverar detta kommer tittarna att kunna kommentera i detta utrymme."
+
+#: assets/build/portals-app.js:2
+msgid "Default Content"
+msgstr "Standardinnehåll"
+
+#: assets/build/portals-app.js:2
+msgid "Course Sections"
+msgstr "Kursavsnitt"
+
+#: assets/build/portals-app.js:2
+msgid "Add Section"
+msgstr "Lägg till avsnitt"
+
+#: assets/build/portals-app.js:2
+msgid "Section:"
+msgstr "Avsnitt:"
+
+#: assets/build/portals-app.js:2
+msgid "Add Lesson"
+msgstr "Lägg till lektion"
+
+#: assets/build/portals-app.js:2
+msgid "You need to delete the lessons in this section first."
+msgstr "Du måste ta bort lektionerna i den här sektionen först."
+
+#: assets/build/portals-app.js:2
+msgid "Are you sure you want to remove this section?"
+msgstr "Är du säker på att du vill ta bort den här sektionen?"
+
+#: assets/build/portals-app.js:2
+msgid "You can not remove the last section."
+msgstr "Du kan inte ta bort den sista sektionen."
+
+#: assets/build/portals-app.js:2
+msgid "Remove"
+msgstr "Ta bort"
+
+#: assets/build/portals-app.js:2
+msgid "Collapse"
+msgstr "Kollaps"
+
+#: assets/build/portals-app.js:2
+msgid "Expand"
+msgstr "Expandera"
+
+#: assets/build/portals-app.js:2
+msgid "Delete Lesson"
+msgstr "Ta bort lektion"
+
+#: assets/build/portals-app.js:2
+msgid "Are you sure you want to remove this lesson? This action will permanently delete the lesson post."
+msgstr "Är du säker på att du vill ta bort denna lektion? Denna åtgärd kommer att permanent radera lektionsinlägget."
+
+#: assets/build/portals-app.js:2
+msgid "Choose Content Group"
+msgstr "Välj innehållsgrupp"
+
+#: assets/build/portals-app.js:2
+msgid "Please add at least 1 character to search"
+msgstr "Vänligen lägg till minst 1 tecken för att söka"
+
+#: assets/build/portals-app.js:2
+msgid "Pinned Content Post"
+msgstr "Fäst innehållsinlägg"
+
+#: assets/build/portals-app.js:2
+msgid "Link URL"
+msgstr "Länk URL"
+
+#: assets/build/portals-app.js:2
+msgid "Link Target"
+msgstr "Länkmål"
+
+#: assets/build/portals-app.js:2
+msgid "Same Window"
+msgstr "Samma fönster"
+
+#: assets/build/portals-app.js:2
+msgid "New Window"
+msgstr "Nytt fönster"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Topic Forum"
+msgstr "Välj ämnesforum"
+
+#: assets/build/portals-app.js:2
+msgid "Pinned Topic Post"
+msgstr "Fäst ämnesinlägg"
+
+#: assets/build/portals-app.js:2
+msgid "Make Discussions Private"
+msgstr "Gör diskussioner privata"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this makes all discussions private between portal managers and the topic creator."
+msgstr "Om du aktiverar detta görs alla diskussioner privata mellan portalansvariga och ämnesskaparen."
+
+#: assets/build/portals-app.js:2
+msgid "All Posts"
+msgstr "Alla inlägg"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Video Post"
+msgstr "Välj videoinlägg"
+
+#: assets/build/portals-app.js:2
+msgid "Video Type"
+msgstr "Videotyp"
+
+#: assets/build/portals-app.js:2
+msgid "Single"
+msgstr "Enkel"
+
+#: assets/build/portals-app.js:2
+msgid "Playlist"
+msgstr "Spellista"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Video Posts"
+msgstr "Välj videoinlägg"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Post/Page/Template"
+msgstr "Välj Inlägg/Sida/Mall"
+
+#: assets/build/portals-app.js:2
+msgid "Content Type"
+msgstr "Innehållstyp"
+
+#: assets/build/portals-app.js:2
+msgid "Post Content Type"
+msgstr "Inläggsinnehållstyp"
+
+#: assets/build/portals-app.js:2
+msgid "Full Content"
+msgstr "Fullständigt innehåll"
+
+#: assets/build/portals-app.js:2
+msgid "Excerpt"
+msgstr "Utdrag"
+
+#: assets/build/portals-app.js:2
+msgid "Container Type"
+msgstr "Containertyp"
+
+#: assets/build/portals-app.js:2
+msgid "Full Width"
+msgstr "Full bredd"
+
+#: assets/build/portals-app.js:2
+msgid "Narrow Width"
+msgstr "Smal bredd"
+
+#: assets/build/portals-app.js:2
+msgid "Space Group Name"
+msgstr "Rymdgruppens namn"
+
+#: assets/build/portals-app.js:2
+msgid "Short Description"
+msgstr "Kort beskrivning"
+
+#: assets/build/portals-app.js:2
+msgid "Enter a short description for the space group."
+msgstr "Ange en kort beskrivning för rymdgruppen."
+
+#: assets/build/portals-app.js:2
+msgid "Pinned Section"
+msgstr "Fäst sektion"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this section will remove space group title and display the spaces directly."
+msgstr "Om du aktiverar det här avsnittet kommer gruppens titel att tas bort och utrymmena visas direkt."
+
+#: assets/build/portals-app.js:2
+msgid "Add Home Link"
+msgstr "Lägg till hem-länk"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will add a home link to the section."
+msgstr "Om du aktiverar detta kommer en hem-länk att läggas till i avsnittet."
+
+#: assets/build/portals-app.js:2
+msgid "No Icons Found."
+msgstr "Inga ikoner hittades."
+
+#: assets/build/portals-app.js:2
+msgid "Saving…"
+msgstr "Sparar…"
+
+#: assets/build/portals-app.js:2
+msgid "Saved"
+msgstr "Sparad"
+
+#: assets/build/portals-app.js:2
+msgid "Settings Saved Successfully!"
+msgstr "Inställningar sparade framgångsrikt!"
+
+#: assets/build/portals-app.js:2
+msgid "Failed to Save."
+msgstr "Det gick inte att spara."
+
+#: assets/build/portals-app.js:2
+msgid "Error updating settings: "
+msgstr "Fel vid uppdatering av inställningar:"
+
+#: assets/build/portals-app.js:2
+msgid "Space"
+msgstr "Mellanrum"
+
+#: assets/build/portals-app.js:2
+msgid "Delete"
+msgstr "Radera"
+
+#: assets/build/portals-app.js:2
+msgid "Create Your First Space Group"
+msgstr "Skapa din första rymdgrupp"
+
+#: assets/build/portals-app.js:2
+msgid "Start by adding a Space Groups, and then add Spaces."
+msgstr "Börja med att lägga till en Rymdgrupp och lägg sedan till Rymder."
+
+#: assets/build/portals-app.js:2
+msgid "Add Space Group"
+msgstr "Lägg till grupp"
+
+#: assets/build/portals-app.js:2
+msgid "Space Group"
+msgstr "Rymdgrupp"
+
+#: assets/build/portals-app.js:2
+msgid "Are you sure you want to delete this"
+msgstr "Är du säker på att du vill ta bort detta"
+
+#: assets/build/portals-app.js:2
+msgid "Delete it"
+msgstr "Ta bort det"
+
+#: assets/build/portals-app.js:2
+msgid "Create Space Group"
+msgstr "Skapa grupp för utrymme"
+
+#: assets/build/portals-app.js:2
+msgid "New Space Group"
+msgstr "Ny rymdgrupp"
+
+#: assets/build/portals-app.js:2
+msgid "Back"
+msgstr "Tillbaka"
+
+#: assets/build/portals-app.js:2
+msgid "Creating…"
+msgstr "Skapar…"
+
+#: assets/build/portals-app.js:2
+msgid "Ready…"
+msgstr "Klar…"
+
+#: assets/build/portals-app.js:2
+msgid "Failed!"
+msgstr "Misslyckades!"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Space Content Type"
+msgstr "Välj innehållstyp för utrymme"
+
+#: assets/build/portals-app.js:2
+msgid "Continue"
+msgstr "Fortsätt"
+
+#: assets/build/portals-app.js:2
+msgid "A blank space."
+msgstr "Ett tomt utrymme."
+
+#: assets/build/portals-app.js:2
+msgid "Post"
+msgstr "Inlägg"
+
+#: assets/build/portals-app.js:2
+msgid "A space with WordPress post/page/template."
+msgstr "Ett utrymme med WordPress-inlägg/sida/mall."
+
+#: assets/build/portals-app.js:2
+msgid "A space with video content."
+msgstr "Ett utrymme med videoinnehåll."
+
+#: assets/build/portals-app.js:2
+msgid "A space with a redirecting link."
+msgstr "Ett utrymme med en omdirigerande länk."
+
+#: assets/build/portals-app.js:2
+msgid "Feed"
+msgstr "Mata"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Content feeds."
+msgstr "Ett utrymme med innehållsflöden."
+
+#: assets/build/portals-app.js:2
+msgid "Discussion"
+msgstr "Diskussion"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Topic feeds."
+msgstr "Ett utrymme med ämnesflöden."
+
+#: assets/build/portals-app.js:2
+msgid "Pro"
+msgstr "Proffs"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Course content."
+msgstr "Ett utrymme med kursinnehåll."
+
+#: assets/build/portals-app.js:2
+msgid "Event"
+msgstr "Händelse"
+
+#: assets/build/portals-app.js:2
+msgid "Soon"
+msgstr "Snart"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Event content."
+msgstr "Ett utrymme med evenemangsinnehåll."
+
+#: assets/build/portals-app.js:2
+msgid "Form"
+msgstr "Formulär"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Form content."
+msgstr "Ett utrymme med formulärinnehåll."
+
+#: assets/build/portals-app.js:2
+msgid "Add a New"
+msgstr "Lägg till en ny"
+
+#: assets/build/portals-app.js:2
+msgid "Space Title"
+msgstr "Rymdtitel"
+
+#: assets/build/portals-app.js:2
+msgid "- Select -"
+msgstr "- Välj -"
+
+#: assets/build/portals-app.js:2
+msgid "– Create a Space Group –"
+msgstr "– Skapa en grupp –"
+
+#: assets/build/portals-app.js:2
+msgid "New Space Group Name"
+msgstr "Nytt namn på rymdgrupp"
+
+#: assets/build/portals-app.js:2
+msgid "Create Space"
+msgstr "Skapa utrymme"
+
+#: assets/build/portals-app.js:2
+msgid "No Spaces Found!"
+msgstr "Inga mellanslag hittades!"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will hide the SureDash branding from the public."
+msgstr "Om du aktiverar detta kommer SureDash-varumärket att döljas för allmänheten."
+
+#: assets/build/portals-app.js:2
+msgid "This feature is only available in SureDash Pro."
+msgstr "Den här funktionen är endast tillgänglig i SureDash Pro."
+
+#: assets/build/portals-app.js:2
+msgid "Portal Name"
+msgstr "Portalnamn"
+
+#: assets/build/portals-app.js:2
+msgid "Upload Logo"
+msgstr "Ladda upp logotyp"
+
+#: assets/build/portals-app.js:2
+msgid "Select Logo"
+msgstr "Välj logotyp"
+
+#: assets/build/portals-app.js:2
+msgid "Set Logo"
+msgstr "Ange logotyp"
+
+#: assets/build/portals-app.js:2
+msgid "Logo"
+msgstr "Logotyp"
+
+#: assets/build/portals-app.js:2
+msgid "Hide"
+msgstr "Dölj"
+
+#: assets/build/portals-app.js:2
+msgid "Branding"
+msgstr "Varumärke"
+
+#: assets/build/portals-app.js:2
+msgid "Make Community Private"
+msgstr "Gör gemenskapen privat"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will hide the community from the public and require a login to view."
+msgstr "Om du aktiverar detta kommer det att dölja gemenskapen från allmänheten och kräva inloggning för att visa."
+
+#: assets/build/portals-app.js:2
+msgid "Set Portal as Homepage"
+msgstr "Ange Portal som startsida"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this option will set the portal as your site homepage."
+msgstr "Om du aktiverar det här alternativet kommer portalen att ställas in som din webbplats startsida."
+
+#: assets/build/portals-app.js:2
+msgid "Content Post Type"
+msgstr "Innehållsinläggstyp"
+
+#: assets/build/portals-app.js:2
+msgid "Leverage the Content post type to create content feeds."
+msgstr "Använd innehållsinläggstypen för att skapa innehållsflöden."
+
+#: assets/build/portals-app.js:2
+msgid "Topic Post Type"
+msgstr "Ämnesinläggstyp"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow your users to create topics."
+msgstr "Om du aktiverar detta kommer dina användare att kunna skapa ämnen."
+
+#: assets/build/portals-app.js:2
+msgid "Enable Lightbox"
+msgstr "Aktivera Lightbox"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow lightweight lightbox for your content images."
+msgstr "Om du aktiverar detta kommer det att möjliggöra en lättviktig lightbox för dina innehållsbilder."
+
+#: assets/build/portals-app.js:2
+msgid "Google Registration"
+msgstr "Google-registrering"
+
+#: assets/build/portals-app.js:2
+msgid "Facebook Registration"
+msgstr "Facebook-registrering"
+
+#: assets/build/portals-app.js:2
+msgid "Facebook Token ID"
+msgstr "Facebook-token-ID"
+
+#: assets/build/portals-app.js:2
+msgid "Facebook Token Secret"
+msgstr "Facebook Tokenhemlighet"
+
+#: assets/build/portals-app.js:2
+msgid "Google reCaptcha"
+msgstr "Google reCaptcha"
+
+#: assets/build/portals-app.js:2
+msgid "reCaptcha v2 Site Key"
+msgstr "reCaptcha v2 webbplatsnyckel"
+
+#: assets/build/portals-app.js:2
+msgid "reCaptcha v3 Site Key"
+msgstr "reCaptcha v3 webbplatsnyckel"
+
+#: assets/build/portals-app.js:2
+msgid "Select Home Page"
+msgstr "Välj startsida"
+
+#: assets/build/portals-app.js:2
+msgid "Select Login Page"
+msgstr "Välj inloggningssida"
+
+#: assets/build/portals-app.js:2
+msgid "Select Registration Page"
+msgstr "Välj registreringssida"
+
+#: assets/build/portals-app.js:2
+msgid "No fonts found!"
+msgstr "Inga typsnitt hittades!"
+
+#: assets/build/portals-app.js:2
+msgid "Enter atleast 3 characters to search font family (default: Figtree). Font generation may take a few moments for self hosting."
+msgstr "Ange minst 3 tecken för att söka efter teckensnittsfamilj (standard: Figtree). Teckensnittsgenerering kan ta några ögonblick för egen hosting."
+
+#: assets/build/portals-app.js:2
+msgid "Global Container Type"
+msgstr "Global behållartyp"
+
+#: assets/build/portals-app.js:2
+msgid "Narrow Container Width"
+msgstr "Begränsad containerbredd"
+
+#: assets/build/portals-app.js:2
+msgid "Course Container Width"
+msgstr "Kursbehållarens bredd"
+
+#: assets/build/portals-app.js:2
+msgid "Container Spacing"
+msgstr "Behållaravstånd"
+
+#: assets/build/portals-app.js:2
+msgid "Global"
+msgstr "Global"
+
+#: assets/build/portals-app.js:2
+msgid "Primary Color"
+msgstr "Primärfärg"
+
+#: assets/build/portals-app.js:2
+msgid "Primary color is used for mainly base background color of the portal."
+msgstr "Primärfärgen används främst som basbakgrundsfärg för portalen."
+
+#: assets/build/portals-app.js:2
+msgid "Secondary Color"
+msgstr "Sekundärfärg"
+
+#: assets/build/portals-app.js:2
+msgid "Secondary color is used as secondary purposes under the portal."
+msgstr "Sekundärfärg används för sekundära ändamål under portalen."
+
+#: assets/build/portals-app.js:2
+msgid "Content Background Color"
+msgstr "Innehållets bakgrundsfärg"
+
+#: assets/build/portals-app.js:2
+msgid "Content background color is for mainly content background color of the portal."
+msgstr "Innehållets bakgrundsfärg är främst för portalens innehållsbakgrundsfärg."
+
+#: assets/build/portals-app.js:2
+msgid "Heading Color"
+msgstr "Rubrikfärg"
+
+#: assets/build/portals-app.js:2
+msgid "Text Color"
+msgstr "Textfärg"
+
+#: assets/build/portals-app.js:2
+msgid "Link Color"
+msgstr "Länkfärg"
+
+#: assets/build/portals-app.js:2
+msgid "Link Active Color"
+msgstr "Länk aktiv färg"
+
+#: assets/build/portals-app.js:2
+msgid "Text Selection Background Color"
+msgstr "Bakgrundsfärg för textmarkering"
+
+#: assets/build/portals-app.js:2
+msgid "Primary Button Color"
+msgstr "Primär knappfärg"
+
+#: assets/build/portals-app.js:2
+msgid "Primary Button Background Color"
+msgstr "Primär knapp bakgrundsfärg"
+
+#: assets/build/portals-app.js:2
+msgid "Secondary Button Color"
+msgstr "Sekundär knappfärg"
+
+#: assets/build/portals-app.js:2
+msgid "Secondary Button Background Color"
+msgstr "Sekundär knapp bakgrundsfärg"
+
+#: assets/build/portals-app.js:2
+msgid "Profile Links:"
+msgstr "Profil länkar:"
+
+#: assets/build/portals-app.js:2
+msgid "Add Link"
+msgstr "Lägg till länk"
+
+#: assets/build/portals-app.js:2
+msgid "Delete Link"
+msgstr "Radera länk"
+
+#: assets/build/portals-app.js:2
+msgid "New registered user will get these selected user roles capabilities."
+msgstr "Nyregistrerad användare kommer att få dessa utvalda användarrollers kapaciteter."
+
+#: assets/build/portals-app.js:2
+msgid "New User Capabilities"
+msgstr "Nya användarfunktioner"
+
+#: assets/build/portals-app.js:2
+msgid "Portal Managers"
+msgstr "Portalchefer"
+
+#: assets/build/portals-app.js:2
+msgid "Selected users will get admin notification and access to manage the portal."
+msgstr "Utvalda användare kommer att få administratörsmeddelande och tillgång till att hantera portalen."
+
+#: assets/build/portals-app.js:2
+msgid "Start typing…"
+msgstr "Börja skriva…"
+
+#: assets/build/portals-app.js:2
+msgid "Displays the username."
+msgstr "Visar användarnamnet."
+
+#: assets/build/portals-app.js:2
+msgid "Displays the password reset key."
+msgstr "Visar nyckeln för återställning av lösenord."
+
+#: assets/build/portals-app.js:2
+msgid "From Email"
+msgstr "Från e-post"
+
+#: assets/build/portals-app.js:2
+msgid "Forgot Password Mail Message"
+msgstr "Meddelande om glömt lösenord"
+
+#: assets/build/portals-app.js:2
+msgid "Drag and drop dynamic tags to the email message field."
+msgstr "Dra och släpp dynamiska taggar till e-postmeddelandefältet."
+
+#: assets/build/portals-app.js:2
+msgid "Welcome Text"
+msgstr "Välkomsttext"
+
+#: assets/build/portals-app.js:2
+msgid "No Posts Found"
+msgstr "Inga inlägg hittades"
+
+#: assets/build/portals-app.js:2
+msgid "Mark as Complete"
+msgstr "Markera som slutförd"
+
+#: assets/build/portals-app.js:2
+msgid "Start Writing Your Post"
+msgstr "Börja skriva ditt inlägg"
+
+#: assets/build/portals-app.js:2
+msgid "Write a Post"
+msgstr "Skriv ett inlägg"
+
+#: assets/build/portals-app.js:2
+msgid "No Topic Found"
+msgstr "Inget ämne hittades"
+
+#: assets/build/portals-app.js:2
+msgid "Restricted Content Heading"
+msgstr "Begränsat innehållsrubrik"
+
+#: assets/build/portals-app.js:2
+msgid "Restricted Content Notice"
+msgstr "Meddelande om Begränsat Innehåll"
+
+#: assets/build/portals-app.js:2
+msgid "Feeds Per Page"
+msgstr "Flöden per sida"
+
+#: assets/build/portals-app.js:2
+msgid "User Upload Limit"
+msgstr "Gräns för användaruppladdning"
+
+#: assets/build/portals-app.js:2
+msgid "Set the maximum upload limit for users to upload photo & cover image."
+msgstr "Ange den maximala uppladdningsgränsen för användare att ladda upp foto och omslagsbild."
+
+#: assets/build/portals-app.js:2
+msgid "Bypass WordPress Interactions"
+msgstr "Förbikoppla WordPress-interaktioner"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this option will bypass WordPress interactions within the portal and improve performance."
+msgstr "Om du aktiverar det här alternativet kommer WordPress-interaktioner inom portalen att kringgås och prestandan förbättras."
+
+#: assets/build/portals-app.js:2
+msgid "Activate"
+msgstr "Aktivera"
+
+#: assets/build/portals-app.js:2
+msgid "Deactivate"
+msgstr "Avaktivera"
+
+#: assets/build/portals-app.js:2
+msgid "Your license is activated"
+msgstr "Din licens är aktiverad"
+
+#: assets/build/portals-app.js:2
+msgid "Paste your license key here"
+msgstr "Klistra in din licensnyckel här"
+
+#: assets/build/portals-app.js:2
+msgid "You are using"
+msgstr "Du använder"
+
+#: assets/build/portals-app.js:2
+msgid "Activate %1$s%6$s%2$s to get professional support and automatic updates from your WordPress dashboard. If you don't have a license, you can %3$sget it here »%4$s %5$sPlease enter your license key below to activate %6$s!"
+msgstr "Aktivera %1$s%6$s%2$s för att få professionell support och automatiska uppdateringar från din WordPress-panel. Om du inte har en licens kan du %3$shämta den här »%4$s %5$sVänligen ange din licensnyckel nedan för att aktivera %6$s!"
+
+#: assets/build/portals-app.js:2
+msgid "Deactivating"
+msgstr "Avaktiverar"
+
+#: assets/build/portals-app.js:2
+msgid "Deactivated"
+msgstr "Inaktiverad"
+
+#: assets/build/portals-app.js:2
+msgid "Please enter a license key"
+msgstr "Vänligen ange en licensnyckel"
+
+#: assets/build/portals-app.js:2
+msgid "Activating"
+msgstr "Aktiverar"
+
+#: assets/build/portals-app.js:2
+msgid "Activated"
+msgstr "Aktiverad"
+
+#: assets/build/portals-app.js:2
+msgid "Community Settings"
+msgstr "Community-inställningar"
+
+#: assets/build/portals-app.js:2
+msgid "Social Settings"
+msgstr "Sociala inställningar"
+
+#: assets/build/portals-app.js:2
+msgid "Text Labels"
+msgstr "Textetiketter"
+
+#: assets/build/portals-app.js:2
+msgid "Display Settings"
+msgstr "Bildskärmsinställningar"
+
+#: assets/build/portals-app.js:2
+msgid "Performance Measures"
+msgstr "Prestandamått"
+
+#: assets/build/portals-app.js:2
+msgid "Design"
+msgstr "Design"
+
+#: assets/build/portals-app.js:2
+msgid "Layout"
+msgstr "Layout"
+
+#: assets/build/portals-app.js:2
+msgid "Colors"
+msgstr "Färger"
+
+#: assets/build/portals-app.js:2
+msgid "User Settings"
+msgstr "Användarinställningar"
+
+#: assets/build/portals-app.js:2
+msgid "Profile Management"
+msgstr "Profilhantering"
+
+#: assets/build/portals-app.js:2
+msgid "Access User Role"
+msgstr "Åtkomstanvändarroll"
+
+#: assets/build/portals-app.js:2
+msgid "Email Settings"
+msgstr "E-postinställningar"
+
+#: assets/build/portals-app.js:2
+msgid "Licensing"
+msgstr "Licensiering"
+
+#: core/blocks/social-login.php:47
+msgid "Invalid Data"
+msgstr "Ogiltiga data"
+
+#: core/blocks/social-login.php:59
+#: core/blocks/social-login.php:64
+#: core/blocks/social-login.php:73
+msgid "Invalid Authorization"
+msgstr "Ogiltig auktorisering"
+
+#: core/routers/backend.php:326
+#: core/routers/backend.php:367
+msgid "Invalid post type."
+msgstr "Ogiltig inläggstyp."
+
+#: inc/functions/operations.php:271
+msgid "User data not updated"
+msgstr "Användardata inte uppdaterad"
+
+#: admin/notices.php:54
+msgid "How likely are you to recommend SureDash to your friends or colleagues?"
+msgstr "Hur sannolikt är det att du skulle rekommendera SureDash till dina vänner eller kollegor?"
+
+#: admin/notices.php:55
+msgid "Thanks a lot for your feedback! 😍"
+msgstr "Tack så mycket för din feedback! 😍"
+
+#: admin/notices.php:56
+msgid "Could you please do us a favor and give us a 5-star rating on WordPress? It would help others choose SureDash with confidence. Thank you!"
+msgstr "Kan du göra oss en tjänst och ge oss en 5-stjärnig recension på WordPress? Det skulle hjälpa andra att välja SureDash med förtroende. Tack!"
+
+#: admin/notices.php:58
+msgid "Thank you for your feedback"
+msgstr "Tack för din feedback"
+
+#: admin/notices.php:59
+msgid "We value your input. How can we improve your experience?"
+msgstr "Vi värdesätter din feedback. Hur kan vi förbättra din upplevelse?"
+
+#: admin/notices.php:60
+msgid "Rate SureDash"
+msgstr "Betygsätt SureDash"
+
+#: assets/build/portals-app.js:2
+msgid "Note: You can add lessons later through the Course Builder in the edit area."
+msgstr "Obs: Du kan lägga till lektioner senare via Kursbyggaren i redigeringsområdet."
+
+#: assets/build/portals-app.js:2
+msgid "Google Client ID"
+msgstr "Google-klient-ID"
+
+#: assets/build/portals-app.js:2
+msgid "Google Client Secret"
+msgstr "Google klienthemlighet"
+
+#: admin/menu.php:223
+#: admin/menu.php:224
+msgid "Customize Portal"
+msgstr "Anpassa portalen"
+
+#: core/assets.php:81
+msgid "Bold"
+msgstr "Fetstil"
+
+#: core/assets.php:84
+msgid "Attach an Image"
+msgstr "Bifoga en bild"
+
+#: core/assets.php:85
+msgid "Attach a Video"
+msgstr "Bifoga en video"
+
+#: core/assets.php:86
+msgid "Image URL"
+msgstr "Bild-URL"
+
+#: core/assets.php:87
+msgid "Image Alt Text"
+msgstr "Bildens alt-text"
+
+#: core/assets.php:88
+msgid "Attach Image"
+msgstr "Bifoga bild"
+
+#: core/assets.php:89
+msgid "Drag and drop or browse files"
+msgstr "Dra och släpp eller bläddra bland filer"
+
+#: core/assets.php:91
+msgid "From URL"
+msgstr "Från URL"
+
+#: core/assets.php:92
+msgid "Attach Video"
+msgstr "Bifoga video"
+
+#: core/assets.php:93
+msgid "Video URL"
+msgstr "Video-URL"
+
+#: core/assets.php:94
+msgid "Insert YouTube or Vimeo link"
+msgstr "Infoga YouTube- eller Vimeo-länk"
+
+#: core/blocks/do-blocks.php:47
+#: inc/templator/service.php:215
+msgid "Community Portal"
+msgstr "Community Portal"
+
+#: core/blocks/do-blocks.php:105
+msgid "Active Space Text"
+msgstr "Aktivt utrymme text"
+
+#: core/blocks/do-blocks.php:118
+msgid "Active Space Background"
+msgstr "Aktiv rymdbakgrund"
+
+#: core/blocks/do-blocks.php:131
+msgid "Space Group Text"
+msgstr "Grupptext för rymd"
+
+#: core/blocks/do-blocks.php:144
+msgid "Space Group Background"
+msgstr "Bakgrund för rymdgruppen"
+
+#: core/routers/misc.php:817
+msgid "Invalid file type. Only GIF, PNG, JPEG, and JPG are allowed."
+msgstr "Ogiltig filtyp. Endast GIF, PNG, JPEG och JPG är tillåtna."
+
+#: core/routers/misc.php:822
+msgid "Uploaded file is not a valid image."
+msgstr "Den uppladdade filen är inte en giltig bild."
+
+#: core/routers/misc.php:826
+msgid "Image dimensions exceed the permissible limit."
+msgstr "Bildens dimensioner överskrider den tillåtna gränsen."
+
+#: core/routers/misc.php:830
+msgid "File size larger than permissible."
+msgstr "Filstorleken är större än tillåten."
+
+#: inc/functions/functions.php:1188
+msgid "No matching template found."
+msgstr "Ingen matchande mall hittades."
+
+#. translators: Represents the title of a user's custom template in the Site Editor, where %s is the author's name, e.g. "Author: Jane Doe".
+#: inc/templator/service.php:214
+msgid "SureDash: %s"
+msgstr "SureDash: %s"
+
+#: inc/templator/service.php:217
+#: inc/templator/utility.php:55
+msgid "Template for your SureDash community."
+msgstr "Mall för din SureDash-gemenskap."
+
+#: inc/templator/utility.php:232
+msgid "No theme is defined for this template."
+msgstr "Ingen tema är definierad för denna mall."
+
+#: inc/utils/labels.php:154
+msgid "Comment posted successfully."
+msgstr "Kommentaren har publicerats."
+
+#: inc/utils/labels.php:155
+msgid "Invalid comment."
+msgstr "Ogiltig kommentar."
+
+#: inc/utils/labels.php:156
+msgid "Duplicate comment detected. Please try writing something new!"
+msgstr "Duplicerad kommentar upptäckt. Försök att skriva något nytt!"
+
+#: inc/utils/labels.php:164
+msgid "Something went wrong! Please try again later."
+msgstr "Något gick fel! Försök igen senare."
+
+#: inc/utils/labels.php:167
+msgid "Replying to"
+msgstr "Svarar på"
+
+#: inc/utils/labels.php:169
+msgid "Start writing your post..."
+msgstr "Börja skriva ditt inlägg..."
+
+#: inc/utils/labels.php:172
+msgid "Search Gifs..."
+msgstr "Sök Gifs..."
+
+#: inc/utils/labels.php:175
+msgid "Insert GIF"
+msgstr "Infoga GIF"
+
+#: inc/utils/labels.php:176
+msgid "No GIF found"
+msgstr "Ingen GIF hittades"
+
+#: inc/utils/labels.php:178
+msgid "Please enter at least 3 characters to search"
+msgstr "Vänligen ange minst 3 tecken för att söka"
+
+#: inc/utils/labels.php:179
+msgid "API error occurred"
+msgstr "Ett API-fel inträffade"
+
+#: templates/patterns/default.php:12
+msgid "Classic Layout"
+msgstr "Klassisk layout"
+
+#: templates/patterns/modern.php:15
+msgid "Modern Layout"
+msgstr "Modern layout"
+
+#: assets/build/portals-app.js:2
+msgid "Thumbnail Image"
+msgstr "Miniatyrbild"
+
+#: assets/build/portals-app.js:2
+msgid "Recommended size: 255x140px"
+msgstr "Rekommenderad storlek: 255x140px"
+
+#: assets/build/portals-app.js:2
+msgid "Giphy Integration"
+msgstr "Giphy-integration"
+
+#: assets/build/portals-app.js:2
+msgid "API Key"
+msgstr "API-nyckel"
+
+#: assets/build/portals-app.js:2
+msgid "Allow SureDash products to track non-sensitive usage tracking data."
+msgstr "Tillåt SureDash-produkter att spåra icke-känslig användningsdata."
+
+#: assets/build/portals-app.js:2
+msgid "Want to help make SureDash even more awesome? Allow us to collect non-sensitive diagnostic data and usage information."
+msgstr "Vill du hjälpa till att göra SureDash ännu mer fantastiskt? Låt oss samla in icke-känslig diagnostisk data och användarinformation."
+
+#: assets/build/portals-app.js:2
+msgid "Know More"
+msgstr "Veta mer"
+
+#: assets/build/portals-app.js:2
+msgid "Usage Tracking"
+msgstr "Användningsspårning"
+
+#: core/cpt/content.php:40
+msgctxt "content general name"
+msgid "Content"
+msgstr "Innehåll"
+
+#: core/cpt/sub-content.php:39
+msgctxt "content general name"
+msgid "Sub Content"
+msgstr "Underinnehåll"
+
+#: core/cpt/topic.php:41
+msgctxt "content general name"
+msgid "Topic"
+msgstr "Ämne"
+
+#: core/cpt/content.php:41
+msgctxt "content singular name"
+msgid "Content"
+msgstr "Innehåll"
+
+#: core/cpt/sub-content.php:40
+msgctxt "content singular name"
+msgid "Sub Content"
+msgstr "Underinnehåll"
+
+#: core/cpt/topic.php:42
+msgctxt "content singular name"
+msgid "Topic"
+msgstr "Ämne"
+
+#: core/cpt/content.php:83
+msgctxt "Admin menu name"
+msgid "Content Groups"
+msgstr "Innehållsgrupper"
+
+#: core/cpt/portal.php:85
+msgctxt "Admin menu name"
+msgid "Portal Space Groups"
+msgstr "Portalens rymdgrupper"
+
+#: core/cpt/topic.php:84
+msgctxt "Admin menu name"
+msgid "Topic Forums"
+msgstr "Ämnesforum"
+
+#: core/cpt/portal.php:42
+msgctxt "portals general name"
+msgid "Portal Spaces"
+msgstr "Portalutrymmen"
+
+#: core/cpt/portal.php:43
+msgctxt "portal singular name"
+msgid "Portal Space"
+msgstr "Portalutrymme"
+
+#: inc/utils/labels.php:89
+msgctxt "Search global placeholder text!"
+msgid "Search"
+msgstr "Sök"
+
+#: inc/templator/utility.php:54
+msgctxt "SureDash Portal"
+msgid "SureDash: Portal"
+msgstr "SureDash: Portal"

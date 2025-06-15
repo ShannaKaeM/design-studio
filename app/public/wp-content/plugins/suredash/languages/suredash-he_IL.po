@@ -1,0 +1,3983 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: gpt-po v1.1.1\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-01-28T12:42:40+00:00\n"
+"PO-Revision-Date: 2025-01-28T12:42:40+00:00\n"
+"Language: \n"
+
+#. Plugin Name of the plugin
+#. Author of the plugin
+#: suredash.php
+#: admin/notices.php:53
+msgid "SureDash"
+msgstr "שורדאש"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: suredash.php
+msgid "https://suredash.com/"
+msgstr "https://suredash.com/"
+
+#. Description of the plugin
+#: suredash.php
+msgid "If you have users login to your website, you need this plugin to deliver an excellent experience to your users."
+msgstr "אם יש לך משתמשים שמתחברים לאתר שלך, אתה צריך את התוסף הזה כדי לספק חוויית משתמש מצוינת."
+
+#: admin/api.php:119
+msgid "Sorry, you cannot list resources."
+msgstr "מצטערים, אינך יכול לרשום משאבים."
+
+#: admin/editor.php:161
+msgid "Lesson Duration"
+msgstr "משך השיעור"
+
+#: admin/editor.php:201
+#: core/integrations/topic-categories.php:234
+#: core/integrations/topic-categories.php:263
+#: core/shortcodes/home-content.php:384
+msgid "Cover Image"
+msgstr "תמונת שער"
+
+#: admin/editor.php:202
+msgid "Media Embeds"
+msgstr "הטמעות מדיה"
+
+#: admin/menu.php:179
+#: admin/menu.php:180
+#: core/cpt/content.php:43
+#: inc/utils/labels.php:104
+#: assets/build/portals-app.js:2
+msgid "Content"
+msgstr "תוכן"
+
+#: admin/menu.php:187
+#: admin/menu.php:188
+#: core/cpt/content.php:79
+#: core/cpt/content.php:81
+#: core/routers/backend.php:670
+msgid "Content Groups"
+msgstr "קבוצות תוכן"
+
+#: admin/menu.php:197
+#: admin/menu.php:198
+#: core/cpt/topic.php:44
+#: assets/build/portals-app.js:2
+msgid "Topic"
+msgstr "נושא"
+
+#: admin/menu.php:205
+#: admin/menu.php:206
+#: core/cpt/topic.php:80
+#: core/cpt/topic.php:82
+#: core/routers/backend.php:670
+msgid "Topic Forums"
+msgstr "פורומים בנושא"
+
+#: admin/menu.php:214
+#: admin/menu.php:215
+#: admin/setup.php:59
+#: assets/build/portals-app.js:2
+msgid "Settings"
+msgstr "הגדרות"
+
+#: admin/menu.php:229
+#: inc/utils/settings.php:219
+#: assets/build/portals-app.js:2
+msgid "Home"
+msgstr "בית"
+
+#: admin/menu.php:430
+msgid "Administrator"
+msgstr "מנהל"
+
+#: admin/menu.php:447
+#: assets/build/portals-app.js:2
+msgid "Blank"
+msgstr "ריק"
+
+#: admin/menu.php:448
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Link"
+msgstr "קישור"
+
+#: admin/menu.php:449
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Video"
+msgstr "וידאו"
+
+#: admin/menu.php:450
+#: core/cpt/topic.php:83
+msgid "Topic Forum"
+msgstr "פורום נושא"
+
+#: admin/menu.php:451
+#: core/cpt/content.php:82
+msgid "Content Group"
+msgstr "קבוצת תוכן"
+
+#: admin/menu.php:452
+msgid "Post / Page / Template"
+msgstr "פוסט / עמוד / תבנית"
+
+#: admin/menu.php:560
+msgid "Uncategorized"
+msgstr "לא מסווג"
+
+#. translators: %s: html tags
+#: admin/notices.php:95
+msgid "The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!"
+msgstr "הפלאגין %1$s %2$s %3$s דורש עדכון של הפלאגין %1$s %4$s %3$s לגרסה %5$s או גבוהה יותר!"
+
+#: admin/setup.php:83
+#: admin/setup.php:93
+msgid "Portal Login"
+msgstr "כניסה לפורטל"
+
+#: admin/setup.php:88
+#: admin/setup.php:98
+msgid "Portal Register"
+msgstr "רישום פורטל"
+
+#: admin/setup.php:129
+msgid "Visit Portal"
+msgstr "בקר בפורטל"
+
+#: core/ajax/admin.php:58
+msgid "Topic Approved."
+msgstr "הנושא אושר."
+
+#: core/ajax/admin.php:78
+msgid "Topic Unapproved."
+msgstr "הנושא לא אושר."
+
+#: core/ajax/backend.php:55
+msgid "Invalid item ID."
+msgstr "מזהה פריט לא חוקי."
+
+#: core/ajax/backend.php:127
+#: core/routers/backend.php:432
+msgid "Invalid group ID."
+msgstr "מזהה קבוצה לא חוקי."
+
+#: inc/utils/labels.php:171
+msgid "Search User..."
+msgstr "חפש משתמש..."
+
+#: inc/utils/labels.php:173
+msgid "Add Mention"
+msgstr "הוסף אזכור"
+
+#: inc/utils/labels.php:174
+msgid "Insert Emoji"
+msgstr "הוסף אימוג'י"
+
+#: inc/utils/labels.php:177
+msgid "No user found"
+msgstr "לא נמצא משתמש"
+
+#: core/blocks/login.php:627
+msgid "Username or Email Address"
+msgstr "שם משתמש או כתובת אימייל"
+
+#: core/blocks/login.php:628
+#: inc/utils/labels.php:63
+#: assets/build/editor-app.js:2
+msgid "Password"
+msgstr "סיסמה"
+
+#. translators: %s: Attribute User Name Label value or This Field.
+#. translators: %s: Attribute Password Label value or This Field.
+#: core/blocks/login.php:715
+#: core/blocks/login.php:720
+msgid "%s cannot be blank."
+msgstr "%s לא יכול להיות ריק."
+
+#: core/blocks/login.php:716
+#: core/blocks/login.php:721
+msgid "This Field"
+msgstr "שדה זה"
+
+#: core/blocks/login.php:734
+#: core/blocks/register.php:378
+msgid "You have logged in successfully. Redirecting…"
+msgstr "התחברת בהצלחה. מפנה מחדש…"
+
+#. translators: %1$s user name
+#: core/blocks/login.php:838
+#: core/blocks/register.php:425
+msgid "You are logged in as %1$s (%2$sLogout%3$s)"
+msgstr "אתה מחובר כ-%1$s (%2$sהתנתק%3$s)"
+
+#: core/blocks/login.php:888
+#: assets/build/editor-app.js:2
+msgid "Show Password"
+msgstr "הצג סיסמה"
+
+#: core/blocks/register.php:84
+msgid "You have used an invalid email"
+msgstr "השתמשת בדוא\"ל לא חוקי"
+
+#: core/blocks/register.php:88
+msgid "Email is missing or invalid"
+msgstr "האימייל חסר או לא חוקי"
+
+#: core/blocks/register.php:92
+msgid "The provided email is already registered with another account. Please login or reset password or use another email."
+msgstr "כתובת האימייל שסופקה כבר רשומה עם חשבון אחר. אנא התחבר או אפס סיסמה או השתמש באימייל אחר."
+
+#: core/blocks/register.php:97
+msgid "You have used an invalid username"
+msgstr "השתמשת בשם משתמש לא חוקי"
+
+#: core/blocks/register.php:101
+msgid "Invalid username provided or the username is already registered."
+msgstr "שם משתמש לא חוקי סופק או שהשם משתמש כבר רשום."
+
+#: core/blocks/register.php:106
+msgid "Your password is invalid."
+msgstr "הסיסמה שלך אינה חוקית."
+
+#: core/blocks/register.php:110
+msgid "Your passwords do not match."
+msgstr "הסיסמאות שלך אינן תואמות."
+
+#: core/blocks/register.php:128
+msgid "Please accept the Terms and Conditions, and try again."
+msgstr "אנא קבל את התנאים וההגבלות ונסה שוב."
+
+#: core/blocks/register.php:132
+msgid "Something went wrong!"
+msgstr "משהו השתבש!"
+
+#: core/blocks/register.php:137
+msgid "Registration completed successfully. Check your inbox for password if you did not provide it while registering."
+msgstr "ההרשמה הושלמה בהצלחה. בדוק את תיבת הדואר הנכנס שלך עבור הסיסמה אם לא סיפקת אותה בעת ההרשמה."
+
+#: core/blocks/register.php:352
+msgid "cannot be blank."
+msgstr "לא יכול להיות ריק."
+
+#: core/blocks/register.php:353
+#: inc/utils/labels.php:65
+#: assets/build/editor-app.js:2
+msgid "First Name"
+msgstr "שם פרטי"
+
+#: core/blocks/register.php:354
+#: inc/utils/labels.php:66
+#: assets/build/editor-app.js:2
+msgid "Last Name"
+msgstr "שם משפחה"
+
+#: core/blocks/register.php:355
+msgid "This field"
+msgstr "שדה זה"
+
+#: core/blocks/register.php:887
+msgid "You have used an invalid email."
+msgstr "השתמשת בדוא\"ל לא חוקי."
+
+#: core/blocks/register.php:888
+#: assets/build/editor-app.js:2
+msgid "Please enter a valid email address."
+msgstr "אנא הזן כתובת דוא\"ל תקינה."
+
+#: core/blocks/register.php:889
+#: assets/build/editor-app.js:2
+msgid "Email already in use. Please try to sign in."
+msgstr "כתובת האימייל כבר בשימוש. אנא נסה להיכנס."
+
+#: core/blocks/register.php:890
+#: assets/build/editor-app.js:2
+msgid "Invalid user name. Please try again."
+msgstr "שם משתמש לא חוקי. אנא נסה שוב."
+
+#: core/blocks/register.php:891
+#: assets/build/editor-app.js:2
+msgid "Username is already taken."
+msgstr "שם המשתמש כבר תפוס."
+
+#: core/blocks/register.php:892
+#: assets/build/editor-app.js:2
+msgid "Password cannot be accepted. Please try something else."
+msgstr "לא ניתן לקבל את הסיסמה. אנא נסה משהו אחר."
+
+#: core/blocks/register.php:893
+#: inc/utils/labels.php:78
+#: assets/build/editor-app.js:2
+msgid "Passwords do not match."
+msgstr "הסיסמאות אינן תואמות."
+
+#: core/blocks/register.php:894
+#: assets/build/editor-app.js:2
+msgid "Please try again after accepting terms & conditions."
+msgstr "אנא נסה שוב לאחר קבלת התנאים וההגבלות."
+
+#: core/blocks/register.php:895
+#: assets/build/editor-app.js:2
+msgid "Something went wrong! Please try again."
+msgstr "משהו השתבש! אנא נסה שוב."
+
+#: core/blocks/register.php:896
+#: assets/build/editor-app.js:2
+msgid "Registration successful. Please check your email inbox."
+msgstr "ההרשמה הצליחה. אנא בדוק את תיבת הדואר האלקטרוני שלך."
+
+#: core/blocks/social-login.php:86
+msgid "You are already registered. Successfully logged in."
+msgstr "אתה כבר רשום. התחברת בהצלחה."
+
+#: core/blocks/social-login.php:91
+msgid "Successfully logged in."
+msgstr "התחברת בהצלחה."
+
+#: core/blocks/social-login.php:135
+msgid "successfully logged in"
+msgstr "התחברת בהצלחה"
+
+#: core/blocks/social-login.php:143
+msgid "You are not registered. please register first then try to login."
+msgstr "אינך רשום. אנא הירשם תחילה ולאחר מכן נסה להתחבר."
+
+#: core/blocks/social-login.php:170
+msgid "Something went wrong while creating the new user!"
+msgstr "משהו השתבש בעת יצירת המשתמש החדש!"
+
+#: core/cpt/content.php:42
+msgid "Search Content"
+msgstr "חפש תוכן"
+
+#: core/cpt/content.php:44
+msgid "Edit Content"
+msgstr "ערוך תוכן"
+
+#: core/cpt/content.php:45
+msgid "View Content"
+msgstr "הצג תוכן"
+
+#: core/cpt/content.php:46
+#: core/cpt/content.php:48
+#: core/cpt/portal.php:48
+#: core/cpt/portal.php:50
+#: core/cpt/sub-content.php:45
+#: core/cpt/sub-content.php:47
+#: core/cpt/topic.php:47
+#: core/cpt/topic.php:49
+#: assets/build/portals-app.js:2
+msgid "Add New"
+msgstr "הוסף חדש"
+
+#: core/cpt/content.php:47
+msgid "Update Content"
+msgstr "עדכן תוכן"
+
+#: core/cpt/content.php:49
+msgid "New Content Name"
+msgstr "שם תוכן חדש"
+
+#: core/cpt/content.php:50
+#: core/cpt/content.php:51
+msgid "No Content found."
+msgstr "לא נמצא תוכן."
+
+#: core/cpt/content.php:84
+msgid "Search category"
+msgstr "חפש קטגוריה"
+
+#: core/cpt/content.php:85
+msgid "All category"
+msgstr "כל הקטגוריות"
+
+#: core/cpt/content.php:86
+msgid "Parent category"
+msgstr "קטגוריית אב"
+
+#: core/cpt/content.php:87
+msgid "Parent category:"
+msgstr "קטגוריית אב:"
+
+#: core/cpt/content.php:88
+msgid "Edit category"
+msgstr "ערוך קטגוריה"
+
+#: core/cpt/content.php:89
+msgid "Update category"
+msgstr "עדכן קטגוריה"
+
+#: core/cpt/content.php:90
+msgid "Add new category"
+msgstr "הוסף קטגוריה חדשה"
+
+#: core/cpt/content.php:91
+msgid "New category name"
+msgstr "שם קטגוריה חדש"
+
+#: core/cpt/content.php:92
+msgid "No category found"
+msgstr "לא נמצאה קטגוריה"
+
+#: core/cpt/portal.php:44
+msgid "Search Space"
+msgstr "מרחב חיפוש"
+
+#: core/cpt/portal.php:45
+msgid "Portal Spaces"
+msgstr "מרחבי פורטל"
+
+#: core/cpt/portal.php:46
+#: assets/build/portals-app.js:2
+msgid "Edit Space"
+msgstr "ערוך מרחב"
+
+#: core/cpt/portal.php:47
+#: assets/build/portals-app.js:2
+msgid "View Space"
+msgstr "צפה במרחב"
+
+#: core/cpt/portal.php:49
+msgid "Update Space"
+msgstr "עדכן את החלל"
+
+#: core/cpt/portal.php:51
+msgid "New Space Name"
+msgstr "שם חלל חדש"
+
+#: core/cpt/portal.php:52
+#: core/cpt/portal.php:53
+msgid "No space found"
+msgstr "לא נמצא רווח"
+
+#: core/cpt/portal.php:81
+#: core/cpt/portal.php:83
+#: core/cpt/portal.php:84
+msgid "Portal Space Group"
+msgstr "פורטל ספייס גרופ"
+
+#: core/cpt/portal.php:86
+msgid "Search Space Group"
+msgstr "חפש קבוצת מרחב"
+
+#: core/cpt/portal.php:87
+msgid "All Space Groups"
+msgstr "כל קבוצות הסימטריה"
+
+#: core/cpt/portal.php:88
+msgid "Parent Space Group"
+msgstr "קבוצת מרחב הורה"
+
+#: core/cpt/portal.php:89
+msgid "Parent Space Group:"
+msgstr "קבוצת מרחב אב:"
+
+#: core/cpt/portal.php:90
+#: assets/build/portals-app.js:2
+msgid "Edit Space Group"
+msgstr "ערוך קבוצת מרחב"
+
+#: core/cpt/portal.php:91
+msgid "Update Space Group"
+msgstr "עדכן קבוצת מרחב"
+
+#: core/cpt/portal.php:92
+msgid "Add new Space Group"
+msgstr "הוסף קבוצת מרחב חדשה"
+
+#: core/cpt/portal.php:93
+msgid "New Space Group name"
+msgstr "שם קבוצת חלל חדשה"
+
+#: core/cpt/portal.php:94
+msgid "No Space Group found"
+msgstr "לא נמצאה קבוצת רווח"
+
+#: core/cpt/sub-content.php:41
+msgid "Search Sub Content"
+msgstr "חפש תוכן משנה"
+
+#: core/cpt/sub-content.php:42
+msgid "Sub Content"
+msgstr "תוכן משנה"
+
+#: core/cpt/sub-content.php:43
+msgid "Edit Sub Content"
+msgstr "ערוך תוכן משנה"
+
+#: core/cpt/sub-content.php:44
+msgid "View Sub Content"
+msgstr "הצג תוכן משנה"
+
+#: core/cpt/sub-content.php:46
+msgid "Update Sub Content"
+msgstr "עדכן תוכן משנה"
+
+#: core/cpt/sub-content.php:48
+msgid "New Sub Content Name"
+msgstr "שם תוכן משנה חדש"
+
+#: core/cpt/sub-content.php:49
+#: core/cpt/sub-content.php:50
+msgid "No Sub Content found."
+msgstr "לא נמצא תוכן משנה."
+
+#: core/cpt/sub-content.php:121
+msgid "All Courses"
+msgstr "כל הקורסים"
+
+#: core/cpt/topic.php:43
+msgid "Search Topic"
+msgstr "חפש נושא"
+
+#: core/cpt/topic.php:45
+msgid "Edit Topic"
+msgstr "ערוך נושא"
+
+#: core/cpt/topic.php:46
+msgid "View Topic"
+msgstr "צפה בנושא"
+
+#: core/cpt/topic.php:48
+msgid "Update Topic"
+msgstr "עדכן נושא"
+
+#: core/cpt/topic.php:50
+msgid "New Topic Name"
+msgstr "שם נושא חדש"
+
+#: core/cpt/topic.php:51
+#: core/cpt/topic.php:52
+msgid "No Topic found."
+msgstr "לא נמצא נושא."
+
+#: core/cpt/topic.php:85
+msgid "Search forum"
+msgstr "חפש בפורום"
+
+#: core/cpt/topic.php:86
+msgid "All forum"
+msgstr "כל הפורום"
+
+#: core/cpt/topic.php:87
+msgid "Parent forum"
+msgstr "פורום הורה"
+
+#: core/cpt/topic.php:88
+msgid "Parent forum:"
+msgstr "פורום הורה:"
+
+#: core/cpt/topic.php:89
+msgid "Edit forum"
+msgstr "ערוך פורום"
+
+#: core/cpt/topic.php:90
+msgid "Update forum"
+msgstr "עדכן פורום"
+
+#: core/cpt/topic.php:91
+msgid "Add new forum"
+msgstr "הוסף פורום חדש"
+
+#: core/cpt/topic.php:92
+msgid "New forum name"
+msgstr "שם פורום חדש"
+
+#: core/cpt/topic.php:93
+msgid "No forum found"
+msgstr "לא נמצא פורום"
+
+#: core/cpt/topic.php:200
+msgid "Approve"
+msgstr "אשר"
+
+#: core/cpt/topic.php:212
+msgid "Unapprove"
+msgstr "בטל אישור"
+
+#: core/cpt/topic.php:285
+#: core/cpt/topic.php:296
+msgid "Invalid topic."
+msgstr "נושא לא חוקי."
+
+#: core/cpt/topic.php:290
+msgid "You do not have permission to do this."
+msgstr "אין לך הרשאה לעשות זאת."
+
+#. translators: %1$s: post title, %2$s: message
+#: core/cpt/topic.php:309
+msgid "<strong>%1$s</strong> %2$s"
+msgstr "<strong>%1$s</strong> %2$s"
+
+#: core/integrations/content-categories.php:32
+msgid "ContentCategories Integration"
+msgstr "אינטגרציה של קטגוריות תוכן"
+
+#: core/integrations/sure-members.php:28
+msgid "SureMembers Integration"
+msgstr "אינטגרציה של SureMembers"
+
+#: core/integrations/sure-members.php:80
+msgid "Edit Access Group "
+msgstr "ערוך קבוצת גישה"
+
+#: core/integrations/topic-categories.php:53
+msgid "TopicCategories Integration"
+msgstr "אינטגרציה של קטגוריות נושא"
+
+#: core/integrations/topic-categories.php:237
+msgid "Cover Embed Media"
+msgstr "כיסוי מדיה מוטמעת"
+
+#: core/integrations/topic-categories.php:238
+msgid "Paste a URL to embed"
+msgstr "הדבק כתובת URL להטמעה"
+
+#: core/integrations/topic-categories.php:242
+msgid "Please enter the URL of the media you want to embed. See supported embeds"
+msgstr "אנא הזן את כתובת ה-URL של המדיה שברצונך להטמיע. ראה הטמעות נתמכות"
+
+#: core/integrations/topic-categories.php:244
+msgid "here."
+msgstr "כאן."
+
+#: core/integrations/topic-categories.php:251
+msgid "Enter a title"
+msgstr "הזן כותרת"
+
+#: core/integrations/topic-categories.php:264
+msgid "Cover Media Embed"
+msgstr "כיסוי מדיה משובץ"
+
+#: core/integrations/video.php:32
+msgid "Video Integration"
+msgstr "שילוב וידאו"
+
+#: core/integrations/video.php:79
+msgid "Media"
+msgstr "מדיה"
+
+#: core/integrations/word-press.php:30
+msgid "WordPress Integration"
+msgstr "אינטגרציה עם וורדפרס"
+
+#: core/notifier/admin-notifier.php:51
+#: inc/utils/labels.php:136
+#: inc/utils/labels.php:138
+msgid " and "
+msgstr "ו"
+
+#: core/notifier/admin-notifier.php:51
+msgid "new users have registered on the "
+msgstr "משתמשים חדשים נרשמו ב"
+
+#: core/notifier/admin-notifier.php:58
+msgid "has submitted a topic"
+msgstr "הגיש נושא"
+
+#: core/notifier/admin-notifier.php:180
+msgid " has registered on the "
+msgstr "נרשם ב"
+
+#: core/notifier/base.php:183
+msgid " ago"
+msgstr "לפני"
+
+#: core/notifier/common-notifier.php:51
+msgid "new space has been introduced."
+msgstr "הוכנס חלל חדש."
+
+#: core/notifier/common-notifier.php:406
+msgid "Comment:"
+msgstr "תגובה:"
+
+#: core/notifier/user-notifier.php:59
+msgid "your topic has been approved."
+msgstr "הנושא שלך אושר."
+
+#: core/notifier/user-notifier.php:66
+msgid "has mentioned you in a "
+msgstr "הזכיר אותך ב"
+
+#: core/notifier/user-notifier.php:276
+msgid "Topic:"
+msgstr "נושא:"
+
+#: core/routers/backend.php:51
+msgid "Invalid term ID."
+msgstr "מזהה מונח לא חוקי."
+
+#: core/routers/backend.php:55
+#: core/routers/backend.php:581
+msgid "Successfully updated."
+msgstr "העדכון בוצע בהצלחה."
+
+#: core/routers/backend.php:320
+#: core/routers/backend.php:361
+#: core/routers/backend.php:604
+#: core/routers/backend.php:629
+#: inc/functions/operations.php:181
+msgid "Invalid post ID."
+msgstr "מזהה פוסט לא חוקי."
+
+#: core/routers/backend.php:334
+#: core/routers/backend.php:375
+#: core/routers/backend.php:438
+msgid "Successfully deleted."
+msgstr "נמחק בהצלחה."
+
+#: core/routers/backend.php:569
+msgid "Invalid object or term ID."
+msgstr "מזהה אובייקט או מונח לא חוקי."
+
+#: core/routers/backend.php:667
+msgid "No store categories found."
+msgstr "לא נמצאו קטגוריות חנות."
+
+#: core/routers/backend.php:716
+msgid "Category Invalid."
+msgstr "קטגוריה לא חוקית."
+
+#: core/routers/backend.php:720
+msgid "Content Group -"
+msgstr "קבוצת תוכן -"
+
+#: core/routers/backend.php:720
+msgid "Topic Forum -"
+msgstr "פורום נושא -"
+
+#: core/routers/backend.php:789
+msgid "Invalid settings data."
+msgstr "נתוני הגדרות לא חוקיים."
+
+#: core/routers/backend.php:796
+msgid "Settings saved successfully."
+msgstr "ההגדרות נשמרו בהצלחה."
+
+#: core/routers/misc.php:531
+msgid "Unnamed"
+msgstr "ללא שם"
+
+#: core/routers/social-logins.php:70
+#: core/routers/social-logins.php:284
+msgid "Captcha is not matching, please try again."
+msgstr "הקפצ'ה לא תואם, אנא נסה שוב."
+
+#: core/routers/social-logins.php:92
+msgid "You have successfully logged in. Redirecting..."
+msgstr "התחברת בהצלחה. מפנה מחדש..."
+
+#: core/routers/social-logins.php:169
+msgid "The username/password field is empty. Please add a valid username/email to reset your password."
+msgstr "שדה שם המשתמש/סיסמה ריק. אנא הוסף שם משתמש/דוא\"ל תקף כדי לאפס את הסיסמה שלך."
+
+#: core/routers/social-logins.php:183
+msgid "No user found. Please add a registered username/email to reset your password, else create an account."
+msgstr "לא נמצא משתמש. אנא הוסף שם משתמש/אימייל רשום כדי לאפס את הסיסמה שלך, אחרת צור חשבון."
+
+#. translators: %s: Password reset.
+#: core/routers/social-logins.php:209
+msgid "[%s] Password Reset"
+msgstr "[%s] איפוס סיסמה"
+
+#: core/routers/social-logins.php:217
+msgid "Please check your email for the password reset link."
+msgstr "אנא בדוק את הדוא\"ל שלך עבור הקישור לאיפוס הסיסמה."
+
+#: core/routers/social-logins.php:219
+msgid "Email failed to send."
+msgstr "שליחת האימייל נכשלה."
+
+#: core/routers/social-logins.php:239
+msgid "Sorry, the site admin has disabled new user registration"
+msgstr "מצטערים, מנהל האתר השבית את רישום המשתמשים החדשים"
+
+#: core/routers/social-logins.php:253
+msgid "Not a valid post."
+msgstr "לא פוסט תקף."
+
+#: core/routers/social-logins.php:294
+msgid "Password may not contain the character \"\\\""
+msgstr "הסיסמה לא יכולה להכיל את התו \"\\\""
+
+#: core/routers/social-logins.php:299
+#: core/routers/social-logins.php:302
+#: inc/functions/markup.php:73
+msgid "This field is required."
+msgstr "שדה זה הוא חובה."
+
+#: core/routers/social-logins.php:387
+msgid "Error in creating user."
+msgstr "שגיאה ביצירת משתמש."
+
+#: core/routers/social-logins.php:531
+msgid "You are not registered. Please register first then try to login."
+msgstr "אינך רשום. אנא הירשם תחילה ואז נסה להתחבר."
+
+#: core/routers/social-logins.php:551
+#: core/routers/social-logins.php:588
+#: core/routers/social-logins.php:593
+msgid "Invalid credentials."
+msgstr "אישורים לא חוקיים."
+
+#: core/routers/social-logins.php:568
+#: core/routers/social-logins.php:574
+msgid "Token verification failed."
+msgstr "אימות האסימון נכשל."
+
+#: core/routers/social-logins.php:600
+msgid "Login Successful"
+msgstr "התחברות הצליחה"
+
+#: core/routers/social-logins.php:606
+msgid "Registered & Login Successful"
+msgstr "הרשמה והתחברות הצליחו"
+
+#: core/routers/social-logins.php:609
+msgid "Google API Error."
+msgstr "שגיאת API של Google."
+
+#: core/routes.php:65
+msgid "Oops! Something wrong here..."
+msgstr "אופס! משהו לא בסדר כאן..."
+
+#: core/shortcodes/archive-content.php:53
+msgid "No content found."
+msgstr "לא נמצא תוכן."
+
+#: core/shortcodes/notification.php:122
+msgid "Mark All as Read"
+msgstr "סמן הכל כנקרא"
+
+#: core/blocks/interactivity/build/Title/view.php:57
+#: core/shortcodes/content-header.php:46
+msgid "Guest"
+msgstr "אורח"
+
+#: core/shortcodes/endpoint-navigation.php:102
+#: core/shortcodes/endpoint-navigation.php:211
+msgid "Invalid endpoint data."
+msgstr "נתוני נקודת קצה לא חוקיים."
+
+#: core/shortcodes/endpoint-navigation.php:144
+msgid "Section"
+msgstr "סעיף"
+
+#: core/shortcodes/endpoint-navigation.php:191
+msgid " runtime"
+msgstr "זמן ריצה"
+
+#: core/shortcodes/endpoint-navigation.php:202
+msgid "No items found."
+msgstr "לא נמצאו פריטים."
+
+#: core/shortcodes/home-content.php:309
+#: core/shortcodes/home-content.php:310
+#: core/shortcodes/home-content.php:326
+#: core/shortcodes/home-content.php:332
+#: core/shortcodes/home-content.php:342
+#: core/shortcodes/home-content.php:348
+msgid "Enter"
+msgstr "הזן"
+
+#: core/shortcodes/home-content.php:315
+msgid "User"
+msgstr "משתמש"
+
+#: core/assets.php:90
+#: core/shortcodes/home-content.php:376
+msgid "Upload"
+msgstr "העלה"
+
+#: core/shortcodes/navigation.php:178
+msgid "No groups found."
+msgstr "לא נמצאו קבוצות."
+
+#: core/shortcodes/search.php:89
+#: inc/utils/labels.php:90
+msgid "Search must be at least 3 characters."
+msgstr "החיפוש חייב להיות לפחות 3 תווים."
+
+#: core/shortcodes/search.php:106
+msgid "Recently viewed"
+msgstr "נצפה לאחרונה"
+
+#: core/shortcodes/search.php:138
+msgid "Quick Links"
+msgstr "קישורים מהירים"
+
+#: core/shortcodes/search.php:189
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Search"
+msgstr "חיפוש"
+
+#: core/shortcodes/user-profile.php:141
+msgid "Guest User"
+msgstr "משתמש אורח"
+
+#. translators: %s is the page title
+#: inc/compatibility/page-builder.php:400
+msgid "Edit %1$s with %2$s"
+msgstr "ערוך את %1$s עם %2$s"
+
+#: inc/functions/emails.php:56
+msgid "Someone has requested a password reset for the following account:"
+msgstr "מישהו ביקש לאפס את הסיסמה עבור החשבון הבא:"
+
+#. translators: %s: Username.
+#: inc/functions/emails.php:62
+msgid "Username:"
+msgstr "שם משתמש:"
+
+#: inc/functions/emails.php:68
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr "אם זו הייתה טעות, פשוט התעלם מהאימייל הזה ושום דבר לא יקרה."
+
+#: inc/functions/emails.php:70
+msgid "To reset your password, visit the following address:"
+msgstr "כדי לאפס את הסיסמה שלך, בקר בכתובת הבאה:"
+
+#: inc/functions/emails.php:74
+msgid "Reset Password"
+msgstr "איפוס סיסמה"
+
+#: inc/functions/functions.php:482
+msgid "Just now"
+msgstr "כרגע"
+
+#: inc/functions/functions.php:563
+msgid "Pingback:"
+msgstr "פינגבק:"
+
+#: inc/functions/functions.php:563
+msgid "(Edit)"
+msgstr "(עריכה)"
+
+#. translators: 1: date, 2: time
+#: inc/functions/functions.php:576
+msgid "%1$s at %2$s"
+msgstr "%1$s ב־%2$s"
+
+#: inc/functions/functions.php:616
+msgid "Your comment is awaiting moderation."
+msgstr "התגובה שלך ממתינה לאישור."
+
+#: inc/functions/functions.php:636
+msgid "Reply"
+msgstr "השב"
+
+#: inc/functions/functions.php:658
+#: inc/utils/helper.php:1440
+#: inc/utils/helper.php:1499
+#: inc/utils/labels.php:53
+msgid "Like"
+msgid_plural "Likes"
+msgstr[0] "אהבתי"
+msgstr[1] ""
+
+#: inc/functions/functions.php:1089
+#: inc/functions/functions.php:1093
+msgid "Unknown"
+msgstr "לא ידוע"
+
+#: inc/functions/markup.php:59
+msgid "Click to upload or drag and drop"
+msgstr "לחץ להעלאה או גרור ושחרר"
+
+#: inc/functions/markup.php:62
+msgid "Allowed file formats:"
+msgstr "פורמטים מותרים של קבצים:"
+
+#: inc/utils/helper.php:1443
+#: inc/utils/helper.php:1512
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] "תגובה"
+msgstr[1] ""
+
+#: inc/utils/labels.php:166
+msgid "What are your thoughts?"
+msgstr "מה המחשבות שלך?"
+
+#: inc/functions/operations.php:185
+msgid "Post not found."
+msgstr "הפוסט לא נמצא."
+
+#: inc/functions/operations.php:191
+msgid "Failed to update post."
+msgstr "העדכון של הפוסט נכשל."
+
+#: inc/functions/operations.php:261
+msgid "Invalid user ID."
+msgstr "מזהה משתמש לא חוקי."
+
+#: inc/traits/ajax.php:160
+#: inc/traits/rest-errors.php:36
+msgid "Sorry, you are not allowed to do this operation."
+msgstr "מצטערים, אינך מורשה לבצע פעולה זו."
+
+#: inc/traits/ajax.php:161
+#: inc/traits/rest-errors.php:37
+msgid "Nonce validation failed"
+msgstr "אימות הנונס נכשל"
+
+#: inc/traits/ajax.php:162
+#: inc/traits/rest-errors.php:38
+msgid "Sorry, something went wrong."
+msgstr "מצטער, משהו השתבש."
+
+#: inc/traits/ajax.php:163
+#: inc/traits/rest-errors.php:39
+msgid "Oops, the required key is missing."
+msgstr "אופס, המפתח הנדרש חסר."
+
+#: inc/traits/ajax.php:164
+#: inc/traits/rest-errors.php:40
+msgid "The current post's post type is not of this plugin."
+msgstr "סוג הפוסט הנוכחי אינו של תוסף זה."
+
+#: inc/traits/ajax.php:165
+#: inc/traits/rest-errors.php:41
+msgid "Data saved successfully."
+msgstr "הנתונים נשמרו בהצלחה."
+
+#: inc/traits/post-type.php:139
+#: inc/utils/labels.php:140
+msgid "All"
+msgstr "הכל"
+
+#: inc/utils/helper.php:1448
+msgid "Share Post"
+msgstr "שתף פוסט"
+
+#: inc/utils/helper.php:1463
+msgid "Copied!"
+msgstr "הועתק!"
+
+#: inc/utils/helper.php:1731
+msgid "This discussion is only available for VIP members."
+msgstr "דיון זה זמין רק לחברי VIP."
+
+#: inc/utils/helper.php:1733
+msgid "Please upgrade to add response."
+msgstr "אנא שדרג כדי להוסיף תגובה."
+
+#: inc/utils/helper.php:1734
+msgid "Upgrade Now"
+msgstr "שדרג עכשיו"
+
+#: inc/utils/helper.php:1744
+msgid "Please login or register to join the discussion."
+msgstr "אנא התחבר או הירשם כדי להצטרף לדיון."
+
+#: core/shortcodes/user-profile.php:135
+#: inc/utils/helper.php:1745
+#: assets/build/editor-app.js:2
+msgid "Login"
+msgstr "התחברות"
+
+#: inc/utils/labels.php:43
+msgid "Back to"
+msgstr "חזרה ל"
+
+#: inc/utils/labels.php:43
+msgid "Portal"
+msgstr "פורטל"
+
+#: inc/utils/labels.php:44
+msgid "Back to "
+msgstr "חזרה ל"
+
+#: inc/utils/labels.php:45
+msgid "Portal Item"
+msgstr "פריט פורטל"
+
+#: inc/utils/labels.php:46
+msgid "Portal Items"
+msgstr "פריטי פורטל"
+
+#: inc/utils/labels.php:47
+#: inc/utils/labels.php:48
+msgid "User Profile"
+msgstr "פרופיל משתמש"
+
+#: inc/utils/labels.php:52
+msgid "Posts"
+msgstr "פוסטים"
+
+#: inc/utils/labels.php:54
+msgid "Liked"
+msgstr "אהבתי"
+
+#: inc/utils/labels.php:55
+msgid "Likes"
+msgstr "לייקים"
+
+#: inc/utils/labels.php:56
+msgid "Comments"
+msgstr "תגובות"
+
+#: inc/utils/labels.php:57
+msgid "No comments yet."
+msgstr "עדיין אין תגובות."
+
+#: inc/utils/labels.php:58
+msgid "Commented on"
+msgstr "הגיב על"
+
+#: inc/utils/labels.php:59
+msgid "replied"
+msgstr "השיב"
+
+#: inc/utils/labels.php:60
+msgid "replies"
+msgstr "תשובות"
+
+#: inc/utils/labels.php:62
+msgid "Profile"
+msgstr "פרופיל"
+
+#: inc/utils/labels.php:64
+msgid "Profile Photo"
+msgstr "תמונת פרופיל"
+
+#: inc/utils/labels.php:67
+#: assets/build/editor-app.js:2
+msgid "Username"
+msgstr "שם משתמש"
+
+#: inc/utils/labels.php:68
+#: assets/build/editor-app.js:2
+msgid "Email"
+msgstr "אימייל"
+
+#: inc/utils/labels.php:69
+msgid "Phone"
+msgstr "טלפון"
+
+#: inc/utils/labels.php:70
+msgid "Address"
+msgstr "כתובת"
+
+#: inc/utils/labels.php:71
+msgid "Display Name"
+msgstr "שם תצוגה"
+
+#: inc/utils/labels.php:72
+msgid "Bio"
+msgstr "ביו"
+
+#: inc/utils/labels.php:73
+msgid "Description"
+msgstr "תיאור"
+
+#: inc/utils/labels.php:74
+#: assets/build/portals-app.js:2
+msgid "Save"
+msgstr "שמור"
+
+#: inc/utils/labels.php:75
+msgid "Current Password"
+msgstr "סיסמה נוכחית"
+
+#: inc/utils/labels.php:76
+msgid "New Password"
+msgstr "סיסמה חדשה"
+
+#: inc/utils/labels.php:77
+msgid "Confirm New Password"
+msgstr "אשר סיסמה חדשה"
+
+#: inc/utils/labels.php:79
+#: inc/utils/labels.php:159
+msgid "Profile updated successfully."
+msgstr "הפרופיל עודכן בהצלחה."
+
+#: inc/utils/labels.php:82
+msgid "Miscellaneous"
+msgstr "שונות"
+
+#: inc/utils/labels.php:84
+msgid "Oops, It's Empty in Here!"
+msgstr "אופס, זה ריק כאן!"
+
+#: inc/utils/labels.php:85
+msgid "Seems like you haven't bookmarked anything yet. Start bookmarking and make this space your go-to!"
+msgstr "נראה שעדיין לא סימנת שום דבר במועדפים. התחל לסמן במועדפים והפוך את המרחב הזה למקום המועדף עליך!"
+
+#: inc/utils/labels.php:86
+msgid "Back to Home"
+msgstr "חזרה לדף הבית"
+
+#: inc/utils/labels.php:88
+msgid "No results found. Try again with different words?"
+msgstr "לא נמצאו תוצאות. נסה שוב עם מילים שונות?"
+
+#: inc/utils/labels.php:91
+msgid "Error occurred while fetching data."
+msgstr "אירעה שגיאה בעת אחזור הנתונים."
+
+#: inc/utils/labels.php:92
+msgid "Data is insufficient."
+msgstr "הנתונים אינם מספיקים."
+
+#: inc/utils/labels.php:94
+msgid "Course Playlist"
+msgstr "רשימת השמעה של הקורס"
+
+#: inc/utils/labels.php:95
+msgid "If you want to sell products online, you need a sales funnel. A sales funnel is the easiest way to move a website visitor towards being a paying customer. A sales funnel builds wealth into your business."
+msgstr "אם אתה רוצה למכור מוצרים באינטרנט, אתה צריך משפך מכירות. משפך מכירות הוא הדרך הקלה ביותר להוביל מבקר באתר להפוך ללקוח משלם. משפך מכירות בונה עושר בעסק שלך."
+
+#: inc/utils/labels.php:96
+#: assets/build/portals-app.js:2
+msgid "Course"
+msgstr "קורס"
+
+#: inc/utils/labels.php:97
+msgid "Courses"
+msgstr "קורסים"
+
+#: inc/utils/labels.php:98
+msgid "Lesson"
+msgstr "שיעור"
+
+#: inc/utils/labels.php:99
+msgid "Lessons"
+msgstr "שיעורים"
+
+#: inc/utils/labels.php:103
+#: assets/build/portals-app.js:2
+msgid "Title"
+msgstr "כותרת"
+
+#: inc/utils/labels.php:105
+msgid "See More"
+msgstr "ראה עוד"
+
+#: inc/utils/labels.php:106
+msgid "Submit"
+msgstr "שלח"
+
+#: inc/utils/labels.php:107
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Cancel"
+msgstr "בטל"
+
+#: inc/utils/labels.php:112
+msgid "Course Progress"
+msgstr "התקדמות הקורס"
+
+#: inc/utils/labels.php:115
+msgid "Share on Facebook"
+msgstr "שתף בפייסבוק"
+
+#: inc/utils/labels.php:116
+msgid "Share on Twitter"
+msgstr "שתף בטוויטר"
+
+#: inc/utils/labels.php:117
+msgid "Share on LinkedIn"
+msgstr "שתף ב-LinkedIn"
+
+#: inc/utils/labels.php:118
+msgid "Share on Pinterest"
+msgstr "שתף ב-Pinterest"
+
+#: inc/utils/labels.php:119
+msgid "Copy to Clipboard"
+msgstr "העתק ללוח"
+
+#: inc/utils/labels.php:121
+msgid "PrestoPlayer Pro is Required!"
+msgstr "נדרש PrestoPlayer Pro!"
+
+#: inc/utils/labels.php:122
+msgid "This feature requires PrestoPlayer Pro. Please upgrade to PrestoPlayer Pro to use this feature."
+msgstr "תכונה זו דורשת את PrestoPlayer Pro. אנא שדרג ל-PrestoPlayer Pro כדי להשתמש בתכונה זו."
+
+#: inc/utils/labels.php:123
+msgid "Topic submitted successfully and waiting for approval."
+msgstr "הנושא נשלח בהצלחה וממתין לאישור."
+
+#: inc/utils/labels.php:128
+msgid "The content will be available in"
+msgstr "התוכן יהיה זמין ב"
+
+#: inc/utils/labels.php:130
+msgid "Notifications"
+msgstr "התראות"
+
+#: inc/utils/labels.php:131
+msgid "No New Notifications"
+msgstr "אין התראות חדשות"
+
+#: inc/utils/labels.php:132
+msgid "Ta-da! You're up to date."
+msgstr "טא-דה! אתה מעודכן."
+
+#: inc/utils/labels.php:134
+msgid "has replied to your "
+msgstr "השיב להודעה שלך"
+
+#: inc/utils/labels.php:135
+msgid "has commented on your topic "
+msgstr "הגיב על הנושא שלך"
+
+#: inc/utils/labels.php:136
+msgid " others have commented on your topic "
+msgstr "אחרים הגיבו על הנושא שלך"
+
+#: inc/utils/labels.php:137
+msgid " has liked your "
+msgstr "אהב את ה-"
+
+#: inc/utils/labels.php:138
+msgid " others have liked your "
+msgstr "אחרים אהבו את ה-"
+
+#: inc/utils/labels.php:141
+msgid "Unread"
+msgstr "לא נקרא"
+
+#: inc/utils/labels.php:143
+msgid "Settings Saved Successfully."
+msgstr "ההגדרות נשמרו בהצלחה."
+
+#: inc/utils/labels.php:144
+msgid "Unable to Save Settings."
+msgstr "לא ניתן לשמור את ההגדרות."
+
+#: inc/utils/labels.php:145
+msgid "Something Went Wrong!"
+msgstr "משהו השתבש!"
+
+#: inc/utils/labels.php:146
+msgid "Information Updated Successfully."
+msgstr "המידע עודכן בהצלחה."
+
+#: inc/utils/labels.php:147
+msgid "Notification Updated Successfully."
+msgstr "ההודעה עודכנה בהצלחה."
+
+#: inc/utils/labels.php:149
+msgid "Your topic has been submitted successfully."
+msgstr "הנושא שלך הוגש בהצלחה."
+
+#: inc/utils/labels.php:150
+msgid "Item bookmarked successfully."
+msgstr "הפריט סומן בהצלחה."
+
+#: inc/utils/labels.php:151
+msgid "Item un-bookmarked successfully."
+msgstr "הפריט הוסר מהסימניות בהצלחה."
+
+#: inc/utils/labels.php:152
+msgid "Comment liked successfully."
+msgstr "התגובה סומנה כאהובה בהצלחה."
+
+#: inc/utils/labels.php:153
+msgid "Comment disliked successfully."
+msgstr "התגובה לא אהובה בהצלחה."
+
+#: inc/utils/labels.php:157
+msgid "Post liked successfully."
+msgstr "הפוסט סומן כאהוב בהצלחה."
+
+#: inc/utils/labels.php:158
+msgid "Post disliked successfully."
+msgstr "הפוסט לא אהוב בהצלחה."
+
+#: inc/utils/labels.php:161
+#: inc/utils/settings.php:263
+#: assets/build/portals-app.js:2
+msgid "Restricted Content"
+msgstr "תוכן מוגבל"
+
+#: inc/utils/labels.php:162
+msgid "This content is restricted and can only be accessed by authorized users."
+msgstr "תוכן זה מוגבל וניתן לגשת אליו רק על ידי משתמשים מורשים."
+
+#: inc/utils/post-meta.php:96
+#: assets/build/portals-app.js:2
+msgid "Untitled Section"
+msgstr "קטע ללא כותרת"
+
+#: inc/utils/settings.php:223
+msgid "Howdy"
+msgstr "שלום"
+
+#: inc/utils/settings.php:227
+#: assets/build/portals-app.js:2
+msgid "Your Bookmarks"
+msgstr "הסימניות שלך"
+
+#: inc/utils/settings.php:231
+#: assets/build/portals-app.js:2
+msgid "Profile Information"
+msgstr "מידע על הפרופיל"
+
+#: inc/utils/settings.php:235
+#: assets/build/portals-app.js:2
+msgid "Pinned Post"
+msgstr "פוסט מוצמד"
+
+#: inc/utils/settings.php:239
+msgid "No posts found."
+msgstr "לא נמצאו פוסטים."
+
+#: inc/utils/settings.php:243
+#: assets/build/portals-app.js:2
+msgid "Back to Course"
+msgstr "חזרה לקורס"
+
+#: inc/utils/settings.php:247
+msgid "Complete and Continue"
+msgstr "השלם והמשך"
+
+#: inc/utils/settings.php:251
+msgid "What would you like to share today?"
+msgstr "מה תרצה לשתף היום?"
+
+#: inc/utils/settings.php:255
+msgid "Create New Feed"
+msgstr "צור עדכון חדש"
+
+#: inc/utils/settings.php:259
+msgid "No topic found, create a new one!"
+msgstr "לא נמצא נושא, צור נושא חדש!"
+
+#: inc/utils/settings.php:267
+msgid "This content is not available with your current membership."
+msgstr "תוכן זה אינו זמין עם החברות הנוכחית שלך."
+
+#: inc/utils/settings.php:305
+msgid "Subscriber"
+msgstr "מנוי"
+
+#: inc/utils/uploader.php:75
+msgid "File does not match"
+msgstr "הקובץ אינו תואם"
+
+#: inc/utils/uploader.php:98
+msgid "File is not uploaded"
+msgstr "הקובץ לא הועלה"
+
+#: loader.php:316
+msgid "Portal Menu"
+msgstr "תפריט פורטל"
+
+#: templates/parts/footer.php:22
+msgid "Powered by"
+msgstr "מופעל על ידי"
+
+#: templates/quick-view/post.php:60
+msgid "Open in full page"
+msgstr "פתח בעמוד מלא"
+
+#: templates/quick-view/post.php:62
+#: templates/single/post.php:91
+msgid "Bookmark Post"
+msgstr "סמן פוסט"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "General"
+msgstr "כללי"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Style"
+msgstr "סגנון"
+
+#: assets/build/editor-app.js:2
+msgid "Advanced"
+msgstr "מתקדם"
+
+#: assets/build/editor-app.js:2
+msgid "Desktop"
+msgstr "שולחן עבודה"
+
+#: assets/build/editor-app.js:2
+msgid "Tablet"
+msgstr "טאבלט"
+
+#: assets/build/editor-app.js:2
+msgid "Mobile"
+msgstr "נייד"
+
+#: assets/build/editor-app.js:2
+msgid "Device"
+msgstr "מכשיר"
+
+#: assets/build/editor-app.js:2
+msgid "Google"
+msgstr "גוגל"
+
+#: assets/build/editor-app.js:2
+msgid "Facebook"
+msgstr "פייסבוק"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Reset"
+msgstr "איפוס"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Icon Library"
+msgstr "ספריית אייקונים"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Close"
+msgstr "סגור"
+
+#: assets/build/editor-app.js:2
+msgid "No Icons Found"
+msgstr "לא נמצאו סמלים"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Insert Icon"
+msgstr "הכנס סמל"
+
+#: assets/build/editor-app.js:2
+msgid "Change Icon"
+msgstr "שנה סמל"
+
+#: assets/build/editor-app.js:2
+msgid "Choose Icon"
+msgstr "בחר סמל"
+
+#: assets/build/editor-app.js:2
+msgid "Icon"
+msgstr "אייקון"
+
+#: assets/build/editor-app.js:2
+msgid "Placeholder"
+msgstr "מציין מיקום"
+
+#: assets/build/editor-app.js:2
+msgid "This is an example error message."
+msgstr "זו הודעת שגיאה לדוגמה."
+
+#: assets/build/editor-app.js:2
+msgid "Please add a preview image."
+msgstr "אנא הוסף תמונת תצוגה מקדימה."
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Email field."
+msgstr "בלוק זה עוזר להוסיף שדה דוא\"ל."
+
+#: assets/build/editor-app.js:2
+msgid "required"
+msgstr "נדרש"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Password field."
+msgstr "בלוק זה עוזר להוסיף שדה סיסמה."
+
+#: assets/build/editor-app.js:2
+msgid "Required"
+msgstr "נדרש"
+
+#: assets/build/editor-app.js:2
+msgid "Name"
+msgstr "שם"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Username field."
+msgstr "בלוק זה עוזר להוסיף שדה שם משתמש."
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add First Name field."
+msgstr "בלוק זה עוזר להוסיף שדה שם פרטי."
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Last Name field."
+msgstr "בלוק זה עוזר להוסיף שדה שם משפחה."
+
+#: assets/build/editor-app.js:2
+msgid "Re-Enter Password"
+msgstr "הזן מחדש את הסיסמה"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Re-Enter Password field."
+msgstr "בלוק זה עוזר להוסיף שדה הזנת סיסמה מחדש."
+
+#: assets/build/editor-app.js:2
+msgid "I Accept the Terms and Conditions."
+msgstr "אני מקבל את התנאים וההגבלות."
+
+#: assets/build/editor-app.js:2
+msgid "Terms and Conditions notice."
+msgstr "הודעת תנאים והגבלות."
+
+#: assets/build/editor-app.js:2
+msgid "Terms & Condition"
+msgstr "תנאים והגבלות"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Terms & Condtions field."
+msgstr "בלוק זה עוזר להוסיף שדה תנאים והגבלות."
+
+#: assets/build/editor-app.js:2
+msgid "Pixel"
+msgstr "פיקסל"
+
+#: assets/build/editor-app.js:2
+msgid "Em"
+msgstr "אם"
+
+#: assets/build/editor-app.js:2
+msgid "Select Units"
+msgstr "בחר יחידות"
+
+#: assets/build/editor-app.js:2
+msgid "%s units"
+msgstr "%s יחידות"
+
+#: assets/build/editor-app.js:2
+msgid "Margin"
+msgstr "שוליים"
+
+#: assets/build/editor-app.js:2
+msgid "Default"
+msgstr "ברירת מחדל"
+
+#: assets/build/editor-app.js:2
+msgid "Font Size"
+msgstr "גודל גופן"
+
+#: assets/build/editor-app.js:2
+msgid "VW"
+msgstr "פולקסווגן"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Font Family"
+msgstr "משפחת גופנים"
+
+#: assets/build/editor-app.js:2
+msgid "Weight"
+msgstr "משקל"
+
+#: core/assets.php:82
+#: assets/build/editor-app.js:2
+msgid "Italic"
+msgstr "נטוי"
+
+#: assets/build/editor-app.js:2
+msgid "Oblique"
+msgstr "אלכסוני"
+
+#: assets/build/editor-app.js:2
+msgid "Line Height"
+msgstr "גובה שורה"
+
+#: assets/build/editor-app.js:2
+msgid "Letter Spacing"
+msgstr "ריווח אותיות"
+
+#: assets/build/editor-app.js:2
+msgid "Transform"
+msgstr "להפוך"
+
+#: assets/build/editor-app.js:2
+msgid "Normal"
+msgstr "רגיל"
+
+#: assets/build/editor-app.js:2
+msgid "Capitalize"
+msgstr "הפוך לאותיות רישיות"
+
+#: assets/build/editor-app.js:2
+msgid "Uppercase"
+msgstr "אותיות גדולות"
+
+#: assets/build/editor-app.js:2
+msgid "Lowercase"
+msgstr "אותיות קטנות"
+
+#: assets/build/editor-app.js:2
+msgid "Decoration"
+msgstr "קישוט"
+
+#: assets/build/editor-app.js:2
+msgid "None"
+msgstr "אין"
+
+#: core/assets.php:83
+#: assets/build/editor-app.js:2
+msgid "Underline"
+msgstr "קו תחתון"
+
+#: assets/build/editor-app.js:2
+msgid "Overline"
+msgstr "קו עליון"
+
+#: assets/build/editor-app.js:2
+msgid "Line Through"
+msgstr "קו חוצה"
+
+#: assets/build/editor-app.js:2
+msgid "%"
+msgstr "%"
+
+#: assets/build/editor-app.js:2
+msgid "Top"
+msgstr "עליון"
+
+#: assets/build/editor-app.js:2
+msgid "Right"
+msgstr "ימין"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom"
+msgstr "תחתית"
+
+#: assets/build/editor-app.js:2
+msgid "Left"
+msgstr "שמאל"
+
+#: assets/build/editor-app.js:2
+msgid "Clear"
+msgstr "נקה"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Select Color"
+msgstr "בחר צבע"
+
+#: assets/build/editor-app.js:2
+msgid "Width"
+msgstr "רוחב"
+
+#: assets/build/editor-app.js:2
+msgid "Radius"
+msgstr "רדיוס"
+
+#: assets/build/editor-app.js:2
+msgid "Color"
+msgstr "צבע"
+
+#: assets/build/editor-app.js:2
+msgid "Border"
+msgstr "גבול"
+
+#: assets/build/editor-app.js:2
+msgid "Hover"
+msgstr "רחף"
+
+#: assets/build/editor-app.js:2
+msgid "Solid"
+msgstr "מוצק"
+
+#: assets/build/editor-app.js:2
+msgid "Dotted"
+msgstr "מנוקד"
+
+#: assets/build/editor-app.js:2
+msgid "Dashed"
+msgstr "מקווקו"
+
+#: assets/build/editor-app.js:2
+msgid "Double"
+msgstr "כפול"
+
+#: assets/build/editor-app.js:2
+msgid "Groove"
+msgstr "גרוב"
+
+#: assets/build/editor-app.js:2
+msgid "Inset"
+msgstr "שיבוץ"
+
+#: assets/build/editor-app.js:2
+msgid "Outset"
+msgstr "התחלה"
+
+#: assets/build/editor-app.js:2
+msgid "Ridge"
+msgstr "רכס"
+
+#: assets/build/editor-app.js:2
+msgid "Please add a option props to MultiButtonsControl"
+msgstr "אנא הוסף אפשרות props ל-MultiButtonsControl"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 1"
+msgstr "קביעה מראש 1"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 2"
+msgstr "קביעה מראש 2"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 3"
+msgstr "קביעה מראש 3"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 4"
+msgstr "קביעה מראש 4"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 5"
+msgstr "קביעה מראש 5"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 6"
+msgstr "קביעה מוקדמת 6"
+
+#: assets/build/editor-app.js:2
+msgid "Select Preset"
+msgstr "בחר מראש"
+
+#: assets/build/editor-app.js:2
+msgid "Basic"
+msgstr "בסיסי"
+
+#: assets/build/editor-app.js:2
+msgid "Color 1"
+msgstr "צבע 1"
+
+#: assets/build/editor-app.js:2
+msgid "Color 2"
+msgstr "צבע 2"
+
+#: assets/build/editor-app.js:2
+msgid "Type"
+msgstr "סוג"
+
+#: assets/build/editor-app.js:2
+msgid "Linear"
+msgstr "ליניארי"
+
+#: assets/build/editor-app.js:2
+msgid "Radial"
+msgstr "רדיאלי"
+
+#: assets/build/editor-app.js:2
+msgid "Location 1"
+msgstr "מיקום 1"
+
+#: assets/build/editor-app.js:2
+msgid "Location 2"
+msgstr "מיקום 2"
+
+#: assets/build/editor-app.js:2
+msgid "Angle"
+msgstr "זווית"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Confirm"
+msgstr "אשר"
+
+#: assets/build/editor-app.js:2
+msgid "Processing…"
+msgstr "מעבד…"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Image"
+msgstr "תמונה"
+
+#: assets/build/editor-app.js:2
+msgid "Select Video"
+msgstr "בחר וידאו"
+
+#: assets/build/editor-app.js:2
+msgid "Change Video"
+msgstr "שנה וידאו"
+
+#: assets/build/editor-app.js:2
+msgid "Select Lottie Animation"
+msgstr "בחר אנימציית לוטי"
+
+#: assets/build/editor-app.js:2
+msgid "Change Lottie Animation"
+msgstr "שנה את האנימציה של לוטי"
+
+#: assets/build/editor-app.js:2
+msgid "Upload SVG"
+msgstr "העלה SVG"
+
+#: assets/build/editor-app.js:2
+msgid "Change SVG"
+msgstr "שנה SVG"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Select Image"
+msgstr "בחר תמונה"
+
+#: assets/build/editor-app.js:2
+msgid "Change Image"
+msgstr "שנה תמונה"
+
+#: assets/build/editor-app.js:2
+msgid "data object is empty"
+msgstr "אובייקט הנתונים ריק"
+
+#: assets/build/editor-app.js:2
+msgid "Upload SVG?"
+msgstr "להעלות SVG?"
+
+#: assets/build/editor-app.js:2
+msgid "Upload SVG can be potentially risky. Are you sure?"
+msgstr "העלאת SVG עלולה להיות מסוכנת. האם אתה בטוח?"
+
+#: assets/build/editor-app.js:2
+msgid "Upload Anyway"
+msgstr "העלה בכל מקרה"
+
+#: assets/build/editor-app.js:2
+msgid "Position"
+msgstr "מיקום"
+
+#: assets/build/editor-app.js:2
+msgid "Gradient"
+msgstr "מִדרוֹן"
+
+#: assets/build/editor-app.js:2
+msgid "Classic"
+msgstr "קלאסי"
+
+#: assets/build/editor-app.js:2
+msgid "Auto"
+msgstr "אוטו"
+
+#: assets/build/editor-app.js:2
+msgid "Cover"
+msgstr "כיסוי"
+
+#: assets/build/editor-app.js:2
+msgid "Contain"
+msgstr "להכיל"
+
+#: assets/build/editor-app.js:2
+msgid "Custom"
+msgstr "מותאם אישית"
+
+#: assets/build/editor-app.js:2
+msgid "Overlay Opacity"
+msgstr "אטימות שכבה"
+
+#: assets/build/editor-app.js:2
+msgid "Image Position"
+msgstr "מיקום התמונה"
+
+#: assets/build/editor-app.js:2
+msgid "Top Left"
+msgstr "שמאל עליון"
+
+#: assets/build/editor-app.js:2
+msgid "Top Center"
+msgstr "מרכז עליון"
+
+#: assets/build/editor-app.js:2
+msgid "Top Right"
+msgstr "ימין עליון"
+
+#: assets/build/editor-app.js:2
+msgid "Center Top"
+msgstr "מרכז עליון"
+
+#: assets/build/editor-app.js:2
+msgid "Center Center"
+msgstr "מרכז מרכז"
+
+#: assets/build/editor-app.js:2
+msgid "Center Bottom"
+msgstr "מרכז תחתון"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom Left"
+msgstr "תחתון שמאלי"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom Center"
+msgstr "מרכז תחתון"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom Right"
+msgstr "ימין תחתון"
+
+#: assets/build/editor-app.js:2
+msgid "Attachment"
+msgstr "קובץ מצורף"
+
+#: assets/build/editor-app.js:2
+msgid "Fixed"
+msgstr "תוקן"
+
+#: assets/build/editor-app.js:2
+msgid "Scroll"
+msgstr "גלול"
+
+#: assets/build/editor-app.js:2
+msgid "Blend Mode"
+msgstr "מצב שילוב"
+
+#: assets/build/editor-app.js:2
+msgid "Multiply"
+msgstr "כפל"
+
+#: assets/build/editor-app.js:2
+msgid "Screen"
+msgstr "מסך"
+
+#: assets/build/editor-app.js:2
+msgid "Overlay"
+msgstr "כיסוי"
+
+#: assets/build/editor-app.js:2
+msgid "Darken"
+msgstr "להכהות"
+
+#: assets/build/editor-app.js:2
+msgid "Lighten"
+msgstr "להאיר"
+
+#: assets/build/editor-app.js:2
+msgid "Color Dodge"
+msgstr "הבהרה צבעונית"
+
+#: assets/build/editor-app.js:2
+msgid "Saturation"
+msgstr "רוויה"
+
+#: assets/build/editor-app.js:2
+msgid "Repeat"
+msgstr "חזור"
+
+#: assets/build/editor-app.js:2
+msgid "No Repeat"
+msgstr "ללא חזרה"
+
+#: assets/build/editor-app.js:2
+msgid "Repeat-x"
+msgstr "חזור-x"
+
+#: assets/build/editor-app.js:2
+msgid "Repeat-y"
+msgstr "חזור-y"
+
+#: assets/build/editor-app.js:2
+msgid "Size"
+msgstr "גודל"
+
+#: assets/build/editor-app.js:2
+msgid "PX"
+msgstr "PX"
+
+#: assets/build/editor-app.js:2
+msgid "EM"
+msgstr "EM"
+
+#: assets/build/editor-app.js:2
+msgid "X Position"
+msgstr "מיקום X"
+
+#: assets/build/editor-app.js:2
+msgid "Y Position"
+msgstr "מיקום Y"
+
+#: assets/build/editor-app.js:2
+msgid "VH"
+msgstr "VH"
+
+#: assets/build/editor-app.js:2
+msgid "Overlay Type"
+msgstr "סוג שכבה"
+
+#: assets/build/editor-app.js:2
+msgid "Image Overlay Color"
+msgstr "צבע שכבת-על של תמונה"
+
+#: assets/build/editor-app.js:2
+msgid "Centralized Position"
+msgstr "מיקום מרכזי"
+
+#: assets/build/editor-app.js:2
+msgid "Fallback Image"
+msgstr "תמונת גיבוי"
+
+#: assets/build/editor-app.js:2
+msgid "This cover image will replace the background video in case that the video could not be loaded."
+msgstr "תמונת הכיסוי הזו תחליף את סרטון הרקע במקרה שהסרטון לא נטען."
+
+#: assets/build/editor-app.js:2
+msgid "Box Shadow"
+msgstr "צללית תיבה"
+
+#: assets/build/editor-app.js:2
+msgid "Inset (10px)"
+msgstr "שוליים פנימיים (10px)"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Search…"
+msgstr "חיפוש…"
+
+#: assets/build/editor-app.js:2
+msgid "Open in new window"
+msgstr "פתח בחלון חדש"
+
+#: assets/build/editor-app.js:2
+msgid "Add nofollow"
+msgstr "הוסף nofollow"
+
+#: assets/build/editor-app.js:2
+msgid "Login Form"
+msgstr "טופס התחברות"
+
+#: assets/build/editor-app.js:2
+msgid "Disable Form"
+msgstr "השבת טופס"
+
+#: assets/build/editor-app.js:2
+msgid "Use this if you only want users to log in with social login."
+msgstr "השתמש בזה אם אתה רוצה שמשתמשים יתחברו רק עם התחברות חברתית."
+
+#: assets/build/editor-app.js:2
+msgid "Username Placeholder"
+msgstr "ממלא מקום שם משתמש"
+
+#: assets/build/editor-app.js:2
+msgid "Enter username placeholder"
+msgstr "הזן את שם המשתמש placeholder"
+
+#: assets/build/editor-app.js:2
+msgid "Password Placeholder"
+msgstr "מקום לסיסמה"
+
+#: assets/build/editor-app.js:2
+msgid "Enter password placeholder"
+msgstr "הזן את מציין המיקום של הסיסמה"
+
+#: assets/build/editor-app.js:2
+msgid "Forgot Password Label"
+msgstr "תווית שכחתי סיסמה"
+
+#: assets/build/editor-app.js:2
+msgid "Enter forgot password label"
+msgstr "הזן תווית שכחת סיסמה"
+
+#: assets/build/editor-app.js:2
+msgid "Hide Icon"
+msgstr "הסתר סמל"
+
+#: assets/build/editor-app.js:2
+msgid "Show Register Information"
+msgstr "הצג מידע רישום"
+
+#: assets/build/editor-app.js:2
+msgid "Register Link"
+msgstr "קישור לרישום"
+
+#: assets/build/editor-app.js:2
+msgid "Overall Alignment"
+msgstr "יישור כללי"
+
+#: assets/build/editor-app.js:2
+msgid "Center"
+msgstr "מרכז"
+
+#: assets/build/editor-app.js:2
+msgid "Success/Error Message"
+msgstr "הודעת הצלחה/שגיאה"
+
+#: assets/build/editor-app.js:2
+msgid "View Success Message"
+msgstr "הצג הודעת הצלחה"
+
+#: assets/build/editor-app.js:2
+msgid "View Error Message"
+msgstr "הצג הודעת שגיאה"
+
+#: assets/build/editor-app.js:2
+msgid "Redirects"
+msgstr "הפניות"
+
+#: assets/build/editor-app.js:2
+msgid "Logged in Message"
+msgstr "הודעת כניסה"
+
+#: assets/build/editor-app.js:2
+msgid "The \"Logged In Message\" will be shown instead of this block on the frontend when the user visiting this page is already Logged In."
+msgstr "ההודעה \"התחבר הודעה\" תוצג במקום הבלוק הזה בחזית כאשר המשתמש המבקר בדף זה כבר מחובר."
+
+#: assets/build/editor-app.js:2
+msgid "Redirect After Login"
+msgstr "הפניה מחדש לאחר התחברות"
+
+#: assets/build/editor-app.js:2
+msgid "Enter URL"
+msgstr "הזן כתובת URL"
+
+#: assets/build/editor-app.js:2
+msgid "Default Redirect URL is homepage"
+msgstr "כתובת ה-URL להפניה ברירת מחדל היא דף הבית"
+
+#: assets/build/editor-app.js:2
+msgid "Redirect After Logout"
+msgstr "הפניה מחדש לאחר התנתקות"
+
+#: assets/build/editor-app.js:2
+msgid "Form Controls"
+msgstr "פקדי טופס"
+
+#: assets/build/editor-app.js:2
+msgid "Form Width"
+msgstr "רוחב הטופס"
+
+#: assets/build/editor-app.js:2
+msgid "em"
+msgstr "ב"
+
+#: assets/build/editor-app.js:2
+msgid "Padding"
+msgstr "ריפוד"
+
+#: assets/build/editor-app.js:2
+msgid "Row Gap"
+msgstr "מרווח שורה"
+
+#: assets/build/editor-app.js:2
+msgid "Background"
+msgstr "רקע"
+
+#: assets/build/editor-app.js:2
+msgid "Field Labels"
+msgstr "תוויות שדה"
+
+#: assets/build/editor-app.js:2
+msgid "Typography"
+msgstr "טיפוגרפיה"
+
+#: assets/build/editor-app.js:2
+msgid "Text"
+msgstr "טקסט"
+
+#: assets/build/editor-app.js:2
+msgid "Input Fields"
+msgstr "שדות קלט"
+
+#: assets/build/editor-app.js:2
+msgid "Active"
+msgstr "פעיל"
+
+#: assets/build/editor-app.js:2
+msgid "Input Typography"
+msgstr "טיפוגרפיה של קלט"
+
+#: assets/build/editor-app.js:2
+msgid "Input Padding"
+msgstr "ריפוד קלט"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Size"
+msgstr "גודל תיבת סימון"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Background"
+msgstr "רקע תיבת סימון"
+
+#: assets/build/editor-app.js:2
+msgid "Check Color"
+msgstr "בדוק צבע"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Border Width"
+msgstr "רוחב גבול תיבת סימון"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Border Radius"
+msgstr "רדיוס גבול תיבת סימון"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Border Color"
+msgstr "צבע גבול תיבת סימון"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Checkbox Glow"
+msgstr "אפשר זוהר תיבת סימון"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Glow Color"
+msgstr "צבע זוהר תיבת סימון"
+
+#: assets/build/editor-app.js:2
+msgid "Login Button"
+msgstr "לחצן התחברות"
+
+#: assets/build/editor-app.js:2
+msgid "Button Icon"
+msgstr "סמל כפתור"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Position"
+msgstr "מיקום סמל"
+
+#: assets/build/editor-app.js:2
+msgid "Before Text"
+msgstr "לפני הטקסט"
+
+#: assets/build/editor-app.js:2
+msgid "After Text"
+msgstr "אחרי טקסט"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Spacing"
+msgstr "ריווח אייקונים"
+
+#: assets/build/editor-app.js:2
+msgid "Alignment"
+msgstr "יישור"
+
+#: assets/build/editor-app.js:2
+msgid "Full"
+msgstr "מלא"
+
+#: assets/build/editor-app.js:2
+msgid "Small"
+msgstr "קטן"
+
+#: assets/build/editor-app.js:2
+msgid "Medium"
+msgstr "בינוני"
+
+#: assets/build/editor-app.js:2
+msgid "Large"
+msgstr "גדול"
+
+#: assets/build/editor-app.js:2
+msgid "Extra Large"
+msgstr "גדול במיוחד"
+
+#: assets/build/editor-app.js:2
+msgid "Facebook Button"
+msgstr "כפתור פייסבוק"
+
+#: assets/build/editor-app.js:2
+msgid "Google Button"
+msgstr "כפתור Google"
+
+#: assets/build/editor-app.js:2
+msgid "Success Border Color"
+msgstr "צבע גבול הצלחה"
+
+#: assets/build/editor-app.js:2
+msgid "Success Background"
+msgstr "רקע הצלחה"
+
+#: assets/build/editor-app.js:2
+msgid "Success Text"
+msgstr "טקסט הצלחה"
+
+#: assets/build/editor-app.js:2
+msgid "Error Border Color"
+msgstr "צבע גבול שגיאה"
+
+#: assets/build/editor-app.js:2
+msgid "Error Background"
+msgstr "רקע שגיאה"
+
+#: assets/build/editor-app.js:2
+msgid "Error Text"
+msgstr "טקסט שגיאה"
+
+#: assets/build/editor-app.js:2
+msgid "Horizontal"
+msgstr "אופקי"
+
+#: assets/build/editor-app.js:2
+msgid "Vertical"
+msgstr "אנכי"
+
+#: assets/build/editor-app.js:2
+msgid "Blur"
+msgstr "טשטוש"
+
+#: assets/build/editor-app.js:2
+msgid "Spread"
+msgstr "לְהַפִיץ"
+
+#: assets/build/editor-app.js:2
+msgid "Social Login"
+msgstr "התחברות חברתית"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Facebook Login"
+msgstr "אפשר כניסה באמצעות פייסבוק"
+
+#: assets/build/editor-app.js:2
+msgid "Please configure Facebook App settings from"
+msgstr "אנא הגדר את הגדרות האפליקציה של פייסבוק מ"
+
+#: assets/build/editor-app.js:2
+msgid "here"
+msgstr "כאן"
+
+#: assets/build/editor-app.js:2
+msgid "Button Size"
+msgstr "גודל כפתור"
+
+#: assets/build/editor-app.js:2
+msgid "Facebook Login Button"
+msgstr "כפתור התחברות לפייסבוק"
+
+#: assets/build/editor-app.js:2
+msgid "Enter Login Button Text"
+msgstr "הזן את טקסט כפתור ההתחברות"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Google Login"
+msgstr "אפשר כניסה באמצעות Google"
+
+#: assets/build/editor-app.js:2
+msgid "Please configure Google Client ID from"
+msgstr "אנא הגדר את מזהה הלקוח של Google מ"
+
+#: assets/build/editor-app.js:2
+msgid "Google Login Button"
+msgstr "כפתור התחברות של Google"
+
+#: assets/build/editor-app.js:2
+msgid "Social Position"
+msgstr "מעמד חברתי"
+
+#: assets/build/editor-app.js:2
+msgid "Below Form"
+msgstr "הטופס למטה"
+
+#: assets/build/editor-app.js:2
+msgid "Above Form"
+msgstr "מעל הטופס"
+
+#: assets/build/editor-app.js:2
+msgid "Social Login Alignment"
+msgstr "יישור התחברות חברתית"
+
+#: assets/build/editor-app.js:2
+msgid "Social Buttons Layout"
+msgstr "פריסת כפתורי מדיה חברתית"
+
+#: assets/build/editor-app.js:2
+msgid "Inline"
+msgstr "מובנה"
+
+#: assets/build/editor-app.js:2
+msgid "Stack"
+msgstr "מחסנית"
+
+#: assets/build/editor-app.js:2
+msgid "Note: Choose Stack Options For all devices."
+msgstr "הערה: בחר אפשרויות ערימה עבור כל המכשירים."
+
+#: assets/build/editor-app.js:2
+msgid "Reverse Social Buttons"
+msgstr "הפוך כפתורי שיתוף חברתי"
+
+#: assets/build/editor-app.js:2
+msgid "Gap Between Buttons"
+msgstr "מרווח בין כפתורים"
+
+#: assets/build/editor-app.js:2
+msgid "Google reCAPTCHA"
+msgstr "Google reCAPTCHA"
+
+#: assets/build/editor-app.js:2
+msgid "P.S. Note that If you are using two forms on the same page with the different reCAPTCHA versions (V2 checkbox and V3), it will create conflicts between the versions. Kindly avoid using different versions on same page. "
+msgstr "נ.ב. שים לב שאם אתה משתמש בשתי טפסים באותו עמוד עם גרסאות reCAPTCHA שונות (תיבת סימון V2 ו-V3), זה ייצור קונפליקטים בין הגרסאות. נא להימנע משימוש בגרסאות שונות באותו עמוד."
+
+#: assets/build/editor-app.js:2
+msgid "Enable reCAPTCHA"
+msgstr "הפעל reCAPTCHA"
+
+#: assets/build/editor-app.js:2
+msgid "Please configure the Google reCAPTCHA Site & Secret key from"
+msgstr "אנא הגדר את מפתח האתר והסוד של Google reCAPTCHA מ"
+
+#: assets/build/editor-app.js:2
+msgid "Select Version"
+msgstr "בחר גרסה"
+
+#: assets/build/editor-app.js:2
+msgid "V2"
+msgstr "V2"
+
+#: assets/build/editor-app.js:2
+msgid "V3"
+msgstr "V3"
+
+#: assets/build/editor-app.js:2
+msgid "Input Fields Icon"
+msgstr "סמל שדות קלט"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Size"
+msgstr "גודל סמל"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Color"
+msgstr "צבע סמל"
+
+#: assets/build/editor-app.js:2
+msgid "Border Width"
+msgstr "רוחב גבול"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Border Color"
+msgstr "צבע גבול"
+
+#: assets/build/editor-app.js:2
+msgid "Eye Icon"
+msgstr "סמל עין"
+
+#: assets/build/editor-app.js:2
+msgid "Password Eye Color"
+msgstr "צבע עיניים של סיסמה"
+
+#: assets/build/editor-app.js:2
+msgid "Register Information"
+msgstr "רשום מידע"
+
+#: assets/build/editor-app.js:2
+msgid "This is an example success message."
+msgstr "זהו הודעת הצלחה לדוגמה."
+
+#: assets/build/editor-app.js:2
+msgid "Error"
+msgstr "שגיאה"
+
+#: assets/build/editor-app.js:2
+msgid ": This is an example error message."
+msgstr ": זהו הודעת שגיאה לדוגמה."
+
+#: assets/build/editor-app.js:2
+msgid "Remember Me"
+msgstr "זכור אותי"
+
+#: assets/build/editor-app.js:2
+msgid "Do not have an account?"
+msgstr "אין לך חשבון?"
+
+#: assets/build/editor-app.js:2
+msgid "login"
+msgstr "התחברות"
+
+#: assets/build/editor-app.js:2
+msgid "This block lets you add Login functionality."
+msgstr "בלוק זה מאפשר לך להוסיף פונקציונליות התחברות."
+
+#: assets/build/editor-app.js:2
+msgid "admin login"
+msgstr "כניסת מנהל"
+
+#: assets/build/editor-app.js:2
+msgid "portal"
+msgstr "פורטל"
+
+#: assets/build/editor-app.js:2
+msgid "frontend login"
+msgstr "כניסה לממשק הקדמי"
+
+#: assets/build/editor-app.js:2
+msgid "user login"
+msgstr "התחברות משתמש"
+
+#: assets/build/editor-app.js:2
+msgid "custom login"
+msgstr "כניסה מותאמת אישית"
+
+#: assets/build/editor-app.js:2
+msgid "Registration Form"
+msgstr "טופס הרשמה"
+
+#: assets/build/editor-app.js:2
+msgid "Hide Label"
+msgstr "הסתר תווית"
+
+#: assets/build/editor-app.js:2
+msgid "Show Login Information"
+msgstr "הצג מידע כניסה"
+
+#: assets/build/editor-app.js:2
+msgid "Login Link"
+msgstr "קישור כניסה"
+
+#: assets/build/editor-app.js:2
+msgid "Register Button"
+msgstr "כפתור הרשמה"
+
+#: assets/build/editor-app.js:2
+msgid "Social Registration"
+msgstr "הרשמה חברתית"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Facebook Registration"
+msgstr "אפשר הרשמה לפייסבוק"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Google Registration"
+msgstr "אפשר רישום בגוגל"
+
+#: assets/build/editor-app.js:2
+msgid "Social Registration Alignment"
+msgstr "יישור רישום חברתי"
+
+#: assets/build/editor-app.js:2
+msgid "After Registration Actions"
+msgstr "פעולות לאחר ההרשמה"
+
+#: assets/build/editor-app.js:2
+msgid "Redirect"
+msgstr "הפניה"
+
+#: assets/build/editor-app.js:2
+msgid "Auto Login"
+msgstr "כניסה אוטומטית"
+
+#: assets/build/editor-app.js:2
+msgid "Send Email"
+msgstr "שלח אימייל"
+
+#: assets/build/editor-app.js:2
+msgid "Redirect URL"
+msgstr "כתובת אתר להפניה מחדש"
+
+#: assets/build/editor-app.js:2
+msgid "Email Template"
+msgstr "תבנית אימייל"
+
+#: assets/build/editor-app.js:2
+msgid "Customize Email Template"
+msgstr "התאם אישית את תבנית האימייל"
+
+#: assets/build/editor-app.js:2
+msgid "Subject"
+msgstr "נושא"
+
+#: assets/build/editor-app.js:2
+msgid "Message"
+msgstr "הודעה"
+
+#: assets/build/editor-app.js:2
+msgid "HTML Supported"
+msgstr "נתמך HTML"
+
+#: assets/build/editor-app.js:2
+msgid "Note:"
+msgstr "הערה:"
+
+#: assets/build/editor-app.js:2
+msgid "If you wish to send System Generated Password in the email content, use shortcode -"
+msgstr "אם ברצונך לשלוח סיסמה שנוצרה על ידי המערכת בתוכן האימייל, השתמש בקוד קצר -"
+
+#: assets/build/editor-app.js:2
+msgid "Send As"
+msgstr "שלח כ"
+
+#: assets/build/editor-app.js:2
+msgid "HTML"
+msgstr "HTML"
+
+#: assets/build/editor-app.js:2
+msgid "Plain"
+msgstr "רגיל"
+
+#: assets/build/editor-app.js:2
+msgid "Make sure to update your post for changes to take effect."
+msgstr "ודא לעדכן את הפוסט שלך כדי שהשינויים ייכנסו לתוקף."
+
+#: assets/build/editor-app.js:2
+msgid "Return To Post"
+msgstr "חזור לפוסט"
+
+#: assets/build/editor-app.js:2
+msgid "Validation Messages"
+msgstr "הודעות אימות"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Email"
+msgstr "אימייל לא חוקי"
+
+#: assets/build/editor-app.js:2
+msgid "Email is missing"
+msgstr "האימייל חסר"
+
+#: assets/build/editor-app.js:2
+msgid "Already Used Email"
+msgstr "כתובת אימייל זו כבר בשימוש"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Username"
+msgstr "שם משתמש לא חוקי"
+
+#: assets/build/editor-app.js:2
+msgid "Username already in use"
+msgstr "שם המשתמש כבר בשימוש"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Password"
+msgstr "סיסמה לא חוקית"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Password Confirmed"
+msgstr "אישור סיסמה לא חוקי"
+
+#: assets/build/editor-app.js:2
+msgid "Terms & Condition Error"
+msgstr "שגיאת תנאים והגבלות"
+
+#: assets/build/editor-app.js:2
+msgid "Other Errors"
+msgstr "שגיאות אחרות"
+
+#: assets/build/editor-app.js:2
+msgid "Successful Registration"
+msgstr "הרשמה מוצלחת"
+
+#: assets/build/editor-app.js:2
+msgid "View Field Error Message"
+msgstr "הצג הודעת שגיאה בשדה"
+
+#: assets/build/editor-app.js:2
+msgid "Enable reCAPTCHA "
+msgstr "הפעל reCAPTCHA"
+
+#: assets/build/editor-app.js:2
+msgid "Label Bottom Margin"
+msgstr "שולי תחתית תווית"
+
+#: assets/build/editor-app.js:2
+msgid "Login Information"
+msgstr "פרטי התחברות"
+
+#: assets/build/editor-app.js:2
+msgid "Link Text"
+msgstr "טקסט קישור"
+
+#: assets/build/editor-app.js:2
+msgid "Field Error Text"
+msgstr "שגיאת שדה טקסט"
+
+#: assets/build/editor-app.js:2
+msgid "This message will appear when everything worked fine."
+msgstr "הודעה זו תופיע כאשר הכל עבד כשורה."
+
+#: assets/build/editor-app.js:2
+msgid "This message will appear when something wrong is happening."
+msgstr "הודעה זו תופיע כאשר משהו לא בסדר קורה."
+
+#: assets/build/editor-app.js:2
+msgid "To use Registration Form on your site, please enable the"
+msgstr "כדי להשתמש בטופס ההרשמה באתר שלך, אנא הפעל את ה"
+
+#: assets/build/editor-app.js:2
+msgid "Anyone Can Register"
+msgstr "כל אחד יכול להירשם"
+
+#: assets/build/editor-app.js:2
+msgid "setting from Dashboard -> Settings -> General -> Membership."
+msgstr "הגדרה מתוך לוח הבקרה -> הגדרות -> כללי -> חברות."
+
+#: assets/build/editor-app.js:2
+msgid "Register"
+msgstr "הרשמה"
+
+#: assets/build/editor-app.js:2
+msgid "Already have an account?"
+msgstr "כבר יש לך חשבון?"
+
+#: assets/build/editor-app.js:2
+msgid "This block lets you add Registration functionality."
+msgstr "בלוק זה מאפשר לך להוסיף פונקציונליות של רישום."
+
+#: assets/build/editor-app.js:2
+msgid "register"
+msgstr "הרשמה"
+
+#: assets/build/editor-app.js:2
+msgid "admin register"
+msgstr "רישום מנהל"
+
+#: assets/build/editor-app.js:2
+msgid "frontend register"
+msgstr "רישום חזיתי"
+
+#: assets/build/editor-app.js:2
+msgid "user register"
+msgstr "הרשמת משתמש"
+
+#: assets/build/editor-app.js:2
+msgid "custom register"
+msgstr "רישום מותאם אישית"
+
+#: assets/build/portals-app.js:2
+msgid "What's New?"
+msgstr "מה חדש?"
+
+#: assets/build/portals-app.js:2
+msgid "Dashboard"
+msgstr "לוח מחוונים"
+
+#: assets/build/portals-app.js:2
+msgid "V %s"
+msgstr "V %s"
+
+#: assets/build/portals-app.js:2
+msgid "CORE"
+msgstr "ליבה"
+
+#: assets/build/portals-app.js:2
+msgid "Edit"
+msgstr "ערוך"
+
+#: assets/build/portals-app.js:2
+msgid "Popup Title"
+msgstr "כותרת חלון קופץ"
+
+#: assets/build/portals-app.js:2
+msgid "Set Image"
+msgstr "הגדר תמונה"
+
+#: assets/build/portals-app.js:2
+msgid "Upload Image"
+msgstr "העלה תמונה"
+
+#: assets/build/portals-app.js:2
+msgid "Course Description"
+msgstr "תיאור הקורס"
+
+#: assets/build/portals-app.js:2
+msgid "Space Name"
+msgstr "שם החלל"
+
+#: assets/build/portals-app.js:2
+msgid "Featured Image"
+msgstr "תמונה מוצגת"
+
+#: assets/build/portals-app.js:2
+msgid "Upload at least 1000x200px image. Recommended size is 1920x384px."
+msgstr "העלה תמונה בגודל של לפחות 1000x200 פיקסלים. הגודל המומלץ הוא 1920x384 פיקסלים."
+
+#: assets/build/portals-app.js:2
+msgid "Space Status"
+msgstr "מצב חלל"
+
+#: assets/build/portals-app.js:2
+msgid "Draft"
+msgstr "טיוטה"
+
+#: assets/build/portals-app.js:2
+msgid "Publish"
+msgstr "פרסם"
+
+#: assets/build/portals-app.js:2
+msgid "Enable Lesson Comments"
+msgstr "אפשר תגובות לשיעור"
+
+#: assets/build/portals-app.js:2
+msgid "Enable Feed Comments"
+msgstr "אפשר תגובות להזנה"
+
+#: assets/build/portals-app.js:2
+msgid "Enable Comments"
+msgstr "אפשר תגובות"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow viewers to comment on this course lessons."
+msgstr "הפעלת אפשרות זו תאפשר לצופים להגיב על שיעורי הקורס הזה."
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow viewers to comment on individual feeds."
+msgstr "הפעלת אפשרות זו תאפשר לצופים להגיב על עדכונים בודדים."
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow viewers to comment on this space."
+msgstr "הפעלת אפשרות זו תאפשר לצופים להגיב על מרחב זה."
+
+#: assets/build/portals-app.js:2
+msgid "Default Content"
+msgstr "תוכן ברירת מחדל"
+
+#: assets/build/portals-app.js:2
+msgid "Course Sections"
+msgstr "חלקי קורס"
+
+#: assets/build/portals-app.js:2
+msgid "Add Section"
+msgstr "הוסף סעיף"
+
+#: assets/build/portals-app.js:2
+msgid "Section:"
+msgstr "סעיף:"
+
+#: assets/build/portals-app.js:2
+msgid "Add Lesson"
+msgstr "הוסף שיעור"
+
+#: assets/build/portals-app.js:2
+msgid "You need to delete the lessons in this section first."
+msgstr "עליך למחוק את השיעורים בחלק זה תחילה."
+
+#: assets/build/portals-app.js:2
+msgid "Are you sure you want to remove this section?"
+msgstr "האם אתה בטוח שברצונך להסיר את החלק הזה?"
+
+#: assets/build/portals-app.js:2
+msgid "You can not remove the last section."
+msgstr "אינך יכול להסיר את החלק האחרון."
+
+#: assets/build/portals-app.js:2
+msgid "Remove"
+msgstr "הסר"
+
+#: assets/build/portals-app.js:2
+msgid "Collapse"
+msgstr "לקרוס"
+
+#: assets/build/portals-app.js:2
+msgid "Expand"
+msgstr "הרחב"
+
+#: assets/build/portals-app.js:2
+msgid "Delete Lesson"
+msgstr "מחק שיעור"
+
+#: assets/build/portals-app.js:2
+msgid "Are you sure you want to remove this lesson? This action will permanently delete the lesson post."
+msgstr "האם אתה בטוח שברצונך להסיר את השיעור הזה? פעולה זו תמחק לצמיתות את פרסום השיעור."
+
+#: assets/build/portals-app.js:2
+msgid "Choose Content Group"
+msgstr "בחר קבוצת תוכן"
+
+#: assets/build/portals-app.js:2
+msgid "Please add at least 1 character to search"
+msgstr "אנא הוסף לפחות תו אחד לחיפוש"
+
+#: assets/build/portals-app.js:2
+msgid "Pinned Content Post"
+msgstr "פוסט תוכן מוצמד"
+
+#: assets/build/portals-app.js:2
+msgid "Link URL"
+msgstr "קישור URL"
+
+#: assets/build/portals-app.js:2
+msgid "Link Target"
+msgstr "יעד הקישור"
+
+#: assets/build/portals-app.js:2
+msgid "Same Window"
+msgstr "אותו חלון"
+
+#: assets/build/portals-app.js:2
+msgid "New Window"
+msgstr "חלון חדש"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Topic Forum"
+msgstr "בחר פורום נושא"
+
+#: assets/build/portals-app.js:2
+msgid "Pinned Topic Post"
+msgstr "פוסט נושא מוצמד"
+
+#: assets/build/portals-app.js:2
+msgid "Make Discussions Private"
+msgstr "הפוך דיונים לפרטיים"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this makes all discussions private between portal managers and the topic creator."
+msgstr "הפעלת אפשרות זו הופכת את כל הדיונים לפרטיים בין מנהלי הפורטל ליוצר הנושא."
+
+#: assets/build/portals-app.js:2
+msgid "All Posts"
+msgstr "כל הפוסטים"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Video Post"
+msgstr "בחר פוסט וידאו"
+
+#: assets/build/portals-app.js:2
+msgid "Video Type"
+msgstr "סוג וידאו"
+
+#: assets/build/portals-app.js:2
+msgid "Single"
+msgstr "רווק"
+
+#: assets/build/portals-app.js:2
+msgid "Playlist"
+msgstr "פלייליסט"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Video Posts"
+msgstr "בחר פוסטים של וידאו"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Post/Page/Template"
+msgstr "בחר פוסט/דף/תבנית"
+
+#: assets/build/portals-app.js:2
+msgid "Content Type"
+msgstr "סוג תוכן"
+
+#: assets/build/portals-app.js:2
+msgid "Post Content Type"
+msgstr "סוג תוכן פוסט"
+
+#: assets/build/portals-app.js:2
+msgid "Full Content"
+msgstr "תוכן מלא"
+
+#: assets/build/portals-app.js:2
+msgid "Excerpt"
+msgstr "קטע"
+
+#: assets/build/portals-app.js:2
+msgid "Container Type"
+msgstr "סוג מיכל"
+
+#: assets/build/portals-app.js:2
+msgid "Full Width"
+msgstr "רוחב מלא"
+
+#: assets/build/portals-app.js:2
+msgid "Narrow Width"
+msgstr "רוחב צר"
+
+#: assets/build/portals-app.js:2
+msgid "Space Group Name"
+msgstr "שם קבוצת החלל"
+
+#: assets/build/portals-app.js:2
+msgid "Short Description"
+msgstr "תיאור קצר"
+
+#: assets/build/portals-app.js:2
+msgid "Enter a short description for the space group."
+msgstr "הזן תיאור קצר עבור קבוצת המרחב."
+
+#: assets/build/portals-app.js:2
+msgid "Pinned Section"
+msgstr "קטע מוצמד"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this section will remove space group title and display the spaces directly."
+msgstr "הפעלת סעיף זה תסיר את כותרת קבוצת הרווחים ותציג את הרווחים ישירות."
+
+#: assets/build/portals-app.js:2
+msgid "Add Home Link"
+msgstr "הוסף קישור לדף הבית"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will add a home link to the section."
+msgstr "הפעלת אפשרות זו תוסיף קישור לדף הבית למדור."
+
+#: assets/build/portals-app.js:2
+msgid "No Icons Found."
+msgstr "לא נמצאו סמלים."
+
+#: assets/build/portals-app.js:2
+msgid "Saving…"
+msgstr "שומר…"
+
+#: assets/build/portals-app.js:2
+msgid "Saved"
+msgstr "נשמר"
+
+#: assets/build/portals-app.js:2
+msgid "Settings Saved Successfully!"
+msgstr "ההגדרות נשמרו בהצלחה!"
+
+#: assets/build/portals-app.js:2
+msgid "Failed to Save."
+msgstr "שמירה נכשלה."
+
+#: assets/build/portals-app.js:2
+msgid "Error updating settings: "
+msgstr "שגיאה בעדכון ההגדרות:"
+
+#: assets/build/portals-app.js:2
+msgid "Space"
+msgstr "חלל"
+
+#: assets/build/portals-app.js:2
+msgid "Delete"
+msgstr "מחק"
+
+#: assets/build/portals-app.js:2
+msgid "Create Your First Space Group"
+msgstr "צור את קבוצת החלל הראשונה שלך"
+
+#: assets/build/portals-app.js:2
+msgid "Start by adding a Space Groups, and then add Spaces."
+msgstr "התחל בהוספת קבוצות חלל, ולאחר מכן הוסף חללים."
+
+#: assets/build/portals-app.js:2
+msgid "Add Space Group"
+msgstr "הוסף קבוצת מרחב"
+
+#: assets/build/portals-app.js:2
+msgid "Space Group"
+msgstr "קבוצת חלל"
+
+#: assets/build/portals-app.js:2
+msgid "Are you sure you want to delete this"
+msgstr "האם אתה בטוח שברצונך למחוק את זה"
+
+#: assets/build/portals-app.js:2
+msgid "Delete it"
+msgstr "מחק את זה"
+
+#: assets/build/portals-app.js:2
+msgid "Create Space Group"
+msgstr "צור קבוצת מרחב"
+
+#: assets/build/portals-app.js:2
+msgid "New Space Group"
+msgstr "קבוצת חלל חדשה"
+
+#: assets/build/portals-app.js:2
+msgid "Back"
+msgstr "חזור"
+
+#: assets/build/portals-app.js:2
+msgid "Creating…"
+msgstr "יוצר…"
+
+#: assets/build/portals-app.js:2
+msgid "Ready…"
+msgstr "מוכן…"
+
+#: assets/build/portals-app.js:2
+msgid "Failed!"
+msgstr "נכשל!"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Space Content Type"
+msgstr "בחר סוג תוכן חלל"
+
+#: assets/build/portals-app.js:2
+msgid "Continue"
+msgstr "המשך"
+
+#: assets/build/portals-app.js:2
+msgid "A blank space."
+msgstr "רווח ריק."
+
+#: assets/build/portals-app.js:2
+msgid "Post"
+msgstr "פרסם"
+
+#: assets/build/portals-app.js:2
+msgid "A space with WordPress post/page/template."
+msgstr "רווח עם פוסט/דף/תבנית של וורדפרס."
+
+#: assets/build/portals-app.js:2
+msgid "A space with video content."
+msgstr "מרחב עם תוכן וידאו."
+
+#: assets/build/portals-app.js:2
+msgid "A space with a redirecting link."
+msgstr "מרחב עם קישור מפנה."
+
+#: assets/build/portals-app.js:2
+msgid "Feed"
+msgstr "הזנה"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Content feeds."
+msgstr "מרחב עם הזנות תוכן."
+
+#: assets/build/portals-app.js:2
+msgid "Discussion"
+msgstr "דיון"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Topic feeds."
+msgstr "מרחב עם עדכוני נושא."
+
+#: assets/build/portals-app.js:2
+msgid "Pro"
+msgstr "מקצוען"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Course content."
+msgstr "מרחב עם תוכן הקורס."
+
+#: assets/build/portals-app.js:2
+msgid "Event"
+msgstr "אירוע"
+
+#: assets/build/portals-app.js:2
+msgid "Soon"
+msgstr "בקרוב"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Event content."
+msgstr "מרחב עם תוכן אירוע."
+
+#: assets/build/portals-app.js:2
+msgid "Form"
+msgstr "טופס"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Form content."
+msgstr "מרחב עם תוכן טופס."
+
+#: assets/build/portals-app.js:2
+msgid "Add a New"
+msgstr "הוסף חדש"
+
+#: assets/build/portals-app.js:2
+msgid "Space Title"
+msgstr "כותרת חלל"
+
+#: assets/build/portals-app.js:2
+msgid "- Select -"
+msgstr "- בחר -"
+
+#: assets/build/portals-app.js:2
+msgid "– Create a Space Group –"
+msgstr "– צור קבוצת מרחב –"
+
+#: assets/build/portals-app.js:2
+msgid "New Space Group Name"
+msgstr "שם קבוצת חלל חדשה"
+
+#: assets/build/portals-app.js:2
+msgid "Create Space"
+msgstr "צור מרחב"
+
+#: assets/build/portals-app.js:2
+msgid "No Spaces Found!"
+msgstr "לא נמצאו רווחים!"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will hide the SureDash branding from the public."
+msgstr "הפעלת אפשרות זו תסתיר את המיתוג של SureDash מהציבור."
+
+#: assets/build/portals-app.js:2
+msgid "This feature is only available in SureDash Pro."
+msgstr "תכונה זו זמינה רק ב-SureDash Pro."
+
+#: assets/build/portals-app.js:2
+msgid "Portal Name"
+msgstr "שם הפורטל"
+
+#: assets/build/portals-app.js:2
+msgid "Upload Logo"
+msgstr "העלה לוגו"
+
+#: assets/build/portals-app.js:2
+msgid "Select Logo"
+msgstr "בחר לוגו"
+
+#: assets/build/portals-app.js:2
+msgid "Set Logo"
+msgstr "הגדר לוגו"
+
+#: assets/build/portals-app.js:2
+msgid "Logo"
+msgstr "לוגו"
+
+#: assets/build/portals-app.js:2
+msgid "Hide"
+msgstr "הסתר"
+
+#: assets/build/portals-app.js:2
+msgid "Branding"
+msgstr "מיתוג"
+
+#: assets/build/portals-app.js:2
+msgid "Make Community Private"
+msgstr "הפוך את הקהילה לפרטית"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will hide the community from the public and require a login to view."
+msgstr "הפעלת אפשרות זו תסתיר את הקהילה מהציבור ותדרוש התחברות לצפייה."
+
+#: assets/build/portals-app.js:2
+msgid "Set Portal as Homepage"
+msgstr "הגדר את פורטל כדף הבית"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this option will set the portal as your site homepage."
+msgstr "הפעלת אפשרות זו תהפוך את הפורטל לדף הבית של האתר שלך."
+
+#: assets/build/portals-app.js:2
+msgid "Content Post Type"
+msgstr "סוג תוכן"
+
+#: assets/build/portals-app.js:2
+msgid "Leverage the Content post type to create content feeds."
+msgstr "השתמש בסוג הפוסט של תוכן כדי ליצור הזנות תוכן."
+
+#: assets/build/portals-app.js:2
+msgid "Topic Post Type"
+msgstr "סוג פוסט נושא"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow your users to create topics."
+msgstr "הפעלת אפשרות זו תאפשר למשתמשים שלך ליצור נושאים."
+
+#: assets/build/portals-app.js:2
+msgid "Enable Lightbox"
+msgstr "הפעל Lightbox"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow lightweight lightbox for your content images."
+msgstr "הפעלת זה תאפשר תיבת אור קלה לתמונות התוכן שלך."
+
+#: assets/build/portals-app.js:2
+msgid "Google Registration"
+msgstr "הרשמה ל-Google"
+
+#: assets/build/portals-app.js:2
+msgid "Facebook Registration"
+msgstr "הרשמה לפייסבוק"
+
+#: assets/build/portals-app.js:2
+msgid "Facebook Token ID"
+msgstr "מזהה אסימון פייסבוק"
+
+#: assets/build/portals-app.js:2
+msgid "Facebook Token Secret"
+msgstr "סוד אסימון פייסבוק"
+
+#: assets/build/portals-app.js:2
+msgid "Google reCaptcha"
+msgstr "Google reCaptcha"
+
+#: assets/build/portals-app.js:2
+msgid "reCaptcha v2 Site Key"
+msgstr "מפתח אתר reCaptcha v2"
+
+#: assets/build/portals-app.js:2
+msgid "reCaptcha v3 Site Key"
+msgstr "מפתח אתר reCaptcha v3"
+
+#: assets/build/portals-app.js:2
+msgid "Select Home Page"
+msgstr "בחר דף בית"
+
+#: assets/build/portals-app.js:2
+msgid "Select Login Page"
+msgstr "בחר דף כניסה"
+
+#: assets/build/portals-app.js:2
+msgid "Select Registration Page"
+msgstr "בחר דף רישום"
+
+#: assets/build/portals-app.js:2
+msgid "No fonts found!"
+msgstr "לא נמצאו גופנים!"
+
+#: assets/build/portals-app.js:2
+msgid "Enter atleast 3 characters to search font family (default: Figtree). Font generation may take a few moments for self hosting."
+msgstr "הזן לפחות 3 תווים כדי לחפש משפחת גופנים (ברירת מחדל: Figtree). יצירת הגופן עשויה לקחת כמה רגעים עבור אירוח עצמי."
+
+#: assets/build/portals-app.js:2
+msgid "Global Container Type"
+msgstr "סוג מכולה גלובלי"
+
+#: assets/build/portals-app.js:2
+msgid "Narrow Container Width"
+msgstr "רוחב מיכל צר"
+
+#: assets/build/portals-app.js:2
+msgid "Course Container Width"
+msgstr "רוחב מיכל הקורס"
+
+#: assets/build/portals-app.js:2
+msgid "Container Spacing"
+msgstr "ריווח מיכלים"
+
+#: assets/build/portals-app.js:2
+msgid "Global"
+msgstr "גלובלי"
+
+#: assets/build/portals-app.js:2
+msgid "Primary Color"
+msgstr "צבע ראשי"
+
+#: assets/build/portals-app.js:2
+msgid "Primary color is used for mainly base background color of the portal."
+msgstr "צבע ראשי משמש בעיקר כצבע רקע בסיסי של הפורטל."
+
+#: assets/build/portals-app.js:2
+msgid "Secondary Color"
+msgstr "צבע משני"
+
+#: assets/build/portals-app.js:2
+msgid "Secondary color is used as secondary purposes under the portal."
+msgstr "צבע משני משמש למטרות משניות תחת הפורטל."
+
+#: assets/build/portals-app.js:2
+msgid "Content Background Color"
+msgstr "צבע רקע התוכן"
+
+#: assets/build/portals-app.js:2
+msgid "Content background color is for mainly content background color of the portal."
+msgstr "צבע הרקע של התוכן מיועד בעיקר לצבע הרקע של התוכן בפורטל."
+
+#: assets/build/portals-app.js:2
+msgid "Heading Color"
+msgstr "צבע הכותרת"
+
+#: assets/build/portals-app.js:2
+msgid "Text Color"
+msgstr "צבע טקסט"
+
+#: assets/build/portals-app.js:2
+msgid "Link Color"
+msgstr "צבע קישור"
+
+#: assets/build/portals-app.js:2
+msgid "Link Active Color"
+msgstr "צבע קישור פעיל"
+
+#: assets/build/portals-app.js:2
+msgid "Text Selection Background Color"
+msgstr "צבע רקע בחירת טקסט"
+
+#: assets/build/portals-app.js:2
+msgid "Primary Button Color"
+msgstr "צבע כפתור ראשי"
+
+#: assets/build/portals-app.js:2
+msgid "Primary Button Background Color"
+msgstr "צבע רקע של כפתור ראשי"
+
+#: assets/build/portals-app.js:2
+msgid "Secondary Button Color"
+msgstr "צבע כפתור משני"
+
+#: assets/build/portals-app.js:2
+msgid "Secondary Button Background Color"
+msgstr "צבע רקע של כפתור משני"
+
+#: assets/build/portals-app.js:2
+msgid "Profile Links:"
+msgstr "קישורים לפרופיל:"
+
+#: assets/build/portals-app.js:2
+msgid "Add Link"
+msgstr "הוסף קישור"
+
+#: assets/build/portals-app.js:2
+msgid "Delete Link"
+msgstr "מחק קישור"
+
+#: assets/build/portals-app.js:2
+msgid "New registered user will get these selected user roles capabilities."
+msgstr "משתמש חדש שנרשם יקבל את היכולות של תפקידי המשתמש הנבחרים הללו."
+
+#: assets/build/portals-app.js:2
+msgid "New User Capabilities"
+msgstr "יכולות משתמש חדשות"
+
+#: assets/build/portals-app.js:2
+msgid "Portal Managers"
+msgstr "מנהלי פורטל"
+
+#: assets/build/portals-app.js:2
+msgid "Selected users will get admin notification and access to manage the portal."
+msgstr "משתמשים נבחרים יקבלו הודעת מנהל וגישה לניהול הפורטל."
+
+#: assets/build/portals-app.js:2
+msgid "Start typing…"
+msgstr "התחל להקליד…"
+
+#: assets/build/portals-app.js:2
+msgid "Displays the username."
+msgstr "מציג את שם המשתמש."
+
+#: assets/build/portals-app.js:2
+msgid "Displays the password reset key."
+msgstr "מציג את מפתח איפוס הסיסמה."
+
+#: assets/build/portals-app.js:2
+msgid "From Email"
+msgstr "מאת דוא\"ל"
+
+#: assets/build/portals-app.js:2
+msgid "Forgot Password Mail Message"
+msgstr "הודעת דוא\"ל לשחזור סיסמה"
+
+#: assets/build/portals-app.js:2
+msgid "Drag and drop dynamic tags to the email message field."
+msgstr "גרור ושחרר תגיות דינמיות לשדה הודעת הדוא\"ל."
+
+#: assets/build/portals-app.js:2
+msgid "Welcome Text"
+msgstr "טקסט קבלת פנים"
+
+#: assets/build/portals-app.js:2
+msgid "No Posts Found"
+msgstr "לא נמצאו פוסטים"
+
+#: assets/build/portals-app.js:2
+msgid "Mark as Complete"
+msgstr "סמן כהושלם"
+
+#: assets/build/portals-app.js:2
+msgid "Start Writing Your Post"
+msgstr "התחל לכתוב את הפוסט שלך"
+
+#: assets/build/portals-app.js:2
+msgid "Write a Post"
+msgstr "כתוב פוסט"
+
+#: assets/build/portals-app.js:2
+msgid "No Topic Found"
+msgstr "לא נמצא נושא"
+
+#: assets/build/portals-app.js:2
+msgid "Restricted Content Heading"
+msgstr "כותרת תוכן מוגבל"
+
+#: assets/build/portals-app.js:2
+msgid "Restricted Content Notice"
+msgstr "הודעה על תוכן מוגבל"
+
+#: assets/build/portals-app.js:2
+msgid "Feeds Per Page"
+msgstr "פידים לכל עמוד"
+
+#: assets/build/portals-app.js:2
+msgid "User Upload Limit"
+msgstr "מגבלת העלאת משתמש"
+
+#: assets/build/portals-app.js:2
+msgid "Set the maximum upload limit for users to upload photo & cover image."
+msgstr "הגדר את מגבלת ההעלאה המרבית עבור משתמשים להעלאת תמונת פרופיל ותמונת כיסוי."
+
+#: assets/build/portals-app.js:2
+msgid "Bypass WordPress Interactions"
+msgstr "עקיפת אינטראקציות וורדפרס"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this option will bypass WordPress interactions within the portal and improve performance."
+msgstr "הפעלת אפשרות זו תעקוף את האינטראקציות של וורדפרס בתוך הפורטל ותשפר את הביצועים."
+
+#: assets/build/portals-app.js:2
+msgid "Activate"
+msgstr "הפעל"
+
+#: assets/build/portals-app.js:2
+msgid "Deactivate"
+msgstr "השבת"
+
+#: assets/build/portals-app.js:2
+msgid "Your license is activated"
+msgstr "הרישיון שלך הופעל"
+
+#: assets/build/portals-app.js:2
+msgid "Paste your license key here"
+msgstr "הדבק את מפתח הרישיון שלך כאן"
+
+#: assets/build/portals-app.js:2
+msgid "You are using"
+msgstr "אתה משתמש"
+
+#: assets/build/portals-app.js:2
+msgid "Activate %1$s%6$s%2$s to get professional support and automatic updates from your WordPress dashboard. If you don't have a license, you can %3$sget it here »%4$s %5$sPlease enter your license key below to activate %6$s!"
+msgstr "הפעל את %1$s%6$s%2$s כדי לקבל תמיכה מקצועית ועדכונים אוטומטיים מלוח הבקרה של וורדפרס שלך. אם אין לך רישיון, תוכל %3$sלקבל אותו כאן »%4$s %5$sאנא הזן את מפתח הרישיון שלך למטה כדי להפעיל את %6$s!"
+
+#: assets/build/portals-app.js:2
+msgid "Deactivating"
+msgstr "מבטל הפעלה"
+
+#: assets/build/portals-app.js:2
+msgid "Deactivated"
+msgstr "מושבת"
+
+#: assets/build/portals-app.js:2
+msgid "Please enter a license key"
+msgstr "אנא הזן מפתח רישיון"
+
+#: assets/build/portals-app.js:2
+msgid "Activating"
+msgstr "מפעיל"
+
+#: assets/build/portals-app.js:2
+msgid "Activated"
+msgstr "מופעל"
+
+#: assets/build/portals-app.js:2
+msgid "Community Settings"
+msgstr "הגדרות קהילה"
+
+#: assets/build/portals-app.js:2
+msgid "Social Settings"
+msgstr "הגדרות חברתיות"
+
+#: assets/build/portals-app.js:2
+msgid "Text Labels"
+msgstr "תוויות טקסט"
+
+#: assets/build/portals-app.js:2
+msgid "Display Settings"
+msgstr "הגדרות תצוגה"
+
+#: assets/build/portals-app.js:2
+msgid "Performance Measures"
+msgstr "מדדי ביצוע"
+
+#: assets/build/portals-app.js:2
+msgid "Design"
+msgstr "עיצוב"
+
+#: assets/build/portals-app.js:2
+msgid "Layout"
+msgstr "פריסה"
+
+#: assets/build/portals-app.js:2
+msgid "Colors"
+msgstr "צבעים"
+
+#: assets/build/portals-app.js:2
+msgid "User Settings"
+msgstr "הגדרות משתמש"
+
+#: assets/build/portals-app.js:2
+msgid "Profile Management"
+msgstr "ניהול פרופיל"
+
+#: assets/build/portals-app.js:2
+msgid "Access User Role"
+msgstr "גישה לתפקיד משתמש"
+
+#: assets/build/portals-app.js:2
+msgid "Email Settings"
+msgstr "הגדרות דוא\"ל"
+
+#: assets/build/portals-app.js:2
+msgid "Licensing"
+msgstr "רישוי"
+
+#: core/blocks/social-login.php:47
+msgid "Invalid Data"
+msgstr "נתונים לא חוקיים"
+
+#: core/blocks/social-login.php:59
+#: core/blocks/social-login.php:64
+#: core/blocks/social-login.php:73
+msgid "Invalid Authorization"
+msgstr "אישור לא חוקי"
+
+#: core/routers/backend.php:326
+#: core/routers/backend.php:367
+msgid "Invalid post type."
+msgstr "סוג פוסט לא חוקי."
+
+#: inc/functions/operations.php:271
+msgid "User data not updated"
+msgstr "נתוני המשתמש לא עודכנו"
+
+#: admin/notices.php:54
+msgid "How likely are you to recommend SureDash to your friends or colleagues?"
+msgstr "מה הסבירות שתמליץ על SureDash לחברים או לעמיתים שלך?"
+
+#: admin/notices.php:55
+msgid "Thanks a lot for your feedback! 😍"
+msgstr "תודה רבה על המשוב שלך! 😍"
+
+#: admin/notices.php:56
+msgid "Could you please do us a favor and give us a 5-star rating on WordPress? It would help others choose SureDash with confidence. Thank you!"
+msgstr "האם תוכל בבקשה לעשות לנו טובה ולתת לנו דירוג של 5 כוכבים ב-WordPress? זה יעזור לאחרים לבחור ב-SureDash בביטחון. תודה!"
+
+#: admin/notices.php:58
+msgid "Thank you for your feedback"
+msgstr "תודה על המשוב שלך"
+
+#: admin/notices.php:59
+msgid "We value your input. How can we improve your experience?"
+msgstr "אנו מעריכים את המשוב שלך. כיצד נוכל לשפר את החוויה שלך?"
+
+#: admin/notices.php:60
+msgid "Rate SureDash"
+msgstr "דרג את SureDash"
+
+#: assets/build/portals-app.js:2
+msgid "Note: You can add lessons later through the Course Builder in the edit area."
+msgstr "הערה: תוכל להוסיף שיעורים מאוחר יותר דרך בונה הקורסים באזור העריכה."
+
+#: assets/build/portals-app.js:2
+msgid "Google Client ID"
+msgstr "מזהה לקוח של Google"
+
+#: assets/build/portals-app.js:2
+msgid "Google Client Secret"
+msgstr "סוד לקוח של Google"
+
+#: admin/menu.php:223
+#: admin/menu.php:224
+msgid "Customize Portal"
+msgstr "התאם אישית את הפורטל"
+
+#: core/assets.php:81
+msgid "Bold"
+msgstr "מודגש"
+
+#: core/assets.php:84
+msgid "Attach an Image"
+msgstr "צרף תמונה"
+
+#: core/assets.php:85
+msgid "Attach a Video"
+msgstr "צרף וידאו"
+
+#: core/assets.php:86
+msgid "Image URL"
+msgstr "כתובת URL של תמונה"
+
+#: core/assets.php:87
+msgid "Image Alt Text"
+msgstr "טקסט חלופי לתמונה"
+
+#: core/assets.php:88
+msgid "Attach Image"
+msgstr "צרף תמונה"
+
+#: core/assets.php:89
+msgid "Drag and drop or browse files"
+msgstr "גרור ושחרר או עיין בקבצים"
+
+#: core/assets.php:91
+msgid "From URL"
+msgstr "מכתובת URL"
+
+#: core/assets.php:92
+msgid "Attach Video"
+msgstr "צרף וידאו"
+
+#: core/assets.php:93
+msgid "Video URL"
+msgstr "כתובת URL של וידאו"
+
+#: core/assets.php:94
+msgid "Insert YouTube or Vimeo link"
+msgstr "הכנס קישור ל-YouTube או Vimeo"
+
+#: core/blocks/do-blocks.php:47
+#: inc/templator/service.php:215
+msgid "Community Portal"
+msgstr "פורטל קהילתי"
+
+#: core/blocks/do-blocks.php:105
+msgid "Active Space Text"
+msgstr "טקסט חלל פעיל"
+
+#: core/blocks/do-blocks.php:118
+msgid "Active Space Background"
+msgstr "רקע חלל פעיל"
+
+#: core/blocks/do-blocks.php:131
+msgid "Space Group Text"
+msgstr "טקסט קבוצת חלל"
+
+#: core/blocks/do-blocks.php:144
+msgid "Space Group Background"
+msgstr "רקע קבוצת חלל"
+
+#: core/routers/misc.php:817
+msgid "Invalid file type. Only GIF, PNG, JPEG, and JPG are allowed."
+msgstr "סוג קובץ לא חוקי. רק GIF, PNG, JPEG ו-JPG מותרים."
+
+#: core/routers/misc.php:822
+msgid "Uploaded file is not a valid image."
+msgstr "הקובץ שהועלה אינו תמונה חוקית."
+
+#: core/routers/misc.php:826
+msgid "Image dimensions exceed the permissible limit."
+msgstr "ממדי התמונה חורגים מהמגבלה המותרת."
+
+#: core/routers/misc.php:830
+msgid "File size larger than permissible."
+msgstr "גודל הקובץ גדול מהמותר."
+
+#: inc/functions/functions.php:1188
+msgid "No matching template found."
+msgstr "לא נמצאה תבנית תואמת."
+
+#. translators: Represents the title of a user's custom template in the Site Editor, where %s is the author's name, e.g. "Author: Jane Doe".
+#: inc/templator/service.php:214
+msgid "SureDash: %s"
+msgstr "SureDash: %s"
+
+#: inc/templator/service.php:217
+#: inc/templator/utility.php:55
+msgid "Template for your SureDash community."
+msgstr "תבנית לקהילת SureDash שלך."
+
+#: inc/templator/utility.php:232
+msgid "No theme is defined for this template."
+msgstr "לא הוגדר נושא לתבנית זו."
+
+#: inc/utils/labels.php:154
+msgid "Comment posted successfully."
+msgstr "התגובה פורסמה בהצלחה."
+
+#: inc/utils/labels.php:155
+msgid "Invalid comment."
+msgstr "תגובה לא חוקית."
+
+#: inc/utils/labels.php:156
+msgid "Duplicate comment detected. Please try writing something new!"
+msgstr "זוהתה תגובה כפולה. אנא נסה לכתוב משהו חדש!"
+
+#: inc/utils/labels.php:164
+msgid "Something went wrong! Please try again later."
+msgstr "משהו השתבש! אנא נסה שוב מאוחר יותר."
+
+#: inc/utils/labels.php:167
+msgid "Replying to"
+msgstr "מגיב ל"
+
+#: inc/utils/labels.php:169
+msgid "Start writing your post..."
+msgstr "התחל לכתוב את הפוסט שלך..."
+
+#: inc/utils/labels.php:172
+msgid "Search Gifs..."
+msgstr "חפש גיפים..."
+
+#: inc/utils/labels.php:175
+msgid "Insert GIF"
+msgstr "הכנס GIF"
+
+#: inc/utils/labels.php:176
+msgid "No GIF found"
+msgstr "לא נמצא GIF"
+
+#: inc/utils/labels.php:178
+msgid "Please enter at least 3 characters to search"
+msgstr "אנא הזן לפחות 3 תווים לחיפוש"
+
+#: inc/utils/labels.php:179
+msgid "API error occurred"
+msgstr "אירעה שגיאת API"
+
+#: templates/patterns/default.php:12
+msgid "Classic Layout"
+msgstr "פריסה קלאסית"
+
+#: templates/patterns/modern.php:15
+msgid "Modern Layout"
+msgstr "עיצוב מודרני"
+
+#: assets/build/portals-app.js:2
+msgid "Thumbnail Image"
+msgstr "תמונת ממוזערת"
+
+#: assets/build/portals-app.js:2
+msgid "Recommended size: 255x140px"
+msgstr "גודל מומלץ: 255x140px"
+
+#: assets/build/portals-app.js:2
+msgid "Giphy Integration"
+msgstr "שילוב Giphy"
+
+#: assets/build/portals-app.js:2
+msgid "API Key"
+msgstr "מפתח API"
+
+#: assets/build/portals-app.js:2
+msgid "Allow SureDash products to track non-sensitive usage tracking data."
+msgstr "אפשר למוצרי SureDash לעקוב אחר נתוני שימוש לא רגישים."
+
+#: assets/build/portals-app.js:2
+msgid "Want to help make SureDash even more awesome? Allow us to collect non-sensitive diagnostic data and usage information."
+msgstr "רוצה לעזור להפוך את SureDash לעוד יותר מדהים? אפשר לנו לאסוף נתוני אבחון לא רגישים ומידע על שימוש."
+
+#: assets/build/portals-app.js:2
+msgid "Know More"
+msgstr "למד עוד"
+
+#: assets/build/portals-app.js:2
+msgid "Usage Tracking"
+msgstr "מעקב שימוש"
+
+#: core/cpt/content.php:40
+msgctxt "content general name"
+msgid "Content"
+msgstr "תוכן"
+
+#: core/cpt/sub-content.php:39
+msgctxt "content general name"
+msgid "Sub Content"
+msgstr "תוכן משנה"
+
+#: core/cpt/topic.php:41
+msgctxt "content general name"
+msgid "Topic"
+msgstr "נושא"
+
+#: core/cpt/content.php:41
+msgctxt "content singular name"
+msgid "Content"
+msgstr "תוכן"
+
+#: core/cpt/sub-content.php:40
+msgctxt "content singular name"
+msgid "Sub Content"
+msgstr "תוכן משנה"
+
+#: core/cpt/topic.php:42
+msgctxt "content singular name"
+msgid "Topic"
+msgstr "נושא"
+
+#: core/cpt/content.php:83
+msgctxt "Admin menu name"
+msgid "Content Groups"
+msgstr "קבוצות תוכן"
+
+#: core/cpt/portal.php:85
+msgctxt "Admin menu name"
+msgid "Portal Space Groups"
+msgstr "קבוצות מרחב פורטל"
+
+#: core/cpt/topic.php:84
+msgctxt "Admin menu name"
+msgid "Topic Forums"
+msgstr "פורומים בנושא"
+
+#: core/cpt/portal.php:42
+msgctxt "portals general name"
+msgid "Portal Spaces"
+msgstr "מרחבי פורטל"
+
+#: core/cpt/portal.php:43
+msgctxt "portal singular name"
+msgid "Portal Space"
+msgstr "מרחב פורטל"
+
+#: inc/utils/labels.php:89
+msgctxt "Search global placeholder text!"
+msgid "Search"
+msgstr "חיפוש"
+
+#: inc/templator/utility.php:54
+msgctxt "SureDash Portal"
+msgid "SureDash: Portal"
+msgstr "SureDash: פורטל"

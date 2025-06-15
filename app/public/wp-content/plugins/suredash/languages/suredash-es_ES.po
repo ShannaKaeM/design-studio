@@ -1,0 +1,3983 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: gpt-po v1.1.1\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-01-28T07:25:39+00:00\n"
+"PO-Revision-Date: 2025-01-28T07:25:39+00:00\n"
+"Language: \n"
+
+#. Plugin Name of the plugin
+#. Author of the plugin
+#: suredash.php
+#: admin/notices.php:53
+msgid "SureDash"
+msgstr "SureDash"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: suredash.php
+msgid "https://suredash.com/"
+msgstr "https://suredash.com/"
+
+#. Description of the plugin
+#: suredash.php
+msgid "If you have users login to your website, you need this plugin to deliver an excellent experience to your users."
+msgstr "Si tienes usuarios que inician sesión en tu sitio web, necesitas este plugin para ofrecer una excelente experiencia a tus usuarios."
+
+#: admin/api.php:119
+msgid "Sorry, you cannot list resources."
+msgstr "Lo siento, no puedes listar recursos."
+
+#: admin/editor.php:161
+msgid "Lesson Duration"
+msgstr "Duración de la lección"
+
+#: admin/editor.php:201
+#: core/integrations/topic-categories.php:234
+#: core/integrations/topic-categories.php:263
+#: core/shortcodes/home-content.php:384
+msgid "Cover Image"
+msgstr "Imagen de portada"
+
+#: admin/editor.php:202
+msgid "Media Embeds"
+msgstr "Incrustaciones de medios"
+
+#: admin/menu.php:179
+#: admin/menu.php:180
+#: core/cpt/content.php:43
+#: inc/utils/labels.php:104
+#: assets/build/portals-app.js:2
+msgid "Content"
+msgstr "Contenido"
+
+#: admin/menu.php:187
+#: admin/menu.php:188
+#: core/cpt/content.php:79
+#: core/cpt/content.php:81
+#: core/routers/backend.php:670
+msgid "Content Groups"
+msgstr "Grupos de contenido"
+
+#: admin/menu.php:197
+#: admin/menu.php:198
+#: core/cpt/topic.php:44
+#: assets/build/portals-app.js:2
+msgid "Topic"
+msgstr "Tema"
+
+#: admin/menu.php:205
+#: admin/menu.php:206
+#: core/cpt/topic.php:80
+#: core/cpt/topic.php:82
+#: core/routers/backend.php:670
+msgid "Topic Forums"
+msgstr "Foros de temas"
+
+#: admin/menu.php:214
+#: admin/menu.php:215
+#: admin/setup.php:59
+#: assets/build/portals-app.js:2
+msgid "Settings"
+msgstr "Configuraciones"
+
+#: admin/menu.php:229
+#: inc/utils/settings.php:219
+#: assets/build/portals-app.js:2
+msgid "Home"
+msgstr "Inicio"
+
+#: admin/menu.php:430
+msgid "Administrator"
+msgstr "Administrador"
+
+#: admin/menu.php:447
+#: assets/build/portals-app.js:2
+msgid "Blank"
+msgstr "En blanco"
+
+#: admin/menu.php:448
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Link"
+msgstr "Enlace"
+
+#: admin/menu.php:449
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Video"
+msgstr "Video"
+
+#: admin/menu.php:450
+#: core/cpt/topic.php:83
+msgid "Topic Forum"
+msgstr "Foro de temas"
+
+#: admin/menu.php:451
+#: core/cpt/content.php:82
+msgid "Content Group"
+msgstr "Grupo de contenido"
+
+#: admin/menu.php:452
+msgid "Post / Page / Template"
+msgstr "Publicación / Página / Plantilla"
+
+#: admin/menu.php:560
+msgid "Uncategorized"
+msgstr "Sin categorizar"
+
+#. translators: %s: html tags
+#: admin/notices.php:95
+msgid "The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!"
+msgstr "¡El plugin %1$s %2$s %3$s requiere que el plugin %1$s %4$s %3$s se actualice a la versión %5$s o superior!"
+
+#: admin/setup.php:83
+#: admin/setup.php:93
+msgid "Portal Login"
+msgstr "Inicio de sesión en el portal"
+
+#: admin/setup.php:88
+#: admin/setup.php:98
+msgid "Portal Register"
+msgstr "Registro en el portal"
+
+#: admin/setup.php:129
+msgid "Visit Portal"
+msgstr "Visitar el portal"
+
+#: core/ajax/admin.php:58
+msgid "Topic Approved."
+msgstr "Tema aprobado."
+
+#: core/ajax/admin.php:78
+msgid "Topic Unapproved."
+msgstr "Tema desaprobado."
+
+#: core/ajax/backend.php:55
+msgid "Invalid item ID."
+msgstr "ID de elemento no válido."
+
+#: core/ajax/backend.php:127
+#: core/routers/backend.php:432
+msgid "Invalid group ID."
+msgstr "ID de grupo no válido."
+
+#: inc/utils/labels.php:171
+msgid "Search User..."
+msgstr "Buscar usuario..."
+
+#: inc/utils/labels.php:173
+msgid "Add Mention"
+msgstr "Agregar mención"
+
+#: inc/utils/labels.php:174
+msgid "Insert Emoji"
+msgstr "Insertar emoji"
+
+#: inc/utils/labels.php:177
+msgid "No user found"
+msgstr "No se encontró ningún usuario"
+
+#: core/blocks/login.php:627
+msgid "Username or Email Address"
+msgstr "Nombre de usuario o dirección de correo electrónico"
+
+#: core/blocks/login.php:628
+#: inc/utils/labels.php:63
+#: assets/build/editor-app.js:2
+msgid "Password"
+msgstr "Contraseña"
+
+#. translators: %s: Attribute User Name Label value or This Field.
+#. translators: %s: Attribute Password Label value or This Field.
+#: core/blocks/login.php:715
+#: core/blocks/login.php:720
+msgid "%s cannot be blank."
+msgstr "%s no puede estar en blanco."
+
+#: core/blocks/login.php:716
+#: core/blocks/login.php:721
+msgid "This Field"
+msgstr "Este campo"
+
+#: core/blocks/login.php:734
+#: core/blocks/register.php:378
+msgid "You have logged in successfully. Redirecting…"
+msgstr "Has iniciado sesión con éxito. Redirigiendo…"
+
+#. translators: %1$s user name
+#: core/blocks/login.php:838
+#: core/blocks/register.php:425
+msgid "You are logged in as %1$s (%2$sLogout%3$s)"
+msgstr "Has iniciado sesión como %1$s (%2$sCerrar sesión%3$s)"
+
+#: core/blocks/login.php:888
+#: assets/build/editor-app.js:2
+msgid "Show Password"
+msgstr "Mostrar contraseña"
+
+#: core/blocks/register.php:84
+msgid "You have used an invalid email"
+msgstr "Has utilizado un correo electrónico no válido"
+
+#: core/blocks/register.php:88
+msgid "Email is missing or invalid"
+msgstr "El correo electrónico falta o es inválido"
+
+#: core/blocks/register.php:92
+msgid "The provided email is already registered with another account. Please login or reset password or use another email."
+msgstr "El correo electrónico proporcionado ya está registrado con otra cuenta. Por favor, inicia sesión o restablece la contraseña o utiliza otro correo electrónico."
+
+#: core/blocks/register.php:97
+msgid "You have used an invalid username"
+msgstr "Has utilizado un nombre de usuario no válido"
+
+#: core/blocks/register.php:101
+msgid "Invalid username provided or the username is already registered."
+msgstr "Nombre de usuario proporcionado no válido o el nombre de usuario ya está registrado."
+
+#: core/blocks/register.php:106
+msgid "Your password is invalid."
+msgstr "Tu contraseña es inválida."
+
+#: core/blocks/register.php:110
+msgid "Your passwords do not match."
+msgstr "Tus contraseñas no coinciden."
+
+#: core/blocks/register.php:128
+msgid "Please accept the Terms and Conditions, and try again."
+msgstr "Por favor, acepta los Términos y Condiciones, y vuelve a intentarlo."
+
+#: core/blocks/register.php:132
+msgid "Something went wrong!"
+msgstr "¡Algo salió mal!"
+
+#: core/blocks/register.php:137
+msgid "Registration completed successfully. Check your inbox for password if you did not provide it while registering."
+msgstr "Registro completado con éxito. Revisa tu bandeja de entrada para la contraseña si no la proporcionaste al registrarte."
+
+#: core/blocks/register.php:352
+msgid "cannot be blank."
+msgstr "no puede estar en blanco."
+
+#: core/blocks/register.php:353
+#: inc/utils/labels.php:65
+#: assets/build/editor-app.js:2
+msgid "First Name"
+msgstr "Nombre"
+
+#: core/blocks/register.php:354
+#: inc/utils/labels.php:66
+#: assets/build/editor-app.js:2
+msgid "Last Name"
+msgstr "Apellido"
+
+#: core/blocks/register.php:355
+msgid "This field"
+msgstr "Este campo"
+
+#: core/blocks/register.php:887
+msgid "You have used an invalid email."
+msgstr "Has utilizado un correo electrónico no válido."
+
+#: core/blocks/register.php:888
+#: assets/build/editor-app.js:2
+msgid "Please enter a valid email address."
+msgstr "Por favor, ingresa una dirección de correo electrónico válida."
+
+#: core/blocks/register.php:889
+#: assets/build/editor-app.js:2
+msgid "Email already in use. Please try to sign in."
+msgstr "El correo electrónico ya está en uso. Por favor, intenta iniciar sesión."
+
+#: core/blocks/register.php:890
+#: assets/build/editor-app.js:2
+msgid "Invalid user name. Please try again."
+msgstr "Nombre de usuario no válido. Por favor, intenta de nuevo."
+
+#: core/blocks/register.php:891
+#: assets/build/editor-app.js:2
+msgid "Username is already taken."
+msgstr "El nombre de usuario ya está en uso."
+
+#: core/blocks/register.php:892
+#: assets/build/editor-app.js:2
+msgid "Password cannot be accepted. Please try something else."
+msgstr "La contraseña no puede ser aceptada. Por favor, intenta con otra cosa."
+
+#: core/blocks/register.php:893
+#: inc/utils/labels.php:78
+#: assets/build/editor-app.js:2
+msgid "Passwords do not match."
+msgstr "Las contraseñas no coinciden."
+
+#: core/blocks/register.php:894
+#: assets/build/editor-app.js:2
+msgid "Please try again after accepting terms & conditions."
+msgstr "Por favor, intenta de nuevo después de aceptar los términos y condiciones."
+
+#: core/blocks/register.php:895
+#: assets/build/editor-app.js:2
+msgid "Something went wrong! Please try again."
+msgstr "¡Algo salió mal! Por favor, intenta de nuevo."
+
+#: core/blocks/register.php:896
+#: assets/build/editor-app.js:2
+msgid "Registration successful. Please check your email inbox."
+msgstr "Registro exitoso. Por favor, revisa tu bandeja de entrada de correo electrónico."
+
+#: core/blocks/social-login.php:86
+msgid "You are already registered. Successfully logged in."
+msgstr "Ya estás registrado. Has iniciado sesión con éxito."
+
+#: core/blocks/social-login.php:91
+msgid "Successfully logged in."
+msgstr "Iniciado sesión con éxito."
+
+#: core/blocks/social-login.php:135
+msgid "successfully logged in"
+msgstr "iniciado sesión con éxito"
+
+#: core/blocks/social-login.php:143
+msgid "You are not registered. please register first then try to login."
+msgstr "No estás registrado. Por favor, regístrate primero y luego intenta iniciar sesión."
+
+#: core/blocks/social-login.php:170
+msgid "Something went wrong while creating the new user!"
+msgstr "¡Algo salió mal al crear el nuevo usuario!"
+
+#: core/cpt/content.php:42
+msgid "Search Content"
+msgstr "Buscar contenido"
+
+#: core/cpt/content.php:44
+msgid "Edit Content"
+msgstr "Editar contenido"
+
+#: core/cpt/content.php:45
+msgid "View Content"
+msgstr "Ver contenido"
+
+#: core/cpt/content.php:46
+#: core/cpt/content.php:48
+#: core/cpt/portal.php:48
+#: core/cpt/portal.php:50
+#: core/cpt/sub-content.php:45
+#: core/cpt/sub-content.php:47
+#: core/cpt/topic.php:47
+#: core/cpt/topic.php:49
+#: assets/build/portals-app.js:2
+msgid "Add New"
+msgstr "Agregar nuevo"
+
+#: core/cpt/content.php:47
+msgid "Update Content"
+msgstr "Actualizar contenido"
+
+#: core/cpt/content.php:49
+msgid "New Content Name"
+msgstr "Nuevo Nombre de Contenido"
+
+#: core/cpt/content.php:50
+#: core/cpt/content.php:51
+msgid "No Content found."
+msgstr "No se encontró contenido."
+
+#: core/cpt/content.php:84
+msgid "Search category"
+msgstr "Buscar categoría"
+
+#: core/cpt/content.php:85
+msgid "All category"
+msgstr "Todas las categorías"
+
+#: core/cpt/content.php:86
+msgid "Parent category"
+msgstr "Categoría principal"
+
+#: core/cpt/content.php:87
+msgid "Parent category:"
+msgstr "Categoría principal:"
+
+#: core/cpt/content.php:88
+msgid "Edit category"
+msgstr "Editar categoría"
+
+#: core/cpt/content.php:89
+msgid "Update category"
+msgstr "Actualizar categoría"
+
+#: core/cpt/content.php:90
+msgid "Add new category"
+msgstr "Agregar nueva categoría"
+
+#: core/cpt/content.php:91
+msgid "New category name"
+msgstr "Nombre de la nueva categoría"
+
+#: core/cpt/content.php:92
+msgid "No category found"
+msgstr "No se encontró ninguna categoría"
+
+#: core/cpt/portal.php:44
+msgid "Search Space"
+msgstr "Buscar espacio"
+
+#: core/cpt/portal.php:45
+msgid "Portal Spaces"
+msgstr "Espacios del portal"
+
+#: core/cpt/portal.php:46
+#: assets/build/portals-app.js:2
+msgid "Edit Space"
+msgstr "Editar espacio"
+
+#: core/cpt/portal.php:47
+#: assets/build/portals-app.js:2
+msgid "View Space"
+msgstr "Ver espacio"
+
+#: core/cpt/portal.php:49
+msgid "Update Space"
+msgstr "Actualizar espacio"
+
+#: core/cpt/portal.php:51
+msgid "New Space Name"
+msgstr "Nombre del nuevo espacio"
+
+#: core/cpt/portal.php:52
+#: core/cpt/portal.php:53
+msgid "No space found"
+msgstr "No se encontró ningún espacio"
+
+#: core/cpt/portal.php:81
+#: core/cpt/portal.php:83
+#: core/cpt/portal.php:84
+msgid "Portal Space Group"
+msgstr "Grupo de espacios del portal"
+
+#: core/cpt/portal.php:86
+msgid "Search Space Group"
+msgstr "Buscar grupo de espacios"
+
+#: core/cpt/portal.php:87
+msgid "All Space Groups"
+msgstr "Todos los grupos de espacios"
+
+#: core/cpt/portal.php:88
+msgid "Parent Space Group"
+msgstr "Grupo de espacios principal"
+
+#: core/cpt/portal.php:89
+msgid "Parent Space Group:"
+msgstr "Grupo de espacios principal:"
+
+#: core/cpt/portal.php:90
+#: assets/build/portals-app.js:2
+msgid "Edit Space Group"
+msgstr "Editar grupo de espacios"
+
+#: core/cpt/portal.php:91
+msgid "Update Space Group"
+msgstr "Actualizar grupo de espacios"
+
+#: core/cpt/portal.php:92
+msgid "Add new Space Group"
+msgstr "Agregar nuevo grupo de espacios"
+
+#: core/cpt/portal.php:93
+msgid "New Space Group name"
+msgstr "Nombre del nuevo grupo de espacios"
+
+#: core/cpt/portal.php:94
+msgid "No Space Group found"
+msgstr "No se encontró ningún grupo de espacios"
+
+#: core/cpt/sub-content.php:41
+msgid "Search Sub Content"
+msgstr "Buscar subcontenido"
+
+#: core/cpt/sub-content.php:42
+msgid "Sub Content"
+msgstr "Subcontenido"
+
+#: core/cpt/sub-content.php:43
+msgid "Edit Sub Content"
+msgstr "Editar subcontenido"
+
+#: core/cpt/sub-content.php:44
+msgid "View Sub Content"
+msgstr "Ver subcontenido"
+
+#: core/cpt/sub-content.php:46
+msgid "Update Sub Content"
+msgstr "Actualizar subcontenido"
+
+#: core/cpt/sub-content.php:48
+msgid "New Sub Content Name"
+msgstr "Nombre del nuevo subcontenido"
+
+#: core/cpt/sub-content.php:49
+#: core/cpt/sub-content.php:50
+msgid "No Sub Content found."
+msgstr "No se encontró ningún subcontenido."
+
+#: core/cpt/sub-content.php:121
+msgid "All Courses"
+msgstr "Todos los cursos"
+
+#: core/cpt/topic.php:43
+msgid "Search Topic"
+msgstr "Buscar tema"
+
+#: core/cpt/topic.php:45
+msgid "Edit Topic"
+msgstr "Editar tema"
+
+#: core/cpt/topic.php:46
+msgid "View Topic"
+msgstr "Ver tema"
+
+#: core/cpt/topic.php:48
+msgid "Update Topic"
+msgstr "Actualizar tema"
+
+#: core/cpt/topic.php:50
+msgid "New Topic Name"
+msgstr "Nombre del nuevo tema"
+
+#: core/cpt/topic.php:51
+#: core/cpt/topic.php:52
+msgid "No Topic found."
+msgstr "No se encontró ningún tema."
+
+#: core/cpt/topic.php:85
+msgid "Search forum"
+msgstr "Buscar foro"
+
+#: core/cpt/topic.php:86
+msgid "All forum"
+msgstr "Todos los foros"
+
+#: core/cpt/topic.php:87
+msgid "Parent forum"
+msgstr "Foro principal"
+
+#: core/cpt/topic.php:88
+msgid "Parent forum:"
+msgstr "Foro principal:"
+
+#: core/cpt/topic.php:89
+msgid "Edit forum"
+msgstr "Editar foro"
+
+#: core/cpt/topic.php:90
+msgid "Update forum"
+msgstr "Actualizar foro"
+
+#: core/cpt/topic.php:91
+msgid "Add new forum"
+msgstr "Agregar nuevo foro"
+
+#: core/cpt/topic.php:92
+msgid "New forum name"
+msgstr "Nombre del nuevo foro"
+
+#: core/cpt/topic.php:93
+msgid "No forum found"
+msgstr "No se encontró ningún foro"
+
+#: core/cpt/topic.php:200
+msgid "Approve"
+msgstr "Aprobar"
+
+#: core/cpt/topic.php:212
+msgid "Unapprove"
+msgstr "Desaprobar"
+
+#: core/cpt/topic.php:285
+#: core/cpt/topic.php:296
+msgid "Invalid topic."
+msgstr "Tema inválido."
+
+#: core/cpt/topic.php:290
+msgid "You do not have permission to do this."
+msgstr "No tienes permiso para hacer esto."
+
+#. translators: %1$s: post title, %2$s: message
+#: core/cpt/topic.php:309
+msgid "<strong>%1$s</strong> %2$s"
+msgstr "<strong>%1$s</strong> %2$s"
+
+#: core/integrations/content-categories.php:32
+msgid "ContentCategories Integration"
+msgstr "Integración de ContentCategories"
+
+#: core/integrations/sure-members.php:28
+msgid "SureMembers Integration"
+msgstr "Integración de SureMembers"
+
+#: core/integrations/sure-members.php:80
+msgid "Edit Access Group "
+msgstr "Editar grupo de acceso"
+
+#: core/integrations/topic-categories.php:53
+msgid "TopicCategories Integration"
+msgstr "Integración de TopicCategories"
+
+#: core/integrations/topic-categories.php:237
+msgid "Cover Embed Media"
+msgstr "Cubrir medios incrustados"
+
+#: core/integrations/topic-categories.php:238
+msgid "Paste a URL to embed"
+msgstr "Pega una URL para incrustar"
+
+#: core/integrations/topic-categories.php:242
+msgid "Please enter the URL of the media you want to embed. See supported embeds"
+msgstr "Por favor, ingresa la URL del medio que deseas incrustar. Ver incrustaciones soportadas"
+
+#: core/integrations/topic-categories.php:244
+msgid "here."
+msgstr "aquí."
+
+#: core/integrations/topic-categories.php:251
+msgid "Enter a title"
+msgstr "Ingresa un título"
+
+#: core/integrations/topic-categories.php:264
+msgid "Cover Media Embed"
+msgstr "Incrustación de medios de portada"
+
+#: core/integrations/video.php:32
+msgid "Video Integration"
+msgstr "Integración de video"
+
+#: core/integrations/video.php:79
+msgid "Media"
+msgstr "Medios"
+
+#: core/integrations/word-press.php:30
+msgid "WordPress Integration"
+msgstr "Integración de WordPress"
+
+#: core/notifier/admin-notifier.php:51
+#: inc/utils/labels.php:136
+#: inc/utils/labels.php:138
+msgid " and "
+msgstr "y"
+
+#: core/notifier/admin-notifier.php:51
+msgid "new users have registered on the "
+msgstr "nuevos usuarios se han registrado en el"
+
+#: core/notifier/admin-notifier.php:58
+msgid "has submitted a topic"
+msgstr "ha enviado un tema"
+
+#: core/notifier/admin-notifier.php:180
+msgid " has registered on the "
+msgstr "se ha registrado en el"
+
+#: core/notifier/base.php:183
+msgid " ago"
+msgstr "hace"
+
+#: core/notifier/common-notifier.php:51
+msgid "new space has been introduced."
+msgstr "se ha introducido un nuevo espacio."
+
+#: core/notifier/common-notifier.php:406
+msgid "Comment:"
+msgstr "Comentario:"
+
+#: core/notifier/user-notifier.php:59
+msgid "your topic has been approved."
+msgstr "tu tema ha sido aprobado."
+
+#: core/notifier/user-notifier.php:66
+msgid "has mentioned you in a "
+msgstr "te ha mencionado en un"
+
+#: core/notifier/user-notifier.php:276
+msgid "Topic:"
+msgstr "Tema:"
+
+#: core/routers/backend.php:51
+msgid "Invalid term ID."
+msgstr "ID de término inválido."
+
+#: core/routers/backend.php:55
+#: core/routers/backend.php:581
+msgid "Successfully updated."
+msgstr "Actualizado con éxito."
+
+#: core/routers/backend.php:320
+#: core/routers/backend.php:361
+#: core/routers/backend.php:604
+#: core/routers/backend.php:629
+#: inc/functions/operations.php:181
+msgid "Invalid post ID."
+msgstr "ID de publicación inválido."
+
+#: core/routers/backend.php:334
+#: core/routers/backend.php:375
+#: core/routers/backend.php:438
+msgid "Successfully deleted."
+msgstr "Eliminado con éxito."
+
+#: core/routers/backend.php:569
+msgid "Invalid object or term ID."
+msgstr "ID de objeto o término inválido."
+
+#: core/routers/backend.php:667
+msgid "No store categories found."
+msgstr "No se encontraron categorías de tienda."
+
+#: core/routers/backend.php:716
+msgid "Category Invalid."
+msgstr "Categoría inválida."
+
+#: core/routers/backend.php:720
+msgid "Content Group -"
+msgstr "Grupo de contenido -"
+
+#: core/routers/backend.php:720
+msgid "Topic Forum -"
+msgstr "Foro de temas -"
+
+#: core/routers/backend.php:789
+msgid "Invalid settings data."
+msgstr "Datos de configuración inválidos."
+
+#: core/routers/backend.php:796
+msgid "Settings saved successfully."
+msgstr "Configuraciones guardadas con éxito."
+
+#: core/routers/misc.php:531
+msgid "Unnamed"
+msgstr "Sin nombre"
+
+#: core/routers/social-logins.php:70
+#: core/routers/social-logins.php:284
+msgid "Captcha is not matching, please try again."
+msgstr "El captcha no coincide, por favor intenta de nuevo."
+
+#: core/routers/social-logins.php:92
+msgid "You have successfully logged in. Redirecting..."
+msgstr "Has iniciado sesión con éxito. Redirigiendo..."
+
+#: core/routers/social-logins.php:169
+msgid "The username/password field is empty. Please add a valid username/email to reset your password."
+msgstr "El campo de nombre de usuario/contraseña está vacío. Por favor, agrega un nombre de usuario/correo electrónico válido para restablecer tu contraseña."
+
+#: core/routers/social-logins.php:183
+msgid "No user found. Please add a registered username/email to reset your password, else create an account."
+msgstr "No se encontró ningún usuario. Por favor, agrega un nombre de usuario/correo electrónico registrado para restablecer tu contraseña, o crea una cuenta."
+
+#. translators: %s: Password reset.
+#: core/routers/social-logins.php:209
+msgid "[%s] Password Reset"
+msgstr "[%s] Restablecimiento de contraseña"
+
+#: core/routers/social-logins.php:217
+msgid "Please check your email for the password reset link."
+msgstr "Por favor, revisa tu correo electrónico para el enlace de restablecimiento de contraseña."
+
+#: core/routers/social-logins.php:219
+msgid "Email failed to send."
+msgstr "Error al enviar el correo electrónico."
+
+#: core/routers/social-logins.php:239
+msgid "Sorry, the site admin has disabled new user registration"
+msgstr "Lo siento, el administrador del sitio ha deshabilitado el registro de nuevos usuarios"
+
+#: core/routers/social-logins.php:253
+msgid "Not a valid post."
+msgstr "No es una publicación válida."
+
+#: core/routers/social-logins.php:294
+msgid "Password may not contain the character \"\\\""
+msgstr "La contraseña no puede contener el carácter \"\\\""
+
+#: core/routers/social-logins.php:299
+#: core/routers/social-logins.php:302
+#: inc/functions/markup.php:73
+msgid "This field is required."
+msgstr "Este campo es obligatorio."
+
+#: core/routers/social-logins.php:387
+msgid "Error in creating user."
+msgstr "Error al crear el usuario."
+
+#: core/routers/social-logins.php:531
+msgid "You are not registered. Please register first then try to login."
+msgstr "No estás registrado. Por favor, regístrate primero y luego intenta iniciar sesión."
+
+#: core/routers/social-logins.php:551
+#: core/routers/social-logins.php:588
+#: core/routers/social-logins.php:593
+msgid "Invalid credentials."
+msgstr "Credenciales inválidas."
+
+#: core/routers/social-logins.php:568
+#: core/routers/social-logins.php:574
+msgid "Token verification failed."
+msgstr "La verificación del token falló."
+
+#: core/routers/social-logins.php:600
+msgid "Login Successful"
+msgstr "Inicio de sesión exitoso"
+
+#: core/routers/social-logins.php:606
+msgid "Registered & Login Successful"
+msgstr "Registro y inicio de sesión exitosos"
+
+#: core/routers/social-logins.php:609
+msgid "Google API Error."
+msgstr "Error de API de Google."
+
+#: core/routes.php:65
+msgid "Oops! Something wrong here..."
+msgstr "¡Ups! Algo salió mal aquí..."
+
+#: core/shortcodes/archive-content.php:53
+msgid "No content found."
+msgstr "No se encontró contenido."
+
+#: core/shortcodes/notification.php:122
+msgid "Mark All as Read"
+msgstr "Marcar todo como leído"
+
+#: core/blocks/interactivity/build/Title/view.php:57
+#: core/shortcodes/content-header.php:46
+msgid "Guest"
+msgstr "Invitado"
+
+#: core/shortcodes/endpoint-navigation.php:102
+#: core/shortcodes/endpoint-navigation.php:211
+msgid "Invalid endpoint data."
+msgstr "Datos de punto final inválidos."
+
+#: core/shortcodes/endpoint-navigation.php:144
+msgid "Section"
+msgstr "Sección"
+
+#: core/shortcodes/endpoint-navigation.php:191
+msgid " runtime"
+msgstr "tiempo de ejecución"
+
+#: core/shortcodes/endpoint-navigation.php:202
+msgid "No items found."
+msgstr "No se encontraron elementos."
+
+#: core/shortcodes/home-content.php:309
+#: core/shortcodes/home-content.php:310
+#: core/shortcodes/home-content.php:326
+#: core/shortcodes/home-content.php:332
+#: core/shortcodes/home-content.php:342
+#: core/shortcodes/home-content.php:348
+msgid "Enter"
+msgstr "Entrar"
+
+#: core/shortcodes/home-content.php:315
+msgid "User"
+msgstr "Usuario"
+
+#: core/assets.php:90
+#: core/shortcodes/home-content.php:376
+msgid "Upload"
+msgstr "Subir"
+
+#: core/shortcodes/navigation.php:178
+msgid "No groups found."
+msgstr "No se encontraron grupos."
+
+#: core/shortcodes/search.php:89
+#: inc/utils/labels.php:90
+msgid "Search must be at least 3 characters."
+msgstr "La búsqueda debe tener al menos 3 caracteres."
+
+#: core/shortcodes/search.php:106
+msgid "Recently viewed"
+msgstr "Visto recientemente"
+
+#: core/shortcodes/search.php:138
+msgid "Quick Links"
+msgstr "Enlaces Rápidos"
+
+#: core/shortcodes/search.php:189
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Search"
+msgstr "Buscar"
+
+#: core/shortcodes/user-profile.php:141
+msgid "Guest User"
+msgstr "Usuario Invitado"
+
+#. translators: %s is the page title
+#: inc/compatibility/page-builder.php:400
+msgid "Edit %1$s with %2$s"
+msgstr "Editar %1$s con %2$s"
+
+#: inc/functions/emails.php:56
+msgid "Someone has requested a password reset for the following account:"
+msgstr "Alguien ha solicitado un restablecimiento de contraseña para la siguiente cuenta:"
+
+#. translators: %s: Username.
+#: inc/functions/emails.php:62
+msgid "Username:"
+msgstr "Nombre de usuario:"
+
+#: inc/functions/emails.php:68
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr "Si esto fue un error, simplemente ignora este correo electrónico y no pasará nada."
+
+#: inc/functions/emails.php:70
+msgid "To reset your password, visit the following address:"
+msgstr "Para restablecer tu contraseña, visita la siguiente dirección:"
+
+#: inc/functions/emails.php:74
+msgid "Reset Password"
+msgstr "Restablecer Contraseña"
+
+#: inc/functions/functions.php:482
+msgid "Just now"
+msgstr "Justo ahora"
+
+#: inc/functions/functions.php:563
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: inc/functions/functions.php:563
+msgid "(Edit)"
+msgstr "(Editar)"
+
+#. translators: 1: date, 2: time
+#: inc/functions/functions.php:576
+msgid "%1$s at %2$s"
+msgstr "%1$s en %2$s"
+
+#: inc/functions/functions.php:616
+msgid "Your comment is awaiting moderation."
+msgstr "Tu comentario está a la espera de moderación."
+
+#: inc/functions/functions.php:636
+msgid "Reply"
+msgstr "Responder"
+
+#: inc/functions/functions.php:658
+#: inc/utils/helper.php:1440
+#: inc/utils/helper.php:1499
+#: inc/utils/labels.php:53
+msgid "Like"
+msgid_plural "Likes"
+msgstr[0] "Me gusta"
+msgstr[1] ""
+
+#: inc/functions/functions.php:1089
+#: inc/functions/functions.php:1093
+msgid "Unknown"
+msgstr "Desconocido"
+
+#: inc/functions/markup.php:59
+msgid "Click to upload or drag and drop"
+msgstr "Haz clic para subir o arrastra y suelta"
+
+#: inc/functions/markup.php:62
+msgid "Allowed file formats:"
+msgstr "Formatos de archivo permitidos:"
+
+#: inc/utils/helper.php:1443
+#: inc/utils/helper.php:1512
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] "Comentario"
+msgstr[1] ""
+
+#: inc/utils/labels.php:166
+msgid "What are your thoughts?"
+msgstr "¿Cuáles son tus pensamientos?"
+
+#: inc/functions/operations.php:185
+msgid "Post not found."
+msgstr "Publicación no encontrada."
+
+#: inc/functions/operations.php:191
+msgid "Failed to update post."
+msgstr "Error al actualizar la publicación."
+
+#: inc/functions/operations.php:261
+msgid "Invalid user ID."
+msgstr "ID de usuario inválido."
+
+#: inc/traits/ajax.php:160
+#: inc/traits/rest-errors.php:36
+msgid "Sorry, you are not allowed to do this operation."
+msgstr "Lo siento, no tienes permiso para realizar esta operación."
+
+#: inc/traits/ajax.php:161
+#: inc/traits/rest-errors.php:37
+msgid "Nonce validation failed"
+msgstr "La validación de nonce falló"
+
+#: inc/traits/ajax.php:162
+#: inc/traits/rest-errors.php:38
+msgid "Sorry, something went wrong."
+msgstr "Lo siento, algo salió mal."
+
+#: inc/traits/ajax.php:163
+#: inc/traits/rest-errors.php:39
+msgid "Oops, the required key is missing."
+msgstr "Ups, falta la clave requerida."
+
+#: inc/traits/ajax.php:164
+#: inc/traits/rest-errors.php:40
+msgid "The current post's post type is not of this plugin."
+msgstr "El tipo de publicación actual no es de este complemento."
+
+#: inc/traits/ajax.php:165
+#: inc/traits/rest-errors.php:41
+msgid "Data saved successfully."
+msgstr "Datos guardados con éxito."
+
+#: inc/traits/post-type.php:139
+#: inc/utils/labels.php:140
+msgid "All"
+msgstr "Todo"
+
+#: inc/utils/helper.php:1448
+msgid "Share Post"
+msgstr "Compartir Publicación"
+
+#: inc/utils/helper.php:1463
+msgid "Copied!"
+msgstr "¡Copiado!"
+
+#: inc/utils/helper.php:1731
+msgid "This discussion is only available for VIP members."
+msgstr "Esta discusión solo está disponible para miembros VIP."
+
+#: inc/utils/helper.php:1733
+msgid "Please upgrade to add response."
+msgstr "Por favor, actualiza para agregar respuesta."
+
+#: inc/utils/helper.php:1734
+msgid "Upgrade Now"
+msgstr "Actualizar Ahora"
+
+#: inc/utils/helper.php:1744
+msgid "Please login or register to join the discussion."
+msgstr "Por favor, inicia sesión o regístrate para unirte a la discusión."
+
+#: core/shortcodes/user-profile.php:135
+#: inc/utils/helper.php:1745
+#: assets/build/editor-app.js:2
+msgid "Login"
+msgstr "Iniciar sesión"
+
+#: inc/utils/labels.php:43
+msgid "Back to"
+msgstr "Volver a"
+
+#: inc/utils/labels.php:43
+msgid "Portal"
+msgstr "Portal"
+
+#: inc/utils/labels.php:44
+msgid "Back to "
+msgstr "Volver a"
+
+#: inc/utils/labels.php:45
+msgid "Portal Item"
+msgstr "Elemento del Portal"
+
+#: inc/utils/labels.php:46
+msgid "Portal Items"
+msgstr "Elementos del Portal"
+
+#: inc/utils/labels.php:47
+#: inc/utils/labels.php:48
+msgid "User Profile"
+msgstr "Perfil de Usuario"
+
+#: inc/utils/labels.php:52
+msgid "Posts"
+msgstr "Publicaciones"
+
+#: inc/utils/labels.php:54
+msgid "Liked"
+msgstr "Me gusta"
+
+#: inc/utils/labels.php:55
+msgid "Likes"
+msgstr "Me gusta"
+
+#: inc/utils/labels.php:56
+msgid "Comments"
+msgstr "Comentarios"
+
+#: inc/utils/labels.php:57
+msgid "No comments yet."
+msgstr "No hay comentarios aún."
+
+#: inc/utils/labels.php:58
+msgid "Commented on"
+msgstr "Comentado en"
+
+#: inc/utils/labels.php:59
+msgid "replied"
+msgstr "respondió"
+
+#: inc/utils/labels.php:60
+msgid "replies"
+msgstr "respuestas"
+
+#: inc/utils/labels.php:62
+msgid "Profile"
+msgstr "Perfil"
+
+#: inc/utils/labels.php:64
+msgid "Profile Photo"
+msgstr "Foto de Perfil"
+
+#: inc/utils/labels.php:67
+#: assets/build/editor-app.js:2
+msgid "Username"
+msgstr "Nombre de usuario"
+
+#: inc/utils/labels.php:68
+#: assets/build/editor-app.js:2
+msgid "Email"
+msgstr "Correo electrónico"
+
+#: inc/utils/labels.php:69
+msgid "Phone"
+msgstr "Teléfono"
+
+#: inc/utils/labels.php:70
+msgid "Address"
+msgstr "Dirección"
+
+#: inc/utils/labels.php:71
+msgid "Display Name"
+msgstr "Nombre para mostrar"
+
+#: inc/utils/labels.php:72
+msgid "Bio"
+msgstr "Biografía"
+
+#: inc/utils/labels.php:73
+msgid "Description"
+msgstr "Descripción"
+
+#: inc/utils/labels.php:74
+#: assets/build/portals-app.js:2
+msgid "Save"
+msgstr "Guardar"
+
+#: inc/utils/labels.php:75
+msgid "Current Password"
+msgstr "Contraseña Actual"
+
+#: inc/utils/labels.php:76
+msgid "New Password"
+msgstr "Nueva Contraseña"
+
+#: inc/utils/labels.php:77
+msgid "Confirm New Password"
+msgstr "Confirmar Nueva Contraseña"
+
+#: inc/utils/labels.php:79
+#: inc/utils/labels.php:159
+msgid "Profile updated successfully."
+msgstr "Perfil actualizado con éxito."
+
+#: inc/utils/labels.php:82
+msgid "Miscellaneous"
+msgstr "Varios"
+
+#: inc/utils/labels.php:84
+msgid "Oops, It's Empty in Here!"
+msgstr "¡Ups, está vacío aquí!"
+
+#: inc/utils/labels.php:85
+msgid "Seems like you haven't bookmarked anything yet. Start bookmarking and make this space your go-to!"
+msgstr "Parece que no has marcado nada aún. ¡Comienza a marcar y haz de este espacio tu lugar favorito!"
+
+#: inc/utils/labels.php:86
+msgid "Back to Home"
+msgstr "Volver a Inicio"
+
+#: inc/utils/labels.php:88
+msgid "No results found. Try again with different words?"
+msgstr "No se encontraron resultados. ¿Intentar de nuevo con diferentes palabras?"
+
+#: inc/utils/labels.php:91
+msgid "Error occurred while fetching data."
+msgstr "Ocurrió un error al obtener datos."
+
+#: inc/utils/labels.php:92
+msgid "Data is insufficient."
+msgstr "Los datos son insuficientes."
+
+#: inc/utils/labels.php:94
+msgid "Course Playlist"
+msgstr "Lista de Reproducción del Curso"
+
+#: inc/utils/labels.php:95
+msgid "If you want to sell products online, you need a sales funnel. A sales funnel is the easiest way to move a website visitor towards being a paying customer. A sales funnel builds wealth into your business."
+msgstr "Si deseas vender productos en línea, necesitas un embudo de ventas. Un embudo de ventas es la forma más fácil de mover a un visitante del sitio web hacia convertirse en un cliente que paga. Un embudo de ventas construye riqueza en tu negocio."
+
+#: inc/utils/labels.php:96
+#: assets/build/portals-app.js:2
+msgid "Course"
+msgstr "Curso"
+
+#: inc/utils/labels.php:97
+msgid "Courses"
+msgstr "Cursos"
+
+#: inc/utils/labels.php:98
+msgid "Lesson"
+msgstr "Lección"
+
+#: inc/utils/labels.php:99
+msgid "Lessons"
+msgstr "Lecciones"
+
+#: inc/utils/labels.php:103
+#: assets/build/portals-app.js:2
+msgid "Title"
+msgstr "Título"
+
+#: inc/utils/labels.php:105
+msgid "See More"
+msgstr "Ver más"
+
+#: inc/utils/labels.php:106
+msgid "Submit"
+msgstr "Enviar"
+
+#: inc/utils/labels.php:107
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Cancel"
+msgstr "Cancelar"
+
+#: inc/utils/labels.php:112
+msgid "Course Progress"
+msgstr "Progreso del curso"
+
+#: inc/utils/labels.php:115
+msgid "Share on Facebook"
+msgstr "Compartir en Facebook"
+
+#: inc/utils/labels.php:116
+msgid "Share on Twitter"
+msgstr "Compartir en Twitter"
+
+#: inc/utils/labels.php:117
+msgid "Share on LinkedIn"
+msgstr "Compartir en LinkedIn"
+
+#: inc/utils/labels.php:118
+msgid "Share on Pinterest"
+msgstr "Compartir en Pinterest"
+
+#: inc/utils/labels.php:119
+msgid "Copy to Clipboard"
+msgstr "Copiar al portapapeles"
+
+#: inc/utils/labels.php:121
+msgid "PrestoPlayer Pro is Required!"
+msgstr "¡Se requiere PrestoPlayer Pro!"
+
+#: inc/utils/labels.php:122
+msgid "This feature requires PrestoPlayer Pro. Please upgrade to PrestoPlayer Pro to use this feature."
+msgstr "Esta función requiere PrestoPlayer Pro. Por favor, actualice a PrestoPlayer Pro para usar esta función."
+
+#: inc/utils/labels.php:123
+msgid "Topic submitted successfully and waiting for approval."
+msgstr "Tema enviado con éxito y en espera de aprobación."
+
+#: inc/utils/labels.php:128
+msgid "The content will be available in"
+msgstr "El contenido estará disponible en"
+
+#: inc/utils/labels.php:130
+msgid "Notifications"
+msgstr "Notificaciones"
+
+#: inc/utils/labels.php:131
+msgid "No New Notifications"
+msgstr "No hay nuevas notificaciones"
+
+#: inc/utils/labels.php:132
+msgid "Ta-da! You're up to date."
+msgstr "¡Ta-da! Estás al día."
+
+#: inc/utils/labels.php:134
+msgid "has replied to your "
+msgstr "ha respondido a tu"
+
+#: inc/utils/labels.php:135
+msgid "has commented on your topic "
+msgstr "ha comentado en tu tema"
+
+#: inc/utils/labels.php:136
+msgid " others have commented on your topic "
+msgstr "otros han comentado sobre tu tema"
+
+#: inc/utils/labels.php:137
+msgid " has liked your "
+msgstr "le ha gustado tu"
+
+#: inc/utils/labels.php:138
+msgid " others have liked your "
+msgstr "a otros les ha gustado tu"
+
+#: inc/utils/labels.php:141
+msgid "Unread"
+msgstr "No leído"
+
+#: inc/utils/labels.php:143
+msgid "Settings Saved Successfully."
+msgstr "Configuración guardada con éxito."
+
+#: inc/utils/labels.php:144
+msgid "Unable to Save Settings."
+msgstr "No se pueden guardar los ajustes."
+
+#: inc/utils/labels.php:145
+msgid "Something Went Wrong!"
+msgstr "¡Algo salió mal!"
+
+#: inc/utils/labels.php:146
+msgid "Information Updated Successfully."
+msgstr "Información actualizada con éxito."
+
+#: inc/utils/labels.php:147
+msgid "Notification Updated Successfully."
+msgstr "Notificación actualizada con éxito."
+
+#: inc/utils/labels.php:149
+msgid "Your topic has been submitted successfully."
+msgstr "Tu tema ha sido enviado con éxito."
+
+#: inc/utils/labels.php:150
+msgid "Item bookmarked successfully."
+msgstr "Elemento marcado con éxito."
+
+#: inc/utils/labels.php:151
+msgid "Item un-bookmarked successfully."
+msgstr "Elemento desmarcado con éxito."
+
+#: inc/utils/labels.php:152
+msgid "Comment liked successfully."
+msgstr "Comentario gustado con éxito."
+
+#: inc/utils/labels.php:153
+msgid "Comment disliked successfully."
+msgstr "Comentario no me gusta con éxito."
+
+#: inc/utils/labels.php:157
+msgid "Post liked successfully."
+msgstr "Publicación gustada con éxito."
+
+#: inc/utils/labels.php:158
+msgid "Post disliked successfully."
+msgstr "Publicación no gustada con éxito."
+
+#: inc/utils/labels.php:161
+#: inc/utils/settings.php:263
+#: assets/build/portals-app.js:2
+msgid "Restricted Content"
+msgstr "Contenido Restringido"
+
+#: inc/utils/labels.php:162
+msgid "This content is restricted and can only be accessed by authorized users."
+msgstr "Este contenido está restringido y solo puede ser accedido por usuarios autorizados."
+
+#: inc/utils/post-meta.php:96
+#: assets/build/portals-app.js:2
+msgid "Untitled Section"
+msgstr "Sección sin título"
+
+#: inc/utils/settings.php:223
+msgid "Howdy"
+msgstr "Hola"
+
+#: inc/utils/settings.php:227
+#: assets/build/portals-app.js:2
+msgid "Your Bookmarks"
+msgstr "Tus marcadores"
+
+#: inc/utils/settings.php:231
+#: assets/build/portals-app.js:2
+msgid "Profile Information"
+msgstr "Información del perfil"
+
+#: inc/utils/settings.php:235
+#: assets/build/portals-app.js:2
+msgid "Pinned Post"
+msgstr "Publicación fijada"
+
+#: inc/utils/settings.php:239
+msgid "No posts found."
+msgstr "No se encontraron publicaciones."
+
+#: inc/utils/settings.php:243
+#: assets/build/portals-app.js:2
+msgid "Back to Course"
+msgstr "Volver al curso"
+
+#: inc/utils/settings.php:247
+msgid "Complete and Continue"
+msgstr "Completar y continuar"
+
+#: inc/utils/settings.php:251
+msgid "What would you like to share today?"
+msgstr "¿Qué te gustaría compartir hoy?"
+
+#: inc/utils/settings.php:255
+msgid "Create New Feed"
+msgstr "Crear nuevo feed"
+
+#: inc/utils/settings.php:259
+msgid "No topic found, create a new one!"
+msgstr "No se encontró ningún tema, ¡crea uno nuevo!"
+
+#: inc/utils/settings.php:267
+msgid "This content is not available with your current membership."
+msgstr "Este contenido no está disponible con tu membresía actual."
+
+#: inc/utils/settings.php:305
+msgid "Subscriber"
+msgstr "Suscriptor"
+
+#: inc/utils/uploader.php:75
+msgid "File does not match"
+msgstr "El archivo no coincide"
+
+#: inc/utils/uploader.php:98
+msgid "File is not uploaded"
+msgstr "El archivo no está subido"
+
+#: loader.php:316
+msgid "Portal Menu"
+msgstr "Menú del Portal"
+
+#: templates/parts/footer.php:22
+msgid "Powered by"
+msgstr "Desarrollado por"
+
+#: templates/quick-view/post.php:60
+msgid "Open in full page"
+msgstr "Abrir en página completa"
+
+#: templates/quick-view/post.php:62
+#: templates/single/post.php:91
+msgid "Bookmark Post"
+msgstr "Marcar publicación"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "General"
+msgstr "General"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Style"
+msgstr "Estilo"
+
+#: assets/build/editor-app.js:2
+msgid "Advanced"
+msgstr "Avanzado"
+
+#: assets/build/editor-app.js:2
+msgid "Desktop"
+msgstr "Escritorio"
+
+#: assets/build/editor-app.js:2
+msgid "Tablet"
+msgstr "Tableta"
+
+#: assets/build/editor-app.js:2
+msgid "Mobile"
+msgstr "Móvil"
+
+#: assets/build/editor-app.js:2
+msgid "Device"
+msgstr "Dispositivo"
+
+#: assets/build/editor-app.js:2
+msgid "Google"
+msgstr "Google"
+
+#: assets/build/editor-app.js:2
+msgid "Facebook"
+msgstr "Facebook"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Reset"
+msgstr "Restablecer"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Icon Library"
+msgstr "Biblioteca de Iconos"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Close"
+msgstr "Cerrar"
+
+#: assets/build/editor-app.js:2
+msgid "No Icons Found"
+msgstr "No se encontraron iconos"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Insert Icon"
+msgstr "Insertar icono"
+
+#: assets/build/editor-app.js:2
+msgid "Change Icon"
+msgstr "Cambiar icono"
+
+#: assets/build/editor-app.js:2
+msgid "Choose Icon"
+msgstr "Elegir icono"
+
+#: assets/build/editor-app.js:2
+msgid "Icon"
+msgstr "Icono"
+
+#: assets/build/editor-app.js:2
+msgid "Placeholder"
+msgstr "Marcador de posición"
+
+#: assets/build/editor-app.js:2
+msgid "This is an example error message."
+msgstr "Este es un mensaje de error de ejemplo."
+
+#: assets/build/editor-app.js:2
+msgid "Please add a preview image."
+msgstr "Por favor, añade una imagen de vista previa."
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Email field."
+msgstr "Este bloque ayuda a añadir el campo de correo electrónico."
+
+#: assets/build/editor-app.js:2
+msgid "required"
+msgstr "requerido"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Password field."
+msgstr "Este bloque ayuda a añadir el campo de contraseña."
+
+#: assets/build/editor-app.js:2
+msgid "Required"
+msgstr "Requerido"
+
+#: assets/build/editor-app.js:2
+msgid "Name"
+msgstr "Nombre"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Username field."
+msgstr "Este bloque ayuda a añadir el campo de nombre de usuario."
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add First Name field."
+msgstr "Este bloque ayuda a agregar el campo de Nombre."
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Last Name field."
+msgstr "Este bloque ayuda a añadir el campo de Apellido."
+
+#: assets/build/editor-app.js:2
+msgid "Re-Enter Password"
+msgstr "Vuelve a ingresar la contraseña"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Re-Enter Password field."
+msgstr "Este bloque ayuda a añadir el campo de Reingresar Contraseña."
+
+#: assets/build/editor-app.js:2
+msgid "I Accept the Terms and Conditions."
+msgstr "Acepto los Términos y Condiciones."
+
+#: assets/build/editor-app.js:2
+msgid "Terms and Conditions notice."
+msgstr "Aviso de Términos y Condiciones."
+
+#: assets/build/editor-app.js:2
+msgid "Terms & Condition"
+msgstr "Términos y condiciones"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Terms & Condtions field."
+msgstr "Este bloque ayuda a añadir el campo de Términos y Condiciones."
+
+#: assets/build/editor-app.js:2
+msgid "Pixel"
+msgstr "Píxel"
+
+#: assets/build/editor-app.js:2
+msgid "Em"
+msgstr "Em"
+
+#: assets/build/editor-app.js:2
+msgid "Select Units"
+msgstr "Seleccionar unidades"
+
+#: assets/build/editor-app.js:2
+msgid "%s units"
+msgstr "%s unidades"
+
+#: assets/build/editor-app.js:2
+msgid "Margin"
+msgstr "Margen"
+
+#: assets/build/editor-app.js:2
+msgid "Default"
+msgstr "Predeterminado"
+
+#: assets/build/editor-app.js:2
+msgid "Font Size"
+msgstr "Tamaño de fuente"
+
+#: assets/build/editor-app.js:2
+msgid "VW"
+msgstr "VW"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Font Family"
+msgstr "Familia de fuentes"
+
+#: assets/build/editor-app.js:2
+msgid "Weight"
+msgstr "Peso"
+
+#: core/assets.php:82
+#: assets/build/editor-app.js:2
+msgid "Italic"
+msgstr "Itálica"
+
+#: assets/build/editor-app.js:2
+msgid "Oblique"
+msgstr "Oblicuo"
+
+#: assets/build/editor-app.js:2
+msgid "Line Height"
+msgstr "Altura de línea"
+
+#: assets/build/editor-app.js:2
+msgid "Letter Spacing"
+msgstr "Espaciado de letras"
+
+#: assets/build/editor-app.js:2
+msgid "Transform"
+msgstr "Transformar"
+
+#: assets/build/editor-app.js:2
+msgid "Normal"
+msgstr "Normal"
+
+#: assets/build/editor-app.js:2
+msgid "Capitalize"
+msgstr "Capitalizar"
+
+#: assets/build/editor-app.js:2
+msgid "Uppercase"
+msgstr "Mayúsculas"
+
+#: assets/build/editor-app.js:2
+msgid "Lowercase"
+msgstr "Minúsculas"
+
+#: assets/build/editor-app.js:2
+msgid "Decoration"
+msgstr "Decoración"
+
+#: assets/build/editor-app.js:2
+msgid "None"
+msgstr "Ninguno"
+
+#: core/assets.php:83
+#: assets/build/editor-app.js:2
+msgid "Underline"
+msgstr "Subrayar"
+
+#: assets/build/editor-app.js:2
+msgid "Overline"
+msgstr "Sobrelineado"
+
+#: assets/build/editor-app.js:2
+msgid "Line Through"
+msgstr "Línea Tachada"
+
+#: assets/build/editor-app.js:2
+msgid "%"
+msgstr "%"
+
+#: assets/build/editor-app.js:2
+msgid "Top"
+msgstr "Superior"
+
+#: assets/build/editor-app.js:2
+msgid "Right"
+msgstr "Correcto"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom"
+msgstr "Fondo"
+
+#: assets/build/editor-app.js:2
+msgid "Left"
+msgstr "Izquierda"
+
+#: assets/build/editor-app.js:2
+msgid "Clear"
+msgstr "Claro"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Select Color"
+msgstr "Seleccionar color"
+
+#: assets/build/editor-app.js:2
+msgid "Width"
+msgstr "Ancho"
+
+#: assets/build/editor-app.js:2
+msgid "Radius"
+msgstr "Radio"
+
+#: assets/build/editor-app.js:2
+msgid "Color"
+msgstr "Color"
+
+#: assets/build/editor-app.js:2
+msgid "Border"
+msgstr "Frontera"
+
+#: assets/build/editor-app.js:2
+msgid "Hover"
+msgstr "Pasar el cursor"
+
+#: assets/build/editor-app.js:2
+msgid "Solid"
+msgstr "Sólido"
+
+#: assets/build/editor-app.js:2
+msgid "Dotted"
+msgstr "Punteado"
+
+#: assets/build/editor-app.js:2
+msgid "Dashed"
+msgstr "Guionado"
+
+#: assets/build/editor-app.js:2
+msgid "Double"
+msgstr "Doble"
+
+#: assets/build/editor-app.js:2
+msgid "Groove"
+msgstr "Surco"
+
+#: assets/build/editor-app.js:2
+msgid "Inset"
+msgstr "Inserto"
+
+#: assets/build/editor-app.js:2
+msgid "Outset"
+msgstr "Comienzo"
+
+#: assets/build/editor-app.js:2
+msgid "Ridge"
+msgstr "Cresta"
+
+#: assets/build/editor-app.js:2
+msgid "Please add a option props to MultiButtonsControl"
+msgstr "Por favor, añade una opción de propiedades a MultiButtonsControl"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 1"
+msgstr "Preajuste 1"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 2"
+msgstr "Preajuste 2"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 3"
+msgstr "Preajuste 3"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 4"
+msgstr "Preajuste 4"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 5"
+msgstr "Preajuste 5"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 6"
+msgstr "Preajuste 6"
+
+#: assets/build/editor-app.js:2
+msgid "Select Preset"
+msgstr "Seleccionar preajuste"
+
+#: assets/build/editor-app.js:2
+msgid "Basic"
+msgstr "Básico"
+
+#: assets/build/editor-app.js:2
+msgid "Color 1"
+msgstr "Color 1"
+
+#: assets/build/editor-app.js:2
+msgid "Color 2"
+msgstr "Color 2"
+
+#: assets/build/editor-app.js:2
+msgid "Type"
+msgstr "Escribe"
+
+#: assets/build/editor-app.js:2
+msgid "Linear"
+msgstr "Lineal"
+
+#: assets/build/editor-app.js:2
+msgid "Radial"
+msgstr "Radial"
+
+#: assets/build/editor-app.js:2
+msgid "Location 1"
+msgstr "Ubicación 1"
+
+#: assets/build/editor-app.js:2
+msgid "Location 2"
+msgstr "Ubicación 2"
+
+#: assets/build/editor-app.js:2
+msgid "Angle"
+msgstr "Ángulo"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Confirm"
+msgstr "Confirmar"
+
+#: assets/build/editor-app.js:2
+msgid "Processing…"
+msgstr "Procesando…"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Image"
+msgstr "Imagen"
+
+#: assets/build/editor-app.js:2
+msgid "Select Video"
+msgstr "Seleccionar video"
+
+#: assets/build/editor-app.js:2
+msgid "Change Video"
+msgstr "Cambiar video"
+
+#: assets/build/editor-app.js:2
+msgid "Select Lottie Animation"
+msgstr "Seleccionar animación Lottie"
+
+#: assets/build/editor-app.js:2
+msgid "Change Lottie Animation"
+msgstr "Cambiar animación Lottie"
+
+#: assets/build/editor-app.js:2
+msgid "Upload SVG"
+msgstr "Subir SVG"
+
+#: assets/build/editor-app.js:2
+msgid "Change SVG"
+msgstr "Cambiar SVG"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Select Image"
+msgstr "Seleccionar imagen"
+
+#: assets/build/editor-app.js:2
+msgid "Change Image"
+msgstr "Cambiar imagen"
+
+#: assets/build/editor-app.js:2
+msgid "data object is empty"
+msgstr "el objeto de datos está vacío"
+
+#: assets/build/editor-app.js:2
+msgid "Upload SVG?"
+msgstr "¿Subir SVG?"
+
+#: assets/build/editor-app.js:2
+msgid "Upload SVG can be potentially risky. Are you sure?"
+msgstr "Subir SVG puede ser potencialmente arriesgado. ¿Estás seguro?"
+
+#: assets/build/editor-app.js:2
+msgid "Upload Anyway"
+msgstr "Subir de todos modos"
+
+#: assets/build/editor-app.js:2
+msgid "Position"
+msgstr "Posición"
+
+#: assets/build/editor-app.js:2
+msgid "Gradient"
+msgstr "Gradiente"
+
+#: assets/build/editor-app.js:2
+msgid "Classic"
+msgstr "Clásico"
+
+#: assets/build/editor-app.js:2
+msgid "Auto"
+msgstr "Auto"
+
+#: assets/build/editor-app.js:2
+msgid "Cover"
+msgstr "Cubrir"
+
+#: assets/build/editor-app.js:2
+msgid "Contain"
+msgstr "Contener"
+
+#: assets/build/editor-app.js:2
+msgid "Custom"
+msgstr "Personalizado"
+
+#: assets/build/editor-app.js:2
+msgid "Overlay Opacity"
+msgstr "Opacidad de superposición"
+
+#: assets/build/editor-app.js:2
+msgid "Image Position"
+msgstr "Posición de la imagen"
+
+#: assets/build/editor-app.js:2
+msgid "Top Left"
+msgstr "Arriba a la izquierda"
+
+#: assets/build/editor-app.js:2
+msgid "Top Center"
+msgstr "Centro superior"
+
+#: assets/build/editor-app.js:2
+msgid "Top Right"
+msgstr "Arriba a la derecha"
+
+#: assets/build/editor-app.js:2
+msgid "Center Top"
+msgstr "Centro Superior"
+
+#: assets/build/editor-app.js:2
+msgid "Center Center"
+msgstr "Centro Centro"
+
+#: assets/build/editor-app.js:2
+msgid "Center Bottom"
+msgstr "Centro Inferior"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom Left"
+msgstr "Inferior izquierdo"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom Center"
+msgstr "Centro inferior"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom Right"
+msgstr "Inferior derecho"
+
+#: assets/build/editor-app.js:2
+msgid "Attachment"
+msgstr "Adjunto"
+
+#: assets/build/editor-app.js:2
+msgid "Fixed"
+msgstr "Fijo"
+
+#: assets/build/editor-app.js:2
+msgid "Scroll"
+msgstr "Desplazar"
+
+#: assets/build/editor-app.js:2
+msgid "Blend Mode"
+msgstr "Modo de fusión"
+
+#: assets/build/editor-app.js:2
+msgid "Multiply"
+msgstr "Multiplicar"
+
+#: assets/build/editor-app.js:2
+msgid "Screen"
+msgstr "Pantalla"
+
+#: assets/build/editor-app.js:2
+msgid "Overlay"
+msgstr "Superposición"
+
+#: assets/build/editor-app.js:2
+msgid "Darken"
+msgstr "Oscurecer"
+
+#: assets/build/editor-app.js:2
+msgid "Lighten"
+msgstr "Aligerar"
+
+#: assets/build/editor-app.js:2
+msgid "Color Dodge"
+msgstr "Sobreexponer color"
+
+#: assets/build/editor-app.js:2
+msgid "Saturation"
+msgstr "Saturación"
+
+#: assets/build/editor-app.js:2
+msgid "Repeat"
+msgstr "Repetir"
+
+#: assets/build/editor-app.js:2
+msgid "No Repeat"
+msgstr "No repetir"
+
+#: assets/build/editor-app.js:2
+msgid "Repeat-x"
+msgstr "Repetir-x"
+
+#: assets/build/editor-app.js:2
+msgid "Repeat-y"
+msgstr "Repetir-y"
+
+#: assets/build/editor-app.js:2
+msgid "Size"
+msgstr "Tamaño"
+
+#: assets/build/editor-app.js:2
+msgid "PX"
+msgstr "PX"
+
+#: assets/build/editor-app.js:2
+msgid "EM"
+msgstr "EM"
+
+#: assets/build/editor-app.js:2
+msgid "X Position"
+msgstr "Posición X"
+
+#: assets/build/editor-app.js:2
+msgid "Y Position"
+msgstr "Posición Y"
+
+#: assets/build/editor-app.js:2
+msgid "VH"
+msgstr "VH"
+
+#: assets/build/editor-app.js:2
+msgid "Overlay Type"
+msgstr "Tipo de superposición"
+
+#: assets/build/editor-app.js:2
+msgid "Image Overlay Color"
+msgstr "Color de superposición de imagen"
+
+#: assets/build/editor-app.js:2
+msgid "Centralized Position"
+msgstr "Posición centralizada"
+
+#: assets/build/editor-app.js:2
+msgid "Fallback Image"
+msgstr "Imagen de respaldo"
+
+#: assets/build/editor-app.js:2
+msgid "This cover image will replace the background video in case that the video could not be loaded."
+msgstr "Esta imagen de portada reemplazará el video de fondo en caso de que el video no se pueda cargar."
+
+#: assets/build/editor-app.js:2
+msgid "Box Shadow"
+msgstr "Sombra de caja"
+
+#: assets/build/editor-app.js:2
+msgid "Inset (10px)"
+msgstr "Inserción (10px)"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Search…"
+msgstr "Buscar…"
+
+#: assets/build/editor-app.js:2
+msgid "Open in new window"
+msgstr "Abrir en una nueva ventana"
+
+#: assets/build/editor-app.js:2
+msgid "Add nofollow"
+msgstr "Agregar nofollow"
+
+#: assets/build/editor-app.js:2
+msgid "Login Form"
+msgstr "Formulario de Inicio de Sesión"
+
+#: assets/build/editor-app.js:2
+msgid "Disable Form"
+msgstr "Desactivar formulario"
+
+#: assets/build/editor-app.js:2
+msgid "Use this if you only want users to log in with social login."
+msgstr "Utiliza esto si solo quieres que los usuarios inicien sesión con el inicio de sesión social."
+
+#: assets/build/editor-app.js:2
+msgid "Username Placeholder"
+msgstr "Nombre de usuario Placeholder"
+
+#: assets/build/editor-app.js:2
+msgid "Enter username placeholder"
+msgstr "Ingrese el marcador de posición del nombre de usuario"
+
+#: assets/build/editor-app.js:2
+msgid "Password Placeholder"
+msgstr "Marcador de posición de contraseña"
+
+#: assets/build/editor-app.js:2
+msgid "Enter password placeholder"
+msgstr "Introduzca el marcador de posición de la contraseña"
+
+#: assets/build/editor-app.js:2
+msgid "Forgot Password Label"
+msgstr "Etiqueta de contraseña olvidada"
+
+#: assets/build/editor-app.js:2
+msgid "Enter forgot password label"
+msgstr "Ingrese la etiqueta de contraseña olvidada"
+
+#: assets/build/editor-app.js:2
+msgid "Hide Icon"
+msgstr "Ocultar icono"
+
+#: assets/build/editor-app.js:2
+msgid "Show Register Information"
+msgstr "Mostrar información del registro"
+
+#: assets/build/editor-app.js:2
+msgid "Register Link"
+msgstr "Enlace de registro"
+
+#: assets/build/editor-app.js:2
+msgid "Overall Alignment"
+msgstr "Alineación general"
+
+#: assets/build/editor-app.js:2
+msgid "Center"
+msgstr "Centro"
+
+#: assets/build/editor-app.js:2
+msgid "Success/Error Message"
+msgstr "Mensaje de éxito/error"
+
+#: assets/build/editor-app.js:2
+msgid "View Success Message"
+msgstr "Ver mensaje de éxito"
+
+#: assets/build/editor-app.js:2
+msgid "View Error Message"
+msgstr "Ver mensaje de error"
+
+#: assets/build/editor-app.js:2
+msgid "Redirects"
+msgstr "Redirecciones"
+
+#: assets/build/editor-app.js:2
+msgid "Logged in Message"
+msgstr "Mensaje de inicio de sesión"
+
+#: assets/build/editor-app.js:2
+msgid "The \"Logged In Message\" will be shown instead of this block on the frontend when the user visiting this page is already Logged In."
+msgstr "El \"Mensaje de Inicio de Sesión\" se mostrará en lugar de este bloque en el frontend cuando el usuario que visita esta página ya haya iniciado sesión."
+
+#: assets/build/editor-app.js:2
+msgid "Redirect After Login"
+msgstr "Redirigir después de iniciar sesión"
+
+#: assets/build/editor-app.js:2
+msgid "Enter URL"
+msgstr "Introducir URL"
+
+#: assets/build/editor-app.js:2
+msgid "Default Redirect URL is homepage"
+msgstr "La URL de redirección predeterminada es la página de inicio"
+
+#: assets/build/editor-app.js:2
+msgid "Redirect After Logout"
+msgstr "Redirigir después de cerrar sesión"
+
+#: assets/build/editor-app.js:2
+msgid "Form Controls"
+msgstr "Controles de formulario"
+
+#: assets/build/editor-app.js:2
+msgid "Form Width"
+msgstr "Ancho del formulario"
+
+#: assets/build/editor-app.js:2
+msgid "em"
+msgstr "em"
+
+#: assets/build/editor-app.js:2
+msgid "Padding"
+msgstr "Relleno"
+
+#: assets/build/editor-app.js:2
+msgid "Row Gap"
+msgstr "Espacio entre filas"
+
+#: assets/build/editor-app.js:2
+msgid "Background"
+msgstr "Fondo"
+
+#: assets/build/editor-app.js:2
+msgid "Field Labels"
+msgstr "Etiquetas de campo"
+
+#: assets/build/editor-app.js:2
+msgid "Typography"
+msgstr "Tipografía"
+
+#: assets/build/editor-app.js:2
+msgid "Text"
+msgstr "Texto"
+
+#: assets/build/editor-app.js:2
+msgid "Input Fields"
+msgstr "Campos de entrada"
+
+#: assets/build/editor-app.js:2
+msgid "Active"
+msgstr "Activo"
+
+#: assets/build/editor-app.js:2
+msgid "Input Typography"
+msgstr "Tipografía de entrada"
+
+#: assets/build/editor-app.js:2
+msgid "Input Padding"
+msgstr "Relleno de entrada"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Size"
+msgstr "Tamaño de la casilla"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Background"
+msgstr "Fondo de la casilla de verificación"
+
+#: assets/build/editor-app.js:2
+msgid "Check Color"
+msgstr "Verificar color"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Border Width"
+msgstr "Ancho del borde de la casilla de verificación"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Border Radius"
+msgstr "Radio de borde de la casilla de verificación"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Border Color"
+msgstr "Color del borde de la casilla de verificación"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Checkbox Glow"
+msgstr "Habilitar resplandor de la casilla de verificación"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Glow Color"
+msgstr "Color de resplandor de la casilla de verificación"
+
+#: assets/build/editor-app.js:2
+msgid "Login Button"
+msgstr "Botón de inicio de sesión"
+
+#: assets/build/editor-app.js:2
+msgid "Button Icon"
+msgstr "Icono del botón"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Position"
+msgstr "Posición del icono"
+
+#: assets/build/editor-app.js:2
+msgid "Before Text"
+msgstr "Antes del texto"
+
+#: assets/build/editor-app.js:2
+msgid "After Text"
+msgstr "Después del texto"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Spacing"
+msgstr "Espaciado de iconos"
+
+#: assets/build/editor-app.js:2
+msgid "Alignment"
+msgstr "Alineación"
+
+#: assets/build/editor-app.js:2
+msgid "Full"
+msgstr "Completo"
+
+#: assets/build/editor-app.js:2
+msgid "Small"
+msgstr "Pequeño"
+
+#: assets/build/editor-app.js:2
+msgid "Medium"
+msgstr "Medio"
+
+#: assets/build/editor-app.js:2
+msgid "Large"
+msgstr "Grande"
+
+#: assets/build/editor-app.js:2
+msgid "Extra Large"
+msgstr "Extra Grande"
+
+#: assets/build/editor-app.js:2
+msgid "Facebook Button"
+msgstr "Botón de Facebook"
+
+#: assets/build/editor-app.js:2
+msgid "Google Button"
+msgstr "Botón de Google"
+
+#: assets/build/editor-app.js:2
+msgid "Success Border Color"
+msgstr "Color del borde de éxito"
+
+#: assets/build/editor-app.js:2
+msgid "Success Background"
+msgstr "Antecedentes de éxito"
+
+#: assets/build/editor-app.js:2
+msgid "Success Text"
+msgstr "Texto de éxito"
+
+#: assets/build/editor-app.js:2
+msgid "Error Border Color"
+msgstr "Color de borde de error"
+
+#: assets/build/editor-app.js:2
+msgid "Error Background"
+msgstr "Fondo de error"
+
+#: assets/build/editor-app.js:2
+msgid "Error Text"
+msgstr "Texto de error"
+
+#: assets/build/editor-app.js:2
+msgid "Horizontal"
+msgstr "Horizontal"
+
+#: assets/build/editor-app.js:2
+msgid "Vertical"
+msgstr "Vertical"
+
+#: assets/build/editor-app.js:2
+msgid "Blur"
+msgstr "Desenfoque"
+
+#: assets/build/editor-app.js:2
+msgid "Spread"
+msgstr "Propagar"
+
+#: assets/build/editor-app.js:2
+msgid "Social Login"
+msgstr "Inicio de sesión social"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Facebook Login"
+msgstr "Habilitar inicio de sesión con Facebook"
+
+#: assets/build/editor-app.js:2
+msgid "Please configure Facebook App settings from"
+msgstr "Por favor, configure los ajustes de la aplicación de Facebook desde"
+
+#: assets/build/editor-app.js:2
+msgid "here"
+msgstr "aquí"
+
+#: assets/build/editor-app.js:2
+msgid "Button Size"
+msgstr "Tamaño del botón"
+
+#: assets/build/editor-app.js:2
+msgid "Facebook Login Button"
+msgstr "Botón de inicio de sesión de Facebook"
+
+#: assets/build/editor-app.js:2
+msgid "Enter Login Button Text"
+msgstr "Ingrese el texto del botón de inicio de sesión"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Google Login"
+msgstr "Habilitar inicio de sesión con Google"
+
+#: assets/build/editor-app.js:2
+msgid "Please configure Google Client ID from"
+msgstr "Por favor, configure el ID de cliente de Google desde"
+
+#: assets/build/editor-app.js:2
+msgid "Google Login Button"
+msgstr "Botón de inicio de sesión de Google"
+
+#: assets/build/editor-app.js:2
+msgid "Social Position"
+msgstr "Posición social"
+
+#: assets/build/editor-app.js:2
+msgid "Below Form"
+msgstr "Formulario de abajo"
+
+#: assets/build/editor-app.js:2
+msgid "Above Form"
+msgstr "Formulario anterior"
+
+#: assets/build/editor-app.js:2
+msgid "Social Login Alignment"
+msgstr "Alineación de inicio de sesión social"
+
+#: assets/build/editor-app.js:2
+msgid "Social Buttons Layout"
+msgstr "Diseño de botones sociales"
+
+#: assets/build/editor-app.js:2
+msgid "Inline"
+msgstr "En línea"
+
+#: assets/build/editor-app.js:2
+msgid "Stack"
+msgstr "Pila"
+
+#: assets/build/editor-app.js:2
+msgid "Note: Choose Stack Options For all devices."
+msgstr "Nota: Elija Opciones de Pila para todos los dispositivos."
+
+#: assets/build/editor-app.js:2
+msgid "Reverse Social Buttons"
+msgstr "Invertir botones sociales"
+
+#: assets/build/editor-app.js:2
+msgid "Gap Between Buttons"
+msgstr "Espacio entre botones"
+
+#: assets/build/editor-app.js:2
+msgid "Google reCAPTCHA"
+msgstr "Google reCAPTCHA"
+
+#: assets/build/editor-app.js:2
+msgid "P.S. Note that If you are using two forms on the same page with the different reCAPTCHA versions (V2 checkbox and V3), it will create conflicts between the versions. Kindly avoid using different versions on same page. "
+msgstr "P.D. Tenga en cuenta que si está utilizando dos formularios en la misma página con diferentes versiones de reCAPTCHA (casilla de verificación V2 y V3), se crearán conflictos entre las versiones. Por favor, evite usar diferentes versiones en la misma página."
+
+#: assets/build/editor-app.js:2
+msgid "Enable reCAPTCHA"
+msgstr "Habilitar reCAPTCHA"
+
+#: assets/build/editor-app.js:2
+msgid "Please configure the Google reCAPTCHA Site & Secret key from"
+msgstr "Por favor, configure la clave de sitio y secreta de Google reCAPTCHA desde"
+
+#: assets/build/editor-app.js:2
+msgid "Select Version"
+msgstr "Seleccionar versión"
+
+#: assets/build/editor-app.js:2
+msgid "V2"
+msgstr "V2"
+
+#: assets/build/editor-app.js:2
+msgid "V3"
+msgstr "V3"
+
+#: assets/build/editor-app.js:2
+msgid "Input Fields Icon"
+msgstr "Icono de campos de entrada"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Size"
+msgstr "Tamaño del icono"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Color"
+msgstr "Color del icono"
+
+#: assets/build/editor-app.js:2
+msgid "Border Width"
+msgstr "Ancho del borde"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Border Color"
+msgstr "Color del borde"
+
+#: assets/build/editor-app.js:2
+msgid "Eye Icon"
+msgstr "Icono de ojo"
+
+#: assets/build/editor-app.js:2
+msgid "Password Eye Color"
+msgstr "Contraseña Color de Ojos"
+
+#: assets/build/editor-app.js:2
+msgid "Register Information"
+msgstr "Registrar información"
+
+#: assets/build/editor-app.js:2
+msgid "This is an example success message."
+msgstr "Este es un mensaje de éxito de ejemplo."
+
+#: assets/build/editor-app.js:2
+msgid "Error"
+msgstr "Error"
+
+#: assets/build/editor-app.js:2
+msgid ": This is an example error message."
+msgstr ": Este es un mensaje de error de ejemplo."
+
+#: assets/build/editor-app.js:2
+msgid "Remember Me"
+msgstr "Recuérdame"
+
+#: assets/build/editor-app.js:2
+msgid "Do not have an account?"
+msgstr "¿No tienes una cuenta?"
+
+#: assets/build/editor-app.js:2
+msgid "login"
+msgstr "iniciar sesión"
+
+#: assets/build/editor-app.js:2
+msgid "This block lets you add Login functionality."
+msgstr "Este bloque te permite añadir funcionalidad de inicio de sesión."
+
+#: assets/build/editor-app.js:2
+msgid "admin login"
+msgstr "inicio de sesión de administrador"
+
+#: assets/build/editor-app.js:2
+msgid "portal"
+msgstr "portal"
+
+#: assets/build/editor-app.js:2
+msgid "frontend login"
+msgstr "inicio de sesión del frontend"
+
+#: assets/build/editor-app.js:2
+msgid "user login"
+msgstr "inicio de sesión del usuario"
+
+#: assets/build/editor-app.js:2
+msgid "custom login"
+msgstr "inicio de sesión personalizado"
+
+#: assets/build/editor-app.js:2
+msgid "Registration Form"
+msgstr "Formulario de Registro"
+
+#: assets/build/editor-app.js:2
+msgid "Hide Label"
+msgstr "Ocultar etiqueta"
+
+#: assets/build/editor-app.js:2
+msgid "Show Login Information"
+msgstr "Mostrar información de inicio de sesión"
+
+#: assets/build/editor-app.js:2
+msgid "Login Link"
+msgstr "Enlace de inicio de sesión"
+
+#: assets/build/editor-app.js:2
+msgid "Register Button"
+msgstr "Botón de registro"
+
+#: assets/build/editor-app.js:2
+msgid "Social Registration"
+msgstr "Registro Social"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Facebook Registration"
+msgstr "Habilitar el registro de Facebook"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Google Registration"
+msgstr "Habilitar el registro de Google"
+
+#: assets/build/editor-app.js:2
+msgid "Social Registration Alignment"
+msgstr "Alineación de Registro Social"
+
+#: assets/build/editor-app.js:2
+msgid "After Registration Actions"
+msgstr "Acciones después del registro"
+
+#: assets/build/editor-app.js:2
+msgid "Redirect"
+msgstr "Redirigir"
+
+#: assets/build/editor-app.js:2
+msgid "Auto Login"
+msgstr "Inicio de sesión automático"
+
+#: assets/build/editor-app.js:2
+msgid "Send Email"
+msgstr "Enviar correo electrónico"
+
+#: assets/build/editor-app.js:2
+msgid "Redirect URL"
+msgstr "Redirigir URL"
+
+#: assets/build/editor-app.js:2
+msgid "Email Template"
+msgstr "Plantilla de correo electrónico"
+
+#: assets/build/editor-app.js:2
+msgid "Customize Email Template"
+msgstr "Personalizar plantilla de correo electrónico"
+
+#: assets/build/editor-app.js:2
+msgid "Subject"
+msgstr "Asunto"
+
+#: assets/build/editor-app.js:2
+msgid "Message"
+msgstr "Mensaje"
+
+#: assets/build/editor-app.js:2
+msgid "HTML Supported"
+msgstr "Compatible con HTML"
+
+#: assets/build/editor-app.js:2
+msgid "Note:"
+msgstr "Nota:"
+
+#: assets/build/editor-app.js:2
+msgid "If you wish to send System Generated Password in the email content, use shortcode -"
+msgstr "Si deseas enviar la Contraseña Generada por el Sistema en el contenido del correo electrónico, utiliza el código corto -"
+
+#: assets/build/editor-app.js:2
+msgid "Send As"
+msgstr "Enviar como"
+
+#: assets/build/editor-app.js:2
+msgid "HTML"
+msgstr "HTML"
+
+#: assets/build/editor-app.js:2
+msgid "Plain"
+msgstr "Simple"
+
+#: assets/build/editor-app.js:2
+msgid "Make sure to update your post for changes to take effect."
+msgstr "Asegúrate de actualizar tu publicación para que los cambios surtan efecto."
+
+#: assets/build/editor-app.js:2
+msgid "Return To Post"
+msgstr "Volver a la publicación"
+
+#: assets/build/editor-app.js:2
+msgid "Validation Messages"
+msgstr "Mensajes de validación"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Email"
+msgstr "Correo electrónico no válido"
+
+#: assets/build/editor-app.js:2
+msgid "Email is missing"
+msgstr "Falta el correo electrónico"
+
+#: assets/build/editor-app.js:2
+msgid "Already Used Email"
+msgstr "Correo electrónico ya utilizado"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Username"
+msgstr "Nombre de usuario no válido"
+
+#: assets/build/editor-app.js:2
+msgid "Username already in use"
+msgstr "Nombre de usuario ya en uso"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Password"
+msgstr "Contraseña inválida"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Password Confirmed"
+msgstr "Contraseña no válida confirmada"
+
+#: assets/build/editor-app.js:2
+msgid "Terms & Condition Error"
+msgstr "Error de Términos y Condiciones"
+
+#: assets/build/editor-app.js:2
+msgid "Other Errors"
+msgstr "Otros errores"
+
+#: assets/build/editor-app.js:2
+msgid "Successful Registration"
+msgstr "Registro exitoso"
+
+#: assets/build/editor-app.js:2
+msgid "View Field Error Message"
+msgstr "Ver mensaje de error de campo"
+
+#: assets/build/editor-app.js:2
+msgid "Enable reCAPTCHA "
+msgstr "Habilitar reCAPTCHA"
+
+#: assets/build/editor-app.js:2
+msgid "Label Bottom Margin"
+msgstr "Margen inferior de la etiqueta"
+
+#: assets/build/editor-app.js:2
+msgid "Login Information"
+msgstr "Información de inicio de sesión"
+
+#: assets/build/editor-app.js:2
+msgid "Link Text"
+msgstr "Texto del enlace"
+
+#: assets/build/editor-app.js:2
+msgid "Field Error Text"
+msgstr "Texto de error de campo"
+
+#: assets/build/editor-app.js:2
+msgid "This message will appear when everything worked fine."
+msgstr "Este mensaje aparecerá cuando todo haya funcionado bien."
+
+#: assets/build/editor-app.js:2
+msgid "This message will appear when something wrong is happening."
+msgstr "Este mensaje aparecerá cuando algo malo esté sucediendo."
+
+#: assets/build/editor-app.js:2
+msgid "To use Registration Form on your site, please enable the"
+msgstr "Para usar el formulario de registro en su sitio, por favor habilite el"
+
+#: assets/build/editor-app.js:2
+msgid "Anyone Can Register"
+msgstr "Cualquiera puede registrarse"
+
+#: assets/build/editor-app.js:2
+msgid "setting from Dashboard -> Settings -> General -> Membership."
+msgstr "configuración desde el Panel de control -> Configuración -> General -> Membresía."
+
+#: assets/build/editor-app.js:2
+msgid "Register"
+msgstr "Registrar"
+
+#: assets/build/editor-app.js:2
+msgid "Already have an account?"
+msgstr "¿Ya tienes una cuenta?"
+
+#: assets/build/editor-app.js:2
+msgid "This block lets you add Registration functionality."
+msgstr "Este bloque te permite añadir la funcionalidad de Registro."
+
+#: assets/build/editor-app.js:2
+msgid "register"
+msgstr "registrar"
+
+#: assets/build/editor-app.js:2
+msgid "admin register"
+msgstr "registro de administrador"
+
+#: assets/build/editor-app.js:2
+msgid "frontend register"
+msgstr "registro de frontend"
+
+#: assets/build/editor-app.js:2
+msgid "user register"
+msgstr "registro de usuario"
+
+#: assets/build/editor-app.js:2
+msgid "custom register"
+msgstr "registro personalizado"
+
+#: assets/build/portals-app.js:2
+msgid "What's New?"
+msgstr "¿Qué hay de nuevo?"
+
+#: assets/build/portals-app.js:2
+msgid "Dashboard"
+msgstr "Tablero"
+
+#: assets/build/portals-app.js:2
+msgid "V %s"
+msgstr "V %s"
+
+#: assets/build/portals-app.js:2
+msgid "CORE"
+msgstr "NUCLEO"
+
+#: assets/build/portals-app.js:2
+msgid "Edit"
+msgstr "Editar"
+
+#: assets/build/portals-app.js:2
+msgid "Popup Title"
+msgstr "Título del Popup"
+
+#: assets/build/portals-app.js:2
+msgid "Set Image"
+msgstr "Establecer imagen"
+
+#: assets/build/portals-app.js:2
+msgid "Upload Image"
+msgstr "Subir imagen"
+
+#: assets/build/portals-app.js:2
+msgid "Course Description"
+msgstr "Descripción del curso"
+
+#: assets/build/portals-app.js:2
+msgid "Space Name"
+msgstr "Nombre del Espacio"
+
+#: assets/build/portals-app.js:2
+msgid "Featured Image"
+msgstr "Imagen destacada"
+
+#: assets/build/portals-app.js:2
+msgid "Upload at least 1000x200px image. Recommended size is 1920x384px."
+msgstr "Sube una imagen de al menos 1000x200px. El tamaño recomendado es 1920x384px."
+
+#: assets/build/portals-app.js:2
+msgid "Space Status"
+msgstr "Estado del espacio"
+
+#: assets/build/portals-app.js:2
+msgid "Draft"
+msgstr "Borrador"
+
+#: assets/build/portals-app.js:2
+msgid "Publish"
+msgstr "Publicar"
+
+#: assets/build/portals-app.js:2
+msgid "Enable Lesson Comments"
+msgstr "Habilitar comentarios de lecciones"
+
+#: assets/build/portals-app.js:2
+msgid "Enable Feed Comments"
+msgstr "Habilitar comentarios del feed"
+
+#: assets/build/portals-app.js:2
+msgid "Enable Comments"
+msgstr "Habilitar comentarios"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow viewers to comment on this course lessons."
+msgstr "Habilitar esto permitirá a los espectadores comentar en las lecciones de este curso."
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow viewers to comment on individual feeds."
+msgstr "Habilitar esto permitirá a los espectadores comentar en transmisiones individuales."
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow viewers to comment on this space."
+msgstr "Habilitar esto permitirá a los espectadores comentar en este espacio."
+
+#: assets/build/portals-app.js:2
+msgid "Default Content"
+msgstr "Contenido predeterminado"
+
+#: assets/build/portals-app.js:2
+msgid "Course Sections"
+msgstr "Secciones del curso"
+
+#: assets/build/portals-app.js:2
+msgid "Add Section"
+msgstr "Agregar sección"
+
+#: assets/build/portals-app.js:2
+msgid "Section:"
+msgstr "Sección:"
+
+#: assets/build/portals-app.js:2
+msgid "Add Lesson"
+msgstr "Agregar lección"
+
+#: assets/build/portals-app.js:2
+msgid "You need to delete the lessons in this section first."
+msgstr "Primero necesitas eliminar las lecciones en esta sección."
+
+#: assets/build/portals-app.js:2
+msgid "Are you sure you want to remove this section?"
+msgstr "¿Estás seguro de que deseas eliminar esta sección?"
+
+#: assets/build/portals-app.js:2
+msgid "You can not remove the last section."
+msgstr "No puedes eliminar la última sección."
+
+#: assets/build/portals-app.js:2
+msgid "Remove"
+msgstr "Eliminar"
+
+#: assets/build/portals-app.js:2
+msgid "Collapse"
+msgstr "Colapso"
+
+#: assets/build/portals-app.js:2
+msgid "Expand"
+msgstr "Expandir"
+
+#: assets/build/portals-app.js:2
+msgid "Delete Lesson"
+msgstr "Eliminar lección"
+
+#: assets/build/portals-app.js:2
+msgid "Are you sure you want to remove this lesson? This action will permanently delete the lesson post."
+msgstr "¿Está seguro de que desea eliminar esta lección? Esta acción eliminará permanentemente la publicación de la lección."
+
+#: assets/build/portals-app.js:2
+msgid "Choose Content Group"
+msgstr "Elegir grupo de contenido"
+
+#: assets/build/portals-app.js:2
+msgid "Please add at least 1 character to search"
+msgstr "Por favor, añade al menos 1 carácter para buscar"
+
+#: assets/build/portals-app.js:2
+msgid "Pinned Content Post"
+msgstr "Publicación de contenido fijado"
+
+#: assets/build/portals-app.js:2
+msgid "Link URL"
+msgstr "Enlace URL"
+
+#: assets/build/portals-app.js:2
+msgid "Link Target"
+msgstr "Objetivo del enlace"
+
+#: assets/build/portals-app.js:2
+msgid "Same Window"
+msgstr "Misma ventana"
+
+#: assets/build/portals-app.js:2
+msgid "New Window"
+msgstr "Nueva ventana"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Topic Forum"
+msgstr "Elegir foro de temas"
+
+#: assets/build/portals-app.js:2
+msgid "Pinned Topic Post"
+msgstr "Publicación de tema fijado"
+
+#: assets/build/portals-app.js:2
+msgid "Make Discussions Private"
+msgstr "Hacer las discusiones privadas"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this makes all discussions private between portal managers and the topic creator."
+msgstr "Al habilitar esto, todas las discusiones se vuelven privadas entre los administradores del portal y el creador del tema."
+
+#: assets/build/portals-app.js:2
+msgid "All Posts"
+msgstr "Todas las publicaciones"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Video Post"
+msgstr "Elegir publicación de video"
+
+#: assets/build/portals-app.js:2
+msgid "Video Type"
+msgstr "Tipo de video"
+
+#: assets/build/portals-app.js:2
+msgid "Single"
+msgstr "Soltero"
+
+#: assets/build/portals-app.js:2
+msgid "Playlist"
+msgstr "Lista de reproducción"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Video Posts"
+msgstr "Elegir publicaciones de video"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Post/Page/Template"
+msgstr "Elige Publicación/Página/Plantilla"
+
+#: assets/build/portals-app.js:2
+msgid "Content Type"
+msgstr "Tipo de contenido"
+
+#: assets/build/portals-app.js:2
+msgid "Post Content Type"
+msgstr "Tipo de contenido de la publicación"
+
+#: assets/build/portals-app.js:2
+msgid "Full Content"
+msgstr "Contenido completo"
+
+#: assets/build/portals-app.js:2
+msgid "Excerpt"
+msgstr "Extracto"
+
+#: assets/build/portals-app.js:2
+msgid "Container Type"
+msgstr "Tipo de contenedor"
+
+#: assets/build/portals-app.js:2
+msgid "Full Width"
+msgstr "Ancho completo"
+
+#: assets/build/portals-app.js:2
+msgid "Narrow Width"
+msgstr "Ancho Estrecho"
+
+#: assets/build/portals-app.js:2
+msgid "Space Group Name"
+msgstr "Nombre del grupo espacial"
+
+#: assets/build/portals-app.js:2
+msgid "Short Description"
+msgstr "Descripción breve"
+
+#: assets/build/portals-app.js:2
+msgid "Enter a short description for the space group."
+msgstr "Ingrese una breve descripción para el grupo espacial."
+
+#: assets/build/portals-app.js:2
+msgid "Pinned Section"
+msgstr "Sección fijada"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this section will remove space group title and display the spaces directly."
+msgstr "Habilitar esta sección eliminará el título del grupo de espacios y mostrará los espacios directamente."
+
+#: assets/build/portals-app.js:2
+msgid "Add Home Link"
+msgstr "Agregar enlace a inicio"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will add a home link to the section."
+msgstr "Habilitar esto añadirá un enlace de inicio a la sección."
+
+#: assets/build/portals-app.js:2
+msgid "No Icons Found."
+msgstr "No se encontraron iconos."
+
+#: assets/build/portals-app.js:2
+msgid "Saving…"
+msgstr "Guardando…"
+
+#: assets/build/portals-app.js:2
+msgid "Saved"
+msgstr "Guardado"
+
+#: assets/build/portals-app.js:2
+msgid "Settings Saved Successfully!"
+msgstr "¡Configuraciones guardadas con éxito!"
+
+#: assets/build/portals-app.js:2
+msgid "Failed to Save."
+msgstr "Error al guardar."
+
+#: assets/build/portals-app.js:2
+msgid "Error updating settings: "
+msgstr "Error al actualizar la configuración:"
+
+#: assets/build/portals-app.js:2
+msgid "Space"
+msgstr "Espacio"
+
+#: assets/build/portals-app.js:2
+msgid "Delete"
+msgstr "Eliminar"
+
+#: assets/build/portals-app.js:2
+msgid "Create Your First Space Group"
+msgstr "Crea tu primer grupo de espacio"
+
+#: assets/build/portals-app.js:2
+msgid "Start by adding a Space Groups, and then add Spaces."
+msgstr "Comience agregando un Grupo de Espacios, y luego agregue Espacios."
+
+#: assets/build/portals-app.js:2
+msgid "Add Space Group"
+msgstr "Agregar grupo de espacio"
+
+#: assets/build/portals-app.js:2
+msgid "Space Group"
+msgstr "Grupo Espacial"
+
+#: assets/build/portals-app.js:2
+msgid "Are you sure you want to delete this"
+msgstr "¿Estás seguro de que deseas eliminar esto"
+
+#: assets/build/portals-app.js:2
+msgid "Delete it"
+msgstr "Elimínalo"
+
+#: assets/build/portals-app.js:2
+msgid "Create Space Group"
+msgstr "Crear grupo de espacio"
+
+#: assets/build/portals-app.js:2
+msgid "New Space Group"
+msgstr "Nuevo Grupo Espacial"
+
+#: assets/build/portals-app.js:2
+msgid "Back"
+msgstr "Atrás"
+
+#: assets/build/portals-app.js:2
+msgid "Creating…"
+msgstr "Creando…"
+
+#: assets/build/portals-app.js:2
+msgid "Ready…"
+msgstr "Listo…"
+
+#: assets/build/portals-app.js:2
+msgid "Failed!"
+msgstr "¡Fallido!"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Space Content Type"
+msgstr "Elija el tipo de contenido del espacio"
+
+#: assets/build/portals-app.js:2
+msgid "Continue"
+msgstr "Continuar"
+
+#: assets/build/portals-app.js:2
+msgid "A blank space."
+msgstr "Un espacio en blanco."
+
+#: assets/build/portals-app.js:2
+msgid "Post"
+msgstr "Publicar"
+
+#: assets/build/portals-app.js:2
+msgid "A space with WordPress post/page/template."
+msgstr "Un espacio con una publicación/página/plantilla de WordPress."
+
+#: assets/build/portals-app.js:2
+msgid "A space with video content."
+msgstr "Un espacio con contenido de video."
+
+#: assets/build/portals-app.js:2
+msgid "A space with a redirecting link."
+msgstr "Un espacio con un enlace de redirección."
+
+#: assets/build/portals-app.js:2
+msgid "Feed"
+msgstr "Alimentar"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Content feeds."
+msgstr "Un espacio con fuentes de contenido."
+
+#: assets/build/portals-app.js:2
+msgid "Discussion"
+msgstr "Discusión"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Topic feeds."
+msgstr "Un espacio con feeds de temas."
+
+#: assets/build/portals-app.js:2
+msgid "Pro"
+msgstr "Pro"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Course content."
+msgstr "Un espacio con contenido del curso."
+
+#: assets/build/portals-app.js:2
+msgid "Event"
+msgstr "Evento"
+
+#: assets/build/portals-app.js:2
+msgid "Soon"
+msgstr "Pronto"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Event content."
+msgstr "Un espacio con contenido de evento."
+
+#: assets/build/portals-app.js:2
+msgid "Form"
+msgstr "Formulario"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Form content."
+msgstr "Un espacio con contenido de formulario."
+
+#: assets/build/portals-app.js:2
+msgid "Add a New"
+msgstr "Agregar un nuevo"
+
+#: assets/build/portals-app.js:2
+msgid "Space Title"
+msgstr "Título del Espacio"
+
+#: assets/build/portals-app.js:2
+msgid "- Select -"
+msgstr "- Seleccionar -"
+
+#: assets/build/portals-app.js:2
+msgid "– Create a Space Group –"
+msgstr "– Crear un Grupo de Espacio –"
+
+#: assets/build/portals-app.js:2
+msgid "New Space Group Name"
+msgstr "Nuevo nombre de grupo espacial"
+
+#: assets/build/portals-app.js:2
+msgid "Create Space"
+msgstr "Crear espacio"
+
+#: assets/build/portals-app.js:2
+msgid "No Spaces Found!"
+msgstr "¡No se encontraron espacios!"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will hide the SureDash branding from the public."
+msgstr "Habilitar esto ocultará la marca SureDash del público."
+
+#: assets/build/portals-app.js:2
+msgid "This feature is only available in SureDash Pro."
+msgstr "Esta función solo está disponible en SureDash Pro."
+
+#: assets/build/portals-app.js:2
+msgid "Portal Name"
+msgstr "Nombre del Portal"
+
+#: assets/build/portals-app.js:2
+msgid "Upload Logo"
+msgstr "Subir logotipo"
+
+#: assets/build/portals-app.js:2
+msgid "Select Logo"
+msgstr "Seleccionar logotipo"
+
+#: assets/build/portals-app.js:2
+msgid "Set Logo"
+msgstr "Establecer logotipo"
+
+#: assets/build/portals-app.js:2
+msgid "Logo"
+msgstr "Logotipo"
+
+#: assets/build/portals-app.js:2
+msgid "Hide"
+msgstr "Ocultar"
+
+#: assets/build/portals-app.js:2
+msgid "Branding"
+msgstr "Marca"
+
+#: assets/build/portals-app.js:2
+msgid "Make Community Private"
+msgstr "Hacer la comunidad privada"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will hide the community from the public and require a login to view."
+msgstr "Habilitar esto ocultará la comunidad del público y requerirá un inicio de sesión para verla."
+
+#: assets/build/portals-app.js:2
+msgid "Set Portal as Homepage"
+msgstr "Establecer Portal como página de inicio"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this option will set the portal as your site homepage."
+msgstr "Habilitar esta opción establecerá el portal como la página de inicio de su sitio."
+
+#: assets/build/portals-app.js:2
+msgid "Content Post Type"
+msgstr "Tipo de contenido de publicación"
+
+#: assets/build/portals-app.js:2
+msgid "Leverage the Content post type to create content feeds."
+msgstr "Aprovecha el tipo de publicación de contenido para crear feeds de contenido."
+
+#: assets/build/portals-app.js:2
+msgid "Topic Post Type"
+msgstr "Tipo de publicación de tema"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow your users to create topics."
+msgstr "Habilitar esto permitirá a sus usuarios crear temas."
+
+#: assets/build/portals-app.js:2
+msgid "Enable Lightbox"
+msgstr "Habilitar Lightbox"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow lightweight lightbox for your content images."
+msgstr "Habilitar esto permitirá un lightbox ligero para las imágenes de tu contenido."
+
+#: assets/build/portals-app.js:2
+msgid "Google Registration"
+msgstr "Registro de Google"
+
+#: assets/build/portals-app.js:2
+msgid "Facebook Registration"
+msgstr "Registro en Facebook"
+
+#: assets/build/portals-app.js:2
+msgid "Facebook Token ID"
+msgstr "ID de token de Facebook"
+
+#: assets/build/portals-app.js:2
+msgid "Facebook Token Secret"
+msgstr "Secreto del Token de Facebook"
+
+#: assets/build/portals-app.js:2
+msgid "Google reCaptcha"
+msgstr "Google reCaptcha"
+
+#: assets/build/portals-app.js:2
+msgid "reCaptcha v2 Site Key"
+msgstr "Clave del sitio reCaptcha v2"
+
+#: assets/build/portals-app.js:2
+msgid "reCaptcha v3 Site Key"
+msgstr "Clave del sitio reCaptcha v3"
+
+#: assets/build/portals-app.js:2
+msgid "Select Home Page"
+msgstr "Seleccionar página de inicio"
+
+#: assets/build/portals-app.js:2
+msgid "Select Login Page"
+msgstr "Seleccionar página de inicio de sesión"
+
+#: assets/build/portals-app.js:2
+msgid "Select Registration Page"
+msgstr "Seleccionar página de registro"
+
+#: assets/build/portals-app.js:2
+msgid "No fonts found!"
+msgstr "¡No se encontraron fuentes!"
+
+#: assets/build/portals-app.js:2
+msgid "Enter atleast 3 characters to search font family (default: Figtree). Font generation may take a few moments for self hosting."
+msgstr "Ingrese al menos 3 caracteres para buscar la familia de fuentes (predeterminado: Figtree). La generación de fuentes puede tardar unos momentos para el autoalojamiento."
+
+#: assets/build/portals-app.js:2
+msgid "Global Container Type"
+msgstr "Tipo de Contenedor Global"
+
+#: assets/build/portals-app.js:2
+msgid "Narrow Container Width"
+msgstr "Ancho de contenedor estrecho"
+
+#: assets/build/portals-app.js:2
+msgid "Course Container Width"
+msgstr "Ancho del contenedor del curso"
+
+#: assets/build/portals-app.js:2
+msgid "Container Spacing"
+msgstr "Espaciado del contenedor"
+
+#: assets/build/portals-app.js:2
+msgid "Global"
+msgstr "Global"
+
+#: assets/build/portals-app.js:2
+msgid "Primary Color"
+msgstr "Color primario"
+
+#: assets/build/portals-app.js:2
+msgid "Primary color is used for mainly base background color of the portal."
+msgstr "El color primario se utiliza principalmente como color de fondo base del portal."
+
+#: assets/build/portals-app.js:2
+msgid "Secondary Color"
+msgstr "Color secundario"
+
+#: assets/build/portals-app.js:2
+msgid "Secondary color is used as secondary purposes under the portal."
+msgstr "El color secundario se utiliza para propósitos secundarios en el portal."
+
+#: assets/build/portals-app.js:2
+msgid "Content Background Color"
+msgstr "Color de fondo del contenido"
+
+#: assets/build/portals-app.js:2
+msgid "Content background color is for mainly content background color of the portal."
+msgstr "El color de fondo del contenido es principalmente para el color de fondo del contenido del portal."
+
+#: assets/build/portals-app.js:2
+msgid "Heading Color"
+msgstr "Color del encabezado"
+
+#: assets/build/portals-app.js:2
+msgid "Text Color"
+msgstr "Color del texto"
+
+#: assets/build/portals-app.js:2
+msgid "Link Color"
+msgstr "Color del enlace"
+
+#: assets/build/portals-app.js:2
+msgid "Link Active Color"
+msgstr "Color activo del enlace"
+
+#: assets/build/portals-app.js:2
+msgid "Text Selection Background Color"
+msgstr "Color de fondo de la selección de texto"
+
+#: assets/build/portals-app.js:2
+msgid "Primary Button Color"
+msgstr "Color del botón principal"
+
+#: assets/build/portals-app.js:2
+msgid "Primary Button Background Color"
+msgstr "Color de fondo del botón principal"
+
+#: assets/build/portals-app.js:2
+msgid "Secondary Button Color"
+msgstr "Color del botón secundario"
+
+#: assets/build/portals-app.js:2
+msgid "Secondary Button Background Color"
+msgstr "Color de fondo del botón secundario"
+
+#: assets/build/portals-app.js:2
+msgid "Profile Links:"
+msgstr "Enlaces de perfil:"
+
+#: assets/build/portals-app.js:2
+msgid "Add Link"
+msgstr "Agregar enlace"
+
+#: assets/build/portals-app.js:2
+msgid "Delete Link"
+msgstr "Eliminar enlace"
+
+#: assets/build/portals-app.js:2
+msgid "New registered user will get these selected user roles capabilities."
+msgstr "El nuevo usuario registrado obtendrá estas capacidades de roles de usuario seleccionados."
+
+#: assets/build/portals-app.js:2
+msgid "New User Capabilities"
+msgstr "Nuevas capacidades de usuario"
+
+#: assets/build/portals-app.js:2
+msgid "Portal Managers"
+msgstr "Gestores del Portal"
+
+#: assets/build/portals-app.js:2
+msgid "Selected users will get admin notification and access to manage the portal."
+msgstr "Los usuarios seleccionados recibirán notificaciones de administrador y acceso para gestionar el portal."
+
+#: assets/build/portals-app.js:2
+msgid "Start typing…"
+msgstr "Empieza a escribir…"
+
+#: assets/build/portals-app.js:2
+msgid "Displays the username."
+msgstr "Muestra el nombre de usuario."
+
+#: assets/build/portals-app.js:2
+msgid "Displays the password reset key."
+msgstr "Muestra la clave de restablecimiento de contraseña."
+
+#: assets/build/portals-app.js:2
+msgid "From Email"
+msgstr "De correo electrónico"
+
+#: assets/build/portals-app.js:2
+msgid "Forgot Password Mail Message"
+msgstr "Mensaje de correo de contraseña olvidada"
+
+#: assets/build/portals-app.js:2
+msgid "Drag and drop dynamic tags to the email message field."
+msgstr "Arrastra y suelta etiquetas dinámicas en el campo del mensaje de correo electrónico."
+
+#: assets/build/portals-app.js:2
+msgid "Welcome Text"
+msgstr "Texto de bienvenida"
+
+#: assets/build/portals-app.js:2
+msgid "No Posts Found"
+msgstr "No se encontraron publicaciones"
+
+#: assets/build/portals-app.js:2
+msgid "Mark as Complete"
+msgstr "Marcar como completo"
+
+#: assets/build/portals-app.js:2
+msgid "Start Writing Your Post"
+msgstr "Comienza a escribir tu publicación"
+
+#: assets/build/portals-app.js:2
+msgid "Write a Post"
+msgstr "Escribir una publicación"
+
+#: assets/build/portals-app.js:2
+msgid "No Topic Found"
+msgstr "No se encontró ningún tema"
+
+#: assets/build/portals-app.js:2
+msgid "Restricted Content Heading"
+msgstr "Encabezado de contenido restringido"
+
+#: assets/build/portals-app.js:2
+msgid "Restricted Content Notice"
+msgstr "Aviso de contenido restringido"
+
+#: assets/build/portals-app.js:2
+msgid "Feeds Per Page"
+msgstr "Feeds por página"
+
+#: assets/build/portals-app.js:2
+msgid "User Upload Limit"
+msgstr "Límite de carga del usuario"
+
+#: assets/build/portals-app.js:2
+msgid "Set the maximum upload limit for users to upload photo & cover image."
+msgstr "Establece el límite máximo de carga para que los usuarios suban foto e imagen de portada."
+
+#: assets/build/portals-app.js:2
+msgid "Bypass WordPress Interactions"
+msgstr "Omitir interacciones de WordPress"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this option will bypass WordPress interactions within the portal and improve performance."
+msgstr "Habilitar esta opción omitirá las interacciones de WordPress dentro del portal y mejorará el rendimiento."
+
+#: assets/build/portals-app.js:2
+msgid "Activate"
+msgstr "Activar"
+
+#: assets/build/portals-app.js:2
+msgid "Deactivate"
+msgstr "Desactivar"
+
+#: assets/build/portals-app.js:2
+msgid "Your license is activated"
+msgstr "Su licencia está activada"
+
+#: assets/build/portals-app.js:2
+msgid "Paste your license key here"
+msgstr "Pega tu clave de licencia aquí"
+
+#: assets/build/portals-app.js:2
+msgid "You are using"
+msgstr "Estás usando"
+
+#: assets/build/portals-app.js:2
+msgid "Activate %1$s%6$s%2$s to get professional support and automatic updates from your WordPress dashboard. If you don't have a license, you can %3$sget it here »%4$s %5$sPlease enter your license key below to activate %6$s!"
+msgstr "Activa %1$s%6$s%2$s para obtener soporte profesional y actualizaciones automáticas desde tu panel de WordPress. Si no tienes una licencia, puedes %3$sobtenerla aquí »%4$s %5$s¡Por favor, introduce tu clave de licencia a continuación para activar %6$s!"
+
+#: assets/build/portals-app.js:2
+msgid "Deactivating"
+msgstr "Desactivando"
+
+#: assets/build/portals-app.js:2
+msgid "Deactivated"
+msgstr "Desactivado"
+
+#: assets/build/portals-app.js:2
+msgid "Please enter a license key"
+msgstr "Por favor, introduzca una clave de licencia"
+
+#: assets/build/portals-app.js:2
+msgid "Activating"
+msgstr "Activando"
+
+#: assets/build/portals-app.js:2
+msgid "Activated"
+msgstr "Activado"
+
+#: assets/build/portals-app.js:2
+msgid "Community Settings"
+msgstr "Configuración de la comunidad"
+
+#: assets/build/portals-app.js:2
+msgid "Social Settings"
+msgstr "Configuración social"
+
+#: assets/build/portals-app.js:2
+msgid "Text Labels"
+msgstr "Etiquetas de texto"
+
+#: assets/build/portals-app.js:2
+msgid "Display Settings"
+msgstr "Configuración de pantalla"
+
+#: assets/build/portals-app.js:2
+msgid "Performance Measures"
+msgstr "Medidas de rendimiento"
+
+#: assets/build/portals-app.js:2
+msgid "Design"
+msgstr "Diseño"
+
+#: assets/build/portals-app.js:2
+msgid "Layout"
+msgstr "Diseño"
+
+#: assets/build/portals-app.js:2
+msgid "Colors"
+msgstr "Colores"
+
+#: assets/build/portals-app.js:2
+msgid "User Settings"
+msgstr "Configuración del usuario"
+
+#: assets/build/portals-app.js:2
+msgid "Profile Management"
+msgstr "Gestión de Perfil"
+
+#: assets/build/portals-app.js:2
+msgid "Access User Role"
+msgstr "Acceder al rol de usuario"
+
+#: assets/build/portals-app.js:2
+msgid "Email Settings"
+msgstr "Configuración de correo electrónico"
+
+#: assets/build/portals-app.js:2
+msgid "Licensing"
+msgstr "Licencias"
+
+#: core/blocks/social-login.php:47
+msgid "Invalid Data"
+msgstr "Datos no válidos"
+
+#: core/blocks/social-login.php:59
+#: core/blocks/social-login.php:64
+#: core/blocks/social-login.php:73
+msgid "Invalid Authorization"
+msgstr "Autorización no válida"
+
+#: core/routers/backend.php:326
+#: core/routers/backend.php:367
+msgid "Invalid post type."
+msgstr "Tipo de publicación no válido."
+
+#: inc/functions/operations.php:271
+msgid "User data not updated"
+msgstr "Datos del usuario no actualizados"
+
+#: admin/notices.php:54
+msgid "How likely are you to recommend SureDash to your friends or colleagues?"
+msgstr "¿Qué tan probable es que recomiendes SureDash a tus amigos o colegas?"
+
+#: admin/notices.php:55
+msgid "Thanks a lot for your feedback! 😍"
+msgstr "¡Muchas gracias por tus comentarios! 😍"
+
+#: admin/notices.php:56
+msgid "Could you please do us a favor and give us a 5-star rating on WordPress? It would help others choose SureDash with confidence. Thank you!"
+msgstr "¿Podrías hacernos un favor y darnos una calificación de 5 estrellas en WordPress? Ayudaría a otros a elegir SureDash con confianza. ¡Gracias!"
+
+#: admin/notices.php:58
+msgid "Thank you for your feedback"
+msgstr "Gracias por tus comentarios"
+
+#: admin/notices.php:59
+msgid "We value your input. How can we improve your experience?"
+msgstr "Valoramos su opinión. ¿Cómo podemos mejorar su experiencia?"
+
+#: admin/notices.php:60
+msgid "Rate SureDash"
+msgstr "Califica SureDash"
+
+#: assets/build/portals-app.js:2
+msgid "Note: You can add lessons later through the Course Builder in the edit area."
+msgstr "Nota: Puedes agregar lecciones más tarde a través del Constructor de Cursos en el área de edición."
+
+#: assets/build/portals-app.js:2
+msgid "Google Client ID"
+msgstr "ID de cliente de Google"
+
+#: assets/build/portals-app.js:2
+msgid "Google Client Secret"
+msgstr "Secreto del Cliente de Google"
+
+#: admin/menu.php:223
+#: admin/menu.php:224
+msgid "Customize Portal"
+msgstr "Personalizar portal"
+
+#: core/assets.php:81
+msgid "Bold"
+msgstr "Negrita"
+
+#: core/assets.php:84
+msgid "Attach an Image"
+msgstr "Adjuntar una imagen"
+
+#: core/assets.php:85
+msgid "Attach a Video"
+msgstr "Adjuntar un video"
+
+#: core/assets.php:86
+msgid "Image URL"
+msgstr "URL de la imagen"
+
+#: core/assets.php:87
+msgid "Image Alt Text"
+msgstr "Texto alternativo de la imagen"
+
+#: core/assets.php:88
+msgid "Attach Image"
+msgstr "Adjuntar imagen"
+
+#: core/assets.php:89
+msgid "Drag and drop or browse files"
+msgstr "Arrastra y suelta o busca archivos"
+
+#: core/assets.php:91
+msgid "From URL"
+msgstr "Desde URL"
+
+#: core/assets.php:92
+msgid "Attach Video"
+msgstr "Adjuntar video"
+
+#: core/assets.php:93
+msgid "Video URL"
+msgstr "URL del video"
+
+#: core/assets.php:94
+msgid "Insert YouTube or Vimeo link"
+msgstr "Inserta el enlace de YouTube o Vimeo"
+
+#: core/blocks/do-blocks.php:47
+#: inc/templator/service.php:215
+msgid "Community Portal"
+msgstr "Portal de la Comunidad"
+
+#: core/blocks/do-blocks.php:105
+msgid "Active Space Text"
+msgstr "Texto de Espacio Activo"
+
+#: core/blocks/do-blocks.php:118
+msgid "Active Space Background"
+msgstr "Fondo de Espacio Activo"
+
+#: core/blocks/do-blocks.php:131
+msgid "Space Group Text"
+msgstr "Texto del grupo espacial"
+
+#: core/blocks/do-blocks.php:144
+msgid "Space Group Background"
+msgstr "Antecedentes del Grupo Espacial"
+
+#: core/routers/misc.php:817
+msgid "Invalid file type. Only GIF, PNG, JPEG, and JPG are allowed."
+msgstr "Tipo de archivo no válido. Solo se permiten GIF, PNG, JPEG y JPG."
+
+#: core/routers/misc.php:822
+msgid "Uploaded file is not a valid image."
+msgstr "El archivo subido no es una imagen válida."
+
+#: core/routers/misc.php:826
+msgid "Image dimensions exceed the permissible limit."
+msgstr "Las dimensiones de la imagen superan el límite permitido."
+
+#: core/routers/misc.php:830
+msgid "File size larger than permissible."
+msgstr "El tamaño del archivo es mayor que el permitido."
+
+#: inc/functions/functions.php:1188
+msgid "No matching template found."
+msgstr "No se encontró una plantilla coincidente."
+
+#. translators: Represents the title of a user's custom template in the Site Editor, where %s is the author's name, e.g. "Author: Jane Doe".
+#: inc/templator/service.php:214
+msgid "SureDash: %s"
+msgstr "SureDash: %s"
+
+#: inc/templator/service.php:217
+#: inc/templator/utility.php:55
+msgid "Template for your SureDash community."
+msgstr "Plantilla para tu comunidad SureDash."
+
+#: inc/templator/utility.php:232
+msgid "No theme is defined for this template."
+msgstr "No se ha definido ningún tema para esta plantilla."
+
+#: inc/utils/labels.php:154
+msgid "Comment posted successfully."
+msgstr "Comentario publicado con éxito."
+
+#: inc/utils/labels.php:155
+msgid "Invalid comment."
+msgstr "Comentario no válido."
+
+#: inc/utils/labels.php:156
+msgid "Duplicate comment detected. Please try writing something new!"
+msgstr "Comentario duplicado detectado. ¡Por favor, intenta escribir algo nuevo!"
+
+#: inc/utils/labels.php:164
+msgid "Something went wrong! Please try again later."
+msgstr "¡Algo salió mal! Por favor, inténtalo de nuevo más tarde."
+
+#: inc/utils/labels.php:167
+msgid "Replying to"
+msgstr "Respondiendo a"
+
+#: inc/utils/labels.php:169
+msgid "Start writing your post..."
+msgstr "Comienza a escribir tu publicación..."
+
+#: inc/utils/labels.php:172
+msgid "Search Gifs..."
+msgstr "Buscar Gifs..."
+
+#: inc/utils/labels.php:175
+msgid "Insert GIF"
+msgstr "Insertar GIF"
+
+#: inc/utils/labels.php:176
+msgid "No GIF found"
+msgstr "No se encontró GIF"
+
+#: inc/utils/labels.php:178
+msgid "Please enter at least 3 characters to search"
+msgstr "Por favor, ingrese al menos 3 caracteres para buscar"
+
+#: inc/utils/labels.php:179
+msgid "API error occurred"
+msgstr "Se produjo un error de API"
+
+#: templates/patterns/default.php:12
+msgid "Classic Layout"
+msgstr "Diseño clásico"
+
+#: templates/patterns/modern.php:15
+msgid "Modern Layout"
+msgstr "Diseño moderno"
+
+#: assets/build/portals-app.js:2
+msgid "Thumbnail Image"
+msgstr "Imagen en miniatura"
+
+#: assets/build/portals-app.js:2
+msgid "Recommended size: 255x140px"
+msgstr "Tamaño recomendado: 255x140px"
+
+#: assets/build/portals-app.js:2
+msgid "Giphy Integration"
+msgstr "Integración de Giphy"
+
+#: assets/build/portals-app.js:2
+msgid "API Key"
+msgstr "Clave API"
+
+#: assets/build/portals-app.js:2
+msgid "Allow SureDash products to track non-sensitive usage tracking data."
+msgstr "Permitir que los productos de SureDash rastreen datos de uso no sensibles."
+
+#: assets/build/portals-app.js:2
+msgid "Want to help make SureDash even more awesome? Allow us to collect non-sensitive diagnostic data and usage information."
+msgstr "¿Quieres ayudar a que SureDash sea aún más increíble? Permítenos recopilar datos de diagnóstico no sensibles e información de uso."
+
+#: assets/build/portals-app.js:2
+msgid "Know More"
+msgstr "Saber más"
+
+#: assets/build/portals-app.js:2
+msgid "Usage Tracking"
+msgstr "Seguimiento de uso"
+
+#: core/cpt/content.php:40
+msgctxt "content general name"
+msgid "Content"
+msgstr "Contenido"
+
+#: core/cpt/sub-content.php:39
+msgctxt "content general name"
+msgid "Sub Content"
+msgstr "Subcontenido"
+
+#: core/cpt/topic.php:41
+msgctxt "content general name"
+msgid "Topic"
+msgstr "Tema"
+
+#: core/cpt/content.php:41
+msgctxt "content singular name"
+msgid "Content"
+msgstr "Contenido"
+
+#: core/cpt/sub-content.php:40
+msgctxt "content singular name"
+msgid "Sub Content"
+msgstr "Subcontenido"
+
+#: core/cpt/topic.php:42
+msgctxt "content singular name"
+msgid "Topic"
+msgstr "Tema"
+
+#: core/cpt/content.php:83
+msgctxt "Admin menu name"
+msgid "Content Groups"
+msgstr "Grupos de contenido"
+
+#: core/cpt/portal.php:85
+msgctxt "Admin menu name"
+msgid "Portal Space Groups"
+msgstr "Grupos de Espacio del Portal"
+
+#: core/cpt/topic.php:84
+msgctxt "Admin menu name"
+msgid "Topic Forums"
+msgstr "Foros de temas"
+
+#: core/cpt/portal.php:42
+msgctxt "portals general name"
+msgid "Portal Spaces"
+msgstr "Espacios del portal"
+
+#: core/cpt/portal.php:43
+msgctxt "portal singular name"
+msgid "Portal Space"
+msgstr "Espacio del portal"
+
+#: inc/utils/labels.php:89
+msgctxt "Search global placeholder text!"
+msgid "Search"
+msgstr "Buscar"
+
+#: inc/templator/utility.php:54
+msgctxt "SureDash Portal"
+msgid "SureDash: Portal"
+msgstr "SureDash: Portal"

@@ -1,0 +1,3983 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: gpt-po v1.1.1\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2024-12-25T06:39:27+00:00\n"
+"PO-Revision-Date: 2024-12-25T06:39:27+00:00\n"
+"Language: \n"
+
+#. Plugin Name of the plugin
+#. Author of the plugin
+#: suredash.php
+#: admin/notices.php:53
+msgid "SureDash"
+msgstr "SureDash"
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: suredash.php
+msgid "https://suredash.com/"
+msgstr "https://suredash.com/"
+
+#. Description of the plugin
+#: suredash.php
+msgid "If you have users login to your website, you need this plugin to deliver an excellent experience to your users."
+msgstr "Als je gebruikers op je website laat inloggen, heb je deze plugin nodig om een uitstekende ervaring aan je gebruikers te bieden."
+
+#: admin/api.php:119
+msgid "Sorry, you cannot list resources."
+msgstr "Sorry, je kunt geen middelen opsommen."
+
+#: admin/editor.php:161
+msgid "Lesson Duration"
+msgstr "Lesduur"
+
+#: admin/editor.php:201
+#: core/integrations/topic-categories.php:234
+#: core/integrations/topic-categories.php:263
+#: core/shortcodes/home-content.php:384
+msgid "Cover Image"
+msgstr "Omslagafbeelding"
+
+#: admin/editor.php:202
+msgid "Media Embeds"
+msgstr "Media-insluitingen"
+
+#: admin/menu.php:179
+#: admin/menu.php:180
+#: core/cpt/content.php:43
+#: inc/utils/labels.php:104
+#: assets/build/portals-app.js:2
+msgid "Content"
+msgstr "Inhoud"
+
+#: admin/menu.php:187
+#: admin/menu.php:188
+#: core/cpt/content.php:79
+#: core/cpt/content.php:81
+#: core/routers/backend.php:670
+msgid "Content Groups"
+msgstr "Inhoudsgroepen"
+
+#: admin/menu.php:197
+#: admin/menu.php:198
+#: core/cpt/topic.php:44
+#: assets/build/portals-app.js:2
+msgid "Topic"
+msgstr "Onderwerp"
+
+#: admin/menu.php:205
+#: admin/menu.php:206
+#: core/cpt/topic.php:80
+#: core/cpt/topic.php:82
+#: core/routers/backend.php:670
+msgid "Topic Forums"
+msgstr "Onderwerpforums"
+
+#: admin/menu.php:214
+#: admin/menu.php:215
+#: admin/setup.php:59
+#: assets/build/portals-app.js:2
+msgid "Settings"
+msgstr "Instellingen"
+
+#: admin/menu.php:229
+#: inc/utils/settings.php:219
+#: assets/build/portals-app.js:2
+msgid "Home"
+msgstr "Thuis"
+
+#: admin/menu.php:430
+msgid "Administrator"
+msgstr "Beheerder"
+
+#: admin/menu.php:447
+#: assets/build/portals-app.js:2
+msgid "Blank"
+msgstr "Leeg"
+
+#: admin/menu.php:448
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Link"
+msgstr "Link"
+
+#: admin/menu.php:449
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Video"
+msgstr "Video"
+
+#: admin/menu.php:450
+#: core/cpt/topic.php:83
+msgid "Topic Forum"
+msgstr "Onderwerp Forum"
+
+#: admin/menu.php:451
+#: core/cpt/content.php:82
+msgid "Content Group"
+msgstr "Inhoudsgroep"
+
+#: admin/menu.php:452
+msgid "Post / Page / Template"
+msgstr "Bericht / Pagina / Sjabloon"
+
+#: admin/menu.php:560
+msgid "Uncategorized"
+msgstr "Niet gecategoriseerd"
+
+#: admin/setup.php:83
+#: admin/setup.php:93
+msgid "Portal Login"
+msgstr "Portaal Inloggen"
+
+#: admin/setup.php:88
+#: admin/setup.php:98
+msgid "Portal Register"
+msgstr "Portaalregister"
+
+#: admin/setup.php:129
+msgid "Visit Portal"
+msgstr "Bezoek portaal"
+
+#: core/routers/backend.php:51
+msgid "Invalid term ID."
+msgstr "Ongeldige term-ID."
+
+#: core/routers/backend.php:55
+#: core/routers/backend.php:581
+msgid "Successfully updated."
+msgstr "Succesvol bijgewerkt."
+
+#: core/routers/backend.php:320
+#: core/routers/backend.php:361
+#: core/routers/backend.php:604
+#: core/routers/backend.php:629
+#: inc/functions/operations.php:181
+msgid "Invalid post ID."
+msgstr "Ongeldige post-ID."
+
+#: core/routers/backend.php:334
+#: core/routers/backend.php:375
+#: core/routers/backend.php:438
+msgid "Successfully deleted."
+msgstr "Succesvol verwijderd."
+
+#: core/ajax/backend.php:55
+msgid "Invalid item ID."
+msgstr "Ongeldige item-ID."
+
+#: core/ajax/backend.php:127
+#: core/routers/backend.php:432
+msgid "Invalid group ID."
+msgstr "Ongeldige groep-ID."
+
+#: core/routers/backend.php:569
+msgid "Invalid object or term ID."
+msgstr "Ongeldige object- of term-ID."
+
+#: core/routers/backend.php:667
+msgid "No store categories found."
+msgstr "Geen winkelcategorieën gevonden."
+
+#: core/routers/backend.php:716
+msgid "Category Invalid."
+msgstr "Categorie ongeldig."
+
+#: core/routers/backend.php:720
+msgid "Content Group -"
+msgstr "Inhoudsgroep -"
+
+#: core/routers/backend.php:720
+msgid "Topic Forum -"
+msgstr "Onderwerp Forum -"
+
+#: core/routers/backend.php:789
+msgid "Invalid settings data."
+msgstr "Ongeldige instellingen gegevens."
+
+#: core/routers/backend.php:796
+msgid "Settings saved successfully."
+msgstr "Instellingen succesvol opgeslagen."
+
+#: core/ajax/admin.php:58
+msgid "Topic Approved."
+msgstr "Onderwerp goedgekeurd."
+
+#: core/ajax/admin.php:78
+msgid "Topic Unapproved."
+msgstr "Onderwerp niet goedgekeurd."
+
+#: core/routers/social-logins.php:70
+#: core/routers/social-logins.php:284
+msgid "Captcha is not matching, please try again."
+msgstr "Captcha komt niet overeen, probeer het alstublieft opnieuw."
+
+#: core/routers/social-logins.php:92
+msgid "You have successfully logged in. Redirecting..."
+msgstr "Je bent succesvol ingelogd. Bezig met doorverwijzen..."
+
+#: core/routers/social-logins.php:169
+msgid "The username/password field is empty. Please add a valid username/email to reset your password."
+msgstr "Het gebruikersnaam/wachtwoordveld is leeg. Voeg een geldige gebruikersnaam/e-mailadres toe om uw wachtwoord te resetten."
+
+#: core/routers/social-logins.php:183
+msgid "No user found. Please add a registered username/email to reset your password, else create an account."
+msgstr "Geen gebruiker gevonden. Voeg een geregistreerde gebruikersnaam/e-mail toe om uw wachtwoord te resetten, of maak een account aan."
+
+#. translators: %s: Password reset.
+#: core/routers/social-logins.php:209
+msgid "[%s] Password Reset"
+msgstr "[%s] Wachtwoord Resetten"
+
+#: core/routers/social-logins.php:217
+msgid "Please check your email for the password reset link."
+msgstr "Controleer uw e-mail voor de link om uw wachtwoord opnieuw in te stellen."
+
+#: core/routers/social-logins.php:219
+msgid "Email failed to send."
+msgstr "E-mail verzenden mislukt."
+
+#: core/routers/social-logins.php:239
+msgid "Sorry, the site admin has disabled new user registration"
+msgstr "Sorry, de sitebeheerder heeft de registratie van nieuwe gebruikers uitgeschakeld"
+
+#: core/routers/social-logins.php:253
+msgid "Not a valid post."
+msgstr "Geen geldige post."
+
+#: core/routers/social-logins.php:294
+msgid "Password may not contain the character \"\\\""
+msgstr "Wachtwoord mag het teken \"\\\" niet bevatten"
+
+#: core/routers/social-logins.php:299
+#: core/routers/social-logins.php:302
+#: inc/functions/markup.php:73
+msgid "This field is required."
+msgstr "Dit veld is verplicht."
+
+#: core/routers/social-logins.php:387
+msgid "Error in creating user."
+msgstr "Fout bij het aanmaken van gebruiker."
+
+#: core/routers/social-logins.php:531
+msgid "You are not registered. Please register first then try to login."
+msgstr "U bent niet geregistreerd. Registreer u eerst en probeer dan in te loggen."
+
+#: core/routers/social-logins.php:551
+#: core/routers/social-logins.php:588
+#: core/routers/social-logins.php:593
+msgid "Invalid credentials."
+msgstr "Ongeldige inloggegevens."
+
+#: core/routers/social-logins.php:568
+#: core/routers/social-logins.php:574
+msgid "Token verification failed."
+msgstr "Tokenverificatie mislukt."
+
+#: core/routers/social-logins.php:600
+msgid "Login Successful"
+msgstr "Inloggen geslaagd"
+
+#: core/routers/social-logins.php:606
+msgid "Registered & Login Successful"
+msgstr "Geregistreerd & Inloggen succesvol"
+
+#: core/routers/social-logins.php:609
+msgid "Google API Error."
+msgstr "Google API-fout."
+
+#: core/routers/misc.php:531
+msgid "Unnamed"
+msgstr "Naamloos"
+
+#: inc/utils/labels.php:171
+msgid "Search User..."
+msgstr "Gebruiker zoeken..."
+
+#: inc/utils/labels.php:173
+msgid "Add Mention"
+msgstr "Vermelding toevoegen"
+
+#: inc/utils/labels.php:174
+msgid "Insert Emoji"
+msgstr "Emoji invoegen"
+
+#: inc/utils/labels.php:177
+msgid "No user found"
+msgstr "Geen gebruiker gevonden"
+
+#: core/blocks/login.php:627
+msgid "Username or Email Address"
+msgstr "Gebruikersnaam of e-mailadres"
+
+#: core/blocks/login.php:628
+#: inc/utils/labels.php:63
+#: assets/build/editor-app.js:2
+msgid "Password"
+msgstr "Wachtwoord"
+
+#. translators: %s: Attribute User Name Label value or This Field.
+#. translators: %s: Attribute Password Label value or This Field.
+#: core/blocks/login.php:715
+#: core/blocks/login.php:720
+msgid "%s cannot be blank."
+msgstr "%s mag niet leeg zijn."
+
+#: core/blocks/login.php:716
+#: core/blocks/login.php:721
+msgid "This Field"
+msgstr "Dit veld"
+
+#: core/blocks/login.php:734
+#: core/blocks/register.php:378
+msgid "You have logged in successfully. Redirecting…"
+msgstr "Je bent succesvol ingelogd. Bezig met omleiden…"
+
+#. translators: %1$s user name
+#: core/blocks/login.php:838
+#: core/blocks/register.php:425
+msgid "You are logged in as %1$s (%2$sLogout%3$s)"
+msgstr "Je bent ingelogd als %1$s (%2$sUitloggen%3$s)"
+
+#: core/blocks/login.php:888
+#: assets/build/editor-app.js:2
+msgid "Show Password"
+msgstr "Wachtwoord weergeven"
+
+#: core/blocks/register.php:84
+msgid "You have used an invalid email"
+msgstr "U heeft een ongeldig e-mailadres gebruikt"
+
+#: core/blocks/register.php:88
+msgid "Email is missing or invalid"
+msgstr "E-mail ontbreekt of is ongeldig"
+
+#: core/blocks/register.php:92
+msgid "The provided email is already registered with another account. Please login or reset password or use another email."
+msgstr "Het opgegeven e-mailadres is al geregistreerd bij een ander account. Log in of reset het wachtwoord of gebruik een ander e-mailadres."
+
+#: core/blocks/register.php:97
+msgid "You have used an invalid username"
+msgstr "U heeft een ongeldige gebruikersnaam gebruikt"
+
+#: core/blocks/register.php:101
+msgid "Invalid username provided or the username is already registered."
+msgstr "Ongeldige gebruikersnaam opgegeven of de gebruikersnaam is al geregistreerd."
+
+#: core/blocks/register.php:106
+msgid "Your password is invalid."
+msgstr "Uw wachtwoord is ongeldig."
+
+#: core/blocks/register.php:110
+msgid "Your passwords do not match."
+msgstr "Je wachtwoorden komen niet overeen."
+
+#: core/blocks/register.php:128
+msgid "Please accept the Terms and Conditions, and try again."
+msgstr "Accepteer de algemene voorwaarden en probeer het opnieuw."
+
+#: core/blocks/register.php:132
+msgid "Something went wrong!"
+msgstr "Er is iets misgegaan!"
+
+#: core/blocks/register.php:137
+msgid "Registration completed successfully. Check your inbox for password if you did not provide it while registering."
+msgstr "Registratie succesvol voltooid. Controleer je inbox voor het wachtwoord als je het niet hebt opgegeven tijdens de registratie."
+
+#: core/blocks/register.php:352
+msgid "cannot be blank."
+msgstr "mag niet leeg zijn."
+
+#: core/blocks/register.php:353
+#: inc/utils/labels.php:65
+#: assets/build/editor-app.js:2
+msgid "First Name"
+msgstr "Voornaam"
+
+#: core/blocks/register.php:354
+#: inc/utils/labels.php:66
+#: assets/build/editor-app.js:2
+msgid "Last Name"
+msgstr "Achternaam"
+
+#: core/blocks/register.php:355
+msgid "This field"
+msgstr "Dit veld"
+
+#: core/blocks/register.php:887
+msgid "You have used an invalid email."
+msgstr "U heeft een ongeldig e-mailadres gebruikt."
+
+#: core/blocks/register.php:888
+#: assets/build/editor-app.js:2
+msgid "Please enter a valid email address."
+msgstr "Voer een geldig e-mailadres in."
+
+#: core/blocks/register.php:889
+#: assets/build/editor-app.js:2
+msgid "Email already in use. Please try to sign in."
+msgstr "E-mail al in gebruik. Probeer in te loggen."
+
+#: core/blocks/register.php:890
+#: assets/build/editor-app.js:2
+msgid "Invalid user name. Please try again."
+msgstr "Ongeldige gebruikersnaam. Probeer het opnieuw."
+
+#: core/blocks/register.php:891
+#: assets/build/editor-app.js:2
+msgid "Username is already taken."
+msgstr "Gebruikersnaam is al in gebruik."
+
+#: core/blocks/register.php:892
+#: assets/build/editor-app.js:2
+msgid "Password cannot be accepted. Please try something else."
+msgstr "Wachtwoord kan niet worden geaccepteerd. Probeer iets anders."
+
+#: core/blocks/register.php:893
+#: inc/utils/labels.php:78
+#: assets/build/editor-app.js:2
+msgid "Passwords do not match."
+msgstr "Wachtwoorden komen niet overeen."
+
+#: core/blocks/register.php:894
+#: assets/build/editor-app.js:2
+msgid "Please try again after accepting terms & conditions."
+msgstr "Probeer het opnieuw nadat u de algemene voorwaarden heeft geaccepteerd."
+
+#: core/blocks/register.php:895
+#: assets/build/editor-app.js:2
+msgid "Something went wrong! Please try again."
+msgstr "Er is iets misgegaan! Probeer het alstublieft opnieuw."
+
+#: core/blocks/register.php:896
+#: assets/build/editor-app.js:2
+msgid "Registration successful. Please check your email inbox."
+msgstr "Registratie succesvol. Controleer uw e-mailinbox."
+
+#: core/blocks/social-login.php:86
+msgid "You are already registered. Successfully logged in."
+msgstr "Je bent al geregistreerd. Succesvol ingelogd."
+
+#: core/blocks/social-login.php:91
+msgid "Successfully logged in."
+msgstr "Succesvol ingelogd."
+
+#: core/blocks/social-login.php:135
+msgid "successfully logged in"
+msgstr "succesvol ingelogd"
+
+#: core/blocks/social-login.php:143
+msgid "You are not registered. please register first then try to login."
+msgstr "Je bent niet geregistreerd. Registreer je eerst en probeer dan in te loggen."
+
+#: core/blocks/social-login.php:170
+msgid "Something went wrong while creating the new user!"
+msgstr "Er is iets misgegaan bij het aanmaken van de nieuwe gebruiker!"
+
+#: core/cpt/content.php:42
+msgid "Search Content"
+msgstr "Zoek inhoud"
+
+#: core/cpt/content.php:44
+msgid "Edit Content"
+msgstr "Inhoud bewerken"
+
+#: core/cpt/content.php:45
+msgid "View Content"
+msgstr "Inhoud bekijken"
+
+#: core/cpt/content.php:46
+#: core/cpt/content.php:48
+#: core/cpt/portal.php:48
+#: core/cpt/portal.php:50
+#: core/cpt/sub-content.php:45
+#: core/cpt/sub-content.php:47
+#: core/cpt/topic.php:47
+#: core/cpt/topic.php:49
+#: assets/build/portals-app.js:2
+msgid "Add New"
+msgstr "Nieuw toevoegen"
+
+#: core/cpt/content.php:47
+msgid "Update Content"
+msgstr "Inhoud bijwerken"
+
+#: core/cpt/content.php:49
+msgid "New Content Name"
+msgstr "Nieuwe inhoudsnaam"
+
+#: core/cpt/content.php:50
+#: core/cpt/content.php:51
+msgid "No Content found."
+msgstr "Geen inhoud gevonden."
+
+#: core/cpt/content.php:84
+msgid "Search category"
+msgstr "Zoekcategorie"
+
+#: core/cpt/content.php:85
+msgid "All category"
+msgstr "Alle categorieën"
+
+#: core/cpt/content.php:86
+msgid "Parent category"
+msgstr "Hoofdcategorie"
+
+#: core/cpt/content.php:87
+msgid "Parent category:"
+msgstr "Hoofdcategorie:"
+
+#: core/cpt/content.php:88
+msgid "Edit category"
+msgstr "Categorie bewerken"
+
+#: core/cpt/content.php:89
+msgid "Update category"
+msgstr "Categorie bijwerken"
+
+#: core/cpt/content.php:90
+msgid "Add new category"
+msgstr "Nieuwe categorie toevoegen"
+
+#: core/cpt/content.php:91
+msgid "New category name"
+msgstr "Nieuwe categorienaam"
+
+#: core/cpt/content.php:92
+msgid "No category found"
+msgstr "Geen categorie gevonden"
+
+#: core/cpt/portal.php:44
+msgid "Search Space"
+msgstr "Zoekruimte"
+
+#: core/cpt/portal.php:45
+msgid "Portal Spaces"
+msgstr "Portalruimtes"
+
+#: core/cpt/portal.php:46
+#: assets/build/portals-app.js:2
+msgid "Edit Space"
+msgstr "Ruimte bewerken"
+
+#: core/cpt/portal.php:47
+#: assets/build/portals-app.js:2
+msgid "View Space"
+msgstr "Ruimte bekijken"
+
+#: core/cpt/portal.php:49
+msgid "Update Space"
+msgstr "Ruimte bijwerken"
+
+#: core/cpt/portal.php:51
+msgid "New Space Name"
+msgstr "Nieuwe Ruimtenaam"
+
+#: core/cpt/portal.php:52
+#: core/cpt/portal.php:53
+msgid "No space found"
+msgstr "Geen ruimte gevonden"
+
+#: core/cpt/portal.php:81
+#: core/cpt/portal.php:83
+#: core/cpt/portal.php:84
+msgid "Portal Space Group"
+msgstr "Portal Space Group"
+
+#: core/cpt/portal.php:86
+msgid "Search Space Group"
+msgstr "Zoek Ruimtegroep"
+
+#: core/cpt/portal.php:87
+msgid "All Space Groups"
+msgstr "Alle Ruimtegroepen"
+
+#: core/cpt/portal.php:88
+msgid "Parent Space Group"
+msgstr "Oudergroep"
+
+#: core/cpt/portal.php:89
+msgid "Parent Space Group:"
+msgstr "Groep van bovenliggende ruimte:"
+
+#: core/cpt/portal.php:90
+#: assets/build/portals-app.js:2
+msgid "Edit Space Group"
+msgstr "Ruimtegroep bewerken"
+
+#: core/cpt/portal.php:91
+msgid "Update Space Group"
+msgstr "Ruimtegroep bijwerken"
+
+#: core/cpt/portal.php:92
+msgid "Add new Space Group"
+msgstr "Nieuwe ruimtegroep toevoegen"
+
+#: core/cpt/portal.php:93
+msgid "New Space Group name"
+msgstr "Nieuwe naam voor ruimtegroep"
+
+#: core/cpt/portal.php:94
+msgid "No Space Group found"
+msgstr "Geen ruimtegroep gevonden"
+
+#: core/cpt/sub-content.php:41
+msgid "Search Sub Content"
+msgstr "Zoek subinhoud"
+
+#: core/cpt/sub-content.php:42
+msgid "Sub Content"
+msgstr "Subinhoud"
+
+#: core/cpt/sub-content.php:43
+msgid "Edit Sub Content"
+msgstr "Subinhoud bewerken"
+
+#: core/cpt/sub-content.php:44
+msgid "View Sub Content"
+msgstr "Subinhoud bekijken"
+
+#: core/cpt/sub-content.php:46
+msgid "Update Sub Content"
+msgstr "Subinhoud bijwerken"
+
+#: core/cpt/sub-content.php:48
+msgid "New Sub Content Name"
+msgstr "Nieuwe subinhoudnaam"
+
+#: core/cpt/sub-content.php:49
+#: core/cpt/sub-content.php:50
+msgid "No Sub Content found."
+msgstr "Geen subinhoud gevonden."
+
+#: core/cpt/sub-content.php:121
+msgid "All Courses"
+msgstr "Alle cursussen"
+
+#: core/cpt/topic.php:43
+msgid "Search Topic"
+msgstr "Zoekonderwerp"
+
+#: core/cpt/topic.php:45
+msgid "Edit Topic"
+msgstr "Onderwerp bewerken"
+
+#: core/cpt/topic.php:46
+msgid "View Topic"
+msgstr "Bekijk onderwerp"
+
+#: core/cpt/topic.php:48
+msgid "Update Topic"
+msgstr "Onderwerp bijwerken"
+
+#: core/cpt/topic.php:50
+msgid "New Topic Name"
+msgstr "Nieuwe Onderwerpnaam"
+
+#: core/cpt/topic.php:51
+#: core/cpt/topic.php:52
+msgid "No Topic found."
+msgstr "Geen onderwerp gevonden."
+
+#: core/cpt/topic.php:85
+msgid "Search forum"
+msgstr "Forum doorzoeken"
+
+#: core/cpt/topic.php:86
+msgid "All forum"
+msgstr "Alle forums"
+
+#: core/cpt/topic.php:87
+msgid "Parent forum"
+msgstr "Hoofdforum"
+
+#: core/cpt/topic.php:88
+msgid "Parent forum:"
+msgstr "Hoofdforum:"
+
+#: core/cpt/topic.php:89
+msgid "Edit forum"
+msgstr "Forum bewerken"
+
+#: core/cpt/topic.php:90
+msgid "Update forum"
+msgstr "Forum bijwerken"
+
+#: core/cpt/topic.php:91
+msgid "Add new forum"
+msgstr "Nieuw forum toevoegen"
+
+#: core/cpt/topic.php:92
+msgid "New forum name"
+msgstr "Nieuwe forumnaam"
+
+#: core/cpt/topic.php:93
+msgid "No forum found"
+msgstr "Geen forum gevonden"
+
+#: core/cpt/topic.php:200
+msgid "Approve"
+msgstr "Goedkeuren"
+
+#: core/cpt/topic.php:212
+msgid "Unapprove"
+msgstr "Afkeuren"
+
+#: core/cpt/topic.php:285
+#: core/cpt/topic.php:296
+msgid "Invalid topic."
+msgstr "Ongeldig onderwerp."
+
+#: core/cpt/topic.php:290
+msgid "You do not have permission to do this."
+msgstr "Je hebt geen toestemming om dit te doen."
+
+#. translators: %1$s: post title, %2$s: message
+#: core/cpt/topic.php:309
+msgid "<strong>%1$s</strong> %2$s"
+msgstr "<strong>%1$s</strong> %2$s"
+
+#: core/integrations/content-categories.php:32
+msgid "ContentCategories Integration"
+msgstr "Integratie van ContentCategorieën"
+
+#: core/integrations/sure-members.php:28
+msgid "SureMembers Integration"
+msgstr "SureMembers-integratie"
+
+#: core/integrations/sure-members.php:80
+msgid "Edit Access Group "
+msgstr "Toegangsgroep bewerken"
+
+#: core/integrations/topic-categories.php:53
+msgid "TopicCategories Integration"
+msgstr "Integratie van onderwerpencategorieën"
+
+#: core/integrations/topic-categories.php:237
+msgid "Cover Embed Media"
+msgstr "Omslag Insluitmedia"
+
+#: core/integrations/topic-categories.php:238
+msgid "Paste a URL to embed"
+msgstr "Plak een URL om in te voegen"
+
+#: core/integrations/topic-categories.php:242
+msgid "Please enter the URL of the media you want to embed. See supported embeds"
+msgstr "Voer de URL in van de media die je wilt insluiten. Zie ondersteunde insluitingen"
+
+#: core/integrations/topic-categories.php:244
+msgid "here."
+msgstr "hier."
+
+#: core/integrations/topic-categories.php:251
+msgid "Enter a title"
+msgstr "Voer een titel in"
+
+#: core/integrations/topic-categories.php:264
+msgid "Cover Media Embed"
+msgstr "Media-insluiting bedekken"
+
+#: core/integrations/video.php:32
+msgid "Video Integration"
+msgstr "Video-integratie"
+
+#: core/integrations/video.php:79
+msgid "Media"
+msgstr "Media"
+
+#: core/integrations/word-press.php:30
+msgid "WordPress Integration"
+msgstr "WordPress-integratie"
+
+#: core/notifier/base.php:183
+msgid " ago"
+msgstr "geleden"
+
+#: core/notifier/common-notifier.php:406
+msgid "Comment:"
+msgstr "Opmerking:"
+
+#: core/notifier/user-notifier.php:276
+msgid "Topic:"
+msgstr "Onderwerp:"
+
+#: core/shortcodes/archive-content.php:53
+msgid "No content found."
+msgstr "Geen inhoud gevonden."
+
+#: core/blocks/interactivity/build/Title/view.php:57
+#: core/shortcodes/content-header.php:46
+msgid "Guest"
+msgstr "Gast"
+
+#: core/shortcodes/endpoint-navigation.php:102
+#: core/shortcodes/endpoint-navigation.php:211
+msgid "Invalid endpoint data."
+msgstr "Ongeldige eindpuntgegevens."
+
+#: core/shortcodes/endpoint-navigation.php:144
+msgid "Section"
+msgstr "Sectie"
+
+#: core/shortcodes/endpoint-navigation.php:202
+msgid "No items found."
+msgstr "Geen items gevonden."
+
+#: core/shortcodes/home-content.php:309
+#: core/shortcodes/home-content.php:310
+#: core/shortcodes/home-content.php:326
+#: core/shortcodes/home-content.php:332
+#: core/shortcodes/home-content.php:342
+#: core/shortcodes/home-content.php:348
+msgid "Enter"
+msgstr "Invoeren"
+
+#: core/shortcodes/home-content.php:315
+msgid "User"
+msgstr "Gebruiker"
+
+#: core/assets.php:90
+#: core/shortcodes/home-content.php:376
+msgid "Upload"
+msgstr "Uploaden"
+
+#: core/shortcodes/navigation.php:178
+msgid "No groups found."
+msgstr "Geen groepen gevonden."
+
+#: core/shortcodes/search.php:89
+#: inc/utils/labels.php:90
+msgid "Search must be at least 3 characters."
+msgstr "Zoeken moet minimaal 3 tekens bevatten."
+
+#: core/shortcodes/search.php:106
+msgid "Recently viewed"
+msgstr "Onlangs bekeken"
+
+#: core/shortcodes/search.php:138
+msgid "Quick Links"
+msgstr "Snelle links"
+
+#: core/shortcodes/search.php:189
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Search"
+msgstr "Zoeken"
+
+#: core/shortcodes/user-profile.php:141
+msgid "Guest User"
+msgstr "Gastgebruiker"
+
+#. translators: %s is the page title
+#: inc/compatibility/page-builder.php:400
+msgid "Edit %1$s with %2$s"
+msgstr "Bewerk %1$s met %2$s"
+
+#: inc/functions/emails.php:56
+msgid "Someone has requested a password reset for the following account:"
+msgstr "Iemand heeft een wachtwoordreset aangevraagd voor het volgende account:"
+
+#. translators: %s: Username.
+#: inc/functions/emails.php:62
+msgid "Username:"
+msgstr "Gebruikersnaam:"
+
+#: inc/functions/emails.php:68
+msgid "If this was a mistake, just ignore this email and nothing will happen."
+msgstr "Als dit een vergissing was, negeer dan deze e-mail en er zal niets gebeuren."
+
+#: inc/functions/emails.php:70
+msgid "To reset your password, visit the following address:"
+msgstr "Om uw wachtwoord opnieuw in te stellen, bezoekt u het volgende adres:"
+
+#: inc/functions/emails.php:74
+msgid "Reset Password"
+msgstr "Wachtwoord opnieuw instellen"
+
+#: inc/functions/functions.php:482
+msgid "Just now"
+msgstr "Zojuist"
+
+#: inc/functions/functions.php:563
+msgid "Pingback:"
+msgstr "Pingback:"
+
+#: inc/functions/functions.php:563
+msgid "(Edit)"
+msgstr "(Bewerken)"
+
+#. translators: 1: date, 2: time
+#: inc/functions/functions.php:576
+msgid "%1$s at %2$s"
+msgstr "%1$s om %2$s"
+
+#: inc/functions/functions.php:616
+msgid "Your comment is awaiting moderation."
+msgstr "Je reactie wacht op moderatie."
+
+#: inc/functions/functions.php:636
+msgid "Reply"
+msgstr "Antwoord"
+
+#: inc/functions/functions.php:658
+#: inc/utils/helper.php:1440
+#: inc/utils/helper.php:1499
+#: inc/utils/labels.php:53
+msgid "Like"
+msgid_plural "Likes"
+msgstr[0] "Vind ik leuk"
+msgstr[1] ""
+
+#: inc/functions/functions.php:1089
+#: inc/functions/functions.php:1093
+msgid "Unknown"
+msgstr "Onbekend"
+
+#: inc/functions/markup.php:59
+msgid "Click to upload or drag and drop"
+msgstr "Klik om te uploaden of sleep en zet neer"
+
+#: inc/functions/markup.php:62
+msgid "Allowed file formats:"
+msgstr "Toegestane bestandsformaten:"
+
+#: inc/utils/helper.php:1443
+#: inc/utils/helper.php:1512
+msgid "Comment"
+msgid_plural "Comments"
+msgstr[0] "Opmerking"
+msgstr[1] ""
+
+#: inc/utils/labels.php:166
+msgid "What are your thoughts?"
+msgstr "Wat zijn je gedachten?"
+
+#: inc/traits/ajax.php:160
+#: inc/traits/rest-errors.php:36
+msgid "Sorry, you are not allowed to do this operation."
+msgstr "Sorry, je mag deze bewerking niet uitvoeren."
+
+#: inc/traits/ajax.php:161
+#: inc/traits/rest-errors.php:37
+msgid "Nonce validation failed"
+msgstr "Nonce-validatie mislukt"
+
+#: inc/traits/ajax.php:162
+#: inc/traits/rest-errors.php:38
+msgid "Sorry, something went wrong."
+msgstr "Sorry, er is iets misgegaan."
+
+#: inc/traits/ajax.php:163
+#: inc/traits/rest-errors.php:39
+msgid "Oops, the required key is missing."
+msgstr "Oeps, de vereiste sleutel ontbreekt."
+
+#: inc/traits/ajax.php:164
+#: inc/traits/rest-errors.php:40
+msgid "The current post's post type is not of this plugin."
+msgstr "Het berichttype van het huidige bericht behoort niet tot deze plugin."
+
+#: inc/traits/ajax.php:165
+#: inc/traits/rest-errors.php:41
+msgid "Data saved successfully."
+msgstr "Gegevens succesvol opgeslagen."
+
+#: inc/traits/post-type.php:139
+#: inc/utils/labels.php:140
+msgid "All"
+msgstr "Alle"
+
+#: inc/utils/labels.php:43
+msgid "Back to"
+msgstr "Terug naar"
+
+#: inc/utils/labels.php:43
+msgid "Portal"
+msgstr "Portaal"
+
+#: inc/utils/labels.php:45
+msgid "Portal Item"
+msgstr "Portalitem"
+
+#: inc/utils/labels.php:46
+msgid "Portal Items"
+msgstr "Portalitems"
+
+#: inc/utils/labels.php:47
+#: inc/utils/labels.php:48
+msgid "User Profile"
+msgstr "Gebruikersprofiel"
+
+#: inc/utils/labels.php:52
+msgid "Posts"
+msgstr "Berichten"
+
+#: inc/utils/labels.php:54
+msgid "Liked"
+msgstr "Leuk gevonden"
+
+#: inc/utils/labels.php:55
+msgid "Likes"
+msgstr "Vind-ik-leuks"
+
+#: inc/utils/labels.php:56
+msgid "Comments"
+msgstr "Opmerkingen"
+
+#: inc/utils/labels.php:57
+msgid "No comments yet."
+msgstr "Nog geen reacties."
+
+#: inc/utils/labels.php:58
+msgid "Commented on"
+msgstr "Gereageerd op"
+
+#: inc/utils/labels.php:59
+msgid "replied"
+msgstr "antwoordde"
+
+#: inc/utils/labels.php:60
+msgid "replies"
+msgstr "antwoorden"
+
+#: inc/utils/labels.php:62
+msgid "Profile"
+msgstr "Profiel"
+
+#: inc/utils/labels.php:64
+msgid "Profile Photo"
+msgstr "Profielfoto"
+
+#: inc/utils/labels.php:67
+#: assets/build/editor-app.js:2
+msgid "Username"
+msgstr "Gebruikersnaam"
+
+#: inc/utils/labels.php:68
+#: assets/build/editor-app.js:2
+msgid "Email"
+msgstr "E-mail"
+
+#: inc/utils/labels.php:69
+msgid "Phone"
+msgstr "Telefoon"
+
+#: inc/utils/labels.php:70
+msgid "Address"
+msgstr "Adres"
+
+#: inc/utils/labels.php:71
+msgid "Display Name"
+msgstr "Weergavenaam"
+
+#: inc/utils/labels.php:72
+msgid "Bio"
+msgstr "Bio"
+
+#: inc/utils/labels.php:73
+msgid "Description"
+msgstr "Beschrijving"
+
+#: inc/utils/labels.php:74
+#: assets/build/portals-app.js:2
+msgid "Save"
+msgstr "Opslaan"
+
+#: inc/utils/labels.php:75
+msgid "Current Password"
+msgstr "Huidig wachtwoord"
+
+#: inc/utils/labels.php:76
+msgid "New Password"
+msgstr "Nieuw wachtwoord"
+
+#: inc/utils/labels.php:77
+msgid "Confirm New Password"
+msgstr "Bevestig nieuw wachtwoord"
+
+#: inc/utils/labels.php:79
+#: inc/utils/labels.php:159
+msgid "Profile updated successfully."
+msgstr "Profiel succesvol bijgewerkt."
+
+#: inc/utils/labels.php:82
+msgid "Miscellaneous"
+msgstr "Diversen"
+
+#: inc/utils/labels.php:84
+msgid "Oops, It's Empty in Here!"
+msgstr "Oeps, het is hier leeg!"
+
+#: inc/utils/labels.php:85
+msgid "Seems like you haven't bookmarked anything yet. Start bookmarking and make this space your go-to!"
+msgstr "Het lijkt erop dat je nog niets hebt opgeslagen. Begin met het maken van bladwijzers en maak van deze ruimte jouw favoriet!"
+
+#: inc/utils/labels.php:86
+msgid "Back to Home"
+msgstr "Terug naar Home"
+
+#: inc/utils/labels.php:88
+msgid "No results found. Try again with different words?"
+msgstr "Geen resultaten gevonden. Probeer het opnieuw met andere woorden?"
+
+#: inc/utils/labels.php:91
+msgid "Error occurred while fetching data."
+msgstr "Er is een fout opgetreden bij het ophalen van gegevens."
+
+#: inc/utils/labels.php:92
+msgid "Data is insufficient."
+msgstr "Gegevens zijn onvoldoende."
+
+#: inc/utils/labels.php:94
+msgid "Course Playlist"
+msgstr "Cursus afspeellijst"
+
+#: inc/utils/labels.php:95
+msgid "If you want to sell products online, you need a sales funnel. A sales funnel is the easiest way to move a website visitor towards being a paying customer. A sales funnel builds wealth into your business."
+msgstr "Als je producten online wilt verkopen, heb je een verkooptrechter nodig. Een verkooptrechter is de gemakkelijkste manier om een websitebezoeker naar een betalende klant te leiden. Een verkooptrechter bouwt rijkdom op in je bedrijf."
+
+#: inc/utils/labels.php:96
+#: assets/build/portals-app.js:2
+msgid "Course"
+msgstr "Cursus"
+
+#: inc/utils/labels.php:97
+msgid "Courses"
+msgstr "Cursussen"
+
+#: inc/utils/labels.php:98
+msgid "Lesson"
+msgstr "Les"
+
+#: inc/utils/labels.php:99
+msgid "Lessons"
+msgstr "Lessen"
+
+#: inc/utils/labels.php:103
+#: assets/build/portals-app.js:2
+msgid "Title"
+msgstr "Titel"
+
+#: inc/utils/labels.php:105
+msgid "See More"
+msgstr "Meer bekijken"
+
+#: inc/utils/labels.php:106
+msgid "Submit"
+msgstr "Indienen"
+
+#: inc/utils/labels.php:107
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Cancel"
+msgstr "Annuleren"
+
+#: inc/utils/labels.php:112
+msgid "Course Progress"
+msgstr "Cursusvoortgang"
+
+#: inc/utils/labels.php:115
+msgid "Share on Facebook"
+msgstr "Delen op Facebook"
+
+#: inc/utils/labels.php:116
+msgid "Share on Twitter"
+msgstr "Delen op Twitter"
+
+#: inc/utils/labels.php:117
+msgid "Share on LinkedIn"
+msgstr "Delen op LinkedIn"
+
+#: inc/utils/labels.php:118
+msgid "Share on Pinterest"
+msgstr "Delen op Pinterest"
+
+#: inc/utils/labels.php:121
+msgid "PrestoPlayer Pro is Required!"
+msgstr "PrestoPlayer Pro is vereist!"
+
+#: inc/utils/labels.php:122
+msgid "This feature requires PrestoPlayer Pro. Please upgrade to PrestoPlayer Pro to use this feature."
+msgstr "Deze functie vereist PrestoPlayer Pro. Upgrade naar PrestoPlayer Pro om deze functie te gebruiken."
+
+#: inc/utils/labels.php:123
+msgid "Topic submitted successfully and waiting for approval."
+msgstr "Onderwerp succesvol ingediend en wacht op goedkeuring."
+
+#: inc/utils/labels.php:128
+msgid "The content will be available in"
+msgstr "De inhoud zal beschikbaar zijn in"
+
+#: inc/utils/labels.php:130
+msgid "Notifications"
+msgstr "Meldingen"
+
+#: inc/utils/labels.php:131
+msgid "No New Notifications"
+msgstr "Geen nieuwe meldingen"
+
+#: inc/utils/labels.php:132
+msgid "Ta-da! You're up to date."
+msgstr "Ta-da! Je bent up-to-date."
+
+#: core/shortcodes/notification.php:122
+msgid "Mark All as Read"
+msgstr "Alles als gelezen markeren"
+
+#: core/notifier/admin-notifier.php:180
+msgid " has registered on the "
+msgstr "heeft zich geregistreerd op de"
+
+#: core/notifier/admin-notifier.php:51
+#: inc/utils/labels.php:136
+#: inc/utils/labels.php:138
+msgid " and "
+msgstr "en"
+
+#: core/notifier/admin-notifier.php:51
+msgid "new users have registered on the "
+msgstr "nieuwe gebruikers hebben zich geregistreerd op de"
+
+#: core/notifier/admin-notifier.php:58
+msgid "has submitted a topic"
+msgstr "heeft een onderwerp ingediend"
+
+#: core/notifier/user-notifier.php:59
+msgid "your topic has been approved."
+msgstr "je onderwerp is goedgekeurd."
+
+#: core/notifier/user-notifier.php:66
+msgid "has mentioned you in a "
+msgstr "heeft je genoemd in een"
+
+#: inc/utils/labels.php:134
+msgid "has replied to your "
+msgstr "heeft gereageerd op uw"
+
+#: inc/utils/labels.php:135
+msgid "has commented on your topic "
+msgstr "heeft gereageerd op je onderwerp"
+
+#: inc/utils/labels.php:136
+msgid " others have commented on your topic "
+msgstr "anderen hebben gereageerd op je onderwerp"
+
+#: core/notifier/common-notifier.php:51
+msgid "new space has been introduced."
+msgstr "nieuwe ruimte is geïntroduceerd."
+
+#: inc/utils/labels.php:137
+msgid " has liked your "
+msgstr "heeft je leuk gevonden"
+
+#: inc/utils/labels.php:138
+msgid " others have liked your "
+msgstr "anderen hebben je leuk gevonden"
+
+#: inc/utils/labels.php:141
+msgid "Unread"
+msgstr "Ongelezen"
+
+#: inc/utils/labels.php:143
+msgid "Settings Saved Successfully."
+msgstr "Instellingen succesvol opgeslagen."
+
+#: inc/utils/labels.php:144
+msgid "Unable to Save Settings."
+msgstr "Instellingen kunnen niet worden opgeslagen."
+
+#: inc/utils/labels.php:145
+msgid "Something Went Wrong!"
+msgstr "Er is iets misgegaan!"
+
+#: inc/utils/labels.php:146
+msgid "Information Updated Successfully."
+msgstr "Informatie succesvol bijgewerkt."
+
+#: inc/utils/labels.php:147
+msgid "Notification Updated Successfully."
+msgstr "Melding succesvol bijgewerkt."
+
+#: inc/utils/labels.php:149
+msgid "Your topic has been submitted successfully."
+msgstr "Je onderwerp is succesvol ingediend."
+
+#: inc/utils/labels.php:150
+msgid "Item bookmarked successfully."
+msgstr "Item succesvol toegevoegd aan bladwijzers."
+
+#: inc/utils/labels.php:151
+msgid "Item un-bookmarked successfully."
+msgstr "Item succesvol uit bladwijzers verwijderd."
+
+#: inc/utils/labels.php:152
+msgid "Comment liked successfully."
+msgstr "Reactie succesvol leuk gevonden."
+
+#: inc/utils/labels.php:153
+msgid "Comment disliked successfully."
+msgstr "Reactie succesvol niet leuk gevonden."
+
+#: inc/utils/labels.php:157
+msgid "Post liked successfully."
+msgstr "Bericht succesvol leuk gevonden."
+
+#: inc/utils/labels.php:158
+msgid "Post disliked successfully."
+msgstr "Bericht succesvol niet leuk gevonden."
+
+#: inc/utils/post-meta.php:96
+#: assets/build/portals-app.js:2
+msgid "Untitled Section"
+msgstr "Naamloze sectie"
+
+#: inc/utils/settings.php:223
+msgid "Howdy"
+msgstr "Hallo"
+
+#: inc/utils/settings.php:227
+#: assets/build/portals-app.js:2
+msgid "Your Bookmarks"
+msgstr "Je bladwijzers"
+
+#: inc/utils/settings.php:231
+#: assets/build/portals-app.js:2
+msgid "Profile Information"
+msgstr "Profielinformatie"
+
+#: inc/utils/settings.php:235
+#: assets/build/portals-app.js:2
+msgid "Pinned Post"
+msgstr "Vastgezette post"
+
+#: inc/utils/settings.php:239
+msgid "No posts found."
+msgstr "Geen berichten gevonden."
+
+#: inc/utils/settings.php:243
+#: assets/build/portals-app.js:2
+msgid "Back to Course"
+msgstr "Terug naar cursus"
+
+#: inc/utils/settings.php:247
+msgid "Complete and Continue"
+msgstr "Voltooien en Doorgaan"
+
+#: inc/utils/settings.php:255
+msgid "Create New Feed"
+msgstr "Nieuwe feed maken"
+
+#: inc/utils/settings.php:259
+msgid "No topic found, create a new one!"
+msgstr "Geen onderwerp gevonden, maak een nieuw aan!"
+
+#: inc/utils/labels.php:161
+#: inc/utils/settings.php:263
+#: assets/build/portals-app.js:2
+msgid "Restricted Content"
+msgstr "Beperkte inhoud"
+
+#: inc/utils/settings.php:267
+msgid "This content is not available with your current membership."
+msgstr "Deze inhoud is niet beschikbaar met uw huidige lidmaatschap."
+
+#: inc/utils/settings.php:305
+msgid "Subscriber"
+msgstr "Abonnee"
+
+#: inc/utils/uploader.php:75
+msgid "File does not match"
+msgstr "Bestand komt niet overeen"
+
+#: inc/utils/uploader.php:98
+msgid "File is not uploaded"
+msgstr "Bestand is niet geüpload"
+
+#: templates/parts/footer.php:22
+msgid "Powered by"
+msgstr "Aangedreven door"
+
+#: templates/quick-view/post.php:60
+msgid "Open in full page"
+msgstr "Open in volledig scherm"
+
+#: templates/quick-view/post.php:62
+#: templates/single/post.php:91
+msgid "Bookmark Post"
+msgstr "Bericht Bladwijzer"
+
+#: inc/utils/helper.php:1448
+msgid "Share Post"
+msgstr "Bericht delen"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Close"
+msgstr "Sluiten"
+
+#: assets/build/portals-app.js:2
+msgid "Dashboard"
+msgstr "Dashboard"
+
+#: assets/build/portals-app.js:2
+msgid "V %s"
+msgstr "V %s"
+
+#: assets/build/portals-app.js:2
+msgid "CORE"
+msgstr "KERN"
+
+#: assets/build/portals-app.js:2
+msgid "Edit"
+msgstr "Bewerken"
+
+#: assets/build/portals-app.js:2
+msgid "Popup Title"
+msgstr "Pop-up Titel"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Confirm"
+msgstr "Bevestigen"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Image"
+msgstr "Afbeelding"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Select Image"
+msgstr "Selecteer afbeelding"
+
+#: assets/build/portals-app.js:2
+msgid "Set Image"
+msgstr "Afbeelding instellen"
+
+#: assets/build/portals-app.js:2
+msgid "Upload Image"
+msgstr "Afbeelding uploaden"
+
+#: assets/build/portals-app.js:2
+msgid "Course Description"
+msgstr "Cursusbeschrijving"
+
+#: assets/build/portals-app.js:2
+msgid "Space Name"
+msgstr "Ruimtenaam"
+
+#: assets/build/portals-app.js:2
+msgid "Featured Image"
+msgstr "Uitgelichte afbeelding"
+
+#: assets/build/portals-app.js:2
+msgid "Upload at least 1000x200px image. Recommended size is 1920x384px."
+msgstr "Upload een afbeelding van minstens 1000x200px. Aanbevolen grootte is 1920x384px."
+
+#: assets/build/portals-app.js:2
+msgid "Space Status"
+msgstr "Ruimte Status"
+
+#: assets/build/portals-app.js:2
+msgid "Draft"
+msgstr "Concept"
+
+#: assets/build/portals-app.js:2
+msgid "Publish"
+msgstr "Publiceren"
+
+#: assets/build/portals-app.js:2
+msgid "Enable Lesson Comments"
+msgstr "Lesreacties inschakelen"
+
+#: assets/build/portals-app.js:2
+msgid "Enable Feed Comments"
+msgstr "Feedreacties inschakelen"
+
+#: assets/build/portals-app.js:2
+msgid "Enable Comments"
+msgstr "Reacties inschakelen"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow viewers to comment on this course lessons."
+msgstr "Als je dit inschakelt, kunnen kijkers commentaar geven op de lessen van deze cursus."
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow viewers to comment on individual feeds."
+msgstr "Als je dit inschakelt, kunnen kijkers commentaar geven op individuele feeds."
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow viewers to comment on this space."
+msgstr "Als je dit inschakelt, kunnen kijkers commentaar geven op deze ruimte."
+
+#: assets/build/portals-app.js:2
+msgid "Default Content"
+msgstr "Standaardinhoud"
+
+#: assets/build/portals-app.js:2
+msgid "Course Sections"
+msgstr "Cursussecties"
+
+#: assets/build/portals-app.js:2
+msgid "Add Section"
+msgstr "Sectie toevoegen"
+
+#: assets/build/portals-app.js:2
+msgid "Section:"
+msgstr "Sectie:"
+
+#: assets/build/portals-app.js:2
+msgid "Add Lesson"
+msgstr "Les toevoegen"
+
+#: assets/build/portals-app.js:2
+msgid "You need to delete the lessons in this section first."
+msgstr "Je moet eerst de lessen in deze sectie verwijderen."
+
+#: assets/build/portals-app.js:2
+msgid "Are you sure you want to remove this section?"
+msgstr "Weet je zeker dat je deze sectie wilt verwijderen?"
+
+#: assets/build/portals-app.js:2
+msgid "You can not remove the last section."
+msgstr "Je kunt het laatste gedeelte niet verwijderen."
+
+#: assets/build/portals-app.js:2
+msgid "Remove"
+msgstr "Verwijderen"
+
+#: assets/build/portals-app.js:2
+msgid "Collapse"
+msgstr "Inklappen"
+
+#: assets/build/portals-app.js:2
+msgid "Expand"
+msgstr "Uitbreiden"
+
+#: assets/build/portals-app.js:2
+msgid "Delete Lesson"
+msgstr "Les verwijderen"
+
+#: assets/build/portals-app.js:2
+msgid "Are you sure you want to remove this lesson? This action will permanently delete the lesson post."
+msgstr "Weet je zeker dat je deze les wilt verwijderen? Deze actie zal de lespost permanent verwijderen."
+
+#: assets/build/portals-app.js:2
+msgid "Choose Content Group"
+msgstr "Kies inhoudsgroep"
+
+#: assets/build/portals-app.js:2
+msgid "Please add at least 1 character to search"
+msgstr "Voeg ten minste 1 teken toe om te zoeken"
+
+#: assets/build/portals-app.js:2
+msgid "Pinned Content Post"
+msgstr "Vastgezette inhoudspost"
+
+#: assets/build/portals-app.js:2
+msgid "Link URL"
+msgstr "Koppel URL"
+
+#: assets/build/portals-app.js:2
+msgid "Link Target"
+msgstr "Koppelingsdoel"
+
+#: assets/build/portals-app.js:2
+msgid "Same Window"
+msgstr "Zelfde venster"
+
+#: assets/build/portals-app.js:2
+msgid "New Window"
+msgstr "Nieuw venster"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Topic Forum"
+msgstr "Kies onderwerpforum"
+
+#: assets/build/portals-app.js:2
+msgid "Pinned Topic Post"
+msgstr "Vastgezet onderwerpbericht"
+
+#: assets/build/portals-app.js:2
+msgid "Make Discussions Private"
+msgstr "Maak discussies privé"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this makes all discussions private between portal managers and the topic creator."
+msgstr "Als u dit inschakelt, worden alle discussies privé tussen portaalbeheerders en de maker van het onderwerp."
+
+#: assets/build/portals-app.js:2
+msgid "All Posts"
+msgstr "Alle berichten"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Video Post"
+msgstr "Kies videopost"
+
+#: assets/build/portals-app.js:2
+msgid "Video Type"
+msgstr "Videotype"
+
+#: assets/build/portals-app.js:2
+msgid "Single"
+msgstr "Enkel"
+
+#: assets/build/portals-app.js:2
+msgid "Playlist"
+msgstr "Afspeellijst"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Video Posts"
+msgstr "Kies videoberichten"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Post/Page/Template"
+msgstr "Kies Bericht/Pagina/Sjabloon"
+
+#: assets/build/portals-app.js:2
+msgid "Content Type"
+msgstr "Inhoudstype"
+
+#: assets/build/portals-app.js:2
+msgid "Post Content Type"
+msgstr "Berichtinhoudtype"
+
+#: assets/build/portals-app.js:2
+msgid "Full Content"
+msgstr "Volledige inhoud"
+
+#: assets/build/portals-app.js:2
+msgid "Excerpt"
+msgstr "Uittreksel"
+
+#: assets/build/portals-app.js:2
+msgid "Container Type"
+msgstr "Containertype"
+
+#: assets/build/portals-app.js:2
+msgid "Full Width"
+msgstr "Volledige breedte"
+
+#: assets/build/portals-app.js:2
+msgid "Narrow Width"
+msgstr "Smalle Breedte"
+
+#: assets/build/portals-app.js:2
+msgid "Space Group Name"
+msgstr "Ruimtegroepnaam"
+
+#: assets/build/portals-app.js:2
+msgid "Short Description"
+msgstr "Korte beschrijving"
+
+#: assets/build/portals-app.js:2
+msgid "Enter a short description for the space group."
+msgstr "Voer een korte beschrijving in voor de ruimtegroep."
+
+#: assets/build/portals-app.js:2
+msgid "Pinned Section"
+msgstr "Vastgezette sectie"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this section will remove space group title and display the spaces directly."
+msgstr "Als u deze sectie inschakelt, wordt de titel van de ruimtegroep verwijderd en worden de ruimtes direct weergegeven."
+
+#: assets/build/portals-app.js:2
+msgid "Add Home Link"
+msgstr "Home-link toevoegen"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will add a home link to the section."
+msgstr "Als je dit inschakelt, wordt er een startlink aan de sectie toegevoegd."
+
+#: assets/build/portals-app.js:2
+msgid "No Icons Found."
+msgstr "Geen pictogrammen gevonden."
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Icon Library"
+msgstr "Iconenbibliotheek"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Insert Icon"
+msgstr "Pictogram invoegen"
+
+#: assets/build/portals-app.js:2
+msgid "Saving…"
+msgstr "Opslaan…"
+
+#: assets/build/portals-app.js:2
+msgid "Saved"
+msgstr "Opgeslagen"
+
+#: assets/build/portals-app.js:2
+msgid "Settings Saved Successfully!"
+msgstr "Instellingen succesvol opgeslagen!"
+
+#: assets/build/portals-app.js:2
+msgid "Failed to Save."
+msgstr "Opslaan mislukt."
+
+#: assets/build/portals-app.js:2
+msgid "Error updating settings: "
+msgstr "Fout bij het bijwerken van instellingen:"
+
+#: assets/build/portals-app.js:2
+msgid "Space"
+msgstr "Ruimte"
+
+#: assets/build/portals-app.js:2
+msgid "Delete"
+msgstr "Verwijderen"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "General"
+msgstr "Algemeen"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Style"
+msgstr "Stijl"
+
+#: assets/build/portals-app.js:2
+msgid "Create Your First Space Group"
+msgstr "Maak je eerste ruimtegroep aan"
+
+#: assets/build/portals-app.js:2
+msgid "Start by adding a Space Groups, and then add Spaces."
+msgstr "Begin met het toevoegen van een Ruimtegroepen en voeg vervolgens Ruimtes toe."
+
+#: assets/build/portals-app.js:2
+msgid "Add Space Group"
+msgstr "Ruimtegroep toevoegen"
+
+#: assets/build/portals-app.js:2
+msgid "Space Group"
+msgstr "Ruimtegroep"
+
+#: assets/build/portals-app.js:2
+msgid "Are you sure you want to delete this"
+msgstr "Weet je zeker dat je dit wilt verwijderen"
+
+#: assets/build/portals-app.js:2
+msgid "Delete it"
+msgstr "Verwijder het"
+
+#: assets/build/portals-app.js:2
+msgid "Create Space Group"
+msgstr "Ruimtegroep maken"
+
+#: assets/build/portals-app.js:2
+msgid "New Space Group"
+msgstr "Nieuwe Ruimte Groep"
+
+#: assets/build/portals-app.js:2
+msgid "Creating…"
+msgstr "Aan het maken…"
+
+#: assets/build/portals-app.js:2
+msgid "Ready…"
+msgstr "Klaar…"
+
+#: assets/build/portals-app.js:2
+msgid "Failed!"
+msgstr "Mislukt!"
+
+#: assets/build/portals-app.js:2
+msgid "Choose Space Content Type"
+msgstr "Kies ruimte-inhoudstype"
+
+#: assets/build/portals-app.js:2
+msgid "Continue"
+msgstr "Doorgaan"
+
+#: assets/build/portals-app.js:2
+msgid "A blank space."
+msgstr "Een lege ruimte."
+
+#: assets/build/portals-app.js:2
+msgid "Post"
+msgstr "Post"
+
+#: assets/build/portals-app.js:2
+msgid "A space with WordPress post/page/template."
+msgstr "Een ruimte met WordPress-bericht/pagina/sjabloon."
+
+#: assets/build/portals-app.js:2
+msgid "A space with video content."
+msgstr "Een ruimte met videocontent."
+
+#: assets/build/portals-app.js:2
+msgid "A space with a redirecting link."
+msgstr "Een ruimte met een doorverwijzende link."
+
+#: assets/build/portals-app.js:2
+msgid "Feed"
+msgstr "Voer"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Content feeds."
+msgstr "Een ruimte met inhoudsfeeds."
+
+#: assets/build/portals-app.js:2
+msgid "Discussion"
+msgstr "Discussie"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Topic feeds."
+msgstr "Een ruimte met onderwerpfeeds."
+
+#: assets/build/portals-app.js:2
+msgid "Pro"
+msgstr "Pro"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Course content."
+msgstr "Een ruimte met cursusinhoud."
+
+#: assets/build/portals-app.js:2
+msgid "Event"
+msgstr "Evenement"
+
+#: assets/build/portals-app.js:2
+msgid "Soon"
+msgstr "Snel"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Event content."
+msgstr "Een ruimte met evenementinhoud."
+
+#: assets/build/portals-app.js:2
+msgid "Form"
+msgstr "Formulier"
+
+#: assets/build/portals-app.js:2
+msgid "A space with Form content."
+msgstr "Een ruimte met formulierinhoud."
+
+#: assets/build/portals-app.js:2
+msgid "Add a New"
+msgstr "Voeg een nieuwe toe"
+
+#: assets/build/portals-app.js:2
+msgid "Space Title"
+msgstr "Ruimte Titel"
+
+#: assets/build/portals-app.js:2
+msgid "– Create a Space Group –"
+msgstr "– Maak een Ruimtegroep –"
+
+#: assets/build/portals-app.js:2
+msgid "New Space Group Name"
+msgstr "Nieuwe naam van de ruimtelijke groep"
+
+#: assets/build/portals-app.js:2
+msgid "Back"
+msgstr "Terug"
+
+#: assets/build/portals-app.js:2
+msgid "Create Space"
+msgstr "Ruimte maken"
+
+#: assets/build/portals-app.js:2
+msgid "No Spaces Found!"
+msgstr "Geen spaties gevonden!"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will hide the SureDash branding from the public."
+msgstr "Als u dit inschakelt, wordt de SureDash-branding voor het publiek verborgen."
+
+#: assets/build/portals-app.js:2
+msgid "This feature is only available in SureDash Pro."
+msgstr "Deze functie is alleen beschikbaar in SureDash Pro."
+
+#: assets/build/portals-app.js:2
+msgid "Portal Name"
+msgstr "Portalnaam"
+
+#: assets/build/portals-app.js:2
+msgid "Upload Logo"
+msgstr "Logo uploaden"
+
+#: assets/build/portals-app.js:2
+msgid "Select Logo"
+msgstr "Selecteer logo"
+
+#: assets/build/portals-app.js:2
+msgid "Set Logo"
+msgstr "Logo instellen"
+
+#: assets/build/portals-app.js:2
+msgid "Logo"
+msgstr "Logo"
+
+#: assets/build/portals-app.js:2
+msgid "Hide"
+msgstr "Verbergen"
+
+#: assets/build/portals-app.js:2
+msgid "Branding"
+msgstr "Branding"
+
+#: assets/build/portals-app.js:2
+msgid "Make Community Private"
+msgstr "Maak gemeenschap privé"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will hide the community from the public and require a login to view."
+msgstr "Als u dit inschakelt, wordt de community verborgen voor het publiek en is inloggen vereist om deze te bekijken."
+
+#: assets/build/portals-app.js:2
+msgid "Content Post Type"
+msgstr "Inhoud berichttype"
+
+#: assets/build/portals-app.js:2
+msgid "Leverage the Content post type to create content feeds."
+msgstr "Maak gebruik van het berichttype Content om inhoudsfeeds te creëren."
+
+#: assets/build/portals-app.js:2
+msgid "Topic Post Type"
+msgstr "Onderwerp Berichttype"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow your users to create topics."
+msgstr "Als u dit inschakelt, kunnen uw gebruikers onderwerpen maken."
+
+#: assets/build/portals-app.js:2
+msgid "Enable Lightbox"
+msgstr "Lichtbak inschakelen"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this will allow lightweight lightbox for your content images."
+msgstr "Door dit in te schakelen, wordt een lichte lightbox voor uw inhoudsafbeeldingen mogelijk gemaakt."
+
+#: assets/build/portals-app.js:2
+msgid "Google Registration"
+msgstr "Google-registratie"
+
+#: assets/build/portals-app.js:2
+msgid "Facebook Registration"
+msgstr "Facebook-registratie"
+
+#: assets/build/portals-app.js:2
+msgid "Facebook Token ID"
+msgstr "Facebook-token-ID"
+
+#: assets/build/portals-app.js:2
+msgid "Facebook Token Secret"
+msgstr "Facebook Token Geheim"
+
+#: assets/build/portals-app.js:2
+msgid "Google reCaptcha"
+msgstr "Google reCaptcha"
+
+#: assets/build/portals-app.js:2
+msgid "reCaptcha v2 Site Key"
+msgstr "reCaptcha v2 Site Key"
+
+#: assets/build/portals-app.js:2
+msgid "reCaptcha v3 Site Key"
+msgstr "reCaptcha v3 Site Key"
+
+#: assets/build/portals-app.js:2
+msgid "Select Home Page"
+msgstr "Selecteer startpagina"
+
+#: assets/build/portals-app.js:2
+msgid "Select Login Page"
+msgstr "Selecteer inlogpagina"
+
+#: assets/build/portals-app.js:2
+msgid "Select Registration Page"
+msgstr "Selecteer Registratiepagina"
+
+#: assets/build/portals-app.js:2
+msgid "Global Container Type"
+msgstr "Globaal containertype"
+
+#: assets/build/portals-app.js:2
+msgid "Narrow Container Width"
+msgstr "Smalle Containerbreedte"
+
+#: assets/build/portals-app.js:2
+msgid "Course Container Width"
+msgstr "Cursuscontainerbreedte"
+
+#: assets/build/portals-app.js:2
+msgid "Container Spacing"
+msgstr "Containerafstand"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Select Color"
+msgstr "Selecteer kleur"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Reset"
+msgstr "Opnieuw instellen"
+
+#: assets/build/portals-app.js:2
+msgid "Global"
+msgstr "Wereldwijd"
+
+#: assets/build/portals-app.js:2
+msgid "Primary Color"
+msgstr "Primaire kleur"
+
+#: assets/build/portals-app.js:2
+msgid "Primary color is used for mainly base background color of the portal."
+msgstr "Primaire kleur wordt voornamelijk gebruikt als basiskleur voor de achtergrond van het portaal."
+
+#: assets/build/portals-app.js:2
+msgid "Secondary Color"
+msgstr "Secundaire kleur"
+
+#: assets/build/portals-app.js:2
+msgid "Secondary color is used as secondary purposes under the portal."
+msgstr "Secundaire kleur wordt gebruikt voor secundaire doeleinden onder het portaal."
+
+#: assets/build/portals-app.js:2
+msgid "Content Background Color"
+msgstr "Achtergrondkleur van de inhoud"
+
+#: assets/build/portals-app.js:2
+msgid "Content background color is for mainly content background color of the portal."
+msgstr "De achtergrondkleur van de inhoud is voornamelijk voor de achtergrondkleur van de inhoud van het portaal."
+
+#: assets/build/portals-app.js:2
+msgid "Heading Color"
+msgstr "Kleur van de kop"
+
+#: assets/build/portals-app.js:2
+msgid "Text Color"
+msgstr "Tekstkleur"
+
+#: assets/build/portals-app.js:2
+msgid "Link Color"
+msgstr "Kleur van de link"
+
+#: assets/build/portals-app.js:2
+msgid "Link Active Color"
+msgstr "Kleur van actieve link"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Border Color"
+msgstr "Randkleur"
+
+#: assets/build/portals-app.js:2
+msgid "Text Selection Background Color"
+msgstr "Achtergrondkleur van tekstselectie"
+
+#: assets/build/portals-app.js:2
+msgid "Primary Button Color"
+msgstr "Primaire knopkleur"
+
+#: assets/build/portals-app.js:2
+msgid "Primary Button Background Color"
+msgstr "Achtergrondkleur van de primaire knop"
+
+#: assets/build/portals-app.js:2
+msgid "Secondary Button Color"
+msgstr "Secundaire knopkleur"
+
+#: assets/build/portals-app.js:2
+msgid "Secondary Button Background Color"
+msgstr "Achtergrondkleur secundaire knop"
+
+#: assets/build/portals-app.js:2
+msgid "Profile Links:"
+msgstr "Profielkoppelingen:"
+
+#: assets/build/portals-app.js:2
+msgid "Add Link"
+msgstr "Link toevoegen"
+
+#: assets/build/portals-app.js:2
+msgid "Delete Link"
+msgstr "Link verwijderen"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Search…"
+msgstr "Zoeken…"
+
+#: assets/build/portals-app.js:2
+msgid "New registered user will get these selected user roles capabilities."
+msgstr "Nieuwe geregistreerde gebruiker krijgt deze geselecteerde gebruikersrolmogelijkheden."
+
+#: assets/build/portals-app.js:2
+msgid "New User Capabilities"
+msgstr "Nieuwe gebruikersmogelijkheden"
+
+#: assets/build/portals-app.js:2
+msgid "Portal Managers"
+msgstr "Portaalbeheerders"
+
+#: assets/build/portals-app.js:2
+msgid "Selected users will get admin notification and access to manage the portal."
+msgstr "Geselecteerde gebruikers krijgen een adminmelding en toegang om het portaal te beheren."
+
+#: assets/build/portals-app.js:2
+msgid "Start typing…"
+msgstr "Begin met typen…"
+
+#: assets/build/portals-app.js:2
+msgid "Displays the username."
+msgstr "Toont de gebruikersnaam."
+
+#: assets/build/portals-app.js:2
+msgid "Displays the password reset key."
+msgstr "Toont de sleutel voor het opnieuw instellen van het wachtwoord."
+
+#: assets/build/portals-app.js:2
+msgid "From Email"
+msgstr "Van e-mail"
+
+#: assets/build/portals-app.js:2
+msgid "Forgot Password Mail Message"
+msgstr "Wachtwoord Vergeten E-mailbericht"
+
+#: assets/build/portals-app.js:2
+msgid "Drag and drop dynamic tags to the email message field."
+msgstr "Sleep en plaats dynamische tags in het e-mailberichtveld."
+
+#: assets/build/portals-app.js:2
+msgid "Welcome Text"
+msgstr "Welkomsttekst"
+
+#: assets/build/portals-app.js:2
+msgid "No Posts Found"
+msgstr "Geen berichten gevonden"
+
+#: assets/build/portals-app.js:2
+msgid "Mark as Complete"
+msgstr "Markeren als voltooid"
+
+#: assets/build/portals-app.js:2
+msgid "Start Writing Your Post"
+msgstr "Begin met het schrijven van je bericht"
+
+#: assets/build/portals-app.js:2
+msgid "Write a Post"
+msgstr "Een bericht schrijven"
+
+#: assets/build/portals-app.js:2
+msgid "No Topic Found"
+msgstr "Geen onderwerp gevonden"
+
+#: assets/build/portals-app.js:2
+msgid "Restricted Content Heading"
+msgstr "Beperkte inhoud kop"
+
+#: assets/build/portals-app.js:2
+msgid "Restricted Content Notice"
+msgstr "Kennisgeving van Beperkte Inhoud"
+
+#: assets/build/portals-app.js:2
+msgid "Feeds Per Page"
+msgstr "Feeds per pagina"
+
+#: assets/build/portals-app.js:2
+msgid "User Upload Limit"
+msgstr "Limiet voor gebruikersuploads"
+
+#: assets/build/portals-app.js:2
+msgid "Set the maximum upload limit for users to upload photo & cover image."
+msgstr "Stel de maximale uploadlimiet in voor gebruikers om een foto en omslagafbeelding te uploaden."
+
+#: assets/build/portals-app.js:2
+msgid "Activate"
+msgstr "Activeren"
+
+#: assets/build/portals-app.js:2
+msgid "Deactivate"
+msgstr "Deactiveren"
+
+#: assets/build/portals-app.js:2
+msgid "Your license is activated"
+msgstr "Uw licentie is geactiveerd"
+
+#: assets/build/portals-app.js:2
+msgid "Paste your license key here"
+msgstr "Plak hier uw licentiesleutel"
+
+#: assets/build/portals-app.js:2
+msgid "You are using"
+msgstr "U gebruikt"
+
+#: assets/build/portals-app.js:2
+msgid "Activate %1$s%6$s%2$s to get professional support and automatic updates from your WordPress dashboard. If you don't have a license, you can %3$sget it here »%4$s %5$sPlease enter your license key below to activate %6$s!"
+msgstr "Activeer %1$s%6$s%2$s om professionele ondersteuning en automatische updates te ontvangen vanuit je WordPress-dashboard. Als je geen licentie hebt, kun je die %3$shier verkrijgen »%4$s %5$sVoer hieronder je licentiesleutel in om %6$s te activeren!"
+
+#: assets/build/portals-app.js:2
+msgid "Deactivating"
+msgstr "Deactiveren"
+
+#: assets/build/portals-app.js:2
+msgid "Deactivated"
+msgstr "Gedeactiveerd"
+
+#: assets/build/portals-app.js:2
+msgid "Please enter a license key"
+msgstr "Voer een licentiesleutel in"
+
+#: assets/build/portals-app.js:2
+msgid "Activating"
+msgstr "Activeren"
+
+#: assets/build/portals-app.js:2
+msgid "Activated"
+msgstr "Geactiveerd"
+
+#: assets/build/portals-app.js:2
+msgid "Community Settings"
+msgstr "Community-instellingen"
+
+#: assets/build/portals-app.js:2
+msgid "Social Settings"
+msgstr "Sociale instellingen"
+
+#: assets/build/portals-app.js:2
+msgid "Text Labels"
+msgstr "Tekstlabels"
+
+#: assets/build/portals-app.js:2
+msgid "Display Settings"
+msgstr "Beeldscherminstellingen"
+
+#: assets/build/portals-app.js:2
+msgid "Performance Measures"
+msgstr "Prestatiemaatstaven"
+
+#: assets/build/portals-app.js:2
+msgid "Design"
+msgstr "Ontwerp"
+
+#: assets/build/portals-app.js:2
+msgid "Layout"
+msgstr "Indeling"
+
+#: assets/build/portals-app.js:2
+msgid "Colors"
+msgstr "Kleuren"
+
+#: assets/build/portals-app.js:2
+msgid "User Settings"
+msgstr "Gebruikersinstellingen"
+
+#: assets/build/portals-app.js:2
+msgid "Profile Management"
+msgstr "Profielbeheer"
+
+#: assets/build/portals-app.js:2
+msgid "Access User Role"
+msgstr "Toegangsgebruikersrol"
+
+#: assets/build/portals-app.js:2
+msgid "Email Settings"
+msgstr "E-mailinstellingen"
+
+#: assets/build/portals-app.js:2
+msgid "Licensing"
+msgstr "Licenties"
+
+#. translators: %s: html tags
+#: admin/notices.php:95
+msgid "The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!"
+msgstr "De %1$s %2$s %3$s plugin vereist dat de %1$s %4$s %3$s plugin wordt bijgewerkt naar versie %5$s of hoger!"
+
+#: core/routes.php:65
+msgid "Oops! Something wrong here..."
+msgstr "Oeps! Er is hier iets mis..."
+
+#: core/shortcodes/endpoint-navigation.php:191
+msgid " runtime"
+msgstr "runtime"
+
+#: inc/functions/operations.php:185
+msgid "Post not found."
+msgstr "Bericht niet gevonden."
+
+#: inc/functions/operations.php:191
+msgid "Failed to update post."
+msgstr "Bijwerken van bericht mislukt."
+
+#: inc/functions/operations.php:261
+msgid "Invalid user ID."
+msgstr "Ongeldige gebruikers-ID."
+
+#: inc/utils/helper.php:1463
+msgid "Copied!"
+msgstr "Gekopieerd!"
+
+#: inc/utils/helper.php:1731
+msgid "This discussion is only available for VIP members."
+msgstr "Deze discussie is alleen beschikbaar voor VIP-leden."
+
+#: inc/utils/helper.php:1733
+msgid "Please upgrade to add response."
+msgstr "Upgrade alstublieft om een reactie toe te voegen."
+
+#: inc/utils/helper.php:1734
+msgid "Upgrade Now"
+msgstr "Nu upgraden"
+
+#: inc/utils/helper.php:1744
+msgid "Please login or register to join the discussion."
+msgstr "Log in of registreer om deel te nemen aan de discussie."
+
+#: core/shortcodes/user-profile.php:135
+#: inc/utils/helper.php:1745
+#: assets/build/editor-app.js:2
+msgid "Login"
+msgstr "Inloggen"
+
+#: inc/utils/labels.php:44
+msgid "Back to "
+msgstr "Terug naar"
+
+#: inc/utils/labels.php:119
+msgid "Copy to Clipboard"
+msgstr "Kopiëren naar klembord"
+
+#: inc/utils/labels.php:162
+msgid "This content is restricted and can only be accessed by authorized users."
+msgstr "Deze inhoud is beperkt en kan alleen worden geopend door geautoriseerde gebruikers."
+
+#: inc/utils/settings.php:251
+msgid "What would you like to share today?"
+msgstr "Wat zou je vandaag willen delen?"
+
+#: loader.php:316
+msgid "Portal Menu"
+msgstr "Portaalmenu"
+
+#: assets/build/editor-app.js:2
+msgid "Advanced"
+msgstr "Geavanceerd"
+
+#: assets/build/editor-app.js:2
+msgid "Desktop"
+msgstr "Bureaublad"
+
+#: assets/build/editor-app.js:2
+msgid "Tablet"
+msgstr "Tablet"
+
+#: assets/build/editor-app.js:2
+msgid "Mobile"
+msgstr "Mobiel"
+
+#: assets/build/editor-app.js:2
+msgid "Device"
+msgstr "Apparaat"
+
+#: assets/build/editor-app.js:2
+msgid "Google"
+msgstr "Google"
+
+#: assets/build/editor-app.js:2
+msgid "Facebook"
+msgstr "Facebook"
+
+#: assets/build/editor-app.js:2
+msgid "No Icons Found"
+msgstr "Geen pictogrammen gevonden"
+
+#: assets/build/editor-app.js:2
+msgid "Change Icon"
+msgstr "Pictogram wijzigen"
+
+#: assets/build/editor-app.js:2
+msgid "Choose Icon"
+msgstr "Kies pictogram"
+
+#: assets/build/editor-app.js:2
+msgid "Icon"
+msgstr "Icoon"
+
+#: assets/build/editor-app.js:2
+msgid "Placeholder"
+msgstr "Placeholder"
+
+#: assets/build/editor-app.js:2
+msgid "This is an example error message."
+msgstr "Dit is een voorbeeld van een foutmelding."
+
+#: assets/build/editor-app.js:2
+msgid "Please add a preview image."
+msgstr "Voeg alstublieft een voorbeeldafbeelding toe."
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Email field."
+msgstr "Dit blok helpt om een e-mailveld toe te voegen."
+
+#: assets/build/editor-app.js:2
+msgid "required"
+msgstr "vereist"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Password field."
+msgstr "Dit blok helpt om een wachtwoordveld toe te voegen."
+
+#: assets/build/editor-app.js:2
+msgid "Required"
+msgstr "Vereist"
+
+#: assets/build/editor-app.js:2
+msgid "Name"
+msgstr "Naam"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Username field."
+msgstr "Dit blok helpt om het gebruikersnaamveld toe te voegen."
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add First Name field."
+msgstr "Dit blok helpt om het veld Voornaam toe te voegen."
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Last Name field."
+msgstr "Dit blok helpt om het veld Achternaam toe te voegen."
+
+#: assets/build/editor-app.js:2
+msgid "Re-Enter Password"
+msgstr "Wachtwoord opnieuw invoeren"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Re-Enter Password field."
+msgstr "Dit blok helpt om het veld Wachtwoord opnieuw invoeren toe te voegen."
+
+#: assets/build/editor-app.js:2
+msgid "I Accept the Terms and Conditions."
+msgstr "Ik accepteer de algemene voorwaarden."
+
+#: assets/build/editor-app.js:2
+msgid "Terms and Conditions notice."
+msgstr "Kennisgeving van de algemene voorwaarden."
+
+#: assets/build/editor-app.js:2
+msgid "Terms & Condition"
+msgstr "Algemene voorwaarden"
+
+#: assets/build/editor-app.js:2
+msgid "This block helps to add Terms & Condtions field."
+msgstr "Dit blok helpt om een veld voor de Algemene Voorwaarden toe te voegen."
+
+#: assets/build/editor-app.js:2
+msgid "Pixel"
+msgstr "Pixel"
+
+#: assets/build/editor-app.js:2
+msgid "Em"
+msgstr "Em"
+
+#: assets/build/editor-app.js:2
+msgid "Select Units"
+msgstr "Selecteer eenheden"
+
+#: assets/build/editor-app.js:2
+msgid "%s units"
+msgstr "%s eenheden"
+
+#: assets/build/editor-app.js:2
+msgid "Margin"
+msgstr "Marge"
+
+#: assets/build/editor-app.js:2
+msgid "Default"
+msgstr "Standaard"
+
+#: assets/build/editor-app.js:2
+msgid "Font Size"
+msgstr "Lettergrootte"
+
+#: assets/build/editor-app.js:2
+msgid "VW"
+msgstr "VW"
+
+#: assets/build/editor-app.js:2
+#: assets/build/portals-app.js:2
+msgid "Font Family"
+msgstr "Lettertypefamilie"
+
+#: assets/build/editor-app.js:2
+msgid "Weight"
+msgstr "Gewicht"
+
+#: core/assets.php:82
+#: assets/build/editor-app.js:2
+msgid "Italic"
+msgstr "Cursief"
+
+#: assets/build/editor-app.js:2
+msgid "Oblique"
+msgstr "Schuin"
+
+#: assets/build/editor-app.js:2
+msgid "Line Height"
+msgstr "Regelhoogte"
+
+#: assets/build/editor-app.js:2
+msgid "Letter Spacing"
+msgstr "Letterspatiëring"
+
+#: assets/build/editor-app.js:2
+msgid "Transform"
+msgstr "Transformeren"
+
+#: assets/build/editor-app.js:2
+msgid "Normal"
+msgstr "Normaal"
+
+#: assets/build/editor-app.js:2
+msgid "Capitalize"
+msgstr "Hoofdlettergebruik"
+
+#: assets/build/editor-app.js:2
+msgid "Uppercase"
+msgstr "Hoofdletters"
+
+#: assets/build/editor-app.js:2
+msgid "Lowercase"
+msgstr "Lowercase"
+
+#: assets/build/editor-app.js:2
+msgid "Decoration"
+msgstr "Decoratie"
+
+#: assets/build/editor-app.js:2
+msgid "None"
+msgstr "Geen"
+
+#: core/assets.php:83
+#: assets/build/editor-app.js:2
+msgid "Underline"
+msgstr "Onderstrepen"
+
+#: assets/build/editor-app.js:2
+msgid "Overline"
+msgstr "Bovenlijn"
+
+#: assets/build/editor-app.js:2
+msgid "Line Through"
+msgstr "Doorhalen"
+
+#: assets/build/editor-app.js:2
+msgid "%"
+msgstr "%"
+
+#: assets/build/editor-app.js:2
+msgid "Top"
+msgstr "Top"
+
+#: assets/build/editor-app.js:2
+msgid "Right"
+msgstr "Rechts"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom"
+msgstr "Onderkant"
+
+#: assets/build/editor-app.js:2
+msgid "Left"
+msgstr "Links"
+
+#: assets/build/editor-app.js:2
+msgid "Clear"
+msgstr "Duidelijk"
+
+#: assets/build/editor-app.js:2
+msgid "Width"
+msgstr "Breedte"
+
+#: assets/build/editor-app.js:2
+msgid "Radius"
+msgstr "Radius"
+
+#: assets/build/editor-app.js:2
+msgid "Color"
+msgstr "Kleur"
+
+#: assets/build/editor-app.js:2
+msgid "Border"
+msgstr "Grens"
+
+#: assets/build/editor-app.js:2
+msgid "Hover"
+msgstr "Zweven"
+
+#: assets/build/editor-app.js:2
+msgid "Solid"
+msgstr "Solide"
+
+#: assets/build/editor-app.js:2
+msgid "Dotted"
+msgstr "Gestippeld"
+
+#: assets/build/editor-app.js:2
+msgid "Dashed"
+msgstr "Gestreept"
+
+#: assets/build/editor-app.js:2
+msgid "Double"
+msgstr "Dubbel"
+
+#: assets/build/editor-app.js:2
+msgid "Groove"
+msgstr "Groef"
+
+#: assets/build/editor-app.js:2
+msgid "Inset"
+msgstr "Inzetstuk"
+
+#: assets/build/editor-app.js:2
+msgid "Outset"
+msgstr "Begin"
+
+#: assets/build/editor-app.js:2
+msgid "Ridge"
+msgstr "Rug"
+
+#: assets/build/editor-app.js:2
+msgid "Please add a option props to MultiButtonsControl"
+msgstr "Voeg alstublieft een optie-eigenschap toe aan MultiButtonsControl"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 1"
+msgstr "Voorinstelling 1"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 2"
+msgstr "Voorinstelling 2"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 3"
+msgstr "Voorinstelling 3"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 4"
+msgstr "Voorinstelling 4"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 5"
+msgstr "Voorinstelling 5"
+
+#: assets/build/editor-app.js:2
+msgid "Preset 6"
+msgstr "Preset 6"
+
+#: assets/build/editor-app.js:2
+msgid "Select Preset"
+msgstr "Selecteer voorinstelling"
+
+#: assets/build/editor-app.js:2
+msgid "Basic"
+msgstr "Basis"
+
+#: assets/build/editor-app.js:2
+msgid "Color 1"
+msgstr "Kleur 1"
+
+#: assets/build/editor-app.js:2
+msgid "Color 2"
+msgstr "Kleur 2"
+
+#: assets/build/editor-app.js:2
+msgid "Type"
+msgstr "Type"
+
+#: assets/build/editor-app.js:2
+msgid "Linear"
+msgstr "Lineair"
+
+#: assets/build/editor-app.js:2
+msgid "Radial"
+msgstr "Radiaal"
+
+#: assets/build/editor-app.js:2
+msgid "Location 1"
+msgstr "Locatie 1"
+
+#: assets/build/editor-app.js:2
+msgid "Location 2"
+msgstr "Locatie 2"
+
+#: assets/build/editor-app.js:2
+msgid "Angle"
+msgstr "Hoek"
+
+#: assets/build/editor-app.js:2
+msgid "Processing…"
+msgstr "Bezig met verwerken…"
+
+#: assets/build/editor-app.js:2
+msgid "Select Video"
+msgstr "Selecteer video"
+
+#: assets/build/editor-app.js:2
+msgid "Change Video"
+msgstr "Video wijzigen"
+
+#: assets/build/editor-app.js:2
+msgid "Select Lottie Animation"
+msgstr "Selecteer Lottie-animatie"
+
+#: assets/build/editor-app.js:2
+msgid "Change Lottie Animation"
+msgstr "Lottie-animatie wijzigen"
+
+#: assets/build/editor-app.js:2
+msgid "Upload SVG"
+msgstr "SVG uploaden"
+
+#: assets/build/editor-app.js:2
+msgid "Change SVG"
+msgstr "SVG wijzigen"
+
+#: assets/build/editor-app.js:2
+msgid "Change Image"
+msgstr "Afbeelding wijzigen"
+
+#: assets/build/editor-app.js:2
+msgid "data object is empty"
+msgstr "gegevensobject is leeg"
+
+#: assets/build/editor-app.js:2
+msgid "Upload SVG?"
+msgstr "SVG uploaden?"
+
+#: assets/build/editor-app.js:2
+msgid "Upload SVG can be potentially risky. Are you sure?"
+msgstr "Het uploaden van SVG kan potentieel riskant zijn. Weet je het zeker?"
+
+#: assets/build/editor-app.js:2
+msgid "Upload Anyway"
+msgstr "Toch uploaden"
+
+#: assets/build/editor-app.js:2
+msgid "Position"
+msgstr "Positie"
+
+#: assets/build/editor-app.js:2
+msgid "Gradient"
+msgstr "Gradiënt"
+
+#: assets/build/editor-app.js:2
+msgid "Classic"
+msgstr "Klassiek"
+
+#: assets/build/editor-app.js:2
+msgid "Auto"
+msgstr "Auto"
+
+#: assets/build/editor-app.js:2
+msgid "Cover"
+msgstr "Omslag"
+
+#: assets/build/editor-app.js:2
+msgid "Contain"
+msgstr "Bevatten"
+
+#: assets/build/editor-app.js:2
+msgid "Custom"
+msgstr "Aangepast"
+
+#: assets/build/editor-app.js:2
+msgid "Overlay Opacity"
+msgstr "Overlay-opaciteit"
+
+#: assets/build/editor-app.js:2
+msgid "Image Position"
+msgstr "Afbeeldingspositie"
+
+#: assets/build/editor-app.js:2
+msgid "Top Left"
+msgstr "Boven links"
+
+#: assets/build/editor-app.js:2
+msgid "Top Center"
+msgstr "Boven Midden"
+
+#: assets/build/editor-app.js:2
+msgid "Top Right"
+msgstr "Boven rechts"
+
+#: assets/build/editor-app.js:2
+msgid "Center Top"
+msgstr "Midden boven"
+
+#: assets/build/editor-app.js:2
+msgid "Center Center"
+msgstr "Centrum Centrum"
+
+#: assets/build/editor-app.js:2
+msgid "Center Bottom"
+msgstr "Midden Onder"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom Left"
+msgstr "Linksonder"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom Center"
+msgstr "Onderkant midden"
+
+#: assets/build/editor-app.js:2
+msgid "Bottom Right"
+msgstr "Rechtsonder"
+
+#: assets/build/editor-app.js:2
+msgid "Attachment"
+msgstr "Bijlage"
+
+#: assets/build/editor-app.js:2
+msgid "Fixed"
+msgstr "Vast"
+
+#: assets/build/editor-app.js:2
+msgid "Scroll"
+msgstr "Scrollen"
+
+#: assets/build/editor-app.js:2
+msgid "Blend Mode"
+msgstr "Overvloeimodus"
+
+#: assets/build/editor-app.js:2
+msgid "Multiply"
+msgstr "Vermenigvuldigen"
+
+#: assets/build/editor-app.js:2
+msgid "Screen"
+msgstr "Scherm"
+
+#: assets/build/editor-app.js:2
+msgid "Overlay"
+msgstr "Overlay"
+
+#: assets/build/editor-app.js:2
+msgid "Darken"
+msgstr "Donkerder maken"
+
+#: assets/build/editor-app.js:2
+msgid "Lighten"
+msgstr "Verlichten"
+
+#: assets/build/editor-app.js:2
+msgid "Color Dodge"
+msgstr "Kleur Dodge"
+
+#: assets/build/editor-app.js:2
+msgid "Saturation"
+msgstr "Verzadiging"
+
+#: assets/build/editor-app.js:2
+msgid "Repeat"
+msgstr "Herhaal"
+
+#: assets/build/editor-app.js:2
+msgid "No Repeat"
+msgstr "Geen herhaling"
+
+#: assets/build/editor-app.js:2
+msgid "Repeat-x"
+msgstr "Herhaal-x"
+
+#: assets/build/editor-app.js:2
+msgid "Repeat-y"
+msgstr "Herhaal-y"
+
+#: assets/build/editor-app.js:2
+msgid "Size"
+msgstr "Grootte"
+
+#: assets/build/editor-app.js:2
+msgid "PX"
+msgstr "PX"
+
+#: assets/build/editor-app.js:2
+msgid "EM"
+msgstr "EM"
+
+#: assets/build/editor-app.js:2
+msgid "X Position"
+msgstr "X-positie"
+
+#: assets/build/editor-app.js:2
+msgid "Y Position"
+msgstr "Y-positie"
+
+#: assets/build/editor-app.js:2
+msgid "VH"
+msgstr "VH"
+
+#: assets/build/editor-app.js:2
+msgid "Overlay Type"
+msgstr "Overlaytype"
+
+#: assets/build/editor-app.js:2
+msgid "Image Overlay Color"
+msgstr "Afbeelding Overlay Kleur"
+
+#: assets/build/editor-app.js:2
+msgid "Centralized Position"
+msgstr "Gecentraliseerde positie"
+
+#: assets/build/editor-app.js:2
+msgid "Fallback Image"
+msgstr "Terugvalafbeelding"
+
+#: assets/build/editor-app.js:2
+msgid "This cover image will replace the background video in case that the video could not be loaded."
+msgstr "Deze omslagafbeelding vervangt de achtergrondvideo als de video niet kan worden geladen."
+
+#: assets/build/editor-app.js:2
+msgid "Box Shadow"
+msgstr "Schaduw van de doos"
+
+#: assets/build/editor-app.js:2
+msgid "Inset (10px)"
+msgstr "Invoegen (10px)"
+
+#: assets/build/editor-app.js:2
+msgid "Open in new window"
+msgstr "Openen in nieuw venster"
+
+#: assets/build/editor-app.js:2
+msgid "Add nofollow"
+msgstr "Voeg nofollow toe"
+
+#: assets/build/editor-app.js:2
+msgid "Login Form"
+msgstr "Inlogformulier"
+
+#: assets/build/editor-app.js:2
+msgid "Disable Form"
+msgstr "Formulier uitschakelen"
+
+#: assets/build/editor-app.js:2
+msgid "Use this if you only want users to log in with social login."
+msgstr "Gebruik dit als u alleen wilt dat gebruikers inloggen met sociale login."
+
+#: assets/build/editor-app.js:2
+msgid "Username Placeholder"
+msgstr "Gebruikersnaam Placeholder"
+
+#: assets/build/editor-app.js:2
+msgid "Enter username placeholder"
+msgstr "Voer gebruikersnaam in plaatsaanduiding in"
+
+#: assets/build/editor-app.js:2
+msgid "Password Placeholder"
+msgstr "Wachtwoord Plaatshouder"
+
+#: assets/build/editor-app.js:2
+msgid "Enter password placeholder"
+msgstr "Voer wachtwoord in plaatsaanduiding"
+
+#: assets/build/editor-app.js:2
+msgid "Forgot Password Label"
+msgstr "Wachtwoord vergeten label"
+
+#: assets/build/editor-app.js:2
+msgid "Enter forgot password label"
+msgstr "Voer label voor vergeten wachtwoord in"
+
+#: assets/build/editor-app.js:2
+msgid "Hide Icon"
+msgstr "Pictogram verbergen"
+
+#: assets/build/editor-app.js:2
+msgid "Show Register Information"
+msgstr "Toon registerinformatie"
+
+#: assets/build/editor-app.js:2
+msgid "Register Link"
+msgstr "Registratielink"
+
+#: assets/build/editor-app.js:2
+msgid "Overall Alignment"
+msgstr "Algehele uitlijning"
+
+#: assets/build/editor-app.js:2
+msgid "Center"
+msgstr "Centrum"
+
+#: assets/build/editor-app.js:2
+msgid "Success/Error Message"
+msgstr "Succes-/Foutmelding"
+
+#: assets/build/editor-app.js:2
+msgid "View Success Message"
+msgstr "Succesbericht bekijken"
+
+#: assets/build/editor-app.js:2
+msgid "View Error Message"
+msgstr "Foutmelding bekijken"
+
+#: assets/build/editor-app.js:2
+msgid "Redirects"
+msgstr "Omleidingen"
+
+#: assets/build/editor-app.js:2
+msgid "Logged in Message"
+msgstr "Ingelogd bericht"
+
+#: assets/build/editor-app.js:2
+msgid "The \"Logged In Message\" will be shown instead of this block on the frontend when the user visiting this page is already Logged In."
+msgstr "Het \"Ingelogde Bericht\" wordt in plaats van dit blok aan de voorkant getoond wanneer de gebruiker die deze pagina bezoekt al is ingelogd."
+
+#: assets/build/editor-app.js:2
+msgid "Redirect After Login"
+msgstr "Doorverwijzen na inloggen"
+
+#: assets/build/editor-app.js:2
+msgid "Enter URL"
+msgstr "Voer URL in"
+
+#: assets/build/editor-app.js:2
+msgid "Default Redirect URL is homepage"
+msgstr "Standaard omleidings-URL is de startpagina"
+
+#: assets/build/editor-app.js:2
+msgid "Redirect After Logout"
+msgstr "Doorverwijzen na uitloggen"
+
+#: assets/build/editor-app.js:2
+msgid "Form Controls"
+msgstr "Formulierelementen"
+
+#: assets/build/editor-app.js:2
+msgid "Form Width"
+msgstr "Formulierbreedte"
+
+#: assets/build/editor-app.js:2
+msgid "em"
+msgstr "em"
+
+#: assets/build/editor-app.js:2
+msgid "Padding"
+msgstr "Opvulling"
+
+#: assets/build/editor-app.js:2
+msgid "Row Gap"
+msgstr "Rijafstand"
+
+#: assets/build/editor-app.js:2
+msgid "Background"
+msgstr "Achtergrond"
+
+#: assets/build/editor-app.js:2
+msgid "Field Labels"
+msgstr "Veldlabels"
+
+#: assets/build/editor-app.js:2
+msgid "Typography"
+msgstr "Typografie"
+
+#: assets/build/editor-app.js:2
+msgid "Text"
+msgstr "Tekst"
+
+#: assets/build/editor-app.js:2
+msgid "Input Fields"
+msgstr "Invoervelden"
+
+#: assets/build/editor-app.js:2
+msgid "Active"
+msgstr "Actief"
+
+#: assets/build/editor-app.js:2
+msgid "Input Typography"
+msgstr "Invoertypografie"
+
+#: assets/build/editor-app.js:2
+msgid "Input Padding"
+msgstr "Invoervulling"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Size"
+msgstr "Checkboxgrootte"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Background"
+msgstr "Achtergrond van selectievakje"
+
+#: assets/build/editor-app.js:2
+msgid "Check Color"
+msgstr "Kleur controleren"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Border Width"
+msgstr "Selectievakje Randbreedte"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Border Radius"
+msgstr "Randstraal van selectievakje"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Border Color"
+msgstr "Randkleur van selectievakje"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Checkbox Glow"
+msgstr "Schakel gloed van selectievakje in"
+
+#: assets/build/editor-app.js:2
+msgid "Checkbox Glow Color"
+msgstr "Gloei Kleur van Checkbox"
+
+#: assets/build/editor-app.js:2
+msgid "Login Button"
+msgstr "Inlogknop"
+
+#: assets/build/editor-app.js:2
+msgid "Button Icon"
+msgstr "Knopicoon"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Position"
+msgstr "Pictogrampositie"
+
+#: assets/build/editor-app.js:2
+msgid "Before Text"
+msgstr "Voor tekst"
+
+#: assets/build/editor-app.js:2
+msgid "After Text"
+msgstr "Na tekst"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Spacing"
+msgstr "Pictogramafstand"
+
+#: assets/build/editor-app.js:2
+msgid "Alignment"
+msgstr "Uitlijning"
+
+#: assets/build/editor-app.js:2
+msgid "Full"
+msgstr "Vol"
+
+#: assets/build/editor-app.js:2
+msgid "Small"
+msgstr "Klein"
+
+#: assets/build/editor-app.js:2
+msgid "Medium"
+msgstr "Middelgroot"
+
+#: assets/build/editor-app.js:2
+msgid "Large"
+msgstr "Groot"
+
+#: assets/build/editor-app.js:2
+msgid "Extra Large"
+msgstr "Extra Groot"
+
+#: assets/build/editor-app.js:2
+msgid "Facebook Button"
+msgstr "Facebook-knop"
+
+#: assets/build/editor-app.js:2
+msgid "Google Button"
+msgstr "Google-knop"
+
+#: assets/build/editor-app.js:2
+msgid "Success Border Color"
+msgstr "Succes Randkleur"
+
+#: assets/build/editor-app.js:2
+msgid "Success Background"
+msgstr "Achtergrond van Succes"
+
+#: assets/build/editor-app.js:2
+msgid "Success Text"
+msgstr "Succes Tekst"
+
+#: assets/build/editor-app.js:2
+msgid "Error Border Color"
+msgstr "Foutrandkleur"
+
+#: assets/build/editor-app.js:2
+msgid "Error Background"
+msgstr "Foutachtergrond"
+
+#: assets/build/editor-app.js:2
+msgid "Error Text"
+msgstr "Fouttekst"
+
+#: assets/build/editor-app.js:2
+msgid "Horizontal"
+msgstr "Horizontaal"
+
+#: assets/build/editor-app.js:2
+msgid "Vertical"
+msgstr "Verticaal"
+
+#: assets/build/editor-app.js:2
+msgid "Blur"
+msgstr "Vervagen"
+
+#: assets/build/editor-app.js:2
+msgid "Spread"
+msgstr "Verspreiden"
+
+#: assets/build/editor-app.js:2
+msgid "Social Login"
+msgstr "Sociale login"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Facebook Login"
+msgstr "Facebook-login inschakelen"
+
+#: assets/build/editor-app.js:2
+msgid "Please configure Facebook App settings from"
+msgstr "Configureer de Facebook-app-instellingen vanaf"
+
+#: assets/build/editor-app.js:2
+msgid "here"
+msgstr "hier"
+
+#: assets/build/editor-app.js:2
+msgid "Button Size"
+msgstr "Knopgrootte"
+
+#: assets/build/editor-app.js:2
+msgid "Facebook Login Button"
+msgstr "Facebook Inloggen-knop"
+
+#: assets/build/editor-app.js:2
+msgid "Enter Login Button Text"
+msgstr "Voer de tekst van de inlogknop in"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Google Login"
+msgstr "Google-login inschakelen"
+
+#: assets/build/editor-app.js:2
+msgid "Please configure Google Client ID from"
+msgstr "Configureer Google Client-ID vanaf"
+
+#: assets/build/editor-app.js:2
+msgid "Google Login Button"
+msgstr "Google Inlogknop"
+
+#: assets/build/editor-app.js:2
+msgid "Social Position"
+msgstr "Sociale positie"
+
+#: assets/build/editor-app.js:2
+msgid "Below Form"
+msgstr "Onderstaand formulier"
+
+#: assets/build/editor-app.js:2
+msgid "Above Form"
+msgstr "Bovenstaand formulier"
+
+#: assets/build/editor-app.js:2
+msgid "Social Login Alignment"
+msgstr "Uitlijning van sociale login"
+
+#: assets/build/editor-app.js:2
+msgid "Social Buttons Layout"
+msgstr "Indeling van sociale knoppen"
+
+#: assets/build/editor-app.js:2
+msgid "Inline"
+msgstr "Inline"
+
+#: assets/build/editor-app.js:2
+msgid "Stack"
+msgstr "Stapel"
+
+#: assets/build/editor-app.js:2
+msgid "Note: Choose Stack Options For all devices."
+msgstr "Opmerking: Kies stapelopties voor alle apparaten."
+
+#: assets/build/editor-app.js:2
+msgid "Reverse Social Buttons"
+msgstr "Sociale knoppen omkeren"
+
+#: assets/build/editor-app.js:2
+msgid "Gap Between Buttons"
+msgstr "Afstand tussen knoppen"
+
+#: assets/build/editor-app.js:2
+msgid "Google reCAPTCHA"
+msgstr "Google reCAPTCHA"
+
+#: assets/build/editor-app.js:2
+msgid "P.S. Note that If you are using two forms on the same page with the different reCAPTCHA versions (V2 checkbox and V3), it will create conflicts between the versions. Kindly avoid using different versions on same page. "
+msgstr "P.S. Let op dat als je twee formulieren op dezelfde pagina gebruikt met verschillende reCAPTCHA-versies (V2 checkbox en V3), dit conflicten tussen de versies zal veroorzaken. Vermijd daarom het gebruik van verschillende versies op dezelfde pagina."
+
+#: assets/build/editor-app.js:2
+msgid "Enable reCAPTCHA"
+msgstr "reCAPTCHA inschakelen"
+
+#: assets/build/editor-app.js:2
+msgid "Please configure the Google reCAPTCHA Site & Secret key from"
+msgstr "Configureer de Google reCAPTCHA Site- en geheime sleutel vanaf"
+
+#: assets/build/editor-app.js:2
+msgid "Select Version"
+msgstr "Selecteer versie"
+
+#: assets/build/editor-app.js:2
+msgid "V2"
+msgstr "V2"
+
+#: assets/build/editor-app.js:2
+msgid "V3"
+msgstr "V3"
+
+#: assets/build/editor-app.js:2
+msgid "Input Fields Icon"
+msgstr "Invoerveldenpictogram"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Size"
+msgstr "Pictogramgrootte"
+
+#: assets/build/editor-app.js:2
+msgid "Icon Color"
+msgstr "Pictogramkleur"
+
+#: assets/build/editor-app.js:2
+msgid "Border Width"
+msgstr "Randbreedte"
+
+#: assets/build/editor-app.js:2
+msgid "Eye Icon"
+msgstr "Oogpictogram"
+
+#: assets/build/editor-app.js:2
+msgid "Password Eye Color"
+msgstr "Wachtwoord Oogkleur"
+
+#: assets/build/editor-app.js:2
+msgid "Register Information"
+msgstr "Registratie-informatie"
+
+#: assets/build/editor-app.js:2
+msgid "This is an example success message."
+msgstr "Dit is een voorbeeld van een geslaagde boodschap."
+
+#: assets/build/editor-app.js:2
+msgid "Error"
+msgstr "Fout"
+
+#: assets/build/editor-app.js:2
+msgid ": This is an example error message."
+msgstr ": Dit is een voorbeeld van een foutmelding."
+
+#: assets/build/editor-app.js:2
+msgid "Remember Me"
+msgstr "Onthoud mij"
+
+#: assets/build/editor-app.js:2
+msgid "Do not have an account?"
+msgstr "Heb je geen account?"
+
+#: assets/build/editor-app.js:2
+msgid "login"
+msgstr "inloggen"
+
+#: assets/build/editor-app.js:2
+msgid "This block lets you add Login functionality."
+msgstr "Met dit blok kun je inlogfunctionaliteit toevoegen."
+
+#: assets/build/editor-app.js:2
+msgid "admin login"
+msgstr "admin login"
+
+#: assets/build/editor-app.js:2
+msgid "portal"
+msgstr "portaal"
+
+#: assets/build/editor-app.js:2
+msgid "frontend login"
+msgstr "frontend login"
+
+#: assets/build/editor-app.js:2
+msgid "user login"
+msgstr "gebruikerslogin"
+
+#: assets/build/editor-app.js:2
+msgid "custom login"
+msgstr "aangepaste login"
+
+#: assets/build/editor-app.js:2
+msgid "Registration Form"
+msgstr "Registratieformulier"
+
+#: assets/build/editor-app.js:2
+msgid "Hide Label"
+msgstr "Label verbergen"
+
+#: assets/build/editor-app.js:2
+msgid "Show Login Information"
+msgstr "Inloggegevens weergeven"
+
+#: assets/build/editor-app.js:2
+msgid "Login Link"
+msgstr "Inloglink"
+
+#: assets/build/editor-app.js:2
+msgid "Register Button"
+msgstr "Registreren-knop"
+
+#: assets/build/editor-app.js:2
+msgid "Social Registration"
+msgstr "Sociale registratie"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Facebook Registration"
+msgstr "Facebook-registratie inschakelen"
+
+#: assets/build/editor-app.js:2
+msgid "Enable Google Registration"
+msgstr "Google-registratie inschakelen"
+
+#: assets/build/editor-app.js:2
+msgid "Social Registration Alignment"
+msgstr "Sociale registratie-uitlijning"
+
+#: assets/build/editor-app.js:2
+msgid "After Registration Actions"
+msgstr "Acties na registratie"
+
+#: assets/build/editor-app.js:2
+msgid "Redirect"
+msgstr "Omleiden"
+
+#: assets/build/editor-app.js:2
+msgid "Auto Login"
+msgstr "Automatisch inloggen"
+
+#: assets/build/editor-app.js:2
+msgid "Send Email"
+msgstr "E-mail verzenden"
+
+#: assets/build/editor-app.js:2
+msgid "Redirect URL"
+msgstr "URL omleiden"
+
+#: assets/build/editor-app.js:2
+msgid "Email Template"
+msgstr "E-mailsjabloon"
+
+#: assets/build/editor-app.js:2
+msgid "Customize Email Template"
+msgstr "E-mail sjabloon aanpassen"
+
+#: assets/build/editor-app.js:2
+msgid "Subject"
+msgstr "Onderwerp"
+
+#: assets/build/editor-app.js:2
+msgid "Message"
+msgstr "Bericht"
+
+#: assets/build/editor-app.js:2
+msgid "HTML Supported"
+msgstr "HTML Ondersteund"
+
+#: assets/build/editor-app.js:2
+msgid "Note:"
+msgstr "Opmerking:"
+
+#: assets/build/editor-app.js:2
+msgid "If you wish to send System Generated Password in the email content, use shortcode -"
+msgstr "Als u het systeem gegenereerde wachtwoord in de e-mailinhoud wilt verzenden, gebruik dan de shortcode -"
+
+#: assets/build/editor-app.js:2
+msgid "Send As"
+msgstr "Verzenden als"
+
+#: assets/build/editor-app.js:2
+msgid "HTML"
+msgstr "HTML"
+
+#: assets/build/editor-app.js:2
+msgid "Plain"
+msgstr "Effen"
+
+#: assets/build/editor-app.js:2
+msgid "Make sure to update your post for changes to take effect."
+msgstr "Zorg ervoor dat je je bericht bijwerkt om de wijzigingen door te voeren."
+
+#: assets/build/editor-app.js:2
+msgid "Return To Post"
+msgstr "Terug naar bericht"
+
+#: assets/build/editor-app.js:2
+msgid "Validation Messages"
+msgstr "Validatieberichten"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Email"
+msgstr "Ongeldig e-mailadres"
+
+#: assets/build/editor-app.js:2
+msgid "Email is missing"
+msgstr "Email ontbreekt"
+
+#: assets/build/editor-app.js:2
+msgid "Already Used Email"
+msgstr "Al gebruikt e-mailadres"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Username"
+msgstr "Ongeldige gebruikersnaam"
+
+#: assets/build/editor-app.js:2
+msgid "Username already in use"
+msgstr "Gebruikersnaam is al in gebruik"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Password"
+msgstr "Ongeldig wachtwoord"
+
+#: assets/build/editor-app.js:2
+msgid "Invalid Password Confirmed"
+msgstr "Ongeldig wachtwoord bevestigd"
+
+#: assets/build/editor-app.js:2
+msgid "Terms & Condition Error"
+msgstr "Fout in de Algemene Voorwaarden"
+
+#: assets/build/editor-app.js:2
+msgid "Other Errors"
+msgstr "Andere fouten"
+
+#: assets/build/editor-app.js:2
+msgid "Successful Registration"
+msgstr "Succesvolle registratie"
+
+#: assets/build/editor-app.js:2
+msgid "View Field Error Message"
+msgstr "Bekijk veldfoutmelding"
+
+#: assets/build/editor-app.js:2
+msgid "Enable reCAPTCHA "
+msgstr "reCAPTCHA inschakelen"
+
+#: assets/build/editor-app.js:2
+msgid "Label Bottom Margin"
+msgstr "Onderste Marge van Label"
+
+#: assets/build/editor-app.js:2
+msgid "Login Information"
+msgstr "Inloggegevens"
+
+#: assets/build/editor-app.js:2
+msgid "Link Text"
+msgstr "Koppelingstekst"
+
+#: assets/build/editor-app.js:2
+msgid "Field Error Text"
+msgstr "Veldfouttekst"
+
+#: assets/build/editor-app.js:2
+msgid "This message will appear when everything worked fine."
+msgstr "Dit bericht verschijnt wanneer alles goed is gegaan."
+
+#: assets/build/editor-app.js:2
+msgid "This message will appear when something wrong is happening."
+msgstr "Dit bericht verschijnt wanneer er iets misgaat."
+
+#: assets/build/editor-app.js:2
+msgid "To use Registration Form on your site, please enable the"
+msgstr "Om het registratieformulier op uw site te gebruiken, schakelt u de"
+
+#: assets/build/editor-app.js:2
+msgid "Anyone Can Register"
+msgstr "Iedereen kan zich registreren"
+
+#: assets/build/editor-app.js:2
+msgid "setting from Dashboard -> Settings -> General -> Membership."
+msgstr "instelling van Dashboard -> Instellingen -> Algemeen -> Lidmaatschap."
+
+#: assets/build/editor-app.js:2
+msgid "Register"
+msgstr "Registreren"
+
+#: assets/build/editor-app.js:2
+msgid "Already have an account?"
+msgstr "Heb je al een account?"
+
+#: assets/build/editor-app.js:2
+msgid "This block lets you add Registration functionality."
+msgstr "Met dit blok kunt u registratiefunctionaliteit toevoegen."
+
+#: assets/build/editor-app.js:2
+msgid "register"
+msgstr "registreren"
+
+#: assets/build/editor-app.js:2
+msgid "admin register"
+msgstr "admin registreren"
+
+#: assets/build/editor-app.js:2
+msgid "frontend register"
+msgstr "frontend registreren"
+
+#: assets/build/editor-app.js:2
+msgid "user register"
+msgstr "gebruiker registreren"
+
+#: assets/build/editor-app.js:2
+msgid "custom register"
+msgstr "custom register"
+
+#: assets/build/portals-app.js:2
+msgid "What's New?"
+msgstr "Wat is er nieuw?"
+
+#: assets/build/portals-app.js:2
+msgid "- Select -"
+msgstr "- Selecteer -"
+
+#: assets/build/portals-app.js:2
+msgid "Set Portal as Homepage"
+msgstr "Stel Portal in als startpagina"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this option will set the portal as your site homepage."
+msgstr "Als u deze optie inschakelt, wordt het portaal als uw site-startpagina ingesteld."
+
+#: assets/build/portals-app.js:2
+msgid "No fonts found!"
+msgstr "Geen lettertypen gevonden!"
+
+#: assets/build/portals-app.js:2
+msgid "Enter atleast 3 characters to search font family (default: Figtree). Font generation may take a few moments for self hosting."
+msgstr "Voer minimaal 3 tekens in om een lettertypefamilie te zoeken (standaard: Figtree). Het genereren van het lettertype kan enkele momenten duren voor zelfhosting."
+
+#: assets/build/portals-app.js:2
+msgid "Bypass WordPress Interactions"
+msgstr "WordPress-interacties omzeilen"
+
+#: assets/build/portals-app.js:2
+msgid "Enabling this option will bypass WordPress interactions within the portal and improve performance."
+msgstr "Als u deze optie inschakelt, worden WordPress-interacties binnen het portaal omzeild en wordt de prestatie verbeterd."
+
+#: core/blocks/social-login.php:47
+msgid "Invalid Data"
+msgstr "Ongeldige gegevens"
+
+#: core/blocks/social-login.php:59
+#: core/blocks/social-login.php:64
+#: core/blocks/social-login.php:73
+msgid "Invalid Authorization"
+msgstr "Ongeldige autorisatie"
+
+#: core/routers/backend.php:326
+#: core/routers/backend.php:367
+msgid "Invalid post type."
+msgstr "Ongeldig berichttype."
+
+#: inc/functions/operations.php:271
+msgid "User data not updated"
+msgstr "Gebruikersgegevens niet bijgewerkt"
+
+#: admin/notices.php:54
+msgid "How likely are you to recommend SureDash to your friends or colleagues?"
+msgstr "Hoe waarschijnlijk is het dat je SureDash aan je vrienden of collega's zou aanbevelen?"
+
+#: admin/notices.php:55
+msgid "Thanks a lot for your feedback! 😍"
+msgstr "Heel erg bedankt voor je feedback! 😍"
+
+#: admin/notices.php:56
+msgid "Could you please do us a favor and give us a 5-star rating on WordPress? It would help others choose SureDash with confidence. Thank you!"
+msgstr "Zou je ons alsjeblieft een plezier willen doen en ons een 5-sterrenbeoordeling op WordPress willen geven? Het zou anderen helpen om met vertrouwen voor SureDash te kiezen. Dank je!"
+
+#: admin/notices.php:58
+msgid "Thank you for your feedback"
+msgstr "Dank u voor uw feedback"
+
+#: admin/notices.php:59
+msgid "We value your input. How can we improve your experience?"
+msgstr "We waarderen uw inbreng. Hoe kunnen we uw ervaring verbeteren?"
+
+#: admin/notices.php:60
+msgid "Rate SureDash"
+msgstr "Beoordeel SureDash"
+
+#: assets/build/portals-app.js:2
+msgid "Note: You can add lessons later through the Course Builder in the edit area."
+msgstr "Opmerking: Je kunt later lessen toevoegen via de Cursusbouwer in het bewerkingsgebied."
+
+#: assets/build/portals-app.js:2
+msgid "Google Client ID"
+msgstr "Google-client-ID"
+
+#: assets/build/portals-app.js:2
+msgid "Google Client Secret"
+msgstr "Google Client Secret"
+
+#: admin/menu.php:223
+#: admin/menu.php:224
+msgid "Customize Portal"
+msgstr "Portal aanpassen"
+
+#: core/assets.php:81
+msgid "Bold"
+msgstr "Vet"
+
+#: core/assets.php:84
+msgid "Attach an Image"
+msgstr "Afbeelding toevoegen"
+
+#: core/assets.php:85
+msgid "Attach a Video"
+msgstr "Een video bijvoegen"
+
+#: core/assets.php:86
+msgid "Image URL"
+msgstr "Afbeeldings-URL"
+
+#: core/assets.php:87
+msgid "Image Alt Text"
+msgstr "Afbeelding Alt-tekst"
+
+#: core/assets.php:88
+msgid "Attach Image"
+msgstr "Afbeelding bijvoegen"
+
+#: core/assets.php:89
+msgid "Drag and drop or browse files"
+msgstr "Slepen en neerzetten of bestanden bladeren"
+
+#: core/assets.php:91
+msgid "From URL"
+msgstr "Van URL"
+
+#: core/assets.php:92
+msgid "Attach Video"
+msgstr "Video bijvoegen"
+
+#: core/assets.php:93
+msgid "Video URL"
+msgstr "Video-URL"
+
+#: core/assets.php:94
+msgid "Insert YouTube or Vimeo link"
+msgstr "Voeg YouTube- of Vimeo-link in"
+
+#: core/blocks/do-blocks.php:47
+#: inc/templator/service.php:215
+msgid "Community Portal"
+msgstr "Communityportaal"
+
+#: core/blocks/do-blocks.php:105
+msgid "Active Space Text"
+msgstr "Actieve Ruimte Tekst"
+
+#: core/blocks/do-blocks.php:118
+msgid "Active Space Background"
+msgstr "Actieve ruimte-achtergrond"
+
+#: core/blocks/do-blocks.php:131
+msgid "Space Group Text"
+msgstr "Groepstekst voor ruimte"
+
+#: core/blocks/do-blocks.php:144
+msgid "Space Group Background"
+msgstr "Achtergrond van de Ruimtegroep"
+
+#: core/routers/misc.php:817
+msgid "Invalid file type. Only GIF, PNG, JPEG, and JPG are allowed."
+msgstr "Ongeldig bestandstype. Alleen GIF, PNG, JPEG en JPG zijn toegestaan."
+
+#: core/routers/misc.php:822
+msgid "Uploaded file is not a valid image."
+msgstr "Geüpload bestand is geen geldige afbeelding."
+
+#: core/routers/misc.php:826
+msgid "Image dimensions exceed the permissible limit."
+msgstr "Afmetingen van de afbeelding overschrijden de toegestane limiet."
+
+#: core/routers/misc.php:830
+msgid "File size larger than permissible."
+msgstr "Bestandsgrootte groter dan toegestaan."
+
+#: inc/functions/functions.php:1188
+msgid "No matching template found."
+msgstr "Geen overeenkomende sjabloon gevonden."
+
+#. translators: Represents the title of a user's custom template in the Site Editor, where %s is the author's name, e.g. "Author: Jane Doe".
+#: inc/templator/service.php:214
+msgid "SureDash: %s"
+msgstr "SureDash: %s"
+
+#: inc/templator/service.php:217
+#: inc/templator/utility.php:55
+msgid "Template for your SureDash community."
+msgstr "Sjabloon voor je SureDash-gemeenschap."
+
+#: inc/templator/utility.php:232
+msgid "No theme is defined for this template."
+msgstr "Er is geen thema gedefinieerd voor deze sjabloon."
+
+#: inc/utils/labels.php:154
+msgid "Comment posted successfully."
+msgstr "Reactie succesvol geplaatst."
+
+#: inc/utils/labels.php:155
+msgid "Invalid comment."
+msgstr "Ongeldige opmerking."
+
+#: inc/utils/labels.php:156
+msgid "Duplicate comment detected. Please try writing something new!"
+msgstr "Dubbele opmerking gedetecteerd. Probeer iets nieuws te schrijven!"
+
+#: inc/utils/labels.php:164
+msgid "Something went wrong! Please try again later."
+msgstr "Er is iets misgegaan! Probeer het later opnieuw."
+
+#: inc/utils/labels.php:167
+msgid "Replying to"
+msgstr "Antwoorden op"
+
+#: inc/utils/labels.php:169
+msgid "Start writing your post..."
+msgstr "Begin met het schrijven van je bericht..."
+
+#: inc/utils/labels.php:172
+msgid "Search Gifs..."
+msgstr "Gifs zoeken..."
+
+#: inc/utils/labels.php:175
+msgid "Insert GIF"
+msgstr "GIF invoegen"
+
+#: inc/utils/labels.php:176
+msgid "No GIF found"
+msgstr "Geen GIF gevonden"
+
+#: inc/utils/labels.php:178
+msgid "Please enter at least 3 characters to search"
+msgstr "Voer alstublieft minimaal 3 tekens in om te zoeken"
+
+#: inc/utils/labels.php:179
+msgid "API error occurred"
+msgstr "Er is een API-fout opgetreden"
+
+#: templates/patterns/default.php:12
+msgid "Classic Layout"
+msgstr "Klassieke indeling"
+
+#: templates/patterns/modern.php:15
+msgid "Modern Layout"
+msgstr "Moderne indeling"
+
+#: assets/build/portals-app.js:2
+msgid "Thumbnail Image"
+msgstr "Miniatuurafbeelding"
+
+#: assets/build/portals-app.js:2
+msgid "Recommended size: 255x140px"
+msgstr "Aanbevolen grootte: 255x140px"
+
+#: assets/build/portals-app.js:2
+msgid "Giphy Integration"
+msgstr "Giphy-integratie"
+
+#: assets/build/portals-app.js:2
+msgid "API Key"
+msgstr "API-sleutel"
+
+#: assets/build/portals-app.js:2
+msgid "Allow SureDash products to track non-sensitive usage tracking data."
+msgstr "Sta SureDash-producten toe om niet-gevoelige gebruiksgegevens bij te houden."
+
+#: assets/build/portals-app.js:2
+msgid "Want to help make SureDash even more awesome? Allow us to collect non-sensitive diagnostic data and usage information."
+msgstr "Wil je helpen om SureDash nog fantastischer te maken? Sta ons toe om niet-gevoelige diagnostische gegevens en gebruiksinformatie te verzamelen."
+
+#: assets/build/portals-app.js:2
+msgid "Know More"
+msgstr "Meer weten"
+
+#: assets/build/portals-app.js:2
+msgid "Usage Tracking"
+msgstr "Gebruikstracering"
+
+#: core/cpt/content.php:40
+msgctxt "content general name"
+msgid "Content"
+msgstr "Inhoud"
+
+#: core/cpt/sub-content.php:39
+msgctxt "content general name"
+msgid "Sub Content"
+msgstr "Subinhoud"
+
+#: core/cpt/topic.php:41
+msgctxt "content general name"
+msgid "Topic"
+msgstr "Onderwerp"
+
+#: core/cpt/content.php:41
+msgctxt "content singular name"
+msgid "Content"
+msgstr "Inhoud"
+
+#: core/cpt/sub-content.php:40
+msgctxt "content singular name"
+msgid "Sub Content"
+msgstr "Subinhoud"
+
+#: core/cpt/topic.php:42
+msgctxt "content singular name"
+msgid "Topic"
+msgstr "Onderwerp"
+
+#: core/cpt/content.php:83
+msgctxt "Admin menu name"
+msgid "Content Groups"
+msgstr "Inhoudsgroepen"
+
+#: core/cpt/portal.php:85
+msgctxt "Admin menu name"
+msgid "Portal Space Groups"
+msgstr "Portal Ruimtegroepen"
+
+#: core/cpt/topic.php:84
+msgctxt "Admin menu name"
+msgid "Topic Forums"
+msgstr "Onderwerpforums"
+
+#: core/cpt/portal.php:42
+msgctxt "portals general name"
+msgid "Portal Spaces"
+msgstr "Portalruimtes"
+
+#: core/cpt/portal.php:43
+msgctxt "portal singular name"
+msgid "Portal Space"
+msgstr "Portaalruimte"
+
+#: inc/utils/labels.php:89
+msgctxt "Search global placeholder text!"
+msgid "Search"
+msgstr "Zoeken"
+
+#: inc/templator/utility.php:54
+msgctxt "SureDash Portal"
+msgid "SureDash: Portal"
+msgstr "SureDash: Portaal"
