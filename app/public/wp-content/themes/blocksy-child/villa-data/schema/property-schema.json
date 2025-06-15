@@ -1,0 +1,248 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Villa Property Schema",
+  "description": "JSON schema for Villa Capriani property data structure",
+  "type": "object",
+  "required": ["unit_details", "listing_status", "ownership", "metadata"],
+  "properties": {
+    "unit_details": {
+      "type": "object",
+      "required": ["unit_number", "bedrooms", "bathrooms", "floorplan_type"],
+      "properties": {
+        "unit_number": {
+          "type": "string",
+          "pattern": "^[0-9]{3}[A-Z]?$",
+          "description": "Unit number (e.g., 107A, 205B)"
+        },
+        "display_name": {
+          "type": "string",
+          "maxLength": 100,
+          "description": "Marketing display name for the unit"
+        },
+        "description": {
+          "type": "string",
+          "maxLength": 1000,
+          "description": "Detailed description of the property"
+        },
+        "floor_level": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 4,
+          "description": "Floor level (1-4)"
+        },
+        "stories": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 2,
+          "description": "Number of stories (1 or 2)"
+        },
+        "bedrooms": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3,
+          "description": "Number of bedrooms (1-3)"
+        },
+        "bathrooms": {
+          "type": "integer",
+          "minimum": 1,
+          "maximum": 3,
+          "description": "Number of bathrooms (1-3)"
+        },
+        "floorplan_type": {
+          "type": "string",
+          "enum": ["1.1", "1.2", "2.1", "2.2", "2.3", "3.1", "3.2"],
+          "description": "Floorplan type designation"
+        },
+        "square_footage": {
+          "type": "integer",
+          "minimum": 500,
+          "maximum": 2000,
+          "description": "Square footage of the unit"
+        },
+        "balcony_type": {
+          "type": "string",
+          "enum": ["oceanfront", "ocean_view", "courtyard", "none"],
+          "description": "Type of balcony or outdoor space"
+        },
+        "view_type": {
+          "type": "string",
+          "enum": ["ocean", "partial_ocean", "courtyard", "pool", "garden"],
+          "description": "Primary view from the unit"
+        },
+        "amenities_access": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": ["pool", "hot_tub", "beach", "cabana_bar", "restaurant", "fitness", "spa", "tennis", "golf"]
+          },
+          "description": "List of amenities accessible to this unit"
+        }
+      }
+    },
+    "listing_status": {
+      "type": "object",
+      "properties": {
+        "for_rent": {
+          "type": "boolean",
+          "description": "Whether the unit is available for rent"
+        },
+        "for_sale": {
+          "type": "boolean",
+          "description": "Whether the unit is for sale"
+        },
+        "rental_platforms": {
+          "type": "object",
+          "properties": {
+            "airbnb": {"type": ["string", "null"]},
+            "vrbo": {"type": ["string", "null"]},
+            "booking_com": {"type": ["string", "null"]},
+            "direct_booking": {"type": ["string", "null"]}
+          }
+        },
+        "sale_platforms": {
+          "type": "object",
+          "properties": {
+            "mls": {"type": ["string", "null"]},
+            "fsbo": {"type": ["string", "null"]},
+            "realtor_contact": {"type": ["string", "null"]}
+          }
+        }
+      }
+    },
+    "media": {
+      "type": "object",
+      "properties": {
+        "featured_image": {
+          "type": "string",
+          "description": "Path to featured image"
+        },
+        "gallery_images": {
+          "type": "array",
+          "items": {"type": "string"},
+          "maxItems": 10,
+          "description": "Array of image paths (max 10)"
+        },
+        "floorplan_image": {
+          "type": "string",
+          "description": "Path to floorplan image"
+        }
+      }
+    },
+    "ownership": {
+      "type": "object",
+      "required": ["current_owners"],
+      "properties": {
+        "current_owners": {
+          "type": "array",
+          "minItems": 1,
+          "items": {
+            "type": "object",
+            "required": ["owner_id", "ownership_percentage"],
+            "properties": {
+              "owner_id": {"type": "string"},
+              "ownership_percentage": {
+                "type": "number",
+                "minimum": 0,
+                "maximum": 100
+              },
+              "start_date": {"type": "string", "format": "date"},
+              "contact_preference": {
+                "type": "string",
+                "enum": ["email", "phone", "mail", "portal"]
+              },
+              "rental_management": {"type": "boolean"}
+            }
+          }
+        },
+        "ownership_history": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "owner_id": {"type": "string"},
+              "ownership_percentage": {"type": "number"},
+              "start_date": {"type": "string", "format": "date"},
+              "end_date": {"type": "string", "format": "date"},
+              "sale_price": {"type": "number"}
+            }
+          }
+        }
+      }
+    },
+    "maintenance": {
+      "type": "object",
+      "properties": {
+        "last_inspection": {"type": "string", "format": "date"},
+        "next_inspection": {"type": "string", "format": "date"},
+        "repair_requests": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {"type": "string"},
+              "date_submitted": {"type": "string", "format": "date"},
+              "description": {"type": "string"},
+              "priority": {
+                "type": "string",
+                "enum": ["low", "medium", "high", "emergency"]
+              },
+              "status": {
+                "type": "string",
+                "enum": ["pending", "in_progress", "completed", "cancelled"]
+              },
+              "assigned_to": {"type": "string"},
+              "completion_date": {"type": ["string", "null"], "format": "date"},
+              "cost": {"type": "number"}
+            }
+          }
+        }
+      }
+    },
+    "financial": {
+      "type": "object",
+      "properties": {
+        "hoa_dues": {
+          "type": "object",
+          "properties": {
+            "monthly_amount": {"type": "number"},
+            "current_status": {
+              "type": "string",
+              "enum": ["current", "late", "delinquent"]
+            },
+            "last_payment": {"type": "string", "format": "date"},
+            "next_due": {"type": "string", "format": "date"}
+          }
+        },
+        "assessments": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {"type": "string"},
+              "description": {"type": "string"},
+              "amount": {"type": "number"},
+              "due_date": {"type": "string", "format": "date"},
+              "status": {
+                "type": "string",
+                "enum": ["pending", "paid", "overdue"]
+              }
+            }
+          }
+        }
+      }
+    },
+    "metadata": {
+      "type": "object",
+      "required": ["created_date", "data_version"],
+      "properties": {
+        "created_date": {"type": "string", "format": "date"},
+        "last_updated": {"type": "string", "format": "date"},
+        "data_version": {"type": "string"},
+        "sync_status": {
+          "type": "string",
+          "enum": ["current", "pending", "error"]
+        }
+      }
+    }
+  }
+}

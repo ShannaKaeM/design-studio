@@ -1,0 +1,179 @@
+# Copyright (C) 2025 SureDash
+# This file is distributed under the GPL v2.
+msgid ""
+msgstr ""
+"Project-Id-Version: SureDash Pro 1.0.0-rc.3\n"
+"Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/suredash-pro\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-05-27T14:13:49+00:00\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"X-Generator: WP-CLI 2.11.0\n"
+"X-Domain: suredash-pro\n"
+
+#. Plugin Name of the plugin
+#: suredash-pro.php
+msgid "SureDash Pro"
+msgstr ""
+
+#. Plugin URI of the plugin
+#. Author URI of the plugin
+#: suredash-pro.php
+msgid "https://suredash.com/"
+msgstr ""
+
+#. Description of the plugin
+#: suredash-pro.php
+msgid "Extend the functionality of SureDash with SureDash Pro."
+msgstr ""
+
+#. Author of the plugin
+#: suredash-pro.php
+msgid "SureDash"
+msgstr ""
+
+#: admin/licensing.php:105
+msgid "Incorrect License key for this product."
+msgstr ""
+
+#: admin/licensing.php:116
+msgid "License activated successfully."
+msgstr ""
+
+#: admin/licensing.php:145
+msgid "License deactivated successfully."
+msgstr ""
+
+#. translators: %s: html tags
+#: admin/licensing.php:215
+msgid "Please %1$s activate %2$s your copy of %4$s %3$s %5$s to get new features, access support, receive update notifications, and more."
+msgstr ""
+
+#: admin/licensing.php:244
+msgid "Invalid nonce."
+msgstr ""
+
+#: admin/licensing.php:245
+msgid "You do not have permission to activate license."
+msgstr ""
+
+#: admin/licensing.php:246
+msgid "Please enter a valid license key"
+msgstr ""
+
+#: admin/menu.php:53
+#: inc/utils/labels.php:39
+msgid "Course"
+msgstr ""
+
+#: admin/notices.php:54
+msgid "Activate"
+msgstr ""
+
+#: admin/notices.php:54
+msgid "Install"
+msgstr ""
+
+#. translators: %s: html tags
+#: admin/notices.php:58
+msgid "The %1$s %7$s %2$s plugin requires %1$s %6$s %2$s plugin to be activated! %3$s %4$s %5$s"
+msgstr ""
+
+#. translators: %s: html tags
+#: admin/notices.php:95
+msgid "The %1$s %2$s %3$s plugin requires %1$s %4$s %3$s plugin to be updated to version %5$s or higher!"
+msgstr ""
+
+#: core/integrations/course.php:31
+msgid "Course Integration"
+msgstr ""
+
+#: core/integrations/course.php:94
+msgid "Completed"
+msgstr ""
+
+#: core/integrations/course.php:115
+#: inc/functions/shortcode-supports.php:88
+msgid "Section"
+msgstr ""
+
+#: core/integrations/course.php:138
+msgid "Media"
+msgstr ""
+
+#: core/integrations/course.php:249
+#: core/integrations/course.php:250
+msgid "Login"
+msgstr ""
+
+#: core/renderer.php:94
+#: core/routers/misc.php:60
+msgid "Lesson marked as complete."
+msgstr ""
+
+#: inc/functions/shortcode-supports.php:134
+msgid " runtime"
+msgstr ""
+
+#: inc/functions/shortcode-supports.php:145
+msgid "No items found."
+msgstr ""
+
+#: inc/functions/shortcode-supports.php:154
+msgid "Invalid endpoint data."
+msgstr ""
+
+#: inc/traits/rest-errors.php:36
+msgid "Sorry, you are not allowed to do this operation."
+msgstr ""
+
+#: inc/traits/rest-errors.php:37
+msgid "Nonce validation failed"
+msgstr ""
+
+#: inc/traits/rest-errors.php:38
+msgid "Sorry, something went wrong."
+msgstr ""
+
+#: inc/traits/rest-errors.php:39
+msgid "Oops, the required key is missing."
+msgstr ""
+
+#: inc/traits/rest-errors.php:40
+msgid "The current post's post type is not of this plugin."
+msgstr ""
+
+#: inc/traits/rest-errors.php:41
+msgid "Data saved successfully."
+msgstr ""
+
+#: inc/utils/labels.php:38
+msgid "Course Playlist"
+msgstr ""
+
+#: inc/utils/labels.php:40
+msgid "Courses"
+msgstr ""
+
+#: inc/utils/labels.php:41
+msgid "Lesson"
+msgstr ""
+
+#: inc/utils/labels.php:42
+msgid "Lessons"
+msgstr ""
+
+#: inc/utils/labels.php:43
+msgid "Bookmark Lesson"
+msgstr ""
+
+#: inc/utils/labels.php:44
+msgid "Continue"
+msgstr ""
+
+#: inc/utils/labels.php:46
+msgid "Course Progress"
+msgstr ""

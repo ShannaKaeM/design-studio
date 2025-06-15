@@ -1,0 +1,42 @@
+{
+  "villa_data_index": {
+    "last_updated": "2024-02-15",
+    "data_version": "1.0",
+    "total_properties": 116,
+    "total_owners": 68,
+    "properties_with_owners": 40,
+    "properties_without_owners": 76,
+    "summary": {
+      "properties": {
+        "total": 116,
+        "floor_1": 29,
+        "floor_2": 29,
+        "floor_3": 29,
+        "floor_4": 29,
+        "a_side": 58,
+        "b_side": 58
+      },
+      "owners": {
+        "total": 68,
+        "with_properties": 40,
+        "without_properties": 28,
+        "with_emails": 68,
+        "active_members": 68
+      }
+    },
+    "directories": {
+      "properties": "/villa-data/properties/",
+      "owners": "/villa-data/owners/",
+      "committees": "/villa-data/committees/",
+      "schema": "/villa-data/schema/",
+      "migration": "/villa-data/migration/"
+    },
+    "next_steps": [
+      "Create committee structure",
+      "Build committee registration system",
+      "Setup email campaign for committee signups",
+      "Integrate SureDash for committee management",
+      "Create WordPress admin interface"
+    ]
+  }
+}

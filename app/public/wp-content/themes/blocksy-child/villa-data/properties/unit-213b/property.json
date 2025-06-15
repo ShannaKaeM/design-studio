@@ -1,0 +1,100 @@
+{
+  "unit_details": {
+    "unit_number": "213B",
+    "display_name": "Villa Capriani - Unit 213B",
+    "description": "Beautiful 2-bedroom, 1-bathroom unit with partial_ocean views. Located on floor 2 with garden balcony access.",
+    "floor_level": 2,
+    "stories": 1,
+    "bedrooms": 2,
+    "bathrooms": 1,
+    "floorplan_type": "2.1",
+    "square_footage": 1100,
+    "balcony_type": "garden",
+    "view_type": "partial_ocean",
+    "amenities_access": [
+      "pool",
+      "hot_tub",
+      "beach",
+      "cabana_bar",
+      "restaurant",
+      "fitness"
+    ]
+  },
+  "listing_status": {
+    "for_rent": false,
+    "for_sale": false,
+    "rental_platforms": {
+      "airbnb": null,
+      "vrbo": null,
+      "direct_booking": null
+    },
+    "sale_platforms": {
+      "mls": null,
+      "fsbo": null,
+      "realtor_contact": null
+    }
+  },
+  "media": {
+    "featured_image": "/villa-data/properties/unit-213b/images/featured.jpg",
+    "gallery_images": [
+      "/villa-data/properties/unit-213b/images/living-room.jpg",
+      "/villa-data/properties/unit-213b/images/master-bedroom.jpg",
+      "/villa-data/properties/unit-213b/images/kitchen.jpg",
+      "/villa-data/properties/unit-213b/images/balcony.jpg",
+      "/villa-data/properties/unit-213b/images/bathroom.jpg"
+    ],
+    "floorplan_image": "/villa-data/properties/unit-213b/images/floorplan.jpg"
+  },
+  "ownership": {
+    "current_owners": [],
+    "ownership_history": []
+  },
+  "maintenance": {
+    "last_inspection": "2024-01-15",
+    "next_inspection": "2024-07-15",
+    "repair_requests": [],
+    "maintenance_schedule": [
+      {
+        "type": "HVAC Filter Change",
+        "frequency": "quarterly",
+        "last_completed": "2024-01-15",
+        "next_due": "2024-04-15"
+      },
+      {
+        "type": "Deep Cleaning",
+        "frequency": "bi-annual",
+        "last_completed": "2023-12-01",
+        "next_due": "2024-06-01"
+      }
+    ]
+  },
+  "financial": {
+    "hoa_dues": {
+      "monthly_amount": 500,
+      "current_status": "current",
+      "last_payment": "2024-02-01",
+      "next_due": "2024-03-01"
+    },
+    "assessments": [],
+    "violations": [],
+    "insurance": {
+      "policy_number": "INS-213B-2024",
+      "provider": "Coastal Insurance Co",
+      "expiration": "2024-12-31",
+      "coverage_amount": 460000
+    }
+  },
+  "rental_performance": {
+    "occupancy_rate_2023": 0,
+    "average_nightly_rate": 0,
+    "total_revenue_2023": 0,
+    "guest_rating": null,
+    "total_bookings_2023": 0
+  },
+  "metadata": {
+    "created_date": "2024-01-01",
+    "last_updated": "2024-02-15",
+    "data_version": "1.0",
+    "sync_status": "current"
+  }
+}

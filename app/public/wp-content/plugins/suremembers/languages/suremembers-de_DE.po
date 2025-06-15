@@ -1,0 +1,1974 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"Last-Translator: gpt-po v1.1.1\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"POT-Creation-Date: 2025-03-12T20:46:18+00:00\n"
+"PO-Revision-Date: 2025-03-12T20:46:18+00:00\n"
+"Language: \n"
+
+#. Plugin Name of the plugin
+#: suremembers.php
+#: integrations/buddyboss/buddyboss.php:58
+#: integrations/surecart-integration.php:60
+#: integrations/woocommerce.php:389
+msgid "SureMembers"
+msgstr "SureMembers"
+
+#. Plugin URI of the plugin
+#: suremembers.php
+msgid "https://surecart.com/"
+msgstr "https://surecart.com/"
+
+#. Description of the plugin
+#: suremembers.php
+msgid "A simple yet powerful way to add content restriction to your website."
+msgstr "Eine einfache, aber leistungsstarke Möglichkeit, Inhaltsbeschränkungen zu Ihrer Website hinzuzufügen."
+
+#. Author of the plugin
+#: suremembers.php
+msgid "SureCart"
+msgstr "SureCart"
+
+#. Author URI of the plugin
+#: suremembers.php
+msgid "https://surecart.com"
+msgstr "https://surecart.com"
+
+#: admin/admin-menu.php:143
+#: admin/user-access-table.php:36
+#: admin/user-access-table.php:160
+msgid "Access Group"
+msgstr "Zugriffsgruppe"
+
+#: admin/admin-menu.php:144
+#: admin/templates.php:149
+msgid "Add Access Group"
+msgstr "Zugriffsgruppe hinzufügen"
+
+#: admin/admin-menu.php:191
+msgid "Suremembers License"
+msgstr "Suremembers-Lizenz"
+
+#: admin/admin-menu.php:192
+msgid "Close dialog"
+msgstr "Dialog schließen"
+
+#: admin/admin-menu.php:310
+#: admin/settings-screen.php:417
+#: admin/assets/build/globalsettings.js:234
+msgid "Administrator"
+msgstr "Administrator"
+
+#: admin/admin-menu.php:326
+msgid "Active"
+msgstr "Aktiv"
+
+#: admin/admin-menu.php:355
+#: admin/admin-menu.php:609
+#: admin/rules-engine.php:59
+#: admin/user-access-table.php:37
+#: modules/elementor/classes/add-controls.php:107
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/settings.js:164
+msgid "Access Groups"
+msgstr "Zugriffsgruppen"
+
+#: admin/admin-menu.php:356
+msgid "Includes"
+msgstr "Enthält"
+
+#: admin/admin-menu.php:357
+msgid "Excludes"
+msgstr "Schließt aus"
+
+#: admin/admin-menu.php:358
+#: admin/assets/build/settings.js:174
+msgid "Priority"
+msgstr "Priorität"
+
+#: admin/admin-menu.php:359
+msgid "Users"
+msgstr "Benutzer"
+
+#. translators: %s array count
+#: admin/admin-menu.php:394
+msgid "%1s Rules"
+msgstr "%1s Regeln"
+
+#. translators: %s html tags
+#: admin/admin-menu.php:401
+msgid "%1$sURL containing:%2$s %3$s"
+msgstr "%1$sURL enthält:%2$s %3$s"
+
+#: admin/admin-menu.php:503
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/settings.js:164
+msgid "Archive"
+msgstr "Archiv"
+
+#: admin/admin-menu.php:515
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/settings.js:164
+msgid "Un-Archive"
+msgstr "Wiederherstellen"
+
+#. translators: %s Access Group ID
+#: admin/admin-menu.php:524
+msgid "Group ID: %s"
+msgstr "Gruppen-ID: %s"
+
+#: admin/admin-menu.php:544
+msgid "Unlicensed"
+msgstr "Ohne Lizenz"
+
+#: admin/admin-menu.php:547
+msgid "Licensed"
+msgstr "Lizenziert"
+
+#: admin/admin-menu.php:764
+msgid "Missing Post ID."
+msgstr "Fehlende Beitrags-ID."
+
+#: admin/admin-menu.php:768
+msgid "Missing Post status data."
+msgstr "Fehlende Poststatusdaten."
+
+#: admin/admin-menu.php:772
+#: admin/admin-menu.php:777
+#: admin/admin-menu.php:850
+msgid "Invalid data."
+msgstr "Ungültige Daten."
+
+#: admin/admin-menu.php:782
+msgid "Invalid post id."
+msgstr "Ungültige Beitrags-ID."
+
+#: admin/admin-menu.php:790
+msgid "Published successfully"
+msgstr "Erfolgreich veröffentlicht"
+
+#: admin/admin-menu.php:802
+msgid "Updating failed"
+msgstr "Aktualisierung fehlgeschlagen"
+
+#: admin/admin-menu.php:804
+msgid "Archived successfully"
+msgstr "Erfolgreich archiviert"
+
+#: admin/admin-menu.php:810
+msgid "Deleted successfully"
+msgstr "Erfolgreich gelöscht"
+
+#: admin/admin-menu.php:812
+msgid "Delete operation failed"
+msgstr "Löschvorgang fehlgeschlagen"
+
+#: admin/admin-menu.php:817
+msgid "Invalid status."
+msgstr "Ungültiger Status."
+
+#: admin/admin-menu.php:830
+msgid "Status updating failed"
+msgstr "Statusaktualisierung fehlgeschlagen"
+
+#: admin/admin-menu.php:846
+#: admin/admin-menu.php:1177
+#: admin/gutenberg-admin-bar.php:103
+#: admin/menu-restriction.php:131
+#: admin/restrictions.php:119
+#: admin/settings-screen.php:445
+#: admin/settings-screen.php:496
+#: admin/settings-screen.php:557
+#: admin/settings-screen.php:600
+#: admin/settings-screen.php:629
+#: admin/settings-screen.php:727
+#: admin/settings-screen.php:766
+#: admin/settings-screen.php:857
+#: admin/settings-screen.php:900
+#: admin/user-access.php:426
+#: admin/user-access.php:539
+#: admin/user-access.php:572
+#: admin/user-access.php:608
+#: inc/admin-bar.php:124
+#: inc/downloads.php:450
+#: modules/base-module.php:60
+msgid "Current user does not have required permission."
+msgstr "Der aktuelle Benutzer hat nicht die erforderliche Berechtigung."
+
+#: admin/admin-menu.php:863
+msgid "No post available for this post type."
+msgstr "Kein Beitrag für diesen Beitragstyp verfügbar."
+
+#: admin/admin-menu.php:887
+#: admin/admin-menu.php:1021
+msgid "No data received."
+msgstr "Keine Daten empfangen."
+
+#: admin/admin-menu.php:903
+msgid "Title can't be empty."
+msgstr "Der Titel darf nicht leer sein."
+
+#: admin/admin-menu.php:1004
+msgid "Rule saved successfully."
+msgstr "Regel erfolgreich gespeichert."
+
+#: admin/admin-menu.php:1027
+msgid "Save Access Group to protect downloads."
+msgstr "Speichern Sie die Zugriffsgruppe, um Downloads zu schützen."
+
+#: admin/admin-menu.php:1039
+msgid "Changes updated."
+msgstr "Änderungen aktualisiert."
+
+#: admin/admin-menu.php:1053
+msgid "Basic"
+msgstr "Grundlegend"
+
+#: admin/admin-menu.php:1055
+msgid "Entire Website"
+msgstr "Gesamte Website"
+
+#: admin/admin-menu.php:1098
+msgid "Specific Target"
+msgstr "Spezifisches Ziel"
+
+#: admin/admin-menu.php:1100
+msgid "Specific Pages / Posts / Taxonomies, etc."
+msgstr "Spezifische Seiten / Beiträge / Taxonomien, usw."
+
+#: admin/admin-menu.php:1106
+msgid "Specific Url"
+msgstr "Spezifische URL"
+
+#: admin/admin-menu.php:1108
+msgid "URL matching"
+msgstr "URL-Abgleich"
+
+#. translators: %s post label
+#. Translators: %s Post Type Label
+#: admin/admin-menu.php:1147
+#: modules/base-module.php:231
+msgid "All %s"
+msgstr "Alle %s"
+
+#. translators: %s taxonomy label
+#: admin/admin-menu.php:1155
+msgid "All %s Archive"
+msgstr "Alle %s Archiv"
+
+#. translators: %s title.
+#. translators: %s label.
+#: admin/admin-menu.php:1242
+#: admin/admin-menu.php:1262
+#: inc/utils.php:194
+#: modules/base-module.php:255
+msgid "Child of %s"
+msgstr "Kind von %s"
+
+#: admin/gutenberg-admin-bar.php:110
+msgid "Post ID missing"
+msgstr "Beitrags-ID fehlt"
+
+#: admin/gutenberg-admin-bar.php:114
+msgid "Post Type missing"
+msgstr "Beitragstyp fehlt"
+
+#: admin/gutenberg-admin-bar.php:144
+#: inc/admin-bar.php:325
+msgid "Edit Access Group "
+msgstr "Zugriffsgruppe bearbeiten"
+
+#: admin/gutenberg-admin-bar.php:154
+msgid "Access groups found"
+msgstr "Zugriffsgruppen gefunden"
+
+#: admin/login-redirect.php:144
+msgid "This functionality has been deactivated due to the URL redirection settings of SureMembers."
+msgstr "Diese Funktion wurde aufgrund der URL-Weiterleitungseinstellungen von SureMembers deaktiviert."
+
+#: admin/menu-restriction.php:137
+#: admin/settings-screen.php:683
+msgid "No search result found"
+msgstr "Kein Suchergebnis gefunden"
+
+#: admin/restrictions.php:157
+msgid "No post available for this keyword."
+msgstr "Kein Beitrag für dieses Schlüsselwort verfügbar."
+
+#: admin/restrictions.php:157
+msgid "No access group available."
+msgstr "Keine Zugriffsgruppe verfügbar."
+
+#: admin/rules-engine.php:58
+msgid "Search Access Groups"
+msgstr "Zugriffsgruppen suchen"
+
+#: admin/rules-engine.php:60
+msgid "Edit Access Group"
+msgstr "Zugriffsgruppe bearbeiten"
+
+#: admin/rules-engine.php:61
+msgid "View Access Group"
+msgstr "Zugriffsgruppe anzeigen"
+
+#: admin/rules-engine.php:62
+#: admin/rules-engine.php:64
+msgid "Add New"
+msgstr "Neu hinzufügen"
+
+#: admin/rules-engine.php:63
+msgid "Update Access Group"
+msgstr "Zugriffsgruppe aktualisieren"
+
+#: admin/rules-engine.php:65
+msgid "New Access Group Name"
+msgstr "Neuer Zugriffsgruppenname"
+
+#: admin/rules-engine.php:66
+#: admin/rules-engine.php:67
+msgid "No Access Group found"
+msgstr "Keine Zugriffsgruppe gefunden"
+
+#. Translators: post count
+#: admin/rules-engine.php:109
+msgid "Archive <span class=\"count\">(%s)</span>"
+msgid_plural "Archive <span class=\"count\">(%s)</span>"
+msgstr[0] "Archiv <span class=\"count\">(%s)</span>"
+msgstr[1] ""
+
+#: admin/rules-engine.php:125
+#: admin/rules-engine.php:131
+#: admin/rules-engine.php:184
+msgid "Something wrong is happening.."
+msgstr "Etwas läuft schief.."
+
+#: admin/rules-engine.php:133
+msgid "The password field is empty."
+msgstr "Das Passwortfeld ist leer."
+
+#: admin/rules-engine.php:136
+msgid "The username field is empty."
+msgstr "Das Benutzername-Feld ist leer."
+
+#. translators: %s will be entered user's name.
+#: admin/rules-engine.php:158
+msgid "The username <strong>%s</strong> is not registered on this site. If you are unsure of your username, try your email address instead."
+msgstr "Der Benutzername <strong>%s</strong> ist auf dieser Seite nicht registriert. Wenn Sie sich bei Ihrem Benutzernamen unsicher sind, versuchen Sie es stattdessen mit Ihrer E-Mail-Adresse."
+
+#. translators: %s will be entered user's name.
+#: admin/rules-engine.php:162
+msgid "The password you entered for the username <strong>%s</strong> is incorrect."
+msgstr "Das Passwort, das Sie für den Benutzernamen <strong>%s</strong> eingegeben haben, ist falsch."
+
+#: admin/rules-engine.php:191
+msgid "Something went wrong. Reload the page and try again."
+msgstr "Etwas ist schiefgelaufen. Laden Sie die Seite neu und versuchen Sie es erneut."
+
+#: admin/settings-screen.php:64
+#: admin/settings-screen.php:111
+#: admin/settings-screen.php:297
+msgid "Current user does not have the required permission."
+msgstr "Der aktuelle Benutzer hat nicht die erforderliche Berechtigung."
+
+#: admin/settings-screen.php:69
+#: admin/settings-screen.php:504
+msgid "Settings cannot be empty."
+msgstr "Einstellungen dürfen nicht leer sein."
+
+#: admin/settings-screen.php:73
+#: admin/settings-screen.php:500
+msgid "Setting key is required to save data."
+msgstr "Der Einstellungsschlüssel ist erforderlich, um Daten zu speichern."
+
+#: admin/settings-screen.php:89
+msgid "Email template updated successfully."
+msgstr "E-Mail-Vorlage erfolgreich aktualisiert."
+
+#: admin/settings-screen.php:106
+#: admin/settings-screen.php:292
+#: admin/settings-screen.php:853
+#: admin/settings-screen.php:896
+msgid "Invalid nonce."
+msgstr "Ungültiger Nonce."
+
+#: admin/settings-screen.php:116
+msgid "No user data found."
+msgstr "Keine Benutzerdaten gefunden."
+
+#: admin/settings-screen.php:122
+msgid "Invalid user data."
+msgstr "Ungültige Benutzerdaten."
+
+#. translators:  %s The username of the user.
+#: admin/settings-screen.php:199
+msgid "Username %s already exists."
+msgstr "Der Benutzername %s existiert bereits."
+
+#. translators:  %1$s: The user's username and %2$s: the error message.
+#: admin/settings-screen.php:213
+msgid "Username %1$s is not imported due to error occurred. Error: %2$s"
+msgstr "Benutzername %1$s wird aufgrund eines aufgetretenen Fehlers nicht importiert. Fehler: %2$s"
+
+#. translators:  %s: The username of the current user
+#: admin/settings-screen.php:249
+msgid "Onboarding email to username %s not sent."
+msgstr "Onboarding-E-Mail an Benutzername %s nicht gesendet."
+
+#. translators:  %s: The username of the processing user
+#: admin/settings-screen.php:260
+msgid "Reset password email to username %s not sent."
+msgstr "Die E-Mail zum Zurücksetzen des Passworts an den Benutzernamen %s wurde nicht gesendet."
+
+#: admin/settings-screen.php:274
+msgid "User Created Successfully"
+msgstr "Benutzer erfolgreich erstellt"
+
+#: admin/settings-screen.php:302
+msgid "No email template data found."
+msgstr "Keine E-Mail-Vorlagendaten gefunden."
+
+#: admin/settings-screen.php:308
+msgid "Invalid template data."
+msgstr "Ungültige Vorlagendaten."
+
+#: admin/settings-screen.php:315
+msgid "No email template type or email ID found."
+msgstr "Kein E-Mail-Vorlagentyp oder keine E-Mail-ID gefunden."
+
+#: admin/settings-screen.php:321
+msgid "Test Email Sent Successfully"
+msgstr "Test-E-Mail erfolgreich gesendet"
+
+#: admin/settings-screen.php:325
+msgid "No email notification is send."
+msgstr "Es wird keine E-Mail-Benachrichtigung gesendet."
+
+#: admin/settings-screen.php:339
+msgid "SureMembers Settings"
+msgstr "SureMembers-Einstellungen"
+
+#: admin/settings-screen.php:340
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/settings.js:164
+msgid "Settings"
+msgstr "Einstellungen"
+
+#: admin/settings-screen.php:449
+msgid "Setting key is required to retrieve data."
+msgstr "Der Einstellungsschlüssel ist erforderlich, um Daten abzurufen."
+
+#: admin/settings-screen.php:521
+msgid "Settings Saved"
+msgstr "Einstellungen gespeichert"
+
+#: admin/settings-screen.php:570
+msgid "User role addition failed"
+msgstr "Hinzufügen der Benutzerrolle fehlgeschlagen"
+
+#: admin/settings-screen.php:615
+msgid "User role update failed"
+msgstr "Aktualisierung der Benutzerrolle fehlgeschlagen"
+
+#: admin/settings-screen.php:747
+msgid "Duplicate Connection name. Connection name should be unique."
+msgstr "Doppelter Verbindungsname. Der Verbindungsname sollte eindeutig sein."
+
+#: admin/settings-screen.php:776
+#: admin/settings-screen.php:786
+#: admin/settings-screen.php:806
+#: admin/settings-screen.php:814
+msgid "No such connection found."
+msgstr "Keine solche Verbindung gefunden."
+
+#: admin/settings-screen.php:879
+msgid "License Activated Successfully"
+msgstr "Lizenz erfolgreich aktiviert"
+
+#: admin/settings-screen.php:916
+msgid "License Deactivated Successfully"
+msgstr "Lizenz erfolgreich deaktiviert"
+
+#: admin/templates.php:79
+msgid "Show menu when user"
+msgstr "Menü anzeigen, wenn der Benutzer"
+
+#: admin/templates.php:81
+msgid "is in"
+msgstr "ist in"
+
+#: admin/templates.php:82
+msgid "is not in"
+msgstr "ist nicht in"
+
+#: admin/templates.php:84
+msgid "Access Groups:"
+msgstr "Zugriffsgruppen:"
+
+#: admin/templates.php:100
+msgid "This menu item will be hidden for user not in selected access groups."
+msgstr "Dieses Menüelement wird für Benutzer, die nicht in den ausgewählten Zugriffsgruppen sind, ausgeblendet."
+
+#: admin/templates.php:131
+msgid "Associate Access Groups with this product"
+msgstr "Zugriffsgruppen mit diesem Produkt verknüpfen"
+
+#: admin/templates.php:152
+msgid "Add Access Group(s)"
+msgstr "Zugriffsgruppe(n) hinzufügen"
+
+#: admin/templates.php:153
+msgid "Choose access groups to assign to this user."
+msgstr "Wählen Sie Zugriffsgruppen aus, die diesem Benutzer zugewiesen werden sollen."
+
+#: admin/templates.php:175
+#: admin/user-access.php:639
+msgid "Bulk Edit"
+msgstr "Massenbearbeitung"
+
+#: admin/templates.php:200
+#: integrations/woocommerce.php:434
+msgid "Select Access Groups"
+msgstr "Zugriffsgruppen auswählen"
+
+#: admin/templates.php:203
+msgid "Choose access groups to grant or revoke access to selected users."
+msgstr "Wählen Sie Zugriffsgruppen aus, um ausgewählten Benutzern den Zugriff zu gewähren oder zu entziehen."
+
+#: admin/templates.php:207
+#: admin/user-access-table.php:112
+#: admin/user-access.php:513
+msgid "Grant Access"
+msgstr "Zugriff gewähren"
+
+#: admin/templates.php:208
+#: admin/user-access-table.php:109
+#: admin/user-access.php:513
+msgid "Revoke Access"
+msgstr "Zugriff widerrufen"
+
+#: admin/templates.php:209
+#: admin/assets/build/globalsettings.js:25
+#: admin/assets/build/globalsettings.js:242
+msgid "Cancel"
+msgstr "Abbrechen"
+
+#. translators: %1$s main website URL.
+#: admin/templates.php:278
+msgid "This e-mail was sent from %1$s"
+msgstr "Diese E-Mail wurde von %1$s gesendet"
+
+#: admin/user-access-table.php:63
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/settings.js:164
+msgid "Edit"
+msgstr "Bearbeiten"
+
+#. translators:  %1$s Time created.
+#: admin/user-access-table.php:79
+#: admin/user-access.php:509
+msgid "Created %1$s ago"
+msgstr "Vor %1$s erstellt"
+
+#. translators:  %1$s Time modified.
+#: admin/user-access-table.php:87
+#: admin/user-access.php:511
+msgid "Updated %1$s ago"
+msgstr "Vor %1$s aktualisiert"
+
+#: admin/user-access-table.php:161
+msgid "Status"
+msgstr "Status"
+
+#: admin/user-access-table.php:162
+msgid "Created On"
+msgstr "Erstellt am"
+
+#: admin/user-access-table.php:163
+msgid "Updated On"
+msgstr "Aktualisiert am"
+
+#: admin/user-access-table.php:164
+msgid "Integration"
+msgstr "Integration"
+
+#: admin/user-access-table.php:165
+msgid "Action"
+msgstr "Aktion"
+
+#: admin/user-access-table.php:166
+#: admin/assets/build/settings.js:164
+msgid "Expiration"
+msgstr "Ablauf"
+
+#: admin/user-access.php:131
+msgid "Active Access Groups"
+msgstr "Aktive Zugriffsgruppen"
+
+#: admin/user-access.php:157
+#: inc/admin-bar.php:249
+#: inc/admin-bar.php:257
+#: admin/assets/build/blockedit.js:1
+msgid "All Access Groups"
+msgstr "Alle Zugriffsgruppen"
+
+#: admin/user-access.php:174
+msgid "Filter"
+msgstr "Filter"
+
+#: admin/user-access.php:421
+#: admin/user-access.php:455
+#: admin/user-access.php:534
+#: admin/user-access.php:576
+#: admin/user-access.php:601
+msgid "AJAX validation failed"
+msgstr "AJAX-Validierung fehlgeschlagen"
+
+#: admin/user-access.php:434
+#: admin/user-access.php:462
+#: admin/user-access.php:549
+#: admin/user-access.php:585
+#: admin/user-access.php:617
+msgid "Missing required parameters."
+msgstr "Fehlende erforderliche Parameter."
+
+#: admin/user-access.php:559
+msgid "Invalid data format."
+msgstr "Ungültiges Datenformat."
+
+#: admin/user-access.php:604
+msgid "Nonce validation failed"
+msgstr "Nonce-Validierung fehlgeschlagen"
+
+#. translators: %1$s Current content type.
+#: inc/admin-bar.php:97
+#: admin/assets/build/blockedit.js:1
+msgid "Restrict this %1$s"
+msgstr "Beschränke dieses %1$s"
+
+#. translators: %1$s Current content type.
+#: inc/admin-bar.php:97
+msgid "Restrict this content"
+msgstr "Beschränken Sie diesen Inhalt"
+
+#: inc/admin-bar.php:222
+#: admin/assets/build/blockedit.js:1
+msgid "SureMembers Access Groups"
+msgstr "SureMembers Zugriffsgruppen"
+
+#. translators: %1$s Post type singular label.
+#: inc/admin-bar.php:244
+#: admin/assets/build/blockedit.js:1
+msgid "%1$s is not restricted"
+msgstr "%1$s ist nicht eingeschränkt"
+
+#. translators: %1$s Post type singular label.
+#: inc/admin-bar.php:244
+msgid "Page is Not Restricted"
+msgstr "Seite ist nicht eingeschränkt"
+
+#: inc/admin-bar.php:267
+#: admin/assets/build/blockedit.js:1
+msgid "New Access Group"
+msgstr "Neue Zugriffsgruppe"
+
+#: inc/admin-bar.php:270
+msgid "Add New Access Group"
+msgstr "Neue Zugriffsgruppe hinzufügen"
+
+#: inc/admin-bar.php:280
+msgid "Popup Holder"
+msgstr "Popup-Halter"
+
+#: inc/block-restriction.php:79
+msgid "Preview"
+msgstr "Vorschau"
+
+#: inc/downloads.php:231
+msgid "Private: "
+msgstr "Privat:"
+
+#: inc/downloads.php:378
+msgid "Irks! Error when creating a new private folder for private media"
+msgstr "Upps! Fehler beim Erstellen eines neuen privaten Ordners für private Medien"
+
+#: inc/downloads.php:456
+msgid "No files found for upload."
+msgstr "Keine Dateien zum Hochladen gefunden."
+
+#: inc/downloads.php:482
+msgid "Files uploaded successfully"
+msgstr "Dateien erfolgreich hochgeladen"
+
+#: inc/restricted.php:412
+#: inc/template-redirect.php:258
+msgid "This content is restricted"
+msgstr "Dieser Inhalt ist eingeschränkt"
+
+#: inc/restricted.php:467
+msgid "Hide password"
+msgstr "Passwort verbergen"
+
+#: inc/restricted.php:508
+msgid "Log Out"
+msgstr "Abmelden"
+
+#: inc/restricted.php:509
+msgid "Logging out"
+msgstr "Abmelden"
+
+#: inc/settings.php:360
+msgid "Login link label"
+msgstr "Anmeldelink-Beschriftung"
+
+#: inc/settings.php:361
+msgid "This text will appear as Login link on protected content."
+msgstr "Dieser Text wird als Login-Link auf geschütztem Inhalt angezeigt."
+
+#: inc/settings.php:364
+msgid "Custom template heading"
+msgstr "Benutzerdefinierte Vorlagenüberschrift"
+
+#: inc/settings.php:365
+msgid "This text will be used as heading for custom template."
+msgstr "Dieser Text wird als Überschrift für eine benutzerdefinierte Vorlage verwendet."
+
+#: inc/settings.php:368
+msgid "Content for Archive Page / Search Result"
+msgstr "Inhalt für Archivseite / Suchergebnis"
+
+#: inc/settings.php:369
+msgid "This text will replace content on Archive page / Search Result for protected content."
+msgstr "Dieser Text wird den Inhalt auf der Archivseite / Suchergebnisse für geschützte Inhalte ersetzen."
+
+#: inc/settings.php:372
+msgid "Login popup label"
+msgstr "Anmelde-Popup-Beschriftung"
+
+#: inc/settings.php:373
+msgid "This text will appear as title for login popup form."
+msgstr "Dieser Text wird als Titel für das Anmelde-Popup-Formular angezeigt."
+
+#: inc/settings.php:376
+msgid "Login popup username label"
+msgstr "Anmelde-Popup-Benutzername-Label"
+
+#: inc/settings.php:377
+msgid "This text will appear as label for username input field."
+msgstr "Dieser Text wird als Beschriftung für das Benutzernamen-Eingabefeld angezeigt."
+
+#: inc/settings.php:380
+msgid "Login popup password label"
+msgstr "Anmelde-Popup-Passwortfeld"
+
+#: inc/settings.php:381
+msgid "This text will appear as label for password input field."
+msgstr "Dieser Text wird als Beschriftung für das Passwort-Eingabefeld angezeigt."
+
+#: inc/settings.php:384
+msgid "Login popup remember me label"
+msgstr "Anmeldungs-Popup \"Angemeldet bleiben\" Beschriftung"
+
+#: inc/settings.php:385
+msgid "This text will appear as text for remember me label."
+msgstr "Dieser Text wird als Text für das \"Angemeldet bleiben\"-Label angezeigt."
+
+#: inc/settings.php:388
+msgid "Login popup forgot password link"
+msgstr "Link zum Zurücksetzen des Passworts im Anmelde-Popup"
+
+#: inc/settings.php:389
+msgid "This text will appear as text for forgot password link."
+msgstr "Dieser Text wird als Text für den Link \"Passwort vergessen\" angezeigt."
+
+#: inc/settings.php:392
+msgid "Login popup submit button label"
+msgstr "Beschriftung der Schaltfläche zum Absenden des Anmelde-Popups"
+
+#: inc/settings.php:393
+msgid "This text will appear as label for submit button."
+msgstr "Dieser Text wird als Beschriftung für die Schaltfläche \"Absenden\" angezeigt."
+
+#: inc/settings.php:396
+msgid "Login limit exceeded error message"
+msgstr "Fehlermeldung: Anmeldegrenze überschritten"
+
+#: inc/settings.php:397
+msgid "This text will appear as an error message when login limit is exceeded when prevent login sharing is used."
+msgstr "Dieser Text wird als Fehlermeldung angezeigt, wenn das Anmeldelimit überschritten wird, wenn die Verhinderung der Anmeldungsfreigabe verwendet wird."
+
+#: inc/settings.php:400
+msgid "Login limit reset error message"
+msgstr "Fehlermeldung beim Zurücksetzen des Anmeldelimits"
+
+#: inc/settings.php:401
+msgid "This text will appear in the link to reset devices when login limit is exceeded."
+msgstr "Dieser Text wird im Link zum Zurücksetzen der Geräte angezeigt, wenn das Anmeldelimit überschritten ist."
+
+#. translators: HTML tags.
+#: inc/template-redirect.php:225
+msgid "This content will be available in %1$s%2$s"
+msgstr "Dieser Inhalt wird in %1$s%2$s verfügbar sein"
+
+#: inc/template-redirect.php:362
+msgid "Day"
+msgstr "Tag"
+
+#: inc/template-redirect.php:363
+msgid "Hour"
+msgstr "Stunde"
+
+#: inc/template-redirect.php:364
+msgid "Minute"
+msgstr "Minute"
+
+#. translators: %s term name.
+#: inc/utils.php:184
+#: modules/base-module.php:245
+msgid "All singulars from %s"
+msgstr "Alle Singularformen von %s"
+
+#: integrations/surecart-integration.php:70
+msgid "Select an Access Group"
+msgstr "Wählen Sie eine Zugriffsgruppe aus"
+
+#: integrations/surecart-integration.php:80
+msgid "Links with Sure Members Access Group on Product Purchase"
+msgstr "Links mit Sicherem Mitgliederzugriffsgruppe beim Produktkauf"
+
+#: integrations/woocommerce.php:105
+msgid "Add Access Groups"
+msgstr "Zugriffsgruppen hinzufügen"
+
+#: integrations/woocommerce.php:429
+msgid "Restrict to Access Groups"
+msgstr "Auf Zugriffsgruppen beschränken"
+
+#: integrations/woocommerce.php:436
+msgid "Select access groups to apply this coupon. Only one coupon can be attached to an access group. Coupon restricted with any access group will not be available for non-members"
+msgstr "Wählen Sie Zugriffsgruppen aus, auf die dieser Gutschein angewendet werden soll. Es kann nur ein Gutschein an eine Zugriffsgruppe angehängt werden. Ein Gutschein, der auf eine Zugriffsgruppe beschränkt ist, steht Nichtmitgliedern nicht zur Verfügung"
+
+#: integrations/woocommerce.php:444
+msgid "Discount label"
+msgstr "Rabattetikett"
+
+#: integrations/woocommerce.php:445
+msgid "Label to displayed on order summary."
+msgstr "Beschriftung, die in der Bestellübersicht angezeigt wird."
+
+#: integrations/woocommerce.php:447
+msgid "Membership discount"
+msgstr "Mitgliederrabatt"
+
+#: integrations/woocommerce.php:454
+msgid "Discount Message"
+msgstr "Rabattnachricht"
+
+#: integrations/woocommerce.php:455
+msgid "Add text to override coupon added notice on cart / checkout page."
+msgstr "Text hinzufügen, um den Hinweis auf den hinzugefügten Gutschein auf der Warenkorb-/Kassenseite zu überschreiben."
+
+#: integrations/woocommerce.php:457
+msgid "Membership coupon applied."
+msgstr "Mitgliedschaftsgutschein angewendet."
+
+#: integrations/woocommerce.php:742
+msgid "Invalid coupon code"
+msgstr "Ungültiger Gutscheincode"
+
+#. translators: $1$s All Posts Label
+#: modules/base-module.php:74
+msgid "All %1$s"
+msgstr "Alle %1$s"
+
+#: modules/elementor/classes/add-controls.php:71
+msgid "Restrict This Block"
+msgstr "Diesen Block einschränken"
+
+#: modules/elementor/classes/add-controls.php:88
+msgid "Show block when user "
+msgstr "Block anzeigen, wenn Benutzer"
+
+#: modules/elementor/classes/add-controls.php:92
+msgid "Is In"
+msgstr "Ist in"
+
+#: modules/elementor/classes/add-controls.php:96
+msgid "Is Not In"
+msgstr "Ist nicht in"
+
+#: modules/elementor/classes/restrict-module.php:93
+msgid "Please Create Access Groups"
+msgstr "Bitte Zugriffsgruppen erstellen"
+
+#: modules/learndash/learndash.php:130
+msgid "LearnDash"
+msgstr "LearnDash"
+
+#: modules/learndash/learndash.php:132
+#: admin/assets/build/modules.js:2
+msgid "LearnDash Courses"
+msgstr "LearnDash-Kurse"
+
+#: modules/learndash/learndash.php:133
+#: admin/assets/build/modules.js:2
+msgid "LearnDash Groups"
+msgstr "LearnDash-Gruppen"
+
+#: modules/tutorlms/tutorlms.php:123
+msgid "Tutor LMS"
+msgstr "Tutor LMS"
+
+#: modules/tutorlms/tutorlms.php:125
+#: admin/assets/build/modules.js:2
+msgid "Tutor LMS Courses"
+msgstr "Tutor LMS-Kurse"
+
+#: modules/tutorlms/tutorlms.php:126
+#: admin/assets/build/modules.js:2
+msgid "Tutor LMS Lessons"
+msgstr "Tutor LMS Lektionen"
+
+#: admin/assets/js/user-bulk-actions.js:97
+msgid "Item removed."
+msgstr "Element entfernt."
+
+#: admin/assets/js/user-bulk-actions.js:107
+msgid "All selected items have been removed. Select new items to use Bulk Actions."
+msgstr "Alle ausgewählten Elemente wurden entfernt. Wählen Sie neue Elemente aus, um Massenaktionen zu verwenden."
+
+#: admin/assets/js/user-bulk-actions.js:153
+msgid "Select access groups first."
+msgstr "Wählen Sie zuerst Zugriffsgruppen aus."
+
+#: admin/assets/js/user-bulk-actions.js:216
+#: admin/assets/js/user-bulk-actions.js:220
+msgid "(no title)"
+msgstr "(kein Titel)"
+
+#. translators: %s: Post title.
+#: admin/assets/js/user-bulk-actions.js:219
+msgid "Remove &#8220;%s&#8221; from Bulk Edit"
+msgstr "Entferne „%s“ aus der Massenbearbeitung"
+
+#: admin/assets/build/adminbar.js:1
+#: admin/assets/build/blockedit.js:1
+msgid "Access Settings"
+msgstr "Zugangseinstellungen"
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/globalsettings.js:64
+#: admin/assets/build/settings.js:41
+#: admin/assets/build/settings.js:164
+msgid "Delete"
+msgstr "Löschen"
+
+#: admin/assets/build/settings.js:164
+msgid "Pick a Date"
+msgstr "Wählen Sie ein Datum"
+
+#: admin/assets/build/settings.js:164
+msgid "Clear"
+msgstr "Klar"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Reset"
+msgstr "Zurücksetzen"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Apply"
+msgstr "Anwenden"
+
+#: admin/assets/build/settings.js:2
+#: admin/assets/build/settings.js:164
+msgid "Copied to clipboard."
+msgstr "In die Zwischenablage kopiert."
+
+#: admin/assets/build/settings.js:2
+#: admin/assets/build/settings.js:164
+msgid "Error copying to clipboard."
+msgstr "Fehler beim Kopieren in die Zwischenablage."
+
+#: admin/assets/build/globalsettings.js:242
+#: admin/assets/build/settings.js:2
+msgid "Copy"
+msgstr "Kopieren"
+
+#: admin/assets/build/settings.js:164
+msgid "Downloads"
+msgstr "Downloads"
+
+#: admin/assets/build/globalsettings.js:160
+#: admin/assets/build/settings.js:137
+#: admin/assets/build/settings.js:164
+msgid "File"
+msgstr "Datei"
+
+#: admin/assets/build/settings.js:164
+msgid "Add Downloads"
+msgstr "Downloads hinzufügen"
+
+#: admin/assets/build/settings.js:164
+msgid "Enable Access Group Expiration"
+msgstr "Ablauf der Zugriffsgruppe aktivieren"
+
+#: admin/assets/build/settings.js:164
+#: admin/assets/build/settings.js:174
+msgid "Date Type"
+msgstr "Datentyp"
+
+#: admin/assets/build/settings.js:164
+msgid "Relative Date"
+msgstr "Relatives Datum"
+
+#: admin/assets/build/settings.js:164
+#: admin/assets/build/settings.js:174
+msgid "Specific Date"
+msgstr "Bestimmtes Datum"
+
+#: admin/assets/build/settings.js:164
+msgid "Pick a expiration date for Access Group. Users will be removed from the Access Group after the request date exceeds the expiration date."
+msgstr "Wählen Sie ein Ablaufdatum für die Zugriffsgruppe. Benutzer werden aus der Zugriffsgruppe entfernt, nachdem das Anforderungsdatum das Ablaufdatum überschreitet."
+
+#: admin/assets/build/settings.js:164
+msgid "Duration"
+msgstr "Dauer"
+
+#: admin/assets/build/settings.js:164
+msgid "Enter the relative duration in Day(s) after the created date for this Access Group to expire."
+msgstr "Geben Sie die relative Dauer in Tag(en) nach dem Erstellungsdatum ein, nach der diese Zugriffsgruppe abläuft."
+
+#: admin/assets/build/settings.js:164
+#: admin/assets/build/settings.js:174
+msgid "Days"
+msgstr "Tage"
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/settings.js:164
+msgid "New"
+msgstr "Neu"
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/settings.js:164
+msgid "Archived"
+msgstr "Archiviert"
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/settings.js:164
+msgid "Save Access Group"
+msgstr "Zugriffsgruppe speichern"
+
+#: admin/assets/build/globalsettings.js:136
+#: admin/assets/build/settings.js:113
+msgid "Error fetching media items: "
+msgstr "Fehler beim Abrufen von Medienobjekten:"
+
+#: admin/assets/build/globalsettings.js:164
+#: admin/assets/build/settings.js:141
+msgid "No items found"
+msgstr "Keine Artikel gefunden"
+
+#: admin/assets/build/globalsettings.js:160
+#: admin/assets/build/settings.js:137
+msgid "Visibility"
+msgstr "Sichtbarkeit"
+
+#: admin/assets/build/globalsettings.js:58
+#: admin/assets/build/globalsettings.js:160
+#: admin/assets/build/settings.js:35
+#: admin/assets/build/settings.js:137
+msgid "Added"
+msgstr "Hinzugefügt"
+
+#: admin/assets/build/globalsettings.js:136
+#: admin/assets/build/settings.js:113
+msgid "Something went wrong. Please try again."
+msgstr "Etwas ist schiefgelaufen. Bitte versuchen Sie es erneut."
+
+#: admin/assets/build/globalsettings.js:150
+#: admin/assets/build/settings.js:127
+msgid "Upload Media"
+msgstr "Medien hochladen"
+
+#: admin/assets/build/globalsettings.js:150
+#: admin/assets/build/settings.js:127
+msgid "or drag and drop a file to upload."
+msgstr "oder ziehen Sie eine Datei hierher, um sie hochzuladen."
+
+#: admin/assets/build/globalsettings.js:169
+#: admin/assets/build/settings.js:146
+msgid "Previous Page"
+msgstr "Vorherige Seite"
+
+#: admin/assets/build/globalsettings.js:169
+#: admin/assets/build/settings.js:146
+msgid "Next Page"
+msgstr "Nächste Seite"
+
+#: admin/assets/build/globalsettings.js:140
+#: admin/assets/build/settings.js:117
+msgid "SureMembers Media"
+msgstr "SureMembers Medien"
+
+#: admin/assets/build/globalsettings.js:51
+#: admin/assets/build/globalsettings.js:140
+#: admin/assets/build/settings.js:28
+#: admin/assets/build/settings.js:117
+msgid "Private"
+msgstr "Privat"
+
+#: admin/assets/build/globalsettings.js:51
+#: admin/assets/build/globalsettings.js:140
+#: admin/assets/build/settings.js:28
+#: admin/assets/build/settings.js:117
+msgid "Public"
+msgstr "Öffentlich"
+
+#: admin/assets/build/globalsettings.js:169
+#: admin/assets/build/settings.js:146
+msgid "Choose"
+msgstr "Wählen"
+
+#: admin/assets/build/globalsettings.js:64
+#: admin/assets/build/settings.js:41
+msgid "Are you sure you wish to delete this media item? This cannot be undone."
+msgstr "Sind Sie sicher, dass Sie dieses Medienelement löschen möchten? Dies kann nicht rückgängig gemacht werden."
+
+#: admin/assets/build/globalsettings.js:55
+#: admin/assets/build/settings.js:32
+msgid "Preview Image"
+msgstr "Vorschaubild"
+
+#: admin/assets/build/globalsettings.js:58
+#: admin/assets/build/settings.js:35
+msgid "Filename"
+msgstr "Dateiname"
+
+#: admin/assets/build/globalsettings.js:58
+#: admin/assets/build/settings.js:35
+msgid "Size"
+msgstr "Größe"
+
+#: admin/assets/build/settings.js:164
+msgid "Copy Link"
+msgstr "Link kopieren"
+
+#: admin/assets/build/globalsettings.js:205
+#: admin/assets/build/globalsettings.js:229
+#: admin/assets/build/settings.js:164
+msgid "Remove"
+msgstr "Entfernen"
+
+#: admin/assets/build/globalsettings.js:64
+#: admin/assets/build/settings.js:41
+msgid "Add Media"
+msgstr "Medien hinzufügen"
+
+#: admin/assets/build/settings.js:164
+#: admin/assets/build/settings.js:174
+msgid "None"
+msgstr "Keine"
+
+#: admin/assets/build/globalsettings.js:25
+#: admin/assets/build/settings.js:174
+msgid "Title can't be empty"
+msgstr "Der Titel darf nicht leer sein"
+
+#: admin/assets/build/settings.js:174
+msgid "Choose an action for unauthorized access"
+msgstr "Wählen Sie eine Aktion für unbefugten Zugriff"
+
+#: admin/assets/build/settings.js:174
+msgid "URL can't be empty"
+msgstr "URL darf nicht leer sein"
+
+#: admin/assets/build/settings.js:174
+msgid "Expiration specific date can't be empty"
+msgstr "Das Ablaufdatum darf nicht leer sein"
+
+#: admin/assets/build/settings.js:174
+msgid "Expiration relative date value can't be empty"
+msgstr "Das Ablaufdatum darf nicht leer sein"
+
+#: admin/assets/build/settings.js:174
+msgid "Expiration relative date value should at least be 1."
+msgstr "Der Ablaufwert für das relative Datum sollte mindestens 1 sein."
+
+#: admin/assets/build/settings.js:174
+msgid "Name"
+msgstr "Name"
+
+#: admin/assets/build/settings.js:174
+msgid "Add a name for this Access Group."
+msgstr "Fügen Sie einen Namen für diese Zugriffsgruppe hinzu."
+
+#: admin/assets/build/settings.js:174
+msgid "Protected Content"
+msgstr "Geschützter Inhalt"
+
+#: admin/assets/build/settings.js:174
+msgid "Specific Pages / Posts / Taxonomies,etc."
+msgstr "Spezifische Seiten / Beiträge / Taxonomien usw."
+
+#: admin/assets/build/settings.js:174
+msgid "Exclude Pages / Posts / Taxonomies, etc."
+msgstr "Seiten / Beiträge / Taxonomien usw. ausschließen"
+
+#: admin/assets/build/settings.js:174
+msgid "Restrict URL(s)"
+msgstr "URL(s) einschränken"
+
+#: admin/assets/build/settings.js:174
+msgid "Add URL fragment or complete URL to restrict. To add multiple URls keep them comma separated"
+msgstr "Fügen Sie ein URL-Fragment oder eine vollständige URL hinzu, um sie einzuschränken. Um mehrere URLs hinzuzufügen, halten Sie sie durch Kommas getrennt"
+
+#: admin/assets/build/settings.js:174
+msgid "Regular Expression"
+msgstr "Regulärer Ausdruck"
+
+#: admin/assets/build/settings.js:174
+msgid "Verify regular expression at regex101.com"
+msgstr "Überprüfen Sie den regulären Ausdruck auf regex101.com"
+
+#: admin/assets/build/settings.js:174
+msgid "Drip Content"
+msgstr "Drip-Inhalte"
+
+#: admin/assets/build/settings.js:174
+msgid "Add Drip Content"
+msgstr "Drip-Inhalte hinzufügen"
+
+#: admin/assets/build/settings.js:174
+msgid "Show this content"
+msgstr "Zeige diesen Inhalt"
+
+#: admin/assets/build/settings.js:174
+msgid "After Duration"
+msgstr "Nach Dauer"
+
+#: admin/assets/build/settings.js:174
+msgid "After"
+msgstr "Nach"
+
+#: admin/assets/build/settings.js:174
+msgid ", at"
+msgstr ", bei"
+
+#: admin/assets/build/settings.js:174
+msgid "Select time"
+msgstr "Zeit auswählen"
+
+#: admin/assets/build/settings.js:174
+msgid "AM"
+msgstr "AM"
+
+#: admin/assets/build/settings.js:174
+msgid "PM"
+msgstr "Nachm."
+
+#: admin/assets/build/settings.js:174
+msgid "Summary"
+msgstr "Zusammenfassung"
+
+#: admin/assets/build/settings.js:174
+msgid "Access Group is active"
+msgstr "Zugriffsgruppe ist aktiv"
+
+#: admin/assets/build/settings.js:174
+msgid "Unauthorized Access"
+msgstr "Unbefugter Zugriff"
+
+#: admin/assets/build/settings.js:174
+msgid "Choose action for unauthorized access"
+msgstr "Aktion für unbefugten Zugriff wählen"
+
+#: admin/assets/build/settings.js:174
+msgid "Select an action"
+msgstr "Wählen Sie eine Aktion aus"
+
+#: admin/assets/build/settings.js:174
+msgid "Redirect"
+msgstr "Weiterleiten"
+
+#: admin/assets/build/settings.js:174
+msgid "Message"
+msgstr "Nachricht"
+
+#: admin/assets/build/settings.js:174
+msgid "In Content mode works only for Blog posts."
+msgstr "Im Inhaltsmodus funktioniert es nur für Blogbeiträge."
+
+#: admin/assets/build/settings.js:174
+msgid "In Content"
+msgstr "Im Inhalt"
+
+#: admin/assets/build/settings.js:174
+msgid "Enable Excerpt"
+msgstr "Auszug aktivieren"
+
+#: admin/assets/build/settings.js:174
+msgid "This content will be shown to unauthorized user."
+msgstr "Dieser Inhalt wird einem unautorisierten Benutzer angezeigt."
+
+#: admin/assets/build/settings.js:174
+msgid "Button Text"
+msgstr "Schaltflächentext"
+
+#: admin/assets/build/settings.js:174
+msgid "Type to search…"
+msgstr "Tippen, um zu suchen…"
+
+#: admin/assets/build/settings.js:174
+msgid "Redirect URL"
+msgstr "URL umleiten"
+
+#: admin/assets/build/settings.js:174
+msgid "Button URL"
+msgstr "Schaltflächen-URL"
+
+#: admin/assets/build/settings.js:174
+msgid "Enable Login Button"
+msgstr "Anmeldebutton aktivieren"
+
+#: admin/assets/build/settings.js:174
+msgid "Options"
+msgstr "Optionen"
+
+#: admin/assets/build/settings.js:174
+msgid "User Role Sync"
+msgstr "Benutzersynchronisierung der Rolle"
+
+#: admin/assets/build/settings.js:174
+msgid "Users added to this group will also be given this user role."
+msgstr "Benutzern, die zu dieser Gruppe hinzugefügt werden, wird auch diese Benutzerrolle zugewiesen."
+
+#: admin/assets/build/settings.js:174
+msgid "Set priority of Access Group. Higher the priority will be executed first."
+msgstr "Legen Sie die Priorität der Zugriffsgruppe fest. Je höher die Priorität, desto früher wird sie ausgeführt."
+
+#: admin/assets/build/settings.js:174
+msgid "Shortcode"
+msgstr "Kurzcode"
+
+#: admin/assets/build/settings.js:174
+msgid "Optionally used to show or hide content on pages throughout your site."
+msgstr "Optional verwendet, um Inhalte auf den Seiten Ihrer Website anzuzeigen oder auszublenden."
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/modules.js:2
+#: admin/assets/build/settings.js:164
+msgid "Search…"
+msgstr "Suche…"
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/modules.js:2
+#: admin/assets/build/settings.js:164
+msgid "Please add at least 1 character to search"
+msgstr "Bitte fügen Sie mindestens 1 Zeichen zur Suche hinzu"
+
+#: admin/assets/build/globalsettings.js:25
+#: admin/assets/build/globalsettings.js:234
+msgid "Save Settings"
+msgstr "Einstellungen speichern"
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/globalsettings.js:25
+msgid "Admin Settings"
+msgstr "Admin-Einstellungen"
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/globalsettings.js:25
+msgid "Create User Roles"
+msgstr "Benutzerrollen erstellen"
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/globalsettings.js:25
+msgid "Redirection Rules"
+msgstr "Umleitungsregeln"
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/globalsettings.js:171
+msgid "Login Customizer"
+msgstr "Login-Anpasser"
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/globalsettings.js:234
+msgid "Login Restrictions"
+msgstr "Anmeldebeschränkungen"
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/globalsettings.js:234
+msgid "Text Labels"
+msgstr "Textbeschriftungen"
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/globalsettings.js:242
+msgid "Email Templates"
+msgstr "E-Mail-Vorlagen"
+
+#: admin/assets/build/globalsettings.js:2
+msgid "Import"
+msgstr "Importieren"
+
+#: admin/assets/build/globalsettings.js:2
+#: admin/assets/build/globalsettings.js:234
+msgid "Licensing"
+msgstr "Lizenzierung"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Created Roles"
+msgstr "Erstellte Rollen"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Custom User Roles"
+msgstr "Benutzerdefinierte Rollen"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Create Custom User Roles. ( Please avoid using special symbols in the user roles. )"
+msgstr "Erstellen Sie benutzerdefinierte Benutzerrollen. ( Bitte vermeiden Sie die Verwendung von Sonderzeichen in den Benutzerrollen. )"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Update Role"
+msgstr "Rolle aktualisieren"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Create Role"
+msgstr "Rolle erstellen"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Confirm Remove"
+msgstr "Entfernen bestätigen"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Confirm"
+msgstr "Bestätigen"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Please enter the valid email ID to send the test email"
+msgstr "Bitte geben Sie die gültige E-Mail-ID ein, um die Test-E-Mail zu senden"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Test email send successfully"
+msgstr "Test-E-Mail erfolgreich gesendet"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Copying."
+msgstr "Kopieren."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Copied."
+msgstr "Kopiert."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Failed."
+msgstr "Fehlgeschlagen."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "From Name"
+msgstr "Von Name"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "From Email"
+msgstr "Von E-Mail"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Password Reset Email"
+msgstr "E-Mail zur Passwortzurücksetzung"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Subject"
+msgstr "Betreff"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Use WooCommerce's Template"
+msgstr "Verwenden Sie das WooCommerce-Template"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Content"
+msgstr "Inhalt"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Enter a Content…"
+msgstr "Geben Sie einen Inhalt ein…"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Send Test Email"
+msgstr "Test-E-Mail senden"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "New User Onboarding Email"
+msgstr "E-Mail zur Einführung neuer Benutzer"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Access Granted Email"
+msgstr "E-Mail mit Zugangsberechtigung"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Send test email."
+msgstr "Test-E-Mail senden."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Note:"
+msgstr "Hinweis:"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Shortcodes used in the template will be updated with actual values for live emails."
+msgstr "Die in der Vorlage verwendeten Shortcodes werden mit tatsächlichen Werten für Live-E-Mails aktualisiert."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Enter the email."
+msgstr "Geben Sie die E-Mail ein."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Send Now"
+msgstr "Jetzt senden"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Display SureMembers Icon on Block Editor"
+msgstr "SureMembers-Symbol im Block-Editor anzeigen"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Toggle this option to enable/disable the SureMembers icon display on the post/page edit Gutenberg screen."
+msgstr "Aktivieren oder deaktivieren Sie diese Option, um die Anzeige des SureMembers-Symbols auf dem Gutenberg-Bildschirm zur Bearbeitung von Beiträgen/Seiten zu ermöglichen."
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Restrict content in search result"
+msgstr "Inhalte in Suchergebnissen einschränken"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Restricting content in search result can be performance intensive. It is recommended to keep search results paginated."
+msgstr "Das Einschränken von Inhalten in Suchergebnissen kann leistungintensiv sein. Es wird empfohlen, Suchergebnisse paginiert zu halten."
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Hide WooCommerce coupon input field"
+msgstr "WooCommerce-Gutscheinfeld ausblenden"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "If enabled, hides WooCommerce coupon input field on cart / checkout page ."
+msgstr "Wenn aktiviert, wird das Eingabefeld für WooCommerce-Gutscheine auf der Warenkorb-/Kassenseite ausgeblendet."
+
+#: admin/assets/build/globalsettings.js:25
+msgid "User Roles to Decline Admin Access"
+msgstr "Benutzerrollen zur Ablehnung des Admin-Zugriffs"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "The user roles chosen in this option will not be able to access the WordPress admin dashboard, and the admin bar will be hidden. If a user with selected roles tries to access WP Admin Dashboard, it will redirect to the 404 page."
+msgstr "Die in dieser Option ausgewählten Benutzerrollen können nicht auf das WordPress-Admin-Dashboard zugreifen, und die Admin-Leiste wird ausgeblendet. Wenn ein Benutzer mit ausgewählten Rollen versucht, auf das WP-Admin-Dashboard zuzugreifen, wird er auf die 404-Seite umgeleitet."
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Assign access groups to new registrations"
+msgstr "Zugriffsgruppen neuen Registrierungen zuweisen"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Selected access groups will be granted to new registrations."
+msgstr "Ausgewählte Zugriffsgruppen werden neuen Registrierungen zugewiesen."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "CSV headers are not matched. Please check the CSV file and make sure it has the correct headers."
+msgstr "CSV-Header stimmen nicht überein. Bitte überprüfen Sie die CSV-Datei und stellen Sie sicher, dass sie die richtigen Header enthält."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Error processing CSV data. Please check the file format. Error: %s"
+msgstr "Fehler bei der Verarbeitung der CSV-Daten. Bitte überprüfen Sie das Dateiformat. Fehler: %s"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Unknown error occurred."
+msgstr "Unbekannter Fehler ist aufgetreten."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "No data found in the CSV file."
+msgstr "Keine Daten in der CSV-Datei gefunden."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Import CSV"
+msgstr "CSV importieren"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Import Users CSV gives you a powerful tool that lets you effortlessly bring in a bunch of users to your WordPress site from a CSV file. It's perfect for times when you need to add multiple users all at once!"
+msgstr "Der CSV-Import für Benutzer bietet Ihnen ein leistungsstarkes Werkzeug, mit dem Sie mühelos eine Vielzahl von Benutzern von einer CSV-Datei auf Ihre WordPress-Seite importieren können. Es ist ideal für Zeiten, in denen Sie mehrere Benutzer auf einmal hinzufügen müssen!"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "With this feature, you can easily enroll these users into specific access groups, making it convenient to manage their access."
+msgstr "Mit dieser Funktion können Sie diese Benutzer problemlos in bestimmte Zugriffsgruppen aufnehmen, was die Verwaltung ihres Zugriffs erleichtert."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Required Fields are: Username, Email ID"
+msgstr "Erforderliche Felder sind: Benutzername, E-Mail-ID"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Optional Fields are: Password, First Name, Last Name, Role, Suremember Access Groups, Access Group Expiration, Generate Password, Website."
+msgstr "Optionale Felder sind: Passwort, Vorname, Nachname, Rolle, Suremember-Zugriffsgruppen, Ablauf der Zugriffsgruppe, Passwort generieren, Website."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "To download the .CSV template"
+msgstr "Um die .CSV-Vorlage herunterzuladen"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "click here."
+msgstr "hier klicken."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Send password reset email to all the users."
+msgstr "Sende E-Mail zum Zurücksetzen des Passworts an alle Benutzer."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Send onboarding email to users."
+msgstr "Sende Onboarding-E-Mail an Benutzer."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Upload"
+msgstr "Hochladen"
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Click here"
+msgstr "Klicken Sie hier"
+
+#: admin/assets/build/globalsettings.js:242
+msgid " to view more info. "
+msgstr "um mehr Informationen zu sehen."
+
+#: admin/assets/build/globalsettings.js:234
+msgid "Please Enter License Key."
+msgstr "Bitte Lizenzschlüssel eingeben."
+
+#: admin/assets/build/globalsettings.js:234
+msgid "License Key"
+msgstr "Lizenzschlüssel"
+
+#: admin/assets/build/globalsettings.js:234
+msgid "Please Enter your License Key."
+msgstr "Bitte geben Sie Ihren Lizenzschlüssel ein."
+
+#: admin/assets/build/globalsettings.js:234
+msgid "Activate License"
+msgstr "Lizenz aktivieren"
+
+#: admin/assets/build/globalsettings.js:234
+msgid "License Successfully Activated."
+msgstr "Lizenz erfolgreich aktiviert."
+
+#: admin/assets/build/globalsettings.js:234
+msgid "Deactivate License"
+msgstr "Lizenz deaktivieren"
+
+#: admin/assets/build/globalsettings.js:171
+msgid "Login URL"
+msgstr "Anmelde-URL"
+
+#: admin/assets/build/globalsettings.js:171
+msgid "Customize your websites login url from wp-login.php to one of your choosing."
+msgstr "Passen Sie die Login-URL Ihrer Website von wp-login.php auf eine Ihrer Wahl an."
+
+#: admin/assets/build/globalsettings.js:171
+msgid "Customize Login URL"
+msgstr "Login-URL anpassen"
+
+#: admin/assets/build/globalsettings.js:171
+msgid "Redirect URL:"
+msgstr "Weiterleitungs-URL:"
+
+#: admin/assets/build/globalsettings.js:171
+msgid "Brand Colors"
+msgstr "Markenfarben"
+
+#: admin/assets/build/globalsettings.js:171
+msgid "Primary Color"
+msgstr "Primärfarbe"
+
+#: admin/assets/build/globalsettings.js:171
+msgid "This color will be the primary color."
+msgstr "Diese Farbe wird die Primärfarbe sein."
+
+#: admin/assets/build/globalsettings.js:176
+msgid "Secondary Color"
+msgstr "Sekundärfarbe"
+
+#: admin/assets/build/globalsettings.js:176
+msgid "This color will be used as secondary color."
+msgstr "Diese Farbe wird als Sekundärfarbe verwendet."
+
+#: admin/assets/build/globalsettings.js:181
+msgid "Text Color"
+msgstr "Textfarbe"
+
+#: admin/assets/build/globalsettings.js:181
+msgid "This color will be used as text color."
+msgstr "Diese Farbe wird als Textfarbe verwendet."
+
+#: admin/assets/build/globalsettings.js:186
+msgid "Links Color"
+msgstr "Linkfarbe"
+
+#: admin/assets/build/globalsettings.js:186
+msgid "This color will be used as links color."
+msgstr "Diese Farbe wird als Linkfarbe verwendet."
+
+#: admin/assets/build/globalsettings.js:191
+msgid "Logo Settings"
+msgstr "Logo-Einstellungen"
+
+#: admin/assets/build/globalsettings.js:191
+msgid "Disable Logo"
+msgstr "Logo deaktivieren"
+
+#: admin/assets/build/globalsettings.js:191
+msgid "Toggle this option to disable logo in login page."
+msgstr "Diese Option umschalten, um das Logo auf der Anmeldeseite zu deaktivieren."
+
+#: admin/assets/build/globalsettings.js:191
+msgid "Custom Logo"
+msgstr "Benutzerdefiniertes Logo"
+
+#: admin/assets/build/globalsettings.js:191
+msgid "Toggle this option to enable the custom logo replacing the WordPress logo in login page."
+msgstr "Aktivieren Sie diese Option, um das benutzerdefinierte Logo anstelle des WordPress-Logos auf der Anmeldeseite zu verwenden."
+
+#: admin/assets/build/globalsettings.js:191
+msgid "Logo Width"
+msgstr "Logo-Breite"
+
+#: admin/assets/build/globalsettings.js:191
+msgid "Logo Height"
+msgstr "Logo-Höhe"
+
+#: admin/assets/build/globalsettings.js:191
+msgid "Logo Image"
+msgstr "Logo Bild"
+
+#: admin/assets/build/globalsettings.js:191
+msgid "Add Logo"
+msgstr "Logo hinzufügen"
+
+#: admin/assets/build/globalsettings.js:205
+#: admin/assets/build/globalsettings.js:229
+msgid "Replace"
+msgstr "Ersetzen"
+
+#: admin/assets/build/globalsettings.js:205
+msgid "Login Form"
+msgstr "Anmeldeformular"
+
+#: admin/assets/build/globalsettings.js:205
+msgid "Enable Transparent Form"
+msgstr "Transparente Form aktivieren"
+
+#: admin/assets/build/globalsettings.js:205
+msgid "Toggle this option to remove background color and border from login form."
+msgstr "Aktivieren Sie diese Option, um die Hintergrundfarbe und den Rahmen aus dem Anmeldeformular zu entfernen."
+
+#: admin/assets/build/globalsettings.js:205
+#: admin/assets/build/globalsettings.js:229
+msgid "Background Color"
+msgstr "Hintergrundfarbe"
+
+#: admin/assets/build/globalsettings.js:205
+msgid "This color will be the login form background color."
+msgstr "Diese Farbe wird die Hintergrundfarbe des Anmeldeformulars sein."
+
+#: admin/assets/build/globalsettings.js:210
+msgid "Border Color"
+msgstr "Randfarbe"
+
+#: admin/assets/build/globalsettings.js:210
+msgid "This color will be used as the login form border color."
+msgstr "Diese Farbe wird als Rahmenfarbe des Anmeldeformulars verwendet."
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Background Settings"
+msgstr "Hintergrundeinstellungen"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Enable Background Image"
+msgstr "Hintergrundbild aktivieren"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Toggle this option to enable/disable background image."
+msgstr "Aktivieren oder deaktivieren Sie diese Option, um das Hintergrundbild ein- oder auszuschalten."
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Background Repeat:"
+msgstr "Hintergrundwiederholung:"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Repeat"
+msgstr "Wiederholen"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "repeat-x"
+msgstr "wiederholen-x"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "repeat-y"
+msgstr "wiederholen-y"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "No Repeat"
+msgstr "Keine Wiederholung"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Initial"
+msgstr "Initiale"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Inherit"
+msgstr "Erben"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Select Position:"
+msgstr "Position auswählen:"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Left Top"
+msgstr "Links oben"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Left Center"
+msgstr "Linkes Zentrum"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Left Bottom"
+msgstr "Links unten"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Right Top"
+msgstr "Rechts oben"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Right Center"
+msgstr "Rechtes Zentrum"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Right Bottom"
+msgstr "Rechts unten"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Center Top"
+msgstr "Oben Mitte"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Center"
+msgstr "Zentrum"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Center Bottom"
+msgstr "Unten Mitte"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Background Image Size:"
+msgstr "Hintergrundbildgröße:"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Auto"
+msgstr "Auto"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Cover"
+msgstr "Abdeckung"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Contain"
+msgstr "Enthalten"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Background Image"
+msgstr "Hintergrundbild"
+
+#: admin/assets/build/globalsettings.js:215
+msgid "Add Background"
+msgstr "Hintergrund hinzufügen"
+
+#: admin/assets/build/globalsettings.js:229
+msgid "This color will be used as background color."
+msgstr "Diese Farbe wird als Hintergrundfarbe verwendet."
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Type to search existing posts or copy paste external URL."
+msgstr "Geben Sie ein, um vorhandene Beiträge zu durchsuchen oder fügen Sie eine externe URL ein."
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Login Redirect"
+msgstr "Login-Weiterleitung"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Type to search existing posts or copy paste external URL"
+msgstr "Tippen Sie, um vorhandene Beiträge zu durchsuchen, oder fügen Sie eine externe URL ein"
+
+#: admin/assets/build/globalsettings.js:25
+msgid "Logout Redirect"
+msgstr "Abmelde-Weiterleitung"
+
+#: admin/assets/build/globalsettings.js:234
+msgid "All Roles"
+msgstr "Alle Rollen"
+
+#: admin/assets/build/globalsettings.js:234
+msgid "Are you sure you want to delete this restriction?"
+msgstr "Sind Sie sicher, dass Sie diese Einschränkung löschen möchten?"
+
+#: admin/assets/build/globalsettings.js:234
+msgid "Delete Restriction"
+msgstr "Einschränkung löschen"
+
+#: admin/assets/build/globalsettings.js:234
+msgid "User Roles"
+msgstr "Benutzerrollen"
+
+#: admin/assets/build/globalsettings.js:234
+msgid "Max Concurrent Logins"
+msgstr "Maximale gleichzeitige Anmeldungen"
+
+#: admin/assets/build/globalsettings.js:236
+msgid "active logins"
+msgstr "aktive Anmeldungen"
+
+#: admin/assets/build/globalsettings.js:236
+msgid "Login Logic"
+msgstr "Anmelde-Logik"
+
+#: admin/assets/build/globalsettings.js:236
+msgid "Choose \"Allow\" to allow new login by terminating all other old sessions when the limit is reached OR choose \"Block\" to not allow new login if the limit is reached. Users need to wait for the old login sessions to expire."
+msgstr "Wählen Sie \"Zulassen\", um einen neuen Login zu ermöglichen, indem alle anderen alten Sitzungen beendet werden, wenn das Limit erreicht ist, ODER wählen Sie \"Blockieren\", um keinen neuen Login zuzulassen, wenn das Limit erreicht ist. Benutzer müssen warten, bis die alten Login-Sitzungen abgelaufen sind."
+
+#: admin/assets/build/globalsettings.js:236
+msgid "Allow New User Login"
+msgstr "Neuen Benutzeranmeldung erlauben"
+
+#: admin/assets/build/globalsettings.js:236
+msgid "Block New User Login"
+msgstr "Neuen Benutzeranmeldung blockieren"
+
+#: admin/assets/build/globalsettings.js:236
+msgid "Allow logouts"
+msgstr "Abmeldungen zulassen"
+
+#: admin/assets/build/globalsettings.js:236
+msgid "Toggle this option to allow users to logout from all other devices."
+msgstr "Aktivieren Sie diese Option, um Benutzern das Abmelden von allen anderen Geräten zu ermöglichen."
+
+#: admin/assets/build/globalsettings.js:242
+msgid "Add Login Restriction"
+msgstr "Anmeldebeschränkung hinzufügen"
+
+#: admin/rules-engine.php:55
+msgctxt "plan general name"
+msgid "Access Groups"
+msgstr "Zugriffsgruppen"
+
+#: admin/rules-engine.php:56
+msgctxt "plan general name"
+msgid "SureMembers"
+msgstr "SureMembers"
+
+#: admin/rules-engine.php:57
+msgctxt "plan singular name"
+msgid "Access Group"
+msgstr "Zugriffsgruppe"
+
+#: admin/rules-engine.php:107
+msgctxt "suremembers archive post label"
+msgid "Archive"
+msgstr "Archiv"

@@ -1,0 +1,2581 @@
+{
+  "generated_date": "2025-06-15T18:37:12.344Z",
+  "data_source": "AUTHORITATIVE_CSV",
+  "summary_stats": {
+    "total_units": 116,
+    "units_with_data": 98,
+    "units_missing_data": 18,
+    "entities": 25,
+    "individuals": 73,
+    "units_with_emails": 54,
+    "total_emails": 66
+  },
+  "property_list": [
+    {
+      "unit": "101A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Joseph Dalton",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Alyssa Dalton",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "101B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "102A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Ronald J. Tomiello",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Chantal L. Tomiello",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "102B",
+      "entity_type": "Entity",
+      "company": "Onorato Realty Holdings, LLC",
+      "primary_owner": "Onorato Realty Holdings, LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "103A",
+      "entity_type": "Entity",
+      "company": "M&M Hosting, LLC",
+      "primary_owner": "M&M Hosting, LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "103B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Wayne A. Bowie",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Evelyn M. Bowie",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "104A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Lloyd Moore",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Danielle Moore",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "104B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Gaetano Ralph Serra",
+      "primary_email": "whalehellothereatntb@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "Maegan Ann Serra",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "whalehellothereatntb@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "105A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Joe D. Haines Jr.",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Dayna L. Haines",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "105B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "106A",
+      "entity_type": "Entity",
+      "company": "Surfline Properties LLC",
+      "primary_owner": "Surfline Properties LLC",
+      "primary_email": "surflineproperties@charter.net",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "surflineproperties@charter.net",
+        "surflineproperties@charter.net"
+      ],
+      "email_count": 2,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "106B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Lisa D. Wilson (Trustee)",
+      "primary_email": "dlfrench646@aol.com",
+      "primary_phone": "8593214088",
+      "secondary_owner": "Griffith Family Dynasty Trust",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "dlfrench646@aol.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "107A",
+      "entity_type": "Entity",
+      "company": "KTS Investment Holdings, LLC",
+      "primary_owner": "KTS Investment Holdings, LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "107B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Bethany L. Blankenship",
+      "primary_email": "beatrice199@yahoo.com",
+      "primary_phone": "",
+      "secondary_owner": "Christian Gilde",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "beatrice199@yahoo.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "108A",
+      "entity_type": "Entity",
+      "company": "JVTV, LLC",
+      "primary_owner": "JVTV, LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "108B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Timothy J. Wolf",
+      "primary_email": "tim.tj.wolf@gmail.com",
+      "primary_phone": "9192447677",
+      "secondary_owner": "Kathleen A. Wolf",
+      "secondary_email": "",
+      "secondary_phone": "9192448555",
+      "all_emails": [
+        "tim.tj.wolf@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "109A",
+      "entity_type": "Entity",
+      "company": "Violinjam, LLC",
+      "primary_owner": "Violinjam, LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "109B",
+      "entity_type": "Entity",
+      "company": "Jaxrez LLC",
+      "primary_owner": "Jaxrez LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "110A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Keith Birkholz",
+      "primary_email": "keith.a.birkholz@gmail.com",
+      "primary_phone": "7742830798",
+      "secondary_owner": "Melanie Birkholz",
+      "secondary_email": "",
+      "secondary_phone": "2405386297",
+      "all_emails": [
+        "keith.a.birkholz@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "110B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Stephanie Haas Ballard",
+      "primary_email": "rocksieroo@yahoo.com",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "rocksieroo@yahoo.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "111A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "111B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "112A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "112B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "113A",
+      "entity_type": "Entity",
+      "company": "C & S Rentals of Virginia, LLC",
+      "primary_owner": "C & S Rentals of Virginia, LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "113B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Stephen H. Bandeian",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Dianne M. Rausch",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "114A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "James R. Lowe II",
+      "primary_email": "ricklowe14@yahoo.com",
+      "primary_phone": "",
+      "secondary_owner": "Tara A. Lowe",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "ricklowe14@yahoo.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "114B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Rachel Van Doren",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Gary Harmon",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "115A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Lindsey Beck",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "115B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Lloyd Moore",
+      "primary_email": "mooreqc@aol.com",
+      "primary_phone": "9104429101",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "mooreqc@aol.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "116A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Norman E. Peters Jr.",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Paula J. Peters",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "116B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Donald Powell II",
+      "primary_email": "dpunc96@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "Betsy Powell",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "dpunc96@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "117A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Anthony S. Carpenter",
+      "primary_email": "tocarpen88@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "Kacy Carpenter",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "tocarpen88@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "117B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Timothy Wepner",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Anne Wepner",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "118A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Rachel Louise Ivory (Trustee)",
+      "primary_email": "rachelprince2019@gmail.com",
+      "primary_phone": "3365969896",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "rachelprince2019@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "118B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Thomas George Breene",
+      "primary_email": "jbbreene@gmail.com",
+      "primary_phone": "5402931495",
+      "secondary_owner": "Judy Bradley Breene",
+      "secondary_email": "",
+      "secondary_phone": "5403971150",
+      "all_emails": [
+        "jbbreene@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "201A",
+      "entity_type": "Entity",
+      "company": "KTS Investment Holdings, LLC",
+      "primary_owner": "KTS Investment Holdings, LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "201B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "George Stanton Purser",
+      "primary_email": "stanpurser@gmail.com",
+      "primary_phone": "7045774239",
+      "secondary_owner": "Deborah Gibson Purser",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "stanpurser@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "202A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Elizabeth Ann Grady",
+      "primary_email": "elizabethgradylpc@gmail.com",
+      "primary_phone": "9196090954",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "elizabethgradylpc@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "202B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Kellie Cannon",
+      "primary_email": "kelliecannon372@gmail.com",
+      "primary_phone": "8186315327",
+      "secondary_owner": "Bryce Cannon",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "kelliecannon372@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "203A",
+      "entity_type": "Entity",
+      "company": "Villa Capriani 203A CU Realty, LLC",
+      "primary_owner": "Villa Capriani 203A CU Realty, LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "203B",
+      "entity_type": "Entity",
+      "company": "Renard Properties LLC",
+      "primary_owner": "Renard Properties LLC",
+      "primary_email": "jen@renardproperties.com",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "jen@renardproperties.com",
+        "jen@renardproperties.com"
+      ],
+      "email_count": 2,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "204A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "William Irwin",
+      "primary_email": "jirwin6@aol.com",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "jirwin6@aol.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "204B",
+      "entity_type": "Entity",
+      "company": "1965 LLC",
+      "primary_owner": "1965 LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "205A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Billy J. Gardner",
+      "primary_email": "gardnersb@ymail.com",
+      "primary_phone": "",
+      "secondary_owner": "Sandra B. Gardner",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "gardnersb@ymail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "205B",
+      "entity_type": "Entity",
+      "company": "Phoenix Enterprises of Fredericksburg LLC",
+      "primary_owner": "Phoenix Enterprises of Fredericksburg LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "206A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Roko Peros",
+      "primary_email": "Rventureproperties@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "Andrea Marie Peros",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "Rventureproperties@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "206B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Raymond E. Schwartz",
+      "primary_email": "a59mogguy@yahoo.com",
+      "primary_phone": "",
+      "secondary_owner": "Camilla M. Schwartz",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "a59mogguy@yahoo.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "207A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Augie Michelle Rowland",
+      "primary_email": "augierowland@gmail.com",
+      "primary_phone": "3157204215",
+      "secondary_owner": "Craig Steven Rowland",
+      "secondary_email": "bellamiadesigns22@gmail.com",
+      "secondary_phone": "",
+      "all_emails": [
+        "augierowland@gmail.com",
+        "bellamiadesigns22@gmail.com"
+      ],
+      "email_count": 2,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "207B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Stephen Michael Knipping",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Kyristen LJ Knipping",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "208A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "John W. Simermeyer",
+      "primary_email": "kjsimermeyer@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "Julie Simermeyer",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "kjsimermeyer@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "208B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Stanley C. Sliwoski Jr.",
+      "primary_email": "sbsliwoski@comcast.net",
+      "primary_phone": "7248345402",
+      "secondary_owner": "Elizabeth J. Sliwoski",
+      "secondary_email": "",
+      "secondary_phone": "7243968403",
+      "all_emails": [
+        "sbsliwoski@comcast.net"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "209A",
+      "entity_type": "Entity",
+      "company": "Middleton Inc",
+      "primary_owner": "Middleton Inc",
+      "primary_email": "shanna@middinc.com",
+      "primary_phone": "9198277054",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "shanna@middinc.com",
+        "shanna@middinc.com"
+      ],
+      "email_count": 2,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "209B",
+      "entity_type": "Entity",
+      "company": "Mat & Glin, LLC",
+      "primary_owner": "Mat & Glin, LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "210A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "210B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "William E. Pennington Jr.",
+      "primary_email": "williamepenningtonjr@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "Denise Pennington",
+      "secondary_email": "meghan.pennington@gmail.com",
+      "secondary_phone": "3019911527",
+      "all_emails": [
+        "williamepenningtonjr@gmail.com",
+        "meghan.pennington@gmail.com"
+      ],
+      "email_count": 2,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "211A",
+      "entity_type": "Entity",
+      "company": "Coastal Property Investments I, LLC",
+      "primary_owner": "Coastal Property Investments I, LLC",
+      "primary_email": "bhyman48@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "bhyman48@gmail.com",
+        "bhyman48@gmail.com"
+      ],
+      "email_count": 2,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "211B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "George Stanton Purser",
+      "primary_email": "stanpurser@gmail.com",
+      "primary_phone": "7045774239",
+      "secondary_owner": "Deborah Gibson Purser",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "stanpurser@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "212A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "David R. Potopsky",
+      "primary_email": "dpotopsky@gmail.com",
+      "primary_phone": "3303402103",
+      "secondary_owner": "Kimberly J. Potopsky",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "dpotopsky@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "212B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "213A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "213B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "214A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "214B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "215A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Jaleigh Bliss Jensen",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Colten David Jensen",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "215B",
+      "entity_type": "Entity",
+      "company": "Carolina Sands LLC",
+      "primary_owner": "Carolina Sands LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "216A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Brian Michael Kean",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Gia Lynn Kean",
+      "secondary_email": "giakean@gmail.com",
+      "secondary_phone": "2523414850",
+      "all_emails": [
+        "giakean@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "216B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Mark A. Rice",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Myra W. Rice",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "217A",
+      "entity_type": "Entity",
+      "company": "Villa Capriani 217A CU Realty, LLC",
+      "primary_owner": "Villa Capriani 217A CU Realty, LLC",
+      "primary_email": "csiofcmgr@contractsolutions-inc.com",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "csiofcmgr@contractsolutions-inc.com",
+        "csiofcmgr@contractsolutions-inc.com"
+      ],
+      "email_count": 2,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "217B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Carol D. McMorrow (Trustee)",
+      "primary_email": "mcmorrow2550@aol.com",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "mcmorrow2550@aol.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "218A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Karen T. Hagens",
+      "primary_email": "karenann4704@gmail.com",
+      "primary_phone": "9196101348",
+      "secondary_owner": "Jason M. Hagens",
+      "secondary_email": "",
+      "secondary_phone": "9196255453",
+      "all_emails": [
+        "karenann4704@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "218B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Hernan Prieto",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Diana Benucci",
+      "secondary_email": "dianacbr@hotmail.com",
+      "secondary_phone": "9193498302",
+      "all_emails": [
+        "dianacbr@hotmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "219A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Anthony Merlino",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Nancy Merlino",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "219B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Brandon Burton",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Shantel Burton",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "220A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Richard M. Bodner (Trustee)",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Brenda N. Bodner (Trustee)",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "220B",
+      "entity_type": "Entity",
+      "company": "Carolina Condos and Castles, LLC",
+      "primary_owner": "Carolina Condos and Castles, LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "301A",
+      "entity_type": "Entity",
+      "company": "Middleton, Inc.",
+      "primary_owner": "Middleton, Inc.",
+      "primary_email": "middleton.paul@yahoo.com",
+      "primary_phone": "9199496111",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "middleton.paul@yahoo.com",
+        "middleton.paul@yahoo.com"
+      ],
+      "email_count": 2,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "301B",
+      "entity_type": "Entity",
+      "company": "Leska Investment Solutions, LLC",
+      "primary_owner": "Leska Investment Solutions, LLC",
+      "primary_email": "andrewscaljon@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "andrewscaljon@gmail.com",
+        "andrewscaljon@gmail.com"
+      ],
+      "email_count": 2,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "302A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Rebecca Hendren",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "302B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "William E. Pennington Jr.",
+      "primary_email": "williamepenningtonjr@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "Denise J. Pennington",
+      "secondary_email": "meghan.pennington@gmail.com",
+      "secondary_phone": "3019911527",
+      "all_emails": [
+        "williamepenningtonjr@gmail.com",
+        "meghan.pennington@gmail.com"
+      ],
+      "email_count": 2,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "303A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Gary T. Wotton",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Carol M. Wotton",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "303B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "John McCarty",
+      "primary_email": "john@gotlegacy.com",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "john@gotlegacy.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "304A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Marsha S. Engel",
+      "primary_email": "kellyqwhite@gmail.com",
+      "primary_phone": "9194544563",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "kellyqwhite@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "304B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Kennon C. Walden Jr.",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Melinda C. Walden",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "305A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Justin W. Dyal",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Patricia L. Dyal",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "305B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Mark Drialo Wagner",
+      "primary_email": "drialo11@yahoo.com",
+      "primary_phone": "4438672474",
+      "secondary_owner": "Stevie Nicole Ludlum",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "drialo11@yahoo.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "306A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Erik Daniel Hays",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Robin Annette Hays",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "306B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "307A",
+      "entity_type": "Entity",
+      "company": "East West Associates, LLC",
+      "primary_owner": "East West Associates, LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "307B",
+      "entity_type": "Entity",
+      "company": "Blackburn Tyler Holdings, LLC",
+      "primary_owner": "Blackburn Tyler Holdings, LLC",
+      "primary_email": "Susannab220@gmail.com",
+      "primary_phone": "9195259172",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "Susannab220@gmail.com",
+        "Susannab220@gmail.com"
+      ],
+      "email_count": 2,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "308A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Pamela C. Welsh",
+      "primary_email": "Pwelsh22@earthlink.net",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "Pwelsh22@earthlink.net"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "308B",
+      "entity_type": "Entity",
+      "company": "Casa Nomad, LLC",
+      "primary_owner": "Casa Nomad, LLC",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "309A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Arthur Morris",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Sylvia Morris",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "309B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Lucy Kessler",
+      "primary_email": "lucykessler@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "lucykessler@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "310A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "David Marino",
+      "primary_email": "Jacki.marino@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "Jacqueline Marino",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "Jacki.marino@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "310B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Guillaume Akouka",
+      "primary_email": "guillaumeakouka@hotmail.com",
+      "primary_phone": "3102540930",
+      "secondary_owner": "Karina Akouka",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "guillaumeakouka@hotmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "311A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "311B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Andrew Burch",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Susan Burch",
+      "secondary_email": "susan.burch2@yahoo.com",
+      "secondary_phone": "9197449545",
+      "all_emails": [
+        "susan.burch2@yahoo.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "312A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Ferdinand D. Samonte",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Tammy J. Samonte",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "312B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Peter J. Baish (Trustee)",
+      "primary_email": "pjbaish@yahoo.com",
+      "primary_phone": "7036558190",
+      "secondary_owner": "Mary Alice Baish (Trustee)",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "pjbaish@yahoo.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "313A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "313B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "314A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "314B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "315A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Richard Coates",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Brinnan Coates",
+      "secondary_email": "brinnan@gmail.com",
+      "secondary_phone": "9199619697",
+      "all_emails": [
+        "brinnan@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "315B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Victor J. Kropf",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Miriam K. Kropf",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "316A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Michael E. Collins",
+      "primary_email": "mecollins631@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "Shirley F. Collins",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "mecollins631@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "316B",
+      "entity_type": "Entity",
+      "company": "Sugar Dolphin Hideaway, LLC",
+      "primary_owner": "Sugar Dolphin Hideaway, LLC",
+      "primary_email": "alexispeterspero@gmail.com",
+      "primary_phone": "7083023022",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "alexispeterspero@gmail.com",
+        "alexispeterspero@gmail.com"
+      ],
+      "email_count": 2,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "317A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Philip C. Van Heel",
+      "primary_email": "cole.vanheel@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "Melanie C. Van Heel",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "cole.vanheel@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "317B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Christopher Aherne",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "William Walsh",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "318A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Lianne Lowell Jones",
+      "primary_email": "liannelj@gmail.com",
+      "primary_phone": "",
+      "secondary_owner": "Christopher Douglas Jones",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "liannelj@gmail.com"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "318B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "LouAnn Mylott",
+      "primary_email": "lamylott@comcast.net",
+      "primary_phone": "",
+      "secondary_owner": "John S. Mylott",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [
+        "lamylott@comcast.net"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "319A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Scotty Ray Martin",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Teresa Martin",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "319B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Ronan Kennedy",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Diana Kennedy",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "320A",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Richard A. Lucci (Trustee)",
+      "primary_email": "ralucci@sbcglobal.net",
+      "primary_phone": "7403170278",
+      "secondary_owner": "Bonita S. Lucci (Trustee)",
+      "secondary_email": "",
+      "secondary_phone": "7406323952",
+      "all_emails": [
+        "ralucci@sbcglobal.net"
+      ],
+      "email_count": 1,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    },
+    {
+      "unit": "320B",
+      "entity_type": "Individual",
+      "company": "",
+      "primary_owner": "Glen Tellefsen",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "Courtney Tellefsen",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "COMPLETE",
+      "data_source": "AUTHORITATIVE_CSV"
+    }
+  ],
+  "email_campaign_data": {
+    "total_unique_emails": 54,
+    "email_list": [
+      "whalehellothereatntb@gmail.com",
+      "surflineproperties@charter.net",
+      "dlfrench646@aol.com",
+      "beatrice199@yahoo.com",
+      "tim.tj.wolf@gmail.com",
+      "keith.a.birkholz@gmail.com",
+      "rocksieroo@yahoo.com",
+      "ricklowe14@yahoo.com",
+      "mooreqc@aol.com",
+      "dpunc96@gmail.com",
+      "tocarpen88@gmail.com",
+      "rachelprince2019@gmail.com",
+      "jbbreene@gmail.com",
+      "stanpurser@gmail.com",
+      "elizabethgradylpc@gmail.com",
+      "kelliecannon372@gmail.com",
+      "jen@renardproperties.com",
+      "jirwin6@aol.com",
+      "gardnersb@ymail.com",
+      "Rventureproperties@gmail.com",
+      "a59mogguy@yahoo.com",
+      "augierowland@gmail.com",
+      "bellamiadesigns22@gmail.com",
+      "kjsimermeyer@gmail.com",
+      "sbsliwoski@comcast.net",
+      "shanna@middinc.com",
+      "williamepenningtonjr@gmail.com",
+      "meghan.pennington@gmail.com",
+      "bhyman48@gmail.com",
+      "dpotopsky@gmail.com",
+      "giakean@gmail.com",
+      "csiofcmgr@contractsolutions-inc.com",
+      "mcmorrow2550@aol.com",
+      "karenann4704@gmail.com",
+      "dianacbr@hotmail.com",
+      "middleton.paul@yahoo.com",
+      "andrewscaljon@gmail.com",
+      "john@gotlegacy.com",
+      "kellyqwhite@gmail.com",
+      "drialo11@yahoo.com",
+      "Susannab220@gmail.com",
+      "Pwelsh22@earthlink.net",
+      "lucykessler@gmail.com",
+      "Jacki.marino@gmail.com",
+      "guillaumeakouka@hotmail.com",
+      "susan.burch2@yahoo.com",
+      "pjbaish@yahoo.com",
+      "brinnan@gmail.com",
+      "mecollins631@gmail.com",
+      "alexispeterspero@gmail.com",
+      "cole.vanheel@gmail.com",
+      "liannelj@gmail.com",
+      "lamylott@comcast.net",
+      "ralucci@sbcglobal.net"
+    ],
+    "email_owner_mapping": {
+      "whalehellothereatntb@gmail.com": {
+        "unit": "104B",
+        "owner": "Gaetano Ralph Serra",
+        "company": "",
+        "type": "Individual"
+      },
+      "surflineproperties@charter.net": {
+        "unit": "106A",
+        "owner": "Surfline Properties LLC",
+        "company": "Surfline Properties LLC",
+        "type": "Entity"
+      },
+      "dlfrench646@aol.com": {
+        "unit": "106B",
+        "owner": "Lisa D. Wilson (Trustee)",
+        "company": "",
+        "type": "Individual"
+      },
+      "beatrice199@yahoo.com": {
+        "unit": "107B",
+        "owner": "Bethany L. Blankenship",
+        "company": "",
+        "type": "Individual"
+      },
+      "tim.tj.wolf@gmail.com": {
+        "unit": "108B",
+        "owner": "Timothy J. Wolf",
+        "company": "",
+        "type": "Individual"
+      },
+      "keith.a.birkholz@gmail.com": {
+        "unit": "110A",
+        "owner": "Keith Birkholz",
+        "company": "",
+        "type": "Individual"
+      },
+      "rocksieroo@yahoo.com": {
+        "unit": "110B",
+        "owner": "Stephanie Haas Ballard",
+        "company": "",
+        "type": "Individual"
+      },
+      "ricklowe14@yahoo.com": {
+        "unit": "114A",
+        "owner": "James R. Lowe II",
+        "company": "",
+        "type": "Individual"
+      },
+      "mooreqc@aol.com": {
+        "unit": "115B",
+        "owner": "Lloyd Moore",
+        "company": "",
+        "type": "Individual"
+      },
+      "dpunc96@gmail.com": {
+        "unit": "116B",
+        "owner": "Donald Powell II",
+        "company": "",
+        "type": "Individual"
+      },
+      "tocarpen88@gmail.com": {
+        "unit": "117A",
+        "owner": "Anthony S. Carpenter",
+        "company": "",
+        "type": "Individual"
+      },
+      "rachelprince2019@gmail.com": {
+        "unit": "118A",
+        "owner": "Rachel Louise Ivory (Trustee)",
+        "company": "",
+        "type": "Individual"
+      },
+      "jbbreene@gmail.com": {
+        "unit": "118B",
+        "owner": "Thomas George Breene",
+        "company": "",
+        "type": "Individual"
+      },
+      "stanpurser@gmail.com": {
+        "unit": "201B",
+        "owner": "George Stanton Purser",
+        "company": "",
+        "type": "Individual"
+      },
+      "elizabethgradylpc@gmail.com": {
+        "unit": "202A",
+        "owner": "Elizabeth Ann Grady",
+        "company": "",
+        "type": "Individual"
+      },
+      "kelliecannon372@gmail.com": {
+        "unit": "202B",
+        "owner": "Kellie Cannon",
+        "company": "",
+        "type": "Individual"
+      },
+      "jen@renardproperties.com": {
+        "unit": "203B",
+        "owner": "Renard Properties LLC",
+        "company": "Renard Properties LLC",
+        "type": "Entity"
+      },
+      "jirwin6@aol.com": {
+        "unit": "204A",
+        "owner": "William Irwin",
+        "company": "",
+        "type": "Individual"
+      },
+      "gardnersb@ymail.com": {
+        "unit": "205A",
+        "owner": "Billy J. Gardner",
+        "company": "",
+        "type": "Individual"
+      },
+      "Rventureproperties@gmail.com": {
+        "unit": "206A",
+        "owner": "Roko Peros",
+        "company": "",
+        "type": "Individual"
+      },
+      "a59mogguy@yahoo.com": {
+        "unit": "206B",
+        "owner": "Raymond E. Schwartz",
+        "company": "",
+        "type": "Individual"
+      },
+      "augierowland@gmail.com": {
+        "unit": "207A",
+        "owner": "Augie Michelle Rowland",
+        "company": "",
+        "type": "Individual"
+      },
+      "bellamiadesigns22@gmail.com": {
+        "unit": "207A",
+        "owner": "Augie Michelle Rowland",
+        "company": "",
+        "type": "Individual"
+      },
+      "kjsimermeyer@gmail.com": {
+        "unit": "208A",
+        "owner": "John W. Simermeyer",
+        "company": "",
+        "type": "Individual"
+      },
+      "sbsliwoski@comcast.net": {
+        "unit": "208B",
+        "owner": "Stanley C. Sliwoski Jr.",
+        "company": "",
+        "type": "Individual"
+      },
+      "shanna@middinc.com": {
+        "unit": "209A",
+        "owner": "Middleton Inc",
+        "company": "Middleton Inc",
+        "type": "Entity"
+      },
+      "williamepenningtonjr@gmail.com": {
+        "unit": "210B",
+        "owner": "William E. Pennington Jr.",
+        "company": "",
+        "type": "Individual"
+      },
+      "meghan.pennington@gmail.com": {
+        "unit": "210B",
+        "owner": "William E. Pennington Jr.",
+        "company": "",
+        "type": "Individual"
+      },
+      "bhyman48@gmail.com": {
+        "unit": "211A",
+        "owner": "Coastal Property Investments I, LLC",
+        "company": "Coastal Property Investments I, LLC",
+        "type": "Entity"
+      },
+      "dpotopsky@gmail.com": {
+        "unit": "212A",
+        "owner": "David R. Potopsky",
+        "company": "",
+        "type": "Individual"
+      },
+      "giakean@gmail.com": {
+        "unit": "216A",
+        "owner": "Brian Michael Kean",
+        "company": "",
+        "type": "Individual"
+      },
+      "csiofcmgr@contractsolutions-inc.com": {
+        "unit": "217A",
+        "owner": "Villa Capriani 217A CU Realty, LLC",
+        "company": "Villa Capriani 217A CU Realty, LLC",
+        "type": "Entity"
+      },
+      "mcmorrow2550@aol.com": {
+        "unit": "217B",
+        "owner": "Carol D. McMorrow (Trustee)",
+        "company": "",
+        "type": "Individual"
+      },
+      "karenann4704@gmail.com": {
+        "unit": "218A",
+        "owner": "Karen T. Hagens",
+        "company": "",
+        "type": "Individual"
+      },
+      "dianacbr@hotmail.com": {
+        "unit": "218B",
+        "owner": "Hernan Prieto",
+        "company": "",
+        "type": "Individual"
+      },
+      "middleton.paul@yahoo.com": {
+        "unit": "301A",
+        "owner": "Middleton, Inc.",
+        "company": "Middleton, Inc.",
+        "type": "Entity"
+      },
+      "andrewscaljon@gmail.com": {
+        "unit": "301B",
+        "owner": "Leska Investment Solutions, LLC",
+        "company": "Leska Investment Solutions, LLC",
+        "type": "Entity"
+      },
+      "john@gotlegacy.com": {
+        "unit": "303B",
+        "owner": "John McCarty",
+        "company": "",
+        "type": "Individual"
+      },
+      "kellyqwhite@gmail.com": {
+        "unit": "304A",
+        "owner": "Marsha S. Engel",
+        "company": "",
+        "type": "Individual"
+      },
+      "drialo11@yahoo.com": {
+        "unit": "305B",
+        "owner": "Mark Drialo Wagner",
+        "company": "",
+        "type": "Individual"
+      },
+      "Susannab220@gmail.com": {
+        "unit": "307B",
+        "owner": "Blackburn Tyler Holdings, LLC",
+        "company": "Blackburn Tyler Holdings, LLC",
+        "type": "Entity"
+      },
+      "Pwelsh22@earthlink.net": {
+        "unit": "308A",
+        "owner": "Pamela C. Welsh",
+        "company": "",
+        "type": "Individual"
+      },
+      "lucykessler@gmail.com": {
+        "unit": "309B",
+        "owner": "Lucy Kessler",
+        "company": "",
+        "type": "Individual"
+      },
+      "Jacki.marino@gmail.com": {
+        "unit": "310A",
+        "owner": "David Marino",
+        "company": "",
+        "type": "Individual"
+      },
+      "guillaumeakouka@hotmail.com": {
+        "unit": "310B",
+        "owner": "Guillaume Akouka",
+        "company": "",
+        "type": "Individual"
+      },
+      "susan.burch2@yahoo.com": {
+        "unit": "311B",
+        "owner": "Andrew Burch",
+        "company": "",
+        "type": "Individual"
+      },
+      "pjbaish@yahoo.com": {
+        "unit": "312B",
+        "owner": "Peter J. Baish (Trustee)",
+        "company": "",
+        "type": "Individual"
+      },
+      "brinnan@gmail.com": {
+        "unit": "315A",
+        "owner": "Richard Coates",
+        "company": "",
+        "type": "Individual"
+      },
+      "mecollins631@gmail.com": {
+        "unit": "316A",
+        "owner": "Michael E. Collins",
+        "company": "",
+        "type": "Individual"
+      },
+      "alexispeterspero@gmail.com": {
+        "unit": "316B",
+        "owner": "Sugar Dolphin Hideaway, LLC",
+        "company": "Sugar Dolphin Hideaway, LLC",
+        "type": "Entity"
+      },
+      "cole.vanheel@gmail.com": {
+        "unit": "317A",
+        "owner": "Philip C. Van Heel",
+        "company": "",
+        "type": "Individual"
+      },
+      "liannelj@gmail.com": {
+        "unit": "318A",
+        "owner": "Lianne Lowell Jones",
+        "company": "",
+        "type": "Individual"
+      },
+      "lamylott@comcast.net": {
+        "unit": "318B",
+        "owner": "LouAnn Mylott",
+        "company": "",
+        "type": "Individual"
+      },
+      "ralucci@sbcglobal.net": {
+        "unit": "320A",
+        "owner": "Richard A. Lucci (Trustee)",
+        "company": "",
+        "type": "Individual"
+      }
+    }
+  },
+  "multi_unit_owners": [
+    {
+      "name": "Lloyd Moore",
+      "type": "Individual",
+      "units": [
+        "104A",
+        "115B"
+      ],
+      "emails": [
+        "mooreqc@aol.com"
+      ],
+      "unit_count": 2
+    },
+    {
+      "name": "KTS Investment Holdings, LLC",
+      "type": "Entity",
+      "units": [
+        "107A",
+        "201A"
+      ],
+      "emails": [],
+      "unit_count": 2
+    },
+    {
+      "name": "George Stanton Purser",
+      "type": "Individual",
+      "units": [
+        "201B",
+        "211B"
+      ],
+      "emails": [
+        "stanpurser@gmail.com"
+      ],
+      "unit_count": 2
+    },
+    {
+      "name": "William E. Pennington Jr.",
+      "type": "Individual",
+      "units": [
+        "210B",
+        "302B"
+      ],
+      "emails": [
+        "williamepenningtonjr@gmail.com",
+        "meghan.pennington@gmail.com"
+      ],
+      "unit_count": 2
+    }
+  ],
+  "missing_data_units": [
+    {
+      "unit": "101B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "105B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "111A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "111B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "112A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "112B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "210A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "212B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "213A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "213B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "214A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "214B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "306B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "311A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "313A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "313B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "314A",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    },
+    {
+      "unit": "314B",
+      "entity_type": "Unknown",
+      "company": "",
+      "primary_owner": "NO_DATA",
+      "primary_email": "",
+      "primary_phone": "",
+      "secondary_owner": "",
+      "secondary_email": "",
+      "secondary_phone": "",
+      "all_emails": [],
+      "email_count": 0,
+      "status": "MISSING_DATA",
+      "data_source": "NONE"
+    }
+  ]
+}

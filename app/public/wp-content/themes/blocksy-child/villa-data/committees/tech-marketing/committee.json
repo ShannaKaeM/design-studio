@@ -1,0 +1,152 @@
+{
+  "committee_info": {
+    "id": "tech-marketing",
+    "name": "Marketing & Tech",
+    "description": "This committee drives innovative technological solutions, strategic marketing initiatives, and enhanced communication to improve owner experiences and community engagement.",
+    "charter": "To enhance Villa Capriani's digital presence, improve owner communication tools, and leverage technology for operational efficiency.",
+    "meeting_frequency": "monthly",
+    "meeting_day": "first_tuesday",
+    "meeting_time": "19:00",
+    "meeting_location": "Community Room / Virtual"
+  },
+  "branding": {
+    "banner_image": "/villa-data/committees/tech-marketing/images/marketing-tech-banner.jpg",
+    "logo_image": "/villa-data/committees/tech-marketing/images/marketing-tech-logo.png",
+    "color_scheme": {
+      "primary": "#2563eb",
+      "secondary": "#1e40af",
+      "accent": "#3b82f6"
+    }
+  },
+  "leadership": {
+    "chair": {
+      "owner_id": "owner-tech-chair",
+      "name": "Sarah Johnson",
+      "email": "sarah.johnson@email.com",
+      "term_start": "2024-01-01",
+      "term_end": "2024-12-31"
+    },
+    "vice_chair": {
+      "owner_id": "owner-tech-vice",
+      "name": "Mike Chen",
+      "email": "mike.chen@email.com",
+      "term_start": "2024-01-01",
+      "term_end": "2024-12-31"
+    }
+  },
+  "members": [
+    {
+      "owner_id": "owner-guillaume-akouka",
+      "name": "Guillaume Akouka",
+      "email": "guillaume.akouka@gmail.com",
+      "role": "member",
+      "joined_date": "2023-04-01",
+      "status": "active",
+      "expertise": ["web_development", "digital_marketing"]
+    },
+    {
+      "owner_id": "owner-tech-member-2",
+      "name": "Lisa Rodriguez",
+      "email": "lisa.rodriguez@email.com",
+      "role": "member",
+      "joined_date": "2024-01-15",
+      "status": "active",
+      "expertise": ["social_media", "content_creation"]
+    }
+  ],
+  "responsibilities": [
+    "Manage and enhance digital communications, website, and online presence",
+    "Maintain and evolve a cohesive brand identity and marketing strategy",
+    "Improve digital experiences for owners and guests",
+    "Implement strategic communication tools for effective community engagement"
+  ],
+  "current_projects": [
+    {
+      "id": "proj-website-redesign",
+      "title": "Villa Capriani Website Redesign",
+      "description": "Complete overhaul of community website with owner portal integration",
+      "status": "in_progress",
+      "priority": "high",
+      "start_date": "2024-01-01",
+      "target_completion": "2024-06-30",
+      "budget_allocated": 15000,
+      "assigned_members": ["owner-guillaume-akouka", "owner-tech-chair"]
+    },
+    {
+      "id": "proj-social-media",
+      "title": "Social Media Strategy Implementation",
+      "description": "Develop and implement comprehensive social media presence",
+      "status": "planning",
+      "priority": "medium",
+      "start_date": "2024-03-01",
+      "target_completion": "2024-05-31",
+      "budget_allocated": 3000,
+      "assigned_members": ["owner-tech-member-2"]
+    }
+  ],
+  "meetings": [
+    {
+      "date": "2024-02-06",
+      "type": "regular",
+      "agenda": [
+        "Website development progress review",
+        "Owner portal feature prioritization",
+        "Social media strategy discussion",
+        "Budget review for Q1"
+      ],
+      "attendees": ["owner-tech-chair", "owner-guillaume-akouka", "owner-tech-member-2"],
+      "minutes_file": "/villa-data/committees/tech-marketing/meetings/2024-02-06-minutes.pdf",
+      "action_items": [
+        {
+          "item": "Complete Studio Blocks integration",
+          "assigned_to": "owner-guillaume-akouka",
+          "due_date": "2024-02-20"
+        },
+        {
+          "item": "Finalize social media content calendar",
+          "assigned_to": "owner-tech-member-2",
+          "due_date": "2024-02-15"
+        }
+      ]
+    }
+  ],
+  "budget": {
+    "annual_allocation": 25000,
+    "spent_ytd": 8500,
+    "remaining": 16500,
+    "major_expenses": [
+      {
+        "date": "2024-01-15",
+        "description": "Website development tools and licenses",
+        "amount": 2500,
+        "category": "software"
+      },
+      {
+        "date": "2024-02-01",
+        "description": "Professional design consultation",
+        "amount": 6000,
+        "category": "consulting"
+      }
+    ]
+  },
+  "documents": [
+    {
+      "title": "Committee Charter",
+      "file_path": "/villa-data/committees/tech-marketing/documents/charter.pdf",
+      "date_created": "2024-01-01",
+      "access_level": "public"
+    },
+    {
+      "title": "Website Development Specifications",
+      "file_path": "/villa-data/committees/tech-marketing/documents/website-specs.pdf",
+      "date_created": "2024-01-15",
+      "access_level": "committee"
+    }
+  ],
+  "metadata": {
+    "created_date": "2024-01-01",
+    "last_updated": "2024-02-15",
+    "data_version": "1.0",
+    "sync_status": "current"
+  }
+}

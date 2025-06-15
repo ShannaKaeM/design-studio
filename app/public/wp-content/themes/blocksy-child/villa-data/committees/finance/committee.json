@@ -1,0 +1,57 @@
+{
+  "committee_info": {
+    "id": "finance",
+    "name": "Finance",
+    "description": "Oversees the financial stability and responsible budgeting of Villa Capriani, ensuring transparent financial practices, effective budget management, and long-term financial health.",
+    "charter": "To ensure the financial health and transparency of Villa Capriani through responsible budgeting, financial planning, and oversight.",
+    "meeting_frequency": "monthly",
+    "meeting_day": "fourth_tuesday",
+    "meeting_time": "18:00",
+    "meeting_location": "Community Room / Virtual"
+  },
+  "branding": {
+    "banner_image": "/villa-data/committees/finance/images/finance-banner.jpg",
+    "logo_image": "/villa-data/committees/finance/images/finance-logo.png",
+    "color_scheme": {
+      "primary": "#dc2626",
+      "secondary": "#b91c1c",
+      "accent": "#ef4444"
+    }
+  },
+  "leadership": {
+    "chair": {
+      "owner_id": "owner-finance-chair",
+      "name": "TBD",
+      "email": "finance@villacapriani.com",
+      "term_start": "2024-01-01",
+      "term_end": "2024-12-31"
+    },
+    "vice_chair": {
+      "owner_id": "owner-finance-vice",
+      "name": "TBD",
+      "email": "finance-vice@villacapriani.com",
+      "term_start": "2024-01-01",
+      "term_end": "2024-12-31"
+    }
+  },
+  "members": [],
+  "responsibilities": [
+    "Create, oversee, and manage the annual community budget",
+    "Monitor financial health and provide transparent reporting to owners",
+    "Plan and manage reserve funds strategically",
+    "Evaluate expenditures and vendor agreements for cost efficiency and alignment with strategic goals"
+  ],
+  "current_projects": [],
+  "meeting_history": [],
+  "budget": {
+    "annual_allocation": 2000.00,
+    "spent_ytd": 0.00,
+    "remaining": 2000.00,
+    "expenses": []
+  },
+  "documents": {
+    "annual_budget": "/villa-data/committees/finance/documents/annual-budget.pdf",
+    "financial_reports": "/villa-data/committees/finance/documents/reports/",
+    "meeting_minutes": "/villa-data/committees/finance/documents/minutes/"
+  }
+}

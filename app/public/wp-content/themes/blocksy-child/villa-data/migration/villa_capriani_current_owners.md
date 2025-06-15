@@ -1,0 +1,206 @@
+# Villa Capriani Current Owners by Units Owned
+
+## Multi-Unit Owners (2+ Units)
+
+### KTS INVESTMENT HOLDINGS, LLC (2 units)
+- Unit 107A (07/28/2020)
+- Unit 201A (07/28/2020)
+
+### POWELL, DONALD II & POWELL, BETSY (2 units)
+- Unit 116B (02/02/2022)
+- Unit 201B (05/07/2024)
+
+### PURSER, GEORGE STANTON & PURSER, DEBORAH GIBSON (2 units)
+- Unit 201B (05/07/2024) *[Note: Conflict with Powell ownership - needs verification]*
+- Unit 211B (06/26/2023)
+
+### BEKIROGLU FAMILY PROPERTIES LLC (3 units)
+- Unit 114A (04/08/2004) *[May have been sold later - needs verification]*
+- Unit 115B (04/08/2004) *[May have been sold later - needs verification]*
+- Unit 218A (05/09/2017)
+
+### MIDDLETON, INC. (2 units)
+- Unit 209A (04/22/2021)
+- Unit 301A (03/01/2021)
+
+### VILLA CAPRIANI CU REALTY ENTITIES (2 units)
+- Unit 203A (VILLA CAPRIANI 203A CU REALTY, LLC - 12/09/2019)
+- Unit 217A (VILLA CAPRIANI 217A CU REALTY, LLC - 12/09/2019)
+
+### PENNINGTON, WILLIAM E JR & PENNINGTON, DENISE (2 units)
+- Unit 210B (01/30/2006)
+- Unit 302B (10/04/2004)
+
+## Single-Unit Owners (Alphabetical)
+
+### A
+- **AKOUKA, GUILLAUME & AKOUKA, KARINA**: Unit 310B (06/06/2022)
+- **ALEXANDER, FORSYTH MICHIE**: Unit 404A (10/17/2023)
+- **AMJ VENTURES LLC**: Unit 416A (08/10/2021)
+- **ARLINGTON RENTALS LLC**: Unit 416B (04/05/2023) *[Later sold to Moyer]*
+
+### B
+- **BAISH, MARY ALICE/ TR & BAISH, PETER J/ TR (Trusts)**: Unit 312B (03/02/2023)
+- **BALLARD, STEPHANIE HAAS**: Unit 110B (06/24/2011) *[Life Estate]*
+- **BANDEIAN, STEPHEN H. & RAUSCH, DIANNE M.**: Unit 113B (09/25/2012)
+- **BEAN & BUMS DEVELOPMENT CO LTD**: Unit 407A (12/02/2005)
+- **BECK, LINDSEY**: Unit 115A (02/24/2025)
+- **BIRKHOLZ, MELANIE & BIRKHOLZ, KEITH**: Unit 110A (11/01/2024)
+- **BLACKBURN TYLER HOLDINGS, LLC**: Unit 307B (10/09/2023)
+- **BLANKENSHIP, BETHANY L & GILDE, CHRISTIAN**: Unit 107B (07/14/2011)
+- **BODNER, RICHARD M./ TR & BODNER, BRENDA N./ TR (Trust)**: Unit 220A (05/11/2020)
+- **BOWIE, WAYNE A & BOWIE, EVELYN M**: Unit 103B *[Date needs verification]*
+- **BREENE, THOMAS GEORGE & BREENE, JUDY BRADLEY**: Unit 118B (03/18/2021)
+- **BURCH, ANDREW & BURCH, SUSAN**: Unit 311B (05/15/2024)
+- **BURTON, BRANDON & BURTON, SHANTEL**: Unit 219B (03/16/2023)
+
+### C
+- **C & S RENTALS OF VIRGINIA, LLC**: Unit 113A (08/23/2024)
+- **CANNON, KELLIE & CANNON, BRYCE**: Unit 202B (01/12/2023)
+- **CAROLINA CONDOS AND CASTLES, LLC**: Unit 220B (03/09/2021)
+- **CAROLINA SANDS LLC**: Unit 215B (02/25/2022)
+- **CARPENTER, ANTHONY S. & CARPENTER, KACY**: Unit 117A (03/18/2021)
+- **CASA NOMAD, LLC**: Unit 308B (12/15/2017)
+- **COATES, RICHARD & COATES, BRINNAN**: Unit 315A (06/09/2022)
+- **COASTAL PROPERTY INVESTMENTS I, LLC**: Unit 211A (03/25/2025)
+- **COLLINS, SHIRLEY F. & COLLINS, MICHAEL E.**: Unit 316A *[Date needs verification]*
+
+### D
+- **DALTON, JOSEPH & DALTON, ALYSSA**: Unit 101A (05/09/2025)
+- **DRIESSEN, CORNELIS HENDRICUS & DRIESSEN, MICHELLE**: Unit 317B (08/15/2024)
+- **DYAL, JUSTIN W. & DYAL, PATRICIA L.**: Unit 305A (05/01/2018)
+
+### E
+- **EAST WEST ASSOCIATES, LLC**: Unit 307A (12/12/2019)
+- **ENGEL, MARSHA S**: Unit 304A (06/16/2009)
+
+### F
+- **FARUQUE, MARK A & FARUQUE, LAURA M**: Unit 411A (02/11/2021)
+
+### G
+- **GARDNER, SANDRA B & GARDNER, BILLY J**: Unit 205A (03/23/2018)
+- **GERACI, BENEDETTO & GERACI, LANA LEONTOWYEZ**: Unit 411B (03/22/2021)
+- **GRADY, ELIZABETH ANN**: Unit 202A (04/19/2023)
+- **GRIFFITH FAMILY DYNASTY TRUST & WILSON, LISA D./ TR**: Unit 106B (05/13/2025)
+
+### H
+- **HAGENS, KAREN T & HAGENS, JASON M**: Unit 218A (05/09/2017)
+- **HAINES, JOE D. JR. & HAINES, DAYNA L.**: Unit 105A (02/28/2018)
+- **HAYS, ERIK DANIEL & HAYS, ROBIN ANNETTE**: Unit 306A (01/28/2022)
+- **HENDREN, REBECCA**: Unit 302A (12/28/2015)
+
+### I-J
+- **IVORY, RACHEL LOUISE & RACHEL LOUISE IVORY REVOCABLE TRUST**: Unit 118A (10/03/2023)
+- **JAXREZ LLC**: Unit 109B (11/12/2008)
+- **JENSEN, JALEIGH BLISS & JENSEN, COLTEN DAVID**: Unit 215A (04/19/2023)
+- **JONES, LIANNE LOWELL & JONES, CHRISTOPHER DOUGLAS**: Unit 318A (12/01/2023)
+- **JVTV, LLC**: Unit 108A (06/25/2021)
+
+### K
+- **KEAN, BRIAN MICHAEL & KEAN, GIA LYNN**: Unit 216A (02/04/2015)
+- **KEATING, MICHAEL D & GRANADOS, NOLLY C**: Unit 408A (03/30/2021)
+- **KENNEDY, RONAN & KENNEDY, DIANA**: Unit 319B (03/21/2022)
+- **KESSLER, LUCY**: Unit 309B (08/12/2011)
+- **KNIPPING, STEPHEN MICHAEL & KNIPPING, KYRISTEN LJ**: Unit 207B (06/21/2022)
+- **KROPF, VICTOR J & KROPF, MIRIAM K**: Unit 315B (08/31/2004)
+
+### L
+- **LESKA INVESTMENT SOLUTIONS, LLC**: Unit 301B (01/03/2023)
+- **LOWE, JAMES R II & LOWE, TARA A.**: Unit 114A (08/23/2021)
+- **LUCCI, RICHARD A./ TR & LUCCI, BONITA S./ TR (Trust)**: Unit 320A (05/06/2020)
+
+### M
+- **M&M HOSTING, LLC**: Unit 103A (07/25/2022)
+- **MALEKPOUR, ARTEMIS H**: Unit 407B (09/27/2017)
+- **MARINO, DAVID & MARINO, JACQUELINE**: Unit 310A (06/26/2020)
+- **MARTIN, SCOTTY RAY & MARTIN, TERESA**: Unit 319A (10/05/2023)
+- **MAT & GLIN, LLC**: Unit 209B (08/11/2023)
+- **MATSEN, DOUGLAS & MATSEN, SUSAN**: Unit 412B (10/30/2013)
+- **MCCARTY, JOHN**: Unit 303B (08/17/2020)
+- **MCMORROW, CAROL D./ TR & CAROL D. MCMORROW REVOCABLE TRUST**: Unit 217B (06/03/2024)
+- **MERLINO, ANTHONY & MERLINO, NANCY**: Unit 219A (09/01/2020)
+- **MOORE, LLOYD**: Unit 115B (10/16/2020)
+- **MOORE, LLOYD & MOORE, DANIELLE**: Unit 104A (04/24/2012)
+- **MORRIS, ARTHUR & MORRIS, SYLVIA**: Unit 309A (04/24/2012)
+- **MOYER, LINDSEY & MOYER, GREGORY PHILLIP**: Unit 416B (04/02/2024)
+- **MYLOTT, LOU ANN & MYLOTT, JOHN S**: Unit 318B (03/11/2008)
+
+### O-P
+- **ONORATO REALTY HOLDINGS, LLC**: Unit 102B (03/20/2024)
+- **PEROS, ROKO, PEROS, ANDREA MARIE, PEROS, JADRANKO & PEROS, VOJKA**: Unit 206A (06/02/2023)
+- **PETERS, NORMAN E. JR. & PETERS, PAULA J.**: Unit 116A (07/21/2016)
+- **PHOENIX ENTERPRISES OF FREDERICKSBURG LLC**: Unit 205B (03/10/2005)
+- **POTOPSKY, DAVID R & POTOPSKY, KIMBERLY J**: Unit 212A *[Date needs verification]*
+- **PRIETO, HERNAN & BENUCCI, DIANA**: Unit 218B (09/19/2024)
+
+### R
+- **RENARD PROPERTIES LLC**: Unit 203B (04/09/2024)
+- **RICE, MARK A & RICE, MYRA W**: Unit 216B (05/31/2016)
+- **ROWLAND, AUGIE MICHELLE & ROWLAND, CRAIG STEVEN**: Unit 207A (03/10/2023)
+
+### S
+- **SACHS, KARISSA & BEARMAN, BRETT**: Unit 404B (04/11/2025)
+- **SAMONTE, FERDINAND D & SAMONTE, TAMMY J**: Unit 312A (06/21/2010)
+- **SBUTTONI, JOSEPH MICHAEL & SBUTTONI, JULIE ANN**: Unit 408B (09/23/2022)
+- **SCHWARTZ, CAMILLA M & SCHWARTZ, RAYMOND E**: Unit 206B (11/23/2010)
+- **SERRA, GAETANO RALPH & SERRA, MAEGAN ANN**: Unit 104B (06/02/2022)
+- **SIMERMEYER, JOHN W & SIMERMEYER, JULIE**: Unit 208A (08/06/2004)
+- **SLIWOSKI, STANLEY C/ JR & SLIWOSKI, ELIZABETH J**: Unit 208B (12/22/2004)
+- **STRAWBRIDGE, STEVEN C**: Unit 412A (10/28/2011)
+- **SUGAR DOLPHIN HIDEAWAY, LLC**: Unit 316B (06/09/2022)
+- **SURFLINE PROPERTIES LLC**: Unit 106A (03/01/2021)
+
+### T
+- **TELLEFSEN, GLEN & TELLEFSEN, COURTNEY**: Unit 320B (08/21/2020)
+- **TOMIELLO, RONALD J & TOMIELLO, CHANTAL L**: Unit 102A (07/23/2020)
+
+### V
+- **VAN DOREN, RACHEL & HARMON, GARY**: Unit 114B (06/28/2022)
+- **VANHEEL, PHILIP C. & VANHEEL, MELANIE C.**: Unit 317A (08/01/2023)
+- **VIOLINJAM, LLC**: Unit 109A (06/08/2021)
+
+### W
+- **WAGNER, MARK DRIALO & LUDLUM, STEVIE NICOLE**: Unit 305B (02/24/2017)
+- **WALDEN, KENNON C/ JR & WALDEN, MELINDA C**: Unit 304B (10/11/2004)
+- **WELSH, PAMELA C**: Unit 308A (06/19/2008)
+- **WEPNER, TIMOTHY & WEPNER, ANNE**: Unit 117B (04/05/2024)
+- **WOLF, TIMOTHY J & WOLF, KATHLEEN A**: Unit 108B (12/14/2011)
+- **WOTTON, GARY T & WOTTON, CAROL M**: Unit 303A (01/04/2021)
+
+### Numbers
+- **1965 LLC**: Unit 204B (03/17/2023)
+
+## Ownership Statistics
+
+### Total Ownership Count
+- **Total Distinct Owners/Entities**: 105
+- **Total Units**: 116
+- **Average Units per Owner**: 1.10
+
+### Ownership Distribution
+- **Multi-Unit Owners**: 7 entities (6.7% of owners)
+  - Own 15+ units (13-15% of total units)
+- **Single-Unit Owners**: 98 entities (93.3% of owners)  
+  - Own 98-101 units (85-87% of total units)
+
+### Detailed Multi-Unit Ownership
+1. **BEKIROGLU FAMILY PROPERTIES LLC**: 3 units (2.6%)
+2. **KTS INVESTMENT HOLDINGS, LLC**: 2 units (1.7%)
+3. **POWELL, DONALD II & POWELL, BETSY**: 2 units (1.7%)
+4. **PURSER, GEORGE STANTON & PURSER, DEBORAH GIBSON**: 2 units (1.7%)
+5. **MIDDLETON, INC.**: 2 units (1.7%)
+6. **VILLA CAPRIANI CU REALTY entities**: 2 units (1.7%)
+7. **PENNINGTON, WILLIAM E JR & PENNINGTON, DENISE**: 2 units (1.7%)
+
+### Ownership Types
+- **Married Couples**: ~60-65 entities
+- **LLCs/Corporations**: ~25-30 entities
+- **Trusts**: ~10-15 entities
+- **Individual Owners**: ~5-10 entities
+
+### Key Insights
+- **Highly Distributed Ownership**: 93% of owners own just one unit
+- **Low Concentration**: Largest owner has only 3 units (2.6% of complex)
+- **Family-Oriented**: Most units owned by married couples
+- **Investment Activity**: Significant LLC/corporate ownership suggests rental investment activity
+- **Estate Planning**: Multiple trust arrangements indicate sophisticated ownership structures

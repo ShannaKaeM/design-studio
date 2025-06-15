@@ -1,0 +1,57 @@
+{
+  "committee_info": {
+    "id": "architecture",
+    "name": "Built Environment",
+    "description": "Ensures the architectural integrity, aesthetic appeal, and overall quality of Villa Capriani's buildings, landscapes, and shared spaces, supporting owners with guidance and resources.",
+    "charter": "To maintain and enhance the architectural standards and aesthetic appeal of Villa Capriani while supporting owners with improvement projects.",
+    "meeting_frequency": "monthly",
+    "meeting_day": "second_wednesday",
+    "meeting_time": "18:30",
+    "meeting_location": "Community Room / Virtual"
+  },
+  "branding": {
+    "banner_image": "/villa-data/committees/architecture/images/built-environment-banner.jpg",
+    "logo_image": "/villa-data/committees/architecture/images/built-environment-logo.png",
+    "color_scheme": {
+      "primary": "#059669",
+      "secondary": "#047857",
+      "accent": "#10b981"
+    }
+  },
+  "leadership": {
+    "chair": {
+      "owner_id": "owner-arch-chair",
+      "name": "TBD",
+      "email": "architecture@villacapriani.com",
+      "term_start": "2024-01-01",
+      "term_end": "2024-12-31"
+    },
+    "vice_chair": {
+      "owner_id": "owner-arch-vice",
+      "name": "TBD",
+      "email": "architecture-vice@villacapriani.com",
+      "term_start": "2024-01-01",
+      "term_end": "2024-12-31"
+    }
+  },
+  "members": [],
+  "responsibilities": [
+    "Review, approve, and oversee exterior architectural and landscaping projects",
+    "Review, approve, and oversee interior design and improvement projects",
+    "Provide guidance and assistance to owners with improvement or repair projects",
+    "Ensure compliance with approved design standards, strategic plans, and community vision"
+  ],
+  "current_projects": [],
+  "meeting_history": [],
+  "budget": {
+    "annual_allocation": 5000.00,
+    "spent_ytd": 0.00,
+    "remaining": 5000.00,
+    "expenses": []
+  },
+  "documents": {
+    "design_standards": "/villa-data/committees/architecture/documents/design-standards.pdf",
+    "approval_forms": "/villa-data/committees/architecture/documents/project-approval-form.pdf",
+    "meeting_minutes": "/villa-data/committees/architecture/documents/minutes/"
+  }
+}

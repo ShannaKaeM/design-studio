@@ -1,0 +1,14 @@
+{
+    "name": "SureDash Business",
+    "slug": "suredash-pro",
+    "author": "<a href='https://suredash.com'>SureDash</a>",
+    "author_profile": "https://suredash.com/",
+    "version": "1.0.0-rc.3",
+    "requires": "5.6",
+    "tested": "6.8",
+    "requires_php": "5.6",
+    "sections": {
+        "description": "Powerful Extension of SureDash.",
+        "changelog": "<h4>2025-05-27 - version 1.0.0-rc.3</h4><ul><li>New: Brand new admin dashboard with better UI/UX and with lot of new features, improvements.</li><li>Improvement: Multiple UI/UX improvements.</li><li>Improved codebase with best coding practices.</li></ul><h4>2025-04-17 - version 0.0.6</h4><ul><li>Internal: Astra-Notices library updated to the latest version.</li><li>Fix: Course Builder - Rearranging lessons in the course section is not auto save.</li><li>Fix: Course Builder - Deleted lesson still visible in the builder area which is not accessible.</li></ul><h4>2025-03-12 - version 0.0.5</h4><ul><li>New: Capability of reorder course sections in the course.</li><li>New: Capability of reordering lessons into different course sections.</li><li>Fix: Empty p tags were added in the content of the lesson content.</li></ul><h4>2025-02-10 - version 0.0.4</h4><ul><li>Fix: PHP Notice: _load_textdomain_just_in_time was called incorrectly. Translation loading for the suredash-pro domain was triggered too early.</li><li>Fix: \"Install SureDash\" notice CTA will leads to \"plugin not found\" error.</li></ul><h4>2025-01-28 - version 0.0.3</h4><ul><li>Improvement: Displaying premium plugin incompatibility admin notice on all dashboard screens instead of the only plugins page.</li></ul><h4>2025-01-24 - version 0.0.2</h4><ul><li>New: Introducing tooltip for lesson navigation for better user experience.</li><li>New: Introducing badges for the lessons to track the course progress effectively.</li><li>Improvement: Introduced minimum version notice setup for compatibility with the SureDash Premium plugin.</li></ul><h4>2025-01-02 - Version 0.0.1-alpha.3</h4><ul><li>Feature: Added licensing system for the plugin.</li><li>Improvement: Added internationalization support for the plugin.</li><li>Improvement: Coding standards improved as per w.org guidelines.</li></ul><h4>2024-12-02 - Version 0.0.1-alpha.2</h4><ul><li>Improvement: Page builder support added for popular page builders for lessons creation.</li></ul><h4>2024-11-28 - Version 0.0.1-alpha.1</h4><ul><li>Initial Release.</li></ul>"
+    }
+}

@@ -693,34 +693,14 @@
 
 /* Adjust the main content area to accommodate wider sidebar */
 .interface-interface-skeleton__content {
-    margin-right: 450px !important;
+    flex: 1 !important;
+    max-width: calc(100% - 450px) !important;
 }
 
 /* Make sure the editor content adjusts properly */
 .block-editor-block-list__layout {
     margin-right: 0 !important;
-}
-
-/* Studio-specific wider styling */
-.studio-sidebar-container {
-    width: 100% !important;
-    min-width: 400px !important;
-}
-
-.studio-design-tokens {
-    padding: 16px;
-    width: 100%;
-}
-
-.studio-color-display {
-    min-width: 360px;
-    width: 100%;
-}
-
-/* Force wider accordion sections */
-.studio-accordion-section {
-    width: 100% !important;
-    min-width: 380px !important;
+    max-width: 100% !important;
 }
 
 /* Category management styling */

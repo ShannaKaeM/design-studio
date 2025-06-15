@@ -1,0 +1,97 @@
+{
+  "personal_info": {
+    "owner_id": "owner-corliss-udoema",
+    "first_name": "Corliss",
+    "last_name": "Udoema",
+    "email": "csiofcmgr@contractsolutions-inc.com",
+    "phone": null,
+    "emergency_contact": {
+      "name": null,
+      "relationship": null,
+      "phone": null
+    }
+  },
+  "entity_info": {
+    "entity_type": "individual",
+    "company_name": null,
+    "legal_entity_name": "Corliss Udoema",
+    "tax_id": null
+  },
+  "addresses": {
+    "primary": {
+      "street": null,
+      "city": null,
+      "state": null,
+      "zip": null,
+      "country": "USA"
+    },
+    "billing": {
+      "same_as_primary": true,
+      "street": null,
+      "city": null,
+      "state": null,
+      "zip": null,
+      "country": null
+    }
+  },
+  "properties_owned": [
+    {
+      "unit_number": "217A",
+      "ownership_percentage": 100,
+      "acquisition_date": null,
+      "acquisition_price": null,
+      "primary_use": "personal",
+      "management_preference": "self_managed"
+    }
+  ],
+  "portal_access": {
+    "wordpress_user_id": null,
+    "login_email": "csiofcmgr@contractsolutions-inc.com",
+    "account_status": "active",
+    "last_login": null,
+    "dashboard_preferences": {
+      "default_view": "property_overview",
+      "notifications_enabled": true,
+      "email_frequency": "weekly"
+    }
+  },
+  "committee_memberships": [],
+  "communication_preferences": {
+    "announcement_delivery": "email",
+    "survey_notifications": true,
+    "maintenance_alerts": "email",
+    "financial_notifications": "email",
+    "emergency_contact_method": "email"
+  },
+  "financial": {
+    "payment_method": {
+      "type": "manual",
+      "bank_account_last4": null,
+      "auto_pay_enabled": false,
+      "backup_payment": null
+    },
+    "payment_history": [],
+    "outstanding_balances": [],
+    "credit_status": "good"
+  },
+  "engagement": {
+    "survey_responses": [],
+    "roadmap_interactions": [],
+    "community_participation_score": 50
+  },
+  "rental_management": {
+    "manages_own_rental": false,
+    "property_manager": null,
+    "rental_platforms": [],
+    "guest_communication_preference": null,
+    "cleaning_service": null,
+    "maintenance_contact": "hoa"
+  },
+  "metadata": {
+    "profile_created": "2024-01-01",
+    "last_updated": "2024-02-15",
+    "data_version": "1.0",
+    "sync_status": "current",
+    "migrated_from": "villa_owners_data_2024"
+  }
+}

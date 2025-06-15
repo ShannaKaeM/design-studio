@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunksuremembers=globalThis.webpackChunksuremembers||[]).push([[2894],{2894:(s,e,l)=>{l.r(e),l.d(e,{sc_table_head:()=>t});var r=l(4589);const t=class{constructor(s){(0,r.r)(this,s)}render(){return(0,r.h)(r.H,null,(0,r.h)("slot",null))}};t.style=":host{display:table-header-group}::slotted(*){display:table-row}"}}]);

@@ -1,0 +1,57 @@
+{
+  "committee_info": {
+    "id": "operations-oversight",
+    "name": "Operations",
+    "description": "Ensures exceptional operational quality and owner satisfaction through oversight of property management, key professional relationships, and adherence to community standards.",
+    "charter": "To oversee property management operations, maintain professional service standards, and ensure effective communication between management and owners.",
+    "meeting_frequency": "monthly",
+    "meeting_day": "first_thursday",
+    "meeting_time": "18:30",
+    "meeting_location": "Community Room / Virtual"
+  },
+  "branding": {
+    "banner_image": "/villa-data/committees/operations-oversight/images/operations-banner.jpg",
+    "logo_image": "/villa-data/committees/operations-oversight/images/operations-logo.png",
+    "color_scheme": {
+      "primary": "#ea580c",
+      "secondary": "#c2410c",
+      "accent": "#f97316"
+    }
+  },
+  "leadership": {
+    "chair": {
+      "owner_id": "owner-operations-chair",
+      "name": "TBD",
+      "email": "operations@villacapriani.com",
+      "term_start": "2024-01-01",
+      "term_end": "2024-12-31"
+    },
+    "vice_chair": {
+      "owner_id": "owner-operations-vice",
+      "name": "TBD",
+      "email": "operations-vice@villacapriani.com",
+      "term_start": "2024-01-01",
+      "term_end": "2024-12-31"
+    }
+  },
+  "members": [],
+  "responsibilities": [
+    "Hire and oversee key professionals, including the Property Manager, Accountant, and Lawyer",
+    "Ensure Property Manager effectively enforces community standards and strategic plans",
+    "Review vendor contracts and service agreements to ensure quality and efficiency",
+    "Facilitate communication between management, staff, and owners, promptly resolving issues"
+  ],
+  "current_projects": [],
+  "meeting_history": [],
+  "budget": {
+    "annual_allocation": 4000.00,
+    "spent_ytd": 0.00,
+    "remaining": 4000.00,
+    "expenses": []
+  },
+  "documents": {
+    "vendor_contracts": "/villa-data/committees/operations-oversight/documents/contracts/",
+    "performance_reviews": "/villa-data/committees/operations-oversight/documents/reviews/",
+    "meeting_minutes": "/villa-data/committees/operations-oversight/documents/minutes/"
+  }
+}
