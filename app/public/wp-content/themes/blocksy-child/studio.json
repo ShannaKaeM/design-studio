@@ -4,6 +4,10 @@
             "name": "Primary",
             "value": "#5a7b7c"
         },
+        "primary-light": {
+            "name": "Primary Light",
+            "value": "#6a8b8c"
+        },
         "primary-dark": {
             "name": "Primary Dark",
             "value": "#4a6b6c"
@@ -11,6 +15,26 @@
         "secondary": {
             "name": "Secondary",
             "value": "#7b5a5a"
+        },
+        "secondary-light": {
+            "name": "Secondary Light",
+            "value": "#8b6a6a"
+        },
+        "secondary-dark": {
+            "name": "Secondary Dark",
+            "value": "#6b4a4a"
+        },
+        "accent": {
+            "name": "Accent",
+            "value": "#d4a574"
+        },
+        "accent-light": {
+            "name": "Accent Light",
+            "value": "#e4b584"
+        },
+        "accent-dark": {
+            "name": "Accent Dark",
+            "value": "#c49564"
         },
         "base": {
             "name": "Base",
@@ -39,6 +63,10 @@
         "base-lightest": {
             "name": "Base Lightest",
             "value": "#f5f5f5"
+        },
+        "white": {
+            "name": "White",
+            "value": "#ffffff"
         }
     },
     "typography": {

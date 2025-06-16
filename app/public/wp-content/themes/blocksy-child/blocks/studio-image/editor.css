@@ -1,0 +1,157 @@
+/* Studio Image Block - Editor Styles */
+
+/* Editor Container */
+.wp-block-studio-image {
+    position: relative;
+}
+
+/* Selected State */
+.wp-block-studio-image.is-selected .studio-image__wrapper {
+    outline: 2px solid var(--wp-admin-theme-color);
+    outline-offset: -2px;
+}
+
+/* Placeholder Styling */
+.wp-block-studio-image .components-placeholder {
+    min-height: 200px;
+    background: #f0f0f0;
+}
+
+/* Caption in Editor */
+.wp-block-studio-image .studio-image__caption {
+    min-height: 1.5em;
+}
+
+.wp-block-studio-image .studio-image__caption:empty::before {
+    content: attr(data-placeholder);
+    opacity: 0.62;
+}
+
+/* Overlay Caption Positioning in Editor */
+.wp-block-studio-image .studio-image__caption-overlay-bottom .studio-image__caption,
+.wp-block-studio-image .studio-image__caption-overlay-top .studio-image__caption,
+.wp-block-studio-image .studio-image__caption-overlay-center .studio-image__caption {
+    pointer-events: all;
+}
+
+/* Make sure overlay captions are editable */
+.wp-block-studio-image .studio-image__figure {
+    position: relative;
+}
+
+/* Link Indicator */
+.wp-block-studio-image .studio-image__link {
+    position: relative;
+}
+
+.wp-block-studio-image .studio-image__link::after {
+    content: "🔗";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Effect Indicators */
+.wp-block-studio-image.studio-image--effect-grayscale::before,
+.wp-block-studio-image.studio-image--effect-sepia::before,
+.wp-block-studio-image.studio-image--effect-blur::before,
+.wp-block-studio-image.studio-image--effect-brightness::before,
+.wp-block-studio-image.studio-image--effect-contrast::before {
+    content: "Effect: " attr(data-effect);
+    position: absolute;
+    top: 8px;
+    left: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Hover Effect Indicator */
+.wp-block-studio-image[class*="studio-image--hover-"]::after {
+    content: "Hover effect enabled";
+    position: absolute;
+    bottom: 8px;
+    left: 8px;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 11px;
+    z-index: 3;
+    pointer-events: none;
+}
+
+/* Aspect Ratio Guide */
+.wp-block-studio-image[class*="studio-image--aspect-"] .studio-image__wrapper {
+    background-image: 
+        linear-gradient(45deg, #e0e0e0 25%, transparent 25%),
+        linear-gradient(-45deg, #e0e0e0 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #e0e0e0 75%),
+        linear-gradient(-45deg, transparent 75%, #e0e0e0 75%);
+    background-size: 20px 20px;
+    background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+}
+
+/* Alignment Helpers */
+.wp-block-studio-image.alignleft,
+.wp-block-studio-image.alignright {
+    max-width: 50%;
+}
+
+.wp-block-studio-image.aligncenter {
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Wide and Full Indicators */
+.wp-block-studio-image.alignwide,
+.wp-block-studio-image.alignfull {
+    position: relative;
+}
+
+.wp-block-studio-image.alignwide::before {
+    content: "Wide Width";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 11px;
+    color: #666;
+}
+
+.wp-block-studio-image.alignfull::before {
+    content: "Full Width";
+    position: absolute;
+    top: -20px;
+    left: 0;
+    font-size: 11px;
+    color: #666;
+}
+
+/* Loading State */
+.wp-block-studio-image .components-spinner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Responsive Preview */
+@media (max-width: 768px) {
+    .wp-block-studio-image.alignleft,
+    .wp-block-studio-image.alignright {
+        float: none;
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

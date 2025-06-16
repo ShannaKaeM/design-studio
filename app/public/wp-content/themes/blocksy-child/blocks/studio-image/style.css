@@ -1,0 +1,224 @@
+/* Studio Image Block - Frontend Styles */
+
+.studio-image {
+    margin: 0;
+}
+
+.studio-image__figure {
+    margin: 0;
+    position: relative;
+}
+
+.studio-image__wrapper {
+    position: relative;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.studio-image__img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Aspect Ratios */
+.studio-image--aspect-1-1 .studio-image__wrapper {
+    aspect-ratio: 1/1;
+}
+
+.studio-image--aspect-16-9 .studio-image__wrapper {
+    aspect-ratio: 16/9;
+}
+
+.studio-image--aspect-9-16 .studio-image__wrapper {
+    aspect-ratio: 9/16;
+}
+
+.studio-image--aspect-21-9 .studio-image__wrapper {
+    aspect-ratio: 21/9;
+}
+
+.studio-image--aspect-4-3 .studio-image__wrapper {
+    aspect-ratio: 4/3;
+}
+
+.studio-image--aspect-3-4 .studio-image__wrapper {
+    aspect-ratio: 3/4;
+}
+
+/* Border Radius */
+.studio-image--radius-small .studio-image__wrapper {
+    border-radius: 4px;
+}
+
+.studio-image--radius-medium .studio-image__wrapper {
+    border-radius: 8px;
+}
+
+.studio-image--radius-large .studio-image__wrapper {
+    border-radius: 16px;
+}
+
+.studio-image--radius-round .studio-image__wrapper {
+    border-radius: 50%;
+}
+
+/* Image Effects */
+.studio-image--effect-grayscale .studio-image__img {
+    filter: grayscale(100%);
+}
+
+.studio-image--effect-sepia .studio-image__img {
+    filter: sepia(100%);
+}
+
+.studio-image--effect-blur .studio-image__img {
+    filter: blur(2px);
+}
+
+.studio-image--effect-brightness .studio-image__img {
+    filter: brightness(1.2);
+}
+
+.studio-image--effect-contrast .studio-image__img {
+    filter: contrast(1.2);
+}
+
+/* Hover Effects */
+.studio-image--hover-zoom-in:hover .studio-image__img {
+    transform: scale(1.1);
+}
+
+.studio-image--hover-zoom-out:hover .studio-image__img {
+    transform: scale(0.95);
+}
+
+.studio-image--hover-rotate:hover .studio-image__img {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.studio-image--hover-blur-focus .studio-image__img {
+    filter: blur(2px);
+}
+
+.studio-image--hover-blur-focus:hover .studio-image__img {
+    filter: blur(0);
+}
+
+.studio-image--hover-color-grayscale .studio-image__img {
+    filter: grayscale(0%);
+}
+
+.studio-image--hover-color-grayscale:hover .studio-image__img {
+    filter: grayscale(100%);
+}
+
+/* Caption Styles */
+.studio-image__caption {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    margin: 0;
+    padding: 0.75rem 0;
+}
+
+/* Caption Position - Below */
+.studio-image__caption-below .studio-image__caption {
+    position: static;
+    text-align: center;
+    color: var(--wp--preset--color--base-dark, #666);
+}
+
+/* Caption Position - Overlay */
+.studio-image__caption-overlay-bottom .studio-image__caption,
+.studio-image__caption-overlay-top .studio-image__caption,
+.studio-image__caption-overlay-center .studio-image__caption {
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    margin: 0;
+    z-index: 2;
+}
+
+.studio-image__caption-overlay-bottom .studio-image__caption {
+    bottom: 0;
+}
+
+.studio-image__caption-overlay-top .studio-image__caption {
+    top: 0;
+}
+
+.studio-image__caption-overlay-center .studio-image__caption {
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+}
+
+/* Caption Styles for Overlays */
+.studio-image__caption-style-dark-bg .studio-image__caption {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+}
+
+.studio-image__caption-style-light-bg .studio-image__caption {
+    background: rgba(255, 255, 255, 0.9);
+    color: var(--wp--preset--color--base-darker, #333);
+}
+
+.studio-image__caption-style-gradient .studio-image__caption {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, transparent 100%);
+    color: white;
+    padding-bottom: 1.5rem;
+}
+
+/* Link Styles */
+.studio-image__link {
+    display: block;
+    text-decoration: none;
+}
+
+/* Alignment Support */
+.alignleft .studio-image {
+    float: left;
+    margin-right: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.alignright .studio-image {
+    float: right;
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.aligncenter .studio-image {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Wide and Full Width */
+.alignwide .studio-image {
+    max-width: var(--wp--style--global--wide-size, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.alignfull .studio-image {
+    max-width: none;
+    width: 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .alignleft .studio-image,
+    .alignright .studio-image {
+        float: none;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1.5rem;
+    }
+    
+    .studio-image__caption {
+        font-size: 0.8125rem;
+    }
+}

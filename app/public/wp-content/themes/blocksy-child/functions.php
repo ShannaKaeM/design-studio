@@ -72,6 +72,7 @@ class Studio_Theme_Integration {
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_assets'));
         add_action('wp_ajax_studio_save_preset', array($this, 'ajax_save_preset'));
         add_action('wp_ajax_studio_convert_html', array($this, 'ajax_convert_html'));
+        add_action('wp_ajax_studio_save_block_style', array($this, 'ajax_save_block_style'));
     }
     
     /**
@@ -388,13 +389,18 @@ class Studio_Theme_Integration {
             <div class="studio-tokens-grid">
                 <!-- Color Tokens -->
                 <div class="studio-token-section">
-                    <h2><?php _e('Color Tokens', 'studio'); ?></h2>
+                    <div class="studio-token-section-header">
+                        <h2><?php _e('Color Tokens', 'studio'); ?></h2>
+                        <button class="studio-button studio-button-small studio-add-token" data-token-type="color">
+                            <?php _e('+ Add Color', 'studio'); ?>
+                        </button>
+                    </div>
                     <div class="studio-token-group">
                         <?php 
                         $colors = isset($tokens['colors']) ? $tokens['colors'] : array();
                         foreach ($colors as $key => $color): 
                         ?>
-                        <div class="studio-token-item">
+                        <div class="studio-token-item" data-token-key="<?php echo esc_attr($key); ?>">
                             <span class="studio-token-name"><?php echo esc_html($key); ?></span>
                             <div class="studio-token-value">
                                 <div class="studio-color-preview" style="background-color: <?php echo esc_attr($color['value']); ?>"></div>
@@ -404,6 +410,12 @@ class Studio_Theme_Integration {
                                        data-token-name="<?php echo esc_attr($key); ?>"
                                        data-token-label="<?php echo esc_attr($color['name']); ?>"
                                        value="<?php echo esc_attr($color['value']); ?>">
+                                <input type="text" 
+                                       class="studio-token-label-input" 
+                                       data-token-name="<?php echo esc_attr($key); ?>"
+                                       value="<?php echo esc_attr($color['name']); ?>"
+                                       placeholder="Label">
+                                <button class="studio-delete-token" data-token-type="color" data-token-name="<?php echo esc_attr($key); ?>">×</button>
                             </div>
                         </div>
                         <?php endforeach; ?>
@@ -415,35 +427,47 @@ class Studio_Theme_Integration {
                     <h2><?php _e('Typography Tokens', 'studio'); ?></h2>
                     
                     <div class="studio-token-group">
-                        <h3><?php _e('Font Sizes', 'studio'); ?></h3>
+                        <div class="studio-token-section-header">
+                            <h3><?php _e('Font Sizes', 'studio'); ?></h3>
+                            <button class="studio-button studio-button-small studio-add-token" data-token-type="fontSize">
+                                <?php _e('+ Add Size', 'studio'); ?>
+                            </button>
+                        </div>
                         <?php 
                         $fontSizes = isset($tokens['typography']['fontSizes']) ? $tokens['typography']['fontSizes'] : array();
                         foreach ($fontSizes as $key => $size): 
                         ?>
-                        <div class="studio-token-item">
+                        <div class="studio-token-item" data-token-key="<?php echo esc_attr($key); ?>">
                             <span class="studio-token-name"><?php echo esc_html($key); ?></span>
                             <input type="text" 
                                    class="studio-token-input studio-font-size-input" 
                                    data-token-type="fontSize"
                                    data-token-name="<?php echo esc_attr($key); ?>"
                                    value="<?php echo esc_attr($size); ?>">
+                            <button class="studio-delete-token" data-token-type="fontSize" data-token-name="<?php echo esc_attr($key); ?>">×</button>
                         </div>
                         <?php endforeach; ?>
                     </div>
                     
                     <div class="studio-token-group">
-                        <h3><?php _e('Font Weights', 'studio'); ?></h3>
+                        <div class="studio-token-section-header">
+                            <h3><?php _e('Font Weights', 'studio'); ?></h3>
+                            <button class="studio-button studio-button-small studio-add-token" data-token-type="fontWeight">
+                                <?php _e('+ Add Weight', 'studio'); ?>
+                            </button>
+                        </div>
                         <?php 
                         $fontWeights = isset($tokens['typography']['fontWeights']) ? $tokens['typography']['fontWeights'] : array();
                         foreach ($fontWeights as $key => $weight): 
                         ?>
-                        <div class="studio-token-item">
+                        <div class="studio-token-item" data-token-key="<?php echo esc_attr($key); ?>">
                             <span class="studio-token-name"><?php echo esc_html($key); ?></span>
                             <input type="text" 
                                    class="studio-token-input studio-font-weight-input" 
                                    data-token-type="fontWeight"
                                    data-token-name="<?php echo esc_attr($key); ?>"
                                    value="<?php echo esc_attr($weight); ?>">
+                            <button class="studio-delete-token" data-token-type="fontWeight" data-token-name="<?php echo esc_attr($key); ?>">×</button>
                         </div>
                         <?php endforeach; ?>
                     </div>
@@ -451,19 +475,25 @@ class Studio_Theme_Integration {
                 
                 <!-- Spacing Tokens -->
                 <div class="studio-token-section">
-                    <h2><?php _e('Spacing Tokens', 'studio'); ?></h2>
+                    <div class="studio-token-section-header">
+                        <h2><?php _e('Spacing Tokens', 'studio'); ?></h2>
+                        <button class="studio-button studio-button-small studio-add-token" data-token-type="spacing">
+                            <?php _e('+ Add Spacing', 'studio'); ?>
+                        </button>
+                    </div>
                     <div class="studio-token-group">
                         <?php 
                         $spacing = isset($tokens['spacing']) ? $tokens['spacing'] : array();
                         foreach ($spacing as $key => $space): 
                         ?>
-                        <div class="studio-token-item">
+                        <div class="studio-token-item" data-token-key="<?php echo esc_attr($key); ?>">
                             <span class="studio-token-name"><?php echo esc_html($key); ?></span>
                             <input type="text" 
                                    class="studio-token-input studio-spacing-input" 
                                    data-token-type="spacing"
                                    data-token-name="<?php echo esc_attr($key); ?>"
                                    value="<?php echo esc_attr($space); ?>">
+                            <button class="studio-delete-token" data-token-type="spacing" data-token-name="<?php echo esc_attr($key); ?>">×</button>
                         </div>
                         <?php endforeach; ?>
                     </div>
@@ -611,7 +641,7 @@ class Studio_Theme_Integration {
      */
     public function ajax_sync_tokens() {
         // Verify nonce
-        if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'studio_admin_nonce')) {
+        if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'studio_tokens')) {
             wp_die('Security check failed');
         }
         
@@ -901,6 +931,52 @@ class Studio_Theme_Integration {
         
         // Save updated theme.json
         file_put_contents($theme_json_path, json_encode($theme_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    }
+    
+    /**
+     * Handle AJAX save block style request
+     */
+    public function ajax_save_block_style() {
+        // Verify nonce
+        if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'studio_admin_nonce')) {
+            wp_die('Security check failed');
+        }
+        
+        // Check user capabilities
+        if (!current_user_can('manage_options')) {
+            wp_die('Insufficient permissions');
+        }
+        
+        // Get style data
+        $style_key = isset($_POST['styleKey']) ? sanitize_key($_POST['styleKey']) : '';
+        $style_data = isset($_POST['styleData']) ? json_decode(stripslashes($_POST['styleData']), true) : array();
+        
+        if (empty($style_key) || empty($style_data)) {
+            wp_send_json_error(array(
+                'message' => __('Invalid style data', 'studio')
+            ));
+        }
+        
+        // Load theme.json
+        $theme_json_path = get_stylesheet_directory() . '/theme.json';
+        $theme_json = json_decode(file_get_contents($theme_json_path), true);
+        
+        // Ensure blockStyles section exists
+        if (!isset($theme_json['settings']['custom']['blockStyles'])) {
+            $theme_json['settings']['custom']['blockStyles'] = array();
+        }
+        
+        // Add the new block style
+        $theme_json['settings']['custom']['blockStyles'][$style_key] = $style_data;
+        
+        // Save updated theme.json
+        file_put_contents($theme_json_path, json_encode($theme_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        
+        wp_send_json_success(array(
+            'message' => __('Block style saved successfully', 'studio'),
+            'styleKey' => $style_key,
+            'styleData' => $style_data
+        ));
     }
 }
 

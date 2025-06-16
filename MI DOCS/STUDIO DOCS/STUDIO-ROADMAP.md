@@ -12,55 +12,56 @@ Studio is a custom WordPress block system integrated directly into the theme (no
 
 ## Current Status (June 16, 2024)
 
-### Phase 1: Foundation (COMPLETE)
+## Phase 1: Foundation (COMPLETE) 
+
+### Completed:
 - [x] Theme integration architecture
 - [x] Studio_Theme_Integration class in functions.php
 - [x] Admin menu system
 - [x] Asset loading system
 - [x] AJAX infrastructure with security
+- [x] Token Manager with full CRUD operations
+- [x] Typography Preset Manager
+- [x] HTML to Blocks Converter
+- [x] Studio Text Block with Save as Block Style
+- [x] Token sync (studio.json → theme.json)
+- [x] Block style management system
+- [x] Enhanced Token Manager UI
+  - [x] Add/Edit/Delete tokens
+  - [x] Color picker integration
+  - [x] Label editing
+  - [x] Visual feedback system
 
-### Phase 2: Token System (COMPLETE)
-- [x] studio.json configuration
-- [x] Token sync to theme.json
-- [x] Token Manager UI
-- [x] Live token editing
-- [x] Color, typography, and spacing tokens
+### Phase 2: Block Development (IN PROGRESS) 
 
-### Phase 3: Typography Presets (COMPLETE)
-- [x] Preset Manager UI
-- [x] Create/edit/delete presets
-- [x] Live preview system
-- [x] Semantic HTML tag assignment
-- [x] Integration with blocks
+### Next Steps:
+- [ ] Studio Container Block
+- [ ] Studio Button Block
+- [ ] Studio Grid Block
+- [ ] Studio Image Block
+- [ ] Block style variations for each
 
-### Phase 4: Core Blocks (80% COMPLETE)
-- [x] **Studio Text Block** - Handles ALL text elements (h1-h6, p, span, div)
-- [x] **Studio Container Block** - Layout wrapper with width/padding controls
-- [x] **Studio Button Block** - 5 styles, 3 sizes, icons, hover states
-- [x] **Studio Grid Block** - Responsive grid layouts with flexible columns
-- [ ] **Studio Image Block** - Media block with styling options
+## Phase 3: Pattern Library (PLANNED) 
 
-### Phase 5: Block Style Builder (IN PROGRESS)
-- [x] Basic UI implementation
-- [ ] Fix JavaScript errors
-- [ ] Complete backend integration
-- [ ] Visual style preview
-
-### Phase 6: Pattern Library (PLANNED)
-- [ ] Pattern creation interface
+### Goals:
+- [ ] Pattern registration system
 - [ ] Pattern categories
-- [ ] Import/export patterns
-- [ ] Default Studio patterns
+- [ ] AI-compatible pattern structure
+- [ ] Pattern preview system
+- [ ] Export/Import functionality
 
-### Phase 7: AI Integration (PLANNED)
+## Phase 4: AI Integration (PLANNED) 
+
+### Features:
 - [ ] JSON hydration system
-- [ ] AI content generation
-- [ ] Block transformation
-- [ ] Smart layouts
+- [ ] Pattern recognition
+- [ ] Content transformation
+- [ ] Style inference
+- [ ] Automated block creation
 
 ## Block Architecture
 
-### Completed Blocks (4 of 5)
+### Completed Blocks (5 of 5)
 
 1. **Studio Text** 
    - Single block for all text
@@ -86,10 +87,11 @@ Studio is a custom WordPress block system integrated directly into the theme (no
    - Advanced grid options
 
 5. **Studio Image** 
-   - Aspect ratio presets
-   - Image effects
-   - Caption styling
-   - Lightbox support
+   - Aspect ratio presets (7 options)
+   - Image effects (grayscale, sepia, blur, etc.)
+   - Hover effects (zoom, rotate, blur-focus)
+   - Caption positioning and styling
+   - Link and lightbox support
 
 ## Technical Implementation
 
@@ -121,10 +123,9 @@ Each block follows the same structure:
 ## Next Steps
 
 ### Immediate (This Week)
-1. [ ] Implement Studio Image block
-2. [ ] Fix Block Style Builder bugs
-3. [ ] Create first set of patterns
-4. [ ] Update all documentation
+1. [ ] Fix Block Style Builder bugs
+2. [ ] Create first set of patterns
+3. [ ] Update all documentation
 
 ### Short Term (Next 2 Weeks)
 1. [ ] Complete pattern library

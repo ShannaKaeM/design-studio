@@ -14,7 +14,13 @@
 
         bindEvents: function() {
             // Token value changes
-            $(document).on('change', '.studio-token-input', this.handleTokenChange);
+            $(document).on('change input', '.studio-token-input, .studio-token-label-input', this.handleTokenChange);
+            
+            // Add token buttons
+            $(document).on('click', '.studio-add-token', this.showAddTokenForm);
+            
+            // Delete token buttons
+            $(document).on('click', '.studio-delete-token', this.deleteToken);
             
             // Sync tokens button
             $(document).on('click', '#studio-sync-tokens', this.syncTokens);
@@ -62,13 +68,152 @@
             const tokenName = $input.data('token-name');
             const value = $input.val();
             
+            // Mark as changed
+            $input.addClass('changed');
+            
+            // Enable sync button
+            $('#studio-sync-tokens').prop('disabled', false).addClass('has-changes');
+            
             // Update preview if color
-            if (tokenType === 'color') {
+            if (tokenType === 'color' && $input.hasClass('studio-color-input')) {
                 $input.siblings('.studio-color-preview').css('background-color', value);
             }
+        },
+        
+        showAddTokenForm: function(e) {
+            e.preventDefault();
+            const $button = $(e.target);
+            const tokenType = $button.data('token-type');
             
-            // Mark as unsaved
-            StudioAdmin.markUnsaved();
+            // Create form HTML
+            let formHtml = `
+                <div class="studio-add-token-form" data-token-type="${tokenType}">
+                    <h3>Add New ${tokenType.charAt(0).toUpperCase() + tokenType.slice(1)} Token</h3>
+                    <div class="studio-form-group">
+                        <label>Token Key (e.g., primary-light)</label>
+                        <input type="text" class="studio-new-token-key" placeholder="Token key">
+                    </div>
+            `;
+            
+            if (tokenType === 'color') {
+                formHtml += `
+                    <div class="studio-form-group">
+                        <label>Label</label>
+                        <input type="text" class="studio-new-token-label" placeholder="Display name">
+                    </div>
+                    <div class="studio-form-group">
+                        <label>Color Value</label>
+                        <input type="color" class="studio-new-token-value" value="#000000">
+                    </div>
+                `;
+            } else {
+                formHtml += `
+                    <div class="studio-form-group">
+                        <label>Value</label>
+                        <input type="text" class="studio-new-token-value" placeholder="Token value">
+                    </div>
+                `;
+            }
+            
+            formHtml += `
+                    <div class="studio-form-actions">
+                        <button class="studio-button studio-button-primary studio-save-new-token">Save Token</button>
+                        <button class="studio-button studio-cancel-new-token">Cancel</button>
+                    </div>
+                </div>
+            `;
+            
+            // Remove any existing forms
+            $('.studio-add-token-form').remove();
+            
+            // Insert form after the button's container
+            $button.closest('.studio-token-section-header').after(formHtml);
+            
+            // Bind form events
+            $('.studio-save-new-token').on('click', this.saveNewToken.bind(this));
+            $('.studio-cancel-new-token').on('click', function() {
+                $('.studio-add-token-form').remove();
+            });
+        },
+        
+        saveNewToken: function(e) {
+            e.preventDefault();
+            const $form = $(e.target).closest('.studio-add-token-form');
+            const tokenType = $form.data('token-type');
+            const key = $form.find('.studio-new-token-key').val();
+            const value = $form.find('.studio-new-token-value').val();
+            const label = $form.find('.studio-new-token-label').val();
+            
+            if (!key || !value) {
+                alert('Please fill in all required fields');
+                return;
+            }
+            
+            // Create new token element
+            let tokenHtml = `
+                <div class="studio-token-item" data-token-key="${key}">
+                    <span class="studio-token-name">${key}</span>
+            `;
+            
+            if (tokenType === 'color') {
+                tokenHtml += `
+                    <div class="studio-token-value">
+                        <div class="studio-color-preview" style="background-color: ${value}"></div>
+                        <input type="color" 
+                               class="studio-token-input studio-color-input changed" 
+                               data-token-type="color"
+                               data-token-name="${key}"
+                               data-token-label="${label || key}"
+                               value="${value}">
+                        <input type="text" 
+                               class="studio-token-label-input changed" 
+                               data-token-name="${key}"
+                               value="${label || key}"
+                               placeholder="Label">
+                        <button class="studio-delete-token" data-token-type="color" data-token-name="${key}">×</button>
+                    </div>
+                `;
+            } else {
+                tokenHtml += `
+                    <input type="text" 
+                           class="studio-token-input studio-${tokenType}-input changed" 
+                           data-token-type="${tokenType}"
+                           data-token-name="${key}"
+                           value="${value}">
+                    <button class="studio-delete-token" data-token-type="${tokenType}" data-token-name="${key}">×</button>
+                `;
+            }
+            
+            tokenHtml += '</div>';
+            
+            // Add to appropriate section
+            const $section = $form.closest('.studio-token-section');
+            const $group = $section.find('.studio-token-group').last();
+            $group.append(tokenHtml);
+            
+            // Remove form
+            $form.remove();
+            
+            // Enable sync button
+            $('#studio-sync-tokens').prop('disabled', false).addClass('has-changes');
+            
+            // Re-init color pickers
+            this.initColorPickers();
+        },
+        
+        deleteToken: function(e) {
+            e.preventDefault();
+            const $button = $(e.target);
+            const tokenType = $button.data('token-type');
+            const tokenName = $button.data('token-name');
+            
+            if (confirm(`Are you sure you want to delete the "${tokenName}" token?`)) {
+                // Mark token as deleted
+                $button.closest('.studio-token-item').addClass('deleted').hide();
+                
+                // Enable sync button
+                $('#studio-sync-tokens').prop('disabled', false).addClass('has-changes');
+            }
         },
 
         syncTokens: function(e) {
@@ -91,29 +236,30 @@
                 spacing: {}
             };
             
-            // Collect color tokens
-            $('.studio-color-input').each(function() {
+            // Collect color tokens (excluding deleted ones)
+            $('.studio-token-item:not(.deleted) .studio-color-input').each(function() {
                 const name = $(this).data('token-name');
                 const value = $(this).val();
+                const label = $(this).siblings('.studio-token-label-input').val() || $(this).data('token-label');
                 tokens.colors[name] = {
-                    name: $(this).data('token-label'),
+                    name: label,
                     value: value
                 };
             });
             
             // Collect typography tokens
-            $('.studio-font-size-input').each(function() {
+            $('.studio-token-item:not(.deleted) .studio-font-size-input').each(function() {
                 const name = $(this).data('token-name');
                 tokens.typography.fontSizes[name] = $(this).val();
             });
             
-            $('.studio-font-weight-input').each(function() {
+            $('.studio-token-item:not(.deleted) .studio-font-weight-input').each(function() {
                 const name = $(this).data('token-name');
                 tokens.typography.fontWeights[name] = $(this).val();
             });
             
             // Collect spacing tokens
-            $('.studio-spacing-input').each(function() {
+            $('.studio-token-item:not(.deleted) .studio-spacing-input').each(function() {
                 const name = $(this).data('token-name');
                 tokens.spacing[name] = $(this).val();
             });

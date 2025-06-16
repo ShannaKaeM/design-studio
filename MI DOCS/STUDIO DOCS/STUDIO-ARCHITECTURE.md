@@ -12,15 +12,14 @@ Studio is a WordPress theme-integrated system for AI-powered block creation with
 - **Studio Container Block**: Complete implementation in theme
 - **Studio Button Block**: Complete implementation in theme
 - **Studio Grid Block**: Complete implementation in theme
+- **Studio Image Block**: Complete implementation in theme
 - **Theme Integration**: Studio_Theme_Integration class in functions.php
 - **AJAX Handlers**: Token sync, preset management, HTML conversion
 
 ### 🔄 In Progress
 - **Block Style Builder**: Needs bug fixes
-- **Theme Migration**: Moving remaining components from plugin
 
 ### 📋 Planned
-- **Studio Image Block**: Media with styling presets
 - **Pattern Library**: Fresh patterns using Studio blocks
 - **AI Integration**: JSON hydration system
 
@@ -40,24 +39,58 @@ Studio is a WordPress theme-integrated system for AI-powered block creation with
   - ✅ Studio Container Block (Complete with width/padding controls)
   - ✅ Studio Button Block (Complete with style presets, icons, hover states)
   - ✅ Studio Grid Block (Complete with responsive columns and gap presets)
-  - 📋 Studio Image Block
+  - ✅ Studio Image Block (Complete with aspect ratios, effects, hover effects, caption options)
   - 📋 Studio Headline Block
 
-### 3. **Preset System**
+### 3. Block Architecture
+
+#### Completed Blocks (5/5): ✅
+
+1. **Studio Text Block** ✅
+   - Single block for ALL text elements
+   - Typography presets control tag + styling
+   - Supports: h1-h6, p, span, div
+
+2. **Studio Container Block** ✅
+   - Layout wrapper with responsive controls
+   - Width: content, wide, full
+   - Padding: none, small, medium, large, xlarge
+   - Semantic tags: div, section, article, etc.
+
+3. **Studio Button Block** ✅
+   - Styles: primary, secondary, outline, ghost, link
+   - Sizes: small, medium, large
+   - Icons: 6 options with before/after positioning
+   - Link management with popover UI
+
+4. **Studio Grid Block** ✅
+   - Columns: 1-12 (responsive)
+   - Gap presets: none to xlarge
+   - Alignment: items and justify
+   - Advanced: auto-flow, auto-rows
+
+5. **Studio Image Block** ✅
+   - Aspect ratios: original, 1:1, 16:9, 9:16, 21:9, 4:3, 3:4
+   - Effects: grayscale, sepia, blur, brightness, contrast
+   - Hover effects: zoom in/out, rotate, blur-focus, color-grayscale
+   - Caption options: below, overlay (top/bottom/center)
+   - Link support with lightbox option
+
+### 4. **Preset System**
 - **Semantic Presets**: pretitle, title, subtitle, description, body
 - **Variants**: hero, section, card, large, small
 - **Implementation**: Stored in theme.json blockStyles
 - **Management**: ✅ Typography Preset Manager in admin UI
 - **Integration**: Blocks read presets from theme data
 
-### 4. **Studio Interface Components**
+### 5. **Studio Interface Components**
 - **Design Token Manager**: ✅ Color, typography, spacing management
 - **Typography Preset Manager**: ✅ Create, edit, preview presets
 - **Block Style Builder**: 🔄 Needs completion
 - **Pattern Library**: 📋 To be created fresh
 - **HTML to Blocks Converter**: ✅ Convert HTML to WordPress blocks
 
-### 5. **Theme Integration**
+### 6. **Theme Integration**
 - **Location**: ✅ Core components moved to theme
 - **Files**:
   - `functions.php`: ✅ Studio_Theme_Integration class
@@ -65,6 +98,43 @@ Studio is a WordPress theme-integrated system for AI-powered block creation with
   - `/blocks/`: ✅ Studio block definitions
   - `/assets/`: ✅ Admin CSS/JS files
   - `/patterns/`: 📋 Block patterns (to be created)
+
+## Token Management
+
+### Token Flow
+1. **studio.json** - Design system source of truth
+   - Complete color palette with 17 tokens
+   - Typography scales (sizes and weights)
+   - Spacing system
+   
+2. **Token Manager UI** - Visual editing interface
+   - Full CRUD operations
+   - Live preview
+   - Batch sync to theme.json
+   
+3. **theme.json** - WordPress integration
+   - Auto-synced from studio.json
+   - Consumed by blocks and editor
+   - Standard WordPress format
+
+### Token Structure
+```json
+{
+  "colors": {
+    "primary": { "name": "Primary", "value": "#5a7b7c" },
+    "primary-light": { "name": "Primary Light", "value": "#6a8b8c" },
+    "primary-dark": { "name": "Primary Dark", "value": "#4a6b6c" },
+    // ... additional color tokens
+  },
+  "typography": {
+    "fontSizes": { "small": "14px", "base": "16px", "large": "18px" },
+    "fontWeights": { "normal": "400", "medium": "500", "bold": "700" }
+  },
+  "spacing": {
+    "xs": "0.25rem", "sm": "0.5rem", "md": "1rem", "lg": "2rem"
+  }
+}
+```
 
 ## Implementation Details
 
@@ -138,6 +208,7 @@ class Studio_Theme_Integration {
 │   ├── /studio-grid/
 │   │   └── (same structure)
 │   └── /studio-image/
+│       └── (same structure)
 └── /assets/
     ├── /css/
     │   └── studio-admin.css
@@ -159,8 +230,7 @@ class Studio_Theme_Integration {
 - **Lazy Loading**: Load blocks and assets only when needed
 
 ## Next Steps
-1. Complete Studio Image block
-2. Fix Block Style Builder bugs
-3. Create pattern library with Studio blocks
-4. Implement JSON hydration system
-5. Complete AI integration layer
+1. Fix Block Style Builder
+2. Create pattern library
+3. Document AI integration points
+4. Enhance admin UI features

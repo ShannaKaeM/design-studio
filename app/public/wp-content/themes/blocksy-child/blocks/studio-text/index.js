@@ -8,9 +8,11 @@
 
     const { registerBlockType } = wp.blocks;
     const { InspectorControls, RichText, BlockControls, useBlockProps } = wp.blockEditor;
-    const { PanelBody, SelectControl, ToggleControl, __experimentalDivider: Divider } = wp.components;
+    const { PanelBody, SelectControl, ToggleControl, __experimentalDivider: Divider, Button, TextControl, TextareaControl, Modal, Notice } = wp.components;
     const { __ } = wp.i18n;
     const { createElement: el, Fragment, useState, useEffect } = wp.element;
+    const { useSelect } = wp.data;
+    const apiFetch = wp.apiFetch;
 
     // Get Studio tokens from localized data
     const getStudioTokens = () => {
@@ -94,6 +96,14 @@
         const { attributes, setAttributes } = props;
         const { content, typographyPreset, tagName = 'p', textColor, backgroundColor } = attributes;
 
+        // State for Save Block Style modal
+        const [isStyleModalOpen, setIsStyleModalOpen] = useState(false);
+        const [styleName, setStyleName] = useState('');
+        const [styleLabel, setStyleLabel] = useState('');
+        const [styleDescription, setStyleDescription] = useState('');
+        const [isSaving, setIsSaving] = useState(false);
+        const [notice, setNotice] = useState(null);
+
         // Generate inline styles
         const buildTimeCSS = generateBuildTimeCSS(attributes);
         const styles = {};
@@ -112,6 +122,63 @@
             className: `studio-text ${typographyPreset ? `has-preset-${typographyPreset}` : ''}`.trim(),
             style: styles
         });
+
+        // Handle saving block style
+        const handleSaveStyle = async () => {
+            if (!styleName || !styleLabel) {
+                setNotice({ type: 'error', message: __('Please provide both a name and label for the style.', 'studio') });
+                return;
+            }
+
+            setIsSaving(true);
+            setNotice(null);
+
+            try {
+                // Prepare the block style data
+                const styleData = {
+                    name: styleName,
+                    label: styleLabel,
+                    blockType: 'studio/text',
+                    description: styleDescription,
+                    attributes: attributes,
+                    classes: `is-style-${styleName}`,
+                    tagName: tagName,
+                    customCSS: buildTimeCSS,
+                    type: 'css'
+                };
+
+                // Send to server via AJAX
+                const formData = new FormData();
+                formData.append('action', 'studio_save_block_style');
+                formData.append('nonce', window.studioAdmin?.nonce || '');
+                formData.append('styleKey', `studio-text-${styleName}`);
+                formData.append('styleData', JSON.stringify(styleData));
+
+                const response = await fetch(ajaxurl, {
+                    method: 'POST',
+                    body: formData
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    setNotice({ type: 'success', message: __('Block style saved successfully!', 'studio') });
+                    setTimeout(() => {
+                        setIsStyleModalOpen(false);
+                        setStyleName('');
+                        setStyleLabel('');
+                        setStyleDescription('');
+                        setNotice(null);
+                    }, 2000);
+                } else {
+                    throw new Error(result.data?.message || __('Failed to save block style', 'studio'));
+                }
+            } catch (error) {
+                setNotice({ type: 'error', message: error.message });
+            } finally {
+                setIsSaving(false);
+            }
+        };
 
         return el(Fragment, {},
             el(InspectorControls, {},
@@ -150,6 +217,17 @@
                         onChange: (newTag) => setAttributes({ tagName: newTag }),
                         help: __('Choose HTML tag for semantic markup', 'studio')
                     })
+                ),
+
+                el(PanelBody, {
+                    title: __('Save as Style', 'studio'),
+                    initialOpen: false
+                },
+                    el(Button, {
+                        variant: 'secondary',
+                        onClick: () => setIsStyleModalOpen(true),
+                        style: { width: '100%' }
+                    }, __('Save as Block Style', 'studio'))
                 )
             ),
             
@@ -161,6 +239,55 @@
                     onChange: (newContent) => setAttributes({ content: newContent }),
                     allowedFormats: ['core/bold', 'core/italic', 'core/link', 'core/strikethrough', 'core/underline']
                 })
+            ),
+
+            isStyleModalOpen && el(Modal, {
+                title: __('Save Block Style', 'studio'),
+                onRequestClose: () => setIsStyleModalOpen(false),
+                style: { maxWidth: '500px' }
+            },
+                notice && el(Notice, {
+                    status: notice.type,
+                    isDismissible: false
+                }, notice.message),
+
+                el(TextControl, {
+                    label: __('Style Name (lowercase, no spaces)', 'studio'),
+                    value: styleName,
+                    onChange: setStyleName,
+                    help: __('Used internally, e.g., "hero-title"', 'studio'),
+                    pattern: '[a-z0-9-]+'
+                }),
+
+                el(TextControl, {
+                    label: __('Style Label', 'studio'),
+                    value: styleLabel,
+                    onChange: setStyleLabel,
+                    help: __('Display name, e.g., "Hero Title"', 'studio')
+                }),
+
+                el(TextareaControl, {
+                    label: __('Description (optional)', 'studio'),
+                    value: styleDescription,
+                    onChange: setStyleDescription,
+                    help: __('Describe when to use this style', 'studio'),
+                    rows: 3
+                }),
+
+                el('div', { style: { marginTop: '20px', display: 'flex', gap: '10px', justifyContent: 'flex-end' } },
+                    el(Button, {
+                        variant: 'tertiary',
+                        onClick: () => setIsStyleModalOpen(false),
+                        disabled: isSaving
+                    }, __('Cancel', 'studio')),
+                    
+                    el(Button, {
+                        variant: 'primary',
+                        onClick: handleSaveStyle,
+                        isBusy: isSaving,
+                        disabled: isSaving || !styleName || !styleLabel
+                    }, __('Save Style', 'studio'))
+                )
             )
         );
     };
