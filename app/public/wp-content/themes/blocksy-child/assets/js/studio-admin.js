@@ -25,9 +25,6 @@
             // Save tokens button
             $(document).on('click', '#studio-save-tokens', this.saveTokens);
             
-            // Sync from theme button
-            $(document).on('click', '#studio-sync-from-theme', this.syncFromTheme);
-            
             // Tab switching
             $(document).on('click', '.studio-tab-button', this.switchTab);
             
@@ -45,6 +42,13 @@
             
             // Copy blocks
             $(document).on('click', '#studio-copy-blocks', this.copyBlocks);
+            
+            // Preset form handling
+            $(document).on('click', '.studio-add-preset', this.showAddPresetForm);
+            $(document).on('click', '.studio-edit-preset', this.showEditPresetForm);
+            $(document).on('click', '.studio-close-form, .studio-cancel-form', this.hidePresetForm);
+            $(document).on('submit', '#studio-preset-form-content', this.savePreset);
+            $(document).on('click', '.studio-delete-preset', this.deletePreset);
         },
 
         initColorPickers: function() {
@@ -304,52 +308,13 @@
             });
         },
 
-        syncFromTheme: function(e) {
-            e.preventDefault();
-            
-            const $button = $(this);
-            const $status = $('.studio-sync-status');
-            
-            // Show syncing status
-            $button.prop('disabled', true).text('Syncing...');
-            $status.removeClass('error').addClass('syncing').text('Syncing tokens from theme...');
-            
-            // Send AJAX request
-            $.ajax({
-                url: studioAdmin.ajaxUrl,
-                type: 'POST',
-                data: {
-                    action: 'studio_sync_from_theme',
-                    nonce: studioAdmin.nonce
-                },
-                success: function(response) {
-                    if (response.success) {
-                        $status.removeClass('syncing').text('Tokens synced successfully');
-                        $button.text('Synced!').removeClass('has-changes');
-                        
-                        // Remove changed classes
-                        $('.changed').removeClass('changed');
-                        
-                        setTimeout(() => {
-                            $button.prop('disabled', false).text('Sync from Theme');
-                            $status.text('All changes saved');
-                        }, 2000);
-                    } else {
-                        $status.removeClass('syncing').addClass('error').text('Sync failed: ' + response.data);
-                        $button.prop('disabled', false).text('Sync from Theme');
-                    }
-                },
-                error: function() {
-                    $status.removeClass('syncing').addClass('error').text('Sync failed: Network error');
-                    $button.prop('disabled', false).text('Sync from Theme');
-                }
-            });
-        },
-
         checkSyncStatus: function() {
-            // This would check if studio.json and theme.json are in sync
-            // For now, we'll just show as synced
-            $('.studio-sync-status').text('All tokens synced');
+            // Now that we work directly with theme.json, tokens are always in sync
+            // Show synced status
+            const $status = $('.studio-sync-status');
+            if ($status.length) {
+                $status.removeClass('error syncing').text('Working directly with theme.json');
+            }
         },
 
         markUnsaved: function() {
@@ -553,6 +518,193 @@
             // Add active class to selected tab and button
             $(`#${tabId}-tab`).addClass('active');
             $button.addClass('active');
+        },
+        
+        showEditPresetForm: function(e) {
+            e.preventDefault();
+            
+            const presetId = $(e.target).data('preset-id');
+            
+            $.ajax({
+                url: studioAdmin.ajaxUrl,
+                type: 'POST',
+                data: {
+                    action: 'studio_get_preset',
+                    nonce: studioAdmin.nonce,
+                    preset_id: presetId
+                },
+                success: function(response) {
+                    if (response.success) {
+                        const preset = response.data;
+                        
+                        // Show preset form modal
+                        const formHTML = `
+                            <div class="studio-modal">
+                                <div class="studio-modal-content">
+                                    <h3>Edit Preset</h3>
+                                    <div class="studio-form-group">
+                                        <label>Preset Name</label>
+                                        <input type="text" id="preset-name" class="studio-form-control" value="${preset.name}" readonly>
+                                    </div>
+                                    <div class="studio-form-group">
+                                        <label>Font Size</label>
+                                        <select id="preset-font-size" class="studio-form-control">
+                                            <option value="small">Small (0.875rem)</option>
+                                            <option value="base">Base (1rem)</option>
+                                            <option value="medium">Medium (1.125rem)</option>
+                                            <option value="large">Large (1.25rem)</option>
+                                            <option value="x-large">X-Large (1.5rem)</option>
+                                            <option value="xx-large">XX-Large (2rem)</option>
+                                            <option value="xxx-large">XXX-Large (2.5rem)</option>
+                                            <option value="huge">Huge (3rem)</option>
+                                        </select>
+                                    </div>
+                                    <div class="studio-form-group">
+                                        <label>Font Weight</label>
+                                        <select id="preset-font-weight" class="studio-form-control">
+                                            <option value="light">Light (300)</option>
+                                            <option value="normal">Normal (400)</option>
+                                            <option value="medium">Medium (500)</option>
+                                            <option value="semibold">Semibold (600)</option>
+                                            <option value="bold">Bold (700)</option>
+                                            <option value="extrabold">Extrabold (800)</option>
+                                        </select>
+                                    </div>
+                                    <div class="studio-form-group">
+                                        <label>Line Height</label>
+                                        <input type="text" id="preset-line-height" class="studio-form-control" value="${preset.lineHeight}">
+                                    </div>
+                                    <div class="studio-form-group">
+                                        <label>Letter Spacing</label>
+                                        <input type="text" id="preset-letter-spacing" class="studio-form-control" value="${preset.letterSpacing}">
+                                    </div>
+                                    <div class="studio-modal-actions">
+                                        <button class="studio-button studio-button-primary" id="studio-save-preset">Save Preset</button>
+                                        <button class="studio-button studio-button-secondary" onclick="$('.studio-modal').remove()">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                        
+                        // Set selected values
+                        $('#preset-font-size').val(preset.fontSize);
+                        $('#preset-font-weight').val(preset.fontWeight);
+                        
+                        $('body').append(formHTML);
+                    } else {
+                        alert('Error loading preset: ' + response.data);
+                    }
+                },
+                error: function() {
+                    alert('Error loading preset');
+                }
+            });
+        },
+        
+        hidePresetForm: function(e) {
+            e.preventDefault();
+            $('.studio-modal').remove();
+        },
+        
+        showAddPresetForm: function(e) {
+            e.preventDefault();
+            
+            const blockType = $(e.target).data('block-type');
+            
+            // Reset form
+            $('#studio-preset-form-content')[0].reset();
+            $('#studio-preset-block-type').val(blockType);
+            $('#studio-preset-id').val('');
+            
+            // Update form title
+            $('.studio-preset-form-header h3').text('Add New Preset');
+            
+            // Show form
+            $('#studio-preset-form').show();
+        },
+        
+        showEditPresetForm: function(e) {
+            e.preventDefault();
+            
+            const presetId = $(e.target).data('preset-id');
+            const blockType = $(e.target).data('block-type');
+            
+            // TODO: Load preset data via AJAX and populate form
+            $('#studio-preset-block-type').val(blockType);
+            $('#studio-preset-id').val(presetId);
+            
+            // Update form title
+            $('.studio-preset-form-header h3').text('Edit Preset');
+            
+            // Show form
+            $('#studio-preset-form').show();
+        },
+        
+        savePreset: function(e) {
+            e.preventDefault();
+            
+            const formData = {
+                action: 'studio_save_block_preset',
+                nonce: studioAdmin.nonce,
+                preset_name: $('#studio-preset-name').val(),
+                description: $('#studio-preset-description').val(),
+                css: $('#studio-preset-css').val(),
+                block_type: $('#studio-preset-block-type').val(),
+                preset_id: $('#studio-preset-id').val()
+            };
+            
+            $.ajax({
+                url: studioAdmin.ajaxUrl,
+                type: 'POST',
+                data: formData,
+                success: function(response) {
+                    if (response.success) {
+                        // Hide form
+                        $('#studio-preset-form').hide();
+                        
+                        // Reload page to show updated presets
+                        location.reload();
+                    } else {
+                        alert('Error saving preset: ' + response.data);
+                    }
+                },
+                error: function() {
+                    alert('Error saving preset');
+                }
+            });
+        },
+        
+        deletePreset: function(e) {
+            e.preventDefault();
+            
+            const presetId = $(e.target).data('preset-id');
+            
+            if (!confirm('Are you sure you want to delete this preset?')) {
+                return;
+            }
+            
+            $.ajax({
+                url: studioAdmin.ajaxUrl,
+                type: 'POST',
+                data: {
+                    action: 'studio_delete_block_preset',
+                    nonce: studioAdmin.nonce,
+                    preset_id: presetId
+                },
+                success: function(response) {
+                    if (response.success) {
+                        // Remove preset card from UI
+                        $(e.target).closest('.studio-preset-card').fadeOut(300, function() {
+                            $(this).remove();
+                        });
+                    } else {
+                        alert('Error deleting preset: ' + response.data);
+                    }
+                },
+                error: function() {
+                    alert('Error deleting preset');
+                }
+            });
         }
     };
 

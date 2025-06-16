@@ -7,9 +7,9 @@ Last Updated: June 16, 2024
 Studio is a WordPress theme-integrated system for AI-powered block creation with centralized design token management. It enables AI to create professionally designed WordPress sites by hydrating blocks with JSON content and design decisions using semantic presets.
 
 ### Core Components:
-1. **Design Token System** - Centralized token management synced to theme.json
+1. **Design Token System** - Direct theme.json integration (no intermediate files)
 2. **Custom Studio Blocks** - WordPress-native blocks with semantic presets
-3. **Admin Interface** - Visual tools for token and preset management
+3. **Admin Interface** - Tabbed token editor with direct save functionality
 4. **AI Integration** - Future JSON hydration for content and design
 
 ## **Current Status (June 16, 2024)**
@@ -26,6 +26,12 @@ Studio is a WordPress theme-integrated system for AI-powered block creation with
 - **HTML to Blocks Converter**: AI-powered conversion tool
 - **Theme Integration**: All functionality in theme, no plugin needed
 - **Legacy Plugin**: Removed completely
+- **Block Preset System**: Fully functional
+  - Save current block settings as named presets
+  - Load saved presets via dropdown selection
+  - AJAX integration with theme.json storage
+  - Modal dialogs for preset management
+  - Automatic unique ID generation and timestamps
 
 ### **In Progress**
 - **Block Style Builder** - Needs bug fixes
@@ -36,15 +42,40 @@ Studio is a WordPress theme-integrated system for AI-powered block creation with
 - **AI Integration** - JSON hydration system
 - **Visual Style Builder** - Complete the block style creation UI
 
+## **Recent Architectural Improvements (June 16, 2024)**
+
+### ✅ **Eliminated studio.json Complexity**
+- **Simplified Flow**: Direct Admin UI ↔ theme.json integration
+- **No Sync Issues**: Eliminated intermediate file sync operations
+- **Single Source**: theme.json is now the only token storage file
+- **Performance**: Faster operations with direct read/write
+- **Maintenance**: Reduced codebase complexity by 100+ lines
+
+## **Key Benefits**
+
+### **User Experience**
+- **Consistent Design**: All blocks follow unified design token system
+- **Rapid Development**: Save and reuse block configurations with preset system
+- **No Code Required**: Visual interface for complex block customization
+- **Semantic HTML**: Built-in accessibility and SEO optimization
+- **Responsive Design**: Automatic mobile-first responsive patterns
+
+### **Developer Experience**  
+- **Theme.json Native**: No custom databases or external dependencies
+- **Block Editor Integration**: Works seamlessly with WordPress native editor
+- **Dynamic Controls**: Block inspector controls generated from theme tokens
+- **AJAX Security**: Proper nonce verification and capability checks
+- **Extensible Architecture**: Easy to add new blocks and preset types
+
 ## **Current Features**
 
 ### 1. Studio Admin UI (Theme-Based)
-- **Token Manager**: Visual interface for managing design tokens
-  - Full CRUD operations for colors, typography, and spacing tokens
-  - Color pickers with live preview
-  - Editable labels for all tokens
+- **Token Manager**: Tabbed interface for managing design tokens
+  - Organized tabs: Colors, Typography, Spacing, Layout
+  - Full CRUD operations with live preview
+  - Color previews and professional admin interface
+  - Direct save to theme.json (no sync needed)
   - Add/Delete functionality with visual feedback
-  - One-click sync to theme.json
 - **Typography Preset Manager**: Create and manage typography presets
 - **HTML to Blocks Converter**: AI-powered HTML transformation
 - **Block Style Builder**: Visual interface for creating block styles
@@ -57,12 +88,11 @@ Studio is a WordPress theme-integrated system for AI-powered block creation with
 - Additional blocks planned: Container, Headline, Button, Grid, Image
 
 ### 3. Design Token System
-- **studio.json**: Central design system configuration
-  - Complete color palette (17 tokens including variants)
-  - Typography scales (font sizes and weights)
-  - Spacing system
-- **theme.json**: WordPress-compatible token format
-  - Auto-synced from studio.json
+- **theme.json**: Complete design system storage
+  - WordPress-standard color palette and typography
+  - Extended properties in custom section (font families, weights, line heights)
+  - Semantic padding scale for layout consistency
+  - Direct read/write from Studio Admin UI
   - Block styles and presets storage
   - Native WordPress integration
 
@@ -77,6 +107,8 @@ Studio is a WordPress theme-integrated system for AI-powered block creation with
    - Layout wrapper with responsive width controls
    - Padding presets for consistent spacing
    - Semantic HTML tag selection
+   - **Height Presets System** - Added viewport-based height controls (auto, 25vh, 50vh, 75vh, 100vh)
+   - **Enhanced Inspector UI** - Reorganized into "Layout Settings" and "Container Settings" panels
 
 3. **Studio Button Block**
    - 5 style presets (primary, secondary, outline, ghost, link)
@@ -112,7 +144,7 @@ All Studio functionality is integrated directly into the theme rather than requi
 
 ### 3. **Token Flow**
 ```
-Studio Admin UI → studio.json → theme.json → WordPress Blocks
+Studio Admin UI → theme.json → WordPress Blocks
 ```
 
 ### 4. **Security**
@@ -147,10 +179,9 @@ Studio Admin UI → studio.json → theme.json → WordPress Blocks
 /blocksy-child/
 ├── functions.php          # Studio_Theme_Integration class
 ├── theme.json            # Design tokens and block styles
-├── studio.json           # Studio token configuration
 ├── /blocks/              # Studio block definitions
 │   └── /studio-text/     # Complete implementation
-│   └── /studio-container/# Complete implementation
+│   └── /studio-container/# Complete implementation with height presets
 │   └── /studio-button/   # Complete implementation
 │   └── /studio-grid/     # Complete implementation
 │   └── /studio-image/    # Complete implementation
@@ -162,7 +193,7 @@ Studio Admin UI → studio.json → theme.json → WordPress Blocks
 
 ## **Access Points:**
 
-- **Token Manager**: `/wp-admin/admin.php?page=studio`
+- **Token Manager**: `/wp-admin/admin.php?page=studio-tokens` (Tabbed interface)
 - **Preset Manager**: `/wp-admin/admin.php?page=studio-presets`
 - **HTML Converter**: `/wp-admin/admin.php?page=studio-html-converter`
 

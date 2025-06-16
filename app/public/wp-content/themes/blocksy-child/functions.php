@@ -70,13 +70,11 @@ class Studio_Theme_Integration {
         add_action('admin_menu', array($this, 'add_studio_menu'));
         add_action('wp_ajax_studio_sync_tokens', array($this, 'handle_token_sync'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_assets'));
-        add_action('wp_ajax_studio_save_preset', array($this, 'ajax_save_preset'));
         add_action('wp_ajax_studio_convert_html', array($this, 'ajax_convert_html'));
         add_action('wp_ajax_studio_save_block_style', array($this, 'ajax_save_block_style'));
         add_action('wp_ajax_studio_save_block_preset', array($this, 'ajax_save_block_preset'));
         add_action('wp_ajax_studio_delete_block_preset', array($this, 'ajax_delete_block_preset'));
         add_action('wp_ajax_studio_get_block_preset', array($this, 'ajax_get_block_preset'));
-        add_action('wp_ajax_studio_sync_from_theme', array($this, 'ajax_sync_from_theme'));
     }
     
     /**
@@ -234,15 +232,112 @@ class Studio_Theme_Integration {
     }
     
     /**
-     * Get design tokens from studio.json
+     * Get design tokens directly from theme.json
      */
     private function get_design_tokens() {
-        $studio_json_path = get_stylesheet_directory() . '/studio.json';
-        if (file_exists($studio_json_path)) {
-            $tokens = json_decode(file_get_contents($studio_json_path), true);
-            return $tokens ?: array();
+        $theme_json_path = get_stylesheet_directory() . '/theme.json';
+        $theme_json_content = file_get_contents($theme_json_path);
+        $theme_json = json_decode($theme_json_content, true);
+        
+        if (!$theme_json) {
+            return array();
         }
-        return array();
+        
+        $tokens = array();
+        
+        // Extract colors from theme.json palette
+        if (isset($theme_json['settings']['color']['palette'])) {
+            $tokens['colors'] = array();
+            foreach ($theme_json['settings']['color']['palette'] as $color) {
+                $tokens['colors'][$color['slug']] = array(
+                    'name' => $color['name'],
+                    'value' => $color['color']
+                );
+            }
+        }
+        
+        // Extract typography from theme.json
+        if (isset($theme_json['settings']['typography'])) {
+            $tokens['typography'] = array();
+            
+            // Font sizes
+            if (isset($theme_json['settings']['typography']['fontSizes'])) {
+                $tokens['typography']['fontSizes'] = array();
+                foreach ($theme_json['settings']['typography']['fontSizes'] as $size) {
+                    $tokens['typography']['fontSizes'][$size['slug']] = $size['size'];
+                }
+            }
+            
+            // Add font families and weights (these can be stored in custom section)
+            if (isset($theme_json['settings']['custom']['typography']['fontFamilies'])) {
+                $tokens['typography']['fontFamilies'] = $theme_json['settings']['custom']['typography']['fontFamilies'];
+            } else {
+                // Default font families
+                $tokens['typography']['fontFamilies'] = array(
+                    'primary' => array(
+                        'name' => 'Montserrat',
+                        'value' => 'Montserrat, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, sans-serif'
+                    ),
+                    'secondary' => array(
+                        'name' => 'Inter',
+                        'value' => 'Inter, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, sans-serif'
+                    )
+                );
+            }
+            
+            // Font weights and line heights from custom section
+            if (isset($theme_json['settings']['custom']['typography']['fontWeights'])) {
+                $tokens['typography']['fontWeights'] = $theme_json['settings']['custom']['typography']['fontWeights'];
+            } else {
+                $tokens['typography']['fontWeights'] = array(
+                    'light' => 300,
+                    'regular' => 400,
+                    'medium' => 500,
+                    'semibold' => 600,
+                    'bold' => 700
+                );
+            }
+            
+            if (isset($theme_json['settings']['custom']['typography']['lineHeights'])) {
+                $tokens['typography']['lineHeights'] = $theme_json['settings']['custom']['typography']['lineHeights'];
+            } else {
+                $tokens['typography']['lineHeights'] = array(
+                    'xs' => '16px',
+                    'sm' => '20px',
+                    'md' => '24px',
+                    'lg' => '28px',
+                    'xl' => '32px',
+                    'xxl' => '36px',
+                    'xxxl' => '40px'
+                );
+            }
+        }
+        
+        // Extract spacing from theme.json
+        if (isset($theme_json['settings']['spacing']['spacingSizes'])) {
+            $tokens['spacing'] = array();
+            foreach ($theme_json['settings']['spacing']['spacingSizes'] as $spacing) {
+                $tokens['spacing'][$spacing['slug']] = $spacing['size'];
+            }
+        }
+        
+        // Extract layout from theme.json
+        if (isset($theme_json['settings']['layout'])) {
+            $tokens['layout'] = array();
+            if (isset($theme_json['settings']['layout']['contentSize'])) {
+                $tokens['layout']['contentSize'] = $theme_json['settings']['layout']['contentSize'];
+            }
+            if (isset($theme_json['settings']['layout']['wideSize'])) {
+                $tokens['layout']['wideSize'] = $theme_json['settings']['layout']['wideSize'];
+            }
+        }
+        
+        // Extract padding scale from custom section
+        if (isset($theme_json['settings']['custom']['paddingScale'])) {
+            $tokens['paddingScale'] = $theme_json['settings']['custom']['paddingScale'];
+        }
+        
+        return $tokens;
     }
     
     /**
@@ -301,11 +396,8 @@ class Studio_Theme_Integration {
      */
     private function get_theme_json() {
         $theme_json_path = get_stylesheet_directory() . '/theme.json';
-        if (!file_exists($theme_json_path)) {
-            return array();
-        }
-        
-        $theme_json = json_decode(file_get_contents($theme_json_path), true);
+        $theme_json_content = file_get_contents($theme_json_path);
+        $theme_json = json_decode($theme_json_content, true);
         return $theme_json ?: array();
     }
     
@@ -313,10 +405,14 @@ class Studio_Theme_Integration {
      * Handle token sync AJAX request
      */
     public function handle_token_sync() {
-        check_ajax_referer('studio_tokens', 'nonce');
+        // Verify nonce
+        if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'studio_tokens')) {
+            wp_die('Security check failed');
+        }
         
+        // Check user capabilities
         if (!current_user_can('manage_options')) {
-            wp_die('Unauthorized');
+            wp_die('Insufficient permissions');
         }
         
         // Get the updated tokens from the request
@@ -326,14 +422,7 @@ class Studio_Theme_Integration {
             wp_send_json_error('No tokens provided');
         }
         
-        $studio_json_path = get_stylesheet_directory() . '/studio.json';
-        
-        // Save to studio.json
-        if (!file_put_contents($studio_json_path, json_encode($tokens, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES))) {
-            wp_send_json_error('Failed to save studio.json');
-        }
-        
-        // Sync to theme.json
+        // Save to theme.json
         $this->sync_tokens_to_theme_json($tokens);
         
         wp_send_json_success('Tokens saved successfully');
@@ -620,9 +709,6 @@ class Studio_Theme_Integration {
             </div>
             
             <div class="studio-actions">
-                <button class="studio-button studio-button-secondary" id="studio-sync-from-theme">
-                    <?php _e('Sync from Theme.json', 'studio'); ?>
-                </button>
                 <button class="studio-button studio-button-primary" id="studio-save-tokens">
                     <?php _e('Save Tokens', 'studio'); ?>
                 </button>
@@ -636,7 +722,9 @@ class Studio_Theme_Integration {
      */
     public function render_block_presets_manager() {
         // Get block presets from theme.json
-        $theme_json = $this->get_theme_json();
+        $theme_json_path = get_stylesheet_directory() . '/theme.json';
+        $theme_json_content = file_get_contents($theme_json_path);
+        $theme_json = json_decode($theme_json_content, true);
         $block_presets = isset($theme_json['settings']['custom']['blockPresets']) ? $theme_json['settings']['custom']['blockPresets'] : array();
         
         // Group presets by block type
@@ -666,34 +754,48 @@ class Studio_Theme_Integration {
                 <p><?php _e('Create and manage reusable presets for your Studio blocks', 'studio'); ?></p>
             </div>
             
-            <div class="studio-block-presets-container">
-                <?php foreach ($supported_blocks as $block_type => $block_name): ?>
-                <div class="studio-block-preset-section" data-block-type="<?php echo esc_attr($block_type); ?>">
-                    <div class="studio-block-preset-header">
-                        <h2><?php echo esc_html($block_name); ?></h2>
-                        <button class="studio-button studio-button-small studio-add-preset" data-block-type="<?php echo esc_attr($block_type); ?>">
+            <div class="studio-preset-tabs">
+                <nav class="studio-tab-nav">
+                    <?php $first = true; foreach ($supported_blocks as $block_type => $block_name): ?>
+                    <button class="studio-tab-button<?php echo $first ? ' active' : ''; ?>" 
+                            data-tab="<?php echo esc_attr(str_replace('studio/', '', $block_type)); ?>">
+                        <?php echo esc_html($block_name); ?>
+                    </button>
+                    <?php $first = false; endforeach; ?>
+                </nav>
+                
+                <?php $first_tab = true; foreach ($supported_blocks as $block_type => $block_name): 
+                    $tab_id = str_replace('studio/', '', $block_type);
+                    $block_presets_for_type = isset($presets_by_block[$block_type]) ? $presets_by_block[$block_type] : array();
+                ?>
+                <div class="studio-tab-content<?php echo $first_tab ? ' active' : ''; ?>" 
+                     id="<?php echo esc_attr($tab_id); ?>-tab">
+                    
+                    <div class="studio-tab-header">
+                        <h2><?php echo esc_html($block_name); ?> Presets</h2>
+                        <button class="studio-button studio-button-primary studio-add-preset" 
+                                data-block-type="<?php echo esc_attr($block_type); ?>">
                             <?php _e('+ Add Preset', 'studio'); ?>
                         </button>
                     </div>
                     
-                    <div class="studio-preset-list">
-                        <?php 
-                        $block_presets = isset($presets_by_block[$block_type]) ? $presets_by_block[$block_type] : array();
-                        if (empty($block_presets)): 
-                        ?>
-                            <p class="studio-no-presets"><?php _e('No presets yet. Create your first preset!', 'studio'); ?></p>
+                    <div class="studio-preset-grid">
+                        <?php if (empty($block_presets_for_type)): ?>
+                            <div class="studio-no-presets">
+                                <p><?php _e('No presets yet. Create your first preset!', 'studio'); ?></p>
+                            </div>
                         <?php else: ?>
-                            <?php foreach ($block_presets as $preset_id => $preset): ?>
-                            <div class="studio-preset-item" data-preset-id="<?php echo esc_attr($preset_id); ?>">
-                                <div class="studio-preset-header">
+                            <?php foreach ($block_presets_for_type as $preset_id => $preset): ?>
+                            <div class="studio-preset-card" data-preset-id="<?php echo esc_attr($preset_id); ?>">
+                                <div class="studio-preset-card-header">
                                     <h3 class="studio-preset-name"><?php echo esc_html($preset['label'] ?? $preset_id); ?></h3>
                                     <div class="studio-preset-actions">
-                                        <button class="studio-button studio-button-secondary studio-edit-preset" 
+                                        <button class="studio-button studio-button-small studio-edit-preset" 
                                                 data-preset-id="<?php echo esc_attr($preset_id); ?>"
                                                 data-block-type="<?php echo esc_attr($block_type); ?>">
                                             <?php _e('Edit', 'studio'); ?>
                                         </button>
-                                        <button class="studio-button studio-button-danger studio-delete-preset" 
+                                        <button class="studio-button studio-button-small studio-button-danger studio-delete-preset" 
                                                 data-preset-id="<?php echo esc_attr($preset_id); ?>">
                                             <?php _e('Delete', 'studio'); ?>
                                         </button>
@@ -712,7 +814,7 @@ class Studio_Theme_Integration {
                         <?php endif; ?>
                     </div>
                 </div>
-                <?php endforeach; ?>
+                <?php $first_tab = false; endforeach; ?>
             </div>
             
             <!-- Add/Edit Preset Form (hidden by default) -->
@@ -723,32 +825,29 @@ class Studio_Theme_Integration {
                 </div>
                 <form id="studio-preset-form-content">
                     <div class="studio-form-group">
-                        <label><?php _e('Preset Name', 'studio'); ?></label>
-                        <input type="text" id="preset-name" class="studio-input" required>
+                        <label for="studio-preset-name"><?php _e('Preset Name:', 'studio'); ?></label>
+                        <input type="text" id="studio-preset-name" name="preset_name" required>
                     </div>
+                    
                     <div class="studio-form-group">
-                        <label><?php _e('Label', 'studio'); ?></label>
-                        <input type="text" id="preset-label" class="studio-input" required>
+                        <label for="studio-preset-description"><?php _e('Description:', 'studio'); ?></label>
+                        <textarea id="studio-preset-description" name="preset_description" rows="3"></textarea>
                     </div>
+                    
                     <div class="studio-form-group">
-                        <label><?php _e('Description', 'studio'); ?></label>
-                        <textarea id="preset-description" class="studio-textarea"></textarea>
+                        <label for="studio-preset-css"><?php _e('CSS:', 'studio'); ?></label>
+                        <textarea id="studio-preset-css" name="preset_css" rows="10" placeholder="Enter CSS rules..."></textarea>
                     </div>
-                    <div class="studio-form-group">
-                        <label><?php _e('CSS (use CSS variables)', 'studio'); ?></label>
-                        <textarea id="preset-css" class="studio-textarea studio-code" rows="10" placeholder="font-size: var(--wp--preset--font-size--large);
-font-weight: 600;
-color: var(--wp--preset--color--primary);
-padding: var(--wp--preset--spacing--20);"></textarea>
-                    </div>
-                    <input type="hidden" id="preset-block-type">
-                    <input type="hidden" id="preset-id">
+                    
+                    <input type="hidden" id="studio-preset-block-type" name="block_type">
+                    <input type="hidden" id="studio-preset-id" name="preset_id">
+                    
                     <div class="studio-form-actions">
+                        <button type="button" class="studio-button studio-button-secondary studio-cancel-form">
+                            <?php _e('Cancel', 'studio'); ?>
+                        </button>
                         <button type="submit" class="studio-button studio-button-primary">
                             <?php _e('Save Preset', 'studio'); ?>
-                        </button>
-                        <button type="button" class="studio-button studio-cancel-form">
-                            <?php _e('Cancel', 'studio'); ?>
                         </button>
                     </div>
                 </form>
@@ -806,46 +905,6 @@ padding: var(--wp--preset--spacing--20);"></textarea>
             </div>
         </div>
         <?php
-    }
-    
-    /**
-     * Handle AJAX token sync request
-     */
-    public function ajax_sync_tokens() {
-        // Verify nonce
-        if (!isset($_POST['nonce']) || !wp_verify_nonce($_POST['nonce'], 'studio_tokens')) {
-            wp_die('Security check failed');
-        }
-        
-        // Check user capabilities
-        if (!current_user_can('manage_options')) {
-            wp_die('Insufficient permissions');
-        }
-        
-        // Get tokens from request
-        $tokens = isset($_POST['tokens']) ? json_decode(stripslashes($_POST['tokens']), true) : array();
-        
-        if (!$tokens) {
-            wp_send_json_error('No tokens provided');
-        }
-        
-        $studio_json_path = get_stylesheet_directory() . '/studio.json';
-        
-        // Save to studio.json
-        $result = file_put_contents($studio_json_path, json_encode($tokens, JSON_PRETTY_PRINT));
-        
-        if ($result !== false) {
-            // Sync to theme.json
-            $this->sync_tokens_to_theme_json($tokens);
-            
-            wp_send_json_success(array(
-                'message' => __('Tokens synced successfully', 'studio')
-            ));
-        } else {
-            wp_send_json_error(array(
-                'message' => __('Failed to save tokens', 'studio')
-            ));
-        }
     }
     
     /**
@@ -1050,10 +1109,8 @@ padding: var(--wp--preset--spacing--20);"></textarea>
         $theme_json_path = get_stylesheet_directory() . '/theme.json';
         
         // Load existing theme.json
-        $theme_json = array();
-        if (file_exists($theme_json_path)) {
-            $theme_json = json_decode(file_get_contents($theme_json_path), true);
-        }
+        $theme_json_content = file_get_contents($theme_json_path);
+        $theme_json = json_decode($theme_json_content, true);
         
         // Ensure structure exists
         if (!isset($theme_json['settings'])) {
@@ -1217,130 +1274,31 @@ padding: var(--wp--preset--spacing--20);"></textarea>
             $theme_json['settings']['custom']['paddingScale'] = $tokens['paddingScale'];
         }
         
+        // Sync custom typography properties to custom section
+        if (isset($tokens['typography'])) {
+            if (!isset($theme_json['settings']['custom']['typography'])) {
+                $theme_json['settings']['custom']['typography'] = array();
+            }
+            
+            if (isset($tokens['typography']['fontFamilies'])) {
+                $theme_json['settings']['custom']['typography']['fontFamilies'] = $tokens['typography']['fontFamilies'];
+            }
+            
+            if (isset($tokens['typography']['fontWeights'])) {
+                $theme_json['settings']['custom']['typography']['fontWeights'] = $tokens['typography']['fontWeights'];
+            }
+            
+            if (isset($tokens['typography']['lineHeights'])) {
+                $theme_json['settings']['custom']['typography']['lineHeights'] = $tokens['typography']['lineHeights'];
+            }
+        }
+        
         // Save updated theme.json
         file_put_contents($theme_json_path, json_encode($theme_json, JSON_PRETTY_PRINT));
     }
     
     /**
-     * Sync tokens from theme.json to studio.json (reverse sync)
-     */
-    private function sync_from_theme_to_studio() {
-        $theme_json = $this->get_theme_json();
-        
-        if (!$theme_json) {
-            return false;
-        }
-        
-        $studio_tokens = array();
-        
-        // Extract colors from theme.json palette
-        if (isset($theme_json['settings']['color']['palette'])) {
-            $studio_tokens['colors'] = array();
-            foreach ($theme_json['settings']['color']['palette'] as $color) {
-                $studio_tokens['colors'][$color['slug']] = array(
-                    'name' => $color['name'],
-                    'value' => $color['color']
-                );
-            }
-        }
-        
-        // Extract typography from theme.json
-        if (isset($theme_json['settings']['typography'])) {
-            $studio_tokens['typography'] = array();
-            
-            // Font sizes
-            if (isset($theme_json['settings']['typography']['fontSizes'])) {
-                $studio_tokens['typography']['fontSizes'] = array();
-                foreach ($theme_json['settings']['typography']['fontSizes'] as $size) {
-                    $studio_tokens['typography']['fontSizes'][$size['slug']] = $size['size'];
-                }
-            }
-            
-            // Add default font families and weights
-            $studio_tokens['typography']['fontFamilies'] = array(
-                'primary' => array(
-                    'name' => 'Montserrat',
-                    'value' => 'Montserrat, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, sans-serif'
-                ),
-                'secondary' => array(
-                    'name' => 'Inter',
-                    'value' => 'Inter, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, sans-serif'
-                )
-            );
-            
-            $studio_tokens['typography']['lineHeights'] = array(
-                'xs' => '16px',
-                'sm' => '20px',
-                'md' => '24px',
-                'lg' => '28px',
-                'xl' => '32px',
-                'xxl' => '36px',
-                'xxxl' => '40px'
-            );
-            
-            $studio_tokens['typography']['fontWeights'] = array(
-                'light' => 300,
-                'regular' => 400,
-                'medium' => 500,
-                'semibold' => 600,
-                'bold' => 700
-            );
-        }
-        
-        // Extract spacing from theme.json
-        if (isset($theme_json['settings']['spacing']['spacingSizes'])) {
-            $studio_tokens['spacing'] = array();
-            foreach ($theme_json['settings']['spacing']['spacingSizes'] as $spacing) {
-                $studio_tokens['spacing'][$spacing['slug']] = $spacing['size'];
-            }
-        }
-        
-        // Extract layout from theme.json
-        if (isset($theme_json['settings']['layout'])) {
-            $studio_tokens['layout'] = array();
-            if (isset($theme_json['settings']['layout']['contentSize'])) {
-                $studio_tokens['layout']['contentSize'] = $theme_json['settings']['layout']['contentSize'];
-            }
-            if (isset($theme_json['settings']['layout']['wideSize'])) {
-                $studio_tokens['layout']['wideSize'] = $theme_json['settings']['layout']['wideSize'];
-            }
-        }
-        
-        // Extract padding scale from custom section
-        if (isset($theme_json['settings']['custom']['paddingScale'])) {
-            $studio_tokens['paddingScale'] = $theme_json['settings']['custom']['paddingScale'];
-        }
-        
-        // Save to studio.json
-        $studio_json_path = get_stylesheet_directory() . '/studio.json';
-        file_put_contents($studio_json_path, json_encode($studio_tokens, JSON_PRETTY_PRINT));
-        
-        return true;
-    }
-    
-    /**
-     * Handle AJAX request to sync from theme.json to studio.json
-     */
-    public function ajax_sync_from_theme() {
-        check_ajax_referer('studio_admin', 'nonce');
-        
-        if (!current_user_can('manage_options')) {
-            wp_send_json_error('Unauthorized');
-        }
-        
-        $result = $this->sync_from_theme_to_studio();
-        
-        if ($result) {
-            wp_send_json_success(array(
-                'message' => 'Tokens synced from theme.json to studio.json successfully'
-            ));
-        } else {
-            wp_send_json_error('Failed to sync tokens');
-        }
-    }
-    
-    /**
-     * Handle AJAX save block style request
+     * Handle AJAX request to save block style
      */
     public function ajax_save_block_style() {
         // Verify nonce
@@ -1365,9 +1323,16 @@ padding: var(--wp--preset--spacing--20);"></textarea>
         
         // Load theme.json
         $theme_json_path = get_stylesheet_directory() . '/theme.json';
-        $theme_json = json_decode(file_get_contents($theme_json_path), true);
+        $theme_json_content = file_get_contents($theme_json_path);
+        $theme_json = json_decode($theme_json_content, true);
         
         // Ensure blockStyles section exists
+        if (!isset($theme_json['settings'])) {
+            $theme_json['settings'] = array();
+        }
+        if (!isset($theme_json['settings']['custom'])) {
+            $theme_json['settings']['custom'] = array();
+        }
         if (!isset($theme_json['settings']['custom']['blockStyles'])) {
             $theme_json['settings']['custom']['blockStyles'] = array();
         }
@@ -1407,11 +1372,22 @@ padding: var(--wp--preset--spacing--20);"></textarea>
         }
         
         // Get theme.json
-        $theme_json = $this->get_theme_json();
+        $theme_json_path = get_stylesheet_directory() . '/theme.json';
+        $theme_json_content = file_get_contents($theme_json_path);
+        $theme_json = json_decode($theme_json_content, true);
         
         // Initialize blockPresets if not exists
+        if (!isset($theme_json['settings'])) {
+            $theme_json['settings'] = array();
+        }
+        if (!isset($theme_json['settings']['custom'])) {
+            $theme_json['settings']['custom'] = array();
+        }
         if (!isset($theme_json['settings']['custom']['blockPresets'])) {
             $theme_json['settings']['custom']['blockPresets'] = array();
+        }
+        if (!isset($theme_json['settings']['custom']['blockPresets'][$block_type])) {
+            $theme_json['settings']['custom']['blockPresets'][$block_type] = array();
         }
         
         // Create preset data
@@ -1423,8 +1399,8 @@ padding: var(--wp--preset--spacing--20);"></textarea>
         );
         
         // If editing existing preset, preserve other block types
-        if (!empty($preset_id) && isset($theme_json['settings']['custom']['blockPresets'][$preset_id])) {
-            $existing = $theme_json['settings']['custom']['blockPresets'][$preset_id];
+        if (!empty($preset_id) && isset($theme_json['settings']['custom']['blockPresets'][$block_type][$preset_id])) {
+            $existing = $theme_json['settings']['custom']['blockPresets'][$block_type][$preset_id];
             if (isset($existing['blockTypes'])) {
                 $preset_data['blockTypes'] = array_unique(array_merge($existing['blockTypes'], array($block_type)));
             }
@@ -1432,10 +1408,9 @@ padding: var(--wp--preset--spacing--20);"></textarea>
         
         // Save preset
         $save_id = !empty($preset_id) ? $preset_id : $preset_name;
-        $theme_json['settings']['custom']['blockPresets'][$save_id] = $preset_data;
+        $theme_json['settings']['custom']['blockPresets'][$block_type][$save_id] = $preset_data;
         
         // Save theme.json
-        $theme_json_path = get_stylesheet_directory() . '/theme.json';
         file_put_contents($theme_json_path, json_encode($theme_json, JSON_PRETTY_PRINT));
         
         wp_send_json_success(array(
@@ -1461,14 +1436,15 @@ padding: var(--wp--preset--spacing--20);"></textarea>
         }
         
         // Get theme.json
-        $theme_json = $this->get_theme_json();
+        $theme_json_path = get_stylesheet_directory() . '/theme.json';
+        $theme_json_content = file_get_contents($theme_json_path);
+        $theme_json = json_decode($theme_json_content, true);
         
         // Remove preset
         if (isset($theme_json['settings']['custom']['blockPresets'][$preset_id])) {
             unset($theme_json['settings']['custom']['blockPresets'][$preset_id]);
             
             // Save theme.json
-            $theme_json_path = get_stylesheet_directory() . '/theme.json';
             file_put_contents($theme_json_path, json_encode($theme_json, JSON_PRETTY_PRINT));
             
             wp_send_json_success('Preset deleted successfully');
@@ -1494,7 +1470,9 @@ padding: var(--wp--preset--spacing--20);"></textarea>
         }
         
         // Get theme.json
-        $theme_json = $this->get_theme_json();
+        $theme_json_path = get_stylesheet_directory() . '/theme.json';
+        $theme_json_content = file_get_contents($theme_json_path);
+        $theme_json = json_decode($theme_json_content, true);
         
         if (isset($theme_json['settings']['custom']['blockPresets'][$preset_id])) {
             $preset = $theme_json['settings']['custom']['blockPresets'][$preset_id];
@@ -1611,3 +1589,190 @@ function villa_community_page() {
 
 require_once get_stylesheet_directory() . '/villa-email-templates.php';
 require_once get_stylesheet_directory() . '/villa-smtp-config.php';
+
+// Add AJAX endpoint for saving block presets
+add_action('wp_ajax_studio_save_preset', 'handle_studio_save_preset');
+function handle_studio_save_preset() {
+    // Enable error logging
+    ini_set('log_errors', 1);
+    ini_set('error_log', WP_CONTENT_DIR . '/debug.log');
+    
+    // Add debug header
+    header('Content-Type: application/json');
+    
+    // Log start of function
+    error_log('=== Studio Save Preset: Function started ===');
+    error_log('POST data: ' . print_r($_POST, true));
+    
+    // Check if required POST data exists
+    if (!isset($_POST['nonce']) || !isset($_POST['block_type']) || !isset($_POST['preset_data'])) {
+        error_log('Studio Save Preset: Missing POST data');
+        wp_send_json_error('Missing required POST data');
+        return;
+    }
+    
+    // Verify nonce
+    if (!wp_verify_nonce($_POST['nonce'], 'studio_admin_nonce')) {
+        error_log('Studio Save Preset: Invalid nonce');
+        wp_send_json_error('Invalid nonce');
+        return;
+    }
+    
+    // Check user capabilities
+    if (!current_user_can('manage_options')) {
+        error_log('Studio Save Preset: Insufficient permissions');
+        wp_send_json_error('Insufficient permissions');
+        return;
+    }
+    
+    $block_type = sanitize_text_field($_POST['block_type']);
+    $preset_data_json = wp_unslash($_POST['preset_data']);
+    
+    error_log('Studio Save Preset: Block type: ' . $block_type);
+    error_log('Studio Save Preset: Raw preset data: ' . $preset_data_json);
+    
+    // Parse JSON string to array
+    $preset_data = json_decode($preset_data_json, true);
+    if ($preset_data === null) {
+        error_log('Studio Save Preset: JSON decode failed. JSON error: ' . json_last_error_msg());
+        wp_send_json_error('Invalid preset data format: ' . json_last_error_msg());
+        return;
+    }
+    
+    error_log('Studio Save Preset: Parsed preset data: ' . print_r($preset_data, true));
+    
+    // Validate required fields
+    if (empty($block_type) || empty($preset_data['name'])) {
+        error_log('Studio Save Preset: Missing preset name or block type');
+        wp_send_json_error('Missing preset name or block type');
+        return;
+    }
+    
+    // Sanitize preset data
+    $preset = array(
+        'name' => sanitize_text_field($preset_data['name']),
+        'description' => sanitize_text_field($preset_data['description']),
+        'attributes' => array()
+    );
+    
+    // Sanitize attributes based on block type
+    if ($block_type === 'container') {
+        $preset['attributes'] = array(
+            'widthPreset' => sanitize_text_field($preset_data['attributes']['widthPreset']),
+            'paddingPreset' => sanitize_text_field($preset_data['attributes']['paddingPreset']),
+            'heightPreset' => sanitize_text_field($preset_data['attributes']['heightPreset']),
+            'tagName' => sanitize_text_field($preset_data['attributes']['tagName']),
+            'minHeight' => sanitize_text_field($preset_data['attributes']['minHeight'])
+        );
+    }
+    
+    error_log('Studio Save Preset: Sanitized preset: ' . print_r($preset, true));
+    
+    // Get current theme.json
+    $theme_json_path = get_stylesheet_directory() . '/theme.json';
+    
+    error_log('Studio Save Preset: Theme JSON path: ' . $theme_json_path);
+    
+    if (!file_exists($theme_json_path)) {
+        error_log('Studio Save Preset: Theme.json file not found');
+        wp_send_json_error('Theme.json file not found');
+        return;
+    }
+    
+    if (!is_writable($theme_json_path)) {
+        error_log('Studio Save Preset: Theme.json file not writable');
+        wp_send_json_error('Theme.json file not writable');
+        return;
+    }
+    
+    $theme_json_content = file_get_contents($theme_json_path);
+    if ($theme_json_content === false) {
+        error_log('Studio Save Preset: Could not read theme.json file');
+        wp_send_json_error('Could not read theme.json file');
+        return;
+    }
+    
+    $theme_json = json_decode($theme_json_content, true);
+    if ($theme_json === null) {
+        error_log('Studio Save Preset: Invalid JSON in theme.json file');
+        wp_send_json_error('Invalid JSON in theme.json file');
+        return;
+    }
+    
+    // Initialize presets structure if it doesn't exist
+    if (!isset($theme_json['settings'])) {
+        $theme_json['settings'] = array();
+    }
+    if (!isset($theme_json['settings']['custom'])) {
+        $theme_json['settings']['custom'] = array();
+    }
+    if (!isset($theme_json['settings']['custom']['blockPresets'])) {
+        $theme_json['settings']['custom']['blockPresets'] = array();
+    }
+    if (!isset($theme_json['settings']['custom']['blockPresets'][$block_type])) {
+        $theme_json['settings']['custom']['blockPresets'][$block_type] = array();
+    }
+    
+    // Generate unique ID for preset
+    $preset_id = sanitize_title($preset['name']) . '_' . time();
+    
+    // Add timestamp
+    $preset['created'] = current_time('Y-m-d H:i:s');
+    $preset['id'] = $preset_id;
+    
+    error_log('Studio Save Preset: Generated ID: ' . $preset_id);
+    
+    // Save preset to theme.json
+    $theme_json['settings']['custom']['blockPresets'][$block_type][$preset_id] = $preset;
+    
+    error_log('Studio Save Preset: About to write JSON');
+    
+    // Write back to theme.json
+    $result = file_put_contents($theme_json_path, wp_json_encode($theme_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+    
+    if ($result === false) {
+        error_log('Studio Save Preset: Failed to write to theme.json file');
+        wp_send_json_error('Failed to write to theme.json file');
+        return;
+    }
+    
+    error_log('Studio Save Preset: Successfully wrote ' . $result . ' bytes');
+    error_log('=== Studio Save Preset: Function completed successfully ===');
+    
+    wp_send_json_success(array(
+        'message' => 'Preset saved successfully',
+        'preset_id' => $preset_id,
+        'preset' => $preset
+    ));
+}
+
+// Add nonce and admin URL to block editor
+add_action('enqueue_block_editor_assets', 'enqueue_studio_block_editor_assets');
+function enqueue_studio_block_editor_assets() {
+    // Get theme.json data including block presets
+    $theme_json_path = get_stylesheet_directory() . '/theme.json';
+    $block_presets = array();
+    
+    if (file_exists($theme_json_path)) {
+        $theme_json_content = file_get_contents($theme_json_path);
+        if ($theme_json_content !== false) {
+            $theme_json = json_decode($theme_json_content, true);
+            if ($theme_json && isset($theme_json['settings']['custom']['blockPresets'])) {
+                $block_presets = $theme_json['settings']['custom']['blockPresets'];
+            }
+        }
+    }
+    
+    // Add inline script with globals
+    wp_add_inline_script('wp-blocks', '
+        window.studioAdmin = window.studioAdmin || {};
+        window.studioAdmin.nonce = "' . wp_create_nonce('studio_admin_nonce') . '";
+        window.studioAdmin.ajaxUrl = "' . admin_url('admin-ajax.php') . '";
+        
+        window.studioThemeData = window.studioThemeData || {};
+        window.studioThemeData.blockPresets = ' . wp_json_encode($block_presets) . ';
+        
+        console.log("Studio Admin globals loaded:", window.studioAdmin);
+        console.log("Studio Theme Data loaded:", window.studioThemeData);
+    ');
+}

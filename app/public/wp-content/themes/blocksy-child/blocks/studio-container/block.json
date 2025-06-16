@@ -35,6 +35,10 @@
             "type": "string",
             "default": "medium"
         },
+        "heightPreset": {
+            "type": "string",
+            "default": "auto"
+        },
         "tagName": {
             "type": "string",
             "default": "div"
