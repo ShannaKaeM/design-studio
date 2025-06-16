@@ -1,177 +1,153 @@
-# 🚀 Studio Development Roadmap
+# Studio Theme Integration Roadmap
 
-## Current Status
-- ✅ Studio plugin infrastructure
-- ✅ Design token system (studio.json → theme.json)
-- ✅ Studio Text Block (handles all text elements - h1-h6, p, span, div)
-- ✅ Studio Container Block (layout wrapper with width/padding controls)
-- ✅ Studio Button Block (5 presets, 3 sizes, icons, hover states)
-- ✅ Studio Admin UI (token manager, presets, HTML converter)
-- ✅ Theme Integration Complete (all blocks in theme)
-- 🔄 Block Style Builder (needs fixes)
+## Project Overview
+Studio is a custom WordPress block system integrated directly into the theme (not a plugin). It provides semantic, AI-ready blocks with a sophisticated design token system.
 
-## Phase 1: Core Block Completion 🎯 CURRENT
+## Core Principles
+- **Theme-First Architecture**: All functionality lives in the theme
+- **WordPress Native**: Uses core APIs and standards
+- **AI-Ready**: Designed for future content generation
+- **Semantic HTML**: Presets ensure proper structure
+- **Performance Focused**: Minimal runtime overhead
 
-### 1.1 ✅ Complete Studio Container Block
-- [x] Fix block registration
-- [x] Add width controls (full, wide, content)
-- [x] Add padding presets
-- [x] Add background options
-- [x] Test with inner blocks
+## Current Status (June 16, 2024)
 
-### 1.2 ✅ Studio Button Block
-- [x] Create block structure
-- [x] Add button presets (primary, secondary, outline, ghost, link)
-- [x] Implement hover states
-- [x] Add icon support
-- [x] Link management
+### Phase 1: Foundation (COMPLETE)
+- [x] Theme integration architecture
+- [x] Studio_Theme_Integration class in functions.php
+- [x] Admin menu system
+- [x] Asset loading system
+- [x] AJAX infrastructure with security
 
-### 1.3 Studio Grid Block
-- [ ] Create block structure
-- [ ] Column controls (1-6)
-- [ ] Gap presets
-- [ ] Responsive breakpoints
-- [ ] Inner blocks support
+### Phase 2: Token System (COMPLETE)
+- [x] studio.json configuration
+- [x] Token sync to theme.json
+- [x] Token Manager UI
+- [x] Live token editing
+- [x] Color, typography, and spacing tokens
 
-### 1.4 Studio Image Block
-- [ ] Create block structure
-- [ ] Aspect ratio presets
-- [ ] Caption styling
-- [ ] Overlay options
-- [ ] Responsive handling
+### Phase 3: Typography Presets (COMPLETE)
+- [x] Preset Manager UI
+- [x] Create/edit/delete presets
+- [x] Live preview system
+- [x] Semantic HTML tag assignment
+- [x] Integration with blocks
 
-## Phase 2: System Features
+### Phase 4: Core Blocks (80% COMPLETE)
+- [x] **Studio Text Block** - Handles ALL text elements (h1-h6, p, span, div)
+- [x] **Studio Container Block** - Layout wrapper with width/padding controls
+- [x] **Studio Button Block** - 5 styles, 3 sizes, icons, hover states
+- [x] **Studio Grid Block** - Responsive grid layouts with flexible columns
+- [ ] **Studio Image Block** - Media block with styling options
 
-### 2.1 Block Style Builder Completion
-- [ ] Fix preset creation/editing
-- [ ] Add variant management
-- [ ] Live preview functionality
-- [ ] Save/update/delete operations
-- [ ] Integration with theme.json
+### Phase 5: Block Style Builder (IN PROGRESS)
+- [x] Basic UI implementation
+- [ ] Fix JavaScript errors
+- [ ] Complete backend integration
+- [ ] Visual style preview
 
-### 2.2 Semantic Token System
-- [x] Define complete semantic tokens:
-  - Colors: ✅ Implemented in studio.json
-  - Typography: ✅ Font sizes and weights defined
-  - Spacing: ✅ Consistent scale created
-- [x] Create UI in Studio token builder
-- [x] Map to WordPress presets
-- [ ] Document usage
+### Phase 6: Pattern Library (PLANNED)
+- [ ] Pattern creation interface
+- [ ] Pattern categories
+- [ ] Import/export patterns
+- [ ] Default Studio patterns
 
-### 2.3 HTML to Blocks Converter
-- [x] Complete converter functionality
-- [x] Support all Studio blocks
-- [x] Preserve styling and structure
-- [x] Add to Studio interface
-- [ ] Test with various HTML
-
-## Phase 3: Theme Migration 🔄 IN PROGRESS
-
-### 3.1 Move to Theme
-- [x] Move token sync to functions.php
-- [x] Move blocks to theme directory
-- [x] Update registration methods
-- [x] Test all functionality
-- [ ] Update documentation
-
-### 3.2 Pattern Library
-- [ ] Remove old patterns
-- [ ] Create fresh pattern structure
-- [ ] Build initial patterns:
-  - Hero sections
-  - Feature cards
-  - Content layouts
-  - CTAs
-- [ ] Pattern management UI
-
-## Phase 4: AI Integration
-
-### 4.1 AI-Ready Architecture
+### Phase 7: AI Integration (PLANNED)
 - [ ] JSON hydration system
-- [ ] Block generation API
-- [ ] Preset creation API
-- [ ] Pattern generation API
+- [ ] AI content generation
+- [ ] Block transformation
+- [ ] Smart layouts
 
-### 4.2 AI Testing Framework
-- [ ] Test block creation
-- [ ] Test preset selection
-- [ ] Test content hydration
-- [ ] Performance optimization
+## Block Architecture
 
-## Technical Debt & Cleanup
+### Completed Blocks (4 of 5)
 
-### Immediate Tasks
-- [ ] Remove GenerateBlocks references (except architecture inspiration note)
-- [ ] Clean up old component library code
-- [x] Document token sync mechanism
-- [ ] Fix Block Style Builder bugs
+1. **Studio Text** 
+   - Single block for all text
+   - Typography presets control tag + styling
+   - Full editor integration
 
-### Documentation
-- [ ] Complete architecture documentation
-- [ ] Add inline code documentation
-- [ ] Create user guides
-- [ ] API documentation
+2. **Studio Container** 
+   - Width presets (content/wide/full)
+   - Padding presets
+   - Semantic HTML tags
+   - Inner blocks support
 
-## Recent Accomplishments (June 16, 2024)
+3. **Studio Button** 
+   - Style presets (primary/secondary/outline/ghost/link)
+   - Size options
+   - Icon support
+   - Link management
 
-### ✅ Studio Admin UI Implementation
-- Created comprehensive admin pages within theme
-- Token Manager with visual editing interface
-- Typography Preset Manager with live preview
-- HTML to Blocks Converter with AI-powered transformation
-- Full AJAX integration for all operations
+4. **Studio Grid** 
+   - Responsive columns (1-12)
+   - Gap presets
+   - Alignment controls
+   - Advanced grid options
 
-### ✅ Studio Text Block in Theme
-- Complete block implementation in `/blocks/studio-text/`
-- **Handles ALL text elements** (h1-h6, p, span, div, small)
-- **Typography presets control BOTH tag and styling**
-- Semantic HTML tag selection via presets
-- Full editor and frontend support
+5. **Studio Image** 
+   - Aspect ratio presets
+   - Image effects
+   - Caption styling
+   - Lightbox support
 
-### ✅ Theme Integration Foundation
-- Studio_Theme_Integration class in functions.php
-- Admin asset management (CSS/JS)
-- Token sync functionality (studio.json → theme.json)
-- Block registration system for theme blocks
-- Localized data for JavaScript
+## Technical Implementation
 
-## Next Immediate Steps
-1. Test Studio Text block in editor
-2. Implement Studio Grid block in theme
-3. Create Studio Image block
-4. Fix Block Style Builder integration
-5. Complete remaining core blocks
+### File Structure
+```
+/blocksy-child/
+├── functions.php          # Studio_Theme_Integration class
+├── theme.json            # WordPress theme config
+├── studio.json           # Studio token definitions
+├── /blocks/
+│   ├── /studio-text/     
+│   ├── /studio-container/ 
+│   ├── /studio-button/   
+│   ├── /studio-grid/     
+│   └── /studio-image/    
+└── /assets/
+    ├── /css/studio-admin.css
+    └── /js/studio-admin.js
+```
 
-## Core Blocks Summary
-We now have **5 core blocks** (not 6):
-- ✅ **Studio Text** - All text elements (headings, paragraphs, etc.)
-- ✅ **Studio Container** - Layout wrapper
-- ✅ **Studio Button** - CTA elements
-- 📋 **Studio Grid** - Multi-column layouts
-- 📋 **Studio Image** - Media with styling
+### Build Process
+Each block follows the same structure:
+- `block.json` - Block metadata
+- `index.js` - React component
+- `style.css` - Frontend styles
+- `editor.css` - Editor styles
+- `/build/` - Compiled assets
+
+## Next Steps
+
+### Immediate (This Week)
+1. [ ] Implement Studio Image block
+2. [ ] Fix Block Style Builder bugs
+3. [ ] Create first set of patterns
+4. [ ] Update all documentation
+
+### Short Term (Next 2 Weeks)
+1. [ ] Complete pattern library
+2. [ ] Add more block variations
+3. [ ] Enhance responsive controls
+4. [ ] Add animation options
+
+### Long Term (Next Month)
+1. [ ] AI integration planning
+2. [ ] Advanced layout blocks
+3. [ ] Global styles integration
+4. [ ] Performance optimization
 
 ## Success Metrics
-- [x] Studio Text block functional (handles all text)
-- [x] Token management UI complete
-- [x] Theme integration started
-- [ ] All 5 core blocks functional
-- [ ] Semantic preset system complete
-- [ ] Block Style Builder working
-- [x] HTML converter functional
-- [x] Theme integration complete
-- [ ] AI can generate layouts
-
-## Timeline (Updated)
-- **Week 1** ✅: Studio Text block & Admin UI
-- **Week 2**: Complete remaining core blocks
-- **Week 3**: Fix Block Style Builder & complete theme migration
-- **Week 4**: Pattern library & cleanup
-- **Week 5**: AI integration & testing
+- All blocks render correctly
+- Token system fully functional
+- Admin UI intuitive and fast
+- No plugin dependencies
+- Documentation complete
+- AI-ready architecture
 
 ## Notes
-- Using GenerateBlocks architecture as inspiration (see [learn.generatepress.com](https://learn.generatepress.com/))
-- Focus on semantic presets with variants
-- Prioritize AI-friendly JSON hydration
-- Keep performance in mind throughout
-- Theme-first approach for cleaner architecture
-- **Single text block handles all text elements** (like modern GB approach)
+- Removed Studio Headline block (redundant with Text block)
+- Old Studio plugin has been removed
+- All functionality now in theme
+- Following WordPress coding standards
