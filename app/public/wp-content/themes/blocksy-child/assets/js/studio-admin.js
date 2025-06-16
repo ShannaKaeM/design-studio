@@ -22,8 +22,14 @@
             // Delete token buttons
             $(document).on('click', '.studio-delete-token', this.deleteToken);
             
-            // Sync tokens button
-            $(document).on('click', '#studio-sync-tokens', this.syncTokens);
+            // Save tokens button
+            $(document).on('click', '#studio-save-tokens', this.saveTokens);
+            
+            // Sync from theme button
+            $(document).on('click', '#studio-sync-from-theme', this.syncFromTheme);
+            
+            // Tab switching
+            $(document).on('click', '.studio-tab-button', this.switchTab);
             
             // Add preset button
             $(document).on('click', '#studio-add-preset', this.showAddPresetForm);
@@ -65,14 +71,11 @@
         handleTokenChange: function(e) {
             const $input = $(e.target);
             const tokenType = $input.data('token-type');
-            const tokenName = $input.data('token-name');
             const value = $input.val();
             
             // Mark as changed
             $input.addClass('changed');
-            
-            // Enable sync button
-            $('#studio-sync-tokens').prop('disabled', false).addClass('has-changes');
+            $('#studio-save-tokens').prop('disabled', false).addClass('has-changes');
             
             // Update preview if color
             if (tokenType === 'color' && $input.hasClass('studio-color-input')) {
@@ -194,8 +197,8 @@
             // Remove form
             $form.remove();
             
-            // Enable sync button
-            $('#studio-sync-tokens').prop('disabled', false).addClass('has-changes');
+            // Enable save button
+            $('#studio-save-tokens').prop('disabled', false).addClass('has-changes');
             
             // Re-init color pickers
             this.initColorPickers();
@@ -211,9 +214,13 @@
                 // Mark token as deleted
                 $button.closest('.studio-token-item').addClass('deleted').hide();
                 
-                // Enable sync button
-                $('#studio-sync-tokens').prop('disabled', false).addClass('has-changes');
+                // Enable save button
+                $('#studio-save-tokens').prop('disabled', false).addClass('has-changes');
             }
+        },
+
+        saveTokens: function(e) {
+            StudioAdmin.syncTokens.call(this, e);
         },
 
         syncTokens: function(e) {
@@ -222,9 +229,9 @@
             const $button = $(this);
             const $status = $('.studio-sync-status');
             
-            // Show syncing status
-            $button.prop('disabled', true).text('Syncing...');
-            $status.removeClass('error').addClass('syncing').text('Syncing tokens...');
+            // Show saving status
+            $button.prop('disabled', true).text('Saving...');
+            $status.removeClass('error').addClass('syncing').text('Saving tokens...');
             
             // Collect all token values
             const tokens = {
@@ -275,21 +282,66 @@
                 },
                 success: function(response) {
                     if (response.success) {
-                        $status.removeClass('syncing').text('Tokens synced successfully');
-                        $button.text('Tokens Synced!');
+                        $status.removeClass('syncing').text('Tokens saved successfully');
+                        $button.text('Saved!').removeClass('has-changes');
+                        
+                        // Remove changed classes
+                        $('.changed').removeClass('changed');
                         
                         setTimeout(() => {
-                            $button.prop('disabled', false).text('Sync Tokens');
-                            $status.text('All tokens synced');
+                            $button.prop('disabled', false).text('Save Tokens');
+                            $status.text('All changes saved');
+                        }, 2000);
+                    } else {
+                        $status.removeClass('syncing').addClass('error').text('Save failed: ' + response.data);
+                        $button.prop('disabled', false).text('Save Tokens');
+                    }
+                },
+                error: function() {
+                    $status.removeClass('syncing').addClass('error').text('Save failed: Network error');
+                    $button.prop('disabled', false).text('Save Tokens');
+                }
+            });
+        },
+
+        syncFromTheme: function(e) {
+            e.preventDefault();
+            
+            const $button = $(this);
+            const $status = $('.studio-sync-status');
+            
+            // Show syncing status
+            $button.prop('disabled', true).text('Syncing...');
+            $status.removeClass('error').addClass('syncing').text('Syncing tokens from theme...');
+            
+            // Send AJAX request
+            $.ajax({
+                url: studioAdmin.ajaxUrl,
+                type: 'POST',
+                data: {
+                    action: 'studio_sync_from_theme',
+                    nonce: studioAdmin.nonce
+                },
+                success: function(response) {
+                    if (response.success) {
+                        $status.removeClass('syncing').text('Tokens synced successfully');
+                        $button.text('Synced!').removeClass('has-changes');
+                        
+                        // Remove changed classes
+                        $('.changed').removeClass('changed');
+                        
+                        setTimeout(() => {
+                            $button.prop('disabled', false).text('Sync from Theme');
+                            $status.text('All changes saved');
                         }, 2000);
                     } else {
                         $status.removeClass('syncing').addClass('error').text('Sync failed: ' + response.data);
-                        $button.prop('disabled', false).text('Sync Tokens');
+                        $button.prop('disabled', false).text('Sync from Theme');
                     }
                 },
                 error: function() {
                     $status.removeClass('syncing').addClass('error').text('Sync failed: Network error');
-                    $button.prop('disabled', false).text('Sync Tokens');
+                    $button.prop('disabled', false).text('Sync from Theme');
                 }
             });
         },
@@ -302,7 +354,7 @@
 
         markUnsaved: function() {
             $('.studio-sync-status').addClass('error').text('Unsaved changes');
-            $('#studio-sync-tokens').prop('disabled', false);
+            $('#studio-save-tokens').prop('disabled', false);
         },
 
         showAddPresetForm: function(e) {
@@ -486,14 +538,175 @@
             setTimeout(() => {
                 $button.text(originalText);
             }, 2000);
+        },
+        
+        switchTab: function(e) {
+            e.preventDefault();
+            
+            const $button = $(e.target).closest('.studio-tab-button');
+            const tabId = $button.data('tab');
+            
+            // Remove active class from all tabs and buttons
+            $('.studio-tab-content').removeClass('active');
+            $('.studio-tab-button').removeClass('active');
+            
+            // Add active class to selected tab and button
+            $(`#${tabId}-tab`).addClass('active');
+            $button.addClass('active');
         }
     };
 
-    // Initialize on document ready
+    // Block Presets functionality
+    function initBlockPresets() {
+        // Add preset button handlers
+        $('.studio-add-preset').on('click', function() {
+            const blockType = $(this).data('block-type');
+            showPresetForm('add', blockType);
+        });
+        
+        // Edit preset button handlers
+        $(document).on('click', '.studio-edit-preset', function() {
+            const presetId = $(this).data('preset-id');
+            const blockType = $(this).data('block-type');
+            loadPresetForEdit(presetId, blockType);
+        });
+        
+        // Delete preset button handlers
+        $(document).on('click', '.studio-delete-preset', function() {
+            const presetId = $(this).data('preset-id');
+            if (confirm('Are you sure you want to delete this preset?')) {
+                deletePreset(presetId);
+            }
+        });
+        
+        // Form close handlers
+        $('.studio-close-form, .studio-cancel-form').on('click', function() {
+            hidePresetForm();
+        });
+        
+        // Form submit handler
+        $('#studio-preset-form-content').on('submit', function(e) {
+            e.preventDefault();
+            savePreset();
+        });
+    }
+    
+    function showPresetForm(mode, blockType, presetData) {
+        const $form = $('#studio-preset-form');
+        const $formHeader = $form.find('.studio-preset-form-header h3');
+        
+        if (mode === 'add') {
+            $formHeader.text('Add New Preset');
+            $('#preset-id').val('');
+            $('#preset-name').val('').prop('readonly', false);
+            $('#preset-label').val('');
+            $('#preset-description').val('');
+            $('#preset-css').val('');
+        } else {
+            $formHeader.text('Edit Preset');
+            $('#preset-id').val(presetData.id);
+            $('#preset-name').val(presetData.id).prop('readonly', true);
+            $('#preset-label').val(presetData.label || '');
+            $('#preset-description').val(presetData.description || '');
+            $('#preset-css').val(presetData.css || '');
+        }
+        
+        $('#preset-block-type').val(blockType);
+        $form.fadeIn();
+    }
+    
+    function hidePresetForm() {
+        $('#studio-preset-form').fadeOut();
+    }
+    
+    function loadPresetForEdit(presetId, blockType) {
+        $.ajax({
+            url: studioAdmin.ajaxUrl,
+            type: 'POST',
+            data: {
+                action: 'studio_get_block_preset',
+                nonce: studioAdmin.nonce,
+                preset_id: presetId
+            },
+            success: function(response) {
+                if (response.success) {
+                    showPresetForm('edit', blockType, response.data);
+                } else {
+                    alert('Error loading preset: ' + response.data);
+                }
+            },
+            error: function() {
+                alert('Error loading preset');
+            }
+        });
+    }
+    
+    function savePreset() {
+        const presetId = $('#preset-id').val();
+        const presetName = $('#preset-name').val();
+        const presetLabel = $('#preset-label').val();
+        const presetDescription = $('#preset-description').val();
+        const presetCss = $('#preset-css').val();
+        const blockType = $('#preset-block-type').val();
+        
+        $.ajax({
+            url: studioAdmin.ajaxUrl,
+            type: 'POST',
+            data: {
+                action: 'studio_save_block_preset',
+                nonce: studioAdmin.nonce,
+                preset_id: presetId,
+                preset_name: presetName,
+                preset_label: presetLabel,
+                preset_description: presetDescription,
+                preset_css: presetCss,
+                block_type: blockType
+            },
+            success: function(response) {
+                if (response.success) {
+                    alert('Preset saved successfully!');
+                    location.reload(); // Reload to show updated presets
+                } else {
+                    alert('Error saving preset: ' + response.data);
+                }
+            },
+            error: function() {
+                alert('Error saving preset');
+            }
+        });
+    }
+    
+    function deletePreset(presetId) {
+        $.ajax({
+            url: studioAdmin.ajaxUrl,
+            type: 'POST',
+            data: {
+                action: 'studio_delete_block_preset',
+                nonce: studioAdmin.nonce,
+                preset_id: presetId
+            },
+            success: function(response) {
+                if (response.success) {
+                    alert('Preset deleted successfully!');
+                    location.reload(); // Reload to show updated presets
+                } else {
+                    alert('Error deleting preset: ' + response.data);
+                }
+            },
+            error: function() {
+                alert('Error deleting preset');
+            }
+        });
+    }
+    
+    // Initialize based on current page
     $(document).ready(function() {
-        if ($('.studio-admin-wrap').length > 0) {
+        const currentPage = new URLSearchParams(window.location.search).get('page');
+        
+        if (currentPage === 'studio-tokens') {
             StudioAdmin.init();
+        } else if (currentPage === 'studio-block-presets') {
+            initBlockPresets();
         }
     });
-
 })(jQuery);

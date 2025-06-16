@@ -68,11 +68,15 @@ class Studio_Theme_Integration {
         add_action('wp_enqueue_scripts', array($this, 'enqueue_frontend_assets'));
         add_filter('block_categories_all', array($this, 'add_studio_block_category'));
         add_action('admin_menu', array($this, 'add_studio_menu'));
-        add_action('wp_ajax_studio_sync_tokens', array($this, 'ajax_sync_tokens'));
+        add_action('wp_ajax_studio_sync_tokens', array($this, 'handle_token_sync'));
         add_action('admin_enqueue_scripts', array($this, 'enqueue_admin_assets'));
         add_action('wp_ajax_studio_save_preset', array($this, 'ajax_save_preset'));
         add_action('wp_ajax_studio_convert_html', array($this, 'ajax_convert_html'));
         add_action('wp_ajax_studio_save_block_style', array($this, 'ajax_save_block_style'));
+        add_action('wp_ajax_studio_save_block_preset', array($this, 'ajax_save_block_preset'));
+        add_action('wp_ajax_studio_delete_block_preset', array($this, 'ajax_delete_block_preset'));
+        add_action('wp_ajax_studio_get_block_preset', array($this, 'ajax_get_block_preset'));
+        add_action('wp_ajax_studio_sync_from_theme', array($this, 'ajax_sync_from_theme'));
     }
     
     /**
@@ -178,11 +182,11 @@ class Studio_Theme_Integration {
         
         add_submenu_page(
             'studio-settings',
-            __('Typography Presets', 'studio'),
-            __('Typography Presets', 'studio'),
+            __('Block Presets', 'studio'),
+            __('Block Presets', 'studio'),
             'manage_options',
-            'studio-presets',
-            array($this, 'render_preset_manager')
+            'studio-block-presets',
+            array($this, 'render_block_presets_manager')
         );
         
         add_submenu_page(
@@ -293,6 +297,19 @@ class Studio_Theme_Integration {
     }
     
     /**
+     * Get theme.json data
+     */
+    private function get_theme_json() {
+        $theme_json_path = get_stylesheet_directory() . '/theme.json';
+        if (!file_exists($theme_json_path)) {
+            return array();
+        }
+        
+        $theme_json = json_decode(file_get_contents($theme_json_path), true);
+        return $theme_json ?: array();
+    }
+    
+    /**
      * Handle token sync AJAX request
      */
     public function handle_token_sync() {
@@ -302,34 +319,24 @@ class Studio_Theme_Integration {
             wp_die('Unauthorized');
         }
         
+        // Get the updated tokens from the request
+        $tokens = isset($_POST['tokens']) ? json_decode(stripslashes($_POST['tokens']), true) : null;
+        
+        if (!$tokens) {
+            wp_send_json_error('No tokens provided');
+        }
+        
         $studio_json_path = get_stylesheet_directory() . '/studio.json';
-        $theme_json_path = get_stylesheet_directory() . '/theme.json';
         
-        if (!file_exists($studio_json_path)) {
-            wp_send_json_error('studio.json not found');
+        // Save to studio.json
+        if (!file_put_contents($studio_json_path, json_encode($tokens, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES))) {
+            wp_send_json_error('Failed to save studio.json');
         }
         
-        // Read studio.json
-        $studio_tokens = json_decode(file_get_contents($studio_json_path), true);
+        // Sync to theme.json
+        $this->sync_tokens_to_theme_json($tokens);
         
-        // Read theme.json
-        $theme_json = json_decode(file_get_contents($theme_json_path), true);
-        
-        // Sync colors
-        if (isset($studio_tokens['colors'])) {
-            foreach ($studio_tokens['colors'] as $key => $color) {
-                $theme_json['settings']['color']['palette'][] = array(
-                    'slug' => $key,
-                    'color' => $color['value'],
-                    'name' => $color['name'] ?? ucfirst($key)
-                );
-            }
-        }
-        
-        // Save updated theme.json
-        file_put_contents($theme_json_path, json_encode($theme_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
-        
-        wp_send_json_success('Tokens synced successfully');
+        wp_send_json_success('Tokens saved successfully');
     }
     
     /**
@@ -347,8 +354,8 @@ class Studio_Theme_Integration {
                     <a href="<?php echo admin_url('admin.php?page=studio-tokens'); ?>" class="button button-primary">
                         <?php _e('Manage Design Tokens', 'studio'); ?>
                     </a>
-                    <a href="<?php echo admin_url('admin.php?page=studio-presets'); ?>" class="button">
-                        <?php _e('Typography Presets', 'studio'); ?>
+                    <a href="<?php echo admin_url('admin.php?page=studio-block-presets'); ?>" class="button">
+                        <?php _e('Block Presets', 'studio'); ?>
                     </a>
                     <a href="<?php echo admin_url('admin.php?page=studio-converter'); ?>" class="button">
                         <?php _e('HTML Converter', 'studio'); ?>
@@ -384,123 +391,240 @@ class Studio_Theme_Integration {
                 <div class="studio-sync-status">All tokens synced</div>
             </div>
             
-            <div class="studio-tokens-grid">
-                <!-- Color Tokens -->
-                <div class="studio-token-section">
-                    <div class="studio-token-section-header">
+            <!-- Token Editor Tabs -->
+            <div class="studio-token-tabs">
+                <nav class="studio-tab-nav">
+                    <button class="studio-tab-button active" data-tab="colors">
+                        <span class="studio-tab-icon">🎨</span>
+                        <?php _e('Colors', 'studio'); ?>
+                    </button>
+                    <button class="studio-tab-button" data-tab="typography">
+                        <span class="studio-tab-icon">📝</span>
+                        <?php _e('Typography', 'studio'); ?>
+                    </button>
+                    <button class="studio-tab-button" data-tab="spacing">
+                        <span class="studio-tab-icon">📐</span>
+                        <?php _e('Spacing', 'studio'); ?>
+                    </button>
+                    <button class="studio-tab-button" data-tab="layout">
+                        <span class="studio-tab-icon">🌐</span>
+                        <?php _e('Layout', 'studio'); ?>
+                    </button>
+                </nav>
+                
+                <!-- Colors Tab -->
+                <div class="studio-tab-content active" id="colors-tab">
+                    <div class="studio-tab-header">
                         <h2><?php _e('Color Tokens', 'studio'); ?></h2>
                         <button class="studio-button studio-button-small studio-add-token" data-token-type="color">
                             <?php _e('+ Add Color', 'studio'); ?>
                         </button>
                     </div>
-                    <div class="studio-token-group">
+                    <div class="studio-token-grid">
                         <?php 
                         $colors = isset($tokens['colors']) ? $tokens['colors'] : array();
                         foreach ($colors as $key => $color): 
+                            $colorValue = isset($color['value']) ? $color['value'] : $color;
+                            $colorName = isset($color['name']) ? $color['name'] : ucwords(str_replace('-', ' ', $key));
                         ?>
-                        <div class="studio-token-item" data-token-key="<?php echo esc_attr($key); ?>">
-                            <span class="studio-token-name"><?php echo esc_html($key); ?></span>
-                            <div class="studio-token-value">
-                                <div class="studio-color-preview" style="background-color: <?php echo esc_attr($color['value']); ?>"></div>
-                                <input type="color" 
-                                       class="studio-token-input studio-color-input" 
-                                       data-token-type="color"
-                                       data-token-name="<?php echo esc_attr($key); ?>"
-                                       data-token-label="<?php echo esc_attr($color['name']); ?>"
-                                       value="<?php echo esc_attr($color['value']); ?>">
-                                <input type="text" 
-                                       class="studio-token-label-input" 
-                                       data-token-name="<?php echo esc_attr($key); ?>"
-                                       value="<?php echo esc_attr($color['name']); ?>"
-                                       placeholder="Label">
-                                <button class="studio-delete-token" data-token-type="color" data-token-name="<?php echo esc_attr($key); ?>">×</button>
+                        <div class="studio-token-card" data-token-key="<?php echo esc_attr($key); ?>">
+                            <div class="studio-token-preview">
+                                <div class="studio-color-preview" style="background-color: <?php echo esc_attr($colorValue); ?>"></div>
                             </div>
+                            <div class="studio-token-info">
+                                <label class="studio-token-label"><?php echo esc_html($key); ?></label>
+                                <input type="text" 
+                                       class="studio-token-name-input" 
+                                       data-token-type="color"
+                                       data-token-key="<?php echo esc_attr($key); ?>"
+                                       data-field="name"
+                                       value="<?php echo esc_attr($colorName); ?>"
+                                       placeholder="Color Name">
+                                <input type="color" 
+                                       class="studio-color-input" 
+                                       data-token-type="color"
+                                       data-token-key="<?php echo esc_attr($key); ?>"
+                                       data-field="value"
+                                       value="<?php echo esc_attr($colorValue); ?>">
+                                <input type="text" 
+                                       class="studio-token-value-input" 
+                                       data-token-type="color"
+                                       data-token-key="<?php echo esc_attr($key); ?>"
+                                       data-field="value"
+                                       value="<?php echo esc_attr($colorValue); ?>"
+                                       placeholder="#000000">
+                            </div>
+                            <button class="studio-delete-token" data-token-type="color" data-token-key="<?php echo esc_attr($key); ?>">×</button>
                         </div>
                         <?php endforeach; ?>
                     </div>
                 </div>
                 
-                <!-- Typography Tokens -->
-                <div class="studio-token-section">
-                    <h2><?php _e('Typography Tokens', 'studio'); ?></h2>
-                    
-                    <div class="studio-token-group">
-                        <div class="studio-token-section-header">
-                            <h3><?php _e('Font Sizes', 'studio'); ?></h3>
-                            <button class="studio-button studio-button-small studio-add-token" data-token-type="fontSize">
-                                <?php _e('+ Add Size', 'studio'); ?>
-                            </button>
-                        </div>
-                        <?php 
-                        $fontSizes = isset($tokens['typography']['fontSizes']) ? $tokens['typography']['fontSizes'] : array();
-                        foreach ($fontSizes as $key => $size): 
-                        ?>
-                        <div class="studio-token-item" data-token-key="<?php echo esc_attr($key); ?>">
-                            <span class="studio-token-name"><?php echo esc_html($key); ?></span>
-                            <input type="text" 
-                                   class="studio-token-input studio-font-size-input" 
-                                   data-token-type="fontSize"
-                                   data-token-name="<?php echo esc_attr($key); ?>"
-                                   value="<?php echo esc_attr($size); ?>">
-                            <button class="studio-delete-token" data-token-type="fontSize" data-token-name="<?php echo esc_attr($key); ?>">×</button>
-                        </div>
-                        <?php endforeach; ?>
+                <!-- Typography Tab -->
+                <div class="studio-tab-content" id="typography-tab">
+                    <div class="studio-tab-header">
+                        <h2><?php _e('Typography Tokens', 'studio'); ?></h2>
                     </div>
                     
-                    <div class="studio-token-group">
-                        <div class="studio-token-section-header">
-                            <h3><?php _e('Font Weights', 'studio'); ?></h3>
-                            <button class="studio-button studio-button-small studio-add-token" data-token-type="fontWeight">
-                                <?php _e('+ Add Weight', 'studio'); ?>
-                            </button>
+                    <!-- Font Sizes -->
+                    <div class="studio-token-section">
+                        <h3><?php _e('Font Sizes', 'studio'); ?></h3>
+                        <div class="studio-token-list">
+                            <?php 
+                            $fontSizes = isset($tokens['typography']['fontSizes']) ? $tokens['typography']['fontSizes'] : array();
+                            foreach ($fontSizes as $key => $size): 
+                            ?>
+                            <div class="studio-token-item" data-token-key="<?php echo esc_attr($key); ?>">
+                                <span class="studio-token-name"><?php echo esc_html($key); ?></span>
+                                <input type="text" 
+                                       class="studio-token-input" 
+                                       data-token-type="typography"
+                                       data-token-section="fontSizes"
+                                       data-token-key="<?php echo esc_attr($key); ?>"
+                                       value="<?php echo esc_attr($size); ?>"
+                                       placeholder="16px">
+                                <button class="studio-delete-token" data-token-type="typography" data-token-section="fontSizes" data-token-key="<?php echo esc_attr($key); ?>">×</button>
+                            </div>
+                            <?php endforeach; ?>
                         </div>
-                        <?php 
-                        $fontWeights = isset($tokens['typography']['fontWeights']) ? $tokens['typography']['fontWeights'] : array();
-                        foreach ($fontWeights as $key => $weight): 
-                        ?>
-                        <div class="studio-token-item" data-token-key="<?php echo esc_attr($key); ?>">
-                            <span class="studio-token-name"><?php echo esc_html($key); ?></span>
-                            <input type="text" 
-                                   class="studio-token-input studio-font-weight-input" 
-                                   data-token-type="fontWeight"
-                                   data-token-name="<?php echo esc_attr($key); ?>"
-                                   value="<?php echo esc_attr($weight); ?>">
-                            <button class="studio-delete-token" data-token-type="fontWeight" data-token-name="<?php echo esc_attr($key); ?>">×</button>
+                    </div>
+                    
+                    <!-- Font Weights -->
+                    <div class="studio-token-section">
+                        <h3><?php _e('Font Weights', 'studio'); ?></h3>
+                        <div class="studio-token-list">
+                            <?php 
+                            $fontWeights = isset($tokens['typography']['fontWeights']) ? $tokens['typography']['fontWeights'] : array();
+                            foreach ($fontWeights as $key => $weight): 
+                            ?>
+                            <div class="studio-token-item" data-token-key="<?php echo esc_attr($key); ?>">
+                                <span class="studio-token-name"><?php echo esc_html($key); ?></span>
+                                <input type="number" 
+                                       class="studio-token-input" 
+                                       data-token-type="typography"
+                                       data-token-section="fontWeights"
+                                       data-token-key="<?php echo esc_attr($key); ?>"
+                                       value="<?php echo esc_attr($weight); ?>"
+                                       min="100" max="900" step="100"
+                                       placeholder="400">
+                                <button class="studio-delete-token" data-token-type="typography" data-token-section="fontWeights" data-token-key="<?php echo esc_attr($key); ?>">×</button>
+                            </div>
+                            <?php endforeach; ?>
                         </div>
-                        <?php endforeach; ?>
+                    </div>
+                    
+                    <!-- Line Heights -->
+                    <div class="studio-token-section">
+                        <h3><?php _e('Line Heights', 'studio'); ?></h3>
+                        <div class="studio-token-list">
+                            <?php 
+                            $lineHeights = isset($tokens['typography']['lineHeights']) ? $tokens['typography']['lineHeights'] : array();
+                            foreach ($lineHeights as $key => $height): 
+                            ?>
+                            <div class="studio-token-item" data-token-key="<?php echo esc_attr($key); ?>">
+                                <span class="studio-token-name"><?php echo esc_html($key); ?></span>
+                                <input type="text" 
+                                       class="studio-token-input" 
+                                       data-token-type="typography"
+                                       data-token-section="lineHeights"
+                                       data-token-key="<?php echo esc_attr($key); ?>"
+                                       value="<?php echo esc_attr($height); ?>"
+                                       placeholder="24px">
+                                <button class="studio-delete-token" data-token-type="typography" data-token-section="lineHeights" data-token-key="<?php echo esc_attr($key); ?>">×</button>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
                 
-                <!-- Spacing Tokens -->
-                <div class="studio-token-section">
-                    <div class="studio-token-section-header">
+                <!-- Spacing Tab -->
+                <div class="studio-tab-content" id="spacing-tab">
+                    <div class="studio-tab-header">
                         <h2><?php _e('Spacing Tokens', 'studio'); ?></h2>
                         <button class="studio-button studio-button-small studio-add-token" data-token-type="spacing">
                             <?php _e('+ Add Spacing', 'studio'); ?>
                         </button>
                     </div>
-                    <div class="studio-token-group">
+                    <div class="studio-token-list">
                         <?php 
                         $spacing = isset($tokens['spacing']) ? $tokens['spacing'] : array();
-                        foreach ($spacing as $key => $space): 
+                        foreach ($spacing as $key => $value): 
                         ?>
                         <div class="studio-token-item" data-token-key="<?php echo esc_attr($key); ?>">
                             <span class="studio-token-name"><?php echo esc_html($key); ?></span>
                             <input type="text" 
-                                   class="studio-token-input studio-spacing-input" 
+                                   class="studio-token-input" 
                                    data-token-type="spacing"
-                                   data-token-name="<?php echo esc_attr($key); ?>"
-                                   value="<?php echo esc_attr($space); ?>">
-                            <button class="studio-delete-token" data-token-type="spacing" data-token-name="<?php echo esc_attr($key); ?>">×</button>
+                                   data-token-key="<?php echo esc_attr($key); ?>"
+                                   value="<?php echo esc_attr($value); ?>"
+                                   placeholder="16px">
+                            <button class="studio-delete-token" data-token-type="spacing" data-token-key="<?php echo esc_attr($key); ?>">×</button>
                         </div>
                         <?php endforeach; ?>
+                    </div>
+                </div>
+                
+                <!-- Layout Tab -->
+                <div class="studio-tab-content" id="layout-tab">
+                    <div class="studio-tab-header">
+                        <h2><?php _e('Layout Tokens', 'studio'); ?></h2>
+                        <button class="studio-button studio-button-small studio-add-token" data-token-type="layout">
+                            <?php _e('+ Add Layout', 'studio'); ?>
+                        </button>
+                    </div>
+                    
+                    <!-- Layout Dimensions -->
+                    <div class="studio-token-section">
+                        <h3><?php _e('Layout Dimensions', 'studio'); ?></h3>
+                        <div class="studio-token-list">
+                            <?php 
+                            $layout = isset($tokens['layout']) ? $tokens['layout'] : array();
+                            foreach ($layout as $key => $value): 
+                            ?>
+                            <div class="studio-token-item" data-token-key="<?php echo esc_attr($key); ?>">
+                                <span class="studio-token-name"><?php echo esc_html($key); ?></span>
+                                <input type="text" 
+                                       class="studio-token-input" 
+                                       data-token-type="layout"
+                                       data-token-key="<?php echo esc_attr($key); ?>"
+                                       value="<?php echo esc_attr($value); ?>"
+                                       placeholder="1200px">
+                                <button class="studio-delete-token" data-token-type="layout" data-token-key="<?php echo esc_attr($key); ?>">×</button>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
+                    </div>
+                    
+                    <!-- Padding Scale -->
+                    <div class="studio-token-section">
+                        <h3><?php _e('Padding Scale', 'studio'); ?></h3>
+                        <div class="studio-token-list">
+                            <?php 
+                            $paddingScale = isset($tokens['paddingScale']) ? $tokens['paddingScale'] : array();
+                            foreach ($paddingScale as $key => $value): 
+                            ?>
+                            <div class="studio-token-item" data-token-key="<?php echo esc_attr($key); ?>">
+                                <span class="studio-token-name"><?php echo esc_html($key); ?></span>
+                                <input type="text" 
+                                       class="studio-token-input" 
+                                       data-token-type="paddingScale"
+                                       data-token-key="<?php echo esc_attr($key); ?>"
+                                       value="<?php echo esc_attr($value); ?>"
+                                       placeholder="16px">
+                                <button class="studio-delete-token" data-token-type="paddingScale" data-token-key="<?php echo esc_attr($key); ?>">×</button>
+                            </div>
+                            <?php endforeach; ?>
+                        </div>
                     </div>
                 </div>
             </div>
             
             <div class="studio-actions">
-                <button class="studio-button studio-button-primary" id="studio-sync-tokens">
-                    <?php _e('Sync Tokens', 'studio'); ?>
+                <button class="studio-button studio-button-secondary" id="studio-sync-from-theme">
+                    <?php _e('Sync from Theme.json', 'studio'); ?>
+                </button>
+                <button class="studio-button studio-button-primary" id="studio-save-tokens">
+                    <?php _e('Save Tokens', 'studio'); ?>
                 </button>
             </div>
         </div>
@@ -508,76 +632,126 @@ class Studio_Theme_Integration {
     }
     
     /**
-     * Render preset manager page
+     * Render block presets manager page
      */
-    public function render_preset_manager() {
-        $presets = $this->get_typography_presets();
+    public function render_block_presets_manager() {
+        // Get block presets from theme.json
+        $theme_json = $this->get_theme_json();
+        $block_presets = isset($theme_json['settings']['custom']['blockPresets']) ? $theme_json['settings']['custom']['blockPresets'] : array();
+        
+        // Group presets by block type
+        $presets_by_block = array();
+        foreach ($block_presets as $preset_id => $preset) {
+            $block_types = isset($preset['blockTypes']) ? $preset['blockTypes'] : array('studio/text');
+            foreach ($block_types as $block_type) {
+                if (!isset($presets_by_block[$block_type])) {
+                    $presets_by_block[$block_type] = array();
+                }
+                $presets_by_block[$block_type][$preset_id] = $preset;
+            }
+        }
+        
+        // Define supported block types
+        $supported_blocks = array(
+            'studio/text' => __('Studio Text', 'studio'),
+            'studio/button' => __('Studio Button', 'studio'),
+            'studio/container' => __('Studio Container', 'studio'),
+            'studio/grid' => __('Studio Grid', 'studio'),
+            'studio/image' => __('Studio Image', 'studio')
+        );
         ?>
         <div class="wrap studio-admin-wrap">
             <div class="studio-admin-header">
-                <h1><?php _e('Typography Presets', 'studio'); ?></h1>
-                <p><?php _e('Manage semantic typography presets for your blocks', 'studio'); ?></p>
+                <h1><?php _e('Block Presets', 'studio'); ?></h1>
+                <p><?php _e('Create and manage reusable presets for your Studio blocks', 'studio'); ?></p>
             </div>
             
-            <div class="studio-preset-list">
-                <?php foreach ($presets as $key => $preset): ?>
-                <div class="studio-preset-item">
-                    <div class="studio-preset-header">
-                        <h3 class="studio-preset-name"><?php echo esc_html($preset['name']); ?></h3>
-                        <div class="studio-preset-actions">
-                            <button class="studio-button studio-button-secondary studio-edit-preset" data-preset-name="<?php echo esc_attr($key); ?>">
-                                <?php _e('Edit', 'studio'); ?>
-                            </button>
-                            <button class="studio-button studio-button-danger studio-delete-preset" data-preset-name="<?php echo esc_attr($key); ?>">
-                                <?php _e('Delete', 'studio'); ?>
-                            </button>
-                        </div>
+            <div class="studio-block-presets-container">
+                <?php foreach ($supported_blocks as $block_type => $block_name): ?>
+                <div class="studio-block-preset-section" data-block-type="<?php echo esc_attr($block_type); ?>">
+                    <div class="studio-block-preset-header">
+                        <h2><?php echo esc_html($block_name); ?></h2>
+                        <button class="studio-button studio-button-small studio-add-preset" data-block-type="<?php echo esc_attr($block_type); ?>">
+                            <?php _e('+ Add Preset', 'studio'); ?>
+                        </button>
                     </div>
-                    <div class="studio-preset-preview" style="
-                        font-size: <?php echo esc_attr($preset['size'] ?? '1rem'); ?>;
-                        font-weight: <?php echo esc_attr($preset['weight'] ?? '400'); ?>;
-                        line-height: <?php echo esc_attr($preset['lineHeight'] ?? '1.5'); ?>;
-                        letter-spacing: <?php echo esc_attr($preset['spacing'] ?? 'normal'); ?>;
-                        text-transform: <?php echo esc_attr($preset['transform'] ?? 'none'); ?>;
-                    ">
-                        <?php _e('The quick brown fox jumps over the lazy dog', 'studio'); ?>
-                    </div>
-                    <div class="studio-preset-details">
-                        <div class="studio-preset-detail">
-                            <strong><?php _e('Font Size:', 'studio'); ?></strong>
-                            <span><?php echo esc_html($preset['size'] ?? '1rem'); ?></span>
-                        </div>
-                        <div class="studio-preset-detail">
-                            <strong><?php _e('Font Weight:', 'studio'); ?></strong>
-                            <span><?php echo esc_html($preset['weight'] ?? '400'); ?></span>
-                        </div>
-                        <?php if (isset($preset['lineHeight'])): ?>
-                        <div class="studio-preset-detail">
-                            <strong><?php _e('Line Height:', 'studio'); ?></strong>
-                            <span><?php echo esc_html($preset['lineHeight']); ?></span>
-                        </div>
-                        <?php endif; ?>
-                        <?php if (isset($preset['spacing'])): ?>
-                        <div class="studio-preset-detail">
-                            <strong><?php _e('Letter Spacing:', 'studio'); ?></strong>
-                            <span><?php echo esc_html($preset['spacing']); ?></span>
-                        </div>
-                        <?php endif; ?>
-                        <?php if (isset($preset['transform'])): ?>
-                        <div class="studio-preset-detail">
-                            <strong><?php _e('Text Transform:', 'studio'); ?></strong>
-                            <span><?php echo esc_html($preset['transform']); ?></span>
-                        </div>
+                    
+                    <div class="studio-preset-list">
+                        <?php 
+                        $block_presets = isset($presets_by_block[$block_type]) ? $presets_by_block[$block_type] : array();
+                        if (empty($block_presets)): 
+                        ?>
+                            <p class="studio-no-presets"><?php _e('No presets yet. Create your first preset!', 'studio'); ?></p>
+                        <?php else: ?>
+                            <?php foreach ($block_presets as $preset_id => $preset): ?>
+                            <div class="studio-preset-item" data-preset-id="<?php echo esc_attr($preset_id); ?>">
+                                <div class="studio-preset-header">
+                                    <h3 class="studio-preset-name"><?php echo esc_html($preset['label'] ?? $preset_id); ?></h3>
+                                    <div class="studio-preset-actions">
+                                        <button class="studio-button studio-button-secondary studio-edit-preset" 
+                                                data-preset-id="<?php echo esc_attr($preset_id); ?>"
+                                                data-block-type="<?php echo esc_attr($block_type); ?>">
+                                            <?php _e('Edit', 'studio'); ?>
+                                        </button>
+                                        <button class="studio-button studio-button-danger studio-delete-preset" 
+                                                data-preset-id="<?php echo esc_attr($preset_id); ?>">
+                                            <?php _e('Delete', 'studio'); ?>
+                                        </button>
+                                    </div>
+                                </div>
+                                <?php if (isset($preset['description'])): ?>
+                                <p class="studio-preset-description"><?php echo esc_html($preset['description']); ?></p>
+                                <?php endif; ?>
+                                <?php if (isset($preset['css'])): ?>
+                                <div class="studio-preset-preview">
+                                    <pre class="studio-preset-css"><?php echo esc_html($preset['css']); ?></pre>
+                                </div>
+                                <?php endif; ?>
+                            </div>
+                            <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
                 </div>
                 <?php endforeach; ?>
             </div>
             
-            <div class="studio-actions">
-                <button class="studio-button studio-button-primary" id="studio-add-preset">
-                    <?php _e('Add New Preset', 'studio'); ?>
-                </button>
+            <!-- Add/Edit Preset Form (hidden by default) -->
+            <div id="studio-preset-form" class="studio-preset-form" style="display: none;">
+                <div class="studio-preset-form-header">
+                    <h3><?php _e('Add New Preset', 'studio'); ?></h3>
+                    <button class="studio-close-form">&times;</button>
+                </div>
+                <form id="studio-preset-form-content">
+                    <div class="studio-form-group">
+                        <label><?php _e('Preset Name', 'studio'); ?></label>
+                        <input type="text" id="preset-name" class="studio-input" required>
+                    </div>
+                    <div class="studio-form-group">
+                        <label><?php _e('Label', 'studio'); ?></label>
+                        <input type="text" id="preset-label" class="studio-input" required>
+                    </div>
+                    <div class="studio-form-group">
+                        <label><?php _e('Description', 'studio'); ?></label>
+                        <textarea id="preset-description" class="studio-textarea"></textarea>
+                    </div>
+                    <div class="studio-form-group">
+                        <label><?php _e('CSS (use CSS variables)', 'studio'); ?></label>
+                        <textarea id="preset-css" class="studio-textarea studio-code" rows="10" placeholder="font-size: var(--wp--preset--font-size--large);
+font-weight: 600;
+color: var(--wp--preset--color--primary);
+padding: var(--wp--preset--spacing--20);"></textarea>
+                    </div>
+                    <input type="hidden" id="preset-block-type">
+                    <input type="hidden" id="preset-id">
+                    <div class="studio-form-actions">
+                        <button type="submit" class="studio-button studio-button-primary">
+                            <?php _e('Save Preset', 'studio'); ?>
+                        </button>
+                        <button type="button" class="studio-button studio-cancel-form">
+                            <?php _e('Cancel', 'studio'); ?>
+                        </button>
+                    </div>
+                </form>
             </div>
         </div>
         <?php
@@ -651,8 +825,13 @@ class Studio_Theme_Integration {
         // Get tokens from request
         $tokens = isset($_POST['tokens']) ? json_decode(stripslashes($_POST['tokens']), true) : array();
         
-        // Save tokens to studio.json
+        if (!$tokens) {
+            wp_send_json_error('No tokens provided');
+        }
+        
         $studio_json_path = get_stylesheet_directory() . '/studio.json';
+        
+        // Save to studio.json
         $result = file_put_contents($studio_json_path, json_encode($tokens, JSON_PRETTY_PRINT));
         
         if ($result !== false) {
@@ -881,6 +1060,17 @@ class Studio_Theme_Integration {
             $theme_json['settings'] = array();
         }
         
+        // Store the tokens in a custom section to preserve them
+        if (!isset($theme_json['settings']['custom'])) {
+            $theme_json['settings']['custom'] = array();
+        }
+        
+        // Store complete token data
+        $theme_json['settings']['custom']['studioTokens'] = array(
+            'lastSynced' => date('Y-m-d H:i:s'),
+            'tokens' => $tokens
+        );
+        
         // Ensure color settings exist
         if (!isset($theme_json['settings']['color'])) {
             $theme_json['settings']['color'] = array(
@@ -893,72 +1083,260 @@ class Studio_Theme_Integration {
             );
         }
         
-        // Sync color tokens
+        // Sync color tokens - merge with existing
         if (isset($tokens['colors'])) {
-            $theme_json['settings']['color']['palette'] = array();
+            // Get existing palette or empty array
+            $existing_palette = isset($theme_json['settings']['color']['palette']) 
+                ? $theme_json['settings']['color']['palette'] 
+                : array();
             
+            // Create a map of existing colors by slug
+            $existing_map = array();
+            foreach ($existing_palette as $color) {
+                if (isset($color['slug'])) {
+                    $existing_map[$color['slug']] = $color;
+                }
+            }
+            
+            // Update with token colors
             foreach ($tokens['colors'] as $key => $color) {
-                $theme_json['settings']['color']['palette'][] = array(
+                $existing_map[$key] = array(
                     'slug' => $key,
                     'color' => $color['value'],
                     'name' => $color['name']
                 );
             }
+            
+            // Convert back to array
+            $theme_json['settings']['color']['palette'] = array_values($existing_map);
         }
         
         // Sync typography tokens
         if (isset($tokens['typography'])) {
             // Ensure typography settings exist
             if (!isset($theme_json['settings']['typography'])) {
-                $theme_json['settings']['typography'] = array();
+                $theme_json['settings']['typography'] = array(
+                    'customFontSize' => true,
+                    'fontStyle' => true,
+                    'fontWeight' => true,
+                    'letterSpacing' => true,
+                    'lineHeight' => true,
+                    'textDecoration' => true,
+                    'textTransform' => true
+                );
             }
             
-            // Font sizes
+            // Font sizes - merge with existing
             if (isset($tokens['typography']['fontSizes'])) {
-                $theme_json['settings']['typography']['fontSizes'] = array();
+                $existing_sizes = isset($theme_json['settings']['typography']['fontSizes']) 
+                    ? $theme_json['settings']['typography']['fontSizes'] 
+                    : array();
                 
+                // Create map of existing sizes
+                $size_map = array();
+                foreach ($existing_sizes as $size) {
+                    if (isset($size['slug'])) {
+                        $size_map[$size['slug']] = $size;
+                    }
+                }
+                
+                // Update with token sizes
                 foreach ($tokens['typography']['fontSizes'] as $key => $size) {
-                    $theme_json['settings']['typography']['fontSizes'][] = array(
+                    $size_map[$key] = array(
                         'slug' => $key,
                         'size' => $size,
                         'name' => ucfirst($key)
                     );
                 }
+                
+                $theme_json['settings']['typography']['fontSizes'] = array_values($size_map);
+            }
+            
+            // Add other typography settings like line height, letter spacing
+            if (isset($tokens['typography']['lineHeights'])) {
+                $theme_json['settings']['custom']['lineHeights'] = $tokens['typography']['lineHeights'];
+            }
+            
+            if (isset($tokens['typography']['letterSpacing'])) {
+                $theme_json['settings']['custom']['letterSpacing'] = $tokens['typography']['letterSpacing'];
             }
         }
         
         // Sync spacing tokens
         if (isset($tokens['spacing'])) {
-            $theme_json['settings']['spacing'] = array(
-                'spacingSizes' => array()
-            );
+            if (!isset($theme_json['settings']['spacing'])) {
+                $theme_json['settings']['spacing'] = array();
+            }
             
+            // Spacing sizes - merge with existing
+            $existing_spacing = isset($theme_json['settings']['spacing']['spacingSizes']) 
+                ? $theme_json['settings']['spacing']['spacingSizes'] 
+                : array();
+            
+            // Create map of existing spacing
+            $spacing_map = array();
+            foreach ($existing_spacing as $space) {
+                if (isset($space['slug'])) {
+                    $spacing_map[$space['slug']] = $space;
+                }
+            }
+            
+            // Update with token spacing
             foreach ($tokens['spacing'] as $key => $space) {
-                $theme_json['settings']['spacing']['spacingSizes'][] = array(
+                $spacing_map[$key] = array(
                     'slug' => $key,
                     'size' => $space,
                     'name' => ucfirst($key)
                 );
             }
+            
+            $theme_json['settings']['spacing']['spacingSizes'] = array_values($spacing_map);
         }
         
-        // Update custom design tokens section if it exists
-        if (isset($theme_json['settings']['custom']['designTokens'])) {
-            $theme_json['settings']['custom']['designTokens']['lastUpdated'] = date('Y-m-d H:i:s');
+        // Sync layout tokens
+        if (isset($tokens['layout'])) {
+            if (!isset($theme_json['settings']['layout'])) {
+                $theme_json['settings']['layout'] = array();
+            }
             
-            // Update colors in custom section
-            if (isset($tokens['colors']) && isset($theme_json['settings']['custom']['designTokens']['colors'])) {
-                foreach ($tokens['colors'] as $key => $color) {
-                    if (isset($theme_json['settings']['custom']['designTokens']['colors'][$key])) {
-                        $theme_json['settings']['custom']['designTokens']['colors'][$key]['value'] = $color['value'];
-                        $theme_json['settings']['custom']['designTokens']['colors'][$key]['name'] = $color['name'];
-                    }
-                }
+            // Handle layout tokens with simple key-value structure
+            if (isset($tokens['layout']['contentSize'])) {
+                $theme_json['settings']['layout']['contentSize'] = $tokens['layout']['contentSize'];
+            }
+            
+            if (isset($tokens['layout']['wideSize'])) {
+                $theme_json['settings']['layout']['wideSize'] = $tokens['layout']['wideSize'];
             }
         }
         
+        // Sync padding scale to custom section
+        if (isset($tokens['paddingScale'])) {
+            if (!isset($theme_json['settings']['custom'])) {
+                $theme_json['settings']['custom'] = array();
+            }
+            $theme_json['settings']['custom']['paddingScale'] = $tokens['paddingScale'];
+        }
+        
         // Save updated theme.json
-        file_put_contents($theme_json_path, json_encode($theme_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        file_put_contents($theme_json_path, json_encode($theme_json, JSON_PRETTY_PRINT));
+    }
+    
+    /**
+     * Sync tokens from theme.json to studio.json (reverse sync)
+     */
+    private function sync_from_theme_to_studio() {
+        $theme_json = $this->get_theme_json();
+        
+        if (!$theme_json) {
+            return false;
+        }
+        
+        $studio_tokens = array();
+        
+        // Extract colors from theme.json palette
+        if (isset($theme_json['settings']['color']['palette'])) {
+            $studio_tokens['colors'] = array();
+            foreach ($theme_json['settings']['color']['palette'] as $color) {
+                $studio_tokens['colors'][$color['slug']] = array(
+                    'name' => $color['name'],
+                    'value' => $color['color']
+                );
+            }
+        }
+        
+        // Extract typography from theme.json
+        if (isset($theme_json['settings']['typography'])) {
+            $studio_tokens['typography'] = array();
+            
+            // Font sizes
+            if (isset($theme_json['settings']['typography']['fontSizes'])) {
+                $studio_tokens['typography']['fontSizes'] = array();
+                foreach ($theme_json['settings']['typography']['fontSizes'] as $size) {
+                    $studio_tokens['typography']['fontSizes'][$size['slug']] = $size['size'];
+                }
+            }
+            
+            // Add default font families and weights
+            $studio_tokens['typography']['fontFamilies'] = array(
+                'primary' => array(
+                    'name' => 'Montserrat',
+                    'value' => 'Montserrat, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, sans-serif'
+                ),
+                'secondary' => array(
+                    'name' => 'Inter',
+                    'value' => 'Inter, -apple-system, BlinkMacSystemFont, \'Segoe UI\', Roboto, sans-serif'
+                )
+            );
+            
+            $studio_tokens['typography']['lineHeights'] = array(
+                'xs' => '16px',
+                'sm' => '20px',
+                'md' => '24px',
+                'lg' => '28px',
+                'xl' => '32px',
+                'xxl' => '36px',
+                'xxxl' => '40px'
+            );
+            
+            $studio_tokens['typography']['fontWeights'] = array(
+                'light' => 300,
+                'regular' => 400,
+                'medium' => 500,
+                'semibold' => 600,
+                'bold' => 700
+            );
+        }
+        
+        // Extract spacing from theme.json
+        if (isset($theme_json['settings']['spacing']['spacingSizes'])) {
+            $studio_tokens['spacing'] = array();
+            foreach ($theme_json['settings']['spacing']['spacingSizes'] as $spacing) {
+                $studio_tokens['spacing'][$spacing['slug']] = $spacing['size'];
+            }
+        }
+        
+        // Extract layout from theme.json
+        if (isset($theme_json['settings']['layout'])) {
+            $studio_tokens['layout'] = array();
+            if (isset($theme_json['settings']['layout']['contentSize'])) {
+                $studio_tokens['layout']['contentSize'] = $theme_json['settings']['layout']['contentSize'];
+            }
+            if (isset($theme_json['settings']['layout']['wideSize'])) {
+                $studio_tokens['layout']['wideSize'] = $theme_json['settings']['layout']['wideSize'];
+            }
+        }
+        
+        // Extract padding scale from custom section
+        if (isset($theme_json['settings']['custom']['paddingScale'])) {
+            $studio_tokens['paddingScale'] = $theme_json['settings']['custom']['paddingScale'];
+        }
+        
+        // Save to studio.json
+        $studio_json_path = get_stylesheet_directory() . '/studio.json';
+        file_put_contents($studio_json_path, json_encode($studio_tokens, JSON_PRETTY_PRINT));
+        
+        return true;
+    }
+    
+    /**
+     * Handle AJAX request to sync from theme.json to studio.json
+     */
+    public function ajax_sync_from_theme() {
+        check_ajax_referer('studio_admin', 'nonce');
+        
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error('Unauthorized');
+        }
+        
+        $result = $this->sync_from_theme_to_studio();
+        
+        if ($result) {
+            wp_send_json_success(array(
+                'message' => 'Tokens synced from theme.json to studio.json successfully'
+            ));
+        } else {
+            wp_send_json_error('Failed to sync tokens');
+        }
     }
     
     /**
@@ -998,13 +1376,133 @@ class Studio_Theme_Integration {
         $theme_json['settings']['custom']['blockStyles'][$style_key] = $style_data;
         
         // Save updated theme.json
-        file_put_contents($theme_json_path, json_encode($theme_json, JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES));
+        file_put_contents($theme_json_path, json_encode($theme_json, JSON_PRETTY_PRINT));
         
         wp_send_json_success(array(
             'message' => __('Block style saved successfully', 'studio'),
             'styleKey' => $style_key,
             'styleData' => $style_data
         ));
+    }
+    
+    /**
+     * Handle block preset save AJAX request
+     */
+    public function ajax_save_block_preset() {
+        check_ajax_referer('studio_admin', 'nonce');
+        
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error('Unauthorized');
+        }
+        
+        $preset_id = isset($_POST['preset_id']) ? sanitize_text_field($_POST['preset_id']) : '';
+        $preset_name = isset($_POST['preset_name']) ? sanitize_text_field($_POST['preset_name']) : '';
+        $preset_label = isset($_POST['preset_label']) ? sanitize_text_field($_POST['preset_label']) : '';
+        $preset_description = isset($_POST['preset_description']) ? sanitize_textarea_field($_POST['preset_description']) : '';
+        $preset_css = isset($_POST['preset_css']) ? wp_strip_all_tags($_POST['preset_css']) : '';
+        $block_type = isset($_POST['block_type']) ? sanitize_text_field($_POST['block_type']) : '';
+        
+        if (empty($preset_name) || empty($preset_label) || empty($block_type)) {
+            wp_send_json_error('Missing required fields');
+        }
+        
+        // Get theme.json
+        $theme_json = $this->get_theme_json();
+        
+        // Initialize blockPresets if not exists
+        if (!isset($theme_json['settings']['custom']['blockPresets'])) {
+            $theme_json['settings']['custom']['blockPresets'] = array();
+        }
+        
+        // Create preset data
+        $preset_data = array(
+            'label' => $preset_label,
+            'description' => $preset_description,
+            'css' => $preset_css,
+            'blockTypes' => array($block_type)
+        );
+        
+        // If editing existing preset, preserve other block types
+        if (!empty($preset_id) && isset($theme_json['settings']['custom']['blockPresets'][$preset_id])) {
+            $existing = $theme_json['settings']['custom']['blockPresets'][$preset_id];
+            if (isset($existing['blockTypes'])) {
+                $preset_data['blockTypes'] = array_unique(array_merge($existing['blockTypes'], array($block_type)));
+            }
+        }
+        
+        // Save preset
+        $save_id = !empty($preset_id) ? $preset_id : $preset_name;
+        $theme_json['settings']['custom']['blockPresets'][$save_id] = $preset_data;
+        
+        // Save theme.json
+        $theme_json_path = get_stylesheet_directory() . '/theme.json';
+        file_put_contents($theme_json_path, json_encode($theme_json, JSON_PRETTY_PRINT));
+        
+        wp_send_json_success(array(
+            'message' => 'Preset saved successfully',
+            'preset_id' => $save_id
+        ));
+    }
+    
+    /**
+     * Handle block preset delete AJAX request
+     */
+    public function ajax_delete_block_preset() {
+        check_ajax_referer('studio_admin', 'nonce');
+        
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error('Unauthorized');
+        }
+        
+        $preset_id = isset($_POST['preset_id']) ? sanitize_text_field($_POST['preset_id']) : '';
+        
+        if (empty($preset_id)) {
+            wp_send_json_error('Missing preset ID');
+        }
+        
+        // Get theme.json
+        $theme_json = $this->get_theme_json();
+        
+        // Remove preset
+        if (isset($theme_json['settings']['custom']['blockPresets'][$preset_id])) {
+            unset($theme_json['settings']['custom']['blockPresets'][$preset_id]);
+            
+            // Save theme.json
+            $theme_json_path = get_stylesheet_directory() . '/theme.json';
+            file_put_contents($theme_json_path, json_encode($theme_json, JSON_PRETTY_PRINT));
+            
+            wp_send_json_success('Preset deleted successfully');
+        } else {
+            wp_send_json_error('Preset not found');
+        }
+    }
+    
+    /**
+     * Handle get block preset AJAX request
+     */
+    public function ajax_get_block_preset() {
+        check_ajax_referer('studio_admin', 'nonce');
+        
+        if (!current_user_can('manage_options')) {
+            wp_send_json_error('Unauthorized');
+        }
+        
+        $preset_id = isset($_POST['preset_id']) ? sanitize_text_field($_POST['preset_id']) : '';
+        
+        if (empty($preset_id)) {
+            wp_send_json_error('Missing preset ID');
+        }
+        
+        // Get theme.json
+        $theme_json = $this->get_theme_json();
+        
+        if (isset($theme_json['settings']['custom']['blockPresets'][$preset_id])) {
+            $preset = $theme_json['settings']['custom']['blockPresets'][$preset_id];
+            $preset['id'] = $preset_id;
+            wp_send_json_success($preset);
+        } else {
+            wp_send_json_error('Preset not found');
+        }
     }
 }
 

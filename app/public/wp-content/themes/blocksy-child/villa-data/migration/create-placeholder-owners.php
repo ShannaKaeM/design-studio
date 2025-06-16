@@ -4,10 +4,16 @@
  * This will close the loop on data integrity
  */
 
+echo "Starting placeholder owner creation script...\n";
+
 require_once dirname(__DIR__, 2) . '/villa-data-manager.php';
+
+echo "VillaDataManager loaded.\n";
 
 $data_manager = new VillaDataManager();
 $properties = $data_manager->getAllProperties();
+
+echo "Found " . count($properties) . " properties.\n";
 
 $missing_refs = [];
 $placeholder_owners_created = [];
@@ -28,7 +34,7 @@ foreach ($properties as $property_id => $property) {
     }
 }
 
-echo "Found " . count($missing_refs) . " missing owner references\n\n";
+echo "\nFound " . count($missing_refs) . " missing owner references.\n";
 
 // Create placeholder owners
 foreach ($missing_refs as $ref) {

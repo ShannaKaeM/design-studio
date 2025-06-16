@@ -410,3 +410,389 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* Block Presets Styles */
+.studio-block-presets-container {
+    margin-top: 30px;
+}
+
+.studio-block-preset-section {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.studio-block-preset-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.studio-block-preset-header h2 {
+    margin: 0;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.studio-button-small {
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.studio-no-presets {
+    text-align: center;
+    color: #666;
+    padding: 40px 20px;
+    background: #f5f5f5;
+    border-radius: 4px;
+}
+
+.studio-preset-item {
+    background: #f9f9f9;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.studio-preset-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.studio-preset-name {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.studio-preset-description {
+    color: #666;
+    margin: 10px 0;
+}
+
+.studio-preset-css {
+    background: #fff;
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 13px;
+    line-height: 1.5;
+    overflow-x: auto;
+    margin: 0;
+}
+
+/* Preset Form Styles */
+.studio-preset-form {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    width: 90%;
+    max-width: 600px;
+    max-height: 90vh;
+    overflow-y: auto;
+    z-index: 100000;
+}
+
+.studio-preset-form-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-bottom: 1px solid #e0e0e0;
+}
+
+.studio-preset-form-header h3 {
+    margin: 0;
+    font-size: 18px;
+}
+
+.studio-close-form {
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #666;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.studio-close-form:hover {
+    color: #000;
+}
+
+#studio-preset-form-content {
+    padding: 20px;
+}
+
+.studio-form-group {
+    margin-bottom: 20px;
+}
+
+.studio-form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.studio-input,
+.studio-textarea {
+    width: 100%;
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.studio-textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.studio-code {
+    font-family: 'Monaco', 'Consolas', 'Courier New', monospace;
+    font-size: 13px;
+}
+
+.studio-form-actions {
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+.studio-button-danger {
+    background: #dc3545;
+    color: #fff;
+}
+
+.studio-button-danger:hover {
+    background: #c82333;
+    color: #fff;
+}
+
+.studio-preset-form textarea {
+    font-family: monospace;
+}
+
+/* Token Editor Tabs */
+.studio-token-tabs {
+    margin-top: 2rem;
+}
+
+.studio-tab-nav {
+    display: flex;
+    gap: 0;
+    border-bottom: 2px solid #e1e5e9;
+    margin-bottom: 2rem;
+}
+
+.studio-tab-button {
+    background: transparent;
+    border: none;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    color: #6c757d;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.studio-tab-button:hover {
+    color: #495057;
+    background: #f8f9fa;
+}
+
+.studio-tab-button.active {
+    color: #0073aa;
+    border-bottom-color: #0073aa;
+    background: #f8f9fa;
+}
+
+.studio-tab-icon {
+    font-size: 16px;
+}
+
+.studio-tab-content {
+    display: none;
+}
+
+.studio-tab-content.active {
+    display: block;
+}
+
+.studio-tab-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid #e1e5e9;
+}
+
+.studio-tab-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #23282d;
+}
+
+/* Token Grid for Colors */
+.studio-token-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.studio-token-card {
+    background: #fff;
+    border: 1px solid #e1e5e9;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.studio-token-card:hover {
+    border-color: #0073aa;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.studio-token-preview {
+    margin-bottom: 1rem;
+}
+
+.studio-color-preview {
+    width: 100%;
+    height: 60px;
+    border-radius: 6px;
+    border: 2px solid #e1e5e9;
+    box-shadow: inset 0 0 0 1px rgba(0,0,0,0.1);
+}
+
+.studio-token-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.studio-token-label {
+    font-weight: 600;
+    color: #23282d;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.studio-token-name-input,
+.studio-token-value-input,
+.studio-color-input {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.studio-color-input {
+    height: 40px;
+    padding: 4px;
+    cursor: pointer;
+}
+
+.studio-delete-token {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Token List for other tabs */
+.studio-token-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.studio-token-section {
+    margin-bottom: 2rem;
+}
+
+.studio-token-section h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.2rem;
+    color: #23282d;
+    border-bottom: 1px solid #e1e5e9;
+    padding-bottom: 0.5rem;
+}
+
+.studio-token-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border: 1px solid #e1e5e9;
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.studio-token-item:hover {
+    border-color: #0073aa;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.studio-token-name {
+    min-width: 100px;
+    font-weight: 500;
+    color: #23282d;
+    font-family: 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, monospace;
+    font-size: 13px;
+}
+
+.studio-token-input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+.studio-token-input:focus {
+    outline: none;
+    border-color: #0073aa;
+    box-shadow: 0 0 0 2px rgba(0,115,170,0.1);
+}
