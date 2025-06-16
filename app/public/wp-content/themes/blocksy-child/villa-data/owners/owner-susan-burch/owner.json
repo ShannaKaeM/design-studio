@@ -1,0 +1,83 @@
+{
+    "owner_id": "owner-susan-burch",
+    "hash_ids": [
+        "c60d90096f1114d25f050a0b2403af78"
+    ],
+    "status": "active",
+    "personal_info": {
+        "first_name": "Susan",
+        "last_name": "Burch",
+        "full_name": "Susan Burch",
+        "email": "susan.burch2@yahoo.com",
+        "phone": "9197449545",
+        "emergency_contact": {
+            "name": null,
+            "relationship": null,
+            "phone": null
+        }
+    },
+    "entity_info": {
+        "entity_type": "individual",
+        "company_name": null,
+        "legal_entity_name": "Susan Burch",
+        "tax_id": null
+    },
+    "addresses": {
+        "primary": {
+            "street": null,
+            "city": null,
+            "state": null,
+            "zip": null,
+            "country": "USA"
+        },
+        "billing": {
+            "same_as_primary": true,
+            "street": null,
+            "city": null,
+            "state": null,
+            "zip": null,
+            "country": null
+        }
+    },
+    "properties": [
+        {
+            "unit_number": "311B",
+            "role": "secondary",
+            "ownership_percentage": 100,
+            "purchase_date": null,
+            "status": "active"
+        }
+    ],
+    "committee_roles": [],
+    "wordpress_integration": {
+        "wp_user_id": null,
+        "registration_status": "pending",
+        "registration_date": null,
+        "last_login": null
+    },
+    "preferences": {
+        "communication": {
+            "email_opt_in": true,
+            "sms_opt_in": false,
+            "mail_opt_in": true
+        },
+        "privacy": {
+            "show_in_directory": true,
+            "show_email": false,
+            "show_phone": false
+        }
+    },
+    "crm_data": {
+        "notes": "",
+        "tags": [],
+        "last_contact": null,
+        "relationship_score": null
+    },
+    "metadata": {
+        "created_date": "2025-06-16 15:40:31",
+        "last_modified": "2025-06-16 15:40:31",
+        "modified_by": "migration_script",
+        "data_source": "migration",
+        "version": 1
+    }
+}

@@ -1,0 +1,2661 @@
+{
+    "b07bf8ea90455dbb798234a712f8c189": {
+        "owner_id": 1,
+        "full_name": "Joseph Dalton",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "101A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "e842d94595eedecebcd8356d981d8765": {
+        "owner_id": 2,
+        "full_name": "Alyssa Dalton",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "101A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "e30d1d63f907debc900b25b070dc878b": {
+        "owner_id": 3,
+        "full_name": "Ronald J. Tomiello",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "102A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "def95fd7f0d1c9247aaff5fac4251978": {
+        "owner_id": 4,
+        "full_name": "Chantal L. Tomiello",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "102A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "328342f156b7310c1d715a7563144475": {
+        "owner_id": 5,
+        "full_name": "Onorato Realty Holdings, LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "102B",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Onorato Realty Holdings, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "5ea5f15f25fd4c3dd22b37abc9f881f0": {
+        "owner_id": 6,
+        "full_name": "M&M Hosting, LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "103A",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "M&M Hosting, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "8fd63925c4c488a9e471a3c2288b2c28": {
+        "owner_id": 7,
+        "full_name": "Wayne A. Bowie",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "103B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "c309cfb3bbd2a813b6cc73e66042cb7a": {
+        "owner_id": 8,
+        "full_name": "Evelyn M. Bowie",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "103B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "809464911e7d0c04e3c7dfc2fdaa6e67": {
+        "owner_id": 9,
+        "full_name": "Lloyd Moore",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "104A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "0580cd20a346ddcc36abbbfeb914200d": {
+        "owner_id": 10,
+        "full_name": "Danielle Moore",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "104A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "8aa5fc1cdc46530f70b37d4a94f90bf7": {
+        "owner_id": 11,
+        "full_name": "Gaetano Ralph Serra",
+        "email": "whalehellothereatntb@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "104B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "ac68287e8036c147f25f28ecb5fb2d4e": {
+        "owner_id": 12,
+        "full_name": "Maegan Ann Serra",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "104B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "b8206921b976243663b496accc067ac4": {
+        "owner_id": 13,
+        "full_name": "Joe D. Haines Jr.",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "105A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "d8b637b7a3da2b74115ab29de53b7ce9": {
+        "owner_id": 14,
+        "full_name": "Dayna L. Haines",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "105A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "8c172dd7225facf83fae7f6bd873e9b8": {
+        "owner_id": 15,
+        "full_name": "Surfline Properties LLC",
+        "email": "surflineproperties@charter.net",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "106A",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Surfline Properties LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "76b64d59aaa7f52670b0ee498334217c": {
+        "owner_id": 16,
+        "full_name": "Lisa D. Wilson (Trustee)",
+        "email": "dlfrench646@aol.com",
+        "phone": "8593214088",
+        "properties": [
+            {
+                "unit": "106B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "5855f816dfde3206c4dbfa56961d8ab6": {
+        "owner_id": 17,
+        "full_name": "Griffith Family Dynasty Trust",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "106B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "05b3f488f8eba2d2bd19755009503aa5": {
+        "owner_id": 18,
+        "full_name": "KTS Investment Holdings, LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "107A",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "KTS Investment Holdings, LLC"
+            },
+            {
+                "unit": "201A",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "KTS Investment Holdings, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "9a5c10d209e94bbafd24ec2979908813": {
+        "owner_id": 19,
+        "full_name": "Bethany L. Blankenship",
+        "email": "beatrice199@yahoo.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "107B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "af509d0c7373f9d42e7ae225befb64b0": {
+        "owner_id": 20,
+        "full_name": "Christian Gilde",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "107B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "5e769fe60c7a2cd9e8867bb3d4815244": {
+        "owner_id": 21,
+        "full_name": "JVTV, LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "108A",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "JVTV, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "2686a12d6754bf681ef5118121281aae": {
+        "owner_id": 22,
+        "full_name": "Timothy J. Wolf",
+        "email": "tim.tj.wolf@gmail.com",
+        "phone": "9192447677",
+        "properties": [
+            {
+                "unit": "108B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "d918c445fc3270875206f462d9c80488": {
+        "owner_id": 23,
+        "full_name": "Kathleen A. Wolf",
+        "email": "",
+        "phone": "9192448555",
+        "properties": [
+            {
+                "unit": "108B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "9a4fd79fc5562f2049782a5c82862acc": {
+        "owner_id": 24,
+        "full_name": "Violinjam, LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "109A",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Violinjam, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "0e6ba772e667edf467bd7de99af0bbb0": {
+        "owner_id": 25,
+        "full_name": "Jaxrez LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "109B",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Jaxrez LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "c3501004bbf41084915d96ddc3f74c20": {
+        "owner_id": 26,
+        "full_name": "Keith Birkholz",
+        "email": "keith.a.birkholz@gmail.com",
+        "phone": "7742830798",
+        "properties": [
+            {
+                "unit": "110A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "f6801118f189f3186e407cc1ae99acca": {
+        "owner_id": 27,
+        "full_name": "Melanie Birkholz",
+        "email": "",
+        "phone": "2405386297",
+        "properties": [
+            {
+                "unit": "110A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "642c1439fe501fa5b3ad51e097d90267": {
+        "owner_id": 28,
+        "full_name": "Stephanie Haas Ballard",
+        "email": "rocksieroo@yahoo.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "110B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "cbfd51f05659775e6dadbd67eb9b5744": {
+        "owner_id": 29,
+        "full_name": "C & S Rentals of Virginia, LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "113A",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "C & S Rentals of Virginia, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "5d46d662d9fa28b02fc8de7dd2b1cc65": {
+        "owner_id": 30,
+        "full_name": "Stephen H. Bandeian",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "113B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "e472d9ac1e7f5ffa6ce7c2ceae20f0cb": {
+        "owner_id": 31,
+        "full_name": "Dianne M. Rausch",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "113B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "9193156dd1a7da8ca7b253bb8616e176": {
+        "owner_id": 32,
+        "full_name": "James R. Lowe II",
+        "email": "ricklowe14@yahoo.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "114A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "c6f40823920ccb0cee6d09d85a0ae465": {
+        "owner_id": 33,
+        "full_name": "Tara A. Lowe",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "114A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "f8d17b75b865c2c1365f965f6258154e": {
+        "owner_id": 34,
+        "full_name": "Rachel Van Doren",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "114B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "c6291e362abedd3b5ee579632b9ffe14": {
+        "owner_id": 35,
+        "full_name": "Gary Harmon",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "114B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "3b09bb1d4cb8b2f23c0d28e6093c3d07": {
+        "owner_id": 36,
+        "full_name": "Lindsey Beck",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "115A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "9efd13d7997da31678eeb125b20f43d2": {
+        "owner_id": 37,
+        "full_name": "Lloyd Moore",
+        "email": "mooreqc@aol.com",
+        "phone": "9104429101",
+        "properties": [
+            {
+                "unit": "115B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "a77d103b222f09e970c71bb2ce73a878": {
+        "owner_id": 38,
+        "full_name": "Norman E. Peters Jr.",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "116A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "0c1d12a17a8a7427c61a05ffe34aecac": {
+        "owner_id": 39,
+        "full_name": "Paula J. Peters",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "116A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "480bc04d7c6e010db246c060d55e9c7e": {
+        "owner_id": 40,
+        "full_name": "Donald Powell II",
+        "email": "dpunc96@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "116B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "91d89c4d4919fa42c99eb1b7e56a8d8c": {
+        "owner_id": 41,
+        "full_name": "Betsy Powell",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "116B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "8a8631375716ecb486680d6fdb31ca57": {
+        "owner_id": 42,
+        "full_name": "Anthony S. Carpenter",
+        "email": "tocarpen88@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "117A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "53716a22484000056de5c9a030ef1c64": {
+        "owner_id": 43,
+        "full_name": "Kacy Carpenter",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "117A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "3a5b2d68577b4224f72a8f0c1e414cbd": {
+        "owner_id": 44,
+        "full_name": "Timothy Wepner",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "117B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "68e2cb3dae140bf51ffec80871993c7c": {
+        "owner_id": 45,
+        "full_name": "Anne Wepner",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "117B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "7638c8c6a2b0db0f14fc8ae7304c08b8": {
+        "owner_id": 46,
+        "full_name": "Rachel Louise Ivory (Trustee)",
+        "email": "rachelprince2019@gmail.com",
+        "phone": "3365969896",
+        "properties": [
+            {
+                "unit": "118A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "64863aab43efedf2897b7d3425db6ed5": {
+        "owner_id": 47,
+        "full_name": "Thomas George Breene",
+        "email": "jbbreene@gmail.com",
+        "phone": "5402931495",
+        "properties": [
+            {
+                "unit": "118B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "3bc62663d03f96e399af4dd65792fa78": {
+        "owner_id": 48,
+        "full_name": "Judy Bradley Breene",
+        "email": "",
+        "phone": "5403971150",
+        "properties": [
+            {
+                "unit": "118B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "f5c46b318679366acc35e05a876d5958": {
+        "owner_id": 49,
+        "full_name": "George Stanton Purser",
+        "email": "stanpurser@gmail.com",
+        "phone": "7045774239",
+        "properties": [
+            {
+                "unit": "201B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            },
+            {
+                "unit": "211B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "b4d5817fd2f6a1eca81343837b51bd14": {
+        "owner_id": 50,
+        "full_name": "Deborah Gibson Purser",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "201B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            },
+            {
+                "unit": "211B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "ac92549d61aa60d44f31d9b6c06ec5dc": {
+        "owner_id": 51,
+        "full_name": "Elizabeth Ann Grady",
+        "email": "elizabethgradylpc@gmail.com",
+        "phone": "9196090954",
+        "properties": [
+            {
+                "unit": "202A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "67afb4032c6bf770c094889ab31b1be2": {
+        "owner_id": 52,
+        "full_name": "Kellie Cannon",
+        "email": "kelliecannon372@gmail.com",
+        "phone": "8186315327",
+        "properties": [
+            {
+                "unit": "202B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "f88229c61263a8e31332a7bf1f192068": {
+        "owner_id": 53,
+        "full_name": "Bryce Cannon",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "202B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "8390b5ea8437d853367f9d5310a621df": {
+        "owner_id": 54,
+        "full_name": "Villa Capriani 203A CU Realty, LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "203A",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Villa Capriani 203A CU Realty, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "70ddd05911ef158b819f6c9b6fb20fa0": {
+        "owner_id": 55,
+        "full_name": "Renard Properties LLC",
+        "email": "jen@renardproperties.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "203B",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Renard Properties LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "02473971c97753646f52372964ef7d45": {
+        "owner_id": 56,
+        "full_name": "William Irwin",
+        "email": "jirwin6@aol.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "204A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "61e7f743c3855540d9e393974ec8e77f": {
+        "owner_id": 57,
+        "full_name": "1965 LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "204B",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "1965 LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "945bc56012e784b2c9c3eb442da01e21": {
+        "owner_id": 58,
+        "full_name": "Billy J. Gardner",
+        "email": "gardnersb@ymail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "205A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "5fc9628542f1259a47fc015e16ca2e5a": {
+        "owner_id": 59,
+        "full_name": "Sandra B. Gardner",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "205A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "09866b3b2d7eb7971c5c4580ac163b36": {
+        "owner_id": 60,
+        "full_name": "Phoenix Enterprises of Fredericksburg LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "205B",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Phoenix Enterprises of Fredericksburg LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "7768796274254998a2644b6038fbfbf3": {
+        "owner_id": 61,
+        "full_name": "Roko Peros",
+        "email": "Rventureproperties@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "206A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "d18372d31cef8c21d97432f30d7a6b20": {
+        "owner_id": 62,
+        "full_name": "Andrea Marie Peros",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "206A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "10ae7691ffc6b7777d706f9b2f6c5e61": {
+        "owner_id": 63,
+        "full_name": "Raymond E. Schwartz",
+        "email": "a59mogguy@yahoo.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "206B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "92ceb17dec4b297212d229a667e5793a": {
+        "owner_id": 64,
+        "full_name": "Camilla M. Schwartz",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "206B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "afe59b6c6ac5833bde988dea230686c1": {
+        "owner_id": 65,
+        "full_name": "Augie Michelle Rowland",
+        "email": "augierowland@gmail.com",
+        "phone": "3157204215",
+        "properties": [
+            {
+                "unit": "207A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "42f8d2a6aac377a2fc81e289f05be215": {
+        "owner_id": 66,
+        "full_name": "Craig Steven Rowland",
+        "email": "bellamiadesigns22@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "207A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "89991cbf07c6b2500dd1a925a28e66d3": {
+        "owner_id": 67,
+        "full_name": "Stephen Michael Knipping",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "207B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "2909a755ee19b5b2a4d8f9f298e202b5": {
+        "owner_id": 68,
+        "full_name": "Kyristen LJ Knipping",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "207B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "5402bcd956033d1f0e6803f59e39b06d": {
+        "owner_id": 69,
+        "full_name": "John W. Simermeyer",
+        "email": "kjsimermeyer@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "208A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "adfad07e179658faaad28f926fe087cd": {
+        "owner_id": 70,
+        "full_name": "Julie Simermeyer",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "208A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "f06a42d2ea9cff3cb92b44d549230298": {
+        "owner_id": 71,
+        "full_name": "Stanley C. Sliwoski Jr.",
+        "email": "sbsliwoski@comcast.net",
+        "phone": "7248345402",
+        "properties": [
+            {
+                "unit": "208B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "e4e7e5b8b5952ff102115b6e0c327692": {
+        "owner_id": 72,
+        "full_name": "Elizabeth J. Sliwoski",
+        "email": "",
+        "phone": "7243968403",
+        "properties": [
+            {
+                "unit": "208B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "0d7d1cbff644c05ca1d233468b77b83f": {
+        "owner_id": 73,
+        "full_name": "Middleton Inc",
+        "email": "shanna@middinc.com",
+        "phone": "9198277054",
+        "properties": [
+            {
+                "unit": "209A",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Middleton Inc"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "62a726723d5a1fa0912393e483a16972": {
+        "owner_id": 74,
+        "full_name": "Mat & Glin, LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "209B",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Mat & Glin, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "16a8ae22a0b1ffb83364930aeb15d055": {
+        "owner_id": 75,
+        "full_name": "William E. Pennington Jr.",
+        "email": "williamepenningtonjr@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "210B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            },
+            {
+                "unit": "302B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "816c6cd88991feed76176390f884506f": {
+        "owner_id": 76,
+        "full_name": "Denise Pennington",
+        "email": "meghan.pennington@gmail.com",
+        "phone": "3019911527",
+        "properties": [
+            {
+                "unit": "210B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "18aed4879a02a813422787630f3c63df": {
+        "owner_id": 77,
+        "full_name": "Coastal Property Investments I, LLC",
+        "email": "bhyman48@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "211A",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Coastal Property Investments I, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "b9d4fbb88069597926f69c4bdf8c3f19": {
+        "owner_id": 78,
+        "full_name": "David R. Potopsky",
+        "email": "dpotopsky@gmail.com",
+        "phone": "3303402103",
+        "properties": [
+            {
+                "unit": "212A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "007812308f2cf0da9bb3d68d0cea7e88": {
+        "owner_id": 79,
+        "full_name": "Kimberly J. Potopsky",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "212A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "0b41ed8c6bd249156175724142766b1b": {
+        "owner_id": 80,
+        "full_name": "Jaleigh Bliss Jensen",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "215A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "d19b2c76ce8db0f5a3280f1fde332eec": {
+        "owner_id": 81,
+        "full_name": "Colten David Jensen",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "215A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "a75488a026b0ff7361970c1b76c55036": {
+        "owner_id": 82,
+        "full_name": "Carolina Sands LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "215B",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Carolina Sands LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "55451deba7dd77b776b117d84fde7384": {
+        "owner_id": 83,
+        "full_name": "Brian Michael Kean",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "216A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "14721c5ab85373a36a44d8af49092e0c": {
+        "owner_id": 84,
+        "full_name": "Gia Lynn Kean",
+        "email": "giakean@gmail.com",
+        "phone": "2523414850",
+        "properties": [
+            {
+                "unit": "216A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "5a673fb565c0d4f523e5bcd14c3671a0": {
+        "owner_id": 85,
+        "full_name": "Mark A. Rice",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "216B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "970c69b3a7104a64008caaca76b611a5": {
+        "owner_id": 86,
+        "full_name": "Myra W. Rice",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "216B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "402b38278e1a505a1ddde056af59b2ec": {
+        "owner_id": 87,
+        "full_name": "Villa Capriani 217A CU Realty, LLC",
+        "email": "csiofcmgr@contractsolutions-inc.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "217A",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Villa Capriani 217A CU Realty, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "139ea4d44dcfa4c44d7b7145024697fd": {
+        "owner_id": 88,
+        "full_name": "Carol D. McMorrow (Trustee)",
+        "email": "mcmorrow2550@aol.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "217B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "65485ab0829f14d74906ec8336b5cff0": {
+        "owner_id": 89,
+        "full_name": "Karen T. Hagens",
+        "email": "karenann4704@gmail.com",
+        "phone": "9196101348",
+        "properties": [
+            {
+                "unit": "218A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "b919e5ff4994965889d31a3e6d56d571": {
+        "owner_id": 90,
+        "full_name": "Jason M. Hagens",
+        "email": "",
+        "phone": "9196255453",
+        "properties": [
+            {
+                "unit": "218A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "cbfa8f6d326ae73270cd6adf6c0a91a0": {
+        "owner_id": 91,
+        "full_name": "Hernan Prieto",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "218B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "40e3c8b73e6e663633bbe4176a153d90": {
+        "owner_id": 92,
+        "full_name": "Diana Benucci",
+        "email": "dianacbr@hotmail.com",
+        "phone": "9193498302",
+        "properties": [
+            {
+                "unit": "218B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "4c8f562479f63524389f49ce364030fe": {
+        "owner_id": 93,
+        "full_name": "Anthony Merlino",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "219A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "e3b7fbcea2c1193fd7ba06026319f1f6": {
+        "owner_id": 94,
+        "full_name": "Nancy Merlino",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "219A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "b0e3d256fdfc29ee972cb848a44806d8": {
+        "owner_id": 95,
+        "full_name": "Brandon Burton",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "219B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "db177185cb831bf1b237ae71c3c0b03b": {
+        "owner_id": 96,
+        "full_name": "Shantel Burton",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "219B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "2fb8d7a607e035707c05cc8820024464": {
+        "owner_id": 97,
+        "full_name": "Richard M. Bodner (Trustee)",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "220A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "2780623e299817fac7c27ff3cbe4f864": {
+        "owner_id": 98,
+        "full_name": "Brenda N. Bodner (Trustee)",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "220A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "7e57e42312f49918ef10ab85d1cfc5f5": {
+        "owner_id": 99,
+        "full_name": "Carolina Condos and Castles, LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "220B",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Carolina Condos and Castles, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "c1b456c4383b96a96805beb37cc51325": {
+        "owner_id": 100,
+        "full_name": "Middleton, Inc.",
+        "email": "middleton.paul@yahoo.com",
+        "phone": "9199496111",
+        "properties": [
+            {
+                "unit": "301A",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Middleton, Inc."
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "7a8b80fc6b5363245a032ee11dc19f18": {
+        "owner_id": 101,
+        "full_name": "Leska Investment Solutions, LLC",
+        "email": "andrewscaljon@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "301B",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Leska Investment Solutions, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "4d1a797095fd38abeb61a7547563b88c": {
+        "owner_id": 102,
+        "full_name": "Rebecca Hendren",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "302A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "1dde1a791f2b6e95c9a72d1c95aef842": {
+        "owner_id": 103,
+        "full_name": "Denise J. Pennington",
+        "email": "meghan.pennington@gmail.com",
+        "phone": "3019911527",
+        "properties": [
+            {
+                "unit": "302B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "7c52fea9a52c83035b382e4943752f04": {
+        "owner_id": 104,
+        "full_name": "Gary T. Wotton",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "303A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "2b060524d93f2bdd9990e109972057e4": {
+        "owner_id": 105,
+        "full_name": "Carol M. Wotton",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "303A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "a5d0dfdfbc00a7aff3b34850c6b7992f": {
+        "owner_id": 106,
+        "full_name": "John McCarty",
+        "email": "john@gotlegacy.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "303B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "0503c5cb6d1b6e7e8ec2094fa23a0c69": {
+        "owner_id": 107,
+        "full_name": "Marsha S. Engel",
+        "email": "kellyqwhite@gmail.com",
+        "phone": "9194544563",
+        "properties": [
+            {
+                "unit": "304A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "94ba46c57ee4bf31f722ac82b5ccbde3": {
+        "owner_id": 108,
+        "full_name": "Kennon C. Walden Jr.",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "304B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "63abcc19d00b9bfa4f55ead591aecc30": {
+        "owner_id": 109,
+        "full_name": "Melinda C. Walden",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "304B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "c00aa700473b742017459dd64795f733": {
+        "owner_id": 110,
+        "full_name": "Justin W. Dyal",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "305A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "072d0de3af8dad3413f43000f918877c": {
+        "owner_id": 111,
+        "full_name": "Patricia L. Dyal",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "305A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "2ee544f6eea71756938f9e6c45c34772": {
+        "owner_id": 112,
+        "full_name": "Mark Drialo Wagner",
+        "email": "drialo11@yahoo.com",
+        "phone": "4438672474",
+        "properties": [
+            {
+                "unit": "305B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "39ae68877bbcc9724c1ffbd72c7eceb7": {
+        "owner_id": 113,
+        "full_name": "Stevie Nicole Ludlum",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "305B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "e53182e6ef96c1326adcd62e9dc6bc53": {
+        "owner_id": 114,
+        "full_name": "Erik Daniel Hays",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "306A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "5cf3d572a2cf4ee5806324c274510121": {
+        "owner_id": 115,
+        "full_name": "Robin Annette Hays",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "306A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "2f3ec9089637381a6a19d35cfae3c77b": {
+        "owner_id": 116,
+        "full_name": "East West Associates, LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "307A",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "East West Associates, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "2c045ec4a2e6365c44f71faa6e806074": {
+        "owner_id": 117,
+        "full_name": "Blackburn Tyler Holdings, LLC",
+        "email": "Susannab220@gmail.com",
+        "phone": "9195259172",
+        "properties": [
+            {
+                "unit": "307B",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Blackburn Tyler Holdings, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "84aab6095a5b789ff161674e55a7c399": {
+        "owner_id": 118,
+        "full_name": "Pamela C. Welsh",
+        "email": "Pwelsh22@earthlink.net",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "308A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "d346f95f1bf3702f31ec19033d6525df": {
+        "owner_id": 119,
+        "full_name": "Casa Nomad, LLC",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "308B",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Casa Nomad, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "4c2f49573ed8e72f198edaf2e34ceca1": {
+        "owner_id": 120,
+        "full_name": "Arthur Morris",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "309A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "ff875166aade1194d57b9bb0c07fb3dc": {
+        "owner_id": 121,
+        "full_name": "Sylvia Morris",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "309A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "a7a37d9d58f6e7dc7bdc6a73d256a4d4": {
+        "owner_id": 122,
+        "full_name": "Lucy Kessler",
+        "email": "lucykessler@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "309B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "934e0e147ddbb1bcd6f05edad4da9b28": {
+        "owner_id": 123,
+        "full_name": "David Marino",
+        "email": "Jacki.marino@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "310A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "aaf0481cbd8d0595c8469f56573f6045": {
+        "owner_id": 124,
+        "full_name": "Jacqueline Marino",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "310A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "d4cd8ab7bd437e6b779d7b3d131ad736": {
+        "owner_id": 125,
+        "full_name": "Guillaume Akouka",
+        "email": "guillaumeakouka@hotmail.com",
+        "phone": "3102540930",
+        "properties": [
+            {
+                "unit": "310B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "656a0ccbfffc8a618fa287c32e609818": {
+        "owner_id": 126,
+        "full_name": "Karina Akouka",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "310B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "c81f27b6dbefcafed9551dde11bdaa66": {
+        "owner_id": 127,
+        "full_name": "Andrew Burch",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "311B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "c60d90096f1114d25f050a0b2403af78": {
+        "owner_id": 128,
+        "full_name": "Susan Burch",
+        "email": "susan.burch2@yahoo.com",
+        "phone": "9197449545",
+        "properties": [
+            {
+                "unit": "311B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "e8c9f8718149bb50b46f960bf204df50": {
+        "owner_id": 129,
+        "full_name": "Ferdinand D. Samonte",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "312A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "ef45304793e765409ab3c43c1ba31c3b": {
+        "owner_id": 130,
+        "full_name": "Tammy J. Samonte",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "312A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "58e928a7874b1afc2d6e36d417b87ac8": {
+        "owner_id": 131,
+        "full_name": "Peter J. Baish (Trustee)",
+        "email": "pjbaish@yahoo.com",
+        "phone": "7036558190",
+        "properties": [
+            {
+                "unit": "312B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "099bdb81fbb79679581f354aaf0743f0": {
+        "owner_id": 132,
+        "full_name": "Mary Alice Baish (Trustee)",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "312B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "69bb612558b0cdfb6b6e4ad0f684541c": {
+        "owner_id": 133,
+        "full_name": "Richard Coates",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "315A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "ca04c467d946c588d647908fd223db0e": {
+        "owner_id": 134,
+        "full_name": "Brinnan Coates",
+        "email": "brinnan@gmail.com",
+        "phone": "9199619697",
+        "properties": [
+            {
+                "unit": "315A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "514227a3abae3daec60701809886012a": {
+        "owner_id": 135,
+        "full_name": "Victor J. Kropf",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "315B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "cf303f07e55f0c7c7152f4d7899ef838": {
+        "owner_id": 136,
+        "full_name": "Miriam K. Kropf",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "315B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "15bc6af9b9ce667ece7f56c1d81e3382": {
+        "owner_id": 137,
+        "full_name": "Michael E. Collins",
+        "email": "mecollins631@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "316A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "c39663a0505526286f99b7069cb5b8de": {
+        "owner_id": 138,
+        "full_name": "Shirley F. Collins",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "316A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "141bc891070028ba71a1b69d5d28c699": {
+        "owner_id": 139,
+        "full_name": "Sugar Dolphin Hideaway, LLC",
+        "email": "alexispeterspero@gmail.com",
+        "phone": "7083023022",
+        "properties": [
+            {
+                "unit": "316B",
+                "role": "primary",
+                "entity_type": "Entity",
+                "company": "Sugar Dolphin Hideaway, LLC"
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "09bae9678cf8871a2b552cfa4ce602b1": {
+        "owner_id": 140,
+        "full_name": "Philip C. Van Heel",
+        "email": "cole.vanheel@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "317A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "03f9c21c06e062c1aa22e1587eb7ac02": {
+        "owner_id": 141,
+        "full_name": "Melanie C. Van Heel",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "317A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "3c5cdc5a5aff9366442ec25c13172404": {
+        "owner_id": 142,
+        "full_name": "Christopher Aherne",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "317B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "30a1545dcd7e5d92e6943ab3037fad42": {
+        "owner_id": 143,
+        "full_name": "William Walsh",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "317B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "82ed24858cb57ca5f622adbb58ac4516": {
+        "owner_id": 144,
+        "full_name": "Lianne Lowell Jones",
+        "email": "liannelj@gmail.com",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "318A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "655602e203f1d8561eced724f23702f5": {
+        "owner_id": 145,
+        "full_name": "Christopher Douglas Jones",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "318A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "ddbd0141e31b5a4970b925b3a8bafa52": {
+        "owner_id": 146,
+        "full_name": "LouAnn Mylott",
+        "email": "lamylott@comcast.net",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "318B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "8236c7c643e9bf2e1ddc6f39db3948ea": {
+        "owner_id": 147,
+        "full_name": "John S. Mylott",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "318B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "e63d5544b340e7fe96374b4476248bca": {
+        "owner_id": 148,
+        "full_name": "Scotty Ray Martin",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "319A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "8660959944b05ced4a227c081363d44a": {
+        "owner_id": 149,
+        "full_name": "Teresa Martin",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "319A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "6df9a2fef84d9c96dfda0efa27fbc105": {
+        "owner_id": 150,
+        "full_name": "Ronan Kennedy",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "319B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "c984c28e9a907a75bde484630806f1d9": {
+        "owner_id": 151,
+        "full_name": "Diana Kennedy",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "319B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "93b5a43a4846c82567310f25c5a69d22": {
+        "owner_id": 152,
+        "full_name": "Richard A. Lucci (Trustee)",
+        "email": "ralucci@sbcglobal.net",
+        "phone": "7403170278",
+        "properties": [
+            {
+                "unit": "320A",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "bc2e38e851b26c1ba23d22f2d6a1786a": {
+        "owner_id": 153,
+        "full_name": "Bonita S. Lucci (Trustee)",
+        "email": "",
+        "phone": "7406323952",
+        "properties": [
+            {
+                "unit": "320A",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "40162ee0c70e7ceddb133d27fc5e180f": {
+        "owner_id": 154,
+        "full_name": "Glen Tellefsen",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "320B",
+                "role": "primary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": true,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    },
+    "02839b285aee6cf3c50c8196cb6fe0ab": {
+        "owner_id": 155,
+        "full_name": "Courtney Tellefsen",
+        "email": "",
+        "phone": "",
+        "properties": [
+            {
+                "unit": "320B",
+                "role": "secondary",
+                "entity_type": "Individual",
+                "company": ""
+            }
+        ],
+        "is_primary": false,
+        "wp_user_id": null,
+        "registration_status": "pending"
+    }
+}

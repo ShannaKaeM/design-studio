@@ -16,6 +16,11 @@
                     "name": "Primary"
                 },
                 {
+                    "slug": "primary-light",
+                    "color": "#6a8b8c",
+                    "name": "Primary Light"
+                },
+                {
                     "slug": "primary-dark",
                     "color": "#4a6b6c",
                     "name": "Primary Dark"
@@ -24,6 +29,31 @@
                     "slug": "secondary",
                     "color": "#7b5a5a",
                     "name": "Secondary"
+                },
+                {
+                    "slug": "secondary-light",
+                    "color": "#8b6a6a",
+                    "name": "Secondary Light"
+                },
+                {
+                    "slug": "secondary-dark",
+                    "color": "#6b4a4a",
+                    "name": "Secondary Dark"
+                },
+                {
+                    "slug": "accent",
+                    "color": "#d4a574",
+                    "name": "Accent"
+                },
+                {
+                    "slug": "accent-light",
+                    "color": "#e4b584",
+                    "name": "Accent Light"
+                },
+                {
+                    "slug": "accent-dark",
+                    "color": "#c49564",
+                    "name": "Accent Dark"
                 },
                 {
                     "slug": "base",
@@ -59,6 +89,11 @@
                     "slug": "base-lightest",
                     "color": "#f5f5f5",
                     "name": "Base Lightest"
+                },
+                {
+                    "slug": "white",
+                    "color": "#ffffff",
+                    "name": "White"
                 }
             ]
         },

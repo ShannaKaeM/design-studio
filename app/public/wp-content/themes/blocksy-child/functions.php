@@ -82,7 +82,6 @@ class Studio_Theme_Integration {
         $blocks = array(
             'studio-text',
             'studio-container',
-            'studio-headline',
             'studio-button',
             'studio-grid',
             'studio-image'
@@ -362,7 +361,6 @@ class Studio_Theme_Integration {
                     <ul>
                         <li>✅ Studio Text</li>
                         <li>✅ Studio Container</li>
-                        <li>📋 Studio Headline</li>
                         <li>📋 Studio Button</li>
                         <li>📋 Studio Grid</li>
                         <li>📋 Studio Image</li>
@@ -883,11 +881,21 @@ class Studio_Theme_Integration {
             $theme_json['settings'] = array();
         }
         
+        // Ensure color settings exist
+        if (!isset($theme_json['settings']['color'])) {
+            $theme_json['settings']['color'] = array(
+                'custom' => true,
+                'customDuotone' => true,
+                'customGradient' => true,
+                'defaultPalette' => false,
+                'defaultGradients' => false,
+                'defaultDuotone' => false
+            );
+        }
+        
         // Sync color tokens
         if (isset($tokens['colors'])) {
-            $theme_json['settings']['color'] = array(
-                'palette' => array()
-            );
+            $theme_json['settings']['color']['palette'] = array();
             
             foreach ($tokens['colors'] as $key => $color) {
                 $theme_json['settings']['color']['palette'][] = array(
@@ -900,6 +908,11 @@ class Studio_Theme_Integration {
         
         // Sync typography tokens
         if (isset($tokens['typography'])) {
+            // Ensure typography settings exist
+            if (!isset($theme_json['settings']['typography'])) {
+                $theme_json['settings']['typography'] = array();
+            }
+            
             // Font sizes
             if (isset($tokens['typography']['fontSizes'])) {
                 $theme_json['settings']['typography']['fontSizes'] = array();
@@ -926,6 +939,21 @@ class Studio_Theme_Integration {
                     'size' => $space,
                     'name' => ucfirst($key)
                 );
+            }
+        }
+        
+        // Update custom design tokens section if it exists
+        if (isset($theme_json['settings']['custom']['designTokens'])) {
+            $theme_json['settings']['custom']['designTokens']['lastUpdated'] = date('Y-m-d H:i:s');
+            
+            // Update colors in custom section
+            if (isset($tokens['colors']) && isset($theme_json['settings']['custom']['designTokens']['colors'])) {
+                foreach ($tokens['colors'] as $key => $color) {
+                    if (isset($theme_json['settings']['custom']['designTokens']['colors'][$key])) {
+                        $theme_json['settings']['custom']['designTokens']['colors'][$key]['value'] = $color['value'];
+                        $theme_json['settings']['custom']['designTokens']['colors'][$key]['name'] = $color['name'];
+                    }
+                }
             }
         }
         
@@ -1013,20 +1041,6 @@ function register_mi_agency_pattern_categories() {
 add_action('init', 'register_mi_agency_pattern_categories');
 
 /**
- * Enqueue component styles
- */
-function enqueue_component_styles() {
-    // Enqueue Attractions Loop component CSS
-    wp_enqueue_style(
-        'attractions-loop-component',
-        get_stylesheet_directory_uri() . '/components/pages/home/sections/attractions-loop/attractions-loop.css',
-        array(),
-        wp_get_theme()->get('Version')
-    );
-}
-add_action('wp_enqueue_scripts', 'enqueue_component_styles');
-
-/**
  * Villa Admin Menu
  */
 function villa_admin_menu() {
@@ -1097,29 +1111,5 @@ function villa_community_page() {
     include get_stylesheet_directory() . '/villa-admin-community.php';
 }
 
-// Include Villa Capriani committee functionality
-require_once get_stylesheet_directory() . '/villa-committees-frontend.php';
-
-// Include Villa Capriani CRM system
-require_once get_stylesheet_directory() . '/villa-owner-crm.php';
-
-// Include Villa Individual Registration
-require_once get_stylesheet_directory() . '/villa-individual-registration.php';
-
 require_once get_stylesheet_directory() . '/villa-email-templates.php';
 require_once get_stylesheet_directory() . '/villa-smtp-config.php';
-
-/**
- * Enqueue Villa CRM styles
- */
-function villa_enqueue_crm_styles() {
-    if (is_page() || is_front_page()) {
-        wp_enqueue_style(
-            'villa-owner-registration',
-            get_stylesheet_directory_uri() . '/assets/css/villa-owner-registration.css',
-            [],
-            '1.0.0'
-        );
-    }
-}
-add_action('wp_enqueue_scripts', 'villa_enqueue_crm_styles');

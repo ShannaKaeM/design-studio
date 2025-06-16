@@ -1,0 +1,91 @@
+{
+    "owner_id": "owner-lloyd-moore",
+    "hash_ids": [
+        "809464911e7d0c04e3c7dfc2fdaa6e67",
+        "9efd13d7997da31678eeb125b20f43d2"
+    ],
+    "status": "active",
+    "personal_info": {
+        "first_name": "Lloyd",
+        "last_name": "Moore",
+        "full_name": "Lloyd Moore",
+        "email": "mooreqc@aol.com",
+        "phone": "9104429101",
+        "emergency_contact": {
+            "name": null,
+            "relationship": null,
+            "phone": null
+        }
+    },
+    "entity_info": {
+        "entity_type": "individual",
+        "company_name": null,
+        "legal_entity_name": "Lloyd Moore",
+        "tax_id": null
+    },
+    "addresses": {
+        "primary": {
+            "street": null,
+            "city": null,
+            "state": null,
+            "zip": null,
+            "country": "USA"
+        },
+        "billing": {
+            "same_as_primary": true,
+            "street": null,
+            "city": null,
+            "state": null,
+            "zip": null,
+            "country": null
+        }
+    },
+    "properties": [
+        {
+            "unit_number": "104A",
+            "role": "primary",
+            "ownership_percentage": null,
+            "purchase_date": null,
+            "status": "active"
+        },
+        {
+            "unit_number": "115B",
+            "role": "primary",
+            "ownership_percentage": 100,
+            "purchase_date": null,
+            "status": "active"
+        }
+    ],
+    "committee_roles": [],
+    "wordpress_integration": {
+        "wp_user_id": null,
+        "registration_status": "pending",
+        "registration_date": null,
+        "last_login": null
+    },
+    "preferences": {
+        "communication": {
+            "email_opt_in": true,
+            "sms_opt_in": false,
+            "mail_opt_in": true
+        },
+        "privacy": {
+            "show_in_directory": true,
+            "show_email": false,
+            "show_phone": false
+        }
+    },
+    "crm_data": {
+        "notes": "",
+        "tags": [],
+        "last_contact": null,
+        "relationship_score": null
+    },
+    "metadata": {
+        "created_date": "2025-06-16 15:40:31",
+        "last_modified": "2025-06-16 15:40:31",
+        "modified_by": "migration_script",
+        "data_source": "migration",
+        "version": 1
+    }
+}
