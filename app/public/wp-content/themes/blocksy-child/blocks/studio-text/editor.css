@@ -1,0 +1,105 @@
+/**
+ * Studio Text Block - Editor Styles
+ */
+
+/* Block wrapper */
+.wp-block-studio-text {
+    /* Ensure proper spacing in editor */
+    margin: 0;
+}
+
+/* Typography presets preview in editor */
+.wp-block-studio-text.has-preset-pretitle {
+    font-size: 0.875rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+}
+
+.wp-block-studio-text.has-preset-title-hero {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.wp-block-studio-text.has-preset-title-section {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 600;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+}
+
+.wp-block-studio-text.has-preset-title-subsection {
+    font-size: clamp(1.5rem, 3vw, 1.875rem);
+    font-weight: 600;
+    line-height: 1.4;
+}
+
+.wp-block-studio-text.has-preset-subtitle {
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5;
+}
+
+.wp-block-studio-text.has-preset-description {
+    font-size: 1.125rem;
+    font-weight: 400;
+    line-height: 1.6;
+    color: var(--wp--preset--color--base-dark);
+}
+
+.wp-block-studio-text.has-preset-body {
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.7;
+}
+
+.wp-block-studio-text.has-preset-body-small {
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.6;
+}
+
+/* Rich text editor */
+.wp-block-studio-text .rich-text {
+    /* Inherit all styles from parent */
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    color: inherit;
+}
+
+/* Placeholder text */
+.wp-block-studio-text .rich-text:empty::before {
+    opacity: 0.62;
+}
+
+/* Focus styles */
+.wp-block-studio-text.is-selected {
+    outline: 1px dashed rgba(90, 123, 124, 0.3);
+    outline-offset: 2px;
+}
+
+/* Ensure proper inheritance for nested elements */
+.wp-block-studio-text h1,
+.wp-block-studio-text h2,
+.wp-block-studio-text h3,
+.wp-block-studio-text h4,
+.wp-block-studio-text h5,
+.wp-block-studio-text h6,
+.wp-block-studio-text p,
+.wp-block-studio-text span,
+.wp-block-studio-text div,
+.wp-block-studio-text small {
+    margin: 0;
+    padding: 0;
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    letter-spacing: inherit;
+    text-transform: inherit;
+    color: inherit;
+}

@@ -1,57 +1,58 @@
 {
-  "committee_info": {
-    "id": "bylaws",
-    "name": "Bylaws",
-    "description": "Safeguards Villa Capriani's governance through clear, fair, and legally compliant policies, ensuring transparency and adherence to community needs.",
-    "charter": "To maintain and update community bylaws, ensure legal compliance, and provide conflict resolution support for the community.",
-    "meeting_frequency": "quarterly",
-    "meeting_day": "third_thursday",
-    "meeting_time": "19:00",
-    "meeting_location": "Community Room / Virtual"
-  },
-  "branding": {
-    "banner_image": "/villa-data/committees/bylaws/images/bylaws-banner.jpg",
-    "logo_image": "/villa-data/committees/bylaws/images/bylaws-logo.png",
-    "color_scheme": {
-      "primary": "#7c3aed",
-      "secondary": "#6d28d9",
-      "accent": "#8b5cf6"
-    }
-  },
-  "leadership": {
-    "chair": {
-      "owner_id": "owner-bylaws-chair",
-      "name": "TBD",
-      "email": "bylaws@villacapriani.com",
-      "term_start": "2024-01-01",
-      "term_end": "2024-12-31"
+    "committee_info": {
+        "id": "bylaws",
+        "name": "Bylaws",
+        "description": "Safeguards Villa Capriani\\'s governance through clear, fair, and legally compliant policies, ensuring transparency and adherence to community needs.",
+        "charter": "To maintain and update community bylaws, ensure legal compliance, and provide conflict resolution support for the community.",
+        "meeting_frequency": "quarterly",
+        "meeting_day": "",
+        "meeting_time": "19:00",
+        "meeting_location": "Community Room \/ Virtual",
+        "purpose": "undefined"
     },
-    "vice_chair": {
-      "owner_id": "owner-bylaws-vice",
-      "name": "TBD",
-      "email": "bylaws-vice@villacapriani.com",
-      "term_start": "2024-01-01",
-      "term_end": "2024-12-31"
+    "branding": {
+        "banner_image": "\/wp-content\/themes\/blocksy-child\/villa-data\/committees\/bylaws\/images\/banner-1750025736.png",
+        "logo_image": "\/wp-content\/themes\/blocksy-child\/villa-data\/committees\/bylaws\/images\/logo-1750025736.png",
+        "color_scheme": {
+            "primary": "#7c3aed",
+            "secondary": "#6d28d9",
+            "accent": "#8b5cf6"
+        }
+    },
+    "leadership": {
+        "chair": {
+            "owner_id": "owner-bylaws-chair",
+            "name": "TBD",
+            "email": "bylaws@villacapriani.com",
+            "term_start": "2024-01-01",
+            "term_end": "2024-12-31"
+        },
+        "vice_chair": {
+            "owner_id": "owner-bylaws-vice",
+            "name": "TBD",
+            "email": "bylaws-vice@villacapriani.com",
+            "term_start": "2024-01-01",
+            "term_end": "2024-12-31"
+        }
+    },
+    "members": [],
+    "responsibilities": [
+        "Manage and regularly review policies and bylaws to ensure clarity and legal compliance",
+        "Foster transparency and fairness across all governance processes",
+        "Provide conflict resolution and mediation support to owners",
+        "Ensure alignment with state laws and evolving community standards"
+    ],
+    "current_projects": [],
+    "meeting_history": [],
+    "budget": {
+        "annual_allocation": 3000,
+        "spent_ytd": 0,
+        "remaining": 3000,
+        "expenses": []
+    },
+    "documents": {
+        "current_bylaws": "\/villa-data\/committees\/bylaws\/documents\/villa-capriani-bylaws.pdf",
+        "policy_manual": "\/villa-data\/committees\/bylaws\/documents\/policy-manual.pdf",
+        "meeting_minutes": "\/villa-data\/committees\/bylaws\/documents\/minutes\/"
     }
-  },
-  "members": [],
-  "responsibilities": [
-    "Manage and regularly review policies and bylaws to ensure clarity and legal compliance",
-    "Foster transparency and fairness across all governance processes",
-    "Provide conflict resolution and mediation support to owners",
-    "Ensure alignment with state laws and evolving community standards"
-  ],
-  "current_projects": [],
-  "meeting_history": [],
-  "budget": {
-    "annual_allocation": 3000.00,
-    "spent_ytd": 0.00,
-    "remaining": 3000.00,
-    "expenses": []
-  },
-  "documents": {
-    "current_bylaws": "/villa-data/committees/bylaws/documents/villa-capriani-bylaws.pdf",
-    "policy_manual": "/villa-data/committees/bylaws/documents/policy-manual.pdf",
-    "meeting_minutes": "/villa-data/committees/bylaws/documents/minutes/"
-  }
 }

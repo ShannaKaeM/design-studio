@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunksuremembers=globalThis.webpackChunksuremembers||[]).push([[6624],{6624:(s,l,r)=>{r.r(l),r.d(l,{sc_spacing:()=>e});var t=r(4589);const e=class{constructor(s){(0,t.r)(this,s)}render(){return(0,t.h)(t.H,null,(0,t.h)("slot",null))}};e.style=":host{display:block}::slotted(*:not(:last-child)){margin-bottom:var(--spacing)}"}}]);

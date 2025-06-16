@@ -1,52 +1,12 @@
-/*
-Theme Name: Blocksy Child
-Description: Child theme for Blocksy with custom theme.json design system
-Template: blocksy
-Version: 1.0.0
-*/
-
-/* ================================================================
-   CHILD THEME STYLES
-   ================================================================ 
-   
-   This child theme uses theme.json for design tokens which are
-   automatically converted to CSS variables by WordPress:
-   
-   Colors: var(--wp--preset--color--primary)
-   Font Sizes: var(--wp--preset--font-size--large)
-   Spacing: var(--wp--preset--spacing--medium)
-   
-   Add your custom CSS below this comment.
-   ================================================================ */
-
-/* Custom styles go here */
-
-/* Full Width Section Support */
-.alignfull {
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
-}
-
-.alignwide {
-    max-width: var(--wp--style--global--wide-size, 1400px);
-    margin-left: auto;
-    margin-right: auto;
-}
-
 /* Villa Committee Cards Styling */
 .villa-committees-section {
-    background: var(--wp--preset--color--base-lightest);
-    width: 100vw;
-    max-width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-right: calc(50% - 50vw);
     padding: 60px 0;
+    background: var(--wp--preset--color--base-lightest);
+    width: 100%;
 }
 
 .villa-committees-section .container {
-    max-width: var(--wp--style--global--content-size, 1200px);
+    max-width: 1280px;
     margin: 0 auto;
     padding: 0 20px;
 }
@@ -270,6 +230,12 @@ Version: 1.0.0
     color: var(--wp--preset--color--base-lightest);
 }
 
+/* Single Committee Card Layout */
+.villa-committee-card.single {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .villa-committees-section {
@@ -315,3 +281,54 @@ Version: 1.0.0
         text-align: left;
     }
 }
+
+@media (max-width: 480px) {
+    .committees-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+    
+    .committee-content {
+        padding: 20px;
+    }
+    
+    .committee-banner {
+        height: 160px;
+    }
+    
+    .committee-logo {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+/* Loading States */
+.committee-loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    color: var(--wp--preset--color--base-dark);
+}
+
+/* Animation for cards appearing */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.villa-committee-card {
+    animation: fadeInUp 0.6s ease-out;
+}
+
+.villa-committee-card:nth-child(1) { animation-delay: 0.1s; }
+.villa-committee-card:nth-child(2) { animation-delay: 0.2s; }
+.villa-committee-card:nth-child(3) { animation-delay: 0.3s; }
+.villa-committee-card:nth-child(4) { animation-delay: 0.4s; }
+.villa-committee-card:nth-child(5) { animation-delay: 0.5s; }

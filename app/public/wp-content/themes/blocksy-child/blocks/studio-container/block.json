@@ -1,0 +1,66 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "studio/container",
+    "version": "1.0.0",
+    "title": "Studio Container",
+    "category": "studio-blocks",
+    "icon": "layout",
+    "description": "A flexible container block with width, padding, and background options.",
+    "keywords": ["container", "wrapper", "section", "layout", "studio"],
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "className": true,
+        "color": {
+            "background": true,
+            "gradients": true,
+            "link": true,
+            "text": false
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true,
+            "blockGap": true
+        },
+        "align": ["wide", "full"],
+        "__experimentalLayout": true
+    },
+    "attributes": {
+        "widthPreset": {
+            "type": "string",
+            "default": "content"
+        },
+        "paddingPreset": {
+            "type": "string",
+            "default": "medium"
+        },
+        "tagName": {
+            "type": "string",
+            "default": "div"
+        },
+        "minHeight": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "example": {
+        "attributes": {
+            "widthPreset": "wide",
+            "paddingPreset": "large"
+        },
+        "innerBlocks": [
+            {
+                "name": "studio/text",
+                "attributes": {
+                    "content": "This is content inside a Studio Container",
+                    "typographyPreset": "body"
+                }
+            }
+        ]
+    },
+    "textdomain": "studio",
+    "editorScript": "file:./build/index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css"
+}

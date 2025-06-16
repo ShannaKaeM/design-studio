@@ -1,0 +1,392 @@
+<!-- Villa Committee Card Template -->
+<article class="villa-committee-card">
+    <!-- Committee Banner -->
+    <div class="committee-banner">
+        <img src="{{banner_image}}" alt="{{committee_name}} Banner" class="committee-banner-image">
+        <div class="committee-banner-overlay">
+            <div class="committee-logo">
+                <img src="{{logo_image}}" alt="{{committee_name}} Logo" class="committee-logo-image">
+            </div>
+        </div>
+    </div>
+    
+    <!-- Committee Content -->
+    <div class="committee-content">
+        <!-- Committee Header -->
+        <header class="committee-header">
+            <h2 class="committee-title">{{committee_name}}</h2>
+            <p class="committee-description">{{committee_description}}</p>
+        </header>
+        
+        <!-- Key Responsibilities -->
+        <div class="committee-responsibilities">
+            <h3 class="responsibilities-title">Key Responsibilities</h3>
+            <ul class="responsibilities-list">
+                {{#each responsibilities}}
+                <li class="responsibility-item">{{this}}</li>
+                {{/each}}
+            </ul>
+        </div>
+        
+        <!-- Committee Details -->
+        <div class="committee-details">
+            <div class="detail-item">
+                <span class="detail-label">Meeting Schedule:</span>
+                <span class="detail-value">{{meeting_frequency}} - {{meeting_day}} at {{meeting_time}}</span>
+            </div>
+            <div class="detail-item">
+                <span class="detail-label">Annual Budget:</span>
+                <span class="detail-value">${{annual_allocation}}</span>
+            </div>
+        </div>
+        
+        <!-- Committee Actions -->
+        <div class="committee-actions">
+            <button class="btn btn-primary committee-join-btn">Join Committee</button>
+            <button class="btn btn-secondary committee-learn-btn">Learn More</button>
+        </div>
+    </div>
+</article>
+
+<!-- Committee Grid Layout -->
+<section class="villa-committees-section">
+    <div class="container">
+        <!-- Section Header -->
+        <header class="section-header">
+            <h2 class="section-title">Villa Capriani Committees</h2>
+            <p class="section-description">Your involvement shapes our community. Join a committee and help build an exceptional living experience.</p>
+        </header>
+        
+        <!-- Committees Grid -->
+        <div class="committees-grid">
+            <!-- Marketing & Tech Committee -->
+            <article class="villa-committee-card marketing-tech">
+                <div class="committee-banner">
+                    <img src="/wp-content/themes/blocksy-child/villa-data/committees/tech-marketing/images/banner.jpg" alt="Marketing & Tech Banner" class="committee-banner-image">
+                    <div class="committee-banner-overlay">
+                        <div class="committee-logo">
+                            <img src="/wp-content/themes/blocksy-child/villa-data/committees/tech-marketing/images/logo.png" alt="Marketing & Tech Logo" class="committee-logo-image">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="committee-content">
+                    <header class="committee-header">
+                        <h3 class="committee-title">Marketing & Tech</h3>
+                        <p class="committee-description">Drives innovative technological solutions, strategic marketing initiatives, and enhanced communication to improve owner experiences and community engagement.</p>
+                    </header>
+                    
+                    <div class="committee-responsibilities">
+                        <h4 class="responsibilities-title">Key Responsibilities</h4>
+                        <ul class="responsibilities-list">
+                            <li>Manage and enhance digital communications, website, and online presence</li>
+                            <li>Maintain and evolve a cohesive brand identity and marketing strategy</li>
+                            <li>Improve digital experiences for owners and guests</li>
+                            <li>Implement strategic communication tools for effective community engagement</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="committee-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Meeting Schedule:</span>
+                            <span class="detail-value">Monthly - First Tuesday at 7:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Annual Budget:</span>
+                            <span class="detail-value">$25,000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="committee-actions">
+                        <button class="btn btn-primary committee-join-btn">Join Committee</button>
+                        <button class="btn btn-secondary committee-learn-btn">Learn More</button>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Built Environment Committee -->
+            <article class="villa-committee-card built-environment">
+                <div class="committee-banner">
+                    <img src="/wp-content/themes/blocksy-child/villa-data/committees/architecture/images/banner.jpg" alt="Built Environment Banner" class="committee-banner-image">
+                    <div class="committee-banner-overlay">
+                        <div class="committee-logo">
+                            <img src="/wp-content/themes/blocksy-child/villa-data/committees/architecture/images/logo.png" alt="Built Environment Logo" class="committee-logo-image">
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="committee-content">
+                    <header class="committee-header">
+                        <h3 class="committee-title">Built Environment</h3>
+                        <p class="committee-description">Ensures the architectural integrity, aesthetic appeal, and overall quality of Villa Capriani's buildings, landscapes, and shared spaces.</p>
+                    </header>
+                    
+                    <div class="committee-responsibilities">
+                        <h4 class="responsibilities-title">Key Responsibilities</h4>
+                        <ul class="responsibilities-list">
+                            <li>Review, approve, and oversee exterior architectural and landscaping projects</li>
+                            <li>Review, approve, and oversee interior design and improvement projects</li>
+                            <li>Provide guidance and assistance to owners with improvement or repair projects</li>
+                            <li>Ensure compliance with approved design standards and community vision</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="committee-details">
+                        <div class="detail-item">
+                            <span class="detail-label">Meeting Schedule:</span>
+                            <span class="detail-value">Monthly - Second Wednesday at 6:30 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <span class="detail-label">Annual Budget:</span>
+                            <span class="detail-value">$5,000</span>
+                        </div>
+                    </div>
+                    
+                    <div class="committee-actions">
+                        <button class="btn btn-primary committee-join-btn">Join Committee</button>
+                        <button class="btn btn-secondary committee-learn-btn">Learn More</button>
+                    </div>
+                </div>
+            </article>
+            
+            <!-- Additional committees would follow the same pattern -->
+        </div>
+    </div>
+</section>
+
+<style>
+/* Villa Committee Cards Styling */
+.villa-committees-section {
+    padding: 60px 0;
+    background: var(--theme-palette-color-8, #f8f9fa);
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 48px;
+}
+
+.section-title {
+    font-size: var(--theme-heading-2-size, 2.5rem);
+    font-weight: var(--theme-heading-2-weight, 700);
+    color: var(--theme-palette-color-1, #1a1a1a);
+    margin-bottom: 16px;
+}
+
+.section-description {
+    font-size: var(--theme-text-size, 1.125rem);
+    color: var(--theme-palette-color-2, #4a4a4a);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.committees-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 32px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.villa-committee-card {
+    background: var(--theme-palette-color-8, #ffffff);
+    border-radius: var(--theme-border-radius, 12px);
+    overflow: hidden;
+    box-shadow: var(--theme-box-shadow, 0 4px 20px rgba(0,0,0,0.08));
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.villa-committee-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+}
+
+.committee-banner {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.committee-banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.villa-committee-card:hover .committee-banner-image {
+    transform: scale(1.05);
+}
+
+.committee-banner-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.1) 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    padding: 20px;
+}
+
+.committee-logo {
+    width: 60px;
+    height: 60px;
+    background: rgba(255,255,255,0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+}
+
+.committee-logo-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.committee-content {
+    padding: 32px;
+}
+
+.committee-header {
+    margin-bottom: 24px;
+}
+
+.committee-title {
+    font-size: var(--theme-heading-3-size, 1.75rem);
+    font-weight: var(--theme-heading-3-weight, 600);
+    color: var(--theme-palette-color-1, #1a1a1a);
+    margin-bottom: 12px;
+}
+
+.committee-description {
+    font-size: var(--theme-text-size, 1rem);
+    color: var(--theme-palette-color-2, #4a4a4a);
+    line-height: 1.6;
+}
+
+.committee-responsibilities {
+    margin-bottom: 24px;
+}
+
+.responsibilities-title {
+    font-size: var(--theme-heading-6-size, 1rem);
+    font-weight: var(--theme-heading-6-weight, 600);
+    color: var(--theme-palette-color-1, #1a1a1a);
+    margin-bottom: 12px;
+}
+
+.responsibilities-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.responsibility-item {
+    position: relative;
+    padding-left: 20px;
+    margin-bottom: 8px;
+    font-size: var(--theme-text-size, 0.95rem);
+    color: var(--theme-palette-color-2, #4a4a4a);
+    line-height: 1.5;
+}
+
+.responsibility-item:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--theme-palette-color-3, #007cba);
+    font-weight: 600;
+}
+
+.committee-details {
+    margin-bottom: 24px;
+    padding: 16px;
+    background: var(--theme-palette-color-8, #f8f9fa);
+    border-radius: var(--theme-border-radius, 8px);
+}
+
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.detail-item:last-child {
+    margin-bottom: 0;
+}
+
+.detail-label {
+    font-weight: 600;
+    color: var(--theme-palette-color-1, #1a1a1a);
+    font-size: 0.9rem;
+}
+
+.detail-value {
+    color: var(--theme-palette-color-2, #4a4a4a);
+    font-size: 0.9rem;
+}
+
+.committee-actions {
+    display: flex;
+    gap: 12px;
+}
+
+.btn {
+    padding: 12px 24px;
+    border-radius: var(--theme-border-radius, 6px);
+    font-weight: 600;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 0.95rem;
+}
+
+.btn-primary {
+    background: var(--theme-palette-color-3, #007cba);
+    color: var(--theme-palette-color-8, #ffffff);
+}
+
+.btn-primary:hover {
+    background: var(--theme-palette-color-4, #005a87);
+    transform: translateY(-1px);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--theme-palette-color-3, #007cba);
+    border: 2px solid var(--theme-palette-color-3, #007cba);
+}
+
+.btn-secondary:hover {
+    background: var(--theme-palette-color-3, #007cba);
+    color: var(--theme-palette-color-8, #ffffff);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .committees-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+        padding: 0 20px;
+    }
+    
+    .committee-content {
+        padding: 24px;
+    }
+    
+    .committee-actions {
+        flex-direction: column;
+    }
+    
+    .btn {
+        text-align: center;
+    }
+}
+</style>

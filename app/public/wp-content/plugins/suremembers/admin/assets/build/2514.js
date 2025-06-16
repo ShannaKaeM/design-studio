@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunksuremembers=globalThis.webpackChunksuremembers||[]).push([[2514],{2514:(s,e,r)=>{r.r(e),r.d(e,{sc_premium_tag:()=>u});var t=r(4589),c=r(3659);r(857);const u=class{constructor(s){(0,t.r)(this,s),this.size="small"}render(){return(0,t.h)("sc-tag",{type:"success",size:this.size},(0,c._)("Premium","surecart"))}}}}]);

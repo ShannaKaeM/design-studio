@@ -1,0 +1,85 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "studio/button",
+    "version": "1.0.0",
+    "title": "Studio Button",
+    "category": "studio-blocks",
+    "icon": "button",
+    "description": "A customizable button with presets, icons, and hover effects.",
+    "keywords": ["button", "link", "cta", "call to action", "studio"],
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "className": true,
+        "color": {
+            "background": true,
+            "text": true,
+            "gradients": true
+        },
+        "spacing": {
+            "margin": true,
+            "padding": true
+        },
+        "typography": {
+            "fontSize": true,
+            "lineHeight": true
+        },
+        "align": true,
+        "__experimentalBorder": {
+            "color": true,
+            "radius": true,
+            "style": true,
+            "width": true
+        }
+    },
+    "attributes": {
+        "text": {
+            "type": "string",
+            "default": "Click here"
+        },
+        "url": {
+            "type": "string",
+            "default": ""
+        },
+        "linkTarget": {
+            "type": "string",
+            "default": ""
+        },
+        "rel": {
+            "type": "string",
+            "default": ""
+        },
+        "buttonPreset": {
+            "type": "string",
+            "default": "primary"
+        },
+        "size": {
+            "type": "string",
+            "default": "medium"
+        },
+        "width": {
+            "type": "string",
+            "default": "auto"
+        },
+        "iconPosition": {
+            "type": "string",
+            "default": "none"
+        },
+        "icon": {
+            "type": "string",
+            "default": ""
+        }
+    },
+    "example": {
+        "attributes": {
+            "text": "Get Started",
+            "buttonPreset": "primary",
+            "size": "large"
+        }
+    },
+    "textdomain": "studio",
+    "editorScript": "file:./build/index.js",
+    "editorStyle": "file:./editor.css",
+    "style": "file:./style.css"
+}

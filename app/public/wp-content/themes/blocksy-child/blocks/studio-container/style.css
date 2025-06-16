@@ -1,0 +1,83 @@
+/* Studio Container Block Styles */
+
+.studio-container {
+    position: relative;
+    box-sizing: border-box;
+}
+
+/* Width Presets */
+.studio-container.width-content {
+    max-width: var(--wp--style--global--content-size, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.studio-container.width-wide {
+    max-width: var(--wp--style--global--wide-size, 1400px);
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.studio-container.width-full {
+    max-width: 100%;
+    width: 100%;
+}
+
+/* Padding Presets */
+.studio-container.padding-none {
+    padding: 0;
+}
+
+.studio-container.padding-small {
+    padding: var(--wp--preset--spacing--30, 1rem);
+}
+
+.studio-container.padding-medium {
+    padding: var(--wp--preset--spacing--50, 2rem);
+}
+
+.studio-container.padding-large {
+    padding: var(--wp--preset--spacing--60, 3rem);
+}
+
+.studio-container.padding-xlarge {
+    padding: var(--wp--preset--spacing--70, 4rem);
+}
+
+/* Responsive padding adjustments */
+@media (max-width: 768px) {
+    .studio-container.padding-large {
+        padding: var(--wp--preset--spacing--50, 2rem);
+    }
+    
+    .studio-container.padding-xlarge {
+        padding: var(--wp--preset--spacing--60, 3rem);
+    }
+}
+
+/* Nested container spacing */
+.studio-container .studio-container {
+    margin-top: var(--wp--style--block-gap, 1.5rem);
+    margin-bottom: var(--wp--style--block-gap, 1.5rem);
+}
+
+/* First and last child adjustments */
+.studio-container > *:first-child {
+    margin-top: 0;
+}
+
+.studio-container > *:last-child {
+    margin-bottom: 0;
+}
+
+/* Background color support */
+.studio-container.has-background {
+    padding: var(--wp--preset--spacing--50, 2rem);
+}
+
+/* Full width container with background */
+.studio-container.width-full.has-background > * {
+    max-width: var(--wp--style--global--content-size, 1200px);
+    margin-left: auto;
+    margin-right: auto;
+}
