@@ -95,16 +95,70 @@ Studio is a custom WordPress block system integrated directly into the theme (no
 - [x] Document preset creation workflow
 - [x] Build comprehensive preset library
 
-## Phase 4: Starter Preset Library 
+## Phase 4: **AI Design System Consultant** 🚀 NEXT MAJOR PHASE
 
-### Goals (After Phase 3 completion):
-- [x] Fill in starter block presets based on testing
-- [x] Create semantic preset collection (primary, secondary, accent, etc.)
-- [x] Build preset categories (headings, body text, CTAs, layout, etc.)
-- [x] Export/Import preset functionality
-- [x] Preset preview system in admin
+### **The Revolutionary Goal**
+Build an AI system that can analyze any component image and automatically:
+1. **Audit existing theme** for consistency conflicts
+2. **Generate missing presets** needed for the component  
+3. **Output JSON configuration** for instant component creation
+4. **Maintain design system integrity** across all components
 
-## Phase 5: Pattern Creation 
+### **Core AI Capabilities to Build:**
+
+#### **1. Visual Component Analysis**
+- [ ] Image processing and layout detection
+- [ ] Typography and spacing analysis  
+- [ ] Color palette extraction
+- [ ] Component structure identification
+- [ ] Design pattern recognition
+
+#### **2. Theme Audit Engine**
+- [ ] theme.json scanning and analysis
+- [ ] Existing preset inventory
+- [ ] Consistency conflict detection
+- [ ] Missing preset identification
+- [ ] Design token gap analysis
+
+#### **3. Intelligent Preset Generation**
+- [ ] Automatic preset creation for missing components
+- [ ] Naming convention adherence
+- [ ] Design system consistency maintenance
+- [ ] JSON structure generation for new presets
+
+#### **4. Conversational Interface**
+- [ ] Natural language component requests
+- [ ] Design decision consultation
+- [ ] Conflict resolution recommendations
+- [ ] Interactive preset refinement
+
+### **Success Criteria:**
+- [ ] AI can analyze any hero section image and output working JSON
+- [ ] System detects and resolves design inconsistencies
+- [ ] New presets automatically follow established naming conventions
+- [ ] Complete component generated with zero manual coding
+- [ ] Design system grows intelligently with each new component
+
+### **Technical Implementation:**
+- [ ] Vision API integration for image analysis
+- [ ] Theme.json parsing and manipulation engine
+- [ ] Preset generation algorithms
+- [ ] JSON component configuration system
+- [ ] Conversational AI interface
+
+---
+
+## Phase 5: Starter Preset Library 
+
+### Goals (MOVED TO AFTER AI SYSTEM):
+- [ ] Fill in starter block presets based on AI-generated components
+- [ ] Create semantic preset collection using AI analysis
+- [ ] Build preset categories automatically
+- [ ] AI-powered preset preview system
+
+---
+
+## Phase 6: Pattern Creation 
 
 ### Manual Pattern Development:
 - [ ] Create first full pattern manually using Studio blocks
@@ -114,7 +168,7 @@ Studio is a custom WordPress block system integrated directly into the theme (no
 - [ ] Pattern registration system
 - [ ] AI-compatible pattern structure
 
-## Phase 6: HTML to Blocks Enhancement 
+## Phase 7: HTML to Blocks Enhancement 
 
 ### Goals:
 - [ ] Enhance HTML converter based on pattern learnings
@@ -122,7 +176,7 @@ Studio is a custom WordPress block system integrated directly into the theme (no
 - [ ] Refine block recognition algorithms
 - [ ] Integration with preset system
 
-## Phase 7: AI Integration 
+## Phase 8: AI Integration 
 
 ### Features:
 - [ ] AI prompt system for building with Studio blocks

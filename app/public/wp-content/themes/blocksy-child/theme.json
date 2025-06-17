@@ -247,6 +247,45 @@
                         },
                         "created": "2025-06-16 23:06:19",
                         "id": "sectiontest4_1750115179"
+                    },
+                    "section-full_1750119231": {
+                        "name": "Section Full",
+                        "description": "Saved from editor on 6/16/2025",
+                        "attributes": {
+                            "widthPreset": "content",
+                            "paddingPreset": "medium",
+                            "heightPreset": "auto",
+                            "tagName": "section",
+                            "minHeight": ""
+                        },
+                        "created": "2025-06-17 00:13:51",
+                        "id": "section-full_1750119231"
+                    },
+                    "content-wide_1750119310": {
+                        "name": "Content Wide",
+                        "description": "Saved from editor on 6/16/2025",
+                        "attributes": {
+                            "widthPreset": "wide",
+                            "paddingPreset": "medium",
+                            "heightPreset": "25vh",
+                            "tagName": "div",
+                            "minHeight": ""
+                        },
+                        "created": "2025-06-17 00:15:10",
+                        "id": "content-wide_1750119310"
+                    },
+                    "content-wrapper_1750119395": {
+                        "name": "Content Wrapper",
+                        "description": "Saved from editor on 6/16/2025",
+                        "attributes": {
+                            "widthPreset": "custom",
+                            "paddingPreset": "md",
+                            "heightPreset": "auto",
+                            "tagName": "div",
+                            "minHeight": ""
+                        },
+                        "created": "2025-06-17 00:16:35",
+                        "id": "content-wrapper_1750119395"
                     }
                 }
             },

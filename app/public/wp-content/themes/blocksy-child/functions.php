@@ -723,9 +723,17 @@ class Studio_Theme_Integration {
     public function render_block_presets_manager() {
         // Get block presets from theme.json
         $theme_json_path = get_stylesheet_directory() . '/theme.json';
-        $theme_json_content = file_get_contents($theme_json_path);
-        $theme_json = json_decode($theme_json_content, true);
-        $block_presets = isset($theme_json['settings']['custom']['blockPresets']) ? $theme_json['settings']['custom']['blockPresets'] : array();
+        $block_presets = array();
+        
+        if (file_exists($theme_json_path)) {
+            $theme_json_content = file_get_contents($theme_json_path);
+            if ($theme_json_content !== false) {
+                $theme_json = json_decode($theme_json_content, true);
+                if ($theme_json && isset($theme_json['settings']['custom']['blockPresets'])) {
+                    $block_presets = $theme_json['settings']['custom']['blockPresets'];
+                }
+            }
+        }
         
         // Group presets by block type
         $presets_by_block = array();
@@ -1323,10 +1331,36 @@ class Studio_Theme_Integration {
         
         // Load theme.json
         $theme_json_path = get_stylesheet_directory() . '/theme.json';
-        $theme_json_content = file_get_contents($theme_json_path);
-        $theme_json = json_decode($theme_json_content, true);
         
-        // Ensure blockStyles section exists
+        error_log('Studio Save Preset: Theme JSON path: ' . $theme_json_path);
+        
+        if (!file_exists($theme_json_path)) {
+            error_log('Studio Save Preset: Theme.json file not found');
+            wp_send_json_error('Theme.json file not found');
+            return;
+        }
+        
+        if (!is_writable($theme_json_path)) {
+            error_log('Studio Save Preset: Theme.json file not writable');
+            wp_send_json_error('Theme.json file not writable');
+            return;
+        }
+        
+        $theme_json_content = file_get_contents($theme_json_path);
+        if ($theme_json_content === false) {
+            error_log('Studio Save Preset: Could not read theme.json file');
+            wp_send_json_error('Could not read theme.json file');
+            return;
+        }
+        
+        $theme_json = json_decode($theme_json_content, true);
+        if ($theme_json === null) {
+            error_log('Studio Save Preset: Invalid JSON in theme.json file');
+            wp_send_json_error('Invalid JSON in theme.json file');
+            return;
+        }
+        
+        // Initialize presets structure if it doesn't exist
         if (!isset($theme_json['settings'])) {
             $theme_json['settings'] = array();
         }
@@ -1658,12 +1692,37 @@ function handle_studio_save_preset() {
     // Sanitize attributes based on block type
     if ($block_type === 'container') {
         $preset['attributes'] = array(
+            // Layout attributes
             'widthPreset' => sanitize_text_field($preset_data['attributes']['widthPreset']),
             'paddingPreset' => sanitize_text_field($preset_data['attributes']['paddingPreset']),
             'heightPreset' => sanitize_text_field($preset_data['attributes']['heightPreset']),
             'tagName' => sanitize_text_field($preset_data['attributes']['tagName']),
             'minHeight' => sanitize_text_field($preset_data['attributes']['minHeight'])
         );
+        
+        // Add styling attributes if they exist
+        if (isset($preset_data['attributes']['backgroundColor'])) {
+            $preset['attributes']['backgroundColor'] = sanitize_text_field($preset_data['attributes']['backgroundColor']);
+        }
+        if (isset($preset_data['attributes']['textColor'])) {
+            $preset['attributes']['textColor'] = sanitize_text_field($preset_data['attributes']['textColor']);
+        }
+        if (isset($preset_data['attributes']['gradient'])) {
+            $preset['attributes']['gradient'] = sanitize_text_field($preset_data['attributes']['gradient']);
+        }
+        if (isset($preset_data['attributes']['borderColor'])) {
+            $preset['attributes']['borderColor'] = sanitize_text_field($preset_data['attributes']['borderColor']);
+        }
+        if (isset($preset_data['attributes']['className'])) {
+            $preset['attributes']['className'] = sanitize_text_field($preset_data['attributes']['className']);
+        }
+        if (isset($preset_data['attributes']['anchor'])) {
+            $preset['attributes']['anchor'] = sanitize_text_field($preset_data['attributes']['anchor']);
+        }
+        if (isset($preset_data['attributes']['style'])) {
+            // Style is a complex object, so we need to sanitize it recursively
+            $preset['attributes']['style'] = sanitize_style_object($preset_data['attributes']['style']);
+        }
     }
     
     error_log('Studio Save Preset: Sanitized preset: ' . print_r($preset, true));
@@ -1775,4 +1834,22 @@ function enqueue_studio_block_editor_assets() {
         console.log("Studio Admin globals loaded:", window.studioAdmin);
         console.log("Studio Theme Data loaded:", window.studioThemeData);
     ');
+}
+
+function sanitize_style_object($style) {
+    if (!is_array($style)) {
+        return $style;
+    }
+    
+    $sanitized_style = array();
+    
+    foreach ($style as $key => $value) {
+        if (is_array($value)) {
+            $sanitized_style[$key] = sanitize_style_object($value);
+        } else {
+            $sanitized_style[$key] = sanitize_text_field($value);
+        }
+    }
+    
+    return $sanitized_style;
 }

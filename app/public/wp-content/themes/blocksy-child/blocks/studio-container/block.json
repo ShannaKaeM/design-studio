@@ -16,15 +16,66 @@
             "background": true,
             "gradients": true,
             "link": true,
-            "text": false
+            "text": true,
+            "heading": true,
+            "button": true,
+            "__experimentalDefaultControls": {
+                "background": true,
+                "text": true
+            }
+        },
+        "border": {
+            "color": true,
+            "radius": true,
+            "style": true,
+            "width": true,
+            "__experimentalDefaultControls": {
+                "color": true,
+                "radius": true,
+                "style": true,
+                "width": true
+            }
         },
         "spacing": {
             "margin": true,
             "padding": true,
-            "blockGap": true
+            "blockGap": true,
+            "__experimentalDefaultControls": {
+                "margin": true,
+                "padding": true,
+                "blockGap": true
+            }
         },
+        "typography": {
+            "fontSize": true,
+            "fontFamily": true,
+            "fontStyle": true,
+            "fontWeight": true,
+            "letterSpacing": true,
+            "lineHeight": true,
+            "textDecoration": true,
+            "textTransform": true,
+            "__experimentalDefaultControls": {
+                "fontSize": true
+            }
+        },
+        "dimensions": {
+            "minHeight": true,
+            "aspectRatio": true
+        },
+        "position": {
+            "sticky": true
+        },
+        "shadow": true,
         "align": ["wide", "full"],
-        "__experimentalLayout": true
+        "__experimentalLayout": true,
+        "layout": {
+            "allowSwitching": false,
+            "allowInheriting": false,
+            "default": {
+                "type": "default"
+            }
+        }
     },
     "attributes": {
         "widthPreset": {
@@ -46,6 +97,29 @@
         "minHeight": {
             "type": "string",
             "default": ""
+        },
+        "backgroundImage": {
+            "type": "object",
+            "default": null
+        },
+        "backgroundImageId": {
+            "type": "number",
+            "default": null
+        },
+        "backgroundImageUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "backgroundOverlay": {
+            "type": "object",
+            "default": {
+                "color": "",
+                "opacity": 0.5
+            }
+        },
+        "hasBackgroundOverlay": {
+            "type": "boolean",
+            "default": false
         }
     },
     "example": {

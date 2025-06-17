@@ -239,6 +239,89 @@ class Studio_Theme_Integration {
 4. **Design Decisions**: AI creates new presets as needed
 5. **HTML Conversion**: AI-powered HTML to blocks transformation
 
+## AI Design System Consultant Architecture
+
+### **Core Innovation**
+The AI Design System Consultant represents a paradigm shift from traditional design systems to an intelligent system that can analyze visual components and automatically generate consistent, production-ready code.
+
+### **System Components:**
+
+#### **1. Visual Analysis Engine**
+```
+Component Analysis Pipeline:
+├── Image Processing → Layout detection, element identification
+├── Typography Analysis → Font sizes, weights, spacing extraction  
+├── Color Extraction → Palette analysis and token matching
+├── Spacing Analysis → Margin, padding, gap measurements
+└── Pattern Recognition → Component type classification
+```
+
+#### **2. Theme Audit System**
+```
+Consistency Engine:
+├── theme.json Scanner → Existing preset inventory
+├── Conflict Detection → Design inconsistency identification
+├── Gap Analysis → Missing preset detection  
+├── Token Comparison → Color, spacing, typography matching
+└── Recommendation Engine → Intelligent design decisions
+```
+
+#### **3. Preset Generation Engine**
+```
+Automatic Preset Creation:
+├── Naming Convention Engine → Consistent preset naming
+├── JSON Structure Generator → theme.json formatting
+├── Design Token Creator → New token generation
+├── Preset Validator → Consistency verification
+└── System Integration → Seamless preset addition
+```
+
+#### **4. Component JSON Generator**
+```
+Output Generation:
+├── Block Structure Mapping → Generic block assignment
+├── Preset Application → Context-driven styling
+├── Content Hydration → Dynamic content integration
+├── Layout Configuration → Container and grid setup
+└── Styling Resolution → Final CSS property assignment
+```
+
+### **Data Flow Architecture:**
+```
+Image Input → AI Analysis → Theme Audit → Preset Generation → JSON Output → Component Rendering
+
+DETAILED FLOW:
+1. Visual Analysis Engine processes component image
+2. Theme Audit System compares against existing design system
+3. Conflict Resolution Engine provides recommendations  
+4. Preset Generation Engine creates missing presets
+5. Component JSON Generator outputs configuration
+6. WordPress renders component using generic blocks + presets
+```
+
+### **AI Integration Points:**
+- **Vision API**: For image analysis and component detection
+- **Language Models**: For naming conventions and design decisions
+- **Pattern Recognition**: For component type classification
+- **Conversational Interface**: For user interaction and refinement
+
+### **Technical Implementation:**
+```php
+// AI Analysis Controller
+class AI_Design_Consultant {
+    public function analyze_component($image_data) {
+        $analysis = $this->vision_api->analyze($image_data);
+        $audit = $this->theme_auditor->check_consistency($analysis);
+        $presets = $this->preset_generator->create_missing($audit);
+        $config = $this->json_generator->build_component($analysis, $presets);
+        
+        return $config;
+    }
+}
+```
+
+This architecture enables the revolutionary "One Image to Full Site" capability while maintaining perfect design system consistency.
+
 ## File Structure (Current Implementation)
 ```
 /blocksy-child/
