@@ -30,14 +30,23 @@ class StudioSelectorBuilder {
                 'code' => 'code, pre'
             ],
             'Components' => [
-                'buttons' => 'button, .button, .btn',
-                'button-hover' => 'button:hover, .button:hover, .btn:hover',
-                'cards' => '.card',
-                'card-headers' => '.card-header, .card h3',
-                'hero-section' => '.hero, .hero-section',
-                'hero-title' => '.hero h1, .hero-section h1',
-                'navigation' => 'nav, .navigation',
-                'nav-links' => 'nav a, .navigation a'
+                'button-base' => '.s-btn',
+                'button-primary' => '.s-btn--primary',
+                'button-secondary' => '.s-btn--secondary', 
+                'button-outline' => '.s-btn--outline',
+                'button-small' => '.s-btn--small',
+                'button-large' => '.s-btn--large',
+                'button-hover' => '.s-btn:hover',
+                'card-base' => '.s-card',
+                'card-title' => '.s-card__title',
+                'card-content' => '.s-card__content',
+                'card-header' => '.s-card__header',
+                'card-footer' => '.s-card__footer',
+                'hero-section' => '.s-hero',
+                'hero-title' => '.s-hero__title',
+                'hero-subtitle' => '.s-hero__subtitle',
+                'input-base' => '.s-input',
+                'input-focus' => '.s-input:focus'
             ],
             'Layout' => [
                 'containers' => '.container, .wrapper',
@@ -75,6 +84,138 @@ class StudioSelectorBuilder {
      */
     private function load_selectors() {
         $this->selectors = get_option('studio_selectors', []);
+        
+        // Initialize default component selectors if they don't exist
+        $this->init_default_components();
+    }
+    
+    /**
+     * Initialize default component selectors
+     */
+    private function init_default_components() {
+        $default_components = [
+            'Button Base' => [
+                'selector' => '.s-btn',
+                'variables' => [
+                    'display' => 'inline-flex',
+                    'align-items' => 'center',
+                    'justify-content' => 'center',
+                    'padding' => 'var(--s-space-3) var(--s-space-6)',
+                    'border-radius' => 'var(--s-radius-1)',
+                    'font-size' => 'var(--s-text-base)',
+                    'font-weight' => 'var(--s-font-medium)',
+                    'text-decoration' => 'none',
+                    'border' => '1px solid transparent',
+                    'cursor' => 'pointer',
+                    'transition' => 'all 0.2s ease',
+                    'gap' => 'var(--s-space-2)'
+                ]
+            ],
+            'Button Primary' => [
+                'selector' => '.s-btn--primary',
+                'variables' => [
+                    'background-color' => 'var(--s-primary)',
+                    'color' => 'var(--s-base-lightest)',
+                    'border-color' => 'var(--s-primary)'
+                ]
+            ],
+            'Button Primary Hover' => [
+                'selector' => '.s-btn--primary:hover',
+                'variables' => [
+                    'background-color' => 'var(--s-primary-dark)',
+                    'border-color' => 'var(--s-primary-dark)',
+                    'transform' => 'translateY(-1px)'
+                ]
+            ],
+            'Button Secondary' => [
+                'selector' => '.s-btn--secondary',
+                'variables' => [
+                    'background-color' => 'var(--s-secondary)',
+                    'color' => 'var(--s-base-lightest)',
+                    'border-color' => 'var(--s-secondary)'
+                ]
+            ],
+            'Button Outline' => [
+                'selector' => '.s-btn--outline',
+                'variables' => [
+                    'background-color' => 'transparent',
+                    'color' => 'var(--s-primary)',
+                    'border-color' => 'var(--s-primary)'
+                ]
+            ],
+            'Button Outline Hover' => [
+                'selector' => '.s-btn--outline:hover',
+                'variables' => [
+                    'background-color' => 'var(--s-primary)',
+                    'color' => 'var(--s-base-lightest)'
+                ]
+            ],
+            'Button Small' => [
+                'selector' => '.s-btn--small',
+                'variables' => [
+                    'padding' => 'var(--s-space-2) var(--s-space-4)',
+                    'font-size' => 'var(--s-text-sm)'
+                ]
+            ],
+            'Button Large' => [
+                'selector' => '.s-btn--large',
+                'variables' => [
+                    'padding' => 'var(--s-space-4) var(--s-space-8)',
+                    'font-size' => 'var(--s-text-lg)'
+                ]
+            ],
+            'Card Base' => [
+                'selector' => '.s-card',
+                'variables' => [
+                    'background-color' => 'var(--s-base-lightest)',
+                    'border-radius' => 'var(--s-radius-2)',
+                    'box-shadow' => 'var(--s-shadow-1)',
+                    'padding' => 'var(--s-space-6)',
+                    'border' => '1px solid var(--s-base-light)'
+                ]
+            ],
+            'Card Hover' => [
+                'selector' => '.s-card:hover',
+                'variables' => [
+                    'box-shadow' => 'var(--s-shadow-2)',
+                    'transform' => 'translateY(-2px)',
+                    'transition' => 'all 0.3s ease'
+                ]
+            ],
+            'Card Title' => [
+                'selector' => '.s-card__title',
+                'variables' => [
+                    'font-size' => 'var(--s-text-xl)',
+                    'font-weight' => 'var(--s-font-semibold)',
+                    'color' => 'var(--s-base-darkest)',
+                    'margin' => '0'
+                ]
+            ],
+            'Card Content' => [
+                'selector' => '.s-card__content',
+                'variables' => [
+                    'color' => 'var(--s-base-dark)',
+                    'line-height' => 'var(--s-leading-relaxed)'
+                ]
+            ]
+        ];
+        
+        foreach ($default_components as $name => $config) {
+            if (!isset($this->selectors[$name])) {
+                $this->selectors[$name] = [
+                    'name' => $name,
+                    'selector' => $config['selector'],
+                    'variables' => $config['variables'],
+                    'enabled' => true,
+                    'created' => current_time('mysql'),
+                    'modified' => current_time('mysql'),
+                    'type' => 'component'
+                ];
+            }
+        }
+        
+        // Save if new components were added
+        update_option('studio_selectors', $this->selectors);
     }
     
     /**
@@ -123,6 +264,19 @@ class StudioSelectorBuilder {
     public function remove_selector($name) {
         if (isset($this->selectors[$name])) {
             unset($this->selectors[$name]);
+            $this->save_selectors();
+            return true;
+        }
+        return false;
+    }
+    
+    /**
+     * Toggle selector enabled state
+     */
+    public function toggle_selector($name) {
+        if (isset($this->selectors[$name])) {
+            $this->selectors[$name]['enabled'] = !$this->selectors[$name]['enabled'];
+            $this->selectors[$name]['modified'] = time();
             $this->save_selectors();
             return true;
         }

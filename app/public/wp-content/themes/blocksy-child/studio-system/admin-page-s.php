@@ -6,6 +6,7 @@
 
 // Include dependencies
 require_once 'scan-variables-s.php';
+require_once 'selector-builder-enhanced.php';
 
 // Add admin menu
 add_action('admin_menu', function() {
@@ -192,6 +193,150 @@ add_action('admin_post_s_save_variables', function() {
     exit;
 });
 
+// Handle selector saving
+add_action('admin_post_s_save_selector', function() {
+    if (!current_user_can('manage_options') || !wp_verify_nonce($_POST['s_selector_nonce'], 's_selector')) {
+        wp_die('Unauthorized');
+    }
+    
+    $selector_name = sanitize_text_field($_POST['selector_name']);
+    $selector_css = sanitize_text_field($_POST['selector_css']);
+    $properties = $_POST['properties'] ?? [];
+    
+    // Build variables array from properties
+    $variables = [];
+    foreach ($properties as $prop) {
+        if (!empty($prop['name']) && !empty($prop['value'])) {
+            $variables[sanitize_text_field($prop['name'])] = sanitize_text_field($prop['value']);
+        }
+    }
+    
+    // Save selector
+    $builder = new StudioSelectorBuilder();
+    $builder->add_selector($selector_name, $selector_css, $variables);
+    
+    // Generate CSS file
+    $css = $builder->generate_css();
+    $selector_file = get_stylesheet_directory() . '/assets/css/s-selectors.css';
+    file_put_contents($selector_file, $css);
+    
+    wp_redirect(add_query_arg(['tab' => 'selectors', 'selector_saved' => '1'], wp_get_referer()));
+    exit;
+});
+
+// Handle selector deletion
+add_action('admin_post_s_delete_selector', function() {
+    if (!current_user_can('manage_options') || !wp_verify_nonce($_GET['nonce'], 's_delete_selector')) {
+        wp_die('Unauthorized');
+    }
+    
+    $selector_name = sanitize_text_field($_GET['selector_name']);
+    
+    // Delete selector
+    $builder = new StudioSelectorBuilder();
+    $builder->remove_selector($selector_name);
+    
+    // Regenerate CSS file
+    $css = $builder->generate_css();
+    $selector_file = get_stylesheet_directory() . '/assets/css/s-selectors.css';
+    file_put_contents($selector_file, $css);
+    
+    wp_redirect(add_query_arg(['tab' => 'selectors', 'selector_deleted' => '1'], wp_get_referer()));
+    exit;
+});
+
+// Handle selector update
+add_action('admin_post_s_update_selector', function() {
+    if (!current_user_can('manage_options') || !wp_verify_nonce($_POST['s_selector_nonce'], 's_selector')) {
+        wp_die('Unauthorized');
+    }
+    
+    $original_name = sanitize_text_field($_POST['original_name']);
+    $selector_name = sanitize_text_field($_POST['selector_name']);
+    $selector_css = sanitize_text_field($_POST['selector_css']);
+    $properties = $_POST['properties'] ?? [];
+    
+    // Build variables array from properties
+    $variables = [];
+    foreach ($properties as $prop) {
+        if (!empty($prop['name']) && !empty($prop['value'])) {
+            $variables[sanitize_text_field($prop['name'])] = sanitize_text_field($prop['value']);
+        }
+    }
+    
+    // Update selector
+    $builder = new StudioSelectorBuilder();
+    
+    // If name changed, remove old and add new
+    if ($original_name !== $selector_name) {
+        $builder->remove_selector($original_name);
+        $builder->add_selector($selector_name, $selector_css, $variables);
+    } else {
+        // Just update existing
+        $builder->update_selector($selector_name, [
+            'selector' => $selector_css,
+            'variables' => $variables
+        ]);
+    }
+    
+    // Generate CSS file
+    $css = $builder->generate_css();
+    $selector_file = get_stylesheet_directory() . '/assets/css/s-selectors.css';
+    file_put_contents($selector_file, $css);
+    
+    wp_redirect(add_query_arg(['tab' => 'selectors', 'selector_updated' => '1'], wp_get_referer()));
+    exit;
+});
+
+// Handle selector toggle
+add_action('admin_post_s_toggle_selector', function() {
+    if (!current_user_can('manage_options') || !wp_verify_nonce($_GET['nonce'], 's_toggle_selector')) {
+        wp_die('Unauthorized');
+    }
+    
+    $selector_name = sanitize_text_field($_GET['selector_name']);
+    
+    // Toggle selector
+    $builder = new StudioSelectorBuilder();
+    $builder->toggle_selector($selector_name);
+    
+    // Regenerate CSS file
+    $css = $builder->generate_css();
+    $selector_file = get_stylesheet_directory() . '/assets/css/s-selectors.css';
+    file_put_contents($selector_file, $css);
+    
+    wp_redirect(add_query_arg(['tab' => 'selectors', 'selector_toggled' => '1'], wp_get_referer()));
+    exit;
+});
+
+// Handle utility generation
+add_action('admin_post_s_generate_utilities', function() {
+    if (!current_user_can('manage_options') || !wp_verify_nonce($_GET['nonce'], 's_generate_utilities')) {
+        wp_die('Unauthorized');
+    }
+    
+    // Include the utility generator
+    require_once get_stylesheet_directory() . '/studio-system/generate-utilities.php';
+    
+    // Generate utilities
+    if (function_exists('Studio\studio_generate_utilities')) {
+        $result = \Studio\studio_generate_utilities();
+    } else if (function_exists('studio_generate_utilities')) {
+        $result = studio_generate_utilities();
+    } else {
+        // Try creating a new instance directly
+        $generator = new \Studio\UtilityGenerator();
+        $result = $generator->generate();
+    }
+    
+    if ($result) {
+        wp_redirect(add_query_arg('utilities_generated', '1', wp_get_referer()));
+    } else {
+        wp_redirect(add_query_arg('utilities_error', '1', wp_get_referer()));
+    }
+    exit;
+});
+
 // Generate custom CSS file
 function s_generate_custom_css($variables) {
     $css = ":root {\n";
@@ -216,6 +361,24 @@ function s_admin_page() {
         <?php if (isset($_GET['updated'])): ?>
             <div class="notice notice-success is-dismissible">
                 <p>Design system variables updated successfully!</p>
+            </div>
+        <?php endif; ?>
+        
+        <?php if (isset($_GET['utilities_generated'])): ?>
+            <div class="notice notice-success is-dismissible">
+                <p>Utility classes generated successfully!</p>
+            </div>
+        <?php endif; ?>
+        
+        <?php if (isset($_GET['utilities_error'])): ?>
+            <div class="notice notice-error is-dismissible">
+                <p>Error generating utility classes. Please check file permissions.</p>
+            </div>
+        <?php endif; ?>
+        
+        <?php if (isset($_GET['selector_saved'])): ?>
+            <div class="notice notice-success is-dismissible">
+                <p>Selector rule saved successfully!</p>
             </div>
         <?php endif; ?>
         
@@ -250,7 +413,7 @@ function s_admin_page() {
         <div id="selectors" class="s-tab-content">
             <h2>Selector Builder</h2>
             <p>Apply CSS variables to any element on your site without writing code.</p>
-            <p class="description">This feature is coming soon!</p>
+            <?php s_render_selector_builder(); ?>
         </div>
         
         <!-- Utilities Tab -->
@@ -263,6 +426,24 @@ function s_admin_page() {
             if (file_exists($utils_file)): ?>
                 <div class="notice notice-info inline">
                     <p>Utilities last generated: <?php echo date('Y-m-d H:i:s', filemtime($utils_file)); ?></p>
+                </div>
+                
+                <h3>Available Utility Classes:</h3>
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 4px; margin: 20px 0;">
+                    <h4>Colors</h4>
+                    <p><code>.text-primary</code>, <code>.bg-primary</code>, <code>.border-primary</code> (and all color variants)</p>
+                    
+                    <h4>Spacing</h4>
+                    <p><code>.p-sm</code>, <code>.m-lg</code>, <code>.px-md</code>, <code>.my-xl</code>, etc.</p>
+                    
+                    <h4>Typography</h4>
+                    <p><code>.text-sm</code>, <code>.text-lg</code>, <code>.font-bold</code>, <code>.leading-tight</code></p>
+                    
+                    <h4>Layout</h4>
+                    <p><code>.flex</code>, <code>.grid</code>, <code>.hidden</code>, <code>.w-full</code></p>
+                    
+                    <h4>Border Radius</h4>
+                    <p><code>.rounded-sm</code>, <code>.rounded-lg</code>, <code>.rounded-xl</code></p>
                 </div>
             <?php else: ?>
                 <p class="description">No utilities generated yet. Click the button below to generate them.</p>
@@ -319,8 +500,9 @@ function s_admin_page() {
     }
     
     function generateUtilities() {
-        // TODO: Implement utility generation
-        alert('Utility generation coming soon!');
+        if (confirm('Generate utility classes from your S variables?')) {
+            window.location.href = '<?php echo add_query_arg(['action' => 's_generate_utilities', 'nonce' => wp_create_nonce('s_generate_utilities')], admin_url('admin-post.php')); ?>';
+        }
     }
     </script>
     <?php
@@ -400,4 +582,283 @@ function s_render_control($var, $current_value) {
     }
     
     echo '</div>';
+}
+
+// Render selector builder interface
+function s_render_selector_builder() {
+    $builder = new StudioSelectorBuilder();
+    $selectors = $builder->get_selectors();
+    $presets = $builder->get_presets();
+    
+    // Display success messages
+    if (isset($_GET['selector_saved'])) {
+        echo '<div class="notice notice-success is-dismissible"><p>Selector saved successfully!</p></div>';
+    }
+    if (isset($_GET['selector_updated'])) {
+        echo '<div class="notice notice-success is-dismissible"><p>Selector updated successfully!</p></div>';
+    }
+    if (isset($_GET['selector_deleted'])) {
+        echo '<div class="notice notice-success is-dismissible"><p>Selector deleted successfully!</p></div>';
+    }
+    if (isset($_GET['selector_toggled'])) {
+        echo '<div class="notice notice-success is-dismissible"><p>Selector toggled successfully!</p></div>';
+    }
+    ?>
+    <div class="s-selector-builder">
+        <div class="s-selector-form">
+            <h3>Create New Selector Rule</h3>
+            <form method="post" action="<?php echo admin_url('admin-post.php'); ?>">
+                <input type="hidden" name="action" value="s_save_selector">
+                <input type="hidden" name="original_name" value="">
+                <?php wp_nonce_field('s_selector', 's_selector_nonce'); ?>
+                
+                <div class="s-control">
+                    <label>Rule Name</label>
+                    <input type="text" name="selector_name" placeholder="e.g., hero-title" required>
+                </div>
+                
+                <div class="s-control">
+                    <label>CSS Selector</label>
+                    <input type="text" name="selector_css" placeholder="e.g., .hero h1" required>
+                    <p class="description">Enter any valid CSS selector</p>
+                </div>
+                
+                <div class="s-control">
+                    <label>Or Choose from Presets:</label>
+                    <select name="selector_preset" onchange="updateSelectorFromPreset(this)">
+                        <option value="">-- Choose a preset --</option>
+                        <?php foreach ($presets as $category => $items): ?>
+                            <optgroup label="<?php echo esc_attr($category); ?>">
+                                <?php foreach ($items as $key => $selector): ?>
+                                    <option value="<?php echo esc_attr($selector); ?>" data-name="<?php echo esc_attr($key); ?>">
+                                        <?php echo esc_html($key); ?> (<?php echo esc_html($selector); ?>)
+                                    </option>
+                                <?php endforeach; ?>
+                            </optgroup>
+                        <?php endforeach; ?>
+                    </select>
+                </div>
+                
+                <div class="s-control">
+                    <label>CSS Properties</label>
+                    <div id="selector-properties">
+                        <div class="property-row">
+                            <input type="text" name="properties[0][name]" placeholder="Property (e.g., color)">
+                            <input type="text" name="properties[0][value]" placeholder="Value (e.g., --s-primary)">
+                            <button type="button" onclick="removeProperty(this)">Remove</button>
+                        </div>
+                    </div>
+                    <button type="button" onclick="addProperty()" class="button">Add Property</button>
+                </div>
+                
+                <p class="submit">
+                    <button type="submit" class="button button-primary">Create Selector Rule</button>
+                    <button type="button" class="button" onclick="cancelEdit()" style="display: none;" id="cancel-edit">Cancel Edit</button>
+                </p>
+            </form>
+        </div>
+        
+        <?php if (!empty($selectors)): ?>
+        <div class="s-selector-list">
+            <h3>Existing Selector Rules</h3>
+            <table class="wp-list-table widefat fixed striped">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Selector</th>
+                        <th>Properties</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <?php foreach ($selectors as $name => $data): ?>
+                    <tr>
+                        <td><?php echo esc_html($name); ?></td>
+                        <td><code><?php echo esc_html($data['selector']); ?></code></td>
+                        <td>
+                            <?php 
+                            if (!empty($data['variables'])) {
+                                foreach ($data['variables'] as $prop => $val) {
+                                    echo '<code>' . esc_html($prop) . ': ' . esc_html($val) . '</code><br>';
+                                }
+                            }
+                            ?>
+                        </td>
+                        <td>
+                            <?php echo $data['enabled'] ? '<span style="color: green;">Active</span>' : '<span style="color: red;">Disabled</span>'; ?>
+                        </td>
+                        <td>
+                            <button class="button button-small" onclick="toggleSelector('<?php echo esc_attr($name); ?>')">
+                                <?php echo $data['enabled'] ? 'Disable' : 'Enable'; ?>
+                            </button>
+                            <button class="button button-primary button-small" onclick="editSelector('<?php echo esc_attr($name); ?>')">Edit</button>
+                            <button class="button button-small" onclick="deleteSelector('<?php echo esc_attr($name); ?>')">Delete</button>
+                        </td>
+                    </tr>
+                    <?php endforeach; ?>
+                </tbody>
+            </table>
+        </div>
+        <?php else: ?>
+        <p>No selector rules created yet. Create your first rule above!</p>
+        <?php endif; ?>
+    </div>
+    
+    <script>
+    let propertyCount = 1;
+    
+    function addProperty() {
+        const container = document.getElementById('selector-properties');
+        const row = document.createElement('div');
+        row.className = 'property-row';
+        row.innerHTML = `
+            <input type="text" name="properties[${propertyCount}][name]" placeholder="Property (e.g., font-size)">
+            <input type="text" name="properties[${propertyCount}][value]" placeholder="Value (e.g., --s-text-xl)">
+            <button type="button" onclick="removeProperty(this)">Remove</button>
+        `;
+        container.appendChild(row);
+        propertyCount++;
+    }
+    
+    function removeProperty(button) {
+        button.parentElement.remove();
+    }
+    
+    function updateSelectorFromPreset(select) {
+        const selector = select.value;
+        const name = select.options[select.selectedIndex].getAttribute('data-name');
+        if (selector) {
+            document.querySelector('input[name="selector_css"]').value = selector;
+            document.querySelector('input[name="selector_name"]').value = name || '';
+        }
+    }
+    
+    function toggleSelector(name) {
+        // Create toggle URL with proper nonce
+        const toggleUrl = '<?php echo admin_url('admin-post.php'); ?>?' + 
+            'action=s_toggle_selector&' +
+            'selector_name=' + encodeURIComponent(name) + '&' +
+            'nonce=<?php echo wp_create_nonce('s_toggle_selector'); ?>';
+        
+        window.location.href = toggleUrl;
+    }
+    
+    function editSelector(name) {
+        // Find the selector data
+        const selectors = <?php echo json_encode($selectors); ?>;
+        const selectorData = selectors[name];
+        
+        if (selectorData) {
+            // Populate the form with existing data
+            document.querySelector('input[name="selector_name"]').value = name;
+            document.querySelector('input[name="selector_css"]').value = selectorData.selector;
+            
+            // Clear existing properties
+            document.getElementById('selector-properties').innerHTML = '';
+            propertyCount = 0;
+            
+            // Add existing properties
+            if (selectorData.variables) {
+                Object.entries(selectorData.variables).forEach(([prop, value]) => {
+                    addPropertyWithValues(prop, value);
+                });
+            }
+            
+            // Change form action to update instead of create
+            document.querySelector('input[name="action"]').value = 's_update_selector';
+            document.querySelector('input[name="original_name"]').value = name;
+            
+            // Change button text
+            document.querySelector('button[type="submit"]').textContent = 'Update Selector';
+            
+            // Show cancel button
+            document.getElementById('cancel-edit').style.display = 'inline-block';
+            
+            // Update form title
+            document.querySelector('.s-selector-form h3').textContent = 'Edit Selector Rule';
+            
+            // Scroll to form
+            document.querySelector('.s-selector-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+    }
+    
+    function cancelEdit() {
+        // Reset form
+        document.querySelector('input[name="selector_name"]').value = '';
+        document.querySelector('input[name="selector_css"]').value = '';
+        document.querySelector('input[name="action"]').value = 's_save_selector';
+        document.querySelector('input[name="original_name"]').value = '';
+        
+        // Clear properties
+        document.getElementById('selector-properties').innerHTML = `
+            <div class="property-row">
+                <input type="text" name="properties[0][name]" placeholder="Property (e.g., color)">
+                <input type="text" name="properties[0][value]" placeholder="Value (e.g., --s-primary)">
+                <button type="button" onclick="removeProperty(this)">Remove</button>
+            </div>
+        `;
+        propertyCount = 1;
+        
+        // Reset button text
+        document.querySelector('button[type="submit"]').textContent = 'Create Selector Rule';
+        
+        // Hide cancel button
+        document.getElementById('cancel-edit').style.display = 'none';
+        
+        // Reset form title
+        document.querySelector('.s-selector-form h3').textContent = 'Create New Selector Rule';
+    }
+    
+    function addPropertyWithValues(prop, value) {
+        const container = document.getElementById('selector-properties');
+        const row = document.createElement('div');
+        row.className = 'property-row';
+        row.innerHTML = `
+            <input type="text" name="properties[${propertyCount}][name]" placeholder="Property (e.g., font-size)" value="${prop}">
+            <input type="text" name="properties[${propertyCount}][value]" placeholder="Value (e.g., --s-text-xl)" value="${value}">
+            <button type="button" onclick="removeProperty(this)">Remove</button>
+        `;
+        container.appendChild(row);
+        propertyCount++;
+    }
+    
+    function deleteSelector(name) {
+        if (confirm('Are you sure you want to delete the selector "' + name + '"? This cannot be undone.')) {
+            // Create delete URL with proper nonce
+            const deleteUrl = '<?php echo admin_url('admin-post.php'); ?>?' + 
+                'action=s_delete_selector&' +
+                'selector_name=' + encodeURIComponent(name) + '&' +
+                'nonce=<?php echo wp_create_nonce('s_delete_selector'); ?>';
+            
+            window.location.href = deleteUrl;
+        }
+    }
+    </script>
+    
+    <style>
+    .s-selector-builder {
+        max-width: 1200px;
+    }
+    .s-selector-form {
+        background: #fff;
+        padding: 20px;
+        margin-bottom: 30px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .property-row {
+        display: flex;
+        gap: 10px;
+        margin-bottom: 10px;
+        align-items: center;
+    }
+    .property-row input {
+        flex: 1;
+    }
+    .property-row button {
+        flex-shrink: 0;
+    }
+    </style>
+    <?php
 }

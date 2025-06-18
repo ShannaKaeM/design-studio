@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Components Examples</title>
+    <link rel="stylesheet" href="assets/css/s-vars.css">
+    <link rel="stylesheet" href="assets/css/s-utilities.css">
+    <link rel="stylesheet" href="assets/css/s-selectors.css">
+</head>
+<body>
+
+<!-- Hero Component Example -->
+<section class="s-hero">
+    <div class="s-hero__content">
+        <h1 class="s-hero__title">Welcome to Studio Components</h1>
+        <p class="s-hero__subtitle">Build consistent, reusable UI with CSS variables</p>
+        <div class="flex gap-md">
+            <a href="#" class="s-btn s-btn--primary s-btn--large">Get Started</a>
+            <a href="#" class="s-btn s-btn--outline s-btn--large">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<!-- Button Examples -->
+<section class="py-xl px-md">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-xl text-center">Button Components</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-xl mb-xl">
+            <div class="text-center">
+                <h3 class="text-lg font-medium mb-md">Primary Buttons</h3>
+                <div class="flex flex-col gap-md">
+                    <button class="s-btn s-btn--primary s-btn--small">Small Primary</button>
+                    <button class="s-btn s-btn--primary">Default Primary</button>
+                    <button class="s-btn s-btn--primary s-btn--large">Large Primary</button>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <h3 class="text-lg font-medium mb-md">Secondary & Outline</h3>
+                <div class="flex flex-col gap-md">
+                    <button class="s-btn s-btn--secondary">Secondary</button>
+                    <button class="s-btn s-btn--outline">Outline</button>
+                    <a href="#" class="s-btn s-btn--primary">Link as Button</a>
+                </div>
+            </div>
+            
+            <div class="text-center">
+                <h3 class="text-lg font-medium mb-md">With Icons (Manual)</h3>
+                <div class="flex flex-col gap-md">
+                    <button class="s-btn s-btn--primary">📧 Contact Us</button>
+                    <button class="s-btn s-btn--outline">⬇️ Download</button>
+                    <button class="s-btn s-btn--secondary">🔗 External Link</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Card Components -->
+<section class="py-xl px-md bg-base-lighter">
+    <div class="container mx-auto">
+        <h2 class="text-3xl font-bold mb-xl text-center">Card Components</h2>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-lg">
+            <!-- Basic Card -->
+            <div class="s-card">
+                <div class="s-card__header">
+                    <h3 class="s-card__title">Feature Card</h3>
+                </div>
+                <div class="s-card__content">
+                    <p>This is a reusable card component that uses your design system variables. Hover to see the effect!</p>
+                </div>
+                <div class="s-card__footer">
+                    <button class="s-btn s-btn--primary s-btn--small">Learn More</button>
+                </div>
+            </div>
+            
+            <!-- Product Card -->
+            <div class="s-card">
+                <div class="s-card__header">
+                    <h3 class="s-card__title">Product Example</h3>
+                </div>
+                <div class="s-card__content">
+                    <p class="text-2xl font-bold text-primary mb-sm">$99.99</p>
+                    <p>Premium quality product with all the features you need.</p>
+                </div>
+                <div class="s-card__footer">
+                    <div class="flex gap-sm">
+                        <button class="s-btn s-btn--primary s-btn--small">Add to Cart</button>
+                        <button class="s-btn s-btn--outline s-btn--small">♡ Wishlist</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Article Card -->
+            <div class="s-card">
+                <div class="s-card__header">
+                    <h3 class="s-card__title">Blog Post</h3>
+                </div>
+                <div class="s-card__content">
+                    <p class="text-sm text-base-dark mb-sm">Published: Jan 15, 2025</p>
+                    <p>Learn how to build reusable components with the Studio design system...</p>
+                </div>
+                <div class="s-card__footer">
+                    <a href="#" class="s-btn s-btn--outline s-btn--small">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Form Components -->
+<section class="s-py-12 s-px-4">
+    <div class="s-container s-mx-auto s-max-w-md">
+        <h2 class="s-text-3xl s-font-bold s-mb-8 s-text-center">Form Components</h2>
+        
+        <form class="s-card">
+            <div class="s-card__header">
+                <h3 class="s-card__title">Contact Form</h3>
+            </div>
+            <div class="s-card__content">
+                <div class="s-mb-4">
+                    <label class="s-block s-text-sm s-font-medium s-mb-2">Name</label>
+                    <input type="text" class="s-input" placeholder="Your name">
+                </div>
+                <div class="s-mb-4">
+                    <label class="s-block s-text-sm s-font-medium s-mb-2">Email</label>
+                    <input type="email" class="s-input" placeholder="your@email.com">
+                </div>
+                <div class="s-mb-6">
+                    <label class="s-block s-text-sm s-font-medium s-mb-2">Message</label>
+                    <textarea class="s-input" rows="4" placeholder="Your message here..."></textarea>
+                </div>
+            </div>
+            <div class="s-card__footer">
+                <button type="submit" class="s-btn s-btn--primary s-w-full">Send Message</button>
+            </div>
+        </form>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="s-py-12 s-px-4 s-bg-base-lighter">
+    <div class="s-container s-mx-auto">
+        <h2 class="s-text-3xl s-font-bold s-mb-8 s-text-center">How Studio Components Work</h2>
+        
+        <div class="s-grid s-grid-cols-1 s-lg:grid-cols-2 s-gap-8">
+            <div class="s-card">
+                <div class="s-card__header">
+                    <h3 class="s-card__title">1. CSS Variables (Design Tokens)</h3>
+                </div>
+                <div class="s-card__content">
+                    <pre class="s-text-sm s-bg-base-light s-p-4 s-rounded s-overflow-x-auto"><code>/* s-vars.css */
+--s-primary: #0066cc;
+--s-space-4: 1rem;
+--s-radius-1: 0.25rem;</code></pre>
+                    <p class="s-mt-4">All styling comes from centralized variables that you can change globally.</p>
+                </div>
+            </div>
+            
+            <div class="s-card">
+                <div class="s-card__header">
+                    <h3 class="s-card__title">2. Component Classes</h3>
+                </div>
+                <div class="s-card__content">
+                    <pre class="s-text-sm s-bg-base-light s-p-4 s-rounded s-overflow-x-auto"><code>/* s-selectors.css */
+.s-btn {
+  padding: var(--s-space-3);
+  background: var(--s-primary);
+}</code></pre>
+                    <p class="s-mt-4">Components use variables, so changing a variable updates all components.</p>
+                </div>
+            </div>
+            
+            <div class="s-card">
+                <div class="s-card__header">
+                    <h3 class="s-card__title">3. Utility Classes</h3>
+                </div>
+                <div class="s-card__content">
+                    <pre class="s-text-sm s-bg-base-light s-p-4 s-rounded s-overflow-x-auto"><code>/* Auto-generated */
+.s-text-primary { color: var(--s-primary); }
+.s-p-4 { padding: var(--s-space-4); }
+.s-rounded { border-radius: var(--s-radius-1); }</code></pre>
+                    <p class="s-mt-4">Utilities provide quick styling without writing custom CSS.</p>
+                </div>
+            </div>
+            
+            <div class="s-card">
+                <div class="s-card__header">
+                    <h3 class="s-card__title">4. Use in WordPress</h3>
+                </div>
+                <div class="s-card__content">
+                    <pre class="s-text-sm s-bg-base-light s-p-4 s-rounded s-overflow-x-auto"><code>&lt;!-- In Gutenberg blocks --&gt;
+&lt;div class="s-card"&gt;
+  &lt;h3 class="s-card__title"&gt;Title&lt;/h3&gt;
+  &lt;p class="s-card__content"&gt;Content&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                    <p class="s-mt-4">Apply component classes to any HTML element or WordPress block.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

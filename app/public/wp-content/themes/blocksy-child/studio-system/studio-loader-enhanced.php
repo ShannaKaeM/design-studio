@@ -75,51 +75,17 @@ class StudioLoaderEnhanced {
      * Enqueue frontend styles
      */
     public function enqueue_frontend_styles() {
-        // Base Studio CSS with variables
-        wp_enqueue_style(
-            'studio-vars',
-            get_stylesheet_directory_uri() . '/assets/css/studio-vars.css',
-            [],
-            filemtime(get_stylesheet_directory() . '/assets/css/studio-vars.css')
-        );
-        
-        // Generated utilities
-        if (file_exists(get_stylesheet_directory() . '/assets/css/studio-utilities.css')) {
-            wp_enqueue_style(
-                'studio-utilities',
-                get_stylesheet_directory_uri() . '/assets/css/studio-utilities.css',
-                ['studio-vars'],
-                filemtime(get_stylesheet_directory() . '/assets/css/studio-utilities.css')
-            );
-        }
-        
-        // Custom CSS (user modifications)
-        if (file_exists(get_stylesheet_directory() . '/assets/css/studio-custom.css')) {
-            wp_enqueue_style(
-                'studio-custom',
-                get_stylesheet_directory_uri() . '/assets/css/studio-custom.css',
-                ['studio-vars'],
-                filemtime(get_stylesheet_directory() . '/assets/css/studio-custom.css')
-            );
-        }
+        // S system CSS is already loaded by functions.php
+        // This method is kept for compatibility but doesn't load anything
+        // to avoid duplicate enqueues
     }
     
     /**
      * Enqueue editor styles
      */
     public function enqueue_editor_styles() {
-        // Same styles for editor
-        $this->enqueue_frontend_styles();
-        
-        // Additional editor-specific styles if needed
-        if (file_exists(get_stylesheet_directory() . '/assets/css/studio-editor.css')) {
-            wp_enqueue_style(
-                'studio-editor',
-                get_stylesheet_directory_uri() . '/assets/css/studio-editor.css',
-                ['studio-vars'],
-                filemtime(get_stylesheet_directory() . '/assets/css/studio-editor.css')
-            );
-        }
+        // S system CSS is already loaded by functions.php
+        // This method is kept for compatibility
     }
     
     /**

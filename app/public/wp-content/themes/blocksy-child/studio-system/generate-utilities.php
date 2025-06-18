@@ -13,8 +13,8 @@ class UtilityGenerator {
     private $variables = [];
     
     public function __construct() {
-        $this->css_file = get_stylesheet_directory() . '/assets/css/studio-vars.css';
-        $this->output_file = get_stylesheet_directory() . '/assets/css/studio-utilities.css';
+        $this->css_file = get_stylesheet_directory() . '/assets/css/s-vars.css';
+        $this->output_file = get_stylesheet_directory() . '/assets/css/s-utilities.css';
     }
     
     /**
@@ -44,7 +44,7 @@ class UtilityGenerator {
         $content = file_get_contents($this->css_file);
         
         // Match all CSS variables with their values
-        preg_match_all('/--st-([\w-]+):\s*([^;]+);/', $content, $matches, PREG_SET_ORDER);
+        preg_match_all('/--s-([\w-]+):\s*([^;]+);/', $content, $matches, PREG_SET_ORDER);
         
         foreach ($matches as $match) {
             $this->variables[$match[1]] = trim($match[2]);
@@ -96,18 +96,18 @@ class UtilityGenerator {
                 $class_name = str_replace(['color-', '-'], ['', '-'], $name);
                 
                 // Background colors
-                $output .= ".bg-{$class_name} { background-color: var(--st-{$name}); }\n";
+                $output .= ".bg-{$class_name} { background-color: var(--s-{$name}); }\n";
                 
                 // Text colors
-                $output .= ".text-{$class_name} { color: var(--st-{$name}); }\n";
+                $output .= ".text-{$class_name} { color: var(--s-{$name}); }\n";
                 
                 // Border colors
-                $output .= ".border-{$class_name} { border-color: var(--st-{$name}); }\n";
+                $output .= ".border-{$class_name} { border-color: var(--s-{$name}); }\n";
                 
                 // Hover variants
-                $output .= ".hover\\:bg-{$class_name}:hover { background-color: var(--st-{$name}); }\n";
-                $output .= ".hover\\:text-{$class_name}:hover { color: var(--st-{$name}); }\n";
-                $output .= ".hover\\:border-{$class_name}:hover { border-color: var(--st-{$name}); }\n";
+                $output .= ".hover\\:bg-{$class_name}:hover { background-color: var(--s-{$name}); }\n";
+                $output .= ".hover\\:text-{$class_name}:hover { color: var(--s-{$name}); }\n";
+                $output .= ".hover\\:border-{$class_name}:hover { border-color: var(--s-{$name}); }\n";
                 
                 $output .= "\n";
             }
@@ -139,29 +139,29 @@ class UtilityGenerator {
                 // Padding utilities
                 foreach ($sides as $side => $css_side) {
                     if ($side === 'x') {
-                        $output .= ".p{$side}-{$size} { padding-left: var(--st-{$name}); padding-right: var(--st-{$name}); }\n";
+                        $output .= ".p{$side}-{$size} { padding-left: var(--s-{$name}); padding-right: var(--s-{$name}); }\n";
                     } elseif ($side === 'y') {
-                        $output .= ".p{$side}-{$size} { padding-top: var(--st-{$name}); padding-bottom: var(--st-{$name}); }\n";
+                        $output .= ".p{$side}-{$size} { padding-top: var(--s-{$name}); padding-bottom: var(--s-{$name}); }\n";
                     } else {
-                        $output .= ".p{$side}-{$size} { padding{$css_side}: var(--st-{$name}); }\n";
+                        $output .= ".p{$side}-{$size} { padding{$css_side}: var(--s-{$name}); }\n";
                     }
                 }
                 
                 // Margin utilities
                 foreach ($sides as $side => $css_side) {
                     if ($side === 'x') {
-                        $output .= ".m{$side}-{$size} { margin-left: var(--st-{$name}); margin-right: var(--st-{$name}); }\n";
+                        $output .= ".m{$side}-{$size} { margin-left: var(--s-{$name}); margin-right: var(--s-{$name}); }\n";
                     } elseif ($side === 'y') {
-                        $output .= ".m{$side}-{$size} { margin-top: var(--st-{$name}); margin-bottom: var(--st-{$name}); }\n";
+                        $output .= ".m{$side}-{$size} { margin-top: var(--s-{$name}); margin-bottom: var(--s-{$name}); }\n";
                     } else {
-                        $output .= ".m{$side}-{$size} { margin{$css_side}: var(--st-{$name}); }\n";
+                        $output .= ".m{$side}-{$size} { margin{$css_side}: var(--s-{$name}); }\n";
                     }
                 }
                 
                 // Gap utilities (for flexbox/grid)
-                $output .= ".gap-{$size} { gap: var(--st-{$name}); }\n";
-                $output .= ".gap-x-{$size} { column-gap: var(--st-{$name}); }\n";
-                $output .= ".gap-y-{$size} { row-gap: var(--st-{$name}); }\n";
+                $output .= ".gap-{$size} { gap: var(--s-{$name}); }\n";
+                $output .= ".gap-x-{$size} { column-gap: var(--s-{$name}); }\n";
+                $output .= ".gap-y-{$size} { row-gap: var(--s-{$name}); }\n";
                 
                 $output .= "\n";
             }
@@ -221,7 +221,7 @@ class UtilityGenerator {
         foreach ($this->variables as $name => $value) {
             if (strpos($name, 'text-') === 0 && !in_array($name, ['text', 'text-light', 'text-muted'])) {
                 $size = str_replace('text-', '', $name);
-                $output .= ".text-{$size} { font-size: var(--st-{$name}); }\n";
+                $output .= ".text-{$size} { font-size: var(--s-{$name}); }\n";
             }
         }
         
@@ -231,7 +231,7 @@ class UtilityGenerator {
         foreach ($this->variables as $name => $value) {
             if (strpos($name, 'font-') === 0 && preg_match('/(normal|medium|semibold|bold)/', $name)) {
                 $weight = str_replace('font-', '', $name);
-                $output .= ".font-{$weight} { font-weight: var(--st-{$name}); }\n";
+                $output .= ".font-{$weight} { font-weight: var(--s-{$name}); }\n";
             }
         }
         
@@ -241,16 +241,16 @@ class UtilityGenerator {
         foreach ($this->variables as $name => $value) {
             if (strpos($name, 'leading-') === 0) {
                 $height = str_replace('leading-', '', $name);
-                $output .= ".leading-{$height} { line-height: var(--st-{$name}); }\n";
+                $output .= ".leading-{$height} { line-height: var(--s-{$name}); }\n";
             }
         }
         
         $output .= "\n";
         
         // Font family utilities
-        $output .= ".font-heading { font-family: var(--st-font-heading); }\n";
-        $output .= ".font-body { font-family: var(--st-font-body); }\n";
-        $output .= ".font-mono { font-family: var(--st-font-mono); }\n";
+        $output .= ".font-heading { font-family: var(--s-font-heading); }\n";
+        $output .= ".font-body { font-family: var(--s-font-body); }\n";
+        $output .= ".font-mono { font-family: var(--s-font-mono); }\n";
         
         $output .= "\n";
         
@@ -270,9 +270,9 @@ class UtilityGenerator {
         $output = "\n/* ===================================\n   Border Utilities\n   =================================== */\n\n";
         
         // Border width utilities
-        $output .= ".border { border-width: var(--st-border-width); }\n";
-        $output .= ".border-2 { border-width: var(--st-border-width-2); }\n";
-        $output .= ".border-4 { border-width: var(--st-border-width-4); }\n";
+        $output .= ".border { border-width: var(--s-border-width); }\n";
+        $output .= ".border-2 { border-width: var(--s-border-width-2); }\n";
+        $output .= ".border-4 { border-width: var(--s-border-width-4); }\n";
         $output .= ".border-0 { border-width: 0; }\n";
         
         $output .= "\n";
@@ -281,12 +281,12 @@ class UtilityGenerator {
         foreach ($this->variables as $name => $value) {
             if (strpos($name, 'radius') === 0) {
                 if ($name === 'radius') {
-                    $output .= ".rounded { border-radius: var(--st-{$name}); }\n";
+                    $output .= ".rounded { border-radius: var(--s-{$name}); }\n";
                 } elseif ($name === 'radius-full') {
-                    $output .= ".rounded-full { border-radius: var(--st-{$name}); }\n";
+                    $output .= ".rounded-full { border-radius: var(--s-{$name}); }\n";
                 } else {
                     $size = str_replace('radius-', '', $name);
-                    $output .= ".rounded-{$size} { border-radius: var(--st-{$name}); }\n";
+                    $output .= ".rounded-{$size} { border-radius: var(--s-{$name}); }\n";
                 }
             }
         }
@@ -305,10 +305,10 @@ class UtilityGenerator {
         foreach ($this->variables as $name => $value) {
             if (strpos($name, 'shadow') === 0) {
                 if ($name === 'shadow') {
-                    $output .= ".shadow { box-shadow: var(--st-{$name}); }\n";
+                    $output .= ".shadow { box-shadow: var(--s-{$name}); }\n";
                 } else {
                     $size = str_replace('shadow-', '', $name);
-                    $output .= ".shadow-{$size} { box-shadow: var(--st-{$name}); }\n";
+                    $output .= ".shadow-{$size} { box-shadow: var(--s-{$name}); }\n";
                 }
             }
         }
@@ -370,7 +370,7 @@ class UtilityGenerator {
         foreach ($this->variables as $name => $value) {
             if (strpos($name, 'z-') === 0) {
                 $level = str_replace('z-', '', $name);
-                $output .= ".z-{$level} { z-index: var(--st-{$name}); }\n";
+                $output .= ".z-{$level} { z-index: var(--s-{$name}); }\n";
             }
         }
         
@@ -378,7 +378,7 @@ class UtilityGenerator {
         foreach ($this->variables as $name => $value) {
             if (strpos($name, 'opacity-') === 0) {
                 $level = str_replace('opacity-', '', $name);
-                $output .= ".opacity-{$level} { opacity: var(--st-{$name}); }\n";
+                $output .= ".opacity-{$level} { opacity: var(--s-{$name}); }\n";
             }
         }
         

@@ -84,6 +84,15 @@
     --s-space-2xl: 3rem; /* @control: range[0,12,0.5] */
     --s-space-3xl: 4rem; /* @control: range[0,16,0.5] */
     
+    /* Numbered spacing for utilities */
+    --s-space-1: 0.25rem; /* @control: range[0,1,0.125] */
+    --s-space-2: 0.5rem; /* @control: range[0,2,0.125] */
+    --s-space-3: 0.75rem; /* @control: range[0,3,0.125] */
+    --s-space-4: 1rem; /* @control: range[0,4,0.25] */
+    --s-space-6: 1.5rem; /* @control: range[0,6,0.25] */
+    --s-space-8: 2rem; /* @control: range[0,8,0.25] */
+    --s-space-12: 3rem; /* @control: range[0,12,0.5] */
+    
     /* ==========================================================================
        Borders
        ========================================================================== */
@@ -93,6 +102,11 @@
     --s-border-2: 2px; /* @control: range[0,10,1] */
     --s-border-4: 4px; /* @control: range[0,20,1] */
     
+    /* Default border width for utilities */
+    --s-border-width: 1px; /* @control: range[0,5,1] */
+    --s-border-width-2: 2px; /* @control: range[0,10,1] */
+    --s-border-width-4: 4px; /* @control: range[0,20,1] */
+    
     /* Radius */
     --s-radius-sm: 0.125rem; /* @control: range[0,1,0.125] */
     --s-radius-md: 0.25rem; /* @control: range[0,2,0.125] */
@@ -100,6 +114,10 @@
     --s-radius-xl: 0.75rem; /* @control: range[0,3,0.125] */
     --s-radius-2xl: 1rem; /* @control: range[0,4,0.25] */
     --s-radius-full: 9999px; /* @control: text */
+    
+    /* Numbered radius for utilities */
+    --s-radius-1: 0.25rem; /* @control: range[0,2,0.125] */
+    --s-radius-2: 0.5rem; /* @control: range[0,2,0.125] */
     
     /* ==========================================================================
        Shadows
@@ -120,4 +138,15 @@
     --s-container-lg: 1024px; /* @control: range[768,1280,32] */
     --s-container-xl: 1280px; /* @control: range[1024,1536,32] */
     --s-container-full: 100%; /* @control: text */
+    
+    /* Additional font families for utilities */
+    --s-font-heading: var(--s-font-sans); /* @control: font */
+    --s-font-body: var(--s-font-sans); /* @control: font */
+    
+    /* Grid utilities */
+    --s-grid-cols-1: repeat(1, minmax(0, 1fr)); /* @control: text */
+    --s-grid-cols-2: repeat(2, minmax(0, 1fr)); /* @control: text */
+    --s-grid-cols-3: repeat(3, minmax(0, 1fr)); /* @control: text */
+    --s-grid-cols-4: repeat(4, minmax(0, 1fr)); /* @control: text */
+    --s-grid-cols-12: repeat(12, minmax(0, 1fr)); /* @control: text */
 }
