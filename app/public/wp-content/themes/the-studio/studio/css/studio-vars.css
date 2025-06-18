@@ -1,0 +1,153 @@
+/**
+ * The Studio - CSS Variables
+ * 
+ * Variables with @control annotations auto-generate UI controls
+ * Based on Daniel's innovative variable-driven system
+ */
+
+:root {
+    /* ==========================================================================
+       Colors - Semantic
+       ========================================================================== */
+    
+    /* Primary Colors */
+    --ts-color-primary: #5a7b7c; /* @control: color */
+    --ts-color-primary-light: #7a9b9c; /* @control: color */
+    --ts-color-primary-dark: #3a5b5c; /* @control: color */
+    
+    /* Secondary Colors */
+    --ts-color-secondary: #9d6d4d; /* @control: color */
+    --ts-color-secondary-light: #d0beae; /* @control: color */
+    --ts-color-secondary-dark: #5b3a4c; /* @control: color */
+    
+    /* Neutral Colors */
+    --ts-color-neutral-50: #fafafa; /* @control: color */
+    --ts-color-neutral-100: #f5f5f5; /* @control: color */
+    --ts-color-neutral-200: #e5e5e5; /* @control: color */
+    --ts-color-neutral-300: #d4d4d4; /* @control: color */
+    --ts-color-neutral-400: #a3a3a3; /* @control: color */
+    --ts-color-neutral-500: #737373; /* @control: color */
+    --ts-color-neutral-600: #525252; /* @control: color */
+    --ts-color-neutral-700: #404040; /* @control: color */
+    --ts-color-neutral-800: #262626; /* @control: color */
+    --ts-color-neutral-900: #171717; /* @control: color */
+    
+    /* Functional Colors */
+    --ts-color-success: #22c55e; /* @control: color */
+    --ts-color-warning: #f59e0b; /* @control: color */
+    --ts-color-error: #ef4444; /* @control: color */
+    --ts-color-info: #3b82f6; /* @control: color */
+    
+    /* Base Colors */
+    --ts-color-white: #ffffff; /* @control: color */
+    --ts-color-black: #000000; /* @control: color */
+    
+    /* ==========================================================================
+       Typography
+       ========================================================================== */
+    
+    /* Font Families */
+    --ts-font-sans: system-ui, -apple-system, \\"Segoe UI\\", Roboto, sans-serif; /* @control: font */
+    --ts-font-serif: Georgia, Cambria, "Times New Roman", serif; /* @control: font */
+    --ts-font-mono: Menlo, Monaco, Consolas, monospace; /* @control: font */
+    
+    /* Font Sizes */
+    --ts-text-xs: 0.75rem; /* @control: range[0.5,1,0.125] */
+    --ts-text-sm: 0.95rem; /* @control: range[0.5,1.25,0.125] */
+    --ts-text-base: 1rem; /* @control: range[0.75,1.5,0.125] */
+    --ts-text-lg: 1.125rem; /* @control: range[1,2,0.125] */
+    --ts-text-xl: 1.25rem; /* @control: range[1,2.5,0.125] */
+    --ts-text-2xl: 1.5rem; /* @control: range[1.25,3,0.125] */
+    --ts-text-3xl: 1.875rem; /* @control: range[1.5,4,0.125] */
+    --ts-text-4xl: 2.25rem; /* @control: range[2,5,0.25] */
+    --ts-text-5xl: 3rem; /* @control: range[2.5,6,0.25] */
+    
+    /* Font Weights */
+    --ts-font-thin: 100; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    --ts-font-light: 300; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    --ts-font-normal: 400; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    --ts-font-medium: 500; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    --ts-font-semibold: 600; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    --ts-font-bold: 700; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    --ts-font-extrabold: 800; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    
+    /* Line Heights */
+    --ts-leading-tight: 1.25; /* @control: range[1,2,0.125] */
+    --ts-leading-snug: 1.375; /* @control: range[1,2,0.125] */
+    --ts-leading-normal: 1.5; /* @control: range[1,2.5,0.125] */
+    --ts-leading-relaxed: 1.625; /* @control: range[1,2.5,0.125] */
+    --ts-leading-loose: 2; /* @control: range[1.5,3,0.125] */
+    
+    /* ==========================================================================
+       Spacing
+       ========================================================================== */
+    
+    --ts-spacing-xs: 0.2rem; /* @control: range[0,1,0.125] */
+    --ts-spacing-sm: 0.5rem; /* @control: range[0,2,0.125] */
+    --ts-spacing-md: 1rem; /* @control: range[0,4,0.25] */
+    --ts-spacing-lg: 1.5rem; /* @control: range[0,6,0.25] */
+    --ts-spacing-xl: 2rem; /* @control: range[0,8,0.25] */
+    --ts-spacing-2xl: 3rem; /* @control: range[0,12,0.5] */
+    --ts-spacing-3xl: 4rem; /* @control: range[0,16,0.5] */
+    --ts-spacing-4xl: 6rem; /* @control: range[0,24,1] */
+    
+    /* ==========================================================================
+       Borders & Radius
+       ========================================================================== */
+    
+    /* Border Widths */
+    --ts-border-thin: 1; /* @control: range[0,5,1] */
+    --ts-border-medium: 2; /* @control: range[0,10,1] */
+    --ts-border-thick: 4; /* @control: range[0,20,1] */
+    
+    /* Border Radius */
+    --ts-radius-sm: 0.125; /* @control: range[0,1,0.125] */
+    --ts-radius-md: 0.25; /* @control: range[0,2,0.125] */
+    --ts-radius-lg: 0.5; /* @control: range[0,2,0.125] */
+    --ts-radius-xl: 0.75; /* @control: range[0,3,0.125] */
+    --ts-radius-2xl: 1; /* @control: range[0,4,0.25] */
+    --ts-radius-3xl: 1.5; /* @control: range[0,6,0.25] */
+    --ts-radius-full: 9999px; /* @control: text */
+    
+    /* ==========================================================================
+       Shadows
+       ========================================================================== */
+    
+    --ts-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* @control: shadow */
+    --ts-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); /* @control: shadow */
+    --ts-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* @control: shadow */
+    --ts-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* @control: shadow */
+    --ts-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); /* @control: shadow */
+    --ts-shadow-2xl: 0 25px 50px -12px rgb(0 0 0 / 0.25); /* @control: shadow */
+    
+    /* ==========================================================================
+       Layout
+       ========================================================================== */
+    
+    --ts-container-sm: 640; /* @control: range[320,768,32] */
+    --ts-container-md: 768; /* @control: range[640,1024,32] */
+    --ts-container-lg: 1024; /* @control: range[768,1280,32] */
+    --ts-container-xl: 1280; /* @control: range[1024,1536,32] */
+    --ts-container-2xl: 1536; /* @control: range[1280,1920,32] */
+    
+    /* ==========================================================================
+       Components - Example
+       ========================================================================== */
+    
+    /* Button Component */
+    --ts-button-padding-x: 1; /* @control: range[0.5,3,0.25] */
+    --ts-button-padding-y: 0.5; /* @control: range[0.25,2,0.25] */
+    --ts-button-radius: 0; /* @control: range[0,2,0.125] */
+    --ts-button-font-weight: 100; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    
+    /* Card Component */
+    --ts-card-padding: 1.5; /* @control: range[0.5,4,0.25] */
+    --ts-card-radius: 0; /* @control: range[0,2,0.125] */
+    --ts-card-shadow: var(--ts-shadow-md); /* @control: shadow */
+    --ts-card-bg: #cccccc; /* @control: color */
+    
+    /* Hero Component */
+    --ts-hero-padding-y: 4; /* @control: range[2,8,0.5] */
+    --ts-hero-heading-size: 3; /* @control: range[2,5,0.25] */
+    --ts-hero-text-size: 4; /* @control: range[1,2,0.125] */
+}

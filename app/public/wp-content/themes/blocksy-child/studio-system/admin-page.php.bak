@@ -1,0 +1,513 @@
+<?php
+/**
+ * Studio Admin Page
+ * WordPress admin interface for managing Studio variables
+ */
+
+require_once 'generate-controls.php';
+
+// Add admin menu
+add_action('admin_menu', function() {
+    add_theme_page(
+        'Studio Design System',
+        'Studio System',
+        'manage_options',
+        'studio-system',
+        'studio_admin_page'
+    );
+});
+
+// Enqueue admin scripts and styles
+add_action('admin_enqueue_scripts', function($hook) {
+    if ($hook !== 'appearance_page_studio-system') {
+        return;
+    }
+    
+    wp_enqueue_style('wp-color-picker');
+    wp_enqueue_script('wp-color-picker');
+    wp_enqueue_script('jquery');
+    
+    // Custom admin styles
+    wp_add_inline_style('wp-admin', '
+        .studio-admin-page {
+            max-width: 1200px;
+            margin: 20px 0;
+        }
+        .studio-controls-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .studio-control-group {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+        }
+        .studio-control-group h3 {
+            margin-top: 0;
+            color: #23282d;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        .studio-control {
+            margin-bottom: 15px;
+        }
+        .studio-control label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+        .studio-control input,
+        .studio-control select {
+            width: 100%;
+            max-width: 200px;
+        }
+        .studio-preview {
+            position: fixed;
+            top: 32px;
+            right: 20px;
+            width: 300px;
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .studio-actions {
+            margin: 20px 0;
+        }
+        .studio-actions .button {
+            margin-right: 10px;
+        }
+    ');
+});
+
+// Handle form submission
+add_action('admin_post_studio_save_variables', function() {
+    if (!current_user_can('manage_options') || !wp_verify_nonce($_POST['studio_nonce'], 'studio_save')) {
+        wp_die('Unauthorized');
+    }
+    
+    $variables = $_POST['studio_vars'] ?? [];
+    save_studio_variables($variables);
+    
+    wp_redirect(add_query_arg('updated', '1', wp_get_referer()));
+    exit;
+});
+
+function save_studio_variables($variables) {
+    // Save to options table
+    update_option('studio_custom_variables', $variables);
+    
+    // Generate updated CSS file
+    generate_custom_css($variables);
+    
+    // Regenerate utilities with new variables
+    if (function_exists('generate_utilities')) {
+        generate_utilities();
+    }
+}
+
+function generate_custom_css($variables) {
+    $css = ":root {\n";
+    
+    foreach ($variables as $var_name => $value) {
+        $css .= "    {$var_name}: {$value};\n";
+    }
+    
+    $css .= "}\n";
+    
+    $custom_file = get_stylesheet_directory() . '/assets/css/studio-custom.css';
+    file_put_contents($custom_file, $css);
+}
+
+function studio_admin_page() {
+    ?>
+    <div class="wrap studio-admin-page">
+        <h1>Studio Design System</h1>
+        
+        <?php if (isset($_GET['updated'])): ?>
+            <div class="notice notice-success is-dismissible">
+                <p>Studio variables updated successfully!</p>
+            </div>
+        <?php endif; ?>
+        
+        <nav class="nav-tab-wrapper wp-clearfix">
+            <a href="#variables" class="nav-tab nav-tab-active" data-tab="variables">Variables</a>
+            <a href="#utilities" class="nav-tab" data-tab="utilities">Utilities</a>
+            <?php do_action('studio_admin_tabs'); ?>
+            <a href="#json-fields" class="nav-tab" data-tab="json-fields">JSON Fields</a>
+            <a href="#status" class="nav-tab" data-tab="status">System Status</a>
+        </nav>
+        
+        <div class="tab-content-wrapper">
+            <!-- Variables Tab -->
+            <div id="variables" class="tab-content active">
+                <?php render_variables_tab(); ?>
+            </div>
+            
+            <!-- Utilities Tab -->
+            <div id="utilities" class="tab-content" style="display:none;">
+                <?php render_utilities_tab(); ?>
+            </div>
+            
+            <?php do_action('studio_admin_tab_content'); ?>
+            
+            <!-- JSON Fields Tab -->
+            <div id="json-fields" class="tab-content" style="display:none;">
+                <?php render_json_fields_tab(); ?>
+            </div>
+            
+            <!-- Status Tab -->
+            <div id="status" class="tab-content" style="display:none;">
+                <?php render_status_tab(); ?>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+    // Tab switching
+    document.addEventListener('DOMContentLoaded', function() {
+        const tabs = document.querySelectorAll('.nav-tab');
+        const contents = document.querySelectorAll('.tab-content');
+        
+        tabs.forEach(tab => {
+            tab.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Remove active class from all tabs
+                tabs.forEach(t => t.classList.remove('nav-tab-active'));
+                contents.forEach(c => c.style.display = 'none');
+                
+                // Add active class to clicked tab
+                this.classList.add('nav-tab-active');
+                
+                // Show corresponding content
+                const target = this.getAttribute('data-tab');
+                const content = document.getElementById(target);
+                if (content) {
+                    content.style.display = 'block';
+                }
+            });
+        });
+    });
+    
+    function studioScanVariables() {
+        if (confirm('This will scan your CSS files for new variables. Continue?')) {
+            location.reload();
+        }
+    }
+    
+    function studioResetToDefaults() {
+        if (confirm('This will reset all variables to their default values. Continue?')) {
+            document.querySelectorAll('.studio-control input, .studio-control select').forEach(input => {
+                input.value = input.dataset.default || '';
+            });
+        }
+    }
+    
+    function studioExportConfig() {
+        const config = {};
+        document.querySelectorAll('.studio-control input, .studio-control select').forEach(input => {
+            config[input.name.replace('studio_vars[', '').replace(']', '')] = input.value;
+        });
+        
+        const blob = new Blob([JSON.stringify(config, null, 2)], {type: 'application/json'});
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'studio-config.json';
+        a.click();
+    }
+    </script>
+    
+    <style>
+    .tab-content-wrapper {
+        margin-top: 20px;
+    }
+    .tab-content {
+        background: #fff;
+        padding: 20px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+    }
+    .tab-content.active {
+        display: block;
+    }
+    </style>
+    <?php
+}
+
+function studio_render_control($control, $current_value) {
+    $var_name = $control['var'];
+    $input_name = "studio_vars[{$var_name}]";
+    
+    switch ($control['component']) {
+        case 'ColorPicker':
+            echo '<input type="text" name="' . esc_attr($input_name) . '" value="' . esc_attr($current_value) . '" class="color-picker" data-default="' . esc_attr($control['default']) . '">';
+            break;
+            
+        case 'RangeControl':
+            $min = $control['min'] ?? 0;
+            $max = $control['max'] ?? 100;
+            $step = $control['step'] ?? 1;
+            echo '<input type="range" name="' . esc_attr($input_name) . '" value="' . esc_attr($current_value) . '" min="' . $min . '" max="' . $max . '" step="' . $step . '" data-default="' . esc_attr($control['default']) . '">';
+            echo '<span class="range-value">' . esc_html($current_value) . '</span>';
+            break;
+            
+        case 'SelectControl':
+            echo '<select name="' . esc_attr($input_name) . '" data-default="' . esc_attr($control['default']) . '">';
+            foreach ($control['options'] ?? [] as $option) {
+                $selected = ($option === $current_value) ? 'selected' : '';
+                echo '<option value="' . esc_attr($option) . '" ' . $selected . '>' . esc_html($option) . '</option>';
+            }
+            echo '</select>';
+            break;
+            
+        case 'TextControl':
+        case 'NumberControl':
+        default:
+            $type = ($control['component'] === 'NumberControl') ? 'number' : 'text';
+            echo '<input type="' . $type . '" name="' . esc_attr($input_name) . '" value="' . esc_attr($current_value) . '" data-default="' . esc_attr($control['default']) . '">';
+            break;
+    }
+}
+
+/**
+ * Render Variables Tab
+ */
+function render_variables_tab() {
+    $controls = generate_controls_by_category();
+    $saved_vars = get_option('studio_custom_variables', []);
+    $raw_variables = scan_all_studio_variables();
+    
+    // Debug information
+    $vars_file = get_stylesheet_directory() . '/assets/css/studio-vars.css';
+    $file_exists = file_exists($vars_file);
+    $file_size = $file_exists ? filesize($vars_file) : 0;
+    ?>
+    <h2>CSS Variables & Controls</h2>
+    <p>Manage your design system variables. Changes here automatically update throughout your site.</p>
+    
+    <!-- Debug Information -->
+    <div class="notice notice-info">
+        <p><strong>Debug Info:</strong></p>
+        <ul>
+            <li>CSS File: <?php echo $file_exists ? '✅ Found' : '❌ Missing'; ?> (<?php echo $file_size; ?> bytes)</li>
+            <li>Variables Found: <?php echo count($raw_variables); ?></li>
+            <li>Categories: <?php echo count($controls); ?></li>
+        </ul>
+        <?php if (count($raw_variables) > 0): ?>
+            <details>
+                <summary>Raw Variables (click to expand)</summary>
+                <pre><?php print_r($raw_variables); ?></pre>
+            </details>
+        <?php endif; ?>
+    </div>
+    
+    <div class="studio-actions">
+        <button type="button" class="button button-secondary" onclick="studioScanVariables()">
+            Scan Variables
+        </button>
+        <button type="button" class="button button-secondary" onclick="studioResetToDefaults()">
+            Reset to Defaults
+        </button>
+        <button type="button" class="button button-secondary" onclick="studioExportConfig()">
+            Export Config
+        </button>
+    </div>
+    
+    <form method="post" action="<?php echo admin_url('admin-post.php'); ?>">
+        <input type="hidden" name="action" value="studio_save_variables">
+        <?php wp_nonce_field('studio_save', 'studio_nonce'); ?>
+        
+        <div class="studio-controls-grid">
+            <?php foreach ($controls as $category => $category_controls): ?>
+                <div class="studio-control-group">
+                    <h3><?php echo esc_html($category); ?></h3>
+                    
+                    <?php foreach ($category_controls as $control): ?>
+                        <div class="studio-control">
+                            <label for="<?php echo esc_attr($control['var']); ?>">
+                                <?php echo esc_html($control['label']); ?>
+                            </label>
+                            
+                            <?php 
+                            $current_value = $saved_vars[$control['var']] ?? $control['default'];
+                            studio_render_control($control, $current_value); 
+                            ?>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+            <?php endforeach; ?>
+        </div>
+        
+        <p class="submit">
+            <input type="submit" class="button-primary" value="Save Changes">
+        </p>
+    </form>
+    <?php
+}
+
+/**
+ * Render Utilities Tab
+ */
+function render_utilities_tab() {
+    $utilities_file = get_stylesheet_directory() . '/assets/css/studio-utilities.css';
+    $utilities_exist = file_exists($utilities_file);
+    ?>
+    <h2>Utility Classes</h2>
+    <p>Auto-generated utility classes based on your CSS variables.</p>
+    
+    <?php if ($utilities_exist): ?>
+        <div class="notice notice-info inline">
+            <p>Utilities last generated: <?php echo date('Y-m-d H:i:s', filemtime($utilities_file)); ?></p>
+        </div>
+        
+        <p>
+            <a href="<?php echo wp_nonce_url(admin_url('admin-post.php?action=studio_regenerate_utilities'), 'studio_regenerate_utilities'); ?>" 
+               class="button button-primary">Regenerate Utilities</a>
+        </p>
+        
+        <h3>Generated Utilities Preview</h3>
+        <div style="background: #f5f5f5; padding: 15px; border-radius: 4px; max-height: 400px; overflow-y: auto;">
+            <pre style="margin: 0; font-size: 12px;"><?php 
+                $content = file_get_contents($utilities_file);
+                echo esc_html(substr($content, 0, 2000)) . '...'; 
+            ?></pre>
+        </div>
+    <?php else: ?>
+        <div class="notice notice-warning inline">
+            <p>No utilities generated yet.</p>
+        </div>
+        
+        <p>
+            <a href="<?php echo wp_nonce_url(admin_url('admin-post.php?action=studio_regenerate_utilities'), 'studio_regenerate_utilities'); ?>" 
+               class="button button-primary">Generate Utilities</a>
+        </p>
+    <?php endif; ?>
+    <?php
+}
+
+/**
+ * Render JSON Fields Tab
+ */
+function render_json_fields_tab() {
+    if (!function_exists('studio_json_fields')) {
+        echo '<p>JSON Fields system not loaded.</p>';
+        return;
+    }
+    
+    $json_fields = studio_json_fields();
+    ?>
+    <h2>JSON Fields Configuration</h2>
+    <p>Manage file-based content with WordPress integration.</p>
+    
+    <h3>Watched Post Types</h3>
+    <table class="wp-list-table widefat striped">
+        <thead>
+            <tr>
+                <th>Post Type</th>
+                <th>Directory</th>
+                <th>Sync Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td colspan="4">
+                    <em>Configure post types for JSON sync in your theme's functions.php</em>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>Example Usage</h3>
+    <pre style="background: #f5f5f5; padding: 15px; border-radius: 4px;">
+// In your theme's functions.php:
+studio_watch_post_type('property', [
+    'sync_to_json' => true,
+    'sync_from_json' => true,
+    'directory' => 'properties'
+]);
+    </pre>
+    <?php
+}
+
+/**
+ * Render Status Tab
+ */
+function render_status_tab() {
+    if (!function_exists('studio_system')) {
+        echo '<p>Studio System not loaded.</p>';
+        return;
+    }
+    
+    $status = studio_system()->get_status();
+    ?>
+    <h2>System Status</h2>
+    
+    <table class="wp-list-table widefat striped">
+        <tbody>
+            <tr>
+                <th>Studio Version</th>
+                <td><?php echo esc_html($status['version']); ?></td>
+            </tr>
+            <tr>
+                <th>CSS Variables</th>
+                <td><?php echo $status['data']['variables']; ?> variables found</td>
+            </tr>
+            <tr>
+                <th>Selector Rules</th>
+                <td><?php echo $status['data']['selectors']; ?> rules defined</td>
+            </tr>
+            <tr>
+                <th>Components Loaded</th>
+                <td><?php echo count($status['components']); ?> components</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>File Status</h3>
+    <table class="wp-list-table widefat striped">
+        <thead>
+            <tr>
+                <th>File</th>
+                <th>Status</th>
+                <th>Path</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>CSS Variables</td>
+                <td><?php echo $status['files']['vars'] ? '✅ Found' : '❌ Missing'; ?></td>
+                <td><code>/assets/css/studio-vars.css</code></td>
+            </tr>
+            <tr>
+                <td>Utilities</td>
+                <td><?php echo $status['files']['utilities'] ? '✅ Found' : '❌ Missing'; ?></td>
+                <td><code>/assets/css/studio-utilities.css</code></td>
+            </tr>
+            <tr>
+                <td>Selectors</td>
+                <td><?php echo $status['files']['selectors'] ? '✅ Found' : '❌ Missing'; ?></td>
+                <td><code>/assets/css/studio-selectors.css</code></td>
+            </tr>
+            <tr>
+                <td>Custom Overrides</td>
+                <td><?php echo $status['files']['custom'] ? '✅ Found' : '❌ Missing'; ?></td>
+                <td><code>/assets/css/studio-custom.css</code></td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <h3>Loaded Components</h3>
+    <ul>
+        <?php foreach ($status['components'] as $component): ?>
+            <li><code><?php echo esc_html($component); ?></code></li>
+        <?php endforeach; ?>
+    </ul>
+    <?php
+}

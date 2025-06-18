@@ -1,0 +1,15 @@
+<!-- COPY THIS ENTIRE BLOCK - IT WILL CREATE THE COMPLETE HERO WITH ALL SETTINGS -->
+
+<!-- wp:generateblocks/container {"uniqueId":"hero-outer","paddingTop":"0","paddingRight":"0","paddingBottom":"0","paddingLeft":"0","marginTop":"0","marginRight":"0","marginBottom":"0","marginLeft":"0"} -->
+<div class="gb-container gb-container-hero-outer"><!-- wp:generateblocks/container {"uniqueId":"hero-main","className":"gb-container hero-section","backgroundImage":{"id":"","image":{"url":"https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600"}},"backgroundOptions":{"selector":"element","opacity":1,"overlay":true,"overlayColor":"#000000","overlayOpacity":0.5},"paddingTop":"80","paddingRight":"40","paddingBottom":"80","paddingLeft":"40","paddingTopTablet":"60","paddingRightTablet":"30","paddingBottomTablet":"60","paddingLeftTablet":"30","paddingTopMobile":"40","paddingRightMobile":"20","paddingBottomMobile":"40","paddingLeftMobile":"20","marginTop":"10","marginRight":"auto","marginBottom":"10","marginLeft":"auto","marginTopUnit":"%","marginBottomUnit":"%","borderSizeTop":"0","borderSizeRight":"0","borderSizeBottom":"0","borderSizeLeft":"0","borderRadiusTopRight":"32","borderRadiusBottomRight":"32","borderRadiusBottomLeft":"32","borderRadiusTopLeft":"32","borderRadiusUnit":"px","minHeight":350,"minHeightUnit":"px","minHeightTablet":"","minHeightMobile":300,"width":"80","widthUnit":"%","widthTablet":"90","widthMobile":"90","maxWidth":"1200","maxWidthUnit":"px","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center","position":"relative","overflow":"hidden"} -->
+<div class="gb-container gb-container-hero-main gb-container hero-section"><!-- wp:generateblocks/headline {"uniqueId":"hero-title","element":"h1","className":"hero-title","alignment":"center","textColor":"#ffffff","fontSize":48,"fontSizeTablet":36,"fontSizeMobile":28,"fontSizeUnit":"px","lineHeight":1.2,"lineHeightUnit":"em","marginBottom":"20","marginBottomUnit":"px"} -->
+<h1 class="gb-headline gb-headline-hero-title gb-headline-text hero-title">Welcome to Villa Capriani</h1>
+<!-- /wp:generateblocks/headline -->
+
+<!-- wp:generateblocks/container {"uniqueId":"hero-desc-wrapper","width":"100","widthUnit":"%","maxWidth":"600","maxWidthUnit":"px"} -->
+<div class="gb-container gb-container-hero-desc-wrapper"><!-- wp:generateblocks/headline {"uniqueId":"hero-description","element":"p","className":"hero-description","alignment":"center","textColor":"#ffffff","fontSize":20,"fontSizeTablet":18,"fontSizeMobile":16,"fontSizeUnit":"px","lineHeight":1.6,"lineHeightUnit":"em","opacity":0.9} -->
+<p class="gb-headline gb-headline-hero-description gb-headline-text hero-description">Experience luxury coastal living in our exclusive beachfront community with stunning ocean views and world-class amenities</p>
+<!-- /wp:generateblocks/headline --></div>
+<!-- /wp:generateblocks/container --></div>
+<!-- /wp:generateblocks/container --></div>
+<!-- /wp:generateblocks/container -->

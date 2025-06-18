@@ -1,0 +1,100 @@
+{
+  "name": "studio/hero-section",
+  "title": "Studio Hero Section",
+  "description": "Full width hero with centered content, rounded corners, and overlay",
+  "category": "studio-blocks",
+  "keywords": ["hero", "banner", "header"],
+  "attributes": {
+    "uniqueId": "hero-section",
+    "className": "studio-hero-component"
+  },
+  "innerBlocks": [
+    {
+      "name": "generateblocks/container",
+      "attributes": {
+        "uniqueId": "hero-wrapper",
+        "className": "hero-wrapper",
+        "width": 100,
+        "widthUnit": "%",
+        "innerContainer": "full",
+        "paddingTop": "0",
+        "paddingRight": "0",
+        "paddingBottom": "0",
+        "paddingLeft": "0",
+        "marginTop": "0",
+        "marginBottom": "0"
+      },
+      "innerBlocks": [
+        {
+          "name": "generateblocks/container",
+          "attributes": {
+            "uniqueId": "hero-inner",
+            "className": "gb-container hero-section",
+            "width": 100,
+            "widthUnit": "%",
+            "minHeight": 350,
+            "minHeightUnit": "px",
+            "marginTop": "10",
+            "marginTopUnit": "%",
+            "marginBottom": "10",
+            "marginBottomUnit": "%",
+            "paddingTop": "60",
+            "paddingRight": "40",
+            "paddingBottom": "60",
+            "paddingLeft": "40",
+            "backgroundColor": "",
+            "backgroundImage": {
+              "url": "https://images.unsplash.com/photo-1613490493576-7fde63acd811?w=1600&h=600&fit=crop",
+              "id": 0
+            },
+            "backgroundSize": "cover",
+            "backgroundPosition": "center center",
+            "backgroundRepeat": "no-repeat",
+            "display": "flex",
+            "flexDirection": "column",
+            "justifyContent": "center",
+            "alignItems": "center",
+            "position": "relative",
+            "overflow": "hidden"
+          },
+          "innerBlocks": [
+            {
+              "name": "generateblocks/headline",
+              "attributes": {
+                "uniqueId": "hero-title",
+                "className": "hero-title",
+                "content": "Welcome to Villa Capriani",
+                "element": "h1",
+                "textAlign": "center",
+                "textColor": "#ffffff",
+                "fontSize": 48,
+                "fontSizeUnit": "px",
+                "fontWeight": "700",
+                "marginBottom": "20",
+                "marginBottomUnit": "px"
+              }
+            },
+            {
+              "name": "generateblocks/text",
+              "attributes": {
+                "uniqueId": "hero-description",
+                "className": "hero-description",
+                "content": "<p>Experience luxury coastal living in our exclusive beachfront community</p>",
+                "textAlign": "center",
+                "textColor": "#ffffff",
+                "fontSize": 20,
+                "fontSizeUnit": "px",
+                "maxWidth": 600,
+                "maxWidthUnit": "px",
+                "marginTop": "0",
+                "marginRight": "auto",
+                "marginBottom": "0",
+                "marginLeft": "auto"
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

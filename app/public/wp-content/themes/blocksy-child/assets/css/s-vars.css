@@ -1,0 +1,123 @@
+/**
+ * S Design System Variables
+ * Prefix: --s-[category]-[property]-[variant]
+ * Clean, short, and semantic
+ */
+
+:root {
+    /* ==========================================================================
+       Colors
+       ========================================================================== */
+    
+    /* Primary */
+    --s-primary: #0066cc; /* @control: color */
+    --s-primary-light: #3385ff; /* @control: color */
+    --s-primary-dark: #0052a3; /* @control: color */
+    
+    /* Secondary */
+    --s-secondary: #6c757d; /* @control: color */
+    --s-secondary-light: #adb5bd; /* @control: color */
+    --s-secondary-dark: #495057; /* @control: color */
+    
+    /* Neutral */
+    --s-neutral: #8b8680; /* @control: color */
+    --s-neutral-light: #a8a39d; /* @control: color */
+    --s-neutral-dark: #6e6963; /* @control: color */
+    
+    /* Base (Grays) */
+    --s-base-lightest: #ffffff; /* @control: color */
+    --s-base-lighter: #f8f9fa; /* @control: color */
+    --s-base-light: #e9ecef; /* @control: color */
+    --s-base: #adb5bd; /* @control: color */
+    --s-base-dark: #6c757d; /* @control: color */
+    --s-base-darker: #343a40; /* @control: color */
+    --s-base-darkest: #000000; /* @control: color */
+    
+    /* Semantic */
+    --s-success: #28a745; /* @control: color */
+    --s-warning: #ffc107; /* @control: color */
+    --s-danger: #dc3545; /* @control: color */
+    --s-info: #17a2b8; /* @control: color */
+    
+    /* ==========================================================================
+       Typography
+       ========================================================================== */
+    
+    /* Fonts */
+    --s-font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; /* @control: font */
+    --s-font-serif: Georgia, Cambria, "Times New Roman", serif; /* @control: font */
+    --s-font-mono: Menlo, Monaco, Consolas, monospace; /* @control: font */
+    
+    /* Sizes */
+    --s-text-xs: 0.75rem; /* @control: range[0.5,1,0.125] */
+    --s-text-sm: 0.875rem; /* @control: range[0.5,1.25,0.125] */
+    --s-text-base: 1rem; /* @control: range[0.75,1.5,0.125] */
+    --s-text-lg: 1.125rem; /* @control: range[1,2,0.125] */
+    --s-text-xl: 1.25rem; /* @control: range[1,2.5,0.125] */
+    --s-text-2xl: 1.5rem; /* @control: range[1.25,3,0.125] */
+    --s-text-3xl: 1.875rem; /* @control: range[1.5,4,0.125] */
+    --s-text-4xl: 2.25rem; /* @control: range[2,5,0.25] */
+    --s-text-5xl: 3rem; /* @control: range[2.5,6,0.25] */
+    
+    /* Weights */
+    --s-font-thin: 100; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    --s-font-light: 300; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    --s-font-normal: 400; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    --s-font-medium: 500; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    --s-font-semibold: 600; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    --s-font-bold: 700; /* @control: select[100,200,300,400,500,600,700,800,900] */
+    
+    /* Line Height */
+    --s-leading-tight: 1.25; /* @control: range[1,2,0.125] */
+    --s-leading-normal: 1.5; /* @control: range[1,2.5,0.125] */
+    --s-leading-relaxed: 1.75; /* @control: range[1.5,2.5,0.125] */
+    
+    /* ==========================================================================
+       Spacing
+       ========================================================================== */
+    
+    --s-space-xs: 0.25rem; /* @control: range[0,1,0.125] */
+    --s-space-sm: 0.5rem; /* @control: range[0,2,0.125] */
+    --s-space-md: 1rem; /* @control: range[0,4,0.25] */
+    --s-space-lg: 1.5rem; /* @control: range[0,6,0.25] */
+    --s-space-xl: 2rem; /* @control: range[0,8,0.25] */
+    --s-space-2xl: 3rem; /* @control: range[0,12,0.5] */
+    --s-space-3xl: 4rem; /* @control: range[0,16,0.5] */
+    
+    /* ==========================================================================
+       Borders
+       ========================================================================== */
+    
+    /* Width */
+    --s-border-1: 1px; /* @control: range[0,5,1] */
+    --s-border-2: 2px; /* @control: range[0,10,1] */
+    --s-border-4: 4px; /* @control: range[0,20,1] */
+    
+    /* Radius */
+    --s-radius-sm: 0.125rem; /* @control: range[0,1,0.125] */
+    --s-radius-md: 0.25rem; /* @control: range[0,2,0.125] */
+    --s-radius-lg: 0.5rem; /* @control: range[0,2,0.125] */
+    --s-radius-xl: 0.75rem; /* @control: range[0,3,0.125] */
+    --s-radius-2xl: 1rem; /* @control: range[0,4,0.25] */
+    --s-radius-full: 9999px; /* @control: text */
+    
+    /* ==========================================================================
+       Shadows
+       ========================================================================== */
+    
+    --s-shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05); /* @control: shadow */
+    --s-shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1); /* @control: shadow */
+    --s-shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1); /* @control: shadow */
+    --s-shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* @control: shadow */
+    --s-shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1); /* @control: shadow */
+    
+    /* ==========================================================================
+       Layout
+       ========================================================================== */
+    
+    --s-container-sm: 640px; /* @control: range[320,768,32] */
+    --s-container-md: 768px; /* @control: range[640,1024,32] */
+    --s-container-lg: 1024px; /* @control: range[768,1280,32] */
+    --s-container-xl: 1280px; /* @control: range[1024,1536,32] */
+    --s-container-full: 100%; /* @control: text */
+}

@@ -1,0 +1,45 @@
+COPY THIS EXACT CODE INTO YOUR WORDPRESS EDITOR (in Code Editor mode):
+
+<!-- wp:generateblocks/container {"uniqueId":"studio-hero-wrapper","isDynamic":true,"paddingTop":"0","paddingRight":"0","paddingBottom":"0","paddingLeft":"0","marginTop":"0","marginRight":"0","marginBottom":"0","marginLeft":"0"} -->
+<div class="gb-container gb-container-studio-hero-wrapper"></div>
+<!-- /wp:generateblocks/container -->
+
+AFTER PASTING, SWITCH TO VISUAL EDITOR AND:
+
+1. Click into the container you just added
+2. In the block settings sidebar:
+   
+   SPACING TAB:
+   - Padding: Set all to 0
+   
+3. Click the + inside the container to add another Container block inside it
+
+4. For the INNER container:
+   
+   ADVANCED TAB:
+   - Additional CSS class(es): gb-container hero-section
+   
+   BACKGROUNDS TAB:
+   - Add your background image
+   
+   SPACING TAB:
+   - Margin Top: 10 (set unit to %)
+   - Margin Bottom: 10 (set unit to %)
+   - Padding: 60px all around
+   
+   LAYOUT TAB:
+   - Min Height: 350 (px)
+   - Display: flex
+   - Direction: column
+   - Align Items: center
+   - Justify Content: center
+   
+5. Inside this container, add:
+   - A Headline block (set to H1, add class: hero-title, color: white, center align)
+   - A Paragraph block (add class: hero-description, color: white, center align)
+
+OR USE THIS SIMPLER VERSION WITH ONE CONTAINER:
+
+<!-- wp:generateblocks/container {"uniqueId":"hero-simple","className":"gb-container hero-section","backgroundColor":"","textColor":"#ffffff","backgroundImage":{"id":0,"image":{"url":"https://images.unsplash.com/photo-1506905925346-21bda4d32df4"}},"paddingTop":"80","paddingRight":"40","paddingBottom":"80","paddingLeft":"40","marginTop":"10","marginRight":"auto","marginBottom":"10","marginLeft":"auto","marginTopUnit":"%","marginRightUnit":"","marginBottomUnit":"%","marginLeftUnit":"","minHeight":350,"minHeightUnit":"px","display":"flex","flexDirection":"column","justifyContent":"center","alignItems":"center","textAlign":"center"} -->
+<div class="gb-container gb-container-hero-simple gb-container hero-section"><h1 style="color: white; text-align: center;">Your Hero Title</h1><p style="color: white; text-align: center;">Your hero description goes here</p></div>
+<!-- /wp:generateblocks/container -->

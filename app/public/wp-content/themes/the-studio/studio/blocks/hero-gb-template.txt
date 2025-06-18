@@ -1,0 +1,15 @@
+COPY THIS INTO YOUR EDITOR:
+
+<!-- wp:generateblocks/container {"uniqueId":"hero-wrapper","isDynamic":true,"backgroundColor":"","paddingTop":"0","paddingRight":"0","paddingBottom":"0","paddingLeft":"0"} -->
+<!-- wp:generateblocks/container {"uniqueId":"hero-section","isDynamic":true,"className":"gb-container hero-section","backgroundColor":"","backgroundImage":{"id":"","image":{"url":"https://images.unsplash.com/photo-1506905925346-21bda4d32df4"}},"paddingTop":"80","paddingRight":"40","paddingBottom":"80","paddingLeft":"40","marginTop":"10","marginRight":"0","marginBottom":"10","marginLeft":"0","marginTopUnit":"%","marginBottomUnit":"%","borderRadiusTopLeft":"32","borderRadiusTopRight":"32","borderRadiusBottomLeft":"32","borderRadiusBottomRight":"32","minHeight":350,"minHeightUnit":"px","sizing":{"width":"100","widthUnit":"%","maxWidth":"1200","maxWidthUnit":"px"},"display":"flex","flexDirection":"column","justifyContent":"center","alignItems":"center"} -->
+<!-- wp:generateblocks/headline {"uniqueId":"hero-title","element":"h1","className":"hero-title","backgroundColor":"","textColor":"#ffffff","fontSize":48,"textAlign":"center","marginBottom":"20"} -->
+<h1 class="gb-headline gb-headline-7d9e8c16 gb-headline-text hero-title">Welcome to Villa Capriani</h1>
+<!-- /wp:generateblocks/headline -->
+
+<!-- wp:generateblocks/container {"uniqueId":"hero-desc-wrap","isDynamic":true,"backgroundColor":"","sizing":{"maxWidth":"600","maxWidthUnit":"px"}} -->
+<!-- wp:generateblocks/headline {"uniqueId":"hero-desc","element":"p","className":"hero-description","backgroundColor":"","textColor":"#ffffff","fontSize":20,"textAlign":"center"} -->
+<p class="gb-headline gb-headline-text hero-description">Experience luxury coastal living in our exclusive beachfront community</p>
+<!-- /wp:generateblocks/headline -->
+<!-- /wp:generateblocks/container -->
+<!-- /wp:generateblocks/container -->
+<!-- /wp:generateblocks/container -->
